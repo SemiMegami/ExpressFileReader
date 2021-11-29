@@ -38,18 +38,6 @@ namespace IFCReader
                 string currentrule = "";
                 string className;
 
-               
-
-                foreach (var basic in basicTypes)
-                {
-
-                    IFCClasses.Add(basic.Key, new IFCClass("class", basic.Key));
-                    currentClass = IFCClasses.Last().Value;
-                    currentClass.propElement.Add("Value", basic.Value);
-                }
-
-
-
 
 
                 try
