@@ -1,0 +1,16 @@
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\Express File Reader.exe
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\Express File Reader.deps.json
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\Express File Reader.runtimeconfig.json
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\Express File Reader.runtimeconfig.dev.json
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\Express File Reader.dll
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\ref\Express File Reader.dll
+D:\Program_Projects\Express File Reader\Express File Reader\bin\Debug\net5.0\Express File Reader.pdb
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.csproj.AssemblyReference.cache
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.GeneratedMSBuildEditorConfig.editorconfig
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.AssemblyInfoInputs.cache
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.AssemblyInfo.cs
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.csproj.CoreCompileInputs.cache
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.dll
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\ref\Express File Reader.dll
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.pdb
+D:\Program_Projects\Express File Reader\Express File Reader\obj\Debug\net5.0\Express File Reader.genruntimeconfig.cache
