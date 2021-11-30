@@ -13,7 +13,12 @@ namespace IFCReader
         {
 
             Dictionary<string, IFCClass> IFCClasses = new Dictionary<string, IFCClass>();
+
             IFCClasses.Add("IfcBase", new IFCClass("class", "IfcBase", "") { isAbstract = true });
+
+
+            Dictionary<string, IfcFunction> IFCFunctions = new Dictionary<string, IfcFunction>();
+
 
             Dictionary<string, string> basicTypes = new Dictionary<string, string>()
                 {
@@ -232,7 +237,32 @@ namespace IFCReader
                                 break;
 
                             case "FUNCTION":
-                                break;
+
+                                IFCFunctions.Add(texts[1], new IfcFunction(texts[1]));
+
+
+
+                                //while (true)
+                                //{
+                                //    currentline = reader.ReadLine();
+
+                                //    entityTexts = currentline.Split(' ');
+
+                                //    if (entityTexts[0] == "END_ENTITY;")
+                                //    {
+                                //        currentrule = "";
+                                //        break;
+                                //    }
+                                //}
+
+
+
+
+
+
+
+
+                                    break;
                             case "":
 
                                 break;
@@ -341,7 +371,18 @@ namespace IFCReader
                         writer.Close();
                     }
 
+                    using (StreamWriter writer = new StreamWriter("FIC4Functions.txt"))
+                    {
+                     
+                        foreach (var func in IFCFunctions)
+                        {
+                            Console.WriteLine(func.Value);
+                            writer.WriteLine(func.Value);
+                        }
+                        
+                    }
 
+                    // output
                     using (StreamWriter writer = new StreamWriter("IFC4CreateFunction.txt"))
                     {
                         //string name = "dummy";
