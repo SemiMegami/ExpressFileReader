@@ -340,6 +340,39 @@ namespace IFCReader
                         writer.WriteLine("}");
                         writer.Close();
                     }
+
+
+                    using (StreamWriter writer = new StreamWriter("IFC4CreateFunction.txt"))
+                    {
+                        //string name = "dummy";
+                        //switch (name)
+                        //{
+                        //    case "IFC1":
+                        //        //n
+                        //        break;
+                        //}
+
+                        writer.WriteLine("switch (name)");
+                        writer.WriteLine("{");
+
+
+                        foreach (var cls in IFCClasses)
+                        {
+                            if (!cls.Value.isAbstract && cls.Value.dataType == "class")
+                            {
+                                writer.WriteLine("case \"" + cls.Value.name.ToUpper() + "\" :");
+                                writer.WriteLine("return new " + cls.Value.name + "();");
+                            }
+                          
+                        }
+
+                            writer.WriteLine("default :");
+                            writer.WriteLine("return null;");
+                        writer.WriteLine("}");
+                       
+                        writer.Close();
+                    }
+
                     reader.Close();
                 }
                 catch
