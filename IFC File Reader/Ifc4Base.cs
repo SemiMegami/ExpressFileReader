@@ -30,6 +30,11 @@ namespace IFC4
 			return outputText;
 
 		}
+
+		public object NVL(object a, object b)
+        {
+			return a == null ? b : a;
+        }
 	}
 
 }

@@ -242,27 +242,27 @@ namespace IFCReader
 
 
 
-                                //while (true)
-                                //{
-                                //    currentline = reader.ReadLine();
+                                while (true)
+                                {
+                                    currentline = reader.ReadLine();
 
-                                //    entityTexts = currentline.Split(' ');
+                                    entityTexts = currentline.Split(' ');
 
-                                //    if (entityTexts[0] == "END_ENTITY;")
-                                //    {
-                                //        currentrule = "";
-                                //        break;
-                                //    }
-                                //}
-
-
+                                    if (entityTexts[0] == "END_ENTITY;")
+                                    {
+                                        currentrule = "";
+                                        break;
+                                    }
+                                }
 
 
 
 
 
 
-                                    break;
+
+
+                                break;
                             case "":
 
                                 break;
