@@ -45,8 +45,8 @@ namespace IFCReader
 
 
 
-                try
-                {
+                //try
+                //{
                     while (!reader.EndOfStream)
                     {
                         rawText = reader.ReadLine();
@@ -238,30 +238,59 @@ namespace IFCReader
 
                             case "FUNCTION":
 
-                                IFCFunctions.Add(texts[1], new IfcFunction(texts[1]));
+                                var function = new IfcFunction(texts[1]);
 
+                                IFCFunctions.Add(texts[1], function);
+                                string inout = "";
 
+                                string local = "";
+                                string expression = "";
+                                currentline = reader.ReadLine();
 
-                                while (true)
+                                while (currentline != "")
                                 {
+                                    inout += currentline;
                                     currentline = reader.ReadLine();
+                                }
 
-                                    entityTexts = currentline.Split(' ');
+                                Console.WriteLine(currentline);
 
-                                    if (entityTexts[0] == "END_ENTITY;")
+                                //local
+                                currentline = reader.ReadLine();
+                                while (!currentline.Contains("END_LOCAL;"))
+                                {
+                                    local += currentline;
+                                    currentline = reader.ReadLine();
+                                }
+                                currentline = reader.ReadLine();
+                                while (!currentline.Contains("END_FUNCTION;"))
+                                {
+                                    expression += currentline;
+                                    currentline = reader.ReadLine();
+                                }
+
+
+                                Console.WriteLine(currentline);
+
+                                //extract input out put
+                                string[] inouts = inout.Replace("(", "").Split(")");
+                                string[] inputs = inouts[0].Split(";");
+                                Dictionary<string, string> inputDict = new Dictionary<string, string>();
+
+                                for(int i = 0; i < inputs.Length; i++)
+                                {
+                                    string[] nametype = inputs[i].Split(":");
+                                    string[] names = nametype[0].Split(",");
+                                    string inputType = nametype[1];
+                                    for(int j = 0; j < names.Length; j++)
                                     {
-                                        currentrule = "";
-                                        break;
+                                        function.Args.Add(names[j], inputType);
                                     }
                                 }
 
 
-
-
-
-
-
-
+                                function.returnType = inouts[1].Replace(" ", "").Replace(";", "").Substring(1);
+                                
                                 break;
                             case "":
 
@@ -415,11 +444,11 @@ namespace IFCReader
                     }
 
                     reader.Close();
-                }
-                catch
-                {
-                    reader.Close();
-                }
+                //}
+                //catch
+                //{
+                //    reader.Close();
+                //}
 
             }
         }
