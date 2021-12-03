@@ -12,7 +12,7 @@ namespace IFCReader
         public Dictionary<string, string> Args;
         public Dictionary<string, string> Locals;
 
-        List<string> expressions;
+        public List<string> expressions;
 
         public string returnType;
 
@@ -20,6 +20,7 @@ namespace IFCReader
         {
             Args = new Dictionary<string, string>();
             returnType = "void";
+            expressions = new List<string>();
             this.name = name;
         }
 
@@ -27,10 +28,10 @@ namespace IFCReader
         {
             string s = "public " + returnType + " " + name + "(";
 
-            for(int i =0; i < Args.Count; i++)
+            for (int i = 0; i < Args.Count; i++)
             {
                 s += Args.Values.ToArray()[i] + " " + Args.Keys.ToArray()[i];
-                if(i < Args.Count - 1)
+                if (i < Args.Count - 1)
                 {
                     s += ", ";
                 }
@@ -38,6 +39,10 @@ namespace IFCReader
             s += ")\n";
             s += "{\n";
 
+            foreach (var e in expressions)
+            {
+                s += e + "\n";
+            }
 
 
             s += "}\n";

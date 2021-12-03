@@ -238,60 +238,71 @@ namespace IFCReader
 
                             case "FUNCTION":
 
+                                
+
                                 var function = new IfcFunction(texts[1]);
 
                                 IFCFunctions.Add(texts[1], function);
-                                string inout = "";
 
-                                string local = "";
-                                string expression = "";
-                                currentline = reader.ReadLine();
 
-                                while (currentline != "")
-                                {
-                                    inout += currentline;
-                                    currentline = reader.ReadLine();
-                                }
-
-                                Console.WriteLine(currentline);
-
-                                //local
-                                currentline = reader.ReadLine();
-                                while (!currentline.Contains("END_LOCAL;"))
-                                {
-                                    local += currentline;
-                                    currentline = reader.ReadLine();
-                                }
-                                currentline = reader.ReadLine();
+                                string wholeText = "";
+                                currentline = "";
                                 while (!currentline.Contains("END_FUNCTION;"))
                                 {
-                                    expression += currentline;
+
                                     currentline = reader.ReadLine();
+                                 wholeText += currentline;
                                 }
+                            wholeText = wholeText.Replace("\t", " ");
 
+                            var spiltwhole = wholeText.Split(" ").ToList();
+                            wholeText = "";
+                            foreach(var ele in spiltwhole)
+                            {
+                                if (ele != "")
+                                wholeText += ele + " ";
+                            }
+                        //    function.expressions.Add("\t//" + wholeText);
 
-                                Console.WriteLine(currentline);
+                            string inout = wholeText.Substring(1,wholeText.IndexOf(")") - 1);
+                            string[] inputs = inout.Split(";");
+                            Dictionary<string, string> inputDict = new Dictionary<string, string>();
 
-                                //extract input out put
-                                string[] inouts = inout.Replace("(", "").Split(")");
-                                string[] inputs = inouts[0].Split(";");
-                                Dictionary<string, string> inputDict = new Dictionary<string, string>();
-
-                                for(int i = 0; i < inputs.Length; i++)
+                            for (int i = 0; i < inputs.Length; i++)
+                            {
+                                string[] names = inputs[i].Substring(0, inputs[i].IndexOf(":")).Split(",");
+                                string inputType = inputs[i].Substring(inputs[i].IndexOf(":") + 1);
+                                for (int j = 0; j < names.Length; j++)
                                 {
-                                    string[] nametype = inputs[i].Split(":");
-                                    string[] names = nametype[0].Split(",");
-                                    string inputType = nametype[1];
-                                    for(int j = 0; j < names.Length; j++)
-                                    {
-                                        function.Args.Add(names[j], inputType);
-                                    }
+                                    function.Args.Add(names[j], inputType);
                                 }
+                            }
 
 
-                                function.returnType = inouts[1].Replace(" ", "").Replace(";", "").Substring(1);
-                                
-                                break;
+
+
+
+                            wholeText = wholeText.Substring(wholeText.IndexOf(")") + 1);
+                            string outputType = wholeText.Substring(0, wholeText.IndexOf(";"));
+                            outputType = outputType.Substring(outputType.IndexOf(":") + 1);
+                            function.returnType = outputType;
+                            wholeText = wholeText.Substring(wholeText.IndexOf(";") + 1);
+                            wholeText = wholeText.Replace("END_FUNCTION;","");
+
+                            if (wholeText.Contains("END_LOCAL;"))
+                            {
+                                string [] localExpresses = wholeText.Split("END_LOCAL;");
+                                string local = localExpresses[0].Replace("LOCAL", "");
+                                wholeText = localExpresses[1];
+                            //    function.expressions.Add("\t//" + local);
+                            }
+
+                            function.expressions.Add(wholeText.Replace(";",";\n").Replace("*)", "*)\n"));
+
+
+                         //   function.expressions.Add("\treturn null;");
+
+                            break;
                             case "":
 
                                 break;
