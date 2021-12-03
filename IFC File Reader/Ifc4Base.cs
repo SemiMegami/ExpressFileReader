@@ -22,8 +22,10 @@ namespace IFC4
 
 			for(int i = 0; i < n; i++)
             {
+				IfcRepresentationItem a;
 
-            }
+				IfcDirection b;
+			}
 
 
 

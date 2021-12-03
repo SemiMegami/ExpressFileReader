@@ -19,6 +19,7 @@ namespace IFCReader
         public IfcFunction (string name)
         {
             Args = new Dictionary<string, string>();
+            Locals = new Dictionary<string, string>();
             returnType = "void";
             expressions = new List<string>();
             this.name = name;
@@ -38,7 +39,14 @@ namespace IFCReader
             }
             s += ")\n";
             s += "{\n";
-
+            foreach (var l in Locals)
+            {
+                s += l.Value +" " + l.Key + ";\n";
+            }
+            if(Locals.Count > 0)
+            {
+                s += "\n";
+            }
             foreach (var e in expressions)
             {
                 s += e + "\n";

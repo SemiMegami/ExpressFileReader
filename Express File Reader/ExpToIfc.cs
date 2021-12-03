@@ -9,6 +9,36 @@ namespace IFCReader
 {
     class ExpToIfc
     {
+
+
+        public static string ToC(string exp) // to c sharp
+        {
+            string s = "";
+            if(exp.Length == 0)
+            {
+                return exp;
+            }
+
+            string[] words = exp.Split(" ");
+            if (words.Length == 0)
+            {
+                return exp;
+            }
+
+            switch (words[0])
+            {
+                case "LIST":
+
+                    break;
+                default:
+                    return exp;
+            }
+
+
+
+            return s;
+        }
+
         public static void CreateClassFromExpress(string input, string output)
         {
 
@@ -293,6 +323,36 @@ namespace IFCReader
                             {
                                 string [] localExpresses = wholeText.Split("END_LOCAL;");
                                 string local = localExpresses[0].Replace("LOCAL", "");
+                                string[] locals = local.Split(";");
+
+                                for (int i = 0; i < locals.Length; i++)
+                                {
+                                    var l = locals[i];
+
+                                    if (l.Contains(":"))
+                                    {
+                                       
+                                        var leftright = l.Split(":");
+
+                                        var datanames = l.Substring(0, l.IndexOf(":"));
+                                        var datatype = l.Substring(l.IndexOf(":") + 1);
+                                        var lefts = datanames.Split(",");
+                                        if (datatype.Contains(":="))
+                                        {
+                                            string defaultValue = datatype.Substring(datatype.IndexOf(":") + 1);
+                                            datatype = datatype.Substring(0, datatype.IndexOf(":"));
+                                            for (int j = 0; j < lefts.Length; j++)
+                                            {
+                                                lefts[j] += defaultValue;
+                                            }
+                                        }
+                                       
+                                        for(int j = 0; j < lefts.Length; j++)
+                                        {
+                                            function.Locals.Add(lefts[j], datatype);
+                                        }
+                                    }
+                                }
                                 wholeText = localExpresses[1];
                             //    function.expressions.Add("\t//" + local);
                             }
