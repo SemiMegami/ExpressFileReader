@@ -6,7 +6,7 @@ namespace IFC_File_Reader
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
 
             IfcDict IFC = new IfcDict();
 

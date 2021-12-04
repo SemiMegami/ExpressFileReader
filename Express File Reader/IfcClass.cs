@@ -93,6 +93,10 @@ namespace IFCReader
                 str += "\t\t//" + count + "\t" + f.Key + " : " + f.Value + "\n";
                 count++;
             }
+            if(fullConsElement.Count > 0)
+            {
+                str += "\n";
+            }
 
 
             switch (dataType)
@@ -112,6 +116,38 @@ namespace IFCReader
                             str += "\t\tpublic " + ce.Value + " " + ce.Key + " {get;set;}\n";
                         }
                     }
+                    if (propElement.Count > 0)
+                    {
+                        str += "\n";
+                    }
+                    str += "\t\tpublic " + name + "(){}\n";
+                   
+
+                    if(fullConsElement.Count > 0)
+                    {
+                        str += "\n";
+                        str += "\t\tpublic " + name + "(";
+
+                        var keys = fullConsElement.Keys.ToList();
+                        for(int i = 0; i < fullConsElement.Count; i++)
+                        {
+                            str += fullConsElement[keys[i]] + " " + keys[i];
+                            if(i < fullConsElement.Count - 1)
+                            {
+                                str += ",";
+                            }  
+                        }
+                        str += "){\n";
+                        foreach (var k in keys)
+                        {
+                            str += "\t\t\tthis." + k + " = " + k + ";\n";
+                        }
+
+                       
+
+                        str += "\t\t}\n";
+                    }
+                   
                     break;
                 case "interface":
                     foreach (var ce in propElement)

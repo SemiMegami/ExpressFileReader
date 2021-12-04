@@ -1,533 +1,666 @@
 ﻿using System.Collections.Generic;
 namespace IFC4
 {
-
-
 	public class IfcAbsorbedDoseMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcAbsorbedDoseMeasure() { }
 	}
 
 	public class IfcAccelerationMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcAccelerationMeasure() { }
 	}
 
 	public class IfcAmountOfSubstanceMeasure : REAL, IfcMeasureValue
 	{
+		public IfcAmountOfSubstanceMeasure() { }
 	}
 
 	public class IfcAngularVelocityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcAngularVelocityMeasure() { }
 	}
 
 	public class IfcArcIndex : IfcSegmentIndexSelect
 	{
 		public List<IfcPositiveInteger> Value { get; set; }
 		public List<IfcPositiveInteger> GetValue() { return Value; }
+
+		public IfcArcIndex() { }
 	}
 
 	public class IfcAreaDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcAreaDensityMeasure() { }
 	}
 
 	public class IfcAreaMeasure : REAL, IfcMeasureValue
 	{
+		public IfcAreaMeasure() { }
 	}
 
 	public class IfcBinary : BINARY, IfcSimpleValue
 	{
+		public IfcBinary() { }
 	}
 
 	public class IfcBoolean : BOOLEAN, IfcModulusOfRotationalSubgradeReactionSelect, IfcModulusOfSubgradeReactionSelect, IfcModulusOfTranslationalSubgradeReactionSelect, IfcRotationalStiffnessSelect, IfcSimpleValue, IfcTranslationalStiffnessSelect, IfcWarpingStiffnessSelect
 	{
+		public IfcBoolean() { }
 	}
 
 	public class IfcBoxAlignment : IfcLabel
 	{
+		public IfcBoxAlignment() { }
 	}
 
 	public class IfcCardinalPointReference : INTEGER
 	{
+		public IfcCardinalPointReference() { }
 	}
 
 	public class IfcComplexNumber : IfcMeasureValue
 	{
 		public List<REAL> Value { get; set; }
+
+		public IfcComplexNumber() { }
 	}
 
 	public class IfcCompoundPlaneAngleMeasure : IfcDerivedMeasureValue
 	{
 		public List<INTEGER> Value { get; set; }
+
+		public IfcCompoundPlaneAngleMeasure() { }
 	}
 
 	public class IfcContextDependentMeasure : REAL, IfcMeasureValue
 	{
+		public IfcContextDependentMeasure() { }
 	}
 
 	public class IfcCountMeasure : NUMBER, IfcMeasureValue
 	{
+		public IfcCountMeasure() { }
 	}
 
 	public class IfcCurvatureMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcCurvatureMeasure() { }
 	}
 
 	public class IfcDate : STRING, IfcSimpleValue
 	{
+		public IfcDate() { }
 	}
 
 	public class IfcDateTime : STRING, IfcSimpleValue
 	{
+		public IfcDateTime() { }
 	}
 
 	public class IfcDayInMonthNumber : INTEGER
 	{
+		public IfcDayInMonthNumber() { }
 	}
 
 	public class IfcDayInWeekNumber : INTEGER
 	{
+		public IfcDayInWeekNumber() { }
 	}
 
 	public class IfcDescriptiveMeasure : STRING, IfcMeasureValue, IfcSizeSelect
 	{
+		public IfcDescriptiveMeasure() { }
 	}
 
 	public class IfcDimensionCount : INTEGER
 	{
+		public IfcDimensionCount() { }
 	}
 
 	public class IfcDoseEquivalentMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcDoseEquivalentMeasure() { }
 	}
 
 	public class IfcDuration : STRING, IfcSimpleValue, IfcTimeOrRatioSelect
 	{
+		public IfcDuration() { }
 	}
 
 	public class IfcDynamicViscosityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcDynamicViscosityMeasure() { }
 	}
 
 	public class IfcElectricCapacitanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcElectricCapacitanceMeasure() { }
 	}
 
 	public class IfcElectricChargeMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcElectricChargeMeasure() { }
 	}
 
 	public class IfcElectricConductanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcElectricConductanceMeasure() { }
 	}
 
 	public class IfcElectricCurrentMeasure : REAL, IfcMeasureValue
 	{
+		public IfcElectricCurrentMeasure() { }
 	}
 
 	public class IfcElectricResistanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcElectricResistanceMeasure() { }
 	}
 
 	public class IfcElectricVoltageMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcElectricVoltageMeasure() { }
 	}
 
 	public class IfcEnergyMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcEnergyMeasure() { }
 	}
 
 	public class IfcFontStyle : STRING
 	{
+		public IfcFontStyle() { }
 	}
 
 	public class IfcFontVariant : STRING
 	{
+		public IfcFontVariant() { }
 	}
 
 	public class IfcFontWeight : STRING
 	{
+		public IfcFontWeight() { }
 	}
 
 	public class IfcForceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcForceMeasure() { }
 	}
 
 	public class IfcFrequencyMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcFrequencyMeasure() { }
 	}
 
 	public class IfcGloballyUniqueId : STRING
 	{
+		public IfcGloballyUniqueId() { }
 	}
 
 	public class IfcHeatFluxDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcHeatFluxDensityMeasure() { }
 	}
 
 	public class IfcHeatingValueMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcHeatingValueMeasure() { }
 	}
 
 	public class IfcIdentifier : STRING, IfcSimpleValue
 	{
+		public IfcIdentifier() { }
 	}
 
 	public class IfcIlluminanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcIlluminanceMeasure() { }
 	}
 
 	public class IfcInductanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcInductanceMeasure() { }
 	}
 
 	public class IfcInteger : INTEGER, IfcSimpleValue
 	{
+		public IfcInteger() { }
 	}
 
 	public class IfcIntegerCountRateMeasure : INTEGER, IfcDerivedMeasureValue
 	{
+		public IfcIntegerCountRateMeasure() { }
 	}
 
 	public class IfcIonConcentrationMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcIonConcentrationMeasure() { }
 	}
 
 	public class IfcIsothermalMoistureCapacityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcIsothermalMoistureCapacityMeasure() { }
 	}
 
 	public class IfcKinematicViscosityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcKinematicViscosityMeasure() { }
 	}
 
 	public class IfcLabel : STRING, IfcSimpleValue
 	{
+		public IfcLabel() { }
 	}
 
 	public class IfcLanguageId : IfcIdentifier
 	{
+		public IfcLanguageId() { }
 	}
 
 	public class IfcLengthMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue, IfcSizeSelect
 	{
+		public IfcLengthMeasure() { }
 	}
 
 	public class IfcLineIndex : IfcSegmentIndexSelect
 	{
 		public List<IfcPositiveInteger> Value { get; set; }
 		public List<IfcPositiveInteger> GetValue() { return Value; }
+
+		public IfcLineIndex() { }
 	}
 
 	public class IfcLinearForceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcLinearForceMeasure() { }
 	}
 
 	public class IfcLinearMomentMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcLinearMomentMeasure() { }
 	}
 
 	public class IfcLinearStiffnessMeasure : REAL, IfcDerivedMeasureValue, IfcTranslationalStiffnessSelect
 	{
+		public IfcLinearStiffnessMeasure() { }
 	}
 
 	public class IfcLinearVelocityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcLinearVelocityMeasure() { }
 	}
 
 	public class IfcLogical : LOGICAL, IfcSimpleValue
 	{
+		public IfcLogical() { }
 	}
 
 	public class IfcLuminousFluxMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcLuminousFluxMeasure() { }
 	}
 
 	public class IfcLuminousIntensityDistributionMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcLuminousIntensityDistributionMeasure() { }
 	}
 
 	public class IfcLuminousIntensityMeasure : REAL, IfcMeasureValue
 	{
+		public IfcLuminousIntensityMeasure() { }
 	}
 
 	public class IfcMagneticFluxDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMagneticFluxDensityMeasure() { }
 	}
 
 	public class IfcMagneticFluxMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMagneticFluxMeasure() { }
 	}
 
 	public class IfcMassDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMassDensityMeasure() { }
 	}
 
 	public class IfcMassFlowRateMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMassFlowRateMeasure() { }
 	}
 
 	public class IfcMassMeasure : REAL, IfcMeasureValue
 	{
+		public IfcMassMeasure() { }
 	}
 
 	public class IfcMassPerLengthMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMassPerLengthMeasure() { }
 	}
 
 	public class IfcModulusOfElasticityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcModulusOfElasticityMeasure() { }
 	}
 
 	public class IfcModulusOfLinearSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfTranslationalSubgradeReactionSelect
 	{
+		public IfcModulusOfLinearSubgradeReactionMeasure() { }
 	}
 
 	public class IfcModulusOfRotationalSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfRotationalSubgradeReactionSelect
 	{
+		public IfcModulusOfRotationalSubgradeReactionMeasure() { }
 	}
 
 	public class IfcModulusOfSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfSubgradeReactionSelect
 	{
+		public IfcModulusOfSubgradeReactionMeasure() { }
 	}
 
 	public class IfcMoistureDiffusivityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMoistureDiffusivityMeasure() { }
 	}
 
 	public class IfcMolecularWeightMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMolecularWeightMeasure() { }
 	}
 
 	public class IfcMomentOfInertiaMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMomentOfInertiaMeasure() { }
 	}
 
 	public class IfcMonetaryMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcMonetaryMeasure() { }
 	}
 
 	public class IfcMonthInYearNumber : INTEGER
 	{
+		public IfcMonthInYearNumber() { }
 	}
 
 	public class IfcNonNegativeLengthMeasure : IfcLengthMeasure, IfcMeasureValue
 	{
+		public IfcNonNegativeLengthMeasure() { }
 	}
 
 	public class IfcNormalisedRatioMeasure : IfcRatioMeasure, IfcColourOrFactor, IfcMeasureValue, IfcSizeSelect
 	{
+		public IfcNormalisedRatioMeasure() { }
 	}
 
 	public class IfcNumericMeasure : NUMBER, IfcMeasureValue
 	{
+		public IfcNumericMeasure() { }
 	}
 
 	public class IfcPHMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcPHMeasure() { }
 	}
 
 	public class IfcParameterValue : REAL, IfcMeasureValue, IfcTrimmingSelect
 	{
+		public IfcParameterValue() { }
 	}
 
 	public class IfcPlanarForceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcPlanarForceMeasure() { }
 	}
 
 	public class IfcPlaneAngleMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue
 	{
+		public IfcPlaneAngleMeasure() { }
 	}
 
 	public class IfcPositiveInteger : IfcInteger, IfcSimpleValue
 	{
+		public IfcPositiveInteger() { }
 	}
 
 	public class IfcPositiveLengthMeasure : IfcLengthMeasure, IfcHatchLineDistanceSelect, IfcMeasureValue, IfcSizeSelect
 	{
+		public IfcPositiveLengthMeasure() { }
 	}
 
 	public class IfcPositivePlaneAngleMeasure : IfcPlaneAngleMeasure, IfcMeasureValue
 	{
+		public IfcPositivePlaneAngleMeasure() { }
 	}
 
 	public class IfcPositiveRatioMeasure : IfcRatioMeasure, IfcMeasureValue, IfcSizeSelect
 	{
+		public IfcPositiveRatioMeasure() { }
 	}
 
 	public class IfcPowerMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcPowerMeasure() { }
 	}
 
 	public class IfcPresentableText : STRING
 	{
+		public IfcPresentableText() { }
 	}
 
 	public class IfcPressureMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcPressureMeasure() { }
 	}
 
 	public class IfcPropertySetDefinitionSet : IfcPropertySetDefinitionSelect
 	{
 		public List<IfcPropertySetDefinition> Value { get; set; }
+
+		public IfcPropertySetDefinitionSet() { }
 	}
 
 	public class IfcRadioActivityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcRadioActivityMeasure() { }
 	}
 
 	public class IfcRatioMeasure : REAL, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
+		public IfcRatioMeasure() { }
 	}
 
 	public class IfcReal : REAL, IfcSimpleValue
 	{
+		public IfcReal() { }
 	}
 
 	public class IfcRotationalFrequencyMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcRotationalFrequencyMeasure() { }
 	}
 
 	public class IfcRotationalMassMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcRotationalMassMeasure() { }
 	}
 
 	public class IfcRotationalStiffnessMeasure : REAL, IfcDerivedMeasureValue, IfcRotationalStiffnessSelect
 	{
+		public IfcRotationalStiffnessMeasure() { }
 	}
 
 	public class IfcSectionModulusMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSectionModulusMeasure() { }
 	}
 
 	public class IfcSectionalAreaIntegralMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSectionalAreaIntegralMeasure() { }
 	}
 
 	public class IfcShearModulusMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcShearModulusMeasure() { }
 	}
 
 	public class IfcSolidAngleMeasure : REAL, IfcMeasureValue
 	{
+		public IfcSolidAngleMeasure() { }
 	}
 
 	public class IfcSoundPowerLevelMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSoundPowerLevelMeasure() { }
 	}
 
 	public class IfcSoundPowerMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSoundPowerMeasure() { }
 	}
 
 	public class IfcSoundPressureLevelMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSoundPressureLevelMeasure() { }
 	}
 
 	public class IfcSoundPressureMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSoundPressureMeasure() { }
 	}
 
 	public class IfcSpecificHeatCapacityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcSpecificHeatCapacityMeasure() { }
 	}
 
 	public class IfcSpecularExponent : REAL, IfcSpecularHighlightSelect
 	{
+		public IfcSpecularExponent() { }
 	}
 
 	public class IfcSpecularRoughness : REAL, IfcSpecularHighlightSelect
 	{
+		public IfcSpecularRoughness() { }
 	}
 
 	public class IfcTemperatureGradientMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcTemperatureGradientMeasure() { }
 	}
 
 	public class IfcTemperatureRateOfChangeMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcTemperatureRateOfChangeMeasure() { }
 	}
 
 	public class IfcText : STRING, IfcSimpleValue
 	{
+		public IfcText() { }
 	}
 
 	public class IfcTextAlignment : STRING
 	{
+		public IfcTextAlignment() { }
 	}
 
 	public class IfcTextDecoration : STRING
 	{
+		public IfcTextDecoration() { }
 	}
 
 	public class IfcTextFontName : STRING
 	{
+		public IfcTextFontName() { }
 	}
 
 	public class IfcTextTransformation : STRING
 	{
+		public IfcTextTransformation() { }
 	}
 
 	public class IfcThermalAdmittanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcThermalAdmittanceMeasure() { }
 	}
 
 	public class IfcThermalConductivityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcThermalConductivityMeasure() { }
 	}
 
 	public class IfcThermalExpansionCoefficientMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcThermalExpansionCoefficientMeasure() { }
 	}
 
 	public class IfcThermalResistanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcThermalResistanceMeasure() { }
 	}
 
 	public class IfcThermalTransmittanceMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcThermalTransmittanceMeasure() { }
 	}
 
 	public class IfcThermodynamicTemperatureMeasure : REAL, IfcMeasureValue
 	{
+		public IfcThermodynamicTemperatureMeasure() { }
 	}
 
 	public class IfcTime : STRING, IfcSimpleValue
 	{
+		public IfcTime() { }
 	}
 
 	public class IfcTimeMeasure : REAL, IfcMeasureValue
 	{
+		public IfcTimeMeasure() { }
 	}
 
 	public class IfcTimeStamp : INTEGER, IfcSimpleValue
 	{
+		public IfcTimeStamp() { }
 	}
 
 	public class IfcTorqueMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcTorqueMeasure() { }
 	}
 
 	public class IfcURIReference : STRING
 	{
+		public IfcURIReference() { }
 	}
 
 	public class IfcVaporPermeabilityMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcVaporPermeabilityMeasure() { }
 	}
 
 	public class IfcVolumeMeasure : REAL, IfcMeasureValue
 	{
+		public IfcVolumeMeasure() { }
 	}
 
 	public class IfcVolumetricFlowRateMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcVolumetricFlowRateMeasure() { }
 	}
 
 	public class IfcWarpingConstantMeasure : REAL, IfcDerivedMeasureValue
 	{
+		public IfcWarpingConstantMeasure() { }
 	}
 
 	public class IfcWarpingMomentMeasure : REAL, IfcDerivedMeasureValue, IfcWarpingStiffnessSelect
 	{
+		public IfcWarpingMomentMeasure() { }
 	}
 
 	public class IfcActionRequestTypeEnum
@@ -3276,9 +3409,25 @@ namespace IFC4
 		//7	PredefinedType : IfcActionRequestTypeEnum
 		//8	Status : IfcLabel
 		//9	LongDescription : IfcText
+
 		public IfcActionRequestTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcText LongDescription { get; set; }
+
+		public IfcActionRequest() { }
+
+		public IfcActionRequest(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcActionRequestTypeEnum PredefinedType, IfcLabel Status, IfcText LongDescription)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.PredefinedType = PredefinedType;
+			this.Status = Status;
+			this.LongDescription = LongDescription;
+		}
 	}
 
 	public class IfcActor : IfcObject
@@ -3289,8 +3438,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	ObjectType : IfcLabel
 		//6	TheActor : IfcActorSelect
+
 		public IfcActorSelect TheActor { get; set; }
 		public List<IfcRelAssignsToActor> IsActingUpon { get; set; }
+
+		public IfcActor() { }
+
+		public IfcActor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcActorSelect TheActor)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.TheActor = TheActor;
+		}
 	}
 
 	public class IfcActorRole : IfcBase
@@ -3298,10 +3460,20 @@ namespace IFC4
 		//1	Role : IfcRoleEnum
 		//2	UserDefinedRole : IfcLabel
 		//3	Description : IfcText
+
 		public IfcRoleEnum Role { get; set; }
 		public IfcLabel UserDefinedRole { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+
+		public IfcActorRole() { }
+
+		public IfcActorRole(IfcRoleEnum Role, IfcLabel UserDefinedRole, IfcText Description)
+		{
+			this.Role = Role;
+			this.UserDefinedRole = UserDefinedRole;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcActuator : IfcDistributionControlElement
@@ -3315,7 +3487,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcActuatorTypeEnum
+
 		public IfcActuatorTypeEnum PredefinedType { get; set; }
+
+		public IfcActuator() { }
+
+		public IfcActuator(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcActuatorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcActuatorType : IfcDistributionControlElementType
@@ -3330,7 +3518,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcActuatorTypeEnum
+
 		public IfcActuatorTypeEnum PredefinedType { get; set; }
+
+		public IfcActuatorType() { }
+
+		public IfcActuatorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcActuatorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcAddress : IfcBase, IfcObjectReferenceSelect
@@ -3338,23 +3543,49 @@ namespace IFC4
 		//1	Purpose : IfcAddressTypeEnum
 		//2	Description : IfcText
 		//3	UserDefinedPurpose : IfcLabel
+
 		public IfcAddressTypeEnum Purpose { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLabel UserDefinedPurpose { get; set; }
 		public List<IfcPerson> OfPerson { get; set; }
 		public List<IfcOrganization> OfOrganization { get; set; }
+
+		public IfcAddress() { }
+
+		public IfcAddress(IfcAddressTypeEnum Purpose, IfcText Description, IfcLabel UserDefinedPurpose)
+		{
+			this.Purpose = Purpose;
+			this.Description = Description;
+			this.UserDefinedPurpose = UserDefinedPurpose;
+		}
 	}
 
 	public class IfcAdvancedBrep : IfcManifoldSolidBrep
 	{
 		//1	Outer : IfcClosedShell
+
+		public IfcAdvancedBrep() { }
+
+		public IfcAdvancedBrep(IfcClosedShell Outer)
+		{
+			this.Outer = Outer;
+		}
 	}
 
 	public class IfcAdvancedBrepWithVoids : IfcAdvancedBrep
 	{
 		//1	Outer : IfcClosedShell
 		//2	Voids : List<IfcClosedShell>
+
 		public List<IfcClosedShell> Voids { get; set; }
+
+		public IfcAdvancedBrepWithVoids() { }
+
+		public IfcAdvancedBrepWithVoids(IfcClosedShell Outer, List<IfcClosedShell> Voids)
+		{
+			this.Outer = Outer;
+			this.Voids = Voids;
+		}
 	}
 
 	public class IfcAdvancedFace : IfcFaceSurface
@@ -3362,6 +3593,15 @@ namespace IFC4
 		//1	Bounds : List<IfcFaceBound>
 		//2	FaceSurface : IfcSurface
 		//3	SameSense : IfcBoolean
+
+		public IfcAdvancedFace() { }
+
+		public IfcAdvancedFace(List<IfcFaceBound> Bounds, IfcSurface FaceSurface, IfcBoolean SameSense)
+		{
+			this.Bounds = Bounds;
+			this.FaceSurface = FaceSurface;
+			this.SameSense = SameSense;
+		}
 	}
 
 	public class IfcAirTerminal : IfcFlowTerminal
@@ -3375,7 +3615,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcAirTerminalTypeEnum
+
 		public IfcAirTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcAirTerminal() { }
+
+		public IfcAirTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcAirTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAirTerminalBox : IfcFlowController
@@ -3389,7 +3645,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcAirTerminalBoxTypeEnum
+
 		public IfcAirTerminalBoxTypeEnum PredefinedType { get; set; }
+
+		public IfcAirTerminalBox() { }
+
+		public IfcAirTerminalBox(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcAirTerminalBoxTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAirTerminalBoxType : IfcFlowControllerType
@@ -3404,7 +3676,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcAirTerminalBoxTypeEnum
+
 		public IfcAirTerminalBoxTypeEnum PredefinedType { get; set; }
+
+		public IfcAirTerminalBoxType() { }
+
+		public IfcAirTerminalBoxType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcAirTerminalBoxTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAirTerminalType : IfcFlowTerminalType
@@ -3419,7 +3708,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcAirTerminalTypeEnum
+
 		public IfcAirTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcAirTerminalType() { }
+
+		public IfcAirTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcAirTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAirToAirHeatRecovery : IfcEnergyConversionDevice
@@ -3433,7 +3739,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcAirToAirHeatRecoveryTypeEnum
+
 		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType { get; set; }
+
+		public IfcAirToAirHeatRecovery() { }
+
+		public IfcAirToAirHeatRecovery(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcAirToAirHeatRecoveryTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAirToAirHeatRecoveryType : IfcEnergyConversionDeviceType
@@ -3448,7 +3770,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcAirToAirHeatRecoveryTypeEnum
+
 		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType { get; set; }
+
+		public IfcAirToAirHeatRecoveryType() { }
+
+		public IfcAirToAirHeatRecoveryType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcAirToAirHeatRecoveryTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAlarm : IfcDistributionControlElement
@@ -3462,7 +3801,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcAlarmTypeEnum
+
 		public IfcAlarmTypeEnum PredefinedType { get; set; }
+
+		public IfcAlarm() { }
+
+		public IfcAlarm(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcAlarmTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAlarmType : IfcDistributionControlElementType
@@ -3477,7 +3832,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcAlarmTypeEnum
+
 		public IfcAlarmTypeEnum PredefinedType { get; set; }
+
+		public IfcAlarmType() { }
+
+		public IfcAlarmType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcAlarmTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAnnotation : IfcProduct
@@ -3489,15 +3861,38 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
+
 		public List<IfcRelContainedInSpatialStructure> ContainedInStructure { get; set; }
+
+		public IfcAnnotation() { }
+
+		public IfcAnnotation(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+		}
 	}
 
 	public class IfcAnnotationFillArea : IfcGeometricRepresentationItem
 	{
 		//1	OuterBoundary : IfcCurve
 		//2	InnerBoundaries : List<IfcCurve>
+
 		public IfcCurve OuterBoundary { get; set; }
 		public List<IfcCurve> InnerBoundaries { get; set; }
+
+		public IfcAnnotationFillArea() { }
+
+		public IfcAnnotationFillArea(IfcCurve OuterBoundary, List<IfcCurve> InnerBoundaries)
+		{
+			this.OuterBoundary = OuterBoundary;
+			this.InnerBoundaries = InnerBoundaries;
+		}
 	}
 
 	public class IfcApplication : IfcBase
@@ -3506,10 +3901,21 @@ namespace IFC4
 		//2	Version : IfcLabel
 		//3	ApplicationFullName : IfcLabel
 		//4	ApplicationIdentifier : IfcIdentifier
+
 		public IfcOrganization ApplicationDeveloper { get; set; }
-		public static IfcLabel Version { get; set; }
-		public static IfcLabel ApplicationFullName { get; set; }
-		public static IfcIdentifier ApplicationIdentifier { get; set; }
+		public IfcLabel Version { get; set; }
+		public IfcLabel ApplicationFullName { get; set; }
+		public IfcIdentifier ApplicationIdentifier { get; set; }
+
+		public IfcApplication() { }
+
+		public IfcApplication(IfcOrganization ApplicationDeveloper, IfcLabel Version, IfcLabel ApplicationFullName, IfcIdentifier ApplicationIdentifier)
+		{
+			this.ApplicationDeveloper = ApplicationDeveloper;
+			this.Version = Version;
+			this.ApplicationFullName = ApplicationFullName;
+			this.ApplicationIdentifier = ApplicationIdentifier;
+		}
 	}
 
 	public class IfcAppliedValue : IfcBase, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
@@ -3524,6 +3930,7 @@ namespace IFC4
 		//8	Condition : IfcLabel
 		//9	ArithmeticOperator : IfcArithmeticOperatorEnum
 		//10	Components : List<IfcAppliedValue>
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcAppliedValueSelect AppliedValue { get; set; }
@@ -3535,6 +3942,22 @@ namespace IFC4
 		public IfcArithmeticOperatorEnum ArithmeticOperator { get; set; }
 		public List<IfcAppliedValue> Components { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+
+		public IfcAppliedValue() { }
+
+		public IfcAppliedValue(IfcLabel Name, IfcText Description, IfcAppliedValueSelect AppliedValue, IfcMeasureWithUnit UnitBasis, IfcDate ApplicableDate, IfcDate FixedUntilDate, IfcLabel Category, IfcLabel Condition, IfcArithmeticOperatorEnum ArithmeticOperator, List<IfcAppliedValue> Components)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.AppliedValue = AppliedValue;
+			this.UnitBasis = UnitBasis;
+			this.ApplicableDate = ApplicableDate;
+			this.FixedUntilDate = FixedUntilDate;
+			this.Category = Category;
+			this.Condition = Condition;
+			this.ArithmeticOperator = ArithmeticOperator;
+			this.Components = Components;
+		}
 	}
 
 	public class IfcApproval : IfcBase
@@ -3548,6 +3971,7 @@ namespace IFC4
 		//7	Qualifier : IfcText
 		//8	RequestingApproval : IfcActorSelect
 		//9	GivingApproval : IfcActorSelect
+
 		public IfcIdentifier Identifier { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -3562,6 +3986,21 @@ namespace IFC4
 		public List<IfcResourceApprovalRelationship> ApprovedResources { get; set; }
 		public List<IfcApprovalRelationship> IsRelatedWith { get; set; }
 		public List<IfcApprovalRelationship> Relates { get; set; }
+
+		public IfcApproval() { }
+
+		public IfcApproval(IfcIdentifier Identifier, IfcLabel Name, IfcText Description, IfcDateTime TimeOfApproval, IfcLabel Status, IfcLabel Level, IfcText Qualifier, IfcActorSelect RequestingApproval, IfcActorSelect GivingApproval)
+		{
+			this.Identifier = Identifier;
+			this.Name = Name;
+			this.Description = Description;
+			this.TimeOfApproval = TimeOfApproval;
+			this.Status = Status;
+			this.Level = Level;
+			this.Qualifier = Qualifier;
+			this.RequestingApproval = RequestingApproval;
+			this.GivingApproval = GivingApproval;
+		}
 	}
 
 	public class IfcApprovalRelationship : IfcResourceLevelRelationship
@@ -3570,8 +4009,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	RelatingApproval : IfcApproval
 		//4	RelatedApprovals : List<IfcApproval>
+
 		public IfcApproval RelatingApproval { get; set; }
 		public List<IfcApproval> RelatedApprovals { get; set; }
+
+		public IfcApprovalRelationship() { }
+
+		public IfcApprovalRelationship(IfcLabel Name, IfcText Description, IfcApproval RelatingApproval, List<IfcApproval> RelatedApprovals)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingApproval = RelatingApproval;
+			this.RelatedApprovals = RelatedApprovals;
+		}
 	}
 
 	public class IfcArbitraryClosedProfileDef : IfcProfileDef
@@ -3579,7 +4029,17 @@ namespace IFC4
 		//1	ProfileType : IfcProfileTypeEnum
 		//2	ProfileName : IfcLabel
 		//3	OuterCurve : IfcCurve
+
 		public IfcCurve OuterCurve { get; set; }
+
+		public IfcArbitraryClosedProfileDef() { }
+
+		public IfcArbitraryClosedProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcCurve OuterCurve)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.OuterCurve = OuterCurve;
+		}
 	}
 
 	public class IfcArbitraryOpenProfileDef : IfcProfileDef
@@ -3587,7 +4047,17 @@ namespace IFC4
 		//1	ProfileType : IfcProfileTypeEnum
 		//2	ProfileName : IfcLabel
 		//3	Curve : IfcBoundedCurve
+
 		public IfcBoundedCurve Curve { get; set; }
+
+		public IfcArbitraryOpenProfileDef() { }
+
+		public IfcArbitraryOpenProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcBoundedCurve Curve)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Curve = Curve;
+		}
 	}
 
 	public class IfcArbitraryProfileDefWithVoids : IfcArbitraryClosedProfileDef
@@ -3596,7 +4066,18 @@ namespace IFC4
 		//2	ProfileName : IfcLabel
 		//3	OuterCurve : IfcCurve
 		//4	InnerCurves : List<IfcCurve>
+
 		public List<IfcCurve> InnerCurves { get; set; }
+
+		public IfcArbitraryProfileDefWithVoids() { }
+
+		public IfcArbitraryProfileDefWithVoids(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcCurve OuterCurve, List<IfcCurve> InnerCurves)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.OuterCurve = OuterCurve;
+			this.InnerCurves = InnerCurves;
+		}
 	}
 
 	public class IfcAsset : IfcGroup
@@ -3615,6 +4096,7 @@ namespace IFC4
 		//12	ResponsiblePerson : IfcPerson
 		//13	IncorporationDate : IfcDate
 		//14	DepreciatedValue : IfcCostValue
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcCostValue OriginalValue { get; set; }
 		public IfcCostValue CurrentValue { get; set; }
@@ -3624,6 +4106,26 @@ namespace IFC4
 		public IfcPerson ResponsiblePerson { get; set; }
 		public IfcDate IncorporationDate { get; set; }
 		public IfcCostValue DepreciatedValue { get; set; }
+
+		public IfcAsset() { }
+
+		public IfcAsset(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcCostValue OriginalValue, IfcCostValue CurrentValue, IfcCostValue TotalReplacementCost, IfcActorSelect Owner, IfcActorSelect User, IfcPerson ResponsiblePerson, IfcDate IncorporationDate, IfcCostValue DepreciatedValue)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.OriginalValue = OriginalValue;
+			this.CurrentValue = CurrentValue;
+			this.TotalReplacementCost = TotalReplacementCost;
+			this.Owner = Owner;
+			this.User = User;
+			this.ResponsiblePerson = ResponsiblePerson;
+			this.IncorporationDate = IncorporationDate;
+			this.DepreciatedValue = DepreciatedValue;
+		}
 	}
 
 	public class IfcAsymmetricIShapeProfileDef : IfcParameterizedProfileDef
@@ -3643,6 +4145,7 @@ namespace IFC4
 		//13	BottomFlangeSlope : IfcPlaneAngleMeasure
 		//14	TopFlangeEdgeRadius : IfcNonNegativeLengthMeasure
 		//15	TopFlangeSlope : IfcPlaneAngleMeasure
+
 		public IfcPositiveLengthMeasure BottomFlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure OverallDepth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -3655,6 +4158,27 @@ namespace IFC4
 		public IfcPlaneAngleMeasure BottomFlangeSlope { get; set; }
 		public IfcNonNegativeLengthMeasure TopFlangeEdgeRadius { get; set; }
 		public IfcPlaneAngleMeasure TopFlangeSlope { get; set; }
+
+		public IfcAsymmetricIShapeProfileDef() { }
+
+		public IfcAsymmetricIShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure BottomFlangeWidth, IfcPositiveLengthMeasure OverallDepth, IfcPositiveLengthMeasure WebThickness, IfcPositiveLengthMeasure BottomFlangeThickness, IfcNonNegativeLengthMeasure BottomFlangeFilletRadius, IfcPositiveLengthMeasure TopFlangeWidth, IfcPositiveLengthMeasure TopFlangeThickness, IfcNonNegativeLengthMeasure TopFlangeFilletRadius, IfcNonNegativeLengthMeasure BottomFlangeEdgeRadius, IfcPlaneAngleMeasure BottomFlangeSlope, IfcNonNegativeLengthMeasure TopFlangeEdgeRadius, IfcPlaneAngleMeasure TopFlangeSlope)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.BottomFlangeWidth = BottomFlangeWidth;
+			this.OverallDepth = OverallDepth;
+			this.WebThickness = WebThickness;
+			this.BottomFlangeThickness = BottomFlangeThickness;
+			this.BottomFlangeFilletRadius = BottomFlangeFilletRadius;
+			this.TopFlangeWidth = TopFlangeWidth;
+			this.TopFlangeThickness = TopFlangeThickness;
+			this.TopFlangeFilletRadius = TopFlangeFilletRadius;
+			this.BottomFlangeEdgeRadius = BottomFlangeEdgeRadius;
+			this.BottomFlangeSlope = BottomFlangeSlope;
+			this.TopFlangeEdgeRadius = TopFlangeEdgeRadius;
+			this.TopFlangeSlope = TopFlangeSlope;
+		}
 	}
 
 	public class IfcAudioVisualAppliance : IfcFlowTerminal
@@ -3668,7 +4192,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcAudioVisualApplianceTypeEnum
+
 		public IfcAudioVisualApplianceTypeEnum PredefinedType { get; set; }
+
+		public IfcAudioVisualAppliance() { }
+
+		public IfcAudioVisualAppliance(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcAudioVisualApplianceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAudioVisualApplianceType : IfcFlowTerminalType
@@ -3683,25 +4223,60 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcAudioVisualApplianceTypeEnum
+
 		public IfcAudioVisualApplianceTypeEnum PredefinedType { get; set; }
+
+		public IfcAudioVisualApplianceType() { }
+
+		public IfcAudioVisualApplianceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcAudioVisualApplianceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcAxis1Placement : IfcPlacement
 	{
 		//1	Location : IfcCartesianPoint
 		//2	Axis : IfcDirection
+
 		public IfcDirection Axis { get; set; }
 		public IfcDirection Z { get; set; }
+
+		public IfcAxis1Placement() { }
+
+		public IfcAxis1Placement(IfcCartesianPoint Location, IfcDirection Axis)
+		{
+			this.Location = Location;
+			this.Axis = Axis;
+		}
 	}
 
 	public class IfcAxis2Placement2D : IfcPlacement, IfcAxis2Placement
 	{
 		//1	Location : IfcCartesianPoint
 		//2	RefDirection : IfcDirection
+
 		public IfcDirection RefDirection { get; set; }
 		public List<IfcDirection> P { get; set; }
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
+
+		public IfcAxis2Placement2D() { }
+
+		public IfcAxis2Placement2D(IfcCartesianPoint Location, IfcDirection RefDirection)
+		{
+			this.Location = Location;
+			this.RefDirection = RefDirection;
+		}
 	}
 
 	public class IfcAxis2Placement3D : IfcPlacement, IfcAxis2Placement
@@ -3709,11 +4284,21 @@ namespace IFC4
 		//1	Location : IfcCartesianPoint
 		//2	Axis : IfcDirection
 		//3	RefDirection : IfcDirection
+
 		public IfcDirection Axis { get; set; }
 		public IfcDirection RefDirection { get; set; }
 		public List<IfcDirection> P { get; set; }
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
+
+		public IfcAxis2Placement3D() { }
+
+		public IfcAxis2Placement3D(IfcCartesianPoint Location, IfcDirection Axis, IfcDirection RefDirection)
+		{
+			this.Location = Location;
+			this.Axis = Axis;
+			this.RefDirection = RefDirection;
+		}
 	}
 
 	public abstract class IfcBSplineCurve : IfcBoundedCurve
@@ -3723,6 +4308,7 @@ namespace IFC4
 		//3	CurveForm : IfcBSplineCurveForm
 		//4	ClosedCurve : IfcLogical
 		//5	SelfIntersect : IfcLogical
+
 		public IfcInteger Degree { get; set; }
 		public List<IfcCartesianPoint> ControlPointsList { get; set; }
 		public IfcBSplineCurveForm CurveForm { get; set; }
@@ -3730,6 +4316,17 @@ namespace IFC4
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcInteger UpperIndexOnControlPoints { get; set; }
 		public List<IfcCartesianPoint> ControlPoints { get; set; }
+
+		public IfcBSplineCurve() { }
+
+		public IfcBSplineCurve(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect)
+		{
+			this.Degree = Degree;
+			this.ControlPointsList = ControlPointsList;
+			this.CurveForm = CurveForm;
+			this.ClosedCurve = ClosedCurve;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcBSplineCurveWithKnots : IfcBSplineCurve
@@ -3742,10 +4339,25 @@ namespace IFC4
 		//6	KnotMultiplicities : List<IfcInteger>
 		//7	Knots : List<IfcParameterValue>
 		//8	KnotSpec : IfcKnotType
+
 		public List<IfcInteger> KnotMultiplicities { get; set; }
 		public List<IfcParameterValue> Knots { get; set; }
 		public IfcKnotType KnotSpec { get; set; }
 		public IfcInteger UpperIndexOnKnots { get; set; }
+
+		public IfcBSplineCurveWithKnots() { }
+
+		public IfcBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec)
+		{
+			this.Degree = Degree;
+			this.ControlPointsList = ControlPointsList;
+			this.CurveForm = CurveForm;
+			this.ClosedCurve = ClosedCurve;
+			this.SelfIntersect = SelfIntersect;
+			this.KnotMultiplicities = KnotMultiplicities;
+			this.Knots = Knots;
+			this.KnotSpec = KnotSpec;
+		}
 	}
 
 	public abstract class IfcBSplineSurface : IfcBoundedSurface
@@ -3757,6 +4369,7 @@ namespace IFC4
 		//5	UClosed : IfcLogical
 		//6	VClosed : IfcLogical
 		//7	SelfIntersect : IfcLogical
+
 		public IfcInteger UDegree { get; set; }
 		public IfcInteger VDegree { get; set; }
 		public List<List<IfcCartesianPoint>> ControlPointsList { get; set; }
@@ -3767,6 +4380,19 @@ namespace IFC4
 		public IfcInteger UUpper { get; set; }
 		public IfcInteger VUpper { get; set; }
 		public List<List<IfcCartesianPoint>> ControlPoints { get; set; }
+
+		public IfcBSplineSurface() { }
+
+		public IfcBSplineSurface(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect)
+		{
+			this.UDegree = UDegree;
+			this.VDegree = VDegree;
+			this.ControlPointsList = ControlPointsList;
+			this.SurfaceForm = SurfaceForm;
+			this.UClosed = UClosed;
+			this.VClosed = VClosed;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcBSplineSurfaceWithKnots : IfcBSplineSurface
@@ -3783,6 +4409,7 @@ namespace IFC4
 		//10	UKnots : List<IfcParameterValue>
 		//11	VKnots : List<IfcParameterValue>
 		//12	KnotSpec : IfcKnotType
+
 		public List<IfcInteger> UMultiplicities { get; set; }
 		public List<IfcInteger> VMultiplicities { get; set; }
 		public List<IfcParameterValue> UKnots { get; set; }
@@ -3790,6 +4417,24 @@ namespace IFC4
 		public IfcKnotType KnotSpec { get; set; }
 		public IfcInteger KnotVUpper { get; set; }
 		public IfcInteger KnotUUpper { get; set; }
+
+		public IfcBSplineSurfaceWithKnots() { }
+
+		public IfcBSplineSurfaceWithKnots(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect, List<IfcInteger> UMultiplicities, List<IfcInteger> VMultiplicities, List<IfcParameterValue> UKnots, List<IfcParameterValue> VKnots, IfcKnotType KnotSpec)
+		{
+			this.UDegree = UDegree;
+			this.VDegree = VDegree;
+			this.ControlPointsList = ControlPointsList;
+			this.SurfaceForm = SurfaceForm;
+			this.UClosed = UClosed;
+			this.VClosed = VClosed;
+			this.SelfIntersect = SelfIntersect;
+			this.UMultiplicities = UMultiplicities;
+			this.VMultiplicities = VMultiplicities;
+			this.UKnots = UKnots;
+			this.VKnots = VKnots;
+			this.KnotSpec = KnotSpec;
+		}
 	}
 
 	public class IfcBeam : IfcBuildingElement
@@ -3803,7 +4448,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcBeamTypeEnum
+
 		public IfcBeamTypeEnum PredefinedType { get; set; }
+
+		public IfcBeam() { }
+
+		public IfcBeam(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBeamTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBeamStandardCase : IfcBeam
@@ -3817,6 +4478,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcBeamTypeEnum
+
+		public IfcBeamStandardCase() { }
+
+		public IfcBeamStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBeamTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBeamType : IfcBuildingElementType
@@ -3831,7 +4507,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcBeamTypeEnum
+
 		public IfcBeamTypeEnum PredefinedType { get; set; }
+
+		public IfcBeamType() { }
+
+		public IfcBeamType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcBeamTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBlobTexture : IfcSurfaceTexture
@@ -3843,8 +4536,22 @@ namespace IFC4
 		//5	Parameter : List<IfcIdentifier>
 		//6	RasterFormat : IfcIdentifier
 		//7	RasterCode : IfcBinary
+
 		public IfcIdentifier RasterFormat { get; set; }
 		public IfcBinary RasterCode { get; set; }
+
+		public IfcBlobTexture() { }
+
+		public IfcBlobTexture(IfcBoolean RepeatS, IfcBoolean RepeatT, IfcIdentifier Mode, IfcCartesianTransformationOperator2D TextureTransform, List<IfcIdentifier> Parameter, IfcIdentifier RasterFormat, IfcBinary RasterCode)
+		{
+			this.RepeatS = RepeatS;
+			this.RepeatT = RepeatT;
+			this.Mode = Mode;
+			this.TextureTransform = TextureTransform;
+			this.Parameter = Parameter;
+			this.RasterFormat = RasterFormat;
+			this.RasterCode = RasterCode;
+		}
 	}
 
 	public class IfcBlock : IfcCsgPrimitive3D
@@ -3853,9 +4560,20 @@ namespace IFC4
 		//2	XLength : IfcPositiveLengthMeasure
 		//3	YLength : IfcPositiveLengthMeasure
 		//4	ZLength : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure XLength { get; set; }
 		public IfcPositiveLengthMeasure YLength { get; set; }
 		public IfcPositiveLengthMeasure ZLength { get; set; }
+
+		public IfcBlock() { }
+
+		public IfcBlock(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure XLength, IfcPositiveLengthMeasure YLength, IfcPositiveLengthMeasure ZLength)
+		{
+			this.Position = Position;
+			this.XLength = XLength;
+			this.YLength = YLength;
+			this.ZLength = ZLength;
+		}
 	}
 
 	public class IfcBoiler : IfcEnergyConversionDevice
@@ -3869,7 +4587,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcBoilerTypeEnum
+
 		public IfcBoilerTypeEnum PredefinedType { get; set; }
+
+		public IfcBoiler() { }
+
+		public IfcBoiler(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBoilerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBoilerType : IfcEnergyConversionDeviceType
@@ -3884,7 +4618,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcBoilerTypeEnum
+
 		public IfcBoilerTypeEnum PredefinedType { get; set; }
+
+		public IfcBoilerType() { }
+
+		public IfcBoilerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcBoilerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBooleanClippingResult : IfcBooleanResult
@@ -3892,6 +4643,15 @@ namespace IFC4
 		//1	Operator : IfcBooleanOperator
 		//2	FirstOperand : IfcBooleanOperand
 		//3	SecondOperand : IfcBooleanOperand
+
+		public IfcBooleanClippingResult() { }
+
+		public IfcBooleanClippingResult(IfcBooleanOperator Operator, IfcBooleanOperand FirstOperand, IfcBooleanOperand SecondOperand)
+		{
+			this.Operator = Operator;
+			this.FirstOperand = FirstOperand;
+			this.SecondOperand = SecondOperand;
+		}
 	}
 
 	public class IfcBooleanResult : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcCsgSelect
@@ -3899,23 +4659,49 @@ namespace IFC4
 		//1	Operator : IfcBooleanOperator
 		//2	FirstOperand : IfcBooleanOperand
 		//3	SecondOperand : IfcBooleanOperand
+
 		public IfcBooleanOperator Operator { get; set; }
 		public IfcBooleanOperand FirstOperand { get; set; }
 		public IfcBooleanOperand SecondOperand { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcBooleanResult() { }
+
+		public IfcBooleanResult(IfcBooleanOperator Operator, IfcBooleanOperand FirstOperand, IfcBooleanOperand SecondOperand)
+		{
+			this.Operator = Operator;
+			this.FirstOperand = FirstOperand;
+			this.SecondOperand = SecondOperand;
+		}
 	}
 
 	public abstract class IfcBoundaryCondition : IfcBase
 	{
 		//1	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
+
+		public IfcBoundaryCondition() { }
+
+		public IfcBoundaryCondition(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcBoundaryCurve : IfcCompositeCurveOnSurface
 	{
 		//1	Segments : List<IfcCompositeCurveSegment>
 		//2	SelfIntersect : IfcLogical
+
+		public IfcBoundaryCurve() { }
+
+		public IfcBoundaryCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
+		{
+			this.Segments = Segments;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcBoundaryEdgeCondition : IfcBoundaryCondition
@@ -3927,12 +4713,26 @@ namespace IFC4
 		//5	RotationalStiffnessByLengthX : IfcModulusOfRotationalSubgradeReactionSelect
 		//6	RotationalStiffnessByLengthY : IfcModulusOfRotationalSubgradeReactionSelect
 		//7	RotationalStiffnessByLengthZ : IfcModulusOfRotationalSubgradeReactionSelect
+
 		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthX { get; set; }
 		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthY { get; set; }
 		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthZ { get; set; }
 		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthX { get; set; }
 		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthY { get; set; }
 		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthZ { get; set; }
+
+		public IfcBoundaryEdgeCondition() { }
+
+		public IfcBoundaryEdgeCondition(IfcLabel Name, IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthX, IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthY, IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthZ, IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthX, IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthY, IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthZ)
+		{
+			this.Name = Name;
+			this.TranslationalStiffnessByLengthX = TranslationalStiffnessByLengthX;
+			this.TranslationalStiffnessByLengthY = TranslationalStiffnessByLengthY;
+			this.TranslationalStiffnessByLengthZ = TranslationalStiffnessByLengthZ;
+			this.RotationalStiffnessByLengthX = RotationalStiffnessByLengthX;
+			this.RotationalStiffnessByLengthY = RotationalStiffnessByLengthY;
+			this.RotationalStiffnessByLengthZ = RotationalStiffnessByLengthZ;
+		}
 	}
 
 	public class IfcBoundaryFaceCondition : IfcBoundaryCondition
@@ -3941,9 +4741,20 @@ namespace IFC4
 		//2	TranslationalStiffnessByAreaX : IfcModulusOfSubgradeReactionSelect
 		//3	TranslationalStiffnessByAreaY : IfcModulusOfSubgradeReactionSelect
 		//4	TranslationalStiffnessByAreaZ : IfcModulusOfSubgradeReactionSelect
+
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaX { get; set; }
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaY { get; set; }
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaZ { get; set; }
+
+		public IfcBoundaryFaceCondition() { }
+
+		public IfcBoundaryFaceCondition(IfcLabel Name, IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaX, IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaY, IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaZ)
+		{
+			this.Name = Name;
+			this.TranslationalStiffnessByAreaX = TranslationalStiffnessByAreaX;
+			this.TranslationalStiffnessByAreaY = TranslationalStiffnessByAreaY;
+			this.TranslationalStiffnessByAreaZ = TranslationalStiffnessByAreaZ;
+		}
 	}
 
 	public class IfcBoundaryNodeCondition : IfcBoundaryCondition
@@ -3955,12 +4766,26 @@ namespace IFC4
 		//5	RotationalStiffnessX : IfcRotationalStiffnessSelect
 		//6	RotationalStiffnessY : IfcRotationalStiffnessSelect
 		//7	RotationalStiffnessZ : IfcRotationalStiffnessSelect
+
 		public IfcTranslationalStiffnessSelect TranslationalStiffnessX { get; set; }
 		public IfcTranslationalStiffnessSelect TranslationalStiffnessY { get; set; }
 		public IfcTranslationalStiffnessSelect TranslationalStiffnessZ { get; set; }
 		public IfcRotationalStiffnessSelect RotationalStiffnessX { get; set; }
 		public IfcRotationalStiffnessSelect RotationalStiffnessY { get; set; }
 		public IfcRotationalStiffnessSelect RotationalStiffnessZ { get; set; }
+
+		public IfcBoundaryNodeCondition() { }
+
+		public IfcBoundaryNodeCondition(IfcLabel Name, IfcTranslationalStiffnessSelect TranslationalStiffnessX, IfcTranslationalStiffnessSelect TranslationalStiffnessY, IfcTranslationalStiffnessSelect TranslationalStiffnessZ, IfcRotationalStiffnessSelect RotationalStiffnessX, IfcRotationalStiffnessSelect RotationalStiffnessY, IfcRotationalStiffnessSelect RotationalStiffnessZ)
+		{
+			this.Name = Name;
+			this.TranslationalStiffnessX = TranslationalStiffnessX;
+			this.TranslationalStiffnessY = TranslationalStiffnessY;
+			this.TranslationalStiffnessZ = TranslationalStiffnessZ;
+			this.RotationalStiffnessX = RotationalStiffnessX;
+			this.RotationalStiffnessY = RotationalStiffnessY;
+			this.RotationalStiffnessZ = RotationalStiffnessZ;
+		}
 	}
 
 	public class IfcBoundaryNodeConditionWarping : IfcBoundaryNodeCondition
@@ -3973,15 +4798,32 @@ namespace IFC4
 		//6	RotationalStiffnessY : IfcRotationalStiffnessSelect
 		//7	RotationalStiffnessZ : IfcRotationalStiffnessSelect
 		//8	WarpingStiffness : IfcWarpingStiffnessSelect
+
 		public IfcWarpingStiffnessSelect WarpingStiffness { get; set; }
+
+		public IfcBoundaryNodeConditionWarping() { }
+
+		public IfcBoundaryNodeConditionWarping(IfcLabel Name, IfcTranslationalStiffnessSelect TranslationalStiffnessX, IfcTranslationalStiffnessSelect TranslationalStiffnessY, IfcTranslationalStiffnessSelect TranslationalStiffnessZ, IfcRotationalStiffnessSelect RotationalStiffnessX, IfcRotationalStiffnessSelect RotationalStiffnessY, IfcRotationalStiffnessSelect RotationalStiffnessZ, IfcWarpingStiffnessSelect WarpingStiffness)
+		{
+			this.Name = Name;
+			this.TranslationalStiffnessX = TranslationalStiffnessX;
+			this.TranslationalStiffnessY = TranslationalStiffnessY;
+			this.TranslationalStiffnessZ = TranslationalStiffnessZ;
+			this.RotationalStiffnessX = RotationalStiffnessX;
+			this.RotationalStiffnessY = RotationalStiffnessY;
+			this.RotationalStiffnessZ = RotationalStiffnessZ;
+			this.WarpingStiffness = WarpingStiffness;
+		}
 	}
 
 	public abstract class IfcBoundedCurve : IfcCurve, IfcCurveOrEdgeCurve
 	{
+		public IfcBoundedCurve() { }
 	}
 
 	public abstract class IfcBoundedSurface : IfcSurface
 	{
+		public IfcBoundedSurface() { }
 	}
 
 	public class IfcBoundingBox : IfcGeometricRepresentationItem
@@ -3990,11 +4832,22 @@ namespace IFC4
 		//2	XDim : IfcPositiveLengthMeasure
 		//3	YDim : IfcPositiveLengthMeasure
 		//4	ZDim : IfcPositiveLengthMeasure
+
 		public IfcCartesianPoint Corner { get; set; }
 		public IfcPositiveLengthMeasure XDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
 		public IfcPositiveLengthMeasure ZDim { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcBoundingBox() { }
+
+		public IfcBoundingBox(IfcCartesianPoint Corner, IfcPositiveLengthMeasure XDim, IfcPositiveLengthMeasure YDim, IfcPositiveLengthMeasure ZDim)
+		{
+			this.Corner = Corner;
+			this.XDim = XDim;
+			this.YDim = YDim;
+			this.ZDim = ZDim;
+		}
 	}
 
 	public class IfcBoxedHalfSpace : IfcHalfSpaceSolid
@@ -4002,7 +4855,17 @@ namespace IFC4
 		//1	BaseSurface : IfcSurface
 		//2	AgreementFlag : IfcBoolean
 		//3	Enclosure : IfcBoundingBox
+
 		public IfcBoundingBox Enclosure { get; set; }
+
+		public IfcBoxedHalfSpace() { }
+
+		public IfcBoxedHalfSpace(IfcSurface BaseSurface, IfcBoolean AgreementFlag, IfcBoundingBox Enclosure)
+		{
+			this.BaseSurface = BaseSurface;
+			this.AgreementFlag = AgreementFlag;
+			this.Enclosure = Enclosure;
+		}
 	}
 
 	public class IfcBuilding : IfcSpatialStructureElement
@@ -4019,9 +4882,28 @@ namespace IFC4
 		//10	ElevationOfRefHeight : IfcLengthMeasure
 		//11	ElevationOfTerrain : IfcLengthMeasure
 		//12	BuildingAddress : IfcPostalAddress
+
 		public IfcLengthMeasure ElevationOfRefHeight { get; set; }
 		public IfcLengthMeasure ElevationOfTerrain { get; set; }
 		public IfcPostalAddress BuildingAddress { get; set; }
+
+		public IfcBuilding() { }
+
+		public IfcBuilding(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcElementCompositionEnum CompositionType, IfcLengthMeasure ElevationOfRefHeight, IfcLengthMeasure ElevationOfTerrain, IfcPostalAddress BuildingAddress)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.CompositionType = CompositionType;
+			this.ElevationOfRefHeight = ElevationOfRefHeight;
+			this.ElevationOfTerrain = ElevationOfTerrain;
+			this.BuildingAddress = BuildingAddress;
+		}
 	}
 
 	public abstract class IfcBuildingElement : IfcElement
@@ -4034,6 +4916,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcBuildingElement() { }
+
+		public IfcBuildingElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcBuildingElementPart : IfcElementComponent
@@ -4047,7 +4943,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcBuildingElementPartTypeEnum
+
 		public IfcBuildingElementPartTypeEnum PredefinedType { get; set; }
+
+		public IfcBuildingElementPart() { }
+
+		public IfcBuildingElementPart(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBuildingElementPartTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBuildingElementPartType : IfcElementComponentType
@@ -4062,7 +4974,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcBuildingElementPartTypeEnum
+
 		public IfcBuildingElementPartTypeEnum PredefinedType { get; set; }
+
+		public IfcBuildingElementPartType() { }
+
+		public IfcBuildingElementPartType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcBuildingElementPartTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBuildingElementProxy : IfcBuildingElement
@@ -4076,7 +5005,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcBuildingElementProxyTypeEnum
+
 		public IfcBuildingElementProxyTypeEnum PredefinedType { get; set; }
+
+		public IfcBuildingElementProxy() { }
+
+		public IfcBuildingElementProxy(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBuildingElementProxyTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBuildingElementProxyType : IfcBuildingElementType
@@ -4091,7 +5036,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcBuildingElementProxyTypeEnum
+
 		public IfcBuildingElementProxyTypeEnum PredefinedType { get; set; }
+
+		public IfcBuildingElementProxyType() { }
+
+		public IfcBuildingElementProxyType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcBuildingElementProxyTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcBuildingElementType : IfcElementType
@@ -4105,6 +5067,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcBuildingElementType() { }
+
+		public IfcBuildingElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcBuildingStorey : IfcSpatialStructureElement
@@ -4119,7 +5096,24 @@ namespace IFC4
 		//8	LongName : IfcLabel
 		//9	CompositionType : IfcElementCompositionEnum
 		//10	Elevation : IfcLengthMeasure
+
 		public IfcLengthMeasure Elevation { get; set; }
+
+		public IfcBuildingStorey() { }
+
+		public IfcBuildingStorey(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcElementCompositionEnum CompositionType, IfcLengthMeasure Elevation)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.CompositionType = CompositionType;
+			this.Elevation = Elevation;
+		}
 	}
 
 	public class IfcBuildingSystem : IfcSystem
@@ -4131,8 +5125,22 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	PredefinedType : IfcBuildingSystemTypeEnum
 		//7	LongName : IfcLabel
+
 		public IfcBuildingSystemTypeEnum PredefinedType { get; set; }
 		public IfcLabel LongName { get; set; }
+
+		public IfcBuildingSystem() { }
+
+		public IfcBuildingSystem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcBuildingSystemTypeEnum PredefinedType, IfcLabel LongName)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.PredefinedType = PredefinedType;
+			this.LongName = LongName;
+		}
 	}
 
 	public class IfcBurner : IfcEnergyConversionDevice
@@ -4146,7 +5154,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcBurnerTypeEnum
+
 		public IfcBurnerTypeEnum PredefinedType { get; set; }
+
+		public IfcBurner() { }
+
+		public IfcBurner(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBurnerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcBurnerType : IfcEnergyConversionDeviceType
@@ -4161,7 +5185,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcBurnerTypeEnum
+
 		public IfcBurnerTypeEnum PredefinedType { get; set; }
+
+		public IfcBurnerType() { }
+
+		public IfcBurnerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcBurnerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCShapeProfileDef : IfcParameterizedProfileDef
@@ -4174,11 +5215,26 @@ namespace IFC4
 		//6	WallThickness : IfcPositiveLengthMeasure
 		//7	Girth : IfcPositiveLengthMeasure
 		//8	InternalFilletRadius : IfcNonNegativeLengthMeasure
+
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure Width { get; set; }
 		public IfcPositiveLengthMeasure WallThickness { get; set; }
 		public IfcPositiveLengthMeasure Girth { get; set; }
 		public IfcNonNegativeLengthMeasure InternalFilletRadius { get; set; }
+
+		public IfcCShapeProfileDef() { }
+
+		public IfcCShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Depth, IfcPositiveLengthMeasure Width, IfcPositiveLengthMeasure WallThickness, IfcPositiveLengthMeasure Girth, IfcNonNegativeLengthMeasure InternalFilletRadius)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Depth = Depth;
+			this.Width = Width;
+			this.WallThickness = WallThickness;
+			this.Girth = Girth;
+			this.InternalFilletRadius = InternalFilletRadius;
+		}
 	}
 
 	public class IfcCableCarrierFitting : IfcFlowFitting
@@ -4192,7 +5248,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCableCarrierFittingTypeEnum
+
 		public IfcCableCarrierFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcCableCarrierFitting() { }
+
+		public IfcCableCarrierFitting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCableCarrierFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableCarrierFittingType : IfcFlowFittingType
@@ -4207,7 +5279,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCableCarrierFittingTypeEnum
+
 		public IfcCableCarrierFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcCableCarrierFittingType() { }
+
+		public IfcCableCarrierFittingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCableCarrierFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableCarrierSegment : IfcFlowSegment
@@ -4221,7 +5310,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCableCarrierSegmentTypeEnum
+
 		public IfcCableCarrierSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcCableCarrierSegment() { }
+
+		public IfcCableCarrierSegment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCableCarrierSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableCarrierSegmentType : IfcFlowSegmentType
@@ -4236,7 +5341,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCableCarrierSegmentTypeEnum
+
 		public IfcCableCarrierSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcCableCarrierSegmentType() { }
+
+		public IfcCableCarrierSegmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCableCarrierSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableFitting : IfcFlowFitting
@@ -4250,7 +5372,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCableFittingTypeEnum
+
 		public IfcCableFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcCableFitting() { }
+
+		public IfcCableFitting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCableFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableFittingType : IfcFlowFittingType
@@ -4265,7 +5403,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCableFittingTypeEnum
+
 		public IfcCableFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcCableFittingType() { }
+
+		public IfcCableFittingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCableFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableSegment : IfcFlowSegment
@@ -4279,7 +5434,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCableSegmentTypeEnum
+
 		public IfcCableSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcCableSegment() { }
+
+		public IfcCableSegment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCableSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCableSegmentType : IfcFlowSegmentType
@@ -4294,31 +5465,74 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCableSegmentTypeEnum
+
 		public IfcCableSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcCableSegmentType() { }
+
+		public IfcCableSegmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCableSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCartesianPoint : IfcPoint, IfcTrimmingSelect
 	{
 		//1	Coordinates : List<IfcLengthMeasure>
+
 		public List<IfcLengthMeasure> Coordinates { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcCartesianPoint() { }
+
+		public IfcCartesianPoint(List<IfcLengthMeasure> Coordinates)
+		{
+			this.Coordinates = Coordinates;
+		}
 	}
 
 	public abstract class IfcCartesianPointList : IfcGeometricRepresentationItem
 	{
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcCartesianPointList() { }
 	}
 
 	public class IfcCartesianPointList2D : IfcCartesianPointList
 	{
 		//1	CoordList : List<List<IfcLengthMeasure>>
+
 		public List<List<IfcLengthMeasure>> CoordList { get; set; }
+
+		public IfcCartesianPointList2D() { }
+
+		public IfcCartesianPointList2D(List<List<IfcLengthMeasure>> CoordList)
+		{
+			this.CoordList = CoordList;
+		}
 	}
 
 	public class IfcCartesianPointList3D : IfcCartesianPointList
 	{
 		//1	CoordList : List<List<IfcLengthMeasure>>
+
 		public List<List<IfcLengthMeasure>> CoordList { get; set; }
+
+		public IfcCartesianPointList3D() { }
+
+		public IfcCartesianPointList3D(List<List<IfcLengthMeasure>> CoordList)
+		{
+			this.CoordList = CoordList;
+		}
 	}
 
 	public abstract class IfcCartesianTransformationOperator : IfcGeometricRepresentationItem
@@ -4327,12 +5541,23 @@ namespace IFC4
 		//2	Axis2 : IfcDirection
 		//3	LocalOrigin : IfcCartesianPoint
 		//4	Scale : IfcReal
+
 		public IfcDirection Axis1 { get; set; }
 		public IfcDirection Axis2 { get; set; }
 		public IfcCartesianPoint LocalOrigin { get; set; }
 		public IfcReal Scale { get; set; }
 		public IfcReal Scl { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcCartesianTransformationOperator() { }
+
+		public IfcCartesianTransformationOperator(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale)
+		{
+			this.Axis1 = Axis1;
+			this.Axis2 = Axis2;
+			this.LocalOrigin = LocalOrigin;
+			this.Scale = Scale;
+		}
 	}
 
 	public class IfcCartesianTransformationOperator2D : IfcCartesianTransformationOperator
@@ -4341,7 +5566,18 @@ namespace IFC4
 		//2	Axis2 : IfcDirection
 		//3	LocalOrigin : IfcCartesianPoint
 		//4	Scale : IfcReal
+
 		public List<IfcDirection> U { get; set; }
+
+		public IfcCartesianTransformationOperator2D() { }
+
+		public IfcCartesianTransformationOperator2D(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale)
+		{
+			this.Axis1 = Axis1;
+			this.Axis2 = Axis2;
+			this.LocalOrigin = LocalOrigin;
+			this.Scale = Scale;
+		}
 	}
 
 	public class IfcCartesianTransformationOperator2DnonUniform : IfcCartesianTransformationOperator2D
@@ -4351,8 +5587,20 @@ namespace IFC4
 		//3	LocalOrigin : IfcCartesianPoint
 		//4	Scale : IfcReal
 		//5	Scale2 : IfcReal
+
 		public IfcReal Scale2 { get; set; }
 		public IfcReal Scl2 { get; set; }
+
+		public IfcCartesianTransformationOperator2DnonUniform() { }
+
+		public IfcCartesianTransformationOperator2DnonUniform(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcReal Scale2)
+		{
+			this.Axis1 = Axis1;
+			this.Axis2 = Axis2;
+			this.LocalOrigin = LocalOrigin;
+			this.Scale = Scale;
+			this.Scale2 = Scale2;
+		}
 	}
 
 	public class IfcCartesianTransformationOperator3D : IfcCartesianTransformationOperator
@@ -4362,8 +5610,20 @@ namespace IFC4
 		//3	LocalOrigin : IfcCartesianPoint
 		//4	Scale : IfcReal
 		//5	Axis3 : IfcDirection
+
 		public IfcDirection Axis3 { get; set; }
 		public List<IfcDirection> U { get; set; }
+
+		public IfcCartesianTransformationOperator3D() { }
+
+		public IfcCartesianTransformationOperator3D(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcDirection Axis3)
+		{
+			this.Axis1 = Axis1;
+			this.Axis2 = Axis2;
+			this.LocalOrigin = LocalOrigin;
+			this.Scale = Scale;
+			this.Axis3 = Axis3;
+		}
 	}
 
 	public class IfcCartesianTransformationOperator3DnonUniform : IfcCartesianTransformationOperator3D
@@ -4375,10 +5635,24 @@ namespace IFC4
 		//5	Axis3 : IfcDirection
 		//6	Scale2 : IfcReal
 		//7	Scale3 : IfcReal
+
 		public IfcReal Scale2 { get; set; }
 		public IfcReal Scale3 { get; set; }
 		public IfcReal Scl2 { get; set; }
 		public IfcReal Scl3 { get; set; }
+
+		public IfcCartesianTransformationOperator3DnonUniform() { }
+
+		public IfcCartesianTransformationOperator3DnonUniform(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcDirection Axis3, IfcReal Scale2, IfcReal Scale3)
+		{
+			this.Axis1 = Axis1;
+			this.Axis2 = Axis2;
+			this.LocalOrigin = LocalOrigin;
+			this.Scale = Scale;
+			this.Axis3 = Axis3;
+			this.Scale2 = Scale2;
+			this.Scale3 = Scale3;
+		}
 	}
 
 	public class IfcCenterLineProfileDef : IfcArbitraryOpenProfileDef
@@ -4387,7 +5661,18 @@ namespace IFC4
 		//2	ProfileName : IfcLabel
 		//3	Curve : IfcBoundedCurve
 		//4	Thickness : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Thickness { get; set; }
+
+		public IfcCenterLineProfileDef() { }
+
+		public IfcCenterLineProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcBoundedCurve Curve, IfcPositiveLengthMeasure Thickness)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Curve = Curve;
+			this.Thickness = Thickness;
+		}
 	}
 
 	public class IfcChiller : IfcEnergyConversionDevice
@@ -4401,7 +5686,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcChillerTypeEnum
+
 		public IfcChillerTypeEnum PredefinedType { get; set; }
+
+		public IfcChiller() { }
+
+		public IfcChiller(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcChillerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcChillerType : IfcEnergyConversionDeviceType
@@ -4416,7 +5717,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcChillerTypeEnum
+
 		public IfcChillerTypeEnum PredefinedType { get; set; }
+
+		public IfcChillerType() { }
+
+		public IfcChillerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcChillerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcChimney : IfcBuildingElement
@@ -4430,7 +5748,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcChimneyTypeEnum
+
 		public IfcChimneyTypeEnum PredefinedType { get; set; }
+
+		public IfcChimney() { }
+
+		public IfcChimney(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcChimneyTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcChimneyType : IfcBuildingElementType
@@ -4445,14 +5779,40 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcChimneyTypeEnum
+
 		public IfcChimneyTypeEnum PredefinedType { get; set; }
+
+		public IfcChimneyType() { }
+
+		public IfcChimneyType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcChimneyTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCircle : IfcConic
 	{
 		//1	Position : IfcAxis2Placement
 		//2	Radius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Radius { get; set; }
+
+		public IfcCircle() { }
+
+		public IfcCircle(IfcAxis2Placement Position, IfcPositiveLengthMeasure Radius)
+		{
+			this.Position = Position;
+			this.Radius = Radius;
+		}
 	}
 
 	public class IfcCircleHollowProfileDef : IfcCircleProfileDef
@@ -4462,7 +5822,19 @@ namespace IFC4
 		//3	Position : IfcAxis2Placement2D
 		//4	Radius : IfcPositiveLengthMeasure
 		//5	WallThickness : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure WallThickness { get; set; }
+
+		public IfcCircleHollowProfileDef() { }
+
+		public IfcCircleHollowProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Radius, IfcPositiveLengthMeasure WallThickness)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Radius = Radius;
+			this.WallThickness = WallThickness;
+		}
 	}
 
 	public class IfcCircleProfileDef : IfcParameterizedProfileDef
@@ -4471,7 +5843,18 @@ namespace IFC4
 		//2	ProfileName : IfcLabel
 		//3	Position : IfcAxis2Placement2D
 		//4	Radius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Radius { get; set; }
+
+		public IfcCircleProfileDef() { }
+
+		public IfcCircleProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Radius)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Radius = Radius;
+		}
 	}
 
 	public class IfcCivilElement : IfcElement
@@ -4484,6 +5867,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcCivilElement() { }
+
+		public IfcCivilElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcCivilElementType : IfcElementType
@@ -4497,6 +5894,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcCivilElementType() { }
+
+		public IfcCivilElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcClassification : IfcExternalInformation, IfcClassificationReferenceSelect, IfcClassificationSelect
@@ -4508,6 +5920,7 @@ namespace IFC4
 		//5	Description : IfcText
 		//6	Location : IfcURIReference
 		//7	ReferenceTokens : List<IfcIdentifier>
+
 		public IfcLabel Source { get; set; }
 		public IfcLabel Edition { get; set; }
 		public IfcDate EditionDate { get; set; }
@@ -4519,6 +5932,19 @@ namespace IFC4
 		public List<IfcClassificationReference> HasReferences { get; set; }
 		public IfcText GetDescription() { return Description; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
+
+		public IfcClassification() { }
+
+		public IfcClassification(IfcLabel Source, IfcLabel Edition, IfcDate EditionDate, IfcLabel Name, IfcText Description, IfcURIReference Location, List<IfcIdentifier> ReferenceTokens)
+		{
+			this.Source = Source;
+			this.Edition = Edition;
+			this.EditionDate = EditionDate;
+			this.Name = Name;
+			this.Description = Description;
+			this.Location = Location;
+			this.ReferenceTokens = ReferenceTokens;
+		}
 	}
 
 	public class IfcClassificationReference : IfcExternalReference, IfcClassificationReferenceSelect, IfcClassificationSelect
@@ -4529,6 +5955,7 @@ namespace IFC4
 		//4	ReferencedSource : IfcClassificationReferenceSelect
 		//5	Description : IfcText
 		//6	Sort : IfcIdentifier
+
 		public IfcClassificationReferenceSelect ReferencedSource { get; set; }
 		public IfcText Description { get; set; }
 		public IfcIdentifier Sort { get; set; }
@@ -4536,11 +5963,30 @@ namespace IFC4
 		public List<IfcClassificationReference> HasReferences { get; set; }
 		public IfcText GetDescription() { return Description; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
+
+		public IfcClassificationReference() { }
+
+		public IfcClassificationReference(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name, IfcClassificationReferenceSelect ReferencedSource, IfcText Description, IfcIdentifier Sort)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+			this.ReferencedSource = ReferencedSource;
+			this.Description = Description;
+			this.Sort = Sort;
+		}
 	}
 
 	public class IfcClosedShell : IfcConnectedFaceSet, IfcShell, IfcSolidOrShell
 	{
 		//1	CfsFaces : List<IfcFace>
+
+		public IfcClosedShell() { }
+
+		public IfcClosedShell(List<IfcFace> CfsFaces)
+		{
+			this.CfsFaces = CfsFaces;
+		}
 	}
 
 	public class IfcCoil : IfcEnergyConversionDevice
@@ -4554,7 +6000,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCoilTypeEnum
+
 		public IfcCoilTypeEnum PredefinedType { get; set; }
+
+		public IfcCoil() { }
+
+		public IfcCoil(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCoilTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCoilType : IfcEnergyConversionDeviceType
@@ -4569,7 +6031,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCoilTypeEnum
+
 		public IfcCoilTypeEnum PredefinedType { get; set; }
+
+		public IfcCoilType() { }
+
+		public IfcCoilType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCoilTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcColourRgb : IfcColourSpecification, IfcColourOrFactor
@@ -4578,21 +6057,48 @@ namespace IFC4
 		//2	Red : IfcNormalisedRatioMeasure
 		//3	Green : IfcNormalisedRatioMeasure
 		//4	Blue : IfcNormalisedRatioMeasure
+
 		public IfcNormalisedRatioMeasure Red { get; set; }
 		public IfcNormalisedRatioMeasure Green { get; set; }
 		public IfcNormalisedRatioMeasure Blue { get; set; }
+
+		public IfcColourRgb() { }
+
+		public IfcColourRgb(IfcLabel Name, IfcNormalisedRatioMeasure Red, IfcNormalisedRatioMeasure Green, IfcNormalisedRatioMeasure Blue)
+		{
+			this.Name = Name;
+			this.Red = Red;
+			this.Green = Green;
+			this.Blue = Blue;
+		}
 	}
 
 	public class IfcColourRgbList : IfcPresentationItem
 	{
 		//1	ColourList : List<List<IfcNormalisedRatioMeasure>>
+
 		public List<List<IfcNormalisedRatioMeasure>> ColourList { get; set; }
+
+		public IfcColourRgbList() { }
+
+		public IfcColourRgbList(List<List<IfcNormalisedRatioMeasure>> ColourList)
+		{
+			this.ColourList = ColourList;
+		}
 	}
 
 	public abstract class IfcColourSpecification : IfcPresentationItem, IfcColour
 	{
 		//1	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
+
+		public IfcColourSpecification() { }
+
+		public IfcColourSpecification(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcColumn : IfcBuildingElement
@@ -4606,7 +6112,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcColumnTypeEnum
+
 		public IfcColumnTypeEnum PredefinedType { get; set; }
+
+		public IfcColumn() { }
+
+		public IfcColumn(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcColumnTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcColumnStandardCase : IfcColumn
@@ -4620,6 +6142,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcColumnTypeEnum
+
+		public IfcColumnStandardCase() { }
+
+		public IfcColumnStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcColumnTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcColumnType : IfcBuildingElementType
@@ -4634,7 +6171,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcColumnTypeEnum
+
 		public IfcColumnTypeEnum PredefinedType { get; set; }
+
+		public IfcColumnType() { }
+
+		public IfcColumnType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcColumnTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCommunicationsAppliance : IfcFlowTerminal
@@ -4648,7 +6202,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCommunicationsApplianceTypeEnum
+
 		public IfcCommunicationsApplianceTypeEnum PredefinedType { get; set; }
+
+		public IfcCommunicationsAppliance() { }
+
+		public IfcCommunicationsAppliance(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCommunicationsApplianceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCommunicationsApplianceType : IfcFlowTerminalType
@@ -4663,7 +6233,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCommunicationsApplianceTypeEnum
+
 		public IfcCommunicationsApplianceTypeEnum PredefinedType { get; set; }
+
+		public IfcCommunicationsApplianceType() { }
+
+		public IfcCommunicationsApplianceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCommunicationsApplianceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcComplexProperty : IfcProperty
@@ -4672,8 +6259,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	UsageName : IfcIdentifier
 		//4	HasProperties : List<IfcProperty>
+
 		public IfcIdentifier UsageName { get; set; }
 		public List<IfcProperty> HasProperties { get; set; }
+
+		public IfcComplexProperty() { }
+
+		public IfcComplexProperty(IfcIdentifier Name, IfcText Description, IfcIdentifier UsageName, List<IfcProperty> HasProperties)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.UsageName = UsageName;
+			this.HasProperties = HasProperties;
+		}
 	}
 
 	public class IfcComplexPropertyTemplate : IfcPropertyTemplate
@@ -4685,26 +6283,58 @@ namespace IFC4
 		//5	UsageName : IfcLabel
 		//6	TemplateType : IfcComplexPropertyTemplateTypeEnum
 		//7	HasPropertyTemplates : List<IfcPropertyTemplate>
+
 		public IfcLabel UsageName { get; set; }
 		public IfcComplexPropertyTemplateTypeEnum TemplateType { get; set; }
 		public List<IfcPropertyTemplate> HasPropertyTemplates { get; set; }
+
+		public IfcComplexPropertyTemplate() { }
+
+		public IfcComplexPropertyTemplate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel UsageName, IfcComplexPropertyTemplateTypeEnum TemplateType, List<IfcPropertyTemplate> HasPropertyTemplates)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.UsageName = UsageName;
+			this.TemplateType = TemplateType;
+			this.HasPropertyTemplates = HasPropertyTemplates;
+		}
 	}
 
 	public class IfcCompositeCurve : IfcBoundedCurve
 	{
 		//1	Segments : List<IfcCompositeCurveSegment>
 		//2	SelfIntersect : IfcLogical
+
 		public List<IfcCompositeCurveSegment> Segments { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcInteger NSegments { get; set; }
 		public IfcLogical ClosedCurve { get; set; }
+
+		public IfcCompositeCurve() { }
+
+		public IfcCompositeCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
+		{
+			this.Segments = Segments;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcCompositeCurveOnSurface : IfcCompositeCurve, IfcCurveOnSurface
 	{
 		//1	Segments : List<IfcCompositeCurveSegment>
 		//2	SelfIntersect : IfcLogical
+
 		public List<IfcSurface> BasisSurface { get; set; }
+
+		public IfcCompositeCurveOnSurface() { }
+
+		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
+		{
+			this.Segments = Segments;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcCompositeCurveSegment : IfcGeometricRepresentationItem
@@ -4712,11 +6342,21 @@ namespace IFC4
 		//1	Transition : IfcTransitionCode
 		//2	SameSense : IfcBoolean
 		//3	ParentCurve : IfcCurve
+
 		public IfcTransitionCode Transition { get; set; }
 		public IfcBoolean SameSense { get; set; }
 		public IfcCurve ParentCurve { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public List<IfcCompositeCurve> UsingCurves { get; set; }
+
+		public IfcCompositeCurveSegment() { }
+
+		public IfcCompositeCurveSegment(IfcTransitionCode Transition, IfcBoolean SameSense, IfcCurve ParentCurve)
+		{
+			this.Transition = Transition;
+			this.SameSense = SameSense;
+			this.ParentCurve = ParentCurve;
+		}
 	}
 
 	public class IfcCompositeProfileDef : IfcProfileDef
@@ -4725,8 +6365,19 @@ namespace IFC4
 		//2	ProfileName : IfcLabel
 		//3	Profiles : List<IfcProfileDef>
 		//4	Label : IfcLabel
+
 		public List<IfcProfileDef> Profiles { get; set; }
 		public IfcLabel Label { get; set; }
+
+		public IfcCompositeProfileDef() { }
+
+		public IfcCompositeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, List<IfcProfileDef> Profiles, IfcLabel Label)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Profiles = Profiles;
+			this.Label = Label;
+		}
 	}
 
 	public class IfcCompressor : IfcFlowMovingDevice
@@ -4740,7 +6391,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCompressorTypeEnum
+
 		public IfcCompressorTypeEnum PredefinedType { get; set; }
+
+		public IfcCompressor() { }
+
+		public IfcCompressor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCompressorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCompressorType : IfcFlowMovingDeviceType
@@ -4755,7 +6422,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCompressorTypeEnum
+
 		public IfcCompressorTypeEnum PredefinedType { get; set; }
+
+		public IfcCompressorType() { }
+
+		public IfcCompressorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCompressorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCondenser : IfcEnergyConversionDevice
@@ -4769,7 +6453,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCondenserTypeEnum
+
 		public IfcCondenserTypeEnum PredefinedType { get; set; }
+
+		public IfcCondenser() { }
+
+		public IfcCondenser(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCondenserTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCondenserType : IfcEnergyConversionDeviceType
@@ -4784,31 +6484,74 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCondenserTypeEnum
+
 		public IfcCondenserTypeEnum PredefinedType { get; set; }
+
+		public IfcCondenserType() { }
+
+		public IfcCondenserType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCondenserTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcConic : IfcCurve
 	{
 		//1	Position : IfcAxis2Placement
+
 		public IfcAxis2Placement Position { get; set; }
+
+		public IfcConic() { }
+
+		public IfcConic(IfcAxis2Placement Position)
+		{
+			this.Position = Position;
+		}
 	}
 
 	public class IfcConnectedFaceSet : IfcTopologicalRepresentationItem
 	{
 		//1	CfsFaces : List<IfcFace>
+
 		public List<IfcFace> CfsFaces { get; set; }
+
+		public IfcConnectedFaceSet() { }
+
+		public IfcConnectedFaceSet(List<IfcFace> CfsFaces)
+		{
+			this.CfsFaces = CfsFaces;
+		}
 	}
 
 	public class IfcConnectionCurveGeometry : IfcConnectionGeometry
 	{
 		//1	CurveOnRelatingElement : IfcCurveOrEdgeCurve
 		//2	CurveOnRelatedElement : IfcCurveOrEdgeCurve
+
 		public IfcCurveOrEdgeCurve CurveOnRelatingElement { get; set; }
 		public IfcCurveOrEdgeCurve CurveOnRelatedElement { get; set; }
+
+		public IfcConnectionCurveGeometry() { }
+
+		public IfcConnectionCurveGeometry(IfcCurveOrEdgeCurve CurveOnRelatingElement, IfcCurveOrEdgeCurve CurveOnRelatedElement)
+		{
+			this.CurveOnRelatingElement = CurveOnRelatingElement;
+			this.CurveOnRelatedElement = CurveOnRelatedElement;
+		}
 	}
 
 	public abstract class IfcConnectionGeometry : IfcBase
 	{
+		public IfcConnectionGeometry() { }
 	}
 
 	public class IfcConnectionPointEccentricity : IfcConnectionPointGeometry
@@ -4818,33 +6561,72 @@ namespace IFC4
 		//3	EccentricityInX : IfcLengthMeasure
 		//4	EccentricityInY : IfcLengthMeasure
 		//5	EccentricityInZ : IfcLengthMeasure
+
 		public IfcLengthMeasure EccentricityInX { get; set; }
 		public IfcLengthMeasure EccentricityInY { get; set; }
 		public IfcLengthMeasure EccentricityInZ { get; set; }
+
+		public IfcConnectionPointEccentricity() { }
+
+		public IfcConnectionPointEccentricity(IfcPointOrVertexPoint PointOnRelatingElement, IfcPointOrVertexPoint PointOnRelatedElement, IfcLengthMeasure EccentricityInX, IfcLengthMeasure EccentricityInY, IfcLengthMeasure EccentricityInZ)
+		{
+			this.PointOnRelatingElement = PointOnRelatingElement;
+			this.PointOnRelatedElement = PointOnRelatedElement;
+			this.EccentricityInX = EccentricityInX;
+			this.EccentricityInY = EccentricityInY;
+			this.EccentricityInZ = EccentricityInZ;
+		}
 	}
 
 	public class IfcConnectionPointGeometry : IfcConnectionGeometry
 	{
 		//1	PointOnRelatingElement : IfcPointOrVertexPoint
 		//2	PointOnRelatedElement : IfcPointOrVertexPoint
+
 		public IfcPointOrVertexPoint PointOnRelatingElement { get; set; }
 		public IfcPointOrVertexPoint PointOnRelatedElement { get; set; }
+
+		public IfcConnectionPointGeometry() { }
+
+		public IfcConnectionPointGeometry(IfcPointOrVertexPoint PointOnRelatingElement, IfcPointOrVertexPoint PointOnRelatedElement)
+		{
+			this.PointOnRelatingElement = PointOnRelatingElement;
+			this.PointOnRelatedElement = PointOnRelatedElement;
+		}
 	}
 
 	public class IfcConnectionSurfaceGeometry : IfcConnectionGeometry
 	{
 		//1	SurfaceOnRelatingElement : IfcSurfaceOrFaceSurface
 		//2	SurfaceOnRelatedElement : IfcSurfaceOrFaceSurface
+
 		public IfcSurfaceOrFaceSurface SurfaceOnRelatingElement { get; set; }
 		public IfcSurfaceOrFaceSurface SurfaceOnRelatedElement { get; set; }
+
+		public IfcConnectionSurfaceGeometry() { }
+
+		public IfcConnectionSurfaceGeometry(IfcSurfaceOrFaceSurface SurfaceOnRelatingElement, IfcSurfaceOrFaceSurface SurfaceOnRelatedElement)
+		{
+			this.SurfaceOnRelatingElement = SurfaceOnRelatingElement;
+			this.SurfaceOnRelatedElement = SurfaceOnRelatedElement;
+		}
 	}
 
 	public class IfcConnectionVolumeGeometry : IfcConnectionGeometry
 	{
 		//1	VolumeOnRelatingElement : IfcSolidOrShell
 		//2	VolumeOnRelatedElement : IfcSolidOrShell
+
 		public IfcSolidOrShell VolumeOnRelatingElement { get; set; }
 		public IfcSolidOrShell VolumeOnRelatedElement { get; set; }
+
+		public IfcConnectionVolumeGeometry() { }
+
+		public IfcConnectionVolumeGeometry(IfcSolidOrShell VolumeOnRelatingElement, IfcSolidOrShell VolumeOnRelatedElement)
+		{
+			this.VolumeOnRelatingElement = VolumeOnRelatingElement;
+			this.VolumeOnRelatedElement = VolumeOnRelatedElement;
+		}
 	}
 
 	public abstract class IfcConstraint : IfcBase, IfcResourceObjectSelect
@@ -4856,6 +6638,7 @@ namespace IFC4
 		//5	CreatingActor : IfcActorSelect
 		//6	CreationTime : IfcDateTime
 		//7	UserDefinedGrade : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcConstraintEnum ConstraintGrade { get; set; }
@@ -4865,6 +6648,19 @@ namespace IFC4
 		public IfcLabel UserDefinedGrade { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
 		public List<IfcResourceConstraintRelationship> PropertiesForConstraint { get; set; }
+
+		public IfcConstraint() { }
+
+		public IfcConstraint(IfcLabel Name, IfcText Description, IfcConstraintEnum ConstraintGrade, IfcLabel ConstraintSource, IfcActorSelect CreatingActor, IfcDateTime CreationTime, IfcLabel UserDefinedGrade)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.ConstraintGrade = ConstraintGrade;
+			this.ConstraintSource = ConstraintSource;
+			this.CreatingActor = CreatingActor;
+			this.CreationTime = CreationTime;
+			this.UserDefinedGrade = UserDefinedGrade;
+		}
 	}
 
 	public class IfcConstructionEquipmentResource : IfcConstructionResource
@@ -4880,7 +6676,25 @@ namespace IFC4
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
 		//11	PredefinedType : IfcConstructionEquipmentResourceTypeEnum
+
 		public IfcConstructionEquipmentResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcConstructionEquipmentResource() { }
+
+		public IfcConstructionEquipmentResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcConstructionEquipmentResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcConstructionEquipmentResourceType : IfcConstructionResourceType
@@ -4897,7 +6711,26 @@ namespace IFC4
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
 		//12	PredefinedType : IfcConstructionEquipmentResourceTypeEnum
+
 		public IfcConstructionEquipmentResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcConstructionEquipmentResourceType() { }
+
+		public IfcConstructionEquipmentResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcConstructionEquipmentResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcConstructionMaterialResource : IfcConstructionResource
@@ -4913,7 +6746,25 @@ namespace IFC4
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
 		//11	PredefinedType : IfcConstructionMaterialResourceTypeEnum
+
 		public IfcConstructionMaterialResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcConstructionMaterialResource() { }
+
+		public IfcConstructionMaterialResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcConstructionMaterialResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcConstructionMaterialResourceType : IfcConstructionResourceType
@@ -4930,7 +6781,26 @@ namespace IFC4
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
 		//12	PredefinedType : IfcConstructionMaterialResourceTypeEnum
+
 		public IfcConstructionMaterialResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcConstructionMaterialResourceType() { }
+
+		public IfcConstructionMaterialResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcConstructionMaterialResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcConstructionProductResource : IfcConstructionResource
@@ -4946,7 +6816,25 @@ namespace IFC4
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
 		//11	PredefinedType : IfcConstructionProductResourceTypeEnum
+
 		public IfcConstructionProductResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcConstructionProductResource() { }
+
+		public IfcConstructionProductResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcConstructionProductResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcConstructionProductResourceType : IfcConstructionResourceType
@@ -4963,7 +6851,26 @@ namespace IFC4
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
 		//12	PredefinedType : IfcConstructionProductResourceTypeEnum
+
 		public IfcConstructionProductResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcConstructionProductResourceType() { }
+
+		public IfcConstructionProductResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcConstructionProductResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcConstructionResource : IfcResource
@@ -4978,9 +6885,26 @@ namespace IFC4
 		//8	Usage : IfcResourceTime
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
+
 		public IfcResourceTime Usage { get; set; }
 		public List<IfcAppliedValue> BaseCosts { get; set; }
 		public IfcPhysicalQuantity BaseQuantity { get; set; }
+
+		public IfcConstructionResource() { }
+
+		public IfcConstructionResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+		}
 	}
 
 	public abstract class IfcConstructionResourceType : IfcTypeResource
@@ -4996,8 +6920,26 @@ namespace IFC4
 		//9	ResourceType : IfcLabel
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
+
 		public List<IfcAppliedValue> BaseCosts { get; set; }
 		public IfcPhysicalQuantity BaseQuantity { get; set; }
+
+		public IfcConstructionResourceType() { }
+
+		public IfcConstructionResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+		}
 	}
 
 	public abstract class IfcContext : IfcObjectDefinition
@@ -5011,6 +6953,7 @@ namespace IFC4
 		//7	Phase : IfcLabel
 		//8	RepresentationContexts : List<IfcRepresentationContext>
 		//9	UnitsInContext : IfcUnitAssignment
+
 		public IfcLabel ObjectType { get; set; }
 		public IfcLabel LongName { get; set; }
 		public IfcLabel Phase { get; set; }
@@ -5018,6 +6961,21 @@ namespace IFC4
 		public IfcUnitAssignment UnitsInContext { get; set; }
 		public List<IfcRelDefinesByProperties> IsDefinedBy { get; set; }
 		public List<IfcRelDeclares> Declares { get; set; }
+
+		public IfcContext() { }
+
+		public IfcContext(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcLabel Phase, List<IfcRepresentationContext> RepresentationContexts, IfcUnitAssignment UnitsInContext)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.LongName = LongName;
+			this.Phase = Phase;
+			this.RepresentationContexts = RepresentationContexts;
+			this.UnitsInContext = UnitsInContext;
+		}
 	}
 
 	public class IfcContextDependentUnit : IfcNamedUnit, IfcResourceObjectSelect
@@ -5025,8 +6983,18 @@ namespace IFC4
 		//1	Dimensions : IfcDimensionalExponents
 		//2	UnitType : IfcUnitEnum
 		//3	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+
+		public IfcContextDependentUnit() { }
+
+		public IfcContextDependentUnit(IfcDimensionalExponents Dimensions, IfcUnitEnum UnitType, IfcLabel Name)
+		{
+			this.Dimensions = Dimensions;
+			this.UnitType = UnitType;
+			this.Name = Name;
+		}
 	}
 
 	public abstract class IfcControl : IfcObject
@@ -5037,8 +7005,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	ObjectType : IfcLabel
 		//6	Identification : IfcIdentifier
+
 		public IfcIdentifier Identification { get; set; }
 		public List<IfcRelAssignsToControl> Controls { get; set; }
+
+		public IfcControl() { }
+
+		public IfcControl(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+		}
 	}
 
 	public class IfcController : IfcDistributionControlElement
@@ -5052,7 +7033,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcControllerTypeEnum
+
 		public IfcControllerTypeEnum PredefinedType { get; set; }
+
+		public IfcController() { }
+
+		public IfcController(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcControllerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcControllerType : IfcDistributionControlElementType
@@ -5067,7 +7064,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcControllerTypeEnum
+
 		public IfcControllerTypeEnum PredefinedType { get; set; }
+
+		public IfcControllerType() { }
+
+		public IfcControllerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcControllerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcConversionBasedUnit : IfcNamedUnit, IfcResourceObjectSelect
@@ -5076,9 +7090,20 @@ namespace IFC4
 		//2	UnitType : IfcUnitEnum
 		//3	Name : IfcLabel
 		//4	ConversionFactor : IfcMeasureWithUnit
+
 		public IfcLabel Name { get; set; }
 		public IfcMeasureWithUnit ConversionFactor { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+
+		public IfcConversionBasedUnit() { }
+
+		public IfcConversionBasedUnit(IfcDimensionalExponents Dimensions, IfcUnitEnum UnitType, IfcLabel Name, IfcMeasureWithUnit ConversionFactor)
+		{
+			this.Dimensions = Dimensions;
+			this.UnitType = UnitType;
+			this.Name = Name;
+			this.ConversionFactor = ConversionFactor;
+		}
 	}
 
 	public class IfcConversionBasedUnitWithOffset : IfcConversionBasedUnit
@@ -5088,7 +7113,19 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	ConversionFactor : IfcMeasureWithUnit
 		//5	ConversionOffset : IfcReal
+
 		public IfcReal ConversionOffset { get; set; }
+
+		public IfcConversionBasedUnitWithOffset() { }
+
+		public IfcConversionBasedUnitWithOffset(IfcDimensionalExponents Dimensions, IfcUnitEnum UnitType, IfcLabel Name, IfcMeasureWithUnit ConversionFactor, IfcReal ConversionOffset)
+		{
+			this.Dimensions = Dimensions;
+			this.UnitType = UnitType;
+			this.Name = Name;
+			this.ConversionFactor = ConversionFactor;
+			this.ConversionOffset = ConversionOffset;
+		}
 	}
 
 	public class IfcCooledBeam : IfcEnergyConversionDevice
@@ -5102,7 +7139,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCooledBeamTypeEnum
+
 		public IfcCooledBeamTypeEnum PredefinedType { get; set; }
+
+		public IfcCooledBeam() { }
+
+		public IfcCooledBeam(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCooledBeamTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCooledBeamType : IfcEnergyConversionDeviceType
@@ -5117,7 +7170,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCooledBeamTypeEnum
+
 		public IfcCooledBeamTypeEnum PredefinedType { get; set; }
+
+		public IfcCooledBeamType() { }
+
+		public IfcCooledBeamType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCooledBeamTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCoolingTower : IfcEnergyConversionDevice
@@ -5131,7 +7201,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCoolingTowerTypeEnum
+
 		public IfcCoolingTowerTypeEnum PredefinedType { get; set; }
+
+		public IfcCoolingTower() { }
+
+		public IfcCoolingTower(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCoolingTowerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCoolingTowerType : IfcEnergyConversionDeviceType
@@ -5146,15 +7232,41 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCoolingTowerTypeEnum
+
 		public IfcCoolingTowerTypeEnum PredefinedType { get; set; }
+
+		public IfcCoolingTowerType() { }
+
+		public IfcCoolingTowerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCoolingTowerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcCoordinateOperation : IfcBase
 	{
 		//1	SourceCRS : IfcCoordinateReferenceSystemSelect
 		//2	TargetCRS : IfcCoordinateReferenceSystem
+
 		public IfcCoordinateReferenceSystemSelect SourceCRS { get; set; }
 		public IfcCoordinateReferenceSystem TargetCRS { get; set; }
+
+		public IfcCoordinateOperation() { }
+
+		public IfcCoordinateOperation(IfcCoordinateReferenceSystemSelect SourceCRS, IfcCoordinateReferenceSystem TargetCRS)
+		{
+			this.SourceCRS = SourceCRS;
+			this.TargetCRS = TargetCRS;
+		}
 	}
 
 	public abstract class IfcCoordinateReferenceSystem : IfcBase, IfcCoordinateReferenceSystemSelect
@@ -5163,12 +7275,23 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	GeodeticDatum : IfcIdentifier
 		//4	VerticalDatum : IfcIdentifier
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcIdentifier GeodeticDatum { get; set; }
 		public IfcIdentifier VerticalDatum { get; set; }
 		public List<IfcCoordinateOperation> HasCoordinateOperation { get; set; }
 		public List<IfcCoordinateOperation> GetHasCoordinateOperation() { return HasCoordinateOperation; }
+
+		public IfcCoordinateReferenceSystem() { }
+
+		public IfcCoordinateReferenceSystem(IfcLabel Name, IfcText Description, IfcIdentifier GeodeticDatum, IfcIdentifier VerticalDatum)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.GeodeticDatum = GeodeticDatum;
+			this.VerticalDatum = VerticalDatum;
+		}
 	}
 
 	public class IfcCostItem : IfcControl
@@ -5182,9 +7305,25 @@ namespace IFC4
 		//7	PredefinedType : IfcCostItemTypeEnum
 		//8	CostValues : List<IfcCostValue>
 		//9	CostQuantities : List<IfcPhysicalQuantity>
+
 		public IfcCostItemTypeEnum PredefinedType { get; set; }
 		public List<IfcCostValue> CostValues { get; set; }
 		public List<IfcPhysicalQuantity> CostQuantities { get; set; }
+
+		public IfcCostItem() { }
+
+		public IfcCostItem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcCostItemTypeEnum PredefinedType, List<IfcCostValue> CostValues, List<IfcPhysicalQuantity> CostQuantities)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.PredefinedType = PredefinedType;
+			this.CostValues = CostValues;
+			this.CostQuantities = CostQuantities;
+		}
 	}
 
 	public class IfcCostSchedule : IfcControl
@@ -5199,10 +7338,27 @@ namespace IFC4
 		//8	Status : IfcLabel
 		//9	SubmittedOn : IfcDateTime
 		//10	UpdateDate : IfcDateTime
+
 		public IfcCostScheduleTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcDateTime SubmittedOn { get; set; }
 		public IfcDateTime UpdateDate { get; set; }
+
+		public IfcCostSchedule() { }
+
+		public IfcCostSchedule(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcCostScheduleTypeEnum PredefinedType, IfcLabel Status, IfcDateTime SubmittedOn, IfcDateTime UpdateDate)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.PredefinedType = PredefinedType;
+			this.Status = Status;
+			this.SubmittedOn = SubmittedOn;
+			this.UpdateDate = UpdateDate;
+		}
 	}
 
 	public class IfcCostValue : IfcAppliedValue
@@ -5217,6 +7373,22 @@ namespace IFC4
 		//8	Condition : IfcLabel
 		//9	ArithmeticOperator : IfcArithmeticOperatorEnum
 		//10	Components : List<IfcAppliedValue>
+
+		public IfcCostValue() { }
+
+		public IfcCostValue(IfcLabel Name, IfcText Description, IfcAppliedValueSelect AppliedValue, IfcMeasureWithUnit UnitBasis, IfcDate ApplicableDate, IfcDate FixedUntilDate, IfcLabel Category, IfcLabel Condition, IfcArithmeticOperatorEnum ArithmeticOperator, List<IfcAppliedValue> Components)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.AppliedValue = AppliedValue;
+			this.UnitBasis = UnitBasis;
+			this.ApplicableDate = ApplicableDate;
+			this.FixedUntilDate = FixedUntilDate;
+			this.Category = Category;
+			this.Condition = Condition;
+			this.ArithmeticOperator = ArithmeticOperator;
+			this.Components = Components;
+		}
 	}
 
 	public class IfcCovering : IfcBuildingElement
@@ -5230,9 +7402,25 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCoveringTypeEnum
+
 		public IfcCoveringTypeEnum PredefinedType { get; set; }
 		public List<IfcRelCoversSpaces> CoversSpaces { get; set; }
 		public List<IfcRelCoversBldgElements> CoversElements { get; set; }
+
+		public IfcCovering() { }
+
+		public IfcCovering(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCoveringTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCoveringType : IfcBuildingElementType
@@ -5247,7 +7435,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCoveringTypeEnum
+
 		public IfcCoveringTypeEnum PredefinedType { get; set; }
+
+		public IfcCoveringType() { }
+
+		public IfcCoveringType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCoveringTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCrewResource : IfcConstructionResource
@@ -5263,7 +7468,25 @@ namespace IFC4
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
 		//11	PredefinedType : IfcCrewResourceTypeEnum
+
 		public IfcCrewResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcCrewResource() { }
+
+		public IfcCrewResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcCrewResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCrewResourceType : IfcConstructionResourceType
@@ -5280,21 +7503,56 @@ namespace IFC4
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
 		//12	PredefinedType : IfcCrewResourceTypeEnum
+
 		public IfcCrewResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcCrewResourceType() { }
+
+		public IfcCrewResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcCrewResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcCsgPrimitive3D : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcCsgSelect
 	{
 		//1	Position : IfcAxis2Placement3D
+
 		public IfcAxis2Placement3D Position { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcCsgPrimitive3D() { }
+
+		public IfcCsgPrimitive3D(IfcAxis2Placement3D Position)
+		{
+			this.Position = Position;
+		}
 	}
 
 	public class IfcCsgSolid : IfcSolidModel
 	{
 		//1	TreeRootExpression : IfcCsgSelect
+
 		public IfcCsgSelect TreeRootExpression { get; set; }
+
+		public IfcCsgSolid() { }
+
+		public IfcCsgSolid(IfcCsgSelect TreeRootExpression)
+		{
+			this.TreeRootExpression = TreeRootExpression;
+		}
 	}
 
 	public class IfcCurrencyRelationship : IfcResourceLevelRelationship
@@ -5306,11 +7564,25 @@ namespace IFC4
 		//5	ExchangeRate : IfcPositiveRatioMeasure
 		//6	RateDateTime : IfcDateTime
 		//7	RateSource : IfcLibraryInformation
+
 		public IfcMonetaryUnit RelatingMonetaryUnit { get; set; }
 		public IfcMonetaryUnit RelatedMonetaryUnit { get; set; }
 		public IfcPositiveRatioMeasure ExchangeRate { get; set; }
 		public IfcDateTime RateDateTime { get; set; }
 		public IfcLibraryInformation RateSource { get; set; }
+
+		public IfcCurrencyRelationship() { }
+
+		public IfcCurrencyRelationship(IfcLabel Name, IfcText Description, IfcMonetaryUnit RelatingMonetaryUnit, IfcMonetaryUnit RelatedMonetaryUnit, IfcPositiveRatioMeasure ExchangeRate, IfcDateTime RateDateTime, IfcLibraryInformation RateSource)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingMonetaryUnit = RelatingMonetaryUnit;
+			this.RelatedMonetaryUnit = RelatedMonetaryUnit;
+			this.ExchangeRate = ExchangeRate;
+			this.RateDateTime = RateDateTime;
+			this.RateSource = RateSource;
+		}
 	}
 
 	public class IfcCurtainWall : IfcBuildingElement
@@ -5324,7 +7596,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcCurtainWallTypeEnum
+
 		public IfcCurtainWallTypeEnum PredefinedType { get; set; }
+
+		public IfcCurtainWall() { }
+
+		public IfcCurtainWall(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcCurtainWallTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcCurtainWallType : IfcBuildingElementType
@@ -5339,12 +7627,31 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcCurtainWallTypeEnum
+
 		public IfcCurtainWallTypeEnum PredefinedType { get; set; }
+
+		public IfcCurtainWallType() { }
+
+		public IfcCurtainWallType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcCurtainWallTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcCurve : IfcGeometricRepresentationItem, IfcGeometricSetSelect
 	{
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcCurve() { }
 	}
 
 	public class IfcCurveBoundedPlane : IfcBoundedSurface
@@ -5352,9 +7659,19 @@ namespace IFC4
 		//1	BasisSurface : IfcPlane
 		//2	OuterBoundary : IfcCurve
 		//3	InnerBoundaries : List<IfcCurve>
+
 		public IfcPlane BasisSurface { get; set; }
 		public IfcCurve OuterBoundary { get; set; }
 		public List<IfcCurve> InnerBoundaries { get; set; }
+
+		public IfcCurveBoundedPlane() { }
+
+		public IfcCurveBoundedPlane(IfcPlane BasisSurface, IfcCurve OuterBoundary, List<IfcCurve> InnerBoundaries)
+		{
+			this.BasisSurface = BasisSurface;
+			this.OuterBoundary = OuterBoundary;
+			this.InnerBoundaries = InnerBoundaries;
+		}
 	}
 
 	public class IfcCurveBoundedSurface : IfcBoundedSurface
@@ -5362,9 +7679,19 @@ namespace IFC4
 		//1	BasisSurface : IfcSurface
 		//2	Boundaries : List<IfcBoundaryCurve>
 		//3	ImplicitOuter : IfcBoolean
+
 		public IfcSurface BasisSurface { get; set; }
 		public List<IfcBoundaryCurve> Boundaries { get; set; }
 		public IfcBoolean ImplicitOuter { get; set; }
+
+		public IfcCurveBoundedSurface() { }
+
+		public IfcCurveBoundedSurface(IfcSurface BasisSurface, List<IfcBoundaryCurve> Boundaries, IfcBoolean ImplicitOuter)
+		{
+			this.BasisSurface = BasisSurface;
+			this.Boundaries = Boundaries;
+			this.ImplicitOuter = ImplicitOuter;
+		}
 	}
 
 	public class IfcCurveStyle : IfcPresentationStyle, IfcPresentationStyleSelect
@@ -5374,18 +7701,39 @@ namespace IFC4
 		//3	CurveWidth : IfcSizeSelect
 		//4	CurveColour : IfcColour
 		//5	ModelOrDraughting : IfcBoolean
+
 		public IfcCurveFontOrScaledCurveFontSelect CurveFont { get; set; }
 		public IfcSizeSelect CurveWidth { get; set; }
 		public IfcColour CurveColour { get; set; }
 		public IfcBoolean ModelOrDraughting { get; set; }
+
+		public IfcCurveStyle() { }
+
+		public IfcCurveStyle(IfcLabel Name, IfcCurveFontOrScaledCurveFontSelect CurveFont, IfcSizeSelect CurveWidth, IfcColour CurveColour, IfcBoolean ModelOrDraughting)
+		{
+			this.Name = Name;
+			this.CurveFont = CurveFont;
+			this.CurveWidth = CurveWidth;
+			this.CurveColour = CurveColour;
+			this.ModelOrDraughting = ModelOrDraughting;
+		}
 	}
 
 	public class IfcCurveStyleFont : IfcPresentationItem, IfcCurveStyleFontSelect
 	{
 		//1	Name : IfcLabel
 		//2	PatternList : List<IfcCurveStyleFontPattern>
+
 		public IfcLabel Name { get; set; }
 		public List<IfcCurveStyleFontPattern> PatternList { get; set; }
+
+		public IfcCurveStyleFont() { }
+
+		public IfcCurveStyleFont(IfcLabel Name, List<IfcCurveStyleFontPattern> PatternList)
+		{
+			this.Name = Name;
+			this.PatternList = PatternList;
+		}
 	}
 
 	public class IfcCurveStyleFontAndScaling : IfcPresentationItem, IfcCurveFontOrScaledCurveFontSelect
@@ -5393,24 +7741,52 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	CurveFont : IfcCurveStyleFontSelect
 		//3	CurveFontScaling : IfcPositiveRatioMeasure
+
 		public IfcLabel Name { get; set; }
 		public IfcCurveStyleFontSelect CurveFont { get; set; }
 		public IfcPositiveRatioMeasure CurveFontScaling { get; set; }
+
+		public IfcCurveStyleFontAndScaling() { }
+
+		public IfcCurveStyleFontAndScaling(IfcLabel Name, IfcCurveStyleFontSelect CurveFont, IfcPositiveRatioMeasure CurveFontScaling)
+		{
+			this.Name = Name;
+			this.CurveFont = CurveFont;
+			this.CurveFontScaling = CurveFontScaling;
+		}
 	}
 
 	public class IfcCurveStyleFontPattern : IfcPresentationItem
 	{
 		//1	VisibleSegmentLength : IfcLengthMeasure
 		//2	InvisibleSegmentLength : IfcPositiveLengthMeasure
+
 		public IfcLengthMeasure VisibleSegmentLength { get; set; }
 		public IfcPositiveLengthMeasure InvisibleSegmentLength { get; set; }
+
+		public IfcCurveStyleFontPattern() { }
+
+		public IfcCurveStyleFontPattern(IfcLengthMeasure VisibleSegmentLength, IfcPositiveLengthMeasure InvisibleSegmentLength)
+		{
+			this.VisibleSegmentLength = VisibleSegmentLength;
+			this.InvisibleSegmentLength = InvisibleSegmentLength;
+		}
 	}
 
 	public class IfcCylindricalSurface : IfcElementarySurface
 	{
 		//1	Position : IfcAxis2Placement3D
 		//2	Radius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Radius { get; set; }
+
+		public IfcCylindricalSurface() { }
+
+		public IfcCylindricalSurface(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure Radius)
+		{
+			this.Position = Position;
+			this.Radius = Radius;
+		}
 	}
 
 	public class IfcDamper : IfcFlowController
@@ -5424,7 +7800,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcDamperTypeEnum
+
 		public IfcDamperTypeEnum PredefinedType { get; set; }
+
+		public IfcDamper() { }
+
+		public IfcDamper(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcDamperTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDamperType : IfcFlowControllerType
@@ -5439,7 +7831,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcDamperTypeEnum
+
 		public IfcDamperTypeEnum PredefinedType { get; set; }
+
+		public IfcDamperType() { }
+
+		public IfcDamperType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDamperTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDerivedProfileDef : IfcProfileDef
@@ -5449,9 +7858,21 @@ namespace IFC4
 		//3	ParentProfile : IfcProfileDef
 		//4	Operator : IfcCartesianTransformationOperator2D
 		//5	Label : IfcLabel
+
 		public IfcProfileDef ParentProfile { get; set; }
 		public IfcCartesianTransformationOperator2D Operator { get; set; }
 		public IfcLabel Label { get; set; }
+
+		public IfcDerivedProfileDef() { }
+
+		public IfcDerivedProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcProfileDef ParentProfile, IfcCartesianTransformationOperator2D Operator, IfcLabel Label)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.ParentProfile = ParentProfile;
+			this.Operator = Operator;
+			this.Label = Label;
+		}
 	}
 
 	public class IfcDerivedUnit : IfcBase
@@ -5459,18 +7880,37 @@ namespace IFC4
 		//1	Elements : List<IfcDerivedUnitElement>
 		//2	UnitType : IfcDerivedUnitEnum
 		//3	UserDefinedType : IfcLabel
+
 		public List<IfcDerivedUnitElement> Elements { get; set; }
 		public IfcDerivedUnitEnum UnitType { get; set; }
 		public IfcLabel UserDefinedType { get; set; }
 		public IfcDimensionalExponents Dimensions { get; set; }
+
+		public IfcDerivedUnit() { }
+
+		public IfcDerivedUnit(List<IfcDerivedUnitElement> Elements, IfcDerivedUnitEnum UnitType, IfcLabel UserDefinedType)
+		{
+			this.Elements = Elements;
+			this.UnitType = UnitType;
+			this.UserDefinedType = UserDefinedType;
+		}
 	}
 
 	public class IfcDerivedUnitElement : IfcBase
 	{
 		//1	Unit : IfcNamedUnit
 		//2	Exponent : INTEGER
+
 		public IfcNamedUnit Unit { get; set; }
 		public INTEGER Exponent { get; set; }
+
+		public IfcDerivedUnitElement() { }
+
+		public IfcDerivedUnitElement(IfcNamedUnit Unit, INTEGER Exponent)
+		{
+			this.Unit = Unit;
+			this.Exponent = Exponent;
+		}
 	}
 
 	public class IfcDimensionalExponents : IfcBase
@@ -5482,6 +7922,7 @@ namespace IFC4
 		//5	ThermodynamicTemperatureExponent : INTEGER
 		//6	AmountOfSubstanceExponent : INTEGER
 		//7	LuminousIntensityExponent : INTEGER
+
 		public INTEGER LengthExponent { get; set; }
 		public INTEGER MassExponent { get; set; }
 		public INTEGER TimeExponent { get; set; }
@@ -5489,15 +7930,62 @@ namespace IFC4
 		public INTEGER ThermodynamicTemperatureExponent { get; set; }
 		public INTEGER AmountOfSubstanceExponent { get; set; }
 		public INTEGER LuminousIntensityExponent { get; set; }
+
+		public IfcDimensionalExponents() { }
+		public IfcDimensionalExponents(int LengthExponent, int MassExponent, int TimeExponent, int ElectricCurrentExponent, int ThermodynamicTemperatureExponent, int AmountOfSubstanceExponent, int LuminousIntensityExponent)
+		{
+			this.LengthExponent = LengthExponent;
+			this.MassExponent = MassExponent;
+			this.TimeExponent = TimeExponent;
+			this.ElectricCurrentExponent = ElectricCurrentExponent;
+			this.ThermodynamicTemperatureExponent = ThermodynamicTemperatureExponent;
+			this.AmountOfSubstanceExponent = AmountOfSubstanceExponent;
+			this.LuminousIntensityExponent = LuminousIntensityExponent;
+		}
+		public IfcDimensionalExponents(INTEGER LengthExponent, INTEGER MassExponent, INTEGER TimeExponent, INTEGER ElectricCurrentExponent, INTEGER ThermodynamicTemperatureExponent, INTEGER AmountOfSubstanceExponent, INTEGER LuminousIntensityExponent)
+		{
+			this.LengthExponent = LengthExponent;
+			this.MassExponent = MassExponent;
+			this.TimeExponent = TimeExponent;
+			this.ElectricCurrentExponent = ElectricCurrentExponent;
+			this.ThermodynamicTemperatureExponent = ThermodynamicTemperatureExponent;
+			this.AmountOfSubstanceExponent = AmountOfSubstanceExponent;
+			this.LuminousIntensityExponent = LuminousIntensityExponent;
+		}
+
+		public bool Compare(int LengthExponent, int MassExponent, int TimeExponent, int ElectricCurrentExponent, int ThermodynamicTemperatureExponent, int AmountOfSubstanceExponent, int LuminousIntensityExponent)
+        {
+			return this.LengthExponent == LengthExponent &&
+			this.MassExponent == MassExponent &&
+			this.TimeExponent == TimeExponent &&
+			this.ElectricCurrentExponent == ElectricCurrentExponent &&
+			this.ThermodynamicTemperatureExponent == ThermodynamicTemperatureExponent &&
+			this.AmountOfSubstanceExponent == AmountOfSubstanceExponent &&
+			this.LuminousIntensityExponent == LuminousIntensityExponent;
+		}
 	}
 
 	public class IfcDirection : IfcGeometricRepresentationItem, IfcGridPlacementDirectionSelect, IfcVectorOrDirection
 	{
 		//1	DirectionRatios : List<IfcReal>
+
 		public List<IfcReal> DirectionRatios { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public List<IfcReal> GetDirectionRatios() { return DirectionRatios; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcDirection() { }
+		public IfcDirection(double a, double b)
+		{
+			this.DirectionRatios = new List<IfcReal>() { (IfcReal)a, (IfcReal)b };
+		}
+		public IfcDirection(double a, double b, double c) {
+			this.DirectionRatios = new List<IfcReal>() { (IfcReal)a, (IfcReal)b, (IfcReal)c } ;
+		}
+		public IfcDirection(List<IfcReal> DirectionRatios)
+		{
+			this.DirectionRatios = DirectionRatios;
+		}
 	}
 
 	public class IfcDiscreteAccessory : IfcElementComponent
@@ -5511,7 +7999,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcDiscreteAccessoryTypeEnum
+
 		public IfcDiscreteAccessoryTypeEnum PredefinedType { get; set; }
+
+		public IfcDiscreteAccessory() { }
+
+		public IfcDiscreteAccessory(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcDiscreteAccessoryTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDiscreteAccessoryType : IfcElementComponentType
@@ -5526,7 +8030,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcDiscreteAccessoryTypeEnum
+
 		public IfcDiscreteAccessoryTypeEnum PredefinedType { get; set; }
+
+		public IfcDiscreteAccessoryType() { }
+
+		public IfcDiscreteAccessoryType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDiscreteAccessoryTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDistributionChamberElement : IfcDistributionFlowElement
@@ -5540,7 +8061,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcDistributionChamberElementTypeEnum
+
 		public IfcDistributionChamberElementTypeEnum PredefinedType { get; set; }
+
+		public IfcDistributionChamberElement() { }
+
+		public IfcDistributionChamberElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcDistributionChamberElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDistributionChamberElementType : IfcDistributionFlowElementType
@@ -5555,7 +8092,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcDistributionChamberElementTypeEnum
+
 		public IfcDistributionChamberElementTypeEnum PredefinedType { get; set; }
+
+		public IfcDistributionChamberElementType() { }
+
+		public IfcDistributionChamberElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDistributionChamberElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDistributionCircuit : IfcDistributionSystem
@@ -5567,6 +8121,19 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	LongName : IfcLabel
 		//7	PredefinedType : IfcDistributionSystemEnum
+
+		public IfcDistributionCircuit() { }
+
+		public IfcDistributionCircuit(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcDistributionSystemEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.LongName = LongName;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDistributionControlElement : IfcDistributionElement
@@ -5579,7 +8146,22 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
 		public List<IfcRelFlowControlElements> AssignedToFlowElement { get; set; }
+
+		public IfcDistributionControlElement() { }
+
+		public IfcDistributionControlElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcDistributionControlElementType : IfcDistributionElementType
@@ -5593,6 +8175,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcDistributionControlElementType() { }
+
+		public IfcDistributionControlElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcDistributionElement : IfcElement
@@ -5605,7 +8202,22 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
 		public List<IfcRelConnectsPortToElement> HasPorts { get; set; }
+
+		public IfcDistributionElement() { }
+
+		public IfcDistributionElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcDistributionElementType : IfcElementType
@@ -5619,6 +8231,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcDistributionElementType() { }
+
+		public IfcDistributionElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcDistributionFlowElement : IfcDistributionElement
@@ -5631,7 +8258,22 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
 		public List<IfcRelFlowControlElements> HasControlElements { get; set; }
+
+		public IfcDistributionFlowElement() { }
+
+		public IfcDistributionFlowElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcDistributionFlowElementType : IfcDistributionElementType
@@ -5645,6 +8287,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcDistributionFlowElementType() { }
+
+		public IfcDistributionFlowElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcDistributionPort : IfcPort
@@ -5659,9 +8316,26 @@ namespace IFC4
 		//8	FlowDirection : IfcFlowDirectionEnum
 		//9	PredefinedType : IfcDistributionPortTypeEnum
 		//10	SystemType : IfcDistributionSystemEnum
+
 		public IfcFlowDirectionEnum FlowDirection { get; set; }
 		public IfcDistributionPortTypeEnum PredefinedType { get; set; }
 		public IfcDistributionSystemEnum SystemType { get; set; }
+
+		public IfcDistributionPort() { }
+
+		public IfcDistributionPort(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcFlowDirectionEnum FlowDirection, IfcDistributionPortTypeEnum PredefinedType, IfcDistributionSystemEnum SystemType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.FlowDirection = FlowDirection;
+			this.PredefinedType = PredefinedType;
+			this.SystemType = SystemType;
+		}
 	}
 
 	public class IfcDistributionSystem : IfcSystem
@@ -5673,8 +8347,22 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	LongName : IfcLabel
 		//7	PredefinedType : IfcDistributionSystemEnum
+
 		public IfcLabel LongName { get; set; }
 		public IfcDistributionSystemEnum PredefinedType { get; set; }
+
+		public IfcDistributionSystem() { }
+
+		public IfcDistributionSystem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcDistributionSystemEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.LongName = LongName;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDocumentInformation : IfcExternalInformation, IfcDocumentSelect
@@ -5696,6 +8384,7 @@ namespace IFC4
 		//15	ValidUntil : IfcDate
 		//16	Confidentiality : IfcDocumentConfidentialityEnum
 		//17	Status : IfcDocumentStatusEnum
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -5718,6 +8407,29 @@ namespace IFC4
 		public List<IfcDocumentInformationRelationship> IsPointedTo { get; set; }
 		public List<IfcDocumentInformationRelationship> IsPointer { get; set; }
 		public IfcText GetDescription() { return Description; }
+
+		public IfcDocumentInformation() { }
+
+		public IfcDocumentInformation(IfcIdentifier Identification, IfcLabel Name, IfcText Description, IfcURIReference Location, IfcText Purpose, IfcText IntendedUse, IfcText Scope, IfcLabel Revision, IfcActorSelect DocumentOwner, List<IfcActorSelect> Editors, IfcDateTime CreationTime, IfcDateTime LastRevisionTime, IfcIdentifier ElectronicFormat, IfcDate ValidFrom, IfcDate ValidUntil, IfcDocumentConfidentialityEnum Confidentiality, IfcDocumentStatusEnum Status)
+		{
+			this.Identification = Identification;
+			this.Name = Name;
+			this.Description = Description;
+			this.Location = Location;
+			this.Purpose = Purpose;
+			this.IntendedUse = IntendedUse;
+			this.Scope = Scope;
+			this.Revision = Revision;
+			this.DocumentOwner = DocumentOwner;
+			this.Editors = Editors;
+			this.CreationTime = CreationTime;
+			this.LastRevisionTime = LastRevisionTime;
+			this.ElectronicFormat = ElectronicFormat;
+			this.ValidFrom = ValidFrom;
+			this.ValidUntil = ValidUntil;
+			this.Confidentiality = Confidentiality;
+			this.Status = Status;
+		}
 	}
 
 	public class IfcDocumentInformationRelationship : IfcResourceLevelRelationship
@@ -5727,9 +8439,21 @@ namespace IFC4
 		//3	RelatingDocument : IfcDocumentInformation
 		//4	RelatedDocuments : List<IfcDocumentInformation>
 		//5	RelationshipType : IfcLabel
+
 		public IfcDocumentInformation RelatingDocument { get; set; }
 		public List<IfcDocumentInformation> RelatedDocuments { get; set; }
 		public IfcLabel RelationshipType { get; set; }
+
+		public IfcDocumentInformationRelationship() { }
+
+		public IfcDocumentInformationRelationship(IfcLabel Name, IfcText Description, IfcDocumentInformation RelatingDocument, List<IfcDocumentInformation> RelatedDocuments, IfcLabel RelationshipType)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingDocument = RelatingDocument;
+			this.RelatedDocuments = RelatedDocuments;
+			this.RelationshipType = RelationshipType;
+		}
 	}
 
 	public class IfcDocumentReference : IfcExternalReference, IfcDocumentSelect
@@ -5739,10 +8463,22 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	Description : IfcText
 		//5	ReferencedDocument : IfcDocumentInformation
+
 		public IfcText Description { get; set; }
 		public IfcDocumentInformation ReferencedDocument { get; set; }
 		public List<IfcRelAssociatesDocument> DocumentRefForObjects { get; set; }
 		public IfcText GetDescription() { return Description; }
+
+		public IfcDocumentReference() { }
+
+		public IfcDocumentReference(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name, IfcText Description, IfcDocumentInformation ReferencedDocument)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+			this.Description = Description;
+			this.ReferencedDocument = ReferencedDocument;
+		}
 	}
 
 	public class IfcDoor : IfcBuildingElement
@@ -5760,11 +8496,31 @@ namespace IFC4
 		//11	PredefinedType : IfcDoorTypeEnum
 		//12	OperationType : IfcDoorTypeOperationEnum
 		//13	UserDefinedOperationType : IfcLabel
+
 		public IfcPositiveLengthMeasure OverallHeight { get; set; }
 		public IfcPositiveLengthMeasure OverallWidth { get; set; }
 		public IfcDoorTypeEnum PredefinedType { get; set; }
 		public IfcDoorTypeOperationEnum OperationType { get; set; }
 		public IfcLabel UserDefinedOperationType { get; set; }
+
+		public IfcDoor() { }
+
+		public IfcDoor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure OverallHeight, IfcPositiveLengthMeasure OverallWidth, IfcDoorTypeEnum PredefinedType, IfcDoorTypeOperationEnum OperationType, IfcLabel UserDefinedOperationType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.OverallHeight = OverallHeight;
+			this.OverallWidth = OverallWidth;
+			this.PredefinedType = PredefinedType;
+			this.OperationType = OperationType;
+			this.UserDefinedOperationType = UserDefinedOperationType;
+		}
 	}
 
 	public class IfcDoorLiningProperties : IfcPreDefinedPropertySet
@@ -5786,6 +8542,7 @@ namespace IFC4
 		//15	ShapeAspectStyle : IfcShapeAspect
 		//16	LiningToPanelOffsetX : IfcLengthMeasure
 		//17	LiningToPanelOffsetY : IfcLengthMeasure
+
 		public IfcPositiveLengthMeasure LiningDepth { get; set; }
 		public IfcNonNegativeLengthMeasure LiningThickness { get; set; }
 		public IfcPositiveLengthMeasure ThresholdDepth { get; set; }
@@ -5799,6 +8556,29 @@ namespace IFC4
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetX { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetY { get; set; }
+
+		public IfcDoorLiningProperties() { }
+
+		public IfcDoorLiningProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPositiveLengthMeasure LiningDepth, IfcNonNegativeLengthMeasure LiningThickness, IfcPositiveLengthMeasure ThresholdDepth, IfcNonNegativeLengthMeasure ThresholdThickness, IfcNonNegativeLengthMeasure TransomThickness, IfcLengthMeasure TransomOffset, IfcLengthMeasure LiningOffset, IfcLengthMeasure ThresholdOffset, IfcPositiveLengthMeasure CasingThickness, IfcPositiveLengthMeasure CasingDepth, IfcShapeAspect ShapeAspectStyle, IfcLengthMeasure LiningToPanelOffsetX, IfcLengthMeasure LiningToPanelOffsetY)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.LiningDepth = LiningDepth;
+			this.LiningThickness = LiningThickness;
+			this.ThresholdDepth = ThresholdDepth;
+			this.ThresholdThickness = ThresholdThickness;
+			this.TransomThickness = TransomThickness;
+			this.TransomOffset = TransomOffset;
+			this.LiningOffset = LiningOffset;
+			this.ThresholdOffset = ThresholdOffset;
+			this.CasingThickness = CasingThickness;
+			this.CasingDepth = CasingDepth;
+			this.ShapeAspectStyle = ShapeAspectStyle;
+			this.LiningToPanelOffsetX = LiningToPanelOffsetX;
+			this.LiningToPanelOffsetY = LiningToPanelOffsetY;
+		}
 	}
 
 	public class IfcDoorPanelProperties : IfcPreDefinedPropertySet
@@ -5812,11 +8592,27 @@ namespace IFC4
 		//7	PanelWidth : IfcNormalisedRatioMeasure
 		//8	PanelPosition : IfcDoorPanelPositionEnum
 		//9	ShapeAspectStyle : IfcShapeAspect
+
 		public IfcPositiveLengthMeasure PanelDepth { get; set; }
 		public IfcDoorPanelOperationEnum PanelOperation { get; set; }
 		public IfcNormalisedRatioMeasure PanelWidth { get; set; }
 		public IfcDoorPanelPositionEnum PanelPosition { get; set; }
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
+
+		public IfcDoorPanelProperties() { }
+
+		public IfcDoorPanelProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPositiveLengthMeasure PanelDepth, IfcDoorPanelOperationEnum PanelOperation, IfcNormalisedRatioMeasure PanelWidth, IfcDoorPanelPositionEnum PanelPosition, IfcShapeAspect ShapeAspectStyle)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.PanelDepth = PanelDepth;
+			this.PanelOperation = PanelOperation;
+			this.PanelWidth = PanelWidth;
+			this.PanelPosition = PanelPosition;
+			this.ShapeAspectStyle = ShapeAspectStyle;
+		}
 	}
 
 	public class IfcDoorStandardCase : IfcDoor
@@ -5834,6 +8630,25 @@ namespace IFC4
 		//11	PredefinedType : IfcDoorTypeEnum
 		//12	OperationType : IfcDoorTypeOperationEnum
 		//13	UserDefinedOperationType : IfcLabel
+
+		public IfcDoorStandardCase() { }
+
+		public IfcDoorStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure OverallHeight, IfcPositiveLengthMeasure OverallWidth, IfcDoorTypeEnum PredefinedType, IfcDoorTypeOperationEnum OperationType, IfcLabel UserDefinedOperationType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.OverallHeight = OverallHeight;
+			this.OverallWidth = OverallWidth;
+			this.PredefinedType = PredefinedType;
+			this.OperationType = OperationType;
+			this.UserDefinedOperationType = UserDefinedOperationType;
+		}
 	}
 
 	public class IfcDoorStyle : IfcTypeProduct
@@ -5850,10 +8665,29 @@ namespace IFC4
 		//10	ConstructionType : IfcDoorStyleConstructionEnum
 		//11	ParameterTakesPrecedence : IfcBoolean
 		//12	Sizeable : IfcBoolean
+
 		public IfcDoorStyleOperationEnum OperationType { get; set; }
 		public IfcDoorStyleConstructionEnum ConstructionType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
 		public IfcBoolean Sizeable { get; set; }
+
+		public IfcDoorStyle() { }
+
+		public IfcDoorStyle(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcDoorStyleOperationEnum OperationType, IfcDoorStyleConstructionEnum ConstructionType, IfcBoolean ParameterTakesPrecedence, IfcBoolean Sizeable)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.OperationType = OperationType;
+			this.ConstructionType = ConstructionType;
+			this.ParameterTakesPrecedence = ParameterTakesPrecedence;
+			this.Sizeable = Sizeable;
+		}
 	}
 
 	public class IfcDoorType : IfcBuildingElementType
@@ -5871,20 +8705,54 @@ namespace IFC4
 		//11	OperationType : IfcDoorTypeOperationEnum
 		//12	ParameterTakesPrecedence : IfcBoolean
 		//13	UserDefinedOperationType : IfcLabel
+
 		public IfcDoorTypeEnum PredefinedType { get; set; }
 		public IfcDoorTypeOperationEnum OperationType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
 		public IfcLabel UserDefinedOperationType { get; set; }
+
+		public IfcDoorType() { }
+
+		public IfcDoorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDoorTypeEnum PredefinedType, IfcDoorTypeOperationEnum OperationType, IfcBoolean ParameterTakesPrecedence, IfcLabel UserDefinedOperationType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.OperationType = OperationType;
+			this.ParameterTakesPrecedence = ParameterTakesPrecedence;
+			this.UserDefinedOperationType = UserDefinedOperationType;
+		}
 	}
 
 	public class IfcDraughtingPreDefinedColour : IfcPreDefinedColour
 	{
 		//1	Name : IfcLabel
+
+		public IfcDraughtingPreDefinedColour() { }
+
+		public IfcDraughtingPreDefinedColour(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcDraughtingPreDefinedCurveFont : IfcPreDefinedCurveFont
 	{
 		//1	Name : IfcLabel
+
+		public IfcDraughtingPreDefinedCurveFont() { }
+
+		public IfcDraughtingPreDefinedCurveFont(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcDuctFitting : IfcFlowFitting
@@ -5898,7 +8766,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcDuctFittingTypeEnum
+
 		public IfcDuctFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcDuctFitting() { }
+
+		public IfcDuctFitting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcDuctFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDuctFittingType : IfcFlowFittingType
@@ -5913,7 +8797,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcDuctFittingTypeEnum
+
 		public IfcDuctFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcDuctFittingType() { }
+
+		public IfcDuctFittingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDuctFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDuctSegment : IfcFlowSegment
@@ -5927,7 +8828,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcDuctSegmentTypeEnum
+
 		public IfcDuctSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcDuctSegment() { }
+
+		public IfcDuctSegment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcDuctSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDuctSegmentType : IfcFlowSegmentType
@@ -5942,7 +8859,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcDuctSegmentTypeEnum
+
 		public IfcDuctSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcDuctSegmentType() { }
+
+		public IfcDuctSegmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDuctSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDuctSilencer : IfcFlowTreatmentDevice
@@ -5956,7 +8890,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcDuctSilencerTypeEnum
+
 		public IfcDuctSilencerTypeEnum PredefinedType { get; set; }
+
+		public IfcDuctSilencer() { }
+
+		public IfcDuctSilencer(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcDuctSilencerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcDuctSilencerType : IfcFlowTreatmentDeviceType
@@ -5971,15 +8921,41 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcDuctSilencerTypeEnum
+
 		public IfcDuctSilencerTypeEnum PredefinedType { get; set; }
+
+		public IfcDuctSilencerType() { }
+
+		public IfcDuctSilencerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcDuctSilencerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEdge : IfcTopologicalRepresentationItem
 	{
 		//1	EdgeStart : IfcVertex
 		//2	EdgeEnd : IfcVertex
+
 		public IfcVertex EdgeStart { get; set; }
 		public IfcVertex EdgeEnd { get; set; }
+
+		public IfcEdge() { }
+
+		public IfcEdge(IfcVertex EdgeStart, IfcVertex EdgeEnd)
+		{
+			this.EdgeStart = EdgeStart;
+			this.EdgeEnd = EdgeEnd;
+		}
 	}
 
 	public class IfcEdgeCurve : IfcEdge, IfcCurveOrEdgeCurve
@@ -5988,15 +8964,34 @@ namespace IFC4
 		//2	EdgeEnd : IfcVertex
 		//3	EdgeGeometry : IfcCurve
 		//4	SameSense : IfcBoolean
+
 		public IfcCurve EdgeGeometry { get; set; }
 		public IfcBoolean SameSense { get; set; }
+
+		public IfcEdgeCurve() { }
+
+		public IfcEdgeCurve(IfcVertex EdgeStart, IfcVertex EdgeEnd, IfcCurve EdgeGeometry, IfcBoolean SameSense)
+		{
+			this.EdgeStart = EdgeStart;
+			this.EdgeEnd = EdgeEnd;
+			this.EdgeGeometry = EdgeGeometry;
+			this.SameSense = SameSense;
+		}
 	}
 
 	public class IfcEdgeLoop : IfcLoop
 	{
 		//1	EdgeList : List<IfcOrientedEdge>
+
 		public List<IfcOrientedEdge> EdgeList { get; set; }
 		public IfcInteger Ne { get; set; }
+
+		public IfcEdgeLoop() { }
+
+		public IfcEdgeLoop(List<IfcOrientedEdge> EdgeList)
+		{
+			this.EdgeList = EdgeList;
+		}
 	}
 
 	public class IfcElectricAppliance : IfcFlowTerminal
@@ -6010,7 +9005,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcElectricApplianceTypeEnum
+
 		public IfcElectricApplianceTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricAppliance() { }
+
+		public IfcElectricAppliance(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcElectricApplianceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricApplianceType : IfcFlowTerminalType
@@ -6025,7 +9036,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElectricApplianceTypeEnum
+
 		public IfcElectricApplianceTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricApplianceType() { }
+
+		public IfcElectricApplianceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElectricApplianceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricDistributionBoard : IfcFlowController
@@ -6039,7 +9067,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcElectricDistributionBoardTypeEnum
+
 		public IfcElectricDistributionBoardTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricDistributionBoard() { }
+
+		public IfcElectricDistributionBoard(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcElectricDistributionBoardTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricDistributionBoardType : IfcFlowControllerType
@@ -6054,7 +9098,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElectricDistributionBoardTypeEnum
+
 		public IfcElectricDistributionBoardTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricDistributionBoardType() { }
+
+		public IfcElectricDistributionBoardType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElectricDistributionBoardTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricFlowStorageDevice : IfcFlowStorageDevice
@@ -6068,7 +9129,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcElectricFlowStorageDeviceTypeEnum
+
 		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricFlowStorageDevice() { }
+
+		public IfcElectricFlowStorageDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcElectricFlowStorageDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricFlowStorageDeviceType : IfcFlowStorageDeviceType
@@ -6083,7 +9160,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElectricFlowStorageDeviceTypeEnum
+
 		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricFlowStorageDeviceType() { }
+
+		public IfcElectricFlowStorageDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElectricFlowStorageDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricGenerator : IfcEnergyConversionDevice
@@ -6097,7 +9191,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcElectricGeneratorTypeEnum
+
 		public IfcElectricGeneratorTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricGenerator() { }
+
+		public IfcElectricGenerator(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcElectricGeneratorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricGeneratorType : IfcEnergyConversionDeviceType
@@ -6112,7 +9222,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElectricGeneratorTypeEnum
+
 		public IfcElectricGeneratorTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricGeneratorType() { }
+
+		public IfcElectricGeneratorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElectricGeneratorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricMotor : IfcEnergyConversionDevice
@@ -6126,7 +9253,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcElectricMotorTypeEnum
+
 		public IfcElectricMotorTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricMotor() { }
+
+		public IfcElectricMotor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcElectricMotorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricMotorType : IfcEnergyConversionDeviceType
@@ -6141,7 +9284,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElectricMotorTypeEnum
+
 		public IfcElectricMotorTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricMotorType() { }
+
+		public IfcElectricMotorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElectricMotorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricTimeControl : IfcFlowController
@@ -6155,7 +9315,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcElectricTimeControlTypeEnum
+
 		public IfcElectricTimeControlTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricTimeControl() { }
+
+		public IfcElectricTimeControl(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcElectricTimeControlTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElectricTimeControlType : IfcFlowControllerType
@@ -6170,7 +9346,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElectricTimeControlTypeEnum
+
 		public IfcElectricTimeControlTypeEnum PredefinedType { get; set; }
+
+		public IfcElectricTimeControlType() { }
+
+		public IfcElectricTimeControlType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElectricTimeControlTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcElement : IfcProduct, IfcStructuralActivityAssignmentSelect
@@ -6183,6 +9376,7 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
 		public IfcIdentifier Tag { get; set; }
 		public List<IfcRelFillsElement> FillsVoids { get; set; }
 		public List<IfcRelConnectsElements> ConnectedTo { get; set; }
@@ -6196,6 +9390,20 @@ namespace IFC4
 		public List<IfcRelConnectsElements> ConnectedFrom { get; set; }
 		public List<IfcRelContainedInSpatialStructure> ContainedInStructure { get; set; }
 		public List<IfcRelCoversBldgElements> HasCoverings { get; set; }
+
+		public IfcElement() { }
+
+		public IfcElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcElementAssembly : IfcElement
@@ -6210,8 +9418,25 @@ namespace IFC4
 		//8	Tag : IfcIdentifier
 		//9	AssemblyPlace : IfcAssemblyPlaceEnum
 		//10	PredefinedType : IfcElementAssemblyTypeEnum
+
 		public IfcAssemblyPlaceEnum AssemblyPlace { get; set; }
 		public IfcElementAssemblyTypeEnum PredefinedType { get; set; }
+
+		public IfcElementAssembly() { }
+
+		public IfcElementAssembly(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcAssemblyPlaceEnum AssemblyPlace, IfcElementAssemblyTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.AssemblyPlace = AssemblyPlace;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcElementAssemblyType : IfcElementType
@@ -6226,7 +9451,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcElementAssemblyTypeEnum
+
 		public IfcElementAssemblyTypeEnum PredefinedType { get; set; }
+
+		public IfcElementAssemblyType() { }
+
+		public IfcElementAssemblyType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcElementAssemblyTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcElementComponent : IfcElement
@@ -6239,6 +9481,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcElementComponent() { }
+
+		public IfcElementComponent(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcElementComponentType : IfcElementType
@@ -6252,6 +9508,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcElementComponentType() { }
+
+		public IfcElementComponentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcElementQuantity : IfcQuantitySet
@@ -6262,8 +9533,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	MethodOfMeasurement : IfcLabel
 		//6	Quantities : List<IfcPhysicalQuantity>
+
 		public IfcLabel MethodOfMeasurement { get; set; }
 		public List<IfcPhysicalQuantity> Quantities { get; set; }
+
+		public IfcElementQuantity() { }
+
+		public IfcElementQuantity(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel MethodOfMeasurement, List<IfcPhysicalQuantity> Quantities)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.MethodOfMeasurement = MethodOfMeasurement;
+			this.Quantities = Quantities;
+		}
 	}
 
 	public abstract class IfcElementType : IfcTypeProduct
@@ -6277,13 +9561,37 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
 		public IfcLabel ElementType { get; set; }
+
+		public IfcElementType() { }
+
+		public IfcElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public abstract class IfcElementarySurface : IfcSurface
 	{
 		//1	Position : IfcAxis2Placement3D
+
 		public IfcAxis2Placement3D Position { get; set; }
+
+		public IfcElementarySurface() { }
+
+		public IfcElementarySurface(IfcAxis2Placement3D Position)
+		{
+			this.Position = Position;
+		}
 	}
 
 	public class IfcEllipse : IfcConic
@@ -6291,8 +9599,18 @@ namespace IFC4
 		//1	Position : IfcAxis2Placement
 		//2	SemiAxis1 : IfcPositiveLengthMeasure
 		//3	SemiAxis2 : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure SemiAxis1 { get; set; }
 		public IfcPositiveLengthMeasure SemiAxis2 { get; set; }
+
+		public IfcEllipse() { }
+
+		public IfcEllipse(IfcAxis2Placement Position, IfcPositiveLengthMeasure SemiAxis1, IfcPositiveLengthMeasure SemiAxis2)
+		{
+			this.Position = Position;
+			this.SemiAxis1 = SemiAxis1;
+			this.SemiAxis2 = SemiAxis2;
+		}
 	}
 
 	public class IfcEllipseProfileDef : IfcParameterizedProfileDef
@@ -6302,8 +9620,20 @@ namespace IFC4
 		//3	Position : IfcAxis2Placement2D
 		//4	SemiAxis1 : IfcPositiveLengthMeasure
 		//5	SemiAxis2 : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure SemiAxis1 { get; set; }
 		public IfcPositiveLengthMeasure SemiAxis2 { get; set; }
+
+		public IfcEllipseProfileDef() { }
+
+		public IfcEllipseProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure SemiAxis1, IfcPositiveLengthMeasure SemiAxis2)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.SemiAxis1 = SemiAxis1;
+			this.SemiAxis2 = SemiAxis2;
+		}
 	}
 
 	public class IfcEnergyConversionDevice : IfcDistributionFlowElement
@@ -6316,6 +9646,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcEnergyConversionDevice() { }
+
+		public IfcEnergyConversionDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcEnergyConversionDeviceType : IfcDistributionFlowElementType
@@ -6329,6 +9673,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcEnergyConversionDeviceType() { }
+
+		public IfcEnergyConversionDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcEngine : IfcEnergyConversionDevice
@@ -6342,7 +9701,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcEngineTypeEnum
+
 		public IfcEngineTypeEnum PredefinedType { get; set; }
+
+		public IfcEngine() { }
+
+		public IfcEngine(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcEngineTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEngineType : IfcEnergyConversionDeviceType
@@ -6357,7 +9732,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcEngineTypeEnum
+
 		public IfcEngineTypeEnum PredefinedType { get; set; }
+
+		public IfcEngineType() { }
+
+		public IfcEngineType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcEngineTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEvaporativeCooler : IfcEnergyConversionDevice
@@ -6371,7 +9763,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcEvaporativeCoolerTypeEnum
+
 		public IfcEvaporativeCoolerTypeEnum PredefinedType { get; set; }
+
+		public IfcEvaporativeCooler() { }
+
+		public IfcEvaporativeCooler(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcEvaporativeCoolerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEvaporativeCoolerType : IfcEnergyConversionDeviceType
@@ -6386,7 +9794,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcEvaporativeCoolerTypeEnum
+
 		public IfcEvaporativeCoolerTypeEnum PredefinedType { get; set; }
+
+		public IfcEvaporativeCoolerType() { }
+
+		public IfcEvaporativeCoolerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcEvaporativeCoolerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEvaporator : IfcEnergyConversionDevice
@@ -6400,7 +9825,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcEvaporatorTypeEnum
+
 		public IfcEvaporatorTypeEnum PredefinedType { get; set; }
+
+		public IfcEvaporator() { }
+
+		public IfcEvaporator(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcEvaporatorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEvaporatorType : IfcEnergyConversionDeviceType
@@ -6415,7 +9856,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcEvaporatorTypeEnum
+
 		public IfcEvaporatorTypeEnum PredefinedType { get; set; }
+
+		public IfcEvaporatorType() { }
+
+		public IfcEvaporatorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcEvaporatorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcEvent : IfcProcess
@@ -6431,10 +9889,28 @@ namespace IFC4
 		//9	EventTriggerType : IfcEventTriggerTypeEnum
 		//10	UserDefinedEventTriggerType : IfcLabel
 		//11	EventOccurenceTime : IfcEventTime
+
 		public IfcEventTypeEnum PredefinedType { get; set; }
 		public IfcEventTriggerTypeEnum EventTriggerType { get; set; }
 		public IfcLabel UserDefinedEventTriggerType { get; set; }
 		public IfcEventTime EventOccurenceTime { get; set; }
+
+		public IfcEvent() { }
+
+		public IfcEvent(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcEventTypeEnum PredefinedType, IfcEventTriggerTypeEnum EventTriggerType, IfcLabel UserDefinedEventTriggerType, IfcEventTime EventOccurenceTime)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.PredefinedType = PredefinedType;
+			this.EventTriggerType = EventTriggerType;
+			this.UserDefinedEventTriggerType = UserDefinedEventTriggerType;
+			this.EventOccurenceTime = EventOccurenceTime;
+		}
 	}
 
 	public class IfcEventTime : IfcSchedulingTime
@@ -6446,10 +9922,24 @@ namespace IFC4
 		//5	EarlyDate : IfcDateTime
 		//6	LateDate : IfcDateTime
 		//7	ScheduleDate : IfcDateTime
+
 		public IfcDateTime ActualDate { get; set; }
 		public IfcDateTime EarlyDate { get; set; }
 		public IfcDateTime LateDate { get; set; }
 		public IfcDateTime ScheduleDate { get; set; }
+
+		public IfcEventTime() { }
+
+		public IfcEventTime(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcDateTime ActualDate, IfcDateTime EarlyDate, IfcDateTime LateDate, IfcDateTime ScheduleDate)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.ActualDate = ActualDate;
+			this.EarlyDate = EarlyDate;
+			this.LateDate = LateDate;
+			this.ScheduleDate = ScheduleDate;
+		}
 	}
 
 	public class IfcEventType : IfcTypeProcess
@@ -6466,9 +9956,28 @@ namespace IFC4
 		//10	PredefinedType : IfcEventTypeEnum
 		//11	EventTriggerType : IfcEventTriggerTypeEnum
 		//12	UserDefinedEventTriggerType : IfcLabel
+
 		public IfcEventTypeEnum PredefinedType { get; set; }
 		public IfcEventTriggerTypeEnum EventTriggerType { get; set; }
 		public IfcLabel UserDefinedEventTriggerType { get; set; }
+
+		public IfcEventType() { }
+
+		public IfcEventType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ProcessType, IfcEventTypeEnum PredefinedType, IfcEventTriggerTypeEnum EventTriggerType, IfcLabel UserDefinedEventTriggerType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ProcessType = ProcessType;
+			this.PredefinedType = PredefinedType;
+			this.EventTriggerType = EventTriggerType;
+			this.UserDefinedEventTriggerType = UserDefinedEventTriggerType;
+		}
 	}
 
 	public abstract class IfcExtendedProperties : IfcPropertyAbstraction
@@ -6476,13 +9985,24 @@ namespace IFC4
 		//1	Name : IfcIdentifier
 		//2	Description : IfcText
 		//3	Properties : List<IfcProperty>
+
 		public IfcIdentifier Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcProperty> Properties { get; set; }
+
+		public IfcExtendedProperties() { }
+
+		public IfcExtendedProperties(IfcIdentifier Name, IfcText Description, List<IfcProperty> Properties)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Properties = Properties;
+		}
 	}
 
 	public abstract class IfcExternalInformation : IfcBase, IfcResourceObjectSelect
 	{
+		public IfcExternalInformation() { }
 	}
 
 	public abstract class IfcExternalReference : IfcBase, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
@@ -6490,6 +10010,7 @@ namespace IFC4
 		//1	Location : IfcURIReference
 		//2	Identification : IfcIdentifier
 		//3	Name : IfcLabel
+
 		public IfcURIReference Location { get; set; }
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel Name { get; set; }
@@ -6498,6 +10019,15 @@ namespace IFC4
 		public IfcIdentifier GetIdentification() { return Identification; }
 		public IfcLabel GetName() { return Name; }
 		public List<IfcExternalReferenceRelationship> GetExternalReferenceForResources() { return ExternalReferenceForResources; }
+
+		public IfcExternalReference() { }
+
+		public IfcExternalReference(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+		}
 	}
 
 	public class IfcExternalReferenceRelationship : IfcResourceLevelRelationship
@@ -6506,8 +10036,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	RelatingReference : IfcExternalReference
 		//4	RelatedResourceObjects : List<IfcResourceObjectSelect>
+
 		public IfcExternalReference RelatingReference { get; set; }
 		public List<IfcResourceObjectSelect> RelatedResourceObjects { get; set; }
+
+		public IfcExternalReferenceRelationship() { }
+
+		public IfcExternalReferenceRelationship(IfcLabel Name, IfcText Description, IfcExternalReference RelatingReference, List<IfcResourceObjectSelect> RelatedResourceObjects)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingReference = RelatingReference;
+			this.RelatedResourceObjects = RelatedResourceObjects;
+		}
 	}
 
 	public class IfcExternalSpatialElement : IfcExternalSpatialStructureElement, IfcSpaceBoundarySelect
@@ -6521,9 +10062,25 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	LongName : IfcLabel
 		//9	PredefinedType : IfcExternalSpatialElementTypeEnum
+
 		public IfcExternalSpatialElementTypeEnum PredefinedType { get; set; }
 		public List<IfcRelSpaceBoundary> BoundedBy { get; set; }
 		public List<IfcRelSpaceBoundary> GetBoundedBy() { return BoundedBy; }
+
+		public IfcExternalSpatialElement() { }
+
+		public IfcExternalSpatialElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcExternalSpatialElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcExternalSpatialStructureElement : IfcSpatialElement
@@ -6536,6 +10093,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	LongName : IfcLabel
+
+		public IfcExternalSpatialStructureElement() { }
+
+		public IfcExternalSpatialStructureElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+		}
 	}
 
 	public class IfcExternallyDefinedHatchStyle : IfcExternalReference, IfcFillStyleSelect
@@ -6543,6 +10114,15 @@ namespace IFC4
 		//1	Location : IfcURIReference
 		//2	Identification : IfcIdentifier
 		//3	Name : IfcLabel
+
+		public IfcExternallyDefinedHatchStyle() { }
+
+		public IfcExternallyDefinedHatchStyle(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+		}
 	}
 
 	public class IfcExternallyDefinedSurfaceStyle : IfcExternalReference, IfcSurfaceStyleElementSelect
@@ -6550,6 +10130,15 @@ namespace IFC4
 		//1	Location : IfcURIReference
 		//2	Identification : IfcIdentifier
 		//3	Name : IfcLabel
+
+		public IfcExternallyDefinedSurfaceStyle() { }
+
+		public IfcExternallyDefinedSurfaceStyle(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+		}
 	}
 
 	public class IfcExternallyDefinedTextFont : IfcExternalReference, IfcTextFontSelect
@@ -6557,6 +10146,15 @@ namespace IFC4
 		//1	Location : IfcURIReference
 		//2	Identification : IfcIdentifier
 		//3	Name : IfcLabel
+
+		public IfcExternallyDefinedTextFont() { }
+
+		public IfcExternallyDefinedTextFont(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+		}
 	}
 
 	public class IfcExtrudedAreaSolid : IfcSweptAreaSolid
@@ -6565,8 +10163,19 @@ namespace IFC4
 		//2	Position : IfcAxis2Placement3D
 		//3	ExtrudedDirection : IfcDirection
 		//4	Depth : IfcPositiveLengthMeasure
+
 		public IfcDirection ExtrudedDirection { get; set; }
 		public IfcPositiveLengthMeasure Depth { get; set; }
+
+		public IfcExtrudedAreaSolid() { }
+
+		public IfcExtrudedAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcDirection ExtrudedDirection, IfcPositiveLengthMeasure Depth)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+			this.ExtrudedDirection = ExtrudedDirection;
+			this.Depth = Depth;
+		}
 	}
 
 	public class IfcExtrudedAreaSolidTapered : IfcExtrudedAreaSolid
@@ -6576,35 +10185,80 @@ namespace IFC4
 		//3	ExtrudedDirection : IfcDirection
 		//4	Depth : IfcPositiveLengthMeasure
 		//5	EndSweptArea : IfcProfileDef
+
 		public IfcProfileDef EndSweptArea { get; set; }
+
+		public IfcExtrudedAreaSolidTapered() { }
+
+		public IfcExtrudedAreaSolidTapered(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcDirection ExtrudedDirection, IfcPositiveLengthMeasure Depth, IfcProfileDef EndSweptArea)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+			this.ExtrudedDirection = ExtrudedDirection;
+			this.Depth = Depth;
+			this.EndSweptArea = EndSweptArea;
+		}
 	}
 
 	public class IfcFace : IfcTopologicalRepresentationItem
 	{
 		//1	Bounds : List<IfcFaceBound>
+
 		public List<IfcFaceBound> Bounds { get; set; }
 		public List<IfcTextureMap> HasTextureMaps { get; set; }
+
+		public IfcFace() { }
+
+		public IfcFace(List<IfcFaceBound> Bounds)
+		{
+			this.Bounds = Bounds;
+		}
 	}
 
 	public class IfcFaceBasedSurfaceModel : IfcGeometricRepresentationItem, IfcSurfaceOrFaceSurface
 	{
 		//1	FbsmFaces : List<IfcConnectedFaceSet>
+
 		public List<IfcConnectedFaceSet> FbsmFaces { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcFaceBasedSurfaceModel() { }
+
+		public IfcFaceBasedSurfaceModel(List<IfcConnectedFaceSet> FbsmFaces)
+		{
+			this.FbsmFaces = FbsmFaces;
+		}
 	}
 
 	public class IfcFaceBound : IfcTopologicalRepresentationItem
 	{
 		//1	Bound : IfcLoop
 		//2	Orientation : IfcBoolean
+
 		public IfcLoop Bound { get; set; }
 		public IfcBoolean Orientation { get; set; }
+
+		public IfcFaceBound() { }
+
+		public IfcFaceBound(IfcLoop Bound, IfcBoolean Orientation)
+		{
+			this.Bound = Bound;
+			this.Orientation = Orientation;
+		}
 	}
 
 	public class IfcFaceOuterBound : IfcFaceBound
 	{
 		//1	Bound : IfcLoop
 		//2	Orientation : IfcBoolean
+
+		public IfcFaceOuterBound() { }
+
+		public IfcFaceOuterBound(IfcLoop Bound, IfcBoolean Orientation)
+		{
+			this.Bound = Bound;
+			this.Orientation = Orientation;
+		}
 	}
 
 	public class IfcFaceSurface : IfcFace, IfcSurfaceOrFaceSurface
@@ -6612,20 +10266,46 @@ namespace IFC4
 		//1	Bounds : List<IfcFaceBound>
 		//2	FaceSurface : IfcSurface
 		//3	SameSense : IfcBoolean
+
 		public IfcSurface FaceSurface { get; set; }
 		public IfcBoolean SameSense { get; set; }
+
+		public IfcFaceSurface() { }
+
+		public IfcFaceSurface(List<IfcFaceBound> Bounds, IfcSurface FaceSurface, IfcBoolean SameSense)
+		{
+			this.Bounds = Bounds;
+			this.FaceSurface = FaceSurface;
+			this.SameSense = SameSense;
+		}
 	}
 
 	public class IfcFacetedBrep : IfcManifoldSolidBrep
 	{
 		//1	Outer : IfcClosedShell
+
+		public IfcFacetedBrep() { }
+
+		public IfcFacetedBrep(IfcClosedShell Outer)
+		{
+			this.Outer = Outer;
+		}
 	}
 
 	public class IfcFacetedBrepWithVoids : IfcFacetedBrep
 	{
 		//1	Outer : IfcClosedShell
 		//2	Voids : List<IfcClosedShell>
+
 		public List<IfcClosedShell> Voids { get; set; }
+
+		public IfcFacetedBrepWithVoids() { }
+
+		public IfcFacetedBrepWithVoids(IfcClosedShell Outer, List<IfcClosedShell> Voids)
+		{
+			this.Outer = Outer;
+			this.Voids = Voids;
+		}
 	}
 
 	public class IfcFailureConnectionCondition : IfcStructuralConnectionCondition
@@ -6637,12 +10317,26 @@ namespace IFC4
 		//5	CompressionFailureX : IfcForceMeasure
 		//6	CompressionFailureY : IfcForceMeasure
 		//7	CompressionFailureZ : IfcForceMeasure
+
 		public IfcForceMeasure TensionFailureX { get; set; }
 		public IfcForceMeasure TensionFailureY { get; set; }
 		public IfcForceMeasure TensionFailureZ { get; set; }
 		public IfcForceMeasure CompressionFailureX { get; set; }
 		public IfcForceMeasure CompressionFailureY { get; set; }
 		public IfcForceMeasure CompressionFailureZ { get; set; }
+
+		public IfcFailureConnectionCondition() { }
+
+		public IfcFailureConnectionCondition(IfcLabel Name, IfcForceMeasure TensionFailureX, IfcForceMeasure TensionFailureY, IfcForceMeasure TensionFailureZ, IfcForceMeasure CompressionFailureX, IfcForceMeasure CompressionFailureY, IfcForceMeasure CompressionFailureZ)
+		{
+			this.Name = Name;
+			this.TensionFailureX = TensionFailureX;
+			this.TensionFailureY = TensionFailureY;
+			this.TensionFailureZ = TensionFailureZ;
+			this.CompressionFailureX = CompressionFailureX;
+			this.CompressionFailureY = CompressionFailureY;
+			this.CompressionFailureZ = CompressionFailureZ;
+		}
 	}
 
 	public class IfcFan : IfcFlowMovingDevice
@@ -6656,7 +10350,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFanTypeEnum
+
 		public IfcFanTypeEnum PredefinedType { get; set; }
+
+		public IfcFan() { }
+
+		public IfcFan(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFanTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFanType : IfcFlowMovingDeviceType
@@ -6671,7 +10381,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFanTypeEnum
+
 		public IfcFanTypeEnum PredefinedType { get; set; }
+
+		public IfcFanType() { }
+
+		public IfcFanType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFanTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFastener : IfcElementComponent
@@ -6685,7 +10412,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFastenerTypeEnum
+
 		public IfcFastenerTypeEnum PredefinedType { get; set; }
+
+		public IfcFastener() { }
+
+		public IfcFastener(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFastenerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFastenerType : IfcElementComponentType
@@ -6700,7 +10443,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFastenerTypeEnum
+
 		public IfcFastenerTypeEnum PredefinedType { get; set; }
+
+		public IfcFastenerType() { }
+
+		public IfcFastenerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFastenerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcFeatureElement : IfcElement
@@ -6713,6 +10473,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFeatureElement() { }
+
+		public IfcFeatureElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFeatureElementAddition : IfcFeatureElement
@@ -6725,7 +10499,22 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
 		public IfcRelProjectsElement ProjectsElements { get; set; }
+
+		public IfcFeatureElementAddition() { }
+
+		public IfcFeatureElementAddition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFeatureElementSubtraction : IfcFeatureElement
@@ -6738,7 +10527,22 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
 		public IfcRelVoidsElement VoidsElements { get; set; }
+
+		public IfcFeatureElementSubtraction() { }
+
+		public IfcFeatureElementSubtraction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcFillAreaStyle : IfcPresentationStyle, IfcPresentationStyleSelect
@@ -6746,8 +10550,18 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	FillStyles : List<IfcFillStyleSelect>
 		//3	ModelorDraughting : IfcBoolean
+
 		public List<IfcFillStyleSelect> FillStyles { get; set; }
 		public IfcBoolean ModelorDraughting { get; set; }
+
+		public IfcFillAreaStyle() { }
+
+		public IfcFillAreaStyle(IfcLabel Name, List<IfcFillStyleSelect> FillStyles, IfcBoolean ModelorDraughting)
+		{
+			this.Name = Name;
+			this.FillStyles = FillStyles;
+			this.ModelorDraughting = ModelorDraughting;
+		}
 	}
 
 	public class IfcFillAreaStyleHatching : IfcGeometricRepresentationItem, IfcFillStyleSelect
@@ -6757,11 +10571,23 @@ namespace IFC4
 		//3	PointOfReferenceHatchLine : IfcCartesianPoint
 		//4	PatternStart : IfcCartesianPoint
 		//5	HatchLineAngle : IfcPlaneAngleMeasure
+
 		public IfcCurveStyle HatchLineAppearance { get; set; }
 		public IfcHatchLineDistanceSelect StartOfNextHatchLine { get; set; }
 		public IfcCartesianPoint PointOfReferenceHatchLine { get; set; }
 		public IfcCartesianPoint PatternStart { get; set; }
 		public IfcPlaneAngleMeasure HatchLineAngle { get; set; }
+
+		public IfcFillAreaStyleHatching() { }
+
+		public IfcFillAreaStyleHatching(IfcCurveStyle HatchLineAppearance, IfcHatchLineDistanceSelect StartOfNextHatchLine, IfcCartesianPoint PointOfReferenceHatchLine, IfcCartesianPoint PatternStart, IfcPlaneAngleMeasure HatchLineAngle)
+		{
+			this.HatchLineAppearance = HatchLineAppearance;
+			this.StartOfNextHatchLine = StartOfNextHatchLine;
+			this.PointOfReferenceHatchLine = PointOfReferenceHatchLine;
+			this.PatternStart = PatternStart;
+			this.HatchLineAngle = HatchLineAngle;
+		}
 	}
 
 	public class IfcFillAreaStyleTiles : IfcGeometricRepresentationItem, IfcFillStyleSelect
@@ -6769,9 +10595,19 @@ namespace IFC4
 		//1	TilingPattern : List<IfcVector>
 		//2	Tiles : List<IfcStyledItem>
 		//3	TilingScale : IfcPositiveRatioMeasure
+
 		public List<IfcVector> TilingPattern { get; set; }
 		public List<IfcStyledItem> Tiles { get; set; }
 		public IfcPositiveRatioMeasure TilingScale { get; set; }
+
+		public IfcFillAreaStyleTiles() { }
+
+		public IfcFillAreaStyleTiles(List<IfcVector> TilingPattern, List<IfcStyledItem> Tiles, IfcPositiveRatioMeasure TilingScale)
+		{
+			this.TilingPattern = TilingPattern;
+			this.Tiles = Tiles;
+			this.TilingScale = TilingScale;
+		}
 	}
 
 	public class IfcFilter : IfcFlowTreatmentDevice
@@ -6785,7 +10621,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFilterTypeEnum
+
 		public IfcFilterTypeEnum PredefinedType { get; set; }
+
+		public IfcFilter() { }
+
+		public IfcFilter(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFilterTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFilterType : IfcFlowTreatmentDeviceType
@@ -6800,7 +10652,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFilterTypeEnum
+
 		public IfcFilterTypeEnum PredefinedType { get; set; }
+
+		public IfcFilterType() { }
+
+		public IfcFilterType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFilterTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFireSuppressionTerminal : IfcFlowTerminal
@@ -6814,7 +10683,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFireSuppressionTerminalTypeEnum
+
 		public IfcFireSuppressionTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcFireSuppressionTerminal() { }
+
+		public IfcFireSuppressionTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFireSuppressionTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFireSuppressionTerminalType : IfcFlowTerminalType
@@ -6829,7 +10714,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFireSuppressionTerminalTypeEnum
+
 		public IfcFireSuppressionTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcFireSuppressionTerminalType() { }
+
+		public IfcFireSuppressionTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFireSuppressionTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFixedReferenceSweptAreaSolid : IfcSweptAreaSolid
@@ -6840,10 +10742,23 @@ namespace IFC4
 		//4	StartParam : IfcParameterValue
 		//5	EndParam : IfcParameterValue
 		//6	FixedReference : IfcDirection
+
 		public IfcCurve Directrix { get; set; }
 		public IfcParameterValue StartParam { get; set; }
 		public IfcParameterValue EndParam { get; set; }
 		public IfcDirection FixedReference { get; set; }
+
+		public IfcFixedReferenceSweptAreaSolid() { }
+
+		public IfcFixedReferenceSweptAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcCurve Directrix, IfcParameterValue StartParam, IfcParameterValue EndParam, IfcDirection FixedReference)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+			this.Directrix = Directrix;
+			this.StartParam = StartParam;
+			this.EndParam = EndParam;
+			this.FixedReference = FixedReference;
+		}
 	}
 
 	public class IfcFlowController : IfcDistributionFlowElement
@@ -6856,6 +10771,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowController() { }
+
+		public IfcFlowController(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowControllerType : IfcDistributionFlowElementType
@@ -6869,6 +10798,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowControllerType() { }
+
+		public IfcFlowControllerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFlowFitting : IfcDistributionFlowElement
@@ -6881,6 +10825,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowFitting() { }
+
+		public IfcFlowFitting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowFittingType : IfcDistributionFlowElementType
@@ -6894,6 +10852,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowFittingType() { }
+
+		public IfcFlowFittingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFlowInstrument : IfcDistributionControlElement
@@ -6907,7 +10880,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFlowInstrumentTypeEnum
+
 		public IfcFlowInstrumentTypeEnum PredefinedType { get; set; }
+
+		public IfcFlowInstrument() { }
+
+		public IfcFlowInstrument(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFlowInstrumentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFlowInstrumentType : IfcDistributionControlElementType
@@ -6922,7 +10911,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFlowInstrumentTypeEnum
+
 		public IfcFlowInstrumentTypeEnum PredefinedType { get; set; }
+
+		public IfcFlowInstrumentType() { }
+
+		public IfcFlowInstrumentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFlowInstrumentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFlowMeter : IfcFlowController
@@ -6936,7 +10942,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFlowMeterTypeEnum
+
 		public IfcFlowMeterTypeEnum PredefinedType { get; set; }
+
+		public IfcFlowMeter() { }
+
+		public IfcFlowMeter(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFlowMeterTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFlowMeterType : IfcFlowControllerType
@@ -6951,7 +10973,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFlowMeterTypeEnum
+
 		public IfcFlowMeterTypeEnum PredefinedType { get; set; }
+
+		public IfcFlowMeterType() { }
+
+		public IfcFlowMeterType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFlowMeterTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFlowMovingDevice : IfcDistributionFlowElement
@@ -6964,6 +11003,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowMovingDevice() { }
+
+		public IfcFlowMovingDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowMovingDeviceType : IfcDistributionFlowElementType
@@ -6977,6 +11030,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowMovingDeviceType() { }
+
+		public IfcFlowMovingDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFlowSegment : IfcDistributionFlowElement
@@ -6989,6 +11057,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowSegment() { }
+
+		public IfcFlowSegment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowSegmentType : IfcDistributionFlowElementType
@@ -7002,6 +11084,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowSegmentType() { }
+
+		public IfcFlowSegmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFlowStorageDevice : IfcDistributionFlowElement
@@ -7014,6 +11111,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowStorageDevice() { }
+
+		public IfcFlowStorageDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowStorageDeviceType : IfcDistributionFlowElementType
@@ -7027,6 +11138,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowStorageDeviceType() { }
+
+		public IfcFlowStorageDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFlowTerminal : IfcDistributionFlowElement
@@ -7039,6 +11165,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowTerminal() { }
+
+		public IfcFlowTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowTerminalType : IfcDistributionFlowElementType
@@ -7052,6 +11192,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowTerminalType() { }
+
+		public IfcFlowTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFlowTreatmentDevice : IfcDistributionFlowElement
@@ -7064,6 +11219,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFlowTreatmentDevice() { }
+
+		public IfcFlowTreatmentDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcFlowTreatmentDeviceType : IfcDistributionFlowElementType
@@ -7077,6 +11246,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFlowTreatmentDeviceType() { }
+
+		public IfcFlowTreatmentDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFooting : IfcBuildingElement
@@ -7090,7 +11274,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFootingTypeEnum
+
 		public IfcFootingTypeEnum PredefinedType { get; set; }
+
+		public IfcFooting() { }
+
+		public IfcFooting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFootingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFootingType : IfcBuildingElementType
@@ -7105,7 +11305,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcFootingTypeEnum
+
 		public IfcFootingTypeEnum PredefinedType { get; set; }
+
+		public IfcFootingType() { }
+
+		public IfcFootingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcFootingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFurnishingElement : IfcElement
@@ -7118,6 +11335,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcFurnishingElement() { }
+
+		public IfcFurnishingElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcFurnishingElementType : IfcElementType
@@ -7131,6 +11362,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcFurnishingElementType() { }
+
+		public IfcFurnishingElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcFurniture : IfcFurnishingElement
@@ -7144,7 +11390,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcFurnitureTypeEnum
+
 		public IfcFurnitureTypeEnum PredefinedType { get; set; }
+
+		public IfcFurniture() { }
+
+		public IfcFurniture(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcFurnitureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcFurnitureType : IfcFurnishingElementType
@@ -7160,8 +11422,26 @@ namespace IFC4
 		//9	ElementType : IfcLabel
 		//10	AssemblyPlace : IfcAssemblyPlaceEnum
 		//11	PredefinedType : IfcFurnitureTypeEnum
+
 		public IfcAssemblyPlaceEnum AssemblyPlace { get; set; }
 		public IfcFurnitureTypeEnum PredefinedType { get; set; }
+
+		public IfcFurnitureType() { }
+
+		public IfcFurnitureType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcAssemblyPlaceEnum AssemblyPlace, IfcFurnitureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.AssemblyPlace = AssemblyPlace;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcGeographicElement : IfcElement
@@ -7175,7 +11455,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcGeographicElementTypeEnum
+
 		public IfcGeographicElementTypeEnum PredefinedType { get; set; }
+
+		public IfcGeographicElement() { }
+
+		public IfcGeographicElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcGeographicElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcGeographicElementType : IfcElementType
@@ -7190,12 +11486,36 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcGeographicElementTypeEnum
+
 		public IfcGeographicElementTypeEnum PredefinedType { get; set; }
+
+		public IfcGeographicElementType() { }
+
+		public IfcGeographicElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcGeographicElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcGeometricCurveSet : IfcGeometricSet
 	{
 		//1	Elements : List<IfcGeometricSetSelect>
+
+		public IfcGeometricCurveSet() { }
+
+		public IfcGeometricCurveSet(List<IfcGeometricSetSelect> Elements)
+		{
+			this.Elements = Elements;
+		}
 	}
 
 	public class IfcGeometricRepresentationContext : IfcRepresentationContext, IfcCoordinateReferenceSystemSelect
@@ -7206,6 +11526,7 @@ namespace IFC4
 		//4	Precision : IfcReal
 		//5	WorldCoordinateSystem : IfcAxis2Placement
 		//6	TrueNorth : IfcDirection
+
 		public IfcDimensionCount CoordinateSpaceDimension { get; set; }
 		public IfcReal Precision { get; set; }
 		public IfcAxis2Placement WorldCoordinateSystem { get; set; }
@@ -7213,10 +11534,23 @@ namespace IFC4
 		public List<IfcGeometricRepresentationSubContext> HasSubContexts { get; set; }
 		public List<IfcCoordinateOperation> HasCoordinateOperation { get; set; }
 		public List<IfcCoordinateOperation> GetHasCoordinateOperation() { return HasCoordinateOperation; }
+
+		public IfcGeometricRepresentationContext() { }
+
+		public IfcGeometricRepresentationContext(IfcLabel ContextIdentifier, IfcLabel ContextType, IfcDimensionCount CoordinateSpaceDimension, IfcReal Precision, IfcAxis2Placement WorldCoordinateSystem, IfcDirection TrueNorth)
+		{
+			this.ContextIdentifier = ContextIdentifier;
+			this.ContextType = ContextType;
+			this.CoordinateSpaceDimension = CoordinateSpaceDimension;
+			this.Precision = Precision;
+			this.WorldCoordinateSystem = WorldCoordinateSystem;
+			this.TrueNorth = TrueNorth;
+		}
 	}
 
 	public abstract class IfcGeometricRepresentationItem : IfcRepresentationItem
 	{
+		public IfcGeometricRepresentationItem() { }
 	}
 
 	public class IfcGeometricRepresentationSubContext : IfcGeometricRepresentationContext
@@ -7231,17 +11565,42 @@ namespace IFC4
 		//8	TargetScale : IfcPositiveRatioMeasure
 		//9	TargetView : IfcGeometricProjectionEnum
 		//10	UserDefinedTargetView : IfcLabel
+
 		public IfcGeometricRepresentationContext ParentContext { get; set; }
 		public IfcPositiveRatioMeasure TargetScale { get; set; }
 		public IfcGeometricProjectionEnum TargetView { get; set; }
 		public IfcLabel UserDefinedTargetView { get; set; }
+
+		public IfcGeometricRepresentationSubContext() { }
+
+		public IfcGeometricRepresentationSubContext(IfcLabel ContextIdentifier, IfcLabel ContextType, IfcDimensionCount CoordinateSpaceDimension, IfcReal Precision, IfcAxis2Placement WorldCoordinateSystem, IfcDirection TrueNorth, IfcGeometricRepresentationContext ParentContext, IfcPositiveRatioMeasure TargetScale, IfcGeometricProjectionEnum TargetView, IfcLabel UserDefinedTargetView)
+		{
+			this.ContextIdentifier = ContextIdentifier;
+			this.ContextType = ContextType;
+			this.CoordinateSpaceDimension = CoordinateSpaceDimension;
+			this.Precision = Precision;
+			this.WorldCoordinateSystem = WorldCoordinateSystem;
+			this.TrueNorth = TrueNorth;
+			this.ParentContext = ParentContext;
+			this.TargetScale = TargetScale;
+			this.TargetView = TargetView;
+			this.UserDefinedTargetView = UserDefinedTargetView;
+		}
 	}
 
 	public class IfcGeometricSet : IfcGeometricRepresentationItem
 	{
 		//1	Elements : List<IfcGeometricSetSelect>
+
 		public List<IfcGeometricSetSelect> Elements { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcGeometricSet() { }
+
+		public IfcGeometricSet(List<IfcGeometricSetSelect> Elements)
+		{
+			this.Elements = Elements;
+		}
 	}
 
 	public class IfcGrid : IfcProduct
@@ -7257,11 +11616,29 @@ namespace IFC4
 		//9	VAxes : List<IfcGridAxis>
 		//10	WAxes : List<IfcGridAxis>
 		//11	PredefinedType : IfcGridTypeEnum
+
 		public List<IfcGridAxis> UAxes { get; set; }
 		public List<IfcGridAxis> VAxes { get; set; }
 		public List<IfcGridAxis> WAxes { get; set; }
 		public IfcGridTypeEnum PredefinedType { get; set; }
 		public List<IfcRelContainedInSpatialStructure> ContainedInStructure { get; set; }
+
+		public IfcGrid() { }
+
+		public IfcGrid(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, List<IfcGridAxis> UAxes, List<IfcGridAxis> VAxes, List<IfcGridAxis> WAxes, IfcGridTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.UAxes = UAxes;
+			this.VAxes = VAxes;
+			this.WAxes = WAxes;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcGridAxis : IfcBase
@@ -7269,6 +11646,7 @@ namespace IFC4
 		//1	AxisTag : IfcLabel
 		//2	AxisCurve : IfcCurve
 		//3	SameSense : IfcBoolean
+
 		public IfcLabel AxisTag { get; set; }
 		public IfcCurve AxisCurve { get; set; }
 		public IfcBoolean SameSense { get; set; }
@@ -7276,14 +11654,32 @@ namespace IFC4
 		public List<IfcGrid> PartOfV { get; set; }
 		public List<IfcGrid> PartOfU { get; set; }
 		public List<IfcVirtualGridIntersection> HasIntersections { get; set; }
+
+		public IfcGridAxis() { }
+
+		public IfcGridAxis(IfcLabel AxisTag, IfcCurve AxisCurve, IfcBoolean SameSense)
+		{
+			this.AxisTag = AxisTag;
+			this.AxisCurve = AxisCurve;
+			this.SameSense = SameSense;
+		}
 	}
 
 	public class IfcGridPlacement : IfcObjectPlacement
 	{
 		//1	PlacementLocation : IfcVirtualGridIntersection
 		//2	PlacementRefDirection : IfcGridPlacementDirectionSelect
+
 		public IfcVirtualGridIntersection PlacementLocation { get; set; }
 		public IfcGridPlacementDirectionSelect PlacementRefDirection { get; set; }
+
+		public IfcGridPlacement() { }
+
+		public IfcGridPlacement(IfcVirtualGridIntersection PlacementLocation, IfcGridPlacementDirectionSelect PlacementRefDirection)
+		{
+			this.PlacementLocation = PlacementLocation;
+			this.PlacementRefDirection = PlacementRefDirection;
+		}
 	}
 
 	public class IfcGroup : IfcObject
@@ -7293,17 +11689,38 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	Description : IfcText
 		//5	ObjectType : IfcLabel
+
 		public List<IfcRelAssignsToGroup> IsGroupedBy { get; set; }
+
+		public IfcGroup() { }
+
+		public IfcGroup(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+		}
 	}
 
 	public class IfcHalfSpaceSolid : IfcGeometricRepresentationItem, IfcBooleanOperand
 	{
 		//1	BaseSurface : IfcSurface
 		//2	AgreementFlag : IfcBoolean
+
 		public IfcSurface BaseSurface { get; set; }
 		public IfcBoolean AgreementFlag { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcHalfSpaceSolid() { }
+
+		public IfcHalfSpaceSolid(IfcSurface BaseSurface, IfcBoolean AgreementFlag)
+		{
+			this.BaseSurface = BaseSurface;
+			this.AgreementFlag = AgreementFlag;
+		}
 	}
 
 	public class IfcHeatExchanger : IfcEnergyConversionDevice
@@ -7317,7 +11734,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcHeatExchangerTypeEnum
+
 		public IfcHeatExchangerTypeEnum PredefinedType { get; set; }
+
+		public IfcHeatExchanger() { }
+
+		public IfcHeatExchanger(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcHeatExchangerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcHeatExchangerType : IfcEnergyConversionDeviceType
@@ -7332,7 +11765,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcHeatExchangerTypeEnum
+
 		public IfcHeatExchangerTypeEnum PredefinedType { get; set; }
+
+		public IfcHeatExchangerType() { }
+
+		public IfcHeatExchangerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcHeatExchangerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcHumidifier : IfcEnergyConversionDevice
@@ -7346,7 +11796,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcHumidifierTypeEnum
+
 		public IfcHumidifierTypeEnum PredefinedType { get; set; }
+
+		public IfcHumidifier() { }
+
+		public IfcHumidifier(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcHumidifierTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcHumidifierType : IfcEnergyConversionDeviceType
@@ -7361,7 +11827,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcHumidifierTypeEnum
+
 		public IfcHumidifierTypeEnum PredefinedType { get; set; }
+
+		public IfcHumidifierType() { }
+
+		public IfcHumidifierType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcHumidifierTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcIShapeProfileDef : IfcParameterizedProfileDef
@@ -7376,6 +11859,7 @@ namespace IFC4
 		//8	FilletRadius : IfcNonNegativeLengthMeasure
 		//9	FlangeEdgeRadius : IfcNonNegativeLengthMeasure
 		//10	FlangeSlope : IfcPlaneAngleMeasure
+
 		public IfcPositiveLengthMeasure OverallWidth { get; set; }
 		public IfcPositiveLengthMeasure OverallDepth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -7383,6 +11867,22 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure FilletRadius { get; set; }
 		public IfcNonNegativeLengthMeasure FlangeEdgeRadius { get; set; }
 		public IfcPlaneAngleMeasure FlangeSlope { get; set; }
+
+		public IfcIShapeProfileDef() { }
+
+		public IfcIShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure OverallWidth, IfcPositiveLengthMeasure OverallDepth, IfcPositiveLengthMeasure WebThickness, IfcPositiveLengthMeasure FlangeThickness, IfcNonNegativeLengthMeasure FilletRadius, IfcNonNegativeLengthMeasure FlangeEdgeRadius, IfcPlaneAngleMeasure FlangeSlope)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.OverallWidth = OverallWidth;
+			this.OverallDepth = OverallDepth;
+			this.WebThickness = WebThickness;
+			this.FlangeThickness = FlangeThickness;
+			this.FilletRadius = FilletRadius;
+			this.FlangeEdgeRadius = FlangeEdgeRadius;
+			this.FlangeSlope = FlangeSlope;
+		}
 	}
 
 	public class IfcImageTexture : IfcSurfaceTexture
@@ -7393,7 +11893,20 @@ namespace IFC4
 		//4	TextureTransform : IfcCartesianTransformationOperator2D
 		//5	Parameter : List<IfcIdentifier>
 		//6	URLReference : IfcURIReference
+
 		public IfcURIReference URLReference { get; set; }
+
+		public IfcImageTexture() { }
+
+		public IfcImageTexture(IfcBoolean RepeatS, IfcBoolean RepeatT, IfcIdentifier Mode, IfcCartesianTransformationOperator2D TextureTransform, List<IfcIdentifier> Parameter, IfcURIReference URLReference)
+		{
+			this.RepeatS = RepeatS;
+			this.RepeatT = RepeatT;
+			this.Mode = Mode;
+			this.TextureTransform = TextureTransform;
+			this.Parameter = Parameter;
+			this.URLReference = URLReference;
+		}
 	}
 
 	public class IfcIndexedColourMap : IfcPresentationItem
@@ -7402,10 +11915,21 @@ namespace IFC4
 		//2	Opacity : IfcNormalisedRatioMeasure
 		//3	Colours : IfcColourRgbList
 		//4	ColourIndex : List<IfcPositiveInteger>
+
 		public IfcTessellatedFaceSet MappedTo { get; set; }
 		public IfcNormalisedRatioMeasure Opacity { get; set; }
 		public IfcColourRgbList Colours { get; set; }
 		public List<IfcPositiveInteger> ColourIndex { get; set; }
+
+		public IfcIndexedColourMap() { }
+
+		public IfcIndexedColourMap(IfcTessellatedFaceSet MappedTo, IfcNormalisedRatioMeasure Opacity, IfcColourRgbList Colours, List<IfcPositiveInteger> ColourIndex)
+		{
+			this.MappedTo = MappedTo;
+			this.Opacity = Opacity;
+			this.Colours = Colours;
+			this.ColourIndex = ColourIndex;
+		}
 	}
 
 	public class IfcIndexedPolyCurve : IfcBoundedCurve
@@ -7413,23 +11937,50 @@ namespace IFC4
 		//1	Points : IfcCartesianPointList
 		//2	Segments : List<IfcSegmentIndexSelect>
 		//3	SelfIntersect : IfcBoolean
+
 		public IfcCartesianPointList Points { get; set; }
 		public List<IfcSegmentIndexSelect> Segments { get; set; }
 		public IfcBoolean SelfIntersect { get; set; }
+
+		public IfcIndexedPolyCurve() { }
+
+		public IfcIndexedPolyCurve(IfcCartesianPointList Points, List<IfcSegmentIndexSelect> Segments, IfcBoolean SelfIntersect)
+		{
+			this.Points = Points;
+			this.Segments = Segments;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcIndexedPolygonalFace : IfcTessellatedItem
 	{
 		//1	CoordIndex : List<IfcPositiveInteger>
+
 		public List<IfcPositiveInteger> CoordIndex { get; set; }
 		public List<IfcPolygonalFaceSet> ToFaceSet { get; set; }
+
+		public IfcIndexedPolygonalFace() { }
+
+		public IfcIndexedPolygonalFace(List<IfcPositiveInteger> CoordIndex)
+		{
+			this.CoordIndex = CoordIndex;
+		}
 	}
 
 	public class IfcIndexedPolygonalFaceWithVoids : IfcIndexedPolygonalFace
 	{
 		//1	CoordIndex : List<IfcPositiveInteger>
 		//2	InnerCoordIndices : List<List<IfcPositiveInteger>>
+
 		public List<List<IfcPositiveInteger>> InnerCoordIndices { get; set; }
+
+		public IfcIndexedPolygonalFaceWithVoids() { }
+
+		public IfcIndexedPolygonalFaceWithVoids(List<IfcPositiveInteger> CoordIndex, List<List<IfcPositiveInteger>> InnerCoordIndices)
+		{
+			this.CoordIndex = CoordIndex;
+			this.InnerCoordIndices = InnerCoordIndices;
+		}
 	}
 
 	public abstract class IfcIndexedTextureMap : IfcTextureCoordinate
@@ -7437,8 +11988,18 @@ namespace IFC4
 		//1	Maps : List<IfcSurfaceTexture>
 		//2	MappedTo : IfcTessellatedFaceSet
 		//3	TexCoords : IfcTextureVertexList
+
 		public IfcTessellatedFaceSet MappedTo { get; set; }
 		public IfcTextureVertexList TexCoords { get; set; }
+
+		public IfcIndexedTextureMap() { }
+
+		public IfcIndexedTextureMap(List<IfcSurfaceTexture> Maps, IfcTessellatedFaceSet MappedTo, IfcTextureVertexList TexCoords)
+		{
+			this.Maps = Maps;
+			this.MappedTo = MappedTo;
+			this.TexCoords = TexCoords;
+		}
 	}
 
 	public class IfcIndexedTriangleTextureMap : IfcIndexedTextureMap
@@ -7447,7 +12008,18 @@ namespace IFC4
 		//2	MappedTo : IfcTessellatedFaceSet
 		//3	TexCoords : IfcTextureVertexList
 		//4	TexCoordIndex : List<List<IfcPositiveInteger>>
+
 		public List<List<IfcPositiveInteger>> TexCoordIndex { get; set; }
+
+		public IfcIndexedTriangleTextureMap() { }
+
+		public IfcIndexedTriangleTextureMap(List<IfcSurfaceTexture> Maps, IfcTessellatedFaceSet MappedTo, IfcTextureVertexList TexCoords, List<List<IfcPositiveInteger>> TexCoordIndex)
+		{
+			this.Maps = Maps;
+			this.MappedTo = MappedTo;
+			this.TexCoords = TexCoords;
+			this.TexCoordIndex = TexCoordIndex;
+		}
 	}
 
 	public class IfcInterceptor : IfcFlowTreatmentDevice
@@ -7461,7 +12033,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcInterceptorTypeEnum
+
 		public IfcInterceptorTypeEnum PredefinedType { get; set; }
+
+		public IfcInterceptor() { }
+
+		public IfcInterceptor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcInterceptorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcInterceptorType : IfcFlowTreatmentDeviceType
@@ -7476,7 +12064,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcInterceptorTypeEnum
+
 		public IfcInterceptorTypeEnum PredefinedType { get; set; }
+
+		public IfcInterceptorType() { }
+
+		public IfcInterceptorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcInterceptorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcIntersectionCurve : IfcSurfaceCurve
@@ -7484,6 +12089,15 @@ namespace IFC4
 		//1	Curve3D : IfcCurve
 		//2	AssociatedGeometry : List<IfcPcurve>
 		//3	MasterRepresentation : IfcPreferredSurfaceCurveRepresentation
+
+		public IfcIntersectionCurve() { }
+
+		public IfcIntersectionCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
+		{
+			this.Curve3D = Curve3D;
+			this.AssociatedGeometry = AssociatedGeometry;
+			this.MasterRepresentation = MasterRepresentation;
+		}
 	}
 
 	public class IfcInventory : IfcGroup
@@ -7499,12 +12113,30 @@ namespace IFC4
 		//9	LastUpdateDate : IfcDate
 		//10	CurrentValue : IfcCostValue
 		//11	OriginalValue : IfcCostValue
+
 		public IfcInventoryTypeEnum PredefinedType { get; set; }
 		public IfcActorSelect Jurisdiction { get; set; }
 		public List<IfcPerson> ResponsiblePersons { get; set; }
 		public IfcDate LastUpdateDate { get; set; }
 		public IfcCostValue CurrentValue { get; set; }
 		public IfcCostValue OriginalValue { get; set; }
+
+		public IfcInventory() { }
+
+		public IfcInventory(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcInventoryTypeEnum PredefinedType, IfcActorSelect Jurisdiction, List<IfcPerson> ResponsiblePersons, IfcDate LastUpdateDate, IfcCostValue CurrentValue, IfcCostValue OriginalValue)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.PredefinedType = PredefinedType;
+			this.Jurisdiction = Jurisdiction;
+			this.ResponsiblePersons = ResponsiblePersons;
+			this.LastUpdateDate = LastUpdateDate;
+			this.CurrentValue = CurrentValue;
+			this.OriginalValue = OriginalValue;
+		}
 	}
 
 	public class IfcIrregularTimeSeries : IfcTimeSeries
@@ -7518,15 +12150,40 @@ namespace IFC4
 		//7	UserDefinedDataOrigin : IfcLabel
 		//8	Unit : IfcUnit
 		//9	Values : List<IfcIrregularTimeSeriesValue>
+
 		public List<IfcIrregularTimeSeriesValue> Values { get; set; }
+
+		public IfcIrregularTimeSeries() { }
+
+		public IfcIrregularTimeSeries(IfcLabel Name, IfcText Description, IfcDateTime StartTime, IfcDateTime EndTime, IfcTimeSeriesDataTypeEnum TimeSeriesDataType, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcUnit Unit, List<IfcIrregularTimeSeriesValue> Values)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.StartTime = StartTime;
+			this.EndTime = EndTime;
+			this.TimeSeriesDataType = TimeSeriesDataType;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.Unit = Unit;
+			this.Values = Values;
+		}
 	}
 
 	public class IfcIrregularTimeSeriesValue : IfcBase
 	{
 		//1	TimeStamp : IfcDateTime
 		//2	ListValues : List<IfcValue>
+
 		public IfcDateTime TimeStamp { get; set; }
 		public List<IfcValue> ListValues { get; set; }
+
+		public IfcIrregularTimeSeriesValue() { }
+
+		public IfcIrregularTimeSeriesValue(IfcDateTime TimeStamp, List<IfcValue> ListValues)
+		{
+			this.TimeStamp = TimeStamp;
+			this.ListValues = ListValues;
+		}
 	}
 
 	public class IfcJunctionBox : IfcFlowFitting
@@ -7540,7 +12197,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcJunctionBoxTypeEnum
+
 		public IfcJunctionBoxTypeEnum PredefinedType { get; set; }
+
+		public IfcJunctionBox() { }
+
+		public IfcJunctionBox(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcJunctionBoxTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcJunctionBoxType : IfcFlowFittingType
@@ -7555,7 +12228,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcJunctionBoxTypeEnum
+
 		public IfcJunctionBoxTypeEnum PredefinedType { get; set; }
+
+		public IfcJunctionBoxType() { }
+
+		public IfcJunctionBoxType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcJunctionBoxTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLShapeProfileDef : IfcParameterizedProfileDef
@@ -7569,12 +12259,28 @@ namespace IFC4
 		//7	FilletRadius : IfcNonNegativeLengthMeasure
 		//8	EdgeRadius : IfcNonNegativeLengthMeasure
 		//9	LegSlope : IfcPlaneAngleMeasure
+
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure Width { get; set; }
 		public IfcPositiveLengthMeasure Thickness { get; set; }
 		public IfcNonNegativeLengthMeasure FilletRadius { get; set; }
 		public IfcNonNegativeLengthMeasure EdgeRadius { get; set; }
 		public IfcPlaneAngleMeasure LegSlope { get; set; }
+
+		public IfcLShapeProfileDef() { }
+
+		public IfcLShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Depth, IfcPositiveLengthMeasure Width, IfcPositiveLengthMeasure Thickness, IfcNonNegativeLengthMeasure FilletRadius, IfcNonNegativeLengthMeasure EdgeRadius, IfcPlaneAngleMeasure LegSlope)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Depth = Depth;
+			this.Width = Width;
+			this.Thickness = Thickness;
+			this.FilletRadius = FilletRadius;
+			this.EdgeRadius = EdgeRadius;
+			this.LegSlope = LegSlope;
+		}
 	}
 
 	public class IfcLaborResource : IfcConstructionResource
@@ -7590,7 +12296,25 @@ namespace IFC4
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
 		//11	PredefinedType : IfcLaborResourceTypeEnum
+
 		public IfcLaborResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcLaborResource() { }
+
+		public IfcLaborResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcLaborResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLaborResourceType : IfcConstructionResourceType
@@ -7607,7 +12331,26 @@ namespace IFC4
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
 		//12	PredefinedType : IfcLaborResourceTypeEnum
+
 		public IfcLaborResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcLaborResourceType() { }
+
+		public IfcLaborResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcLaborResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLagTime : IfcSchedulingTime
@@ -7617,8 +12360,20 @@ namespace IFC4
 		//3	UserDefinedDataOrigin : IfcLabel
 		//4	LagValue : IfcTimeOrRatioSelect
 		//5	DurationType : IfcTaskDurationEnum
+
 		public IfcTimeOrRatioSelect LagValue { get; set; }
 		public IfcTaskDurationEnum DurationType { get; set; }
+
+		public IfcLagTime() { }
+
+		public IfcLagTime(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcTimeOrRatioSelect LagValue, IfcTaskDurationEnum DurationType)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.LagValue = LagValue;
+			this.DurationType = DurationType;
+		}
 	}
 
 	public class IfcLamp : IfcFlowTerminal
@@ -7632,7 +12387,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcLampTypeEnum
+
 		public IfcLampTypeEnum PredefinedType { get; set; }
+
+		public IfcLamp() { }
+
+		public IfcLamp(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLampTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLampType : IfcFlowTerminalType
@@ -7647,7 +12418,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcLampTypeEnum
+
 		public IfcLampTypeEnum PredefinedType { get; set; }
+
+		public IfcLampType() { }
+
+		public IfcLampType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcLampTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLibraryInformation : IfcExternalInformation, IfcLibrarySelect
@@ -7658,6 +12446,7 @@ namespace IFC4
 		//4	VersionDate : IfcDateTime
 		//5	Location : IfcURIReference
 		//6	Description : IfcText
+
 		public IfcLabel Name { get; set; }
 		public IfcLabel Version { get; set; }
 		public IfcActorSelect Publisher { get; set; }
@@ -7667,6 +12456,18 @@ namespace IFC4
 		public List<IfcRelAssociatesLibrary> LibraryInfoForObjects { get; set; }
 		public List<IfcLibraryReference> HasLibraryReferences { get; set; }
 		public IfcText GetDescription() { return Description; }
+
+		public IfcLibraryInformation() { }
+
+		public IfcLibraryInformation(IfcLabel Name, IfcLabel Version, IfcActorSelect Publisher, IfcDateTime VersionDate, IfcURIReference Location, IfcText Description)
+		{
+			this.Name = Name;
+			this.Version = Version;
+			this.Publisher = Publisher;
+			this.VersionDate = VersionDate;
+			this.Location = Location;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcLibraryReference : IfcExternalReference, IfcLibrarySelect
@@ -7677,11 +12478,24 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	Language : IfcLanguageId
 		//6	ReferencedLibrary : IfcLibraryInformation
+
 		public IfcText Description { get; set; }
 		public IfcLanguageId Language { get; set; }
 		public IfcLibraryInformation ReferencedLibrary { get; set; }
 		public List<IfcRelAssociatesLibrary> LibraryRefForObjects { get; set; }
 		public IfcText GetDescription() { return Description; }
+
+		public IfcLibraryReference() { }
+
+		public IfcLibraryReference(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name, IfcText Description, IfcLanguageId Language, IfcLibraryInformation ReferencedLibrary)
+		{
+			this.Location = Location;
+			this.Identification = Identification;
+			this.Name = Name;
+			this.Description = Description;
+			this.Language = Language;
+			this.ReferencedLibrary = ReferencedLibrary;
+		}
 	}
 
 	public class IfcLightDistributionData : IfcBase
@@ -7689,9 +12503,19 @@ namespace IFC4
 		//1	MainPlaneAngle : IfcPlaneAngleMeasure
 		//2	SecondaryPlaneAngle : List<IfcPlaneAngleMeasure>
 		//3	LuminousIntensity : List<IfcLuminousIntensityDistributionMeasure>
+
 		public IfcPlaneAngleMeasure MainPlaneAngle { get; set; }
 		public List<IfcPlaneAngleMeasure> SecondaryPlaneAngle { get; set; }
 		public List<IfcLuminousIntensityDistributionMeasure> LuminousIntensity { get; set; }
+
+		public IfcLightDistributionData() { }
+
+		public IfcLightDistributionData(IfcPlaneAngleMeasure MainPlaneAngle, List<IfcPlaneAngleMeasure> SecondaryPlaneAngle, List<IfcLuminousIntensityDistributionMeasure> LuminousIntensity)
+		{
+			this.MainPlaneAngle = MainPlaneAngle;
+			this.SecondaryPlaneAngle = SecondaryPlaneAngle;
+			this.LuminousIntensity = LuminousIntensity;
+		}
 	}
 
 	public class IfcLightFixture : IfcFlowTerminal
@@ -7705,7 +12529,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcLightFixtureTypeEnum
+
 		public IfcLightFixtureTypeEnum PredefinedType { get; set; }
+
+		public IfcLightFixture() { }
+
+		public IfcLightFixture(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLightFixtureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLightFixtureType : IfcFlowTerminalType
@@ -7720,15 +12560,41 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcLightFixtureTypeEnum
+
 		public IfcLightFixtureTypeEnum PredefinedType { get; set; }
+
+		public IfcLightFixtureType() { }
+
+		public IfcLightFixtureType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcLightFixtureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcLightIntensityDistribution : IfcBase
 	{
 		//1	LightDistributionCurve : IfcLightDistributionCurveEnum
 		//2	DistributionData : List<IfcLightDistributionData>
+
 		public IfcLightDistributionCurveEnum LightDistributionCurve { get; set; }
 		public List<IfcLightDistributionData> DistributionData { get; set; }
+
+		public IfcLightIntensityDistribution() { }
+
+		public IfcLightIntensityDistribution(IfcLightDistributionCurveEnum LightDistributionCurve, List<IfcLightDistributionData> DistributionData)
+		{
+			this.LightDistributionCurve = LightDistributionCurve;
+			this.DistributionData = DistributionData;
+		}
 	}
 
 	public abstract class IfcLightSource : IfcGeometricRepresentationItem
@@ -7737,10 +12603,21 @@ namespace IFC4
 		//2	LightColour : IfcColourRgb
 		//3	AmbientIntensity : IfcNormalisedRatioMeasure
 		//4	Intensity : IfcNormalisedRatioMeasure
+
 		public IfcLabel Name { get; set; }
 		public IfcColourRgb LightColour { get; set; }
 		public IfcNormalisedRatioMeasure AmbientIntensity { get; set; }
 		public IfcNormalisedRatioMeasure Intensity { get; set; }
+
+		public IfcLightSource() { }
+
+		public IfcLightSource(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity)
+		{
+			this.Name = Name;
+			this.LightColour = LightColour;
+			this.AmbientIntensity = AmbientIntensity;
+			this.Intensity = Intensity;
+		}
 	}
 
 	public class IfcLightSourceAmbient : IfcLightSource
@@ -7749,6 +12626,16 @@ namespace IFC4
 		//2	LightColour : IfcColourRgb
 		//3	AmbientIntensity : IfcNormalisedRatioMeasure
 		//4	Intensity : IfcNormalisedRatioMeasure
+
+		public IfcLightSourceAmbient() { }
+
+		public IfcLightSourceAmbient(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity)
+		{
+			this.Name = Name;
+			this.LightColour = LightColour;
+			this.AmbientIntensity = AmbientIntensity;
+			this.Intensity = Intensity;
+		}
 	}
 
 	public class IfcLightSourceDirectional : IfcLightSource
@@ -7758,7 +12645,19 @@ namespace IFC4
 		//3	AmbientIntensity : IfcNormalisedRatioMeasure
 		//4	Intensity : IfcNormalisedRatioMeasure
 		//5	Orientation : IfcDirection
+
 		public IfcDirection Orientation { get; set; }
+
+		public IfcLightSourceDirectional() { }
+
+		public IfcLightSourceDirectional(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity, IfcDirection Orientation)
+		{
+			this.Name = Name;
+			this.LightColour = LightColour;
+			this.AmbientIntensity = AmbientIntensity;
+			this.Intensity = Intensity;
+			this.Orientation = Orientation;
+		}
 	}
 
 	public class IfcLightSourceGoniometric : IfcLightSource
@@ -7773,12 +12672,29 @@ namespace IFC4
 		//8	LuminousFlux : IfcLuminousFluxMeasure
 		//9	LightEmissionSource : IfcLightEmissionSourceEnum
 		//10	LightDistributionDataSource : IfcLightDistributionDataSourceSelect
+
 		public IfcAxis2Placement3D Position { get; set; }
 		public IfcColourRgb ColourAppearance { get; set; }
 		public IfcThermodynamicTemperatureMeasure ColourTemperature { get; set; }
 		public IfcLuminousFluxMeasure LuminousFlux { get; set; }
 		public IfcLightEmissionSourceEnum LightEmissionSource { get; set; }
 		public IfcLightDistributionDataSourceSelect LightDistributionDataSource { get; set; }
+
+		public IfcLightSourceGoniometric() { }
+
+		public IfcLightSourceGoniometric(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity, IfcAxis2Placement3D Position, IfcColourRgb ColourAppearance, IfcThermodynamicTemperatureMeasure ColourTemperature, IfcLuminousFluxMeasure LuminousFlux, IfcLightEmissionSourceEnum LightEmissionSource, IfcLightDistributionDataSourceSelect LightDistributionDataSource)
+		{
+			this.Name = Name;
+			this.LightColour = LightColour;
+			this.AmbientIntensity = AmbientIntensity;
+			this.Intensity = Intensity;
+			this.Position = Position;
+			this.ColourAppearance = ColourAppearance;
+			this.ColourTemperature = ColourTemperature;
+			this.LuminousFlux = LuminousFlux;
+			this.LightEmissionSource = LightEmissionSource;
+			this.LightDistributionDataSource = LightDistributionDataSource;
+		}
 	}
 
 	public class IfcLightSourcePositional : IfcLightSource
@@ -7792,11 +12708,27 @@ namespace IFC4
 		//7	ConstantAttenuation : IfcReal
 		//8	DistanceAttenuation : IfcReal
 		//9	QuadricAttenuation : IfcReal
+
 		public IfcCartesianPoint Position { get; set; }
 		public IfcPositiveLengthMeasure Radius { get; set; }
 		public IfcReal ConstantAttenuation { get; set; }
 		public IfcReal DistanceAttenuation { get; set; }
 		public IfcReal QuadricAttenuation { get; set; }
+
+		public IfcLightSourcePositional() { }
+
+		public IfcLightSourcePositional(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity, IfcCartesianPoint Position, IfcPositiveLengthMeasure Radius, IfcReal ConstantAttenuation, IfcReal DistanceAttenuation, IfcReal QuadricAttenuation)
+		{
+			this.Name = Name;
+			this.LightColour = LightColour;
+			this.AmbientIntensity = AmbientIntensity;
+			this.Intensity = Intensity;
+			this.Position = Position;
+			this.Radius = Radius;
+			this.ConstantAttenuation = ConstantAttenuation;
+			this.DistanceAttenuation = DistanceAttenuation;
+			this.QuadricAttenuation = QuadricAttenuation;
+		}
 	}
 
 	public class IfcLightSourceSpot : IfcLightSourcePositional
@@ -7814,36 +12746,83 @@ namespace IFC4
 		//11	ConcentrationExponent : IfcReal
 		//12	SpreadAngle : IfcPositivePlaneAngleMeasure
 		//13	BeamWidthAngle : IfcPositivePlaneAngleMeasure
+
 		public IfcDirection Orientation { get; set; }
 		public IfcReal ConcentrationExponent { get; set; }
 		public IfcPositivePlaneAngleMeasure SpreadAngle { get; set; }
 		public IfcPositivePlaneAngleMeasure BeamWidthAngle { get; set; }
+
+		public IfcLightSourceSpot() { }
+
+		public IfcLightSourceSpot(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity, IfcCartesianPoint Position, IfcPositiveLengthMeasure Radius, IfcReal ConstantAttenuation, IfcReal DistanceAttenuation, IfcReal QuadricAttenuation, IfcDirection Orientation, IfcReal ConcentrationExponent, IfcPositivePlaneAngleMeasure SpreadAngle, IfcPositivePlaneAngleMeasure BeamWidthAngle)
+		{
+			this.Name = Name;
+			this.LightColour = LightColour;
+			this.AmbientIntensity = AmbientIntensity;
+			this.Intensity = Intensity;
+			this.Position = Position;
+			this.Radius = Radius;
+			this.ConstantAttenuation = ConstantAttenuation;
+			this.DistanceAttenuation = DistanceAttenuation;
+			this.QuadricAttenuation = QuadricAttenuation;
+			this.Orientation = Orientation;
+			this.ConcentrationExponent = ConcentrationExponent;
+			this.SpreadAngle = SpreadAngle;
+			this.BeamWidthAngle = BeamWidthAngle;
+		}
 	}
 
 	public class IfcLine : IfcCurve
 	{
 		//1	Pnt : IfcCartesianPoint
 		//2	Dir : IfcVector
+
 		public IfcCartesianPoint Pnt { get; set; }
 		public IfcVector Dir { get; set; }
+
+		public IfcLine() { }
+
+		public IfcLine(IfcCartesianPoint Pnt, IfcVector Dir)
+		{
+			this.Pnt = Pnt;
+			this.Dir = Dir;
+		}
 	}
 
 	public class IfcLocalPlacement : IfcObjectPlacement
 	{
 		//1	PlacementRelTo : IfcObjectPlacement
 		//2	RelativePlacement : IfcAxis2Placement
+
 		public IfcObjectPlacement PlacementRelTo { get; set; }
 		public IfcAxis2Placement RelativePlacement { get; set; }
+
+		public IfcLocalPlacement() { }
+
+		public IfcLocalPlacement(IfcObjectPlacement PlacementRelTo, IfcAxis2Placement RelativePlacement)
+		{
+			this.PlacementRelTo = PlacementRelTo;
+			this.RelativePlacement = RelativePlacement;
+		}
 	}
 
 	public class IfcLoop : IfcTopologicalRepresentationItem
 	{
+		public IfcLoop() { }
 	}
 
 	public abstract class IfcManifoldSolidBrep : IfcSolidModel
 	{
 		//1	Outer : IfcClosedShell
+
 		public IfcClosedShell Outer { get; set; }
+
+		public IfcManifoldSolidBrep() { }
+
+		public IfcManifoldSolidBrep(IfcClosedShell Outer)
+		{
+			this.Outer = Outer;
+		}
 	}
 
 	public class IfcMapConversion : IfcCoordinateOperation
@@ -7856,20 +12835,44 @@ namespace IFC4
 		//6	XAxisAbscissa : IfcReal
 		//7	XAxisOrdinate : IfcReal
 		//8	Scale : IfcReal
+
 		public IfcLengthMeasure Eastings { get; set; }
 		public IfcLengthMeasure Northings { get; set; }
 		public IfcLengthMeasure OrthogonalHeight { get; set; }
 		public IfcReal XAxisAbscissa { get; set; }
 		public IfcReal XAxisOrdinate { get; set; }
 		public IfcReal Scale { get; set; }
+
+		public IfcMapConversion() { }
+
+		public IfcMapConversion(IfcCoordinateReferenceSystemSelect SourceCRS, IfcCoordinateReferenceSystem TargetCRS, IfcLengthMeasure Eastings, IfcLengthMeasure Northings, IfcLengthMeasure OrthogonalHeight, IfcReal XAxisAbscissa, IfcReal XAxisOrdinate, IfcReal Scale)
+		{
+			this.SourceCRS = SourceCRS;
+			this.TargetCRS = TargetCRS;
+			this.Eastings = Eastings;
+			this.Northings = Northings;
+			this.OrthogonalHeight = OrthogonalHeight;
+			this.XAxisAbscissa = XAxisAbscissa;
+			this.XAxisOrdinate = XAxisOrdinate;
+			this.Scale = Scale;
+		}
 	}
 
 	public class IfcMappedItem : IfcRepresentationItem
 	{
 		//1	MappingSource : IfcRepresentationMap
 		//2	MappingTarget : IfcCartesianTransformationOperator
+
 		public IfcRepresentationMap MappingSource { get; set; }
 		public IfcCartesianTransformationOperator MappingTarget { get; set; }
+
+		public IfcMappedItem() { }
+
+		public IfcMappedItem(IfcRepresentationMap MappingSource, IfcCartesianTransformationOperator MappingTarget)
+		{
+			this.MappingSource = MappingSource;
+			this.MappingTarget = MappingTarget;
+		}
 	}
 
 	public class IfcMaterial : IfcMaterialDefinition
@@ -7877,20 +12880,39 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Description : IfcText
 		//3	Category : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLabel Category { get; set; }
 		public List<IfcMaterialDefinitionRepresentation> HasRepresentation { get; set; }
 		public List<IfcMaterialRelationship> IsRelatedWith { get; set; }
 		public List<IfcMaterialRelationship> RelatesTo { get; set; }
+
+		public IfcMaterial() { }
+
+		public IfcMaterial(IfcLabel Name, IfcText Description, IfcLabel Category)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Category = Category;
+		}
 	}
 
 	public class IfcMaterialClassificationRelationship : IfcBase
 	{
 		//1	MaterialClassifications : List<IfcClassificationSelect>
 		//2	ClassifiedMaterial : IfcMaterial
+
 		public List<IfcClassificationSelect> MaterialClassifications { get; set; }
 		public IfcMaterial ClassifiedMaterial { get; set; }
+
+		public IfcMaterialClassificationRelationship() { }
+
+		public IfcMaterialClassificationRelationship(List<IfcClassificationSelect> MaterialClassifications, IfcMaterial ClassifiedMaterial)
+		{
+			this.MaterialClassifications = MaterialClassifications;
+			this.ClassifiedMaterial = ClassifiedMaterial;
+		}
 	}
 
 	public class IfcMaterialConstituent : IfcMaterialDefinition
@@ -7900,12 +12922,24 @@ namespace IFC4
 		//3	Material : IfcMaterial
 		//4	Fraction : IfcNormalisedRatioMeasure
 		//5	Category : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcMaterial Material { get; set; }
 		public IfcNormalisedRatioMeasure Fraction { get; set; }
 		public IfcLabel Category { get; set; }
 		public IfcMaterialConstituentSet ToMaterialConstituentSet { get; set; }
+
+		public IfcMaterialConstituent() { }
+
+		public IfcMaterialConstituent(IfcLabel Name, IfcText Description, IfcMaterial Material, IfcNormalisedRatioMeasure Fraction, IfcLabel Category)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Material = Material;
+			this.Fraction = Fraction;
+			this.Category = Category;
+		}
 	}
 
 	public class IfcMaterialConstituentSet : IfcMaterialDefinition
@@ -7913,9 +12947,19 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Description : IfcText
 		//3	MaterialConstituents : List<IfcMaterialConstituent>
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcMaterialConstituent> MaterialConstituents { get; set; }
+
+		public IfcMaterialConstituentSet() { }
+
+		public IfcMaterialConstituentSet(IfcLabel Name, IfcText Description, List<IfcMaterialConstituent> MaterialConstituents)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.MaterialConstituents = MaterialConstituents;
+		}
 	}
 
 	public abstract class IfcMaterialDefinition : IfcBase, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
@@ -7924,6 +12968,8 @@ namespace IFC4
 		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
 		public List<IfcMaterialProperties> HasProperties { get; set; }
 		public List<IfcRelAssociatesMaterial> GetAssociatedTo() { return AssociatedTo; }
+
+		public IfcMaterialDefinition() { }
 	}
 
 	public class IfcMaterialDefinitionRepresentation : IfcProductRepresentation
@@ -7932,7 +12978,18 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	Representations : List<IfcRepresentation>
 		//4	RepresentedMaterial : IfcMaterial
+
 		public IfcMaterial RepresentedMaterial { get; set; }
+
+		public IfcMaterialDefinitionRepresentation() { }
+
+		public IfcMaterialDefinitionRepresentation(IfcLabel Name, IfcText Description, List<IfcRepresentation> Representations, IfcMaterial RepresentedMaterial)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Representations = Representations;
+			this.RepresentedMaterial = RepresentedMaterial;
+		}
 	}
 
 	public class IfcMaterialLayer : IfcMaterialDefinition
@@ -7944,6 +13001,7 @@ namespace IFC4
 		//5	Description : IfcText
 		//6	Category : IfcLabel
 		//7	Priority : IfcInteger
+
 		public IfcMaterial Material { get; set; }
 		public IfcNonNegativeLengthMeasure LayerThickness { get; set; }
 		public IfcLogical IsVentilated { get; set; }
@@ -7952,6 +13010,19 @@ namespace IFC4
 		public IfcLabel Category { get; set; }
 		public IfcInteger Priority { get; set; }
 		public IfcMaterialLayerSet ToMaterialLayerSet { get; set; }
+
+		public IfcMaterialLayer() { }
+
+		public IfcMaterialLayer(IfcMaterial Material, IfcNonNegativeLengthMeasure LayerThickness, IfcLogical IsVentilated, IfcLabel Name, IfcText Description, IfcLabel Category, IfcInteger Priority)
+		{
+			this.Material = Material;
+			this.LayerThickness = LayerThickness;
+			this.IsVentilated = IsVentilated;
+			this.Name = Name;
+			this.Description = Description;
+			this.Category = Category;
+			this.Priority = Priority;
+		}
 	}
 
 	public class IfcMaterialLayerSet : IfcMaterialDefinition
@@ -7959,10 +13030,20 @@ namespace IFC4
 		//1	MaterialLayers : List<IfcMaterialLayer>
 		//2	LayerSetName : IfcLabel
 		//3	Description : IfcText
+
 		public List<IfcMaterialLayer> MaterialLayers { get; set; }
 		public IfcLabel LayerSetName { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLengthMeasure TotalThickness { get; set; }
+
+		public IfcMaterialLayerSet() { }
+
+		public IfcMaterialLayerSet(List<IfcMaterialLayer> MaterialLayers, IfcLabel LayerSetName, IfcText Description)
+		{
+			this.MaterialLayers = MaterialLayers;
+			this.LayerSetName = LayerSetName;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcMaterialLayerSetUsage : IfcMaterialUsageDefinition
@@ -7972,11 +13053,23 @@ namespace IFC4
 		//3	DirectionSense : IfcDirectionSenseEnum
 		//4	OffsetFromReferenceLine : IfcLengthMeasure
 		//5	ReferenceExtent : IfcPositiveLengthMeasure
+
 		public IfcMaterialLayerSet ForLayerSet { get; set; }
 		public IfcLayerSetDirectionEnum LayerSetDirection { get; set; }
 		public IfcDirectionSenseEnum DirectionSense { get; set; }
 		public IfcLengthMeasure OffsetFromReferenceLine { get; set; }
 		public IfcPositiveLengthMeasure ReferenceExtent { get; set; }
+
+		public IfcMaterialLayerSetUsage() { }
+
+		public IfcMaterialLayerSetUsage(IfcMaterialLayerSet ForLayerSet, IfcLayerSetDirectionEnum LayerSetDirection, IfcDirectionSenseEnum DirectionSense, IfcLengthMeasure OffsetFromReferenceLine, IfcPositiveLengthMeasure ReferenceExtent)
+		{
+			this.ForLayerSet = ForLayerSet;
+			this.LayerSetDirection = LayerSetDirection;
+			this.DirectionSense = DirectionSense;
+			this.OffsetFromReferenceLine = OffsetFromReferenceLine;
+			this.ReferenceExtent = ReferenceExtent;
+		}
 	}
 
 	public class IfcMaterialLayerWithOffsets : IfcMaterialLayer
@@ -7990,14 +13083,38 @@ namespace IFC4
 		//7	Priority : IfcInteger
 		//8	OffsetDirection : IfcLayerSetDirectionEnum
 		//9	OffsetValues : List<IfcLengthMeasure>
+
 		public IfcLayerSetDirectionEnum OffsetDirection { get; set; }
 		public List<IfcLengthMeasure> OffsetValues { get; set; }
+
+		public IfcMaterialLayerWithOffsets() { }
+
+		public IfcMaterialLayerWithOffsets(IfcMaterial Material, IfcNonNegativeLengthMeasure LayerThickness, IfcLogical IsVentilated, IfcLabel Name, IfcText Description, IfcLabel Category, IfcInteger Priority, IfcLayerSetDirectionEnum OffsetDirection, List<IfcLengthMeasure> OffsetValues)
+		{
+			this.Material = Material;
+			this.LayerThickness = LayerThickness;
+			this.IsVentilated = IsVentilated;
+			this.Name = Name;
+			this.Description = Description;
+			this.Category = Category;
+			this.Priority = Priority;
+			this.OffsetDirection = OffsetDirection;
+			this.OffsetValues = OffsetValues;
+		}
 	}
 
 	public class IfcMaterialList : IfcBase
 	{
 		//1	Materials : List<IfcMaterial>
+
 		public List<IfcMaterial> Materials { get; set; }
+
+		public IfcMaterialList() { }
+
+		public IfcMaterialList(List<IfcMaterial> Materials)
+		{
+			this.Materials = Materials;
+		}
 	}
 
 	public class IfcMaterialProfile : IfcMaterialDefinition
@@ -8008,6 +13125,7 @@ namespace IFC4
 		//4	Profile : IfcProfileDef
 		//5	Priority : IfcInteger
 		//6	Category : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcMaterial Material { get; set; }
@@ -8015,6 +13133,18 @@ namespace IFC4
 		public IfcInteger Priority { get; set; }
 		public IfcLabel Category { get; set; }
 		public IfcMaterialProfileSet ToMaterialProfileSet { get; set; }
+
+		public IfcMaterialProfile() { }
+
+		public IfcMaterialProfile(IfcLabel Name, IfcText Description, IfcMaterial Material, IfcProfileDef Profile, IfcInteger Priority, IfcLabel Category)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Material = Material;
+			this.Profile = Profile;
+			this.Priority = Priority;
+			this.Category = Category;
+		}
 	}
 
 	public class IfcMaterialProfileSet : IfcMaterialDefinition
@@ -8023,10 +13153,21 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	MaterialProfiles : List<IfcMaterialProfile>
 		//4	CompositeProfile : IfcCompositeProfileDef
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcMaterialProfile> MaterialProfiles { get; set; }
 		public IfcCompositeProfileDef CompositeProfile { get; set; }
+
+		public IfcMaterialProfileSet() { }
+
+		public IfcMaterialProfileSet(IfcLabel Name, IfcText Description, List<IfcMaterialProfile> MaterialProfiles, IfcCompositeProfileDef CompositeProfile)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.MaterialProfiles = MaterialProfiles;
+			this.CompositeProfile = CompositeProfile;
+		}
 	}
 
 	public class IfcMaterialProfileSetUsage : IfcMaterialUsageDefinition
@@ -8034,9 +13175,19 @@ namespace IFC4
 		//1	ForProfileSet : IfcMaterialProfileSet
 		//2	CardinalPoint : IfcCardinalPointReference
 		//3	ReferenceExtent : IfcPositiveLengthMeasure
+
 		public IfcMaterialProfileSet ForProfileSet { get; set; }
 		public IfcCardinalPointReference CardinalPoint { get; set; }
 		public IfcPositiveLengthMeasure ReferenceExtent { get; set; }
+
+		public IfcMaterialProfileSetUsage() { }
+
+		public IfcMaterialProfileSetUsage(IfcMaterialProfileSet ForProfileSet, IfcCardinalPointReference CardinalPoint, IfcPositiveLengthMeasure ReferenceExtent)
+		{
+			this.ForProfileSet = ForProfileSet;
+			this.CardinalPoint = CardinalPoint;
+			this.ReferenceExtent = ReferenceExtent;
+		}
 	}
 
 	public class IfcMaterialProfileSetUsageTapering : IfcMaterialProfileSetUsage
@@ -8046,8 +13197,20 @@ namespace IFC4
 		//3	ReferenceExtent : IfcPositiveLengthMeasure
 		//4	ForProfileEndSet : IfcMaterialProfileSet
 		//5	CardinalEndPoint : IfcCardinalPointReference
+
 		public IfcMaterialProfileSet ForProfileEndSet { get; set; }
 		public IfcCardinalPointReference CardinalEndPoint { get; set; }
+
+		public IfcMaterialProfileSetUsageTapering() { }
+
+		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet ForProfileSet, IfcCardinalPointReference CardinalPoint, IfcPositiveLengthMeasure ReferenceExtent, IfcMaterialProfileSet ForProfileEndSet, IfcCardinalPointReference CardinalEndPoint)
+		{
+			this.ForProfileSet = ForProfileSet;
+			this.CardinalPoint = CardinalPoint;
+			this.ReferenceExtent = ReferenceExtent;
+			this.ForProfileEndSet = ForProfileEndSet;
+			this.CardinalEndPoint = CardinalEndPoint;
+		}
 	}
 
 	public class IfcMaterialProfileWithOffsets : IfcMaterialProfile
@@ -8059,7 +13222,21 @@ namespace IFC4
 		//5	Priority : IfcInteger
 		//6	Category : IfcLabel
 		//7	OffsetValues : List<IfcLengthMeasure>
+
 		public List<IfcLengthMeasure> OffsetValues { get; set; }
+
+		public IfcMaterialProfileWithOffsets() { }
+
+		public IfcMaterialProfileWithOffsets(IfcLabel Name, IfcText Description, IfcMaterial Material, IfcProfileDef Profile, IfcInteger Priority, IfcLabel Category, List<IfcLengthMeasure> OffsetValues)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Material = Material;
+			this.Profile = Profile;
+			this.Priority = Priority;
+			this.Category = Category;
+			this.OffsetValues = OffsetValues;
+		}
 	}
 
 	public class IfcMaterialProperties : IfcExtendedProperties
@@ -8068,7 +13245,18 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	Properties : List<IfcProperty>
 		//4	Material : IfcMaterialDefinition
+
 		public IfcMaterialDefinition Material { get; set; }
+
+		public IfcMaterialProperties() { }
+
+		public IfcMaterialProperties(IfcIdentifier Name, IfcText Description, List<IfcProperty> Properties, IfcMaterialDefinition Material)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Properties = Properties;
+			this.Material = Material;
+		}
 	}
 
 	public class IfcMaterialRelationship : IfcResourceLevelRelationship
@@ -8078,23 +13266,46 @@ namespace IFC4
 		//3	RelatingMaterial : IfcMaterial
 		//4	RelatedMaterials : List<IfcMaterial>
 		//5	Expression : IfcLabel
+
 		public IfcMaterial RelatingMaterial { get; set; }
 		public List<IfcMaterial> RelatedMaterials { get; set; }
 		public IfcLabel Expression { get; set; }
+
+		public IfcMaterialRelationship() { }
+
+		public IfcMaterialRelationship(IfcLabel Name, IfcText Description, IfcMaterial RelatingMaterial, List<IfcMaterial> RelatedMaterials, IfcLabel Expression)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingMaterial = RelatingMaterial;
+			this.RelatedMaterials = RelatedMaterials;
+			this.Expression = Expression;
+		}
 	}
 
 	public abstract class IfcMaterialUsageDefinition : IfcBase, IfcMaterialSelect
 	{
 		public List<IfcRelAssociatesMaterial> AssociatedTo { get; set; }
 		public List<IfcRelAssociatesMaterial> GetAssociatedTo() { return AssociatedTo; }
+
+		public IfcMaterialUsageDefinition() { }
 	}
 
 	public class IfcMeasureWithUnit : IfcBase
 	{
 		//1	ValueComponent : IfcValue
 		//2	UnitComponent : IfcUnit
+
 		public IfcValue ValueComponent { get; set; }
 		public IfcUnit UnitComponent { get; set; }
+
+		public IfcMeasureWithUnit() { }
+
+		public IfcMeasureWithUnit(IfcValue ValueComponent, IfcUnit UnitComponent)
+		{
+			this.ValueComponent = ValueComponent;
+			this.UnitComponent = UnitComponent;
+		}
 	}
 
 	public class IfcMechanicalFastener : IfcElementComponent
@@ -8110,9 +13321,27 @@ namespace IFC4
 		//9	NominalDiameter : IfcPositiveLengthMeasure
 		//10	NominalLength : IfcPositiveLengthMeasure
 		//11	PredefinedType : IfcMechanicalFastenerTypeEnum
+
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcPositiveLengthMeasure NominalLength { get; set; }
 		public IfcMechanicalFastenerTypeEnum PredefinedType { get; set; }
+
+		public IfcMechanicalFastener() { }
+
+		public IfcMechanicalFastener(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure NominalDiameter, IfcPositiveLengthMeasure NominalLength, IfcMechanicalFastenerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.NominalDiameter = NominalDiameter;
+			this.NominalLength = NominalLength;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMechanicalFastenerType : IfcElementComponentType
@@ -8129,9 +13358,28 @@ namespace IFC4
 		//10	PredefinedType : IfcMechanicalFastenerTypeEnum
 		//11	NominalDiameter : IfcPositiveLengthMeasure
 		//12	NominalLength : IfcPositiveLengthMeasure
+
 		public IfcMechanicalFastenerTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcPositiveLengthMeasure NominalLength { get; set; }
+
+		public IfcMechanicalFastenerType() { }
+
+		public IfcMechanicalFastenerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcMechanicalFastenerTypeEnum PredefinedType, IfcPositiveLengthMeasure NominalDiameter, IfcPositiveLengthMeasure NominalLength)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.NominalDiameter = NominalDiameter;
+			this.NominalLength = NominalLength;
+		}
 	}
 
 	public class IfcMedicalDevice : IfcFlowTerminal
@@ -8145,7 +13393,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcMedicalDeviceTypeEnum
+
 		public IfcMedicalDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcMedicalDevice() { }
+
+		public IfcMedicalDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcMedicalDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMedicalDeviceType : IfcFlowTerminalType
@@ -8160,7 +13424,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcMedicalDeviceTypeEnum
+
 		public IfcMedicalDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcMedicalDeviceType() { }
+
+		public IfcMedicalDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcMedicalDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMember : IfcBuildingElement
@@ -8174,7 +13455,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcMemberTypeEnum
+
 		public IfcMemberTypeEnum PredefinedType { get; set; }
+
+		public IfcMember() { }
+
+		public IfcMember(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcMemberTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMemberStandardCase : IfcMember
@@ -8188,6 +13485,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcMemberTypeEnum
+
+		public IfcMemberStandardCase() { }
+
+		public IfcMemberStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcMemberTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMemberType : IfcBuildingElementType
@@ -8202,7 +13514,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcMemberTypeEnum
+
 		public IfcMemberTypeEnum PredefinedType { get; set; }
+
+		public IfcMemberType() { }
+
+		public IfcMemberType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcMemberTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMetric : IfcConstraint
@@ -8218,10 +13547,28 @@ namespace IFC4
 		//9	ValueSource : IfcLabel
 		//10	DataValue : IfcMetricValueSelect
 		//11	ReferencePath : IfcReference
+
 		public IfcBenchmarkEnum Benchmark { get; set; }
 		public IfcLabel ValueSource { get; set; }
 		public IfcMetricValueSelect DataValue { get; set; }
 		public IfcReference ReferencePath { get; set; }
+
+		public IfcMetric() { }
+
+		public IfcMetric(IfcLabel Name, IfcText Description, IfcConstraintEnum ConstraintGrade, IfcLabel ConstraintSource, IfcActorSelect CreatingActor, IfcDateTime CreationTime, IfcLabel UserDefinedGrade, IfcBenchmarkEnum Benchmark, IfcLabel ValueSource, IfcMetricValueSelect DataValue, IfcReference ReferencePath)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.ConstraintGrade = ConstraintGrade;
+			this.ConstraintSource = ConstraintSource;
+			this.CreatingActor = CreatingActor;
+			this.CreationTime = CreationTime;
+			this.UserDefinedGrade = UserDefinedGrade;
+			this.Benchmark = Benchmark;
+			this.ValueSource = ValueSource;
+			this.DataValue = DataValue;
+			this.ReferencePath = ReferencePath;
+		}
 	}
 
 	public class IfcMirroredProfileDef : IfcDerivedProfileDef
@@ -8231,12 +13578,31 @@ namespace IFC4
 		//3	ParentProfile : IfcProfileDef
 		//4	Operator : IfcCartesianTransformationOperator2D
 		//5	Label : IfcLabel
+
+		public IfcMirroredProfileDef() { }
+
+		public IfcMirroredProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcProfileDef ParentProfile, IfcCartesianTransformationOperator2D Operator, IfcLabel Label)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.ParentProfile = ParentProfile;
+			this.Operator = Operator;
+			this.Label = Label;
+		}
 	}
 
 	public class IfcMonetaryUnit : IfcBase
 	{
 		//1	Currency : IfcLabel
+
 		public IfcLabel Currency { get; set; }
+
+		public IfcMonetaryUnit() { }
+
+		public IfcMonetaryUnit(IfcLabel Currency)
+		{
+			this.Currency = Currency;
+		}
 	}
 
 	public class IfcMotorConnection : IfcEnergyConversionDevice
@@ -8250,7 +13616,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcMotorConnectionTypeEnum
+
 		public IfcMotorConnectionTypeEnum PredefinedType { get; set; }
+
+		public IfcMotorConnection() { }
+
+		public IfcMotorConnection(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcMotorConnectionTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcMotorConnectionType : IfcEnergyConversionDeviceType
@@ -8265,17 +13647,43 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcMotorConnectionTypeEnum
+
 		public IfcMotorConnectionTypeEnum PredefinedType { get; set; }
+
+		public IfcMotorConnectionType() { }
+
+		public IfcMotorConnectionType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcMotorConnectionTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcNamedUnit : IfcBase, IfcUnit
 	{
 		//1	Dimensions : IfcDimensionalExponents
 		//2	UnitType : IfcUnitEnum
+
 		public IfcDimensionalExponents Dimensions { get; set; }
 		public IfcUnitEnum UnitType { get; set; }
 		public IfcDimensionalExponents GetDimensions() { return Dimensions; }
 		public IfcUnitEnum GetUnitType() { return UnitType; }
+
+		public IfcNamedUnit() { }
+
+		public IfcNamedUnit(IfcDimensionalExponents Dimensions, IfcUnitEnum UnitType)
+		{
+			this.Dimensions = Dimensions;
+			this.UnitType = UnitType;
+		}
 	}
 
 	public abstract class IfcObject : IfcObjectDefinition
@@ -8285,11 +13693,23 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	Description : IfcText
 		//5	ObjectType : IfcLabel
+
 		public IfcLabel ObjectType { get; set; }
 		public List<IfcRelDefinesByObject> IsDeclaredBy { get; set; }
 		public List<IfcRelDefinesByObject> Declares { get; set; }
 		public List<IfcRelDefinesByType> IsTypedBy { get; set; }
 		public List<IfcRelDefinesByProperties> IsDefinedBy { get; set; }
+
+		public IfcObject() { }
+
+		public IfcObject(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+		}
 	}
 
 	public abstract class IfcObjectDefinition : IfcRoot, IfcDefinitionSelect
@@ -8298,6 +13718,7 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
 		public List<IfcRelAssigns> HasAssignments { get; set; }
 		public List<IfcRelNests> Nests { get; set; }
 		public List<IfcRelNests> IsNestedBy { get; set; }
@@ -8307,12 +13728,24 @@ namespace IFC4
 		public List<IfcRelAssociates> HasAssociations { get; set; }
 		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
 		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+
+		public IfcObjectDefinition() { }
+
+		public IfcObjectDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public abstract class IfcObjectPlacement : IfcBase
 	{
 		public List<IfcProduct> PlacesObject { get; set; }
 		public List<IfcLocalPlacement> ReferencedByPlacements { get; set; }
+
+		public IfcObjectPlacement() { }
 	}
 
 	public class IfcObjective : IfcConstraint
@@ -8328,10 +13761,28 @@ namespace IFC4
 		//9	LogicalAggregator : IfcLogicalOperatorEnum
 		//10	ObjectiveQualifier : IfcObjectiveEnum
 		//11	UserDefinedQualifier : IfcLabel
+
 		public List<IfcConstraint> BenchmarkValues { get; set; }
 		public IfcLogicalOperatorEnum LogicalAggregator { get; set; }
 		public IfcObjectiveEnum ObjectiveQualifier { get; set; }
 		public IfcLabel UserDefinedQualifier { get; set; }
+
+		public IfcObjective() { }
+
+		public IfcObjective(IfcLabel Name, IfcText Description, IfcConstraintEnum ConstraintGrade, IfcLabel ConstraintSource, IfcActorSelect CreatingActor, IfcDateTime CreationTime, IfcLabel UserDefinedGrade, List<IfcConstraint> BenchmarkValues, IfcLogicalOperatorEnum LogicalAggregator, IfcObjectiveEnum ObjectiveQualifier, IfcLabel UserDefinedQualifier)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.ConstraintGrade = ConstraintGrade;
+			this.ConstraintSource = ConstraintSource;
+			this.CreatingActor = CreatingActor;
+			this.CreationTime = CreationTime;
+			this.UserDefinedGrade = UserDefinedGrade;
+			this.BenchmarkValues = BenchmarkValues;
+			this.LogicalAggregator = LogicalAggregator;
+			this.ObjectiveQualifier = ObjectiveQualifier;
+			this.UserDefinedQualifier = UserDefinedQualifier;
+		}
 	}
 
 	public class IfcOccupant : IfcActor
@@ -8343,7 +13794,21 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	TheActor : IfcActorSelect
 		//7	PredefinedType : IfcOccupantTypeEnum
+
 		public IfcOccupantTypeEnum PredefinedType { get; set; }
+
+		public IfcOccupant() { }
+
+		public IfcOccupant(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcActorSelect TheActor, IfcOccupantTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.TheActor = TheActor;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcOffsetCurve2D : IfcCurve
@@ -8351,9 +13816,19 @@ namespace IFC4
 		//1	BasisCurve : IfcCurve
 		//2	Distance : IfcLengthMeasure
 		//3	SelfIntersect : IfcLogical
+
 		public IfcCurve BasisCurve { get; set; }
 		public IfcLengthMeasure Distance { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
+
+		public IfcOffsetCurve2D() { }
+
+		public IfcOffsetCurve2D(IfcCurve BasisCurve, IfcLengthMeasure Distance, IfcLogical SelfIntersect)
+		{
+			this.BasisCurve = BasisCurve;
+			this.Distance = Distance;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcOffsetCurve3D : IfcCurve
@@ -8362,15 +13837,33 @@ namespace IFC4
 		//2	Distance : IfcLengthMeasure
 		//3	SelfIntersect : IfcLogical
 		//4	RefDirection : IfcDirection
+
 		public IfcCurve BasisCurve { get; set; }
 		public IfcLengthMeasure Distance { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcDirection RefDirection { get; set; }
+
+		public IfcOffsetCurve3D() { }
+
+		public IfcOffsetCurve3D(IfcCurve BasisCurve, IfcLengthMeasure Distance, IfcLogical SelfIntersect, IfcDirection RefDirection)
+		{
+			this.BasisCurve = BasisCurve;
+			this.Distance = Distance;
+			this.SelfIntersect = SelfIntersect;
+			this.RefDirection = RefDirection;
+		}
 	}
 
 	public class IfcOpenShell : IfcConnectedFaceSet, IfcShell
 	{
 		//1	CfsFaces : List<IfcFace>
+
+		public IfcOpenShell() { }
+
+		public IfcOpenShell(List<IfcFace> CfsFaces)
+		{
+			this.CfsFaces = CfsFaces;
+		}
 	}
 
 	public class IfcOpeningElement : IfcFeatureElementSubtraction
@@ -8384,8 +13877,24 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcOpeningElementTypeEnum
+
 		public IfcOpeningElementTypeEnum PredefinedType { get; set; }
 		public List<IfcRelFillsElement> HasFillings { get; set; }
+
+		public IfcOpeningElement() { }
+
+		public IfcOpeningElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcOpeningElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcOpeningStandardCase : IfcOpeningElement
@@ -8399,6 +13908,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcOpeningElementTypeEnum
+
+		public IfcOpeningStandardCase() { }
+
+		public IfcOpeningStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcOpeningElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcOrganization : IfcBase
@@ -8408,6 +13932,7 @@ namespace IFC4
 		//3	Description : IfcText
 		//4	Roles : List<IfcActorRole>
 		//5	Addresses : List<IfcAddress>
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -8416,6 +13941,17 @@ namespace IFC4
 		public List<IfcOrganizationRelationship> IsRelatedBy { get; set; }
 		public List<IfcOrganizationRelationship> Relates { get; set; }
 		public List<IfcPersonAndOrganization> Engages { get; set; }
+
+		public IfcOrganization() { }
+
+		public IfcOrganization(IfcIdentifier Identification, IfcLabel Name, IfcText Description, List<IfcActorRole> Roles, List<IfcAddress> Addresses)
+		{
+			this.Identification = Identification;
+			this.Name = Name;
+			this.Description = Description;
+			this.Roles = Roles;
+			this.Addresses = Addresses;
+		}
 	}
 
 	public class IfcOrganizationRelationship : IfcResourceLevelRelationship
@@ -8424,8 +13960,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	RelatingOrganization : IfcOrganization
 		//4	RelatedOrganizations : List<IfcOrganization>
+
 		public IfcOrganization RelatingOrganization { get; set; }
 		public List<IfcOrganization> RelatedOrganizations { get; set; }
+
+		public IfcOrganizationRelationship() { }
+
+		public IfcOrganizationRelationship(IfcLabel Name, IfcText Description, IfcOrganization RelatingOrganization, List<IfcOrganization> RelatedOrganizations)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingOrganization = RelatingOrganization;
+			this.RelatedOrganizations = RelatedOrganizations;
+		}
 	}
 
 	public class IfcOrientedEdge : IfcEdge
@@ -8434,14 +13981,33 @@ namespace IFC4
 		//2	EdgeEnd : IfcVertex
 		//3	EdgeElement : IfcEdge
 		//4	Orientation : IfcBoolean
+
 		public IfcEdge EdgeElement { get; set; }
 		public IfcBoolean Orientation { get; set; }
+
+		public IfcOrientedEdge() { }
+
+		public IfcOrientedEdge(IfcVertex EdgeStart, IfcVertex EdgeEnd, IfcEdge EdgeElement, IfcBoolean Orientation)
+		{
+			this.EdgeStart = EdgeStart;
+			this.EdgeEnd = EdgeEnd;
+			this.EdgeElement = EdgeElement;
+			this.Orientation = Orientation;
+		}
 	}
 
 	public class IfcOuterBoundaryCurve : IfcBoundaryCurve
 	{
 		//1	Segments : List<IfcCompositeCurveSegment>
 		//2	SelfIntersect : IfcLogical
+
+		public IfcOuterBoundaryCurve() { }
+
+		public IfcOuterBoundaryCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
+		{
+			this.Segments = Segments;
+			this.SelfIntersect = SelfIntersect;
+		}
 	}
 
 	public class IfcOutlet : IfcFlowTerminal
@@ -8455,7 +14021,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcOutletTypeEnum
+
 		public IfcOutletTypeEnum PredefinedType { get; set; }
+
+		public IfcOutlet() { }
+
+		public IfcOutlet(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcOutletTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcOutletType : IfcFlowTerminalType
@@ -8470,7 +14052,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcOutletTypeEnum
+
 		public IfcOutletTypeEnum PredefinedType { get; set; }
+
+		public IfcOutletType() { }
+
+		public IfcOutletType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcOutletTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcOwnerHistory : IfcBase
@@ -8483,6 +14082,7 @@ namespace IFC4
 		//6	LastModifyingUser : IfcPersonAndOrganization
 		//7	LastModifyingApplication : IfcApplication
 		//8	CreationDate : IfcTimeStamp
+
 		public IfcPersonAndOrganization OwningUser { get; set; }
 		public IfcApplication OwningApplication { get; set; }
 		public IfcStateEnum State { get; set; }
@@ -8491,6 +14091,20 @@ namespace IFC4
 		public IfcPersonAndOrganization LastModifyingUser { get; set; }
 		public IfcApplication LastModifyingApplication { get; set; }
 		public IfcTimeStamp CreationDate { get; set; }
+
+		public IfcOwnerHistory() { }
+
+		public IfcOwnerHistory(IfcPersonAndOrganization OwningUser, IfcApplication OwningApplication, IfcStateEnum State, IfcChangeActionEnum ChangeAction, IfcTimeStamp LastModifiedDate, IfcPersonAndOrganization LastModifyingUser, IfcApplication LastModifyingApplication, IfcTimeStamp CreationDate)
+		{
+			this.OwningUser = OwningUser;
+			this.OwningApplication = OwningApplication;
+			this.State = State;
+			this.ChangeAction = ChangeAction;
+			this.LastModifiedDate = LastModifiedDate;
+			this.LastModifyingUser = LastModifyingUser;
+			this.LastModifyingApplication = LastModifyingApplication;
+			this.CreationDate = CreationDate;
+		}
 	}
 
 	public abstract class IfcParameterizedProfileDef : IfcProfileDef
@@ -8498,21 +14112,48 @@ namespace IFC4
 		//1	ProfileType : IfcProfileTypeEnum
 		//2	ProfileName : IfcLabel
 		//3	Position : IfcAxis2Placement2D
+
 		public IfcAxis2Placement2D Position { get; set; }
+
+		public IfcParameterizedProfileDef() { }
+
+		public IfcParameterizedProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+		}
 	}
 
 	public class IfcPath : IfcTopologicalRepresentationItem
 	{
 		//1	EdgeList : List<IfcOrientedEdge>
+
 		public List<IfcOrientedEdge> EdgeList { get; set; }
+
+		public IfcPath() { }
+
+		public IfcPath(List<IfcOrientedEdge> EdgeList)
+		{
+			this.EdgeList = EdgeList;
+		}
 	}
 
 	public class IfcPcurve : IfcCurve, IfcCurveOnSurface
 	{
 		//1	BasisSurface : IfcSurface
 		//2	ReferenceCurve : IfcCurve
+
 		public IfcSurface BasisSurface { get; set; }
 		public IfcCurve ReferenceCurve { get; set; }
+
+		public IfcPcurve() { }
+
+		public IfcPcurve(IfcSurface BasisSurface, IfcCurve ReferenceCurve)
+		{
+			this.BasisSurface = BasisSurface;
+			this.ReferenceCurve = ReferenceCurve;
+		}
 	}
 
 	public class IfcPerformanceHistory : IfcControl
@@ -8525,8 +14166,23 @@ namespace IFC4
 		//6	Identification : IfcIdentifier
 		//7	LifeCyclePhase : IfcLabel
 		//8	PredefinedType : IfcPerformanceHistoryTypeEnum
+
 		public IfcLabel LifeCyclePhase { get; set; }
 		public IfcPerformanceHistoryTypeEnum PredefinedType { get; set; }
+
+		public IfcPerformanceHistory() { }
+
+		public IfcPerformanceHistory(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcLabel LifeCyclePhase, IfcPerformanceHistoryTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LifeCyclePhase = LifeCyclePhase;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPermeableCoveringProperties : IfcPreDefinedPropertySet
@@ -8540,11 +14196,27 @@ namespace IFC4
 		//7	FrameDepth : IfcPositiveLengthMeasure
 		//8	FrameThickness : IfcPositiveLengthMeasure
 		//9	ShapeAspectStyle : IfcShapeAspect
+
 		public IfcPermeableCoveringOperationEnum OperationType { get; set; }
 		public IfcWindowPanelPositionEnum PanelPosition { get; set; }
 		public IfcPositiveLengthMeasure FrameDepth { get; set; }
 		public IfcPositiveLengthMeasure FrameThickness { get; set; }
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
+
+		public IfcPermeableCoveringProperties() { }
+
+		public IfcPermeableCoveringProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPermeableCoveringOperationEnum OperationType, IfcWindowPanelPositionEnum PanelPosition, IfcPositiveLengthMeasure FrameDepth, IfcPositiveLengthMeasure FrameThickness, IfcShapeAspect ShapeAspectStyle)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.OperationType = OperationType;
+			this.PanelPosition = PanelPosition;
+			this.FrameDepth = FrameDepth;
+			this.FrameThickness = FrameThickness;
+			this.ShapeAspectStyle = ShapeAspectStyle;
+		}
 	}
 
 	public class IfcPermit : IfcControl
@@ -8558,9 +14230,25 @@ namespace IFC4
 		//7	PredefinedType : IfcPermitTypeEnum
 		//8	Status : IfcLabel
 		//9	LongDescription : IfcText
+
 		public IfcPermitTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcText LongDescription { get; set; }
+
+		public IfcPermit() { }
+
+		public IfcPermit(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcPermitTypeEnum PredefinedType, IfcLabel Status, IfcText LongDescription)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.PredefinedType = PredefinedType;
+			this.Status = Status;
+			this.LongDescription = LongDescription;
+		}
 	}
 
 	public class IfcPerson : IfcBase
@@ -8573,6 +14261,7 @@ namespace IFC4
 		//6	SuffixTitles : List<IfcLabel>
 		//7	Roles : List<IfcActorRole>
 		//8	Addresses : List<IfcAddress>
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel FamilyName { get; set; }
 		public IfcLabel GivenName { get; set; }
@@ -8582,6 +14271,20 @@ namespace IFC4
 		public List<IfcActorRole> Roles { get; set; }
 		public List<IfcAddress> Addresses { get; set; }
 		public List<IfcPersonAndOrganization> EngagedIn { get; set; }
+
+		public IfcPerson() { }
+
+		public IfcPerson(IfcIdentifier Identification, IfcLabel FamilyName, IfcLabel GivenName, List<IfcLabel> MiddleNames, List<IfcLabel> PrefixTitles, List<IfcLabel> SuffixTitles, List<IfcActorRole> Roles, List<IfcAddress> Addresses)
+		{
+			this.Identification = Identification;
+			this.FamilyName = FamilyName;
+			this.GivenName = GivenName;
+			this.MiddleNames = MiddleNames;
+			this.PrefixTitles = PrefixTitles;
+			this.SuffixTitles = SuffixTitles;
+			this.Roles = Roles;
+			this.Addresses = Addresses;
+		}
 	}
 
 	public class IfcPersonAndOrganization : IfcBase
@@ -8589,9 +14292,19 @@ namespace IFC4
 		//1	ThePerson : IfcPerson
 		//2	TheOrganization : IfcOrganization
 		//3	Roles : List<IfcActorRole>
+
 		public IfcPerson ThePerson { get; set; }
 		public IfcOrganization TheOrganization { get; set; }
 		public List<IfcActorRole> Roles { get; set; }
+
+		public IfcPersonAndOrganization() { }
+
+		public IfcPersonAndOrganization(IfcPerson ThePerson, IfcOrganization TheOrganization, List<IfcActorRole> Roles)
+		{
+			this.ThePerson = ThePerson;
+			this.TheOrganization = TheOrganization;
+			this.Roles = Roles;
+		}
 	}
 
 	public class IfcPhysicalComplexQuantity : IfcPhysicalQuantity
@@ -8602,20 +14315,42 @@ namespace IFC4
 		//4	Discrimination : IfcLabel
 		//5	Quality : IfcLabel
 		//6	Usage : IfcLabel
+
 		public List<IfcPhysicalQuantity> HasQuantities { get; set; }
 		public IfcLabel Discrimination { get; set; }
 		public IfcLabel Quality { get; set; }
 		public IfcLabel Usage { get; set; }
+
+		public IfcPhysicalComplexQuantity() { }
+
+		public IfcPhysicalComplexQuantity(IfcLabel Name, IfcText Description, List<IfcPhysicalQuantity> HasQuantities, IfcLabel Discrimination, IfcLabel Quality, IfcLabel Usage)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.HasQuantities = HasQuantities;
+			this.Discrimination = Discrimination;
+			this.Quality = Quality;
+			this.Usage = Usage;
+		}
 	}
 
 	public abstract class IfcPhysicalQuantity : IfcBase, IfcResourceObjectSelect
 	{
 		//1	Name : IfcLabel
 		//2	Description : IfcText
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
 		public List<IfcPhysicalComplexQuantity> PartOfComplex { get; set; }
+
+		public IfcPhysicalQuantity() { }
+
+		public IfcPhysicalQuantity(IfcLabel Name, IfcText Description)
+		{
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public abstract class IfcPhysicalSimpleQuantity : IfcPhysicalQuantity
@@ -8623,7 +14358,17 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Description : IfcText
 		//3	Unit : IfcNamedUnit
+
 		public IfcNamedUnit Unit { get; set; }
+
+		public IfcPhysicalSimpleQuantity() { }
+
+		public IfcPhysicalSimpleQuantity(IfcLabel Name, IfcText Description, IfcNamedUnit Unit)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+		}
 	}
 
 	public class IfcPile : IfcBuildingElement
@@ -8638,8 +14383,25 @@ namespace IFC4
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcPileTypeEnum
 		//10	ConstructionType : IfcPileConstructionEnum
+
 		public IfcPileTypeEnum PredefinedType { get; set; }
 		public IfcPileConstructionEnum ConstructionType { get; set; }
+
+		public IfcPile() { }
+
+		public IfcPile(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPileTypeEnum PredefinedType, IfcPileConstructionEnum ConstructionType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+			this.ConstructionType = ConstructionType;
+		}
 	}
 
 	public class IfcPileType : IfcBuildingElementType
@@ -8654,7 +14416,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcPileTypeEnum
+
 		public IfcPileTypeEnum PredefinedType { get; set; }
+
+		public IfcPileType() { }
+
+		public IfcPileType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcPileTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPipeFitting : IfcFlowFitting
@@ -8668,7 +14447,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcPipeFittingTypeEnum
+
 		public IfcPipeFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcPipeFitting() { }
+
+		public IfcPipeFitting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPipeFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPipeFittingType : IfcFlowFittingType
@@ -8683,7 +14478,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcPipeFittingTypeEnum
+
 		public IfcPipeFittingTypeEnum PredefinedType { get; set; }
+
+		public IfcPipeFittingType() { }
+
+		public IfcPipeFittingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcPipeFittingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPipeSegment : IfcFlowSegment
@@ -8697,7 +14509,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcPipeSegmentTypeEnum
+
 		public IfcPipeSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcPipeSegment() { }
+
+		public IfcPipeSegment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPipeSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPipeSegmentType : IfcFlowSegmentType
@@ -8712,7 +14540,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcPipeSegmentTypeEnum
+
 		public IfcPipeSegmentTypeEnum PredefinedType { get; set; }
+
+		public IfcPipeSegmentType() { }
+
+		public IfcPipeSegmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcPipeSegmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPixelTexture : IfcSurfaceTexture
@@ -8726,17 +14571,41 @@ namespace IFC4
 		//7	Height : IfcInteger
 		//8	ColourComponents : IfcInteger
 		//9	Pixel : List<IfcBinary>
+
 		public IfcInteger Width { get; set; }
 		public IfcInteger Height { get; set; }
 		public IfcInteger ColourComponents { get; set; }
 		public List<IfcBinary> Pixel { get; set; }
+
+		public IfcPixelTexture() { }
+
+		public IfcPixelTexture(IfcBoolean RepeatS, IfcBoolean RepeatT, IfcIdentifier Mode, IfcCartesianTransformationOperator2D TextureTransform, List<IfcIdentifier> Parameter, IfcInteger Width, IfcInteger Height, IfcInteger ColourComponents, List<IfcBinary> Pixel)
+		{
+			this.RepeatS = RepeatS;
+			this.RepeatT = RepeatT;
+			this.Mode = Mode;
+			this.TextureTransform = TextureTransform;
+			this.Parameter = Parameter;
+			this.Width = Width;
+			this.Height = Height;
+			this.ColourComponents = ColourComponents;
+			this.Pixel = Pixel;
+		}
 	}
 
 	public abstract class IfcPlacement : IfcGeometricRepresentationItem
 	{
 		//1	Location : IfcCartesianPoint
+
 		public IfcCartesianPoint Location { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcPlacement() { }
+
+		public IfcPlacement(IfcCartesianPoint Location)
+		{
+			this.Location = Location;
+		}
 	}
 
 	public class IfcPlanarBox : IfcPlanarExtent
@@ -8744,20 +14613,46 @@ namespace IFC4
 		//1	SizeInX : IfcLengthMeasure
 		//2	SizeInY : IfcLengthMeasure
 		//3	Placement : IfcAxis2Placement
+
 		public IfcAxis2Placement Placement { get; set; }
+
+		public IfcPlanarBox() { }
+
+		public IfcPlanarBox(IfcLengthMeasure SizeInX, IfcLengthMeasure SizeInY, IfcAxis2Placement Placement)
+		{
+			this.SizeInX = SizeInX;
+			this.SizeInY = SizeInY;
+			this.Placement = Placement;
+		}
 	}
 
 	public class IfcPlanarExtent : IfcGeometricRepresentationItem
 	{
 		//1	SizeInX : IfcLengthMeasure
 		//2	SizeInY : IfcLengthMeasure
+
 		public IfcLengthMeasure SizeInX { get; set; }
 		public IfcLengthMeasure SizeInY { get; set; }
+
+		public IfcPlanarExtent() { }
+
+		public IfcPlanarExtent(IfcLengthMeasure SizeInX, IfcLengthMeasure SizeInY)
+		{
+			this.SizeInX = SizeInX;
+			this.SizeInY = SizeInY;
+		}
 	}
 
 	public class IfcPlane : IfcElementarySurface
 	{
 		//1	Position : IfcAxis2Placement3D
+
+		public IfcPlane() { }
+
+		public IfcPlane(IfcAxis2Placement3D Position)
+		{
+			this.Position = Position;
+		}
 	}
 
 	public class IfcPlate : IfcBuildingElement
@@ -8771,7 +14666,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcPlateTypeEnum
+
 		public IfcPlateTypeEnum PredefinedType { get; set; }
+
+		public IfcPlate() { }
+
+		public IfcPlate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPlateTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPlateStandardCase : IfcPlate
@@ -8785,6 +14696,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcPlateTypeEnum
+
+		public IfcPlateStandardCase() { }
+
+		public IfcPlateStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPlateTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPlateType : IfcBuildingElementType
@@ -8799,20 +14725,47 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcPlateTypeEnum
+
 		public IfcPlateTypeEnum PredefinedType { get; set; }
+
+		public IfcPlateType() { }
+
+		public IfcPlateType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcPlateTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcPoint : IfcGeometricRepresentationItem, IfcGeometricSetSelect, IfcPointOrVertexPoint
 	{
+		public IfcPoint() { }
 	}
 
 	public class IfcPointOnCurve : IfcPoint
 	{
 		//1	BasisCurve : IfcCurve
 		//2	PointParameter : IfcParameterValue
+
 		public IfcCurve BasisCurve { get; set; }
 		public IfcParameterValue PointParameter { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcPointOnCurve() { }
+
+		public IfcPointOnCurve(IfcCurve BasisCurve, IfcParameterValue PointParameter)
+		{
+			this.BasisCurve = BasisCurve;
+			this.PointParameter = PointParameter;
+		}
 	}
 
 	public class IfcPointOnSurface : IfcPoint
@@ -8820,16 +14773,34 @@ namespace IFC4
 		//1	BasisSurface : IfcSurface
 		//2	PointParameterU : IfcParameterValue
 		//3	PointParameterV : IfcParameterValue
+
 		public IfcSurface BasisSurface { get; set; }
 		public IfcParameterValue PointParameterU { get; set; }
 		public IfcParameterValue PointParameterV { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcPointOnSurface() { }
+
+		public IfcPointOnSurface(IfcSurface BasisSurface, IfcParameterValue PointParameterU, IfcParameterValue PointParameterV)
+		{
+			this.BasisSurface = BasisSurface;
+			this.PointParameterU = PointParameterU;
+			this.PointParameterV = PointParameterV;
+		}
 	}
 
 	public class IfcPolyLoop : IfcLoop
 	{
 		//1	Polygon : List<IfcCartesianPoint>
+
 		public List<IfcCartesianPoint> Polygon { get; set; }
+
+		public IfcPolyLoop() { }
+
+		public IfcPolyLoop(List<IfcCartesianPoint> Polygon)
+		{
+			this.Polygon = Polygon;
+		}
 	}
 
 	public class IfcPolygonalBoundedHalfSpace : IfcHalfSpaceSolid
@@ -8838,8 +14809,19 @@ namespace IFC4
 		//2	AgreementFlag : IfcBoolean
 		//3	Position : IfcAxis2Placement3D
 		//4	PolygonalBoundary : IfcBoundedCurve
+
 		public IfcAxis2Placement3D Position { get; set; }
 		public IfcBoundedCurve PolygonalBoundary { get; set; }
+
+		public IfcPolygonalBoundedHalfSpace() { }
+
+		public IfcPolygonalBoundedHalfSpace(IfcSurface BaseSurface, IfcBoolean AgreementFlag, IfcAxis2Placement3D Position, IfcBoundedCurve PolygonalBoundary)
+		{
+			this.BaseSurface = BaseSurface;
+			this.AgreementFlag = AgreementFlag;
+			this.Position = Position;
+			this.PolygonalBoundary = PolygonalBoundary;
+		}
 	}
 
 	public class IfcPolygonalFaceSet : IfcTessellatedFaceSet
@@ -8848,15 +14830,34 @@ namespace IFC4
 		//2	Closed : IfcBoolean
 		//3	Faces : List<IfcIndexedPolygonalFace>
 		//4	PnIndex : List<IfcPositiveInteger>
+
 		public IfcBoolean Closed { get; set; }
 		public List<IfcIndexedPolygonalFace> Faces { get; set; }
 		public List<IfcPositiveInteger> PnIndex { get; set; }
+
+		public IfcPolygonalFaceSet() { }
+
+		public IfcPolygonalFaceSet(IfcCartesianPointList3D Coordinates, IfcBoolean Closed, List<IfcIndexedPolygonalFace> Faces, List<IfcPositiveInteger> PnIndex)
+		{
+			this.Coordinates = Coordinates;
+			this.Closed = Closed;
+			this.Faces = Faces;
+			this.PnIndex = PnIndex;
+		}
 	}
 
 	public class IfcPolyline : IfcBoundedCurve
 	{
 		//1	Points : List<IfcCartesianPoint>
+
 		public List<IfcCartesianPoint> Points { get; set; }
+
+		public IfcPolyline() { }
+
+		public IfcPolyline(List<IfcCartesianPoint> Points)
+		{
+			this.Points = Points;
+		}
 	}
 
 	public abstract class IfcPort : IfcProduct
@@ -8868,9 +14869,23 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
+
 		public List<IfcRelConnectsPortToElement> ContainedIn { get; set; }
 		public List<IfcRelConnectsPorts> ConnectedFrom { get; set; }
 		public List<IfcRelConnectsPorts> ConnectedTo { get; set; }
+
+		public IfcPort() { }
+
+		public IfcPort(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+		}
 	}
 
 	public class IfcPostalAddress : IfcAddress
@@ -8885,6 +14900,7 @@ namespace IFC4
 		//8	Region : IfcLabel
 		//9	PostalCode : IfcLabel
 		//10	Country : IfcLabel
+
 		public IfcLabel InternalLocation { get; set; }
 		public List<IfcLabel> AddressLines { get; set; }
 		public IfcLabel PostalBox { get; set; }
@@ -8892,26 +14908,65 @@ namespace IFC4
 		public IfcLabel Region { get; set; }
 		public IfcLabel PostalCode { get; set; }
 		public IfcLabel Country { get; set; }
+
+		public IfcPostalAddress() { }
+
+		public IfcPostalAddress(IfcAddressTypeEnum Purpose, IfcText Description, IfcLabel UserDefinedPurpose, IfcLabel InternalLocation, List<IfcLabel> AddressLines, IfcLabel PostalBox, IfcLabel Town, IfcLabel Region, IfcLabel PostalCode, IfcLabel Country)
+		{
+			this.Purpose = Purpose;
+			this.Description = Description;
+			this.UserDefinedPurpose = UserDefinedPurpose;
+			this.InternalLocation = InternalLocation;
+			this.AddressLines = AddressLines;
+			this.PostalBox = PostalBox;
+			this.Town = Town;
+			this.Region = Region;
+			this.PostalCode = PostalCode;
+			this.Country = Country;
+		}
 	}
 
 	public abstract class IfcPreDefinedColour : IfcPreDefinedItem, IfcColour
 	{
 		//1	Name : IfcLabel
+
+		public IfcPreDefinedColour() { }
+
+		public IfcPreDefinedColour(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public abstract class IfcPreDefinedCurveFont : IfcPreDefinedItem, IfcCurveStyleFontSelect
 	{
 		//1	Name : IfcLabel
+
+		public IfcPreDefinedCurveFont() { }
+
+		public IfcPreDefinedCurveFont(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public abstract class IfcPreDefinedItem : IfcPresentationItem
 	{
 		//1	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
+
+		public IfcPreDefinedItem() { }
+
+		public IfcPreDefinedItem(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public abstract class IfcPreDefinedProperties : IfcPropertyAbstraction
 	{
+		public IfcPreDefinedProperties() { }
 	}
 
 	public abstract class IfcPreDefinedPropertySet : IfcPropertySetDefinition
@@ -8920,15 +14975,33 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcPreDefinedPropertySet() { }
+
+		public IfcPreDefinedPropertySet(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public abstract class IfcPreDefinedTextFont : IfcPreDefinedItem, IfcTextFontSelect
 	{
 		//1	Name : IfcLabel
+
+		public IfcPreDefinedTextFont() { }
+
+		public IfcPreDefinedTextFont(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public abstract class IfcPresentationItem : IfcBase
 	{
+		public IfcPresentationItem() { }
 	}
 
 	public class IfcPresentationLayerAssignment : IfcBase
@@ -8937,10 +15010,21 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	AssignedItems : List<IfcLayeredItem>
 		//4	Identifier : IfcIdentifier
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcLayeredItem> AssignedItems { get; set; }
 		public IfcIdentifier Identifier { get; set; }
+
+		public IfcPresentationLayerAssignment() { }
+
+		public IfcPresentationLayerAssignment(IfcLabel Name, IfcText Description, List<IfcLayeredItem> AssignedItems, IfcIdentifier Identifier)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.AssignedItems = AssignedItems;
+			this.Identifier = Identifier;
+		}
 	}
 
 	public class IfcPresentationLayerWithStyle : IfcPresentationLayerAssignment
@@ -8953,23 +15037,54 @@ namespace IFC4
 		//6	LayerFrozen : IfcLogical
 		//7	LayerBlocked : IfcLogical
 		//8	LayerStyles : List<IfcPresentationStyle>
+
 		public IfcLogical LayerOn { get; set; }
 		public IfcLogical LayerFrozen { get; set; }
 		public IfcLogical LayerBlocked { get; set; }
 		public List<IfcPresentationStyle> LayerStyles { get; set; }
+
+		public IfcPresentationLayerWithStyle() { }
+
+		public IfcPresentationLayerWithStyle(IfcLabel Name, IfcText Description, List<IfcLayeredItem> AssignedItems, IfcIdentifier Identifier, IfcLogical LayerOn, IfcLogical LayerFrozen, IfcLogical LayerBlocked, List<IfcPresentationStyle> LayerStyles)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.AssignedItems = AssignedItems;
+			this.Identifier = Identifier;
+			this.LayerOn = LayerOn;
+			this.LayerFrozen = LayerFrozen;
+			this.LayerBlocked = LayerBlocked;
+			this.LayerStyles = LayerStyles;
+		}
 	}
 
 	public abstract class IfcPresentationStyle : IfcBase, IfcStyleAssignmentSelect
 	{
 		//1	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public IfcLabel GetName() { return Name; }
+
+		public IfcPresentationStyle() { }
+
+		public IfcPresentationStyle(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcPresentationStyleAssignment : IfcBase
 	{
 		//1	Styles : List<IfcPresentationStyleSelect>
+
 		public List<IfcPresentationStyleSelect> Styles { get; set; }
+
+		public IfcPresentationStyleAssignment() { }
+
+		public IfcPresentationStyleAssignment(List<IfcPresentationStyleSelect> Styles)
+		{
+			this.Styles = Styles;
+		}
 	}
 
 	public class IfcProcedure : IfcProcess
@@ -8982,7 +15097,22 @@ namespace IFC4
 		//6	Identification : IfcIdentifier
 		//7	LongDescription : IfcText
 		//8	PredefinedType : IfcProcedureTypeEnum
+
 		public IfcProcedureTypeEnum PredefinedType { get; set; }
+
+		public IfcProcedure() { }
+
+		public IfcProcedure(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcProcedureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcProcedureType : IfcTypeProcess
@@ -8997,7 +15127,24 @@ namespace IFC4
 		//8	LongDescription : IfcText
 		//9	ProcessType : IfcLabel
 		//10	PredefinedType : IfcProcedureTypeEnum
+
 		public IfcProcedureTypeEnum PredefinedType { get; set; }
+
+		public IfcProcedureType() { }
+
+		public IfcProcedureType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ProcessType, IfcProcedureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ProcessType = ProcessType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcProcess : IfcObject, IfcProcessSelect
@@ -9009,6 +15156,7 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	Identification : IfcIdentifier
 		//7	LongDescription : IfcText
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
 		public List<IfcRelSequence> IsPredecessorTo { get; set; }
@@ -9017,6 +15165,19 @@ namespace IFC4
 		public IfcIdentifier GetIdentification() { return Identification; }
 		public IfcText GetLongDescription() { return LongDescription; }
 		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
+
+		public IfcProcess() { }
+
+		public IfcProcess(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+		}
 	}
 
 	public abstract class IfcProduct : IfcObject, IfcProductSelect
@@ -9028,10 +15189,24 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
+
 		public IfcObjectPlacement ObjectPlacement { get; set; }
 		public IfcProductRepresentation Representation { get; set; }
 		public List<IfcRelAssignsToProduct> ReferencedBy { get; set; }
 		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+
+		public IfcProduct() { }
+
+		public IfcProduct(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+		}
 	}
 
 	public class IfcProductDefinitionShape : IfcProductRepresentation, IfcProductRepresentationSelect
@@ -9039,10 +15214,20 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Description : IfcText
 		//3	Representations : List<IfcRepresentation>
+
 		public List<IfcProduct> ShapeOfProduct { get; set; }
 		public List<IfcShapeAspect> HasShapeAspects { get; set; }
 		public List<IfcProduct> GetShapeOfProduct() { return ShapeOfProduct; }
 		public List<IfcShapeAspect> GetHasShapeAspects() { return HasShapeAspects; }
+
+		public IfcProductDefinitionShape() { }
+
+		public IfcProductDefinitionShape(IfcLabel Name, IfcText Description, List<IfcRepresentation> Representations)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Representations = Representations;
+		}
 	}
 
 	public abstract class IfcProductRepresentation : IfcBase
@@ -9050,19 +15235,38 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Description : IfcText
 		//3	Representations : List<IfcRepresentation>
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcRepresentation> Representations { get; set; }
+
+		public IfcProductRepresentation() { }
+
+		public IfcProductRepresentation(IfcLabel Name, IfcText Description, List<IfcRepresentation> Representations)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Representations = Representations;
+		}
 	}
 
 	public class IfcProfileDef : IfcBase, IfcResourceObjectSelect
 	{
 		//1	ProfileType : IfcProfileTypeEnum
 		//2	ProfileName : IfcLabel
+
 		public IfcProfileTypeEnum ProfileType { get; set; }
 		public IfcLabel ProfileName { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
 		public List<IfcProfileProperties> HasProperties { get; set; }
+
+		public IfcProfileDef() { }
+
+		public IfcProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+		}
 	}
 
 	public class IfcProfileProperties : IfcExtendedProperties
@@ -9071,7 +15275,18 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	Properties : List<IfcProperty>
 		//4	ProfileDefinition : IfcProfileDef
+
 		public IfcProfileDef ProfileDefinition { get; set; }
+
+		public IfcProfileProperties() { }
+
+		public IfcProfileProperties(IfcIdentifier Name, IfcText Description, List<IfcProperty> Properties, IfcProfileDef ProfileDefinition)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Properties = Properties;
+			this.ProfileDefinition = ProfileDefinition;
+		}
 	}
 
 	public class IfcProject : IfcContext
@@ -9085,6 +15300,21 @@ namespace IFC4
 		//7	Phase : IfcLabel
 		//8	RepresentationContexts : List<IfcRepresentationContext>
 		//9	UnitsInContext : IfcUnitAssignment
+
+		public IfcProject() { }
+
+		public IfcProject(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcLabel Phase, List<IfcRepresentationContext> RepresentationContexts, IfcUnitAssignment UnitsInContext)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.LongName = LongName;
+			this.Phase = Phase;
+			this.RepresentationContexts = RepresentationContexts;
+			this.UnitsInContext = UnitsInContext;
+		}
 	}
 
 	public class IfcProjectLibrary : IfcContext
@@ -9098,6 +15328,21 @@ namespace IFC4
 		//7	Phase : IfcLabel
 		//8	RepresentationContexts : List<IfcRepresentationContext>
 		//9	UnitsInContext : IfcUnitAssignment
+
+		public IfcProjectLibrary() { }
+
+		public IfcProjectLibrary(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcLabel Phase, List<IfcRepresentationContext> RepresentationContexts, IfcUnitAssignment UnitsInContext)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.LongName = LongName;
+			this.Phase = Phase;
+			this.RepresentationContexts = RepresentationContexts;
+			this.UnitsInContext = UnitsInContext;
+		}
 	}
 
 	public class IfcProjectOrder : IfcControl
@@ -9111,9 +15356,25 @@ namespace IFC4
 		//7	PredefinedType : IfcProjectOrderTypeEnum
 		//8	Status : IfcLabel
 		//9	LongDescription : IfcText
+
 		public IfcProjectOrderTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcText LongDescription { get; set; }
+
+		public IfcProjectOrder() { }
+
+		public IfcProjectOrder(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcProjectOrderTypeEnum PredefinedType, IfcLabel Status, IfcText LongDescription)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.PredefinedType = PredefinedType;
+			this.Status = Status;
+			this.LongDescription = LongDescription;
+		}
 	}
 
 	public class IfcProjectedCRS : IfcCoordinateReferenceSystem
@@ -9125,9 +15386,23 @@ namespace IFC4
 		//5	MapProjection : IfcIdentifier
 		//6	MapZone : IfcIdentifier
 		//7	MapUnit : IfcNamedUnit
+
 		public IfcIdentifier MapProjection { get; set; }
 		public IfcIdentifier MapZone { get; set; }
 		public IfcNamedUnit MapUnit { get; set; }
+
+		public IfcProjectedCRS() { }
+
+		public IfcProjectedCRS(IfcLabel Name, IfcText Description, IfcIdentifier GeodeticDatum, IfcIdentifier VerticalDatum, IfcIdentifier MapProjection, IfcIdentifier MapZone, IfcNamedUnit MapUnit)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.GeodeticDatum = GeodeticDatum;
+			this.VerticalDatum = VerticalDatum;
+			this.MapProjection = MapProjection;
+			this.MapZone = MapZone;
+			this.MapUnit = MapUnit;
+		}
 	}
 
 	public class IfcProjectionElement : IfcFeatureElementAddition
@@ -9141,13 +15416,30 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcProjectionElementTypeEnum
+
 		public IfcProjectionElementTypeEnum PredefinedType { get; set; }
+
+		public IfcProjectionElement() { }
+
+		public IfcProjectionElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcProjectionElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcProperty : IfcPropertyAbstraction
 	{
 		//1	Name : IfcIdentifier
 		//2	Description : IfcText
+
 		public IfcIdentifier Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcPropertySet> PartOfPset { get; set; }
@@ -9156,11 +15448,21 @@ namespace IFC4
 		public List<IfcComplexProperty> PartOfComplex { get; set; }
 		public List<IfcResourceConstraintRelationship> HasConstraints { get; set; }
 		public List<IfcResourceApprovalRelationship> HasApprovals { get; set; }
+
+		public IfcProperty() { }
+
+		public IfcProperty(IfcIdentifier Name, IfcText Description)
+		{
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public abstract class IfcPropertyAbstraction : IfcBase, IfcResourceObjectSelect
 	{
 		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
+
+		public IfcPropertyAbstraction() { }
 	}
 
 	public class IfcPropertyBoundedValue : IfcSimpleProperty
@@ -9171,10 +15473,23 @@ namespace IFC4
 		//4	LowerBoundValue : IfcValue
 		//5	Unit : IfcUnit
 		//6	SetPointValue : IfcValue
+
 		public IfcValue UpperBoundValue { get; set; }
 		public IfcValue LowerBoundValue { get; set; }
 		public IfcUnit Unit { get; set; }
 		public IfcValue SetPointValue { get; set; }
+
+		public IfcPropertyBoundedValue() { }
+
+		public IfcPropertyBoundedValue(IfcIdentifier Name, IfcText Description, IfcValue UpperBoundValue, IfcValue LowerBoundValue, IfcUnit Unit, IfcValue SetPointValue)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.UpperBoundValue = UpperBoundValue;
+			this.LowerBoundValue = LowerBoundValue;
+			this.Unit = Unit;
+			this.SetPointValue = SetPointValue;
+		}
 	}
 
 	public abstract class IfcPropertyDefinition : IfcRoot, IfcDefinitionSelect
@@ -9183,10 +15498,21 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
 		public List<IfcRelDeclares> HasContext { get; set; }
 		public List<IfcRelAssociates> HasAssociations { get; set; }
 		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
 		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+
+		public IfcPropertyDefinition() { }
+
+		public IfcPropertyDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcPropertyDependencyRelationship : IfcResourceLevelRelationship
@@ -9196,9 +15522,21 @@ namespace IFC4
 		//3	DependingProperty : IfcProperty
 		//4	DependantProperty : IfcProperty
 		//5	Expression : IfcText
+
 		public IfcProperty DependingProperty { get; set; }
 		public IfcProperty DependantProperty { get; set; }
 		public IfcText Expression { get; set; }
+
+		public IfcPropertyDependencyRelationship() { }
+
+		public IfcPropertyDependencyRelationship(IfcLabel Name, IfcText Description, IfcProperty DependingProperty, IfcProperty DependantProperty, IfcText Expression)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.DependingProperty = DependingProperty;
+			this.DependantProperty = DependantProperty;
+			this.Expression = Expression;
+		}
 	}
 
 	public class IfcPropertyEnumeratedValue : IfcSimpleProperty
@@ -9207,8 +15545,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	EnumerationValues : List<IfcValue>
 		//4	EnumerationReference : IfcPropertyEnumeration
+
 		public List<IfcValue> EnumerationValues { get; set; }
 		public IfcPropertyEnumeration EnumerationReference { get; set; }
+
+		public IfcPropertyEnumeratedValue() { }
+
+		public IfcPropertyEnumeratedValue(IfcIdentifier Name, IfcText Description, List<IfcValue> EnumerationValues, IfcPropertyEnumeration EnumerationReference)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.EnumerationValues = EnumerationValues;
+			this.EnumerationReference = EnumerationReference;
+		}
 	}
 
 	public class IfcPropertyEnumeration : IfcPropertyAbstraction
@@ -9216,9 +15565,19 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	EnumerationValues : List<IfcValue>
 		//3	Unit : IfcUnit
-		public static IfcLabel Name { get; set; }
+
+		public IfcLabel Name { get; set; }
 		public List<IfcValue> EnumerationValues { get; set; }
 		public IfcUnit Unit { get; set; }
+
+		public IfcPropertyEnumeration() { }
+
+		public IfcPropertyEnumeration(IfcLabel Name, List<IfcValue> EnumerationValues, IfcUnit Unit)
+		{
+			this.Name = Name;
+			this.EnumerationValues = EnumerationValues;
+			this.Unit = Unit;
+		}
 	}
 
 	public class IfcPropertyListValue : IfcSimpleProperty
@@ -9227,8 +15586,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	ListValues : List<IfcValue>
 		//4	Unit : IfcUnit
+
 		public List<IfcValue> ListValues { get; set; }
 		public IfcUnit Unit { get; set; }
+
+		public IfcPropertyListValue() { }
+
+		public IfcPropertyListValue(IfcIdentifier Name, IfcText Description, List<IfcValue> ListValues, IfcUnit Unit)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.ListValues = ListValues;
+			this.Unit = Unit;
+		}
 	}
 
 	public class IfcPropertyReferenceValue : IfcSimpleProperty
@@ -9237,8 +15607,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	UsageName : IfcText
 		//4	PropertyReference : IfcObjectReferenceSelect
+
 		public IfcText UsageName { get; set; }
 		public IfcObjectReferenceSelect PropertyReference { get; set; }
+
+		public IfcPropertyReferenceValue() { }
+
+		public IfcPropertyReferenceValue(IfcIdentifier Name, IfcText Description, IfcText UsageName, IfcObjectReferenceSelect PropertyReference)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.UsageName = UsageName;
+			this.PropertyReference = PropertyReference;
+		}
 	}
 
 	public class IfcPropertySet : IfcPropertySetDefinition
@@ -9248,7 +15629,19 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	Description : IfcText
 		//5	HasProperties : List<IfcProperty>
+
 		public List<IfcProperty> HasProperties { get; set; }
+
+		public IfcPropertySet() { }
+
+		public IfcPropertySet(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcProperty> HasProperties)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.HasProperties = HasProperties;
+		}
 	}
 
 	public abstract class IfcPropertySetDefinition : IfcPropertyDefinition, IfcPropertySetDefinitionSelect
@@ -9257,9 +15650,20 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
 		public List<IfcTypeObject> DefinesType { get; set; }
 		public List<IfcRelDefinesByTemplate> IsDefinedBy { get; set; }
 		public List<IfcRelDefinesByProperties> DefinesOccurrence { get; set; }
+
+		public IfcPropertySetDefinition() { }
+
+		public IfcPropertySetDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcPropertySetTemplate : IfcPropertyTemplateDefinition
@@ -9271,10 +15675,24 @@ namespace IFC4
 		//5	TemplateType : IfcPropertySetTemplateTypeEnum
 		//6	ApplicableEntity : IfcIdentifier
 		//7	HasPropertyTemplates : List<IfcPropertyTemplate>
+
 		public IfcPropertySetTemplateTypeEnum TemplateType { get; set; }
 		public IfcIdentifier ApplicableEntity { get; set; }
 		public List<IfcPropertyTemplate> HasPropertyTemplates { get; set; }
 		public List<IfcRelDefinesByTemplate> Defines { get; set; }
+
+		public IfcPropertySetTemplate() { }
+
+		public IfcPropertySetTemplate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPropertySetTemplateTypeEnum TemplateType, IfcIdentifier ApplicableEntity, List<IfcPropertyTemplate> HasPropertyTemplates)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.TemplateType = TemplateType;
+			this.ApplicableEntity = ApplicableEntity;
+			this.HasPropertyTemplates = HasPropertyTemplates;
+		}
 	}
 
 	public class IfcPropertySingleValue : IfcSimpleProperty
@@ -9283,8 +15701,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	NominalValue : IfcValue
 		//4	Unit : IfcUnit
+
 		public IfcValue NominalValue { get; set; }
 		public IfcUnit Unit { get; set; }
+
+		public IfcPropertySingleValue() { }
+
+		public IfcPropertySingleValue(IfcIdentifier Name, IfcText Description, IfcValue NominalValue, IfcUnit Unit)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.NominalValue = NominalValue;
+			this.Unit = Unit;
+		}
 	}
 
 	public class IfcPropertyTableValue : IfcSimpleProperty
@@ -9297,12 +15726,27 @@ namespace IFC4
 		//6	DefiningUnit : IfcUnit
 		//7	DefinedUnit : IfcUnit
 		//8	CurveInterpolation : IfcCurveInterpolationEnum
+
 		public List<IfcValue> DefiningValues { get; set; }
 		public List<IfcValue> DefinedValues { get; set; }
 		public IfcText Expression { get; set; }
 		public IfcUnit DefiningUnit { get; set; }
 		public IfcUnit DefinedUnit { get; set; }
 		public IfcCurveInterpolationEnum CurveInterpolation { get; set; }
+
+		public IfcPropertyTableValue() { }
+
+		public IfcPropertyTableValue(IfcIdentifier Name, IfcText Description, List<IfcValue> DefiningValues, List<IfcValue> DefinedValues, IfcText Expression, IfcUnit DefiningUnit, IfcUnit DefinedUnit, IfcCurveInterpolationEnum CurveInterpolation)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.DefiningValues = DefiningValues;
+			this.DefinedValues = DefinedValues;
+			this.Expression = Expression;
+			this.DefiningUnit = DefiningUnit;
+			this.DefinedUnit = DefinedUnit;
+			this.CurveInterpolation = CurveInterpolation;
+		}
 	}
 
 	public abstract class IfcPropertyTemplate : IfcPropertyTemplateDefinition
@@ -9311,8 +15755,19 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
 		public List<IfcComplexPropertyTemplate> PartOfComplexTemplate { get; set; }
 		public List<IfcPropertySetTemplate> PartOfPsetTemplate { get; set; }
+
+		public IfcPropertyTemplate() { }
+
+		public IfcPropertyTemplate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public abstract class IfcPropertyTemplateDefinition : IfcPropertyDefinition
@@ -9321,6 +15776,16 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcPropertyTemplateDefinition() { }
+
+		public IfcPropertyTemplateDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcProtectiveDevice : IfcFlowController
@@ -9334,7 +15799,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcProtectiveDeviceTypeEnum
+
 		public IfcProtectiveDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcProtectiveDevice() { }
+
+		public IfcProtectiveDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcProtectiveDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcProtectiveDeviceTrippingUnit : IfcDistributionControlElement
@@ -9348,7 +15829,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcProtectiveDeviceTrippingUnitTypeEnum
+
 		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType { get; set; }
+
+		public IfcProtectiveDeviceTrippingUnit() { }
+
+		public IfcProtectiveDeviceTrippingUnit(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcProtectiveDeviceTrippingUnitType : IfcDistributionControlElementType
@@ -9363,7 +15860,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcProtectiveDeviceTrippingUnitTypeEnum
+
 		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType { get; set; }
+
+		public IfcProtectiveDeviceTrippingUnitType() { }
+
+		public IfcProtectiveDeviceTrippingUnitType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcProtectiveDeviceType : IfcFlowControllerType
@@ -9378,7 +15892,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcProtectiveDeviceTypeEnum
+
 		public IfcProtectiveDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcProtectiveDeviceType() { }
+
+		public IfcProtectiveDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcProtectiveDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcProxy : IfcProduct
@@ -9392,8 +15923,24 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	ProxyType : IfcObjectTypeEnum
 		//9	Tag : IfcLabel
+
 		public IfcObjectTypeEnum ProxyType { get; set; }
 		public IfcLabel Tag { get; set; }
+
+		public IfcProxy() { }
+
+		public IfcProxy(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcObjectTypeEnum ProxyType, IfcLabel Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.ProxyType = ProxyType;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcPump : IfcFlowMovingDevice
@@ -9407,7 +15954,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcPumpTypeEnum
+
 		public IfcPumpTypeEnum PredefinedType { get; set; }
+
+		public IfcPump() { }
+
+		public IfcPump(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPumpTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcPumpType : IfcFlowMovingDeviceType
@@ -9422,7 +15985,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcPumpTypeEnum
+
 		public IfcPumpTypeEnum PredefinedType { get; set; }
+
+		public IfcPumpType() { }
+
+		public IfcPumpType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcPumpTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcQuantityArea : IfcPhysicalSimpleQuantity
@@ -9432,8 +16012,20 @@ namespace IFC4
 		//3	Unit : IfcNamedUnit
 		//4	AreaValue : IfcAreaMeasure
 		//5	Formula : IfcLabel
+
 		public IfcAreaMeasure AreaValue { get; set; }
 		public IfcLabel Formula { get; set; }
+
+		public IfcQuantityArea() { }
+
+		public IfcQuantityArea(IfcLabel Name, IfcText Description, IfcNamedUnit Unit, IfcAreaMeasure AreaValue, IfcLabel Formula)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.AreaValue = AreaValue;
+			this.Formula = Formula;
+		}
 	}
 
 	public class IfcQuantityCount : IfcPhysicalSimpleQuantity
@@ -9443,8 +16035,20 @@ namespace IFC4
 		//3	Unit : IfcNamedUnit
 		//4	CountValue : IfcCountMeasure
 		//5	Formula : IfcLabel
+
 		public IfcCountMeasure CountValue { get; set; }
 		public IfcLabel Formula { get; set; }
+
+		public IfcQuantityCount() { }
+
+		public IfcQuantityCount(IfcLabel Name, IfcText Description, IfcNamedUnit Unit, IfcCountMeasure CountValue, IfcLabel Formula)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.CountValue = CountValue;
+			this.Formula = Formula;
+		}
 	}
 
 	public class IfcQuantityLength : IfcPhysicalSimpleQuantity
@@ -9454,8 +16058,20 @@ namespace IFC4
 		//3	Unit : IfcNamedUnit
 		//4	LengthValue : IfcLengthMeasure
 		//5	Formula : IfcLabel
+
 		public IfcLengthMeasure LengthValue { get; set; }
 		public IfcLabel Formula { get; set; }
+
+		public IfcQuantityLength() { }
+
+		public IfcQuantityLength(IfcLabel Name, IfcText Description, IfcNamedUnit Unit, IfcLengthMeasure LengthValue, IfcLabel Formula)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.LengthValue = LengthValue;
+			this.Formula = Formula;
+		}
 	}
 
 	public abstract class IfcQuantitySet : IfcPropertySetDefinition
@@ -9464,6 +16080,16 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcQuantitySet() { }
+
+		public IfcQuantitySet(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcQuantityTime : IfcPhysicalSimpleQuantity
@@ -9473,8 +16099,20 @@ namespace IFC4
 		//3	Unit : IfcNamedUnit
 		//4	TimeValue : IfcTimeMeasure
 		//5	Formula : IfcLabel
+
 		public IfcTimeMeasure TimeValue { get; set; }
 		public IfcLabel Formula { get; set; }
+
+		public IfcQuantityTime() { }
+
+		public IfcQuantityTime(IfcLabel Name, IfcText Description, IfcNamedUnit Unit, IfcTimeMeasure TimeValue, IfcLabel Formula)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.TimeValue = TimeValue;
+			this.Formula = Formula;
+		}
 	}
 
 	public class IfcQuantityVolume : IfcPhysicalSimpleQuantity
@@ -9484,8 +16122,20 @@ namespace IFC4
 		//3	Unit : IfcNamedUnit
 		//4	VolumeValue : IfcVolumeMeasure
 		//5	Formula : IfcLabel
+
 		public IfcVolumeMeasure VolumeValue { get; set; }
 		public IfcLabel Formula { get; set; }
+
+		public IfcQuantityVolume() { }
+
+		public IfcQuantityVolume(IfcLabel Name, IfcText Description, IfcNamedUnit Unit, IfcVolumeMeasure VolumeValue, IfcLabel Formula)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.VolumeValue = VolumeValue;
+			this.Formula = Formula;
+		}
 	}
 
 	public class IfcQuantityWeight : IfcPhysicalSimpleQuantity
@@ -9495,8 +16145,20 @@ namespace IFC4
 		//3	Unit : IfcNamedUnit
 		//4	WeightValue : IfcMassMeasure
 		//5	Formula : IfcLabel
+
 		public IfcMassMeasure WeightValue { get; set; }
 		public IfcLabel Formula { get; set; }
+
+		public IfcQuantityWeight() { }
+
+		public IfcQuantityWeight(IfcLabel Name, IfcText Description, IfcNamedUnit Unit, IfcMassMeasure WeightValue, IfcLabel Formula)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.WeightValue = WeightValue;
+			this.Formula = Formula;
+		}
 	}
 
 	public class IfcRailing : IfcBuildingElement
@@ -9510,7 +16172,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcRailingTypeEnum
+
 		public IfcRailingTypeEnum PredefinedType { get; set; }
+
+		public IfcRailing() { }
+
+		public IfcRailing(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcRailingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRailingType : IfcBuildingElementType
@@ -9525,7 +16203,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcRailingTypeEnum
+
 		public IfcRailingTypeEnum PredefinedType { get; set; }
+
+		public IfcRailingType() { }
+
+		public IfcRailingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcRailingTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRamp : IfcBuildingElement
@@ -9539,7 +16234,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcRampTypeEnum
+
 		public IfcRampTypeEnum PredefinedType { get; set; }
+
+		public IfcRamp() { }
+
+		public IfcRamp(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcRampTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRampFlight : IfcBuildingElement
@@ -9553,7 +16264,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcRampFlightTypeEnum
+
 		public IfcRampFlightTypeEnum PredefinedType { get; set; }
+
+		public IfcRampFlight() { }
+
+		public IfcRampFlight(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcRampFlightTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRampFlightType : IfcBuildingElementType
@@ -9568,7 +16295,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcRampFlightTypeEnum
+
 		public IfcRampFlightTypeEnum PredefinedType { get; set; }
+
+		public IfcRampFlightType() { }
+
+		public IfcRampFlightType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcRampFlightTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRampType : IfcBuildingElementType
@@ -9583,7 +16327,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcRampTypeEnum
+
 		public IfcRampTypeEnum PredefinedType { get; set; }
+
+		public IfcRampType() { }
+
+		public IfcRampType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcRampTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRationalBSplineCurveWithKnots : IfcBSplineCurveWithKnots
@@ -9597,8 +16358,24 @@ namespace IFC4
 		//7	Knots : List<IfcParameterValue>
 		//8	KnotSpec : IfcKnotType
 		//9	WeightsData : List<IfcReal>
+
 		public List<IfcReal> WeightsData { get; set; }
 		public List<IfcReal> Weights { get; set; }
+
+		public IfcRationalBSplineCurveWithKnots() { }
+
+		public IfcRationalBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec, List<IfcReal> WeightsData)
+		{
+			this.Degree = Degree;
+			this.ControlPointsList = ControlPointsList;
+			this.CurveForm = CurveForm;
+			this.ClosedCurve = ClosedCurve;
+			this.SelfIntersect = SelfIntersect;
+			this.KnotMultiplicities = KnotMultiplicities;
+			this.Knots = Knots;
+			this.KnotSpec = KnotSpec;
+			this.WeightsData = WeightsData;
+		}
 	}
 
 	public class IfcRationalBSplineSurfaceWithKnots : IfcBSplineSurfaceWithKnots
@@ -9616,8 +16393,28 @@ namespace IFC4
 		//11	VKnots : List<IfcParameterValue>
 		//12	KnotSpec : IfcKnotType
 		//13	WeightsData : List<List<IfcReal>>
+
 		public List<List<IfcReal>> WeightsData { get; set; }
 		public List<List<IfcReal>> Weights { get; set; }
+
+		public IfcRationalBSplineSurfaceWithKnots() { }
+
+		public IfcRationalBSplineSurfaceWithKnots(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect, List<IfcInteger> UMultiplicities, List<IfcInteger> VMultiplicities, List<IfcParameterValue> UKnots, List<IfcParameterValue> VKnots, IfcKnotType KnotSpec, List<List<IfcReal>> WeightsData)
+		{
+			this.UDegree = UDegree;
+			this.VDegree = VDegree;
+			this.ControlPointsList = ControlPointsList;
+			this.SurfaceForm = SurfaceForm;
+			this.UClosed = UClosed;
+			this.VClosed = VClosed;
+			this.SelfIntersect = SelfIntersect;
+			this.UMultiplicities = UMultiplicities;
+			this.VMultiplicities = VMultiplicities;
+			this.UKnots = UKnots;
+			this.VKnots = VKnots;
+			this.KnotSpec = KnotSpec;
+			this.WeightsData = WeightsData;
+		}
 	}
 
 	public class IfcRectangleHollowProfileDef : IfcRectangleProfileDef
@@ -9630,9 +16427,24 @@ namespace IFC4
 		//6	WallThickness : IfcPositiveLengthMeasure
 		//7	InnerFilletRadius : IfcNonNegativeLengthMeasure
 		//8	OuterFilletRadius : IfcNonNegativeLengthMeasure
+
 		public IfcPositiveLengthMeasure WallThickness { get; set; }
 		public IfcNonNegativeLengthMeasure InnerFilletRadius { get; set; }
 		public IfcNonNegativeLengthMeasure OuterFilletRadius { get; set; }
+
+		public IfcRectangleHollowProfileDef() { }
+
+		public IfcRectangleHollowProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure XDim, IfcPositiveLengthMeasure YDim, IfcPositiveLengthMeasure WallThickness, IfcNonNegativeLengthMeasure InnerFilletRadius, IfcNonNegativeLengthMeasure OuterFilletRadius)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.XDim = XDim;
+			this.YDim = YDim;
+			this.WallThickness = WallThickness;
+			this.InnerFilletRadius = InnerFilletRadius;
+			this.OuterFilletRadius = OuterFilletRadius;
+		}
 	}
 
 	public class IfcRectangleProfileDef : IfcParameterizedProfileDef
@@ -9642,8 +16454,20 @@ namespace IFC4
 		//3	Position : IfcAxis2Placement2D
 		//4	XDim : IfcPositiveLengthMeasure
 		//5	YDim : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure XDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
+
+		public IfcRectangleProfileDef() { }
+
+		public IfcRectangleProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure XDim, IfcPositiveLengthMeasure YDim)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.XDim = XDim;
+			this.YDim = YDim;
+		}
 	}
 
 	public class IfcRectangularPyramid : IfcCsgPrimitive3D
@@ -9652,9 +16476,20 @@ namespace IFC4
 		//2	XLength : IfcPositiveLengthMeasure
 		//3	YLength : IfcPositiveLengthMeasure
 		//4	Height : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure XLength { get; set; }
 		public IfcPositiveLengthMeasure YLength { get; set; }
 		public IfcPositiveLengthMeasure Height { get; set; }
+
+		public IfcRectangularPyramid() { }
+
+		public IfcRectangularPyramid(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure XLength, IfcPositiveLengthMeasure YLength, IfcPositiveLengthMeasure Height)
+		{
+			this.Position = Position;
+			this.XLength = XLength;
+			this.YLength = YLength;
+			this.Height = Height;
+		}
 	}
 
 	public class IfcRectangularTrimmedSurface : IfcBoundedSurface
@@ -9666,6 +16501,7 @@ namespace IFC4
 		//5	V2 : IfcParameterValue
 		//6	Usense : IfcBoolean
 		//7	Vsense : IfcBoolean
+
 		public IfcSurface BasisSurface { get; set; }
 		public IfcParameterValue U1 { get; set; }
 		public IfcParameterValue V1 { get; set; }
@@ -9673,6 +16509,19 @@ namespace IFC4
 		public IfcParameterValue V2 { get; set; }
 		public IfcBoolean Usense { get; set; }
 		public IfcBoolean Vsense { get; set; }
+
+		public IfcRectangularTrimmedSurface() { }
+
+		public IfcRectangularTrimmedSurface(IfcSurface BasisSurface, IfcParameterValue U1, IfcParameterValue V1, IfcParameterValue U2, IfcParameterValue V2, IfcBoolean Usense, IfcBoolean Vsense)
+		{
+			this.BasisSurface = BasisSurface;
+			this.U1 = U1;
+			this.V1 = V1;
+			this.U2 = U2;
+			this.V2 = V2;
+			this.Usense = Usense;
+			this.Vsense = Vsense;
+		}
 	}
 
 	public class IfcRecurrencePattern : IfcBase
@@ -9685,6 +16534,7 @@ namespace IFC4
 		//6	Interval : IfcInteger
 		//7	Occurrences : IfcInteger
 		//8	TimePeriods : List<IfcTimePeriod>
+
 		public IfcRecurrenceTypeEnum RecurrenceType { get; set; }
 		public List<IfcDayInMonthNumber> DayComponent { get; set; }
 		public List<IfcDayInWeekNumber> WeekdayComponent { get; set; }
@@ -9693,6 +16543,20 @@ namespace IFC4
 		public IfcInteger Interval { get; set; }
 		public IfcInteger Occurrences { get; set; }
 		public List<IfcTimePeriod> TimePeriods { get; set; }
+
+		public IfcRecurrencePattern() { }
+
+		public IfcRecurrencePattern(IfcRecurrenceTypeEnum RecurrenceType, List<IfcDayInMonthNumber> DayComponent, List<IfcDayInWeekNumber> WeekdayComponent, List<IfcMonthInYearNumber> MonthComponent, IfcInteger Position, IfcInteger Interval, IfcInteger Occurrences, List<IfcTimePeriod> TimePeriods)
+		{
+			this.RecurrenceType = RecurrenceType;
+			this.DayComponent = DayComponent;
+			this.WeekdayComponent = WeekdayComponent;
+			this.MonthComponent = MonthComponent;
+			this.Position = Position;
+			this.Interval = Interval;
+			this.Occurrences = Occurrences;
+			this.TimePeriods = TimePeriods;
+		}
 	}
 
 	public class IfcReference : IfcBase
@@ -9702,11 +16566,23 @@ namespace IFC4
 		//3	InstanceName : IfcLabel
 		//4	ListPositions : List<IfcInteger>
 		//5	InnerReference : IfcReference
+
 		public IfcIdentifier TypeIdentifier { get; set; }
 		public IfcIdentifier AttributeIdentifier { get; set; }
 		public IfcLabel InstanceName { get; set; }
 		public List<IfcInteger> ListPositions { get; set; }
 		public IfcReference InnerReference { get; set; }
+
+		public IfcReference() { }
+
+		public IfcReference(IfcIdentifier TypeIdentifier, IfcIdentifier AttributeIdentifier, IfcLabel InstanceName, List<IfcInteger> ListPositions, IfcReference InnerReference)
+		{
+			this.TypeIdentifier = TypeIdentifier;
+			this.AttributeIdentifier = AttributeIdentifier;
+			this.InstanceName = InstanceName;
+			this.ListPositions = ListPositions;
+			this.InnerReference = InnerReference;
+		}
 	}
 
 	public class IfcRegularTimeSeries : IfcTimeSeries
@@ -9721,8 +16597,25 @@ namespace IFC4
 		//8	Unit : IfcUnit
 		//9	TimeStep : IfcTimeMeasure
 		//10	Values : List<IfcTimeSeriesValue>
+
 		public IfcTimeMeasure TimeStep { get; set; }
 		public List<IfcTimeSeriesValue> Values { get; set; }
+
+		public IfcRegularTimeSeries() { }
+
+		public IfcRegularTimeSeries(IfcLabel Name, IfcText Description, IfcDateTime StartTime, IfcDateTime EndTime, IfcTimeSeriesDataTypeEnum TimeSeriesDataType, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcUnit Unit, IfcTimeMeasure TimeStep, List<IfcTimeSeriesValue> Values)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.StartTime = StartTime;
+			this.EndTime = EndTime;
+			this.TimeSeriesDataType = TimeSeriesDataType;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.Unit = Unit;
+			this.TimeStep = TimeStep;
+			this.Values = Values;
+		}
 	}
 
 	public class IfcReinforcementBarProperties : IfcPreDefinedProperties
@@ -9733,12 +16626,25 @@ namespace IFC4
 		//4	EffectiveDepth : IfcLengthMeasure
 		//5	NominalBarDiameter : IfcPositiveLengthMeasure
 		//6	BarCount : IfcCountMeasure
+
 		public IfcAreaMeasure TotalCrossSectionArea { get; set; }
 		public IfcLabel SteelGrade { get; set; }
 		public IfcReinforcingBarSurfaceEnum BarSurface { get; set; }
 		public IfcLengthMeasure EffectiveDepth { get; set; }
 		public IfcPositiveLengthMeasure NominalBarDiameter { get; set; }
 		public IfcCountMeasure BarCount { get; set; }
+
+		public IfcReinforcementBarProperties() { }
+
+		public IfcReinforcementBarProperties(IfcAreaMeasure TotalCrossSectionArea, IfcLabel SteelGrade, IfcReinforcingBarSurfaceEnum BarSurface, IfcLengthMeasure EffectiveDepth, IfcPositiveLengthMeasure NominalBarDiameter, IfcCountMeasure BarCount)
+		{
+			this.TotalCrossSectionArea = TotalCrossSectionArea;
+			this.SteelGrade = SteelGrade;
+			this.BarSurface = BarSurface;
+			this.EffectiveDepth = EffectiveDepth;
+			this.NominalBarDiameter = NominalBarDiameter;
+			this.BarCount = BarCount;
+		}
 	}
 
 	public class IfcReinforcementDefinitionProperties : IfcPreDefinedPropertySet
@@ -9749,8 +16655,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	DefinitionType : IfcLabel
 		//6	ReinforcementSectionDefinitions : List<IfcSectionReinforcementProperties>
+
 		public IfcLabel DefinitionType { get; set; }
 		public List<IfcSectionReinforcementProperties> ReinforcementSectionDefinitions { get; set; }
+
+		public IfcReinforcementDefinitionProperties() { }
+
+		public IfcReinforcementDefinitionProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel DefinitionType, List<IfcSectionReinforcementProperties> ReinforcementSectionDefinitions)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.DefinitionType = DefinitionType;
+			this.ReinforcementSectionDefinitions = ReinforcementSectionDefinitions;
+		}
 	}
 
 	public class IfcReinforcingBar : IfcReinforcingElement
@@ -9769,11 +16688,32 @@ namespace IFC4
 		//12	BarLength : IfcPositiveLengthMeasure
 		//13	PredefinedType : IfcReinforcingBarTypeEnum
 		//14	BarSurface : IfcReinforcingBarSurfaceEnum
+
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
 		public IfcPositiveLengthMeasure BarLength { get; set; }
 		public IfcReinforcingBarTypeEnum PredefinedType { get; set; }
 		public IfcReinforcingBarSurfaceEnum BarSurface { get; set; }
+
+		public IfcReinforcingBar() { }
+
+		public IfcReinforcingBar(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLabel SteelGrade, IfcPositiveLengthMeasure NominalDiameter, IfcAreaMeasure CrossSectionArea, IfcPositiveLengthMeasure BarLength, IfcReinforcingBarTypeEnum PredefinedType, IfcReinforcingBarSurfaceEnum BarSurface)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.SteelGrade = SteelGrade;
+			this.NominalDiameter = NominalDiameter;
+			this.CrossSectionArea = CrossSectionArea;
+			this.BarLength = BarLength;
+			this.PredefinedType = PredefinedType;
+			this.BarSurface = BarSurface;
+		}
 	}
 
 	public class IfcReinforcingBarType : IfcReinforcingElementType
@@ -9794,6 +16734,7 @@ namespace IFC4
 		//14	BarSurface : IfcReinforcingBarSurfaceEnum
 		//15	BendingShapeCode : IfcLabel
 		//16	BendingParameters : List<IfcBendingParameterSelect>
+
 		public IfcReinforcingBarTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
@@ -9801,6 +16742,28 @@ namespace IFC4
 		public IfcReinforcingBarSurfaceEnum BarSurface { get; set; }
 		public IfcLabel BendingShapeCode { get; set; }
 		public List<IfcBendingParameterSelect> BendingParameters { get; set; }
+
+		public IfcReinforcingBarType() { }
+
+		public IfcReinforcingBarType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcReinforcingBarTypeEnum PredefinedType, IfcPositiveLengthMeasure NominalDiameter, IfcAreaMeasure CrossSectionArea, IfcPositiveLengthMeasure BarLength, IfcReinforcingBarSurfaceEnum BarSurface, IfcLabel BendingShapeCode, List<IfcBendingParameterSelect> BendingParameters)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.NominalDiameter = NominalDiameter;
+			this.CrossSectionArea = CrossSectionArea;
+			this.BarLength = BarLength;
+			this.BarSurface = BarSurface;
+			this.BendingShapeCode = BendingShapeCode;
+			this.BendingParameters = BendingParameters;
+		}
 	}
 
 	public abstract class IfcReinforcingElement : IfcElementComponent
@@ -9814,7 +16777,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	SteelGrade : IfcLabel
+
 		public IfcLabel SteelGrade { get; set; }
+
+		public IfcReinforcingElement() { }
+
+		public IfcReinforcingElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLabel SteelGrade)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.SteelGrade = SteelGrade;
+		}
 	}
 
 	public abstract class IfcReinforcingElementType : IfcElementComponentType
@@ -9828,6 +16807,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcReinforcingElementType() { }
+
+		public IfcReinforcingElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcReinforcingMesh : IfcReinforcingElement
@@ -9850,6 +16844,7 @@ namespace IFC4
 		//16	LongitudinalBarSpacing : IfcPositiveLengthMeasure
 		//17	TransverseBarSpacing : IfcPositiveLengthMeasure
 		//18	PredefinedType : IfcReinforcingMeshTypeEnum
+
 		public IfcPositiveLengthMeasure MeshLength { get; set; }
 		public IfcPositiveLengthMeasure MeshWidth { get; set; }
 		public IfcPositiveLengthMeasure LongitudinalBarNominalDiameter { get; set; }
@@ -9859,6 +16854,30 @@ namespace IFC4
 		public IfcPositiveLengthMeasure LongitudinalBarSpacing { get; set; }
 		public IfcPositiveLengthMeasure TransverseBarSpacing { get; set; }
 		public IfcReinforcingMeshTypeEnum PredefinedType { get; set; }
+
+		public IfcReinforcingMesh() { }
+
+		public IfcReinforcingMesh(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLabel SteelGrade, IfcPositiveLengthMeasure MeshLength, IfcPositiveLengthMeasure MeshWidth, IfcPositiveLengthMeasure LongitudinalBarNominalDiameter, IfcPositiveLengthMeasure TransverseBarNominalDiameter, IfcAreaMeasure LongitudinalBarCrossSectionArea, IfcAreaMeasure TransverseBarCrossSectionArea, IfcPositiveLengthMeasure LongitudinalBarSpacing, IfcPositiveLengthMeasure TransverseBarSpacing, IfcReinforcingMeshTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.SteelGrade = SteelGrade;
+			this.MeshLength = MeshLength;
+			this.MeshWidth = MeshWidth;
+			this.LongitudinalBarNominalDiameter = LongitudinalBarNominalDiameter;
+			this.TransverseBarNominalDiameter = TransverseBarNominalDiameter;
+			this.LongitudinalBarCrossSectionArea = LongitudinalBarCrossSectionArea;
+			this.TransverseBarCrossSectionArea = TransverseBarCrossSectionArea;
+			this.LongitudinalBarSpacing = LongitudinalBarSpacing;
+			this.TransverseBarSpacing = TransverseBarSpacing;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcReinforcingMeshType : IfcReinforcingElementType
@@ -9883,6 +16902,7 @@ namespace IFC4
 		//18	TransverseBarSpacing : IfcPositiveLengthMeasure
 		//19	BendingShapeCode : IfcLabel
 		//20	BendingParameters : List<IfcBendingParameterSelect>
+
 		public IfcReinforcingMeshTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure MeshLength { get; set; }
 		public IfcPositiveLengthMeasure MeshWidth { get; set; }
@@ -9894,6 +16914,32 @@ namespace IFC4
 		public IfcPositiveLengthMeasure TransverseBarSpacing { get; set; }
 		public IfcLabel BendingShapeCode { get; set; }
 		public List<IfcBendingParameterSelect> BendingParameters { get; set; }
+
+		public IfcReinforcingMeshType() { }
+
+		public IfcReinforcingMeshType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcReinforcingMeshTypeEnum PredefinedType, IfcPositiveLengthMeasure MeshLength, IfcPositiveLengthMeasure MeshWidth, IfcPositiveLengthMeasure LongitudinalBarNominalDiameter, IfcPositiveLengthMeasure TransverseBarNominalDiameter, IfcAreaMeasure LongitudinalBarCrossSectionArea, IfcAreaMeasure TransverseBarCrossSectionArea, IfcPositiveLengthMeasure LongitudinalBarSpacing, IfcPositiveLengthMeasure TransverseBarSpacing, IfcLabel BendingShapeCode, List<IfcBendingParameterSelect> BendingParameters)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.MeshLength = MeshLength;
+			this.MeshWidth = MeshWidth;
+			this.LongitudinalBarNominalDiameter = LongitudinalBarNominalDiameter;
+			this.TransverseBarNominalDiameter = TransverseBarNominalDiameter;
+			this.LongitudinalBarCrossSectionArea = LongitudinalBarCrossSectionArea;
+			this.TransverseBarCrossSectionArea = TransverseBarCrossSectionArea;
+			this.LongitudinalBarSpacing = LongitudinalBarSpacing;
+			this.TransverseBarSpacing = TransverseBarSpacing;
+			this.BendingShapeCode = BendingShapeCode;
+			this.BendingParameters = BendingParameters;
+		}
 	}
 
 	public class IfcRelAggregates : IfcRelDecomposes
@@ -9904,8 +16950,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingObject : IfcObjectDefinition
 		//6	RelatedObjects : List<IfcObjectDefinition>
+
 		public IfcObjectDefinition RelatingObject { get; set; }
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
+
+		public IfcRelAggregates() { }
+
+		public IfcRelAggregates(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcObjectDefinition RelatingObject, List<IfcObjectDefinition> RelatedObjects)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingObject = RelatingObject;
+			this.RelatedObjects = RelatedObjects;
+		}
 	}
 
 	public abstract class IfcRelAssigns : IfcRelationship
@@ -9916,8 +16975,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcObjectDefinition>
 		//6	RelatedObjectsType : IfcObjectTypeEnum
+
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
 		public IfcObjectTypeEnum RelatedObjectsType { get; set; }
+
+		public IfcRelAssigns() { }
+
+		public IfcRelAssigns(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+		}
 	}
 
 	public class IfcRelAssignsToActor : IfcRelAssigns
@@ -9930,8 +17002,23 @@ namespace IFC4
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingActor : IfcActor
 		//8	ActingRole : IfcActorRole
+
 		public IfcActor RelatingActor { get; set; }
 		public IfcActorRole ActingRole { get; set; }
+
+		public IfcRelAssignsToActor() { }
+
+		public IfcRelAssignsToActor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcActor RelatingActor, IfcActorRole ActingRole)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingActor = RelatingActor;
+			this.ActingRole = ActingRole;
+		}
 	}
 
 	public class IfcRelAssignsToControl : IfcRelAssigns
@@ -9943,7 +17030,21 @@ namespace IFC4
 		//5	RelatedObjects : List<IfcObjectDefinition>
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingControl : IfcControl
+
 		public IfcControl RelatingControl { get; set; }
+
+		public IfcRelAssignsToControl() { }
+
+		public IfcRelAssignsToControl(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcControl RelatingControl)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingControl = RelatingControl;
+		}
 	}
 
 	public class IfcRelAssignsToGroup : IfcRelAssigns
@@ -9955,7 +17056,21 @@ namespace IFC4
 		//5	RelatedObjects : List<IfcObjectDefinition>
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingGroup : IfcGroup
+
 		public IfcGroup RelatingGroup { get; set; }
+
+		public IfcRelAssignsToGroup() { }
+
+		public IfcRelAssignsToGroup(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcGroup RelatingGroup)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingGroup = RelatingGroup;
+		}
 	}
 
 	public class IfcRelAssignsToGroupByFactor : IfcRelAssignsToGroup
@@ -9968,7 +17083,22 @@ namespace IFC4
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingGroup : IfcGroup
 		//8	Factor : IfcRatioMeasure
+
 		public IfcRatioMeasure Factor { get; set; }
+
+		public IfcRelAssignsToGroupByFactor() { }
+
+		public IfcRelAssignsToGroupByFactor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcGroup RelatingGroup, IfcRatioMeasure Factor)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingGroup = RelatingGroup;
+			this.Factor = Factor;
+		}
 	}
 
 	public class IfcRelAssignsToProcess : IfcRelAssigns
@@ -9981,8 +17111,23 @@ namespace IFC4
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingProcess : IfcProcessSelect
 		//8	QuantityInProcess : IfcMeasureWithUnit
+
 		public IfcProcessSelect RelatingProcess { get; set; }
 		public IfcMeasureWithUnit QuantityInProcess { get; set; }
+
+		public IfcRelAssignsToProcess() { }
+
+		public IfcRelAssignsToProcess(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcProcessSelect RelatingProcess, IfcMeasureWithUnit QuantityInProcess)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingProcess = RelatingProcess;
+			this.QuantityInProcess = QuantityInProcess;
+		}
 	}
 
 	public class IfcRelAssignsToProduct : IfcRelAssigns
@@ -9994,7 +17139,21 @@ namespace IFC4
 		//5	RelatedObjects : List<IfcObjectDefinition>
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingProduct : IfcProductSelect
+
 		public IfcProductSelect RelatingProduct { get; set; }
+
+		public IfcRelAssignsToProduct() { }
+
+		public IfcRelAssignsToProduct(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcProductSelect RelatingProduct)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingProduct = RelatingProduct;
+		}
 	}
 
 	public class IfcRelAssignsToResource : IfcRelAssigns
@@ -10006,7 +17165,21 @@ namespace IFC4
 		//5	RelatedObjects : List<IfcObjectDefinition>
 		//6	RelatedObjectsType : IfcObjectTypeEnum
 		//7	RelatingResource : IfcResourceSelect
+
 		public IfcResourceSelect RelatingResource { get; set; }
+
+		public IfcRelAssignsToResource() { }
+
+		public IfcRelAssignsToResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcObjectTypeEnum RelatedObjectsType, IfcResourceSelect RelatingResource)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatedObjectsType = RelatedObjectsType;
+			this.RelatingResource = RelatingResource;
+		}
 	}
 
 	public abstract class IfcRelAssociates : IfcRelationship
@@ -10016,7 +17189,19 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcDefinitionSelect>
+
 		public List<IfcDefinitionSelect> RelatedObjects { get; set; }
+
+		public IfcRelAssociates() { }
+
+		public IfcRelAssociates(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+		}
 	}
 
 	public class IfcRelAssociatesApproval : IfcRelAssociates
@@ -10027,7 +17212,20 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcDefinitionSelect>
 		//6	RelatingApproval : IfcApproval
+
 		public IfcApproval RelatingApproval { get; set; }
+
+		public IfcRelAssociatesApproval() { }
+
+		public IfcRelAssociatesApproval(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects, IfcApproval RelatingApproval)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingApproval = RelatingApproval;
+		}
 	}
 
 	public class IfcRelAssociatesClassification : IfcRelAssociates
@@ -10038,7 +17236,20 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcDefinitionSelect>
 		//6	RelatingClassification : IfcClassificationSelect
+
 		public IfcClassificationSelect RelatingClassification { get; set; }
+
+		public IfcRelAssociatesClassification() { }
+
+		public IfcRelAssociatesClassification(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects, IfcClassificationSelect RelatingClassification)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingClassification = RelatingClassification;
+		}
 	}
 
 	public class IfcRelAssociatesConstraint : IfcRelAssociates
@@ -10050,8 +17261,22 @@ namespace IFC4
 		//5	RelatedObjects : List<IfcDefinitionSelect>
 		//6	Intent : IfcLabel
 		//7	RelatingConstraint : IfcConstraint
+
 		public IfcLabel Intent { get; set; }
 		public IfcConstraint RelatingConstraint { get; set; }
+
+		public IfcRelAssociatesConstraint() { }
+
+		public IfcRelAssociatesConstraint(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects, IfcLabel Intent, IfcConstraint RelatingConstraint)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.Intent = Intent;
+			this.RelatingConstraint = RelatingConstraint;
+		}
 	}
 
 	public class IfcRelAssociatesDocument : IfcRelAssociates
@@ -10062,7 +17287,20 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcDefinitionSelect>
 		//6	RelatingDocument : IfcDocumentSelect
+
 		public IfcDocumentSelect RelatingDocument { get; set; }
+
+		public IfcRelAssociatesDocument() { }
+
+		public IfcRelAssociatesDocument(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects, IfcDocumentSelect RelatingDocument)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingDocument = RelatingDocument;
+		}
 	}
 
 	public class IfcRelAssociatesLibrary : IfcRelAssociates
@@ -10073,7 +17311,20 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcDefinitionSelect>
 		//6	RelatingLibrary : IfcLibrarySelect
+
 		public IfcLibrarySelect RelatingLibrary { get; set; }
+
+		public IfcRelAssociatesLibrary() { }
+
+		public IfcRelAssociatesLibrary(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects, IfcLibrarySelect RelatingLibrary)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingLibrary = RelatingLibrary;
+		}
 	}
 
 	public class IfcRelAssociatesMaterial : IfcRelAssociates
@@ -10084,7 +17335,20 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcDefinitionSelect>
 		//6	RelatingMaterial : IfcMaterialSelect
+
 		public IfcMaterialSelect RelatingMaterial { get; set; }
+
+		public IfcRelAssociatesMaterial() { }
+
+		public IfcRelAssociatesMaterial(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDefinitionSelect> RelatedObjects, IfcMaterialSelect RelatingMaterial)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingMaterial = RelatingMaterial;
+		}
 	}
 
 	public abstract class IfcRelConnects : IfcRelationship
@@ -10093,6 +17357,16 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcRelConnects() { }
+
+		public IfcRelConnects(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcRelConnectsElements : IfcRelConnects
@@ -10104,9 +17378,23 @@ namespace IFC4
 		//5	ConnectionGeometry : IfcConnectionGeometry
 		//6	RelatingElement : IfcElement
 		//7	RelatedElement : IfcElement
+
 		public IfcConnectionGeometry ConnectionGeometry { get; set; }
 		public IfcElement RelatingElement { get; set; }
 		public IfcElement RelatedElement { get; set; }
+
+		public IfcRelConnectsElements() { }
+
+		public IfcRelConnectsElements(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcConnectionGeometry ConnectionGeometry, IfcElement RelatingElement, IfcElement RelatedElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ConnectionGeometry = ConnectionGeometry;
+			this.RelatingElement = RelatingElement;
+			this.RelatedElement = RelatedElement;
+		}
 	}
 
 	public class IfcRelConnectsPathElements : IfcRelConnectsElements
@@ -10122,10 +17410,28 @@ namespace IFC4
 		//9	RelatedPriorities : List<IfcInteger>
 		//10	RelatedConnectionType : IfcConnectionTypeEnum
 		//11	RelatingConnectionType : IfcConnectionTypeEnum
+
 		public List<IfcInteger> RelatingPriorities { get; set; }
 		public List<IfcInteger> RelatedPriorities { get; set; }
 		public IfcConnectionTypeEnum RelatedConnectionType { get; set; }
 		public IfcConnectionTypeEnum RelatingConnectionType { get; set; }
+
+		public IfcRelConnectsPathElements() { }
+
+		public IfcRelConnectsPathElements(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcConnectionGeometry ConnectionGeometry, IfcElement RelatingElement, IfcElement RelatedElement, List<IfcInteger> RelatingPriorities, List<IfcInteger> RelatedPriorities, IfcConnectionTypeEnum RelatedConnectionType, IfcConnectionTypeEnum RelatingConnectionType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ConnectionGeometry = ConnectionGeometry;
+			this.RelatingElement = RelatingElement;
+			this.RelatedElement = RelatedElement;
+			this.RelatingPriorities = RelatingPriorities;
+			this.RelatedPriorities = RelatedPriorities;
+			this.RelatedConnectionType = RelatedConnectionType;
+			this.RelatingConnectionType = RelatingConnectionType;
+		}
 	}
 
 	public class IfcRelConnectsPortToElement : IfcRelConnects
@@ -10136,8 +17442,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingPort : IfcPort
 		//6	RelatedElement : IfcDistributionElement
+
 		public IfcPort RelatingPort { get; set; }
 		public IfcDistributionElement RelatedElement { get; set; }
+
+		public IfcRelConnectsPortToElement() { }
+
+		public IfcRelConnectsPortToElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPort RelatingPort, IfcDistributionElement RelatedElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingPort = RelatingPort;
+			this.RelatedElement = RelatedElement;
+		}
 	}
 
 	public class IfcRelConnectsPorts : IfcRelConnects
@@ -10149,9 +17468,23 @@ namespace IFC4
 		//5	RelatingPort : IfcPort
 		//6	RelatedPort : IfcPort
 		//7	RealizingElement : IfcElement
+
 		public IfcPort RelatingPort { get; set; }
 		public IfcPort RelatedPort { get; set; }
 		public IfcElement RealizingElement { get; set; }
+
+		public IfcRelConnectsPorts() { }
+
+		public IfcRelConnectsPorts(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPort RelatingPort, IfcPort RelatedPort, IfcElement RealizingElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingPort = RelatingPort;
+			this.RelatedPort = RelatedPort;
+			this.RealizingElement = RealizingElement;
+		}
 	}
 
 	public class IfcRelConnectsStructuralActivity : IfcRelConnects
@@ -10162,8 +17495,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingElement : IfcStructuralActivityAssignmentSelect
 		//6	RelatedStructuralActivity : IfcStructuralActivity
+
 		public IfcStructuralActivityAssignmentSelect RelatingElement { get; set; }
 		public IfcStructuralActivity RelatedStructuralActivity { get; set; }
+
+		public IfcRelConnectsStructuralActivity() { }
+
+		public IfcRelConnectsStructuralActivity(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcStructuralActivityAssignmentSelect RelatingElement, IfcStructuralActivity RelatedStructuralActivity)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingElement = RelatingElement;
+			this.RelatedStructuralActivity = RelatedStructuralActivity;
+		}
 	}
 
 	public class IfcRelConnectsStructuralMember : IfcRelConnects
@@ -10178,12 +17524,29 @@ namespace IFC4
 		//8	AdditionalConditions : IfcStructuralConnectionCondition
 		//9	SupportedLength : IfcLengthMeasure
 		//10	ConditionCoordinateSystem : IfcAxis2Placement3D
+
 		public IfcStructuralMember RelatingStructuralMember { get; set; }
 		public IfcStructuralConnection RelatedStructuralConnection { get; set; }
 		public IfcBoundaryCondition AppliedCondition { get; set; }
 		public IfcStructuralConnectionCondition AdditionalConditions { get; set; }
 		public IfcLengthMeasure SupportedLength { get; set; }
 		public IfcAxis2Placement3D ConditionCoordinateSystem { get; set; }
+
+		public IfcRelConnectsStructuralMember() { }
+
+		public IfcRelConnectsStructuralMember(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcStructuralMember RelatingStructuralMember, IfcStructuralConnection RelatedStructuralConnection, IfcBoundaryCondition AppliedCondition, IfcStructuralConnectionCondition AdditionalConditions, IfcLengthMeasure SupportedLength, IfcAxis2Placement3D ConditionCoordinateSystem)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingStructuralMember = RelatingStructuralMember;
+			this.RelatedStructuralConnection = RelatedStructuralConnection;
+			this.AppliedCondition = AppliedCondition;
+			this.AdditionalConditions = AdditionalConditions;
+			this.SupportedLength = SupportedLength;
+			this.ConditionCoordinateSystem = ConditionCoordinateSystem;
+		}
 	}
 
 	public class IfcRelConnectsWithEccentricity : IfcRelConnectsStructuralMember
@@ -10199,7 +17562,25 @@ namespace IFC4
 		//9	SupportedLength : IfcLengthMeasure
 		//10	ConditionCoordinateSystem : IfcAxis2Placement3D
 		//11	ConnectionConstraint : IfcConnectionGeometry
+
 		public IfcConnectionGeometry ConnectionConstraint { get; set; }
+
+		public IfcRelConnectsWithEccentricity() { }
+
+		public IfcRelConnectsWithEccentricity(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcStructuralMember RelatingStructuralMember, IfcStructuralConnection RelatedStructuralConnection, IfcBoundaryCondition AppliedCondition, IfcStructuralConnectionCondition AdditionalConditions, IfcLengthMeasure SupportedLength, IfcAxis2Placement3D ConditionCoordinateSystem, IfcConnectionGeometry ConnectionConstraint)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingStructuralMember = RelatingStructuralMember;
+			this.RelatedStructuralConnection = RelatedStructuralConnection;
+			this.AppliedCondition = AppliedCondition;
+			this.AdditionalConditions = AdditionalConditions;
+			this.SupportedLength = SupportedLength;
+			this.ConditionCoordinateSystem = ConditionCoordinateSystem;
+			this.ConnectionConstraint = ConnectionConstraint;
+		}
 	}
 
 	public class IfcRelConnectsWithRealizingElements : IfcRelConnectsElements
@@ -10213,8 +17594,24 @@ namespace IFC4
 		//7	RelatedElement : IfcElement
 		//8	RealizingElements : List<IfcElement>
 		//9	ConnectionType : IfcLabel
+
 		public List<IfcElement> RealizingElements { get; set; }
 		public IfcLabel ConnectionType { get; set; }
+
+		public IfcRelConnectsWithRealizingElements() { }
+
+		public IfcRelConnectsWithRealizingElements(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcConnectionGeometry ConnectionGeometry, IfcElement RelatingElement, IfcElement RelatedElement, List<IfcElement> RealizingElements, IfcLabel ConnectionType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ConnectionGeometry = ConnectionGeometry;
+			this.RelatingElement = RelatingElement;
+			this.RelatedElement = RelatedElement;
+			this.RealizingElements = RealizingElements;
+			this.ConnectionType = ConnectionType;
+		}
 	}
 
 	public class IfcRelContainedInSpatialStructure : IfcRelConnects
@@ -10225,8 +17622,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedElements : List<IfcProduct>
 		//6	RelatingStructure : IfcSpatialElement
+
 		public List<IfcProduct> RelatedElements { get; set; }
 		public IfcSpatialElement RelatingStructure { get; set; }
+
+		public IfcRelContainedInSpatialStructure() { }
+
+		public IfcRelContainedInSpatialStructure(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcProduct> RelatedElements, IfcSpatialElement RelatingStructure)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedElements = RelatedElements;
+			this.RelatingStructure = RelatingStructure;
+		}
 	}
 
 	public class IfcRelCoversBldgElements : IfcRelConnects
@@ -10237,8 +17647,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingBuildingElement : IfcElement
 		//6	RelatedCoverings : List<IfcCovering>
+
 		public IfcElement RelatingBuildingElement { get; set; }
 		public List<IfcCovering> RelatedCoverings { get; set; }
+
+		public IfcRelCoversBldgElements() { }
+
+		public IfcRelCoversBldgElements(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcElement RelatingBuildingElement, List<IfcCovering> RelatedCoverings)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingBuildingElement = RelatingBuildingElement;
+			this.RelatedCoverings = RelatedCoverings;
+		}
 	}
 
 	public class IfcRelCoversSpaces : IfcRelConnects
@@ -10249,8 +17672,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingSpace : IfcSpace
 		//6	RelatedCoverings : List<IfcCovering>
+
 		public IfcSpace RelatingSpace { get; set; }
 		public List<IfcCovering> RelatedCoverings { get; set; }
+
+		public IfcRelCoversSpaces() { }
+
+		public IfcRelCoversSpaces(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcSpace RelatingSpace, List<IfcCovering> RelatedCoverings)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingSpace = RelatingSpace;
+			this.RelatedCoverings = RelatedCoverings;
+		}
 	}
 
 	public class IfcRelDeclares : IfcRelationship
@@ -10261,8 +17697,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingContext : IfcContext
 		//6	RelatedDefinitions : List<IfcDefinitionSelect>
+
 		public IfcContext RelatingContext { get; set; }
 		public List<IfcDefinitionSelect> RelatedDefinitions { get; set; }
+
+		public IfcRelDeclares() { }
+
+		public IfcRelDeclares(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcContext RelatingContext, List<IfcDefinitionSelect> RelatedDefinitions)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingContext = RelatingContext;
+			this.RelatedDefinitions = RelatedDefinitions;
+		}
 	}
 
 	public abstract class IfcRelDecomposes : IfcRelationship
@@ -10271,6 +17720,16 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcRelDecomposes() { }
+
+		public IfcRelDecomposes(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public abstract class IfcRelDefines : IfcRelationship
@@ -10279,6 +17738,16 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcRelDefines() { }
+
+		public IfcRelDefines(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcRelDefinesByObject : IfcRelDefines
@@ -10289,8 +17758,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcObject>
 		//6	RelatingObject : IfcObject
+
 		public List<IfcObject> RelatedObjects { get; set; }
 		public IfcObject RelatingObject { get; set; }
+
+		public IfcRelDefinesByObject() { }
+
+		public IfcRelDefinesByObject(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObject> RelatedObjects, IfcObject RelatingObject)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingObject = RelatingObject;
+		}
 	}
 
 	public class IfcRelDefinesByProperties : IfcRelDefines
@@ -10301,8 +17783,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcObjectDefinition>
 		//6	RelatingPropertyDefinition : IfcPropertySetDefinitionSelect
+
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
 		public IfcPropertySetDefinitionSelect RelatingPropertyDefinition { get; set; }
+
+		public IfcRelDefinesByProperties() { }
+
+		public IfcRelDefinesByProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObjectDefinition> RelatedObjects, IfcPropertySetDefinitionSelect RelatingPropertyDefinition)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingPropertyDefinition = RelatingPropertyDefinition;
+		}
 	}
 
 	public class IfcRelDefinesByTemplate : IfcRelDefines
@@ -10313,8 +17808,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedPropertySets : List<IfcPropertySetDefinition>
 		//6	RelatingTemplate : IfcPropertySetTemplate
+
 		public List<IfcPropertySetDefinition> RelatedPropertySets { get; set; }
 		public IfcPropertySetTemplate RelatingTemplate { get; set; }
+
+		public IfcRelDefinesByTemplate() { }
+
+		public IfcRelDefinesByTemplate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcPropertySetDefinition> RelatedPropertySets, IfcPropertySetTemplate RelatingTemplate)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedPropertySets = RelatedPropertySets;
+			this.RelatingTemplate = RelatingTemplate;
+		}
 	}
 
 	public class IfcRelDefinesByType : IfcRelDefines
@@ -10325,8 +17833,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedObjects : List<IfcObject>
 		//6	RelatingType : IfcTypeObject
+
 		public List<IfcObject> RelatedObjects { get; set; }
 		public IfcTypeObject RelatingType { get; set; }
+
+		public IfcRelDefinesByType() { }
+
+		public IfcRelDefinesByType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcObject> RelatedObjects, IfcTypeObject RelatingType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedObjects = RelatedObjects;
+			this.RelatingType = RelatingType;
+		}
 	}
 
 	public class IfcRelFillsElement : IfcRelConnects
@@ -10337,8 +17858,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingOpeningElement : IfcOpeningElement
 		//6	RelatedBuildingElement : IfcElement
+
 		public IfcOpeningElement RelatingOpeningElement { get; set; }
 		public IfcElement RelatedBuildingElement { get; set; }
+
+		public IfcRelFillsElement() { }
+
+		public IfcRelFillsElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcOpeningElement RelatingOpeningElement, IfcElement RelatedBuildingElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingOpeningElement = RelatingOpeningElement;
+			this.RelatedBuildingElement = RelatedBuildingElement;
+		}
 	}
 
 	public class IfcRelFlowControlElements : IfcRelConnects
@@ -10349,8 +17883,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedControlElements : List<IfcDistributionControlElement>
 		//6	RelatingFlowElement : IfcDistributionFlowElement
+
 		public List<IfcDistributionControlElement> RelatedControlElements { get; set; }
 		public IfcDistributionFlowElement RelatingFlowElement { get; set; }
+
+		public IfcRelFlowControlElements() { }
+
+		public IfcRelFlowControlElements(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcDistributionControlElement> RelatedControlElements, IfcDistributionFlowElement RelatingFlowElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedControlElements = RelatedControlElements;
+			this.RelatingFlowElement = RelatingFlowElement;
+		}
 	}
 
 	public class IfcRelInterferesElements : IfcRelConnects
@@ -10364,11 +17911,27 @@ namespace IFC4
 		//7	InterferenceGeometry : IfcConnectionGeometry
 		//8	InterferenceType : IfcIdentifier
 		//9	ImpliedOrder : LOGICAL
+
 		public IfcElement RelatingElement { get; set; }
 		public IfcElement RelatedElement { get; set; }
 		public IfcConnectionGeometry InterferenceGeometry { get; set; }
 		public IfcIdentifier InterferenceType { get; set; }
 		public LOGICAL ImpliedOrder { get; set; }
+
+		public IfcRelInterferesElements() { }
+
+		public IfcRelInterferesElements(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcElement RelatingElement, IfcElement RelatedElement, IfcConnectionGeometry InterferenceGeometry, IfcIdentifier InterferenceType, LOGICAL ImpliedOrder)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingElement = RelatingElement;
+			this.RelatedElement = RelatedElement;
+			this.InterferenceGeometry = InterferenceGeometry;
+			this.InterferenceType = InterferenceType;
+			this.ImpliedOrder = ImpliedOrder;
+		}
 	}
 
 	public class IfcRelNests : IfcRelDecomposes
@@ -10379,8 +17942,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingObject : IfcObjectDefinition
 		//6	RelatedObjects : List<IfcObjectDefinition>
+
 		public IfcObjectDefinition RelatingObject { get; set; }
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
+
+		public IfcRelNests() { }
+
+		public IfcRelNests(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcObjectDefinition RelatingObject, List<IfcObjectDefinition> RelatedObjects)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingObject = RelatingObject;
+			this.RelatedObjects = RelatedObjects;
+		}
 	}
 
 	public class IfcRelProjectsElement : IfcRelDecomposes
@@ -10391,8 +17967,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingElement : IfcElement
 		//6	RelatedFeatureElement : IfcFeatureElementAddition
+
 		public IfcElement RelatingElement { get; set; }
 		public IfcFeatureElementAddition RelatedFeatureElement { get; set; }
+
+		public IfcRelProjectsElement() { }
+
+		public IfcRelProjectsElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcElement RelatingElement, IfcFeatureElementAddition RelatedFeatureElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingElement = RelatingElement;
+			this.RelatedFeatureElement = RelatedFeatureElement;
+		}
 	}
 
 	public class IfcRelReferencedInSpatialStructure : IfcRelConnects
@@ -10403,8 +17992,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatedElements : List<IfcProduct>
 		//6	RelatingStructure : IfcSpatialElement
+
 		public List<IfcProduct> RelatedElements { get; set; }
 		public IfcSpatialElement RelatingStructure { get; set; }
+
+		public IfcRelReferencedInSpatialStructure() { }
+
+		public IfcRelReferencedInSpatialStructure(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, List<IfcProduct> RelatedElements, IfcSpatialElement RelatingStructure)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedElements = RelatedElements;
+			this.RelatingStructure = RelatingStructure;
+		}
 	}
 
 	public class IfcRelSequence : IfcRelConnects
@@ -10418,11 +18020,27 @@ namespace IFC4
 		//7	TimeLag : IfcLagTime
 		//8	SequenceType : IfcSequenceEnum
 		//9	UserDefinedSequenceType : IfcLabel
+
 		public IfcProcess RelatingProcess { get; set; }
 		public IfcProcess RelatedProcess { get; set; }
 		public IfcLagTime TimeLag { get; set; }
 		public IfcSequenceEnum SequenceType { get; set; }
 		public IfcLabel UserDefinedSequenceType { get; set; }
+
+		public IfcRelSequence() { }
+
+		public IfcRelSequence(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcProcess RelatingProcess, IfcProcess RelatedProcess, IfcLagTime TimeLag, IfcSequenceEnum SequenceType, IfcLabel UserDefinedSequenceType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingProcess = RelatingProcess;
+			this.RelatedProcess = RelatedProcess;
+			this.TimeLag = TimeLag;
+			this.SequenceType = SequenceType;
+			this.UserDefinedSequenceType = UserDefinedSequenceType;
+		}
 	}
 
 	public class IfcRelServicesBuildings : IfcRelConnects
@@ -10433,8 +18051,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingSystem : IfcSystem
 		//6	RelatedBuildings : List<IfcSpatialElement>
+
 		public IfcSystem RelatingSystem { get; set; }
 		public List<IfcSpatialElement> RelatedBuildings { get; set; }
+
+		public IfcRelServicesBuildings() { }
+
+		public IfcRelServicesBuildings(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcSystem RelatingSystem, List<IfcSpatialElement> RelatedBuildings)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingSystem = RelatingSystem;
+			this.RelatedBuildings = RelatedBuildings;
+		}
 	}
 
 	public class IfcRelSpaceBoundary : IfcRelConnects
@@ -10448,11 +18079,27 @@ namespace IFC4
 		//7	ConnectionGeometry : IfcConnectionGeometry
 		//8	PhysicalOrVirtualBoundary : IfcPhysicalOrVirtualEnum
 		//9	InternalOrExternalBoundary : IfcInternalOrExternalEnum
+
 		public IfcSpaceBoundarySelect RelatingSpace { get; set; }
 		public IfcElement RelatedBuildingElement { get; set; }
 		public IfcConnectionGeometry ConnectionGeometry { get; set; }
 		public IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary { get; set; }
 		public IfcInternalOrExternalEnum InternalOrExternalBoundary { get; set; }
+
+		public IfcRelSpaceBoundary() { }
+
+		public IfcRelSpaceBoundary(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcSpaceBoundarySelect RelatingSpace, IfcElement RelatedBuildingElement, IfcConnectionGeometry ConnectionGeometry, IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary, IfcInternalOrExternalEnum InternalOrExternalBoundary)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingSpace = RelatingSpace;
+			this.RelatedBuildingElement = RelatedBuildingElement;
+			this.ConnectionGeometry = ConnectionGeometry;
+			this.PhysicalOrVirtualBoundary = PhysicalOrVirtualBoundary;
+			this.InternalOrExternalBoundary = InternalOrExternalBoundary;
+		}
 	}
 
 	public class IfcRelSpaceBoundary1stLevel : IfcRelSpaceBoundary
@@ -10467,8 +18114,25 @@ namespace IFC4
 		//8	PhysicalOrVirtualBoundary : IfcPhysicalOrVirtualEnum
 		//9	InternalOrExternalBoundary : IfcInternalOrExternalEnum
 		//10	ParentBoundary : IfcRelSpaceBoundary1stLevel
+
 		public IfcRelSpaceBoundary1stLevel ParentBoundary { get; set; }
 		public List<IfcRelSpaceBoundary1stLevel> InnerBoundaries { get; set; }
+
+		public IfcRelSpaceBoundary1stLevel() { }
+
+		public IfcRelSpaceBoundary1stLevel(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcSpaceBoundarySelect RelatingSpace, IfcElement RelatedBuildingElement, IfcConnectionGeometry ConnectionGeometry, IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary, IfcInternalOrExternalEnum InternalOrExternalBoundary, IfcRelSpaceBoundary1stLevel ParentBoundary)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingSpace = RelatingSpace;
+			this.RelatedBuildingElement = RelatedBuildingElement;
+			this.ConnectionGeometry = ConnectionGeometry;
+			this.PhysicalOrVirtualBoundary = PhysicalOrVirtualBoundary;
+			this.InternalOrExternalBoundary = InternalOrExternalBoundary;
+			this.ParentBoundary = ParentBoundary;
+		}
 	}
 
 	public class IfcRelSpaceBoundary2ndLevel : IfcRelSpaceBoundary1stLevel
@@ -10484,8 +18148,26 @@ namespace IFC4
 		//9	InternalOrExternalBoundary : IfcInternalOrExternalEnum
 		//10	ParentBoundary : IfcRelSpaceBoundary1stLevel
 		//11	CorrespondingBoundary : IfcRelSpaceBoundary2ndLevel
+
 		public IfcRelSpaceBoundary2ndLevel CorrespondingBoundary { get; set; }
 		public List<IfcRelSpaceBoundary2ndLevel> Corresponds { get; set; }
+
+		public IfcRelSpaceBoundary2ndLevel() { }
+
+		public IfcRelSpaceBoundary2ndLevel(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcSpaceBoundarySelect RelatingSpace, IfcElement RelatedBuildingElement, IfcConnectionGeometry ConnectionGeometry, IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary, IfcInternalOrExternalEnum InternalOrExternalBoundary, IfcRelSpaceBoundary1stLevel ParentBoundary, IfcRelSpaceBoundary2ndLevel CorrespondingBoundary)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingSpace = RelatingSpace;
+			this.RelatedBuildingElement = RelatedBuildingElement;
+			this.ConnectionGeometry = ConnectionGeometry;
+			this.PhysicalOrVirtualBoundary = PhysicalOrVirtualBoundary;
+			this.InternalOrExternalBoundary = InternalOrExternalBoundary;
+			this.ParentBoundary = ParentBoundary;
+			this.CorrespondingBoundary = CorrespondingBoundary;
+		}
 	}
 
 	public class IfcRelVoidsElement : IfcRelDecomposes
@@ -10496,8 +18178,21 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	RelatingBuildingElement : IfcElement
 		//6	RelatedOpeningElement : IfcFeatureElementSubtraction
+
 		public IfcElement RelatingBuildingElement { get; set; }
 		public IfcFeatureElementSubtraction RelatedOpeningElement { get; set; }
+
+		public IfcRelVoidsElement() { }
+
+		public IfcRelVoidsElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcElement RelatingBuildingElement, IfcFeatureElementSubtraction RelatedOpeningElement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingBuildingElement = RelatingBuildingElement;
+			this.RelatedOpeningElement = RelatedOpeningElement;
+		}
 	}
 
 	public abstract class IfcRelationship : IfcRoot
@@ -10506,6 +18201,16 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
+
+		public IfcRelationship() { }
+
+		public IfcRelationship(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcReparametrisedCompositeCurveSegment : IfcCompositeCurveSegment
@@ -10514,7 +18219,18 @@ namespace IFC4
 		//2	SameSense : IfcBoolean
 		//3	ParentCurve : IfcCurve
 		//4	ParamLength : IfcParameterValue
+
 		public IfcParameterValue ParamLength { get; set; }
+
+		public IfcReparametrisedCompositeCurveSegment() { }
+
+		public IfcReparametrisedCompositeCurveSegment(IfcTransitionCode Transition, IfcBoolean SameSense, IfcCurve ParentCurve, IfcParameterValue ParamLength)
+		{
+			this.Transition = Transition;
+			this.SameSense = SameSense;
+			this.ParentCurve = ParentCurve;
+			this.ParamLength = ParamLength;
+		}
 	}
 
 	public abstract class IfcRepresentation : IfcBase, IfcLayeredItem
@@ -10523,6 +18239,7 @@ namespace IFC4
 		//2	RepresentationIdentifier : IfcLabel
 		//3	RepresentationType : IfcLabel
 		//4	Items : List<IfcRepresentationItem>
+
 		public IfcRepresentationContext ContextOfItems { get; set; }
 		public IfcLabel RepresentationIdentifier { get; set; }
 		public IfcLabel RepresentationType { get; set; }
@@ -10530,31 +18247,61 @@ namespace IFC4
 		public List<IfcRepresentationMap> RepresentationMap { get; set; }
 		public List<IfcPresentationLayerAssignment> LayerAssignments { get; set; }
 		public List<IfcProductRepresentation> OfProductRepresentation { get; set; }
+
+		public IfcRepresentation() { }
+
+		public IfcRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
+		{
+			this.ContextOfItems = ContextOfItems;
+			this.RepresentationIdentifier = RepresentationIdentifier;
+			this.RepresentationType = RepresentationType;
+			this.Items = Items;
+		}
 	}
 
 	public abstract class IfcRepresentationContext : IfcBase
 	{
 		//1	ContextIdentifier : IfcLabel
 		//2	ContextType : IfcLabel
+
 		public IfcLabel ContextIdentifier { get; set; }
 		public IfcLabel ContextType { get; set; }
 		public List<IfcRepresentation> RepresentationsInContext { get; set; }
+
+		public IfcRepresentationContext() { }
+
+		public IfcRepresentationContext(IfcLabel ContextIdentifier, IfcLabel ContextType)
+		{
+			this.ContextIdentifier = ContextIdentifier;
+			this.ContextType = ContextType;
+		}
 	}
 
 	public abstract class IfcRepresentationItem : IfcBase, IfcLayeredItem
 	{
 		public List<IfcPresentationLayerAssignment> LayerAssignment { get; set; }
 		public List<IfcStyledItem> StyledByItem { get; set; }
+
+		public IfcRepresentationItem() { }
 	}
 
 	public class IfcRepresentationMap : IfcBase
 	{
 		//1	MappingOrigin : IfcAxis2Placement
 		//2	MappedRepresentation : IfcRepresentation
+
 		public IfcAxis2Placement MappingOrigin { get; set; }
 		public IfcRepresentation MappedRepresentation { get; set; }
 		public List<IfcShapeAspect> HasShapeAspects { get; set; }
 		public List<IfcMappedItem> MapUsage { get; set; }
+
+		public IfcRepresentationMap() { }
+
+		public IfcRepresentationMap(IfcAxis2Placement MappingOrigin, IfcRepresentation MappedRepresentation)
+		{
+			this.MappingOrigin = MappingOrigin;
+			this.MappedRepresentation = MappedRepresentation;
+		}
 	}
 
 	public abstract class IfcResource : IfcObject, IfcResourceSelect
@@ -10566,12 +18313,26 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	Identification : IfcIdentifier
 		//7	LongDescription : IfcText
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
 		public List<IfcRelAssignsToResource> ResourceOf { get; set; }
 		public IfcIdentifier GetIdentification() { return Identification; }
 		public IfcText GetLongDescription() { return LongDescription; }
 		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+
+		public IfcResource() { }
+
+		public IfcResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+		}
 	}
 
 	public class IfcResourceApprovalRelationship : IfcResourceLevelRelationship
@@ -10580,8 +18341,19 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	RelatedResourceObjects : List<IfcResourceObjectSelect>
 		//4	RelatingApproval : IfcApproval
+
 		public List<IfcResourceObjectSelect> RelatedResourceObjects { get; set; }
 		public IfcApproval RelatingApproval { get; set; }
+
+		public IfcResourceApprovalRelationship() { }
+
+		public IfcResourceApprovalRelationship(IfcLabel Name, IfcText Description, List<IfcResourceObjectSelect> RelatedResourceObjects, IfcApproval RelatingApproval)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatedResourceObjects = RelatedResourceObjects;
+			this.RelatingApproval = RelatingApproval;
+		}
 	}
 
 	public class IfcResourceConstraintRelationship : IfcResourceLevelRelationship
@@ -10590,16 +18362,36 @@ namespace IFC4
 		//2	Description : IfcText
 		//3	RelatingConstraint : IfcConstraint
 		//4	RelatedResourceObjects : List<IfcResourceObjectSelect>
+
 		public IfcConstraint RelatingConstraint { get; set; }
 		public List<IfcResourceObjectSelect> RelatedResourceObjects { get; set; }
+
+		public IfcResourceConstraintRelationship() { }
+
+		public IfcResourceConstraintRelationship(IfcLabel Name, IfcText Description, IfcConstraint RelatingConstraint, List<IfcResourceObjectSelect> RelatedResourceObjects)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.RelatingConstraint = RelatingConstraint;
+			this.RelatedResourceObjects = RelatedResourceObjects;
+		}
 	}
 
 	public abstract class IfcResourceLevelRelationship : IfcBase
 	{
 		//1	Name : IfcLabel
 		//2	Description : IfcText
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
+
+		public IfcResourceLevelRelationship() { }
+
+		public IfcResourceLevelRelationship(IfcLabel Name, IfcText Description)
+		{
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcResourceTime : IfcSchedulingTime
@@ -10622,6 +18414,7 @@ namespace IFC4
 		//16	RemainingWork : IfcDuration
 		//17	RemainingUsage : IfcPositiveRatioMeasure
 		//18	Completion : IfcPositiveRatioMeasure
+
 		public IfcDuration ScheduleWork { get; set; }
 		public IfcPositiveRatioMeasure ScheduleUsage { get; set; }
 		public IfcDateTime ScheduleStart { get; set; }
@@ -10637,6 +18430,30 @@ namespace IFC4
 		public IfcDuration RemainingWork { get; set; }
 		public IfcPositiveRatioMeasure RemainingUsage { get; set; }
 		public IfcPositiveRatioMeasure Completion { get; set; }
+
+		public IfcResourceTime() { }
+
+		public IfcResourceTime(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcDuration ScheduleWork, IfcPositiveRatioMeasure ScheduleUsage, IfcDateTime ScheduleStart, IfcDateTime ScheduleFinish, IfcLabel ScheduleContour, IfcDuration LevelingDelay, IfcBoolean IsOverAllocated, IfcDateTime StatusTime, IfcDuration ActualWork, IfcPositiveRatioMeasure ActualUsage, IfcDateTime ActualStart, IfcDateTime ActualFinish, IfcDuration RemainingWork, IfcPositiveRatioMeasure RemainingUsage, IfcPositiveRatioMeasure Completion)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.ScheduleWork = ScheduleWork;
+			this.ScheduleUsage = ScheduleUsage;
+			this.ScheduleStart = ScheduleStart;
+			this.ScheduleFinish = ScheduleFinish;
+			this.ScheduleContour = ScheduleContour;
+			this.LevelingDelay = LevelingDelay;
+			this.IsOverAllocated = IsOverAllocated;
+			this.StatusTime = StatusTime;
+			this.ActualWork = ActualWork;
+			this.ActualUsage = ActualUsage;
+			this.ActualStart = ActualStart;
+			this.ActualFinish = ActualFinish;
+			this.RemainingWork = RemainingWork;
+			this.RemainingUsage = RemainingUsage;
+			this.Completion = Completion;
+		}
 	}
 
 	public class IfcRevolvedAreaSolid : IfcSweptAreaSolid
@@ -10645,9 +18462,20 @@ namespace IFC4
 		//2	Position : IfcAxis2Placement3D
 		//3	Axis : IfcAxis1Placement
 		//4	Angle : IfcPlaneAngleMeasure
+
 		public IfcAxis1Placement Axis { get; set; }
 		public IfcPlaneAngleMeasure Angle { get; set; }
 		public IfcLine AxisLine { get; set; }
+
+		public IfcRevolvedAreaSolid() { }
+
+		public IfcRevolvedAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcAxis1Placement Axis, IfcPlaneAngleMeasure Angle)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+			this.Axis = Axis;
+			this.Angle = Angle;
+		}
 	}
 
 	public class IfcRevolvedAreaSolidTapered : IfcRevolvedAreaSolid
@@ -10657,7 +18485,19 @@ namespace IFC4
 		//3	Axis : IfcAxis1Placement
 		//4	Angle : IfcPlaneAngleMeasure
 		//5	EndSweptArea : IfcProfileDef
+
 		public IfcProfileDef EndSweptArea { get; set; }
+
+		public IfcRevolvedAreaSolidTapered() { }
+
+		public IfcRevolvedAreaSolidTapered(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcAxis1Placement Axis, IfcPlaneAngleMeasure Angle, IfcProfileDef EndSweptArea)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+			this.Axis = Axis;
+			this.Angle = Angle;
+			this.EndSweptArea = EndSweptArea;
+		}
 	}
 
 	public class IfcRightCircularCone : IfcCsgPrimitive3D
@@ -10665,8 +18505,18 @@ namespace IFC4
 		//1	Position : IfcAxis2Placement3D
 		//2	Height : IfcPositiveLengthMeasure
 		//3	BottomRadius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Height { get; set; }
 		public IfcPositiveLengthMeasure BottomRadius { get; set; }
+
+		public IfcRightCircularCone() { }
+
+		public IfcRightCircularCone(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure Height, IfcPositiveLengthMeasure BottomRadius)
+		{
+			this.Position = Position;
+			this.Height = Height;
+			this.BottomRadius = BottomRadius;
+		}
 	}
 
 	public class IfcRightCircularCylinder : IfcCsgPrimitive3D
@@ -10674,8 +18524,18 @@ namespace IFC4
 		//1	Position : IfcAxis2Placement3D
 		//2	Height : IfcPositiveLengthMeasure
 		//3	Radius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Height { get; set; }
 		public IfcPositiveLengthMeasure Radius { get; set; }
+
+		public IfcRightCircularCylinder() { }
+
+		public IfcRightCircularCylinder(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure Height, IfcPositiveLengthMeasure Radius)
+		{
+			this.Position = Position;
+			this.Height = Height;
+			this.Radius = Radius;
+		}
 	}
 
 	public class IfcRoof : IfcBuildingElement
@@ -10689,7 +18549,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcRoofTypeEnum
+
 		public IfcRoofTypeEnum PredefinedType { get; set; }
+
+		public IfcRoof() { }
+
+		public IfcRoof(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcRoofTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcRoofType : IfcBuildingElementType
@@ -10704,7 +18580,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcRoofTypeEnum
+
 		public IfcRoofTypeEnum PredefinedType { get; set; }
+
+		public IfcRoofType() { }
+
+		public IfcRoofType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcRoofTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcRoot : IfcBase
@@ -10713,10 +18606,21 @@ namespace IFC4
 		//2	OwnerHistory : IfcOwnerHistory
 		//3	Name : IfcLabel
 		//4	Description : IfcText
-		public static IfcGloballyUniqueId GlobalId { get; set; }
+
+		public IfcGloballyUniqueId GlobalId { get; set; }
 		public IfcOwnerHistory OwnerHistory { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
+
+		public IfcRoot() { }
+
+		public IfcRoot(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcRoundedRectangleProfileDef : IfcRectangleProfileDef
@@ -10727,7 +18631,20 @@ namespace IFC4
 		//4	XDim : IfcPositiveLengthMeasure
 		//5	YDim : IfcPositiveLengthMeasure
 		//6	RoundingRadius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure RoundingRadius { get; set; }
+
+		public IfcRoundedRectangleProfileDef() { }
+
+		public IfcRoundedRectangleProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure XDim, IfcPositiveLengthMeasure YDim, IfcPositiveLengthMeasure RoundingRadius)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.XDim = XDim;
+			this.YDim = YDim;
+			this.RoundingRadius = RoundingRadius;
+		}
 	}
 
 	public class IfcSIUnit : IfcNamedUnit
@@ -10736,8 +18653,19 @@ namespace IFC4
 		//2	UnitType : IfcUnitEnum
 		//3	Prefix : IfcSIPrefix
 		//4	Name : IfcSIUnitName
+
 		public IfcSIPrefix Prefix { get; set; }
 		public IfcSIUnitName Name { get; set; }
+
+		public IfcSIUnit() { }
+
+		public IfcSIUnit(IfcDimensionalExponents Dimensions, IfcUnitEnum UnitType, IfcSIPrefix Prefix, IfcSIUnitName Name)
+		{
+			this.Dimensions = Dimensions;
+			this.UnitType = UnitType;
+			this.Prefix = Prefix;
+			this.Name = Name;
+		}
 	}
 
 	public class IfcSanitaryTerminal : IfcFlowTerminal
@@ -10751,7 +18679,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSanitaryTerminalTypeEnum
+
 		public IfcSanitaryTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcSanitaryTerminal() { }
+
+		public IfcSanitaryTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSanitaryTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSanitaryTerminalType : IfcFlowTerminalType
@@ -10766,7 +18710,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSanitaryTerminalTypeEnum
+
 		public IfcSanitaryTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcSanitaryTerminalType() { }
+
+		public IfcSanitaryTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSanitaryTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcSchedulingTime : IfcBase
@@ -10774,9 +18735,19 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	DataOrigin : IfcDataOriginEnum
 		//3	UserDefinedDataOrigin : IfcLabel
+
 		public IfcLabel Name { get; set; }
 		public IfcDataOriginEnum DataOrigin { get; set; }
 		public IfcLabel UserDefinedDataOrigin { get; set; }
+
+		public IfcSchedulingTime() { }
+
+		public IfcSchedulingTime(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+		}
 	}
 
 	public class IfcSeamCurve : IfcSurfaceCurve
@@ -10784,6 +18755,15 @@ namespace IFC4
 		//1	Curve3D : IfcCurve
 		//2	AssociatedGeometry : List<IfcPcurve>
 		//3	MasterRepresentation : IfcPreferredSurfaceCurveRepresentation
+
+		public IfcSeamCurve() { }
+
+		public IfcSeamCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
+		{
+			this.Curve3D = Curve3D;
+			this.AssociatedGeometry = AssociatedGeometry;
+			this.MasterRepresentation = MasterRepresentation;
+		}
 	}
 
 	public class IfcSectionProperties : IfcPreDefinedProperties
@@ -10791,9 +18771,19 @@ namespace IFC4
 		//1	SectionType : IfcSectionTypeEnum
 		//2	StartProfile : IfcProfileDef
 		//3	EndProfile : IfcProfileDef
+
 		public IfcSectionTypeEnum SectionType { get; set; }
 		public IfcProfileDef StartProfile { get; set; }
 		public IfcProfileDef EndProfile { get; set; }
+
+		public IfcSectionProperties() { }
+
+		public IfcSectionProperties(IfcSectionTypeEnum SectionType, IfcProfileDef StartProfile, IfcProfileDef EndProfile)
+		{
+			this.SectionType = SectionType;
+			this.StartProfile = StartProfile;
+			this.EndProfile = EndProfile;
+		}
 	}
 
 	public class IfcSectionReinforcementProperties : IfcPreDefinedProperties
@@ -10804,12 +18794,25 @@ namespace IFC4
 		//4	ReinforcementRole : IfcReinforcingBarRoleEnum
 		//5	SectionDefinition : IfcSectionProperties
 		//6	CrossSectionReinforcementDefinitions : List<IfcReinforcementBarProperties>
+
 		public IfcLengthMeasure LongitudinalStartPosition { get; set; }
 		public IfcLengthMeasure LongitudinalEndPosition { get; set; }
 		public IfcLengthMeasure TransversePosition { get; set; }
 		public IfcReinforcingBarRoleEnum ReinforcementRole { get; set; }
 		public IfcSectionProperties SectionDefinition { get; set; }
 		public List<IfcReinforcementBarProperties> CrossSectionReinforcementDefinitions { get; set; }
+
+		public IfcSectionReinforcementProperties() { }
+
+		public IfcSectionReinforcementProperties(IfcLengthMeasure LongitudinalStartPosition, IfcLengthMeasure LongitudinalEndPosition, IfcLengthMeasure TransversePosition, IfcReinforcingBarRoleEnum ReinforcementRole, IfcSectionProperties SectionDefinition, List<IfcReinforcementBarProperties> CrossSectionReinforcementDefinitions)
+		{
+			this.LongitudinalStartPosition = LongitudinalStartPosition;
+			this.LongitudinalEndPosition = LongitudinalEndPosition;
+			this.TransversePosition = TransversePosition;
+			this.ReinforcementRole = ReinforcementRole;
+			this.SectionDefinition = SectionDefinition;
+			this.CrossSectionReinforcementDefinitions = CrossSectionReinforcementDefinitions;
+		}
 	}
 
 	public class IfcSectionedSpine : IfcGeometricRepresentationItem
@@ -10817,10 +18820,20 @@ namespace IFC4
 		//1	SpineCurve : IfcCompositeCurve
 		//2	CrossSections : List<IfcProfileDef>
 		//3	CrossSectionPositions : List<IfcAxis2Placement3D>
+
 		public IfcCompositeCurve SpineCurve { get; set; }
 		public List<IfcProfileDef> CrossSections { get; set; }
 		public List<IfcAxis2Placement3D> CrossSectionPositions { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcSectionedSpine() { }
+
+		public IfcSectionedSpine(IfcCompositeCurve SpineCurve, List<IfcProfileDef> CrossSections, List<IfcAxis2Placement3D> CrossSectionPositions)
+		{
+			this.SpineCurve = SpineCurve;
+			this.CrossSections = CrossSections;
+			this.CrossSectionPositions = CrossSectionPositions;
+		}
 	}
 
 	public class IfcSensor : IfcDistributionControlElement
@@ -10834,7 +18847,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSensorTypeEnum
+
 		public IfcSensorTypeEnum PredefinedType { get; set; }
+
+		public IfcSensor() { }
+
+		public IfcSensor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSensorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSensorType : IfcDistributionControlElementType
@@ -10849,7 +18878,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSensorTypeEnum
+
 		public IfcSensorTypeEnum PredefinedType { get; set; }
+
+		public IfcSensorType() { }
+
+		public IfcSensorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSensorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcShadingDevice : IfcBuildingElement
@@ -10863,7 +18909,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcShadingDeviceTypeEnum
+
 		public IfcShadingDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcShadingDevice() { }
+
+		public IfcShadingDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcShadingDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcShadingDeviceType : IfcBuildingElementType
@@ -10878,7 +18940,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcShadingDeviceTypeEnum
+
 		public IfcShadingDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcShadingDeviceType() { }
+
+		public IfcShadingDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcShadingDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcShapeAspect : IfcBase
@@ -10888,11 +18967,23 @@ namespace IFC4
 		//3	Description : IfcText
 		//4	ProductDefinitional : IfcLogical
 		//5	PartOfProductDefinitionShape : IfcProductRepresentationSelect
+
 		public List<IfcShapeModel> ShapeRepresentations { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLogical ProductDefinitional { get; set; }
 		public IfcProductRepresentationSelect PartOfProductDefinitionShape { get; set; }
+
+		public IfcShapeAspect() { }
+
+		public IfcShapeAspect(List<IfcShapeModel> ShapeRepresentations, IfcLabel Name, IfcText Description, IfcLogical ProductDefinitional, IfcProductRepresentationSelect PartOfProductDefinitionShape)
+		{
+			this.ShapeRepresentations = ShapeRepresentations;
+			this.Name = Name;
+			this.Description = Description;
+			this.ProductDefinitional = ProductDefinitional;
+			this.PartOfProductDefinitionShape = PartOfProductDefinitionShape;
+		}
 	}
 
 	public abstract class IfcShapeModel : IfcRepresentation
@@ -10901,7 +18992,18 @@ namespace IFC4
 		//2	RepresentationIdentifier : IfcLabel
 		//3	RepresentationType : IfcLabel
 		//4	Items : List<IfcRepresentationItem>
+
 		public List<IfcShapeAspect> OfShapeAspect { get; set; }
+
+		public IfcShapeModel() { }
+
+		public IfcShapeModel(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
+		{
+			this.ContextOfItems = ContextOfItems;
+			this.RepresentationIdentifier = RepresentationIdentifier;
+			this.RepresentationType = RepresentationType;
+			this.Items = Items;
+		}
 	}
 
 	public class IfcShapeRepresentation : IfcShapeModel
@@ -10910,19 +19012,45 @@ namespace IFC4
 		//2	RepresentationIdentifier : IfcLabel
 		//3	RepresentationType : IfcLabel
 		//4	Items : List<IfcRepresentationItem>
+
+		public IfcShapeRepresentation() { }
+
+		public IfcShapeRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
+		{
+			this.ContextOfItems = ContextOfItems;
+			this.RepresentationIdentifier = RepresentationIdentifier;
+			this.RepresentationType = RepresentationType;
+			this.Items = Items;
+		}
 	}
 
 	public class IfcShellBasedSurfaceModel : IfcGeometricRepresentationItem
 	{
 		//1	SbsmBoundary : List<IfcShell>
+
 		public List<IfcShell> SbsmBoundary { get; set; }
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcShellBasedSurfaceModel() { }
+
+		public IfcShellBasedSurfaceModel(List<IfcShell> SbsmBoundary)
+		{
+			this.SbsmBoundary = SbsmBoundary;
+		}
 	}
 
 	public abstract class IfcSimpleProperty : IfcProperty
 	{
 		//1	Name : IfcIdentifier
 		//2	Description : IfcText
+
+		public IfcSimpleProperty() { }
+
+		public IfcSimpleProperty(IfcIdentifier Name, IfcText Description)
+		{
+			this.Name = Name;
+			this.Description = Description;
+		}
 	}
 
 	public class IfcSimplePropertyTemplate : IfcPropertyTemplate
@@ -10939,6 +19067,7 @@ namespace IFC4
 		//10	SecondaryUnit : IfcUnit
 		//11	Expression : IfcLabel
 		//12	AccessState : IfcStateEnum
+
 		public IfcSimplePropertyTemplateTypeEnum TemplateType { get; set; }
 		public IfcLabel PrimaryMeasureType { get; set; }
 		public IfcLabel SecondaryMeasureType { get; set; }
@@ -10947,6 +19076,24 @@ namespace IFC4
 		public IfcUnit SecondaryUnit { get; set; }
 		public IfcLabel Expression { get; set; }
 		public IfcStateEnum AccessState { get; set; }
+
+		public IfcSimplePropertyTemplate() { }
+
+		public IfcSimplePropertyTemplate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcSimplePropertyTemplateTypeEnum TemplateType, IfcLabel PrimaryMeasureType, IfcLabel SecondaryMeasureType, IfcPropertyEnumeration Enumerators, IfcUnit PrimaryUnit, IfcUnit SecondaryUnit, IfcLabel Expression, IfcStateEnum AccessState)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.TemplateType = TemplateType;
+			this.PrimaryMeasureType = PrimaryMeasureType;
+			this.SecondaryMeasureType = SecondaryMeasureType;
+			this.Enumerators = Enumerators;
+			this.PrimaryUnit = PrimaryUnit;
+			this.SecondaryUnit = SecondaryUnit;
+			this.Expression = Expression;
+			this.AccessState = AccessState;
+		}
 	}
 
 	public class IfcSite : IfcSpatialStructureElement
@@ -10965,11 +19112,32 @@ namespace IFC4
 		//12	RefElevation : IfcLengthMeasure
 		//13	LandTitleNumber : IfcLabel
 		//14	SiteAddress : IfcPostalAddress
+
 		public IfcCompoundPlaneAngleMeasure RefLatitude { get; set; }
 		public IfcCompoundPlaneAngleMeasure RefLongitude { get; set; }
 		public IfcLengthMeasure RefElevation { get; set; }
 		public IfcLabel LandTitleNumber { get; set; }
 		public IfcPostalAddress SiteAddress { get; set; }
+
+		public IfcSite() { }
+
+		public IfcSite(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcElementCompositionEnum CompositionType, IfcCompoundPlaneAngleMeasure RefLatitude, IfcCompoundPlaneAngleMeasure RefLongitude, IfcLengthMeasure RefElevation, IfcLabel LandTitleNumber, IfcPostalAddress SiteAddress)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.CompositionType = CompositionType;
+			this.RefLatitude = RefLatitude;
+			this.RefLongitude = RefLongitude;
+			this.RefElevation = RefElevation;
+			this.LandTitleNumber = LandTitleNumber;
+			this.SiteAddress = SiteAddress;
+		}
 	}
 
 	public class IfcSlab : IfcBuildingElement
@@ -10983,7 +19151,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSlabTypeEnum
+
 		public IfcSlabTypeEnum PredefinedType { get; set; }
+
+		public IfcSlab() { }
+
+		public IfcSlab(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSlabTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSlabElementedCase : IfcSlab
@@ -10997,6 +19181,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSlabTypeEnum
+
+		public IfcSlabElementedCase() { }
+
+		public IfcSlabElementedCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSlabTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSlabStandardCase : IfcSlab
@@ -11010,6 +19209,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSlabTypeEnum
+
+		public IfcSlabStandardCase() { }
+
+		public IfcSlabStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSlabTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSlabType : IfcBuildingElementType
@@ -11024,7 +19238,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSlabTypeEnum
+
 		public IfcSlabTypeEnum PredefinedType { get; set; }
+
+		public IfcSlabType() { }
+
+		public IfcSlabType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSlabTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSlippageConnectionCondition : IfcStructuralConnectionCondition
@@ -11033,9 +19264,20 @@ namespace IFC4
 		//2	SlippageX : IfcLengthMeasure
 		//3	SlippageY : IfcLengthMeasure
 		//4	SlippageZ : IfcLengthMeasure
+
 		public IfcLengthMeasure SlippageX { get; set; }
 		public IfcLengthMeasure SlippageY { get; set; }
 		public IfcLengthMeasure SlippageZ { get; set; }
+
+		public IfcSlippageConnectionCondition() { }
+
+		public IfcSlippageConnectionCondition(IfcLabel Name, IfcLengthMeasure SlippageX, IfcLengthMeasure SlippageY, IfcLengthMeasure SlippageZ)
+		{
+			this.Name = Name;
+			this.SlippageX = SlippageX;
+			this.SlippageY = SlippageY;
+			this.SlippageZ = SlippageZ;
+		}
 	}
 
 	public class IfcSolarDevice : IfcEnergyConversionDevice
@@ -11049,7 +19291,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSolarDeviceTypeEnum
+
 		public IfcSolarDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcSolarDevice() { }
+
+		public IfcSolarDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSolarDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSolarDeviceType : IfcEnergyConversionDeviceType
@@ -11064,13 +19322,32 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSolarDeviceTypeEnum
+
 		public IfcSolarDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcSolarDeviceType() { }
+
+		public IfcSolarDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSolarDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcSolidModel : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcSolidOrShell
 	{
 		public IfcDimensionCount Dim { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcSolidModel() { }
 	}
 
 	public class IfcSpace : IfcSpatialStructureElement, IfcSpaceBoundarySelect
@@ -11086,11 +19363,29 @@ namespace IFC4
 		//9	CompositionType : IfcElementCompositionEnum
 		//10	PredefinedType : IfcSpaceTypeEnum
 		//11	ElevationWithFlooring : IfcLengthMeasure
+
 		public IfcSpaceTypeEnum PredefinedType { get; set; }
 		public IfcLengthMeasure ElevationWithFlooring { get; set; }
 		public List<IfcRelCoversSpaces> HasCoverings { get; set; }
 		public List<IfcRelSpaceBoundary> BoundedBy { get; set; }
 		public List<IfcRelSpaceBoundary> GetBoundedBy() { return BoundedBy; }
+
+		public IfcSpace() { }
+
+		public IfcSpace(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcElementCompositionEnum CompositionType, IfcSpaceTypeEnum PredefinedType, IfcLengthMeasure ElevationWithFlooring)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.CompositionType = CompositionType;
+			this.PredefinedType = PredefinedType;
+			this.ElevationWithFlooring = ElevationWithFlooring;
+		}
 	}
 
 	public class IfcSpaceHeater : IfcFlowTerminal
@@ -11104,7 +19399,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSpaceHeaterTypeEnum
+
 		public IfcSpaceHeaterTypeEnum PredefinedType { get; set; }
+
+		public IfcSpaceHeater() { }
+
+		public IfcSpaceHeater(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSpaceHeaterTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSpaceHeaterType : IfcFlowTerminalType
@@ -11119,7 +19430,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSpaceHeaterTypeEnum
+
 		public IfcSpaceHeaterTypeEnum PredefinedType { get; set; }
+
+		public IfcSpaceHeaterType() { }
+
+		public IfcSpaceHeaterType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSpaceHeaterTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSpaceType : IfcSpatialStructureElementType
@@ -11135,8 +19463,26 @@ namespace IFC4
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSpaceTypeEnum
 		//11	LongName : IfcLabel
+
 		public IfcSpaceTypeEnum PredefinedType { get; set; }
 		public IfcLabel LongName { get; set; }
+
+		public IfcSpaceType() { }
+
+		public IfcSpaceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSpaceTypeEnum PredefinedType, IfcLabel LongName)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.LongName = LongName;
+		}
 	}
 
 	public abstract class IfcSpatialElement : IfcProduct
@@ -11149,10 +19495,25 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	LongName : IfcLabel
+
 		public IfcLabel LongName { get; set; }
 		public List<IfcRelContainedInSpatialStructure> ContainsElements { get; set; }
 		public List<IfcRelServicesBuildings> ServicedBySystems { get; set; }
 		public List<IfcRelReferencedInSpatialStructure> ReferencesElements { get; set; }
+
+		public IfcSpatialElement() { }
+
+		public IfcSpatialElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+		}
 	}
 
 	public abstract class IfcSpatialElementType : IfcTypeProduct
@@ -11166,7 +19527,23 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
 		public IfcLabel ElementType { get; set; }
+
+		public IfcSpatialElementType() { }
+
+		public IfcSpatialElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public abstract class IfcSpatialStructureElement : IfcSpatialElement
@@ -11180,7 +19557,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	LongName : IfcLabel
 		//9	CompositionType : IfcElementCompositionEnum
+
 		public IfcElementCompositionEnum CompositionType { get; set; }
+
+		public IfcSpatialStructureElement() { }
+
+		public IfcSpatialStructureElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcElementCompositionEnum CompositionType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.CompositionType = CompositionType;
+		}
 	}
 
 	public abstract class IfcSpatialStructureElementType : IfcSpatialElementType
@@ -11194,6 +19587,21 @@ namespace IFC4
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
+
+		public IfcSpatialStructureElementType() { }
+
+		public IfcSpatialStructureElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+		}
 	}
 
 	public class IfcSpatialZone : IfcSpatialElement
@@ -11207,7 +19615,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	LongName : IfcLabel
 		//9	PredefinedType : IfcSpatialZoneTypeEnum
+
 		public IfcSpatialZoneTypeEnum PredefinedType { get; set; }
+
+		public IfcSpatialZone() { }
+
+		public IfcSpatialZone(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName, IfcSpatialZoneTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.LongName = LongName;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSpatialZoneType : IfcSpatialElementType
@@ -11223,22 +19647,58 @@ namespace IFC4
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSpatialZoneTypeEnum
 		//11	LongName : IfcLabel
+
 		public IfcSpatialZoneTypeEnum PredefinedType { get; set; }
 		public IfcLabel LongName { get; set; }
+
+		public IfcSpatialZoneType() { }
+
+		public IfcSpatialZoneType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSpatialZoneTypeEnum PredefinedType, IfcLabel LongName)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.LongName = LongName;
+		}
 	}
 
 	public class IfcSphere : IfcCsgPrimitive3D
 	{
 		//1	Position : IfcAxis2Placement3D
 		//2	Radius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Radius { get; set; }
+
+		public IfcSphere() { }
+
+		public IfcSphere(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure Radius)
+		{
+			this.Position = Position;
+			this.Radius = Radius;
+		}
 	}
 
 	public class IfcSphericalSurface : IfcElementarySurface
 	{
 		//1	Position : IfcAxis2Placement3D
 		//2	Radius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure Radius { get; set; }
+
+		public IfcSphericalSurface() { }
+
+		public IfcSphericalSurface(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure Radius)
+		{
+			this.Position = Position;
+			this.Radius = Radius;
+		}
 	}
 
 	public class IfcStackTerminal : IfcFlowTerminal
@@ -11252,7 +19712,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcStackTerminalTypeEnum
+
 		public IfcStackTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcStackTerminal() { }
+
+		public IfcStackTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcStackTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStackTerminalType : IfcFlowTerminalType
@@ -11267,7 +19743,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcStackTerminalTypeEnum
+
 		public IfcStackTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcStackTerminalType() { }
+
+		public IfcStackTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcStackTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStair : IfcBuildingElement
@@ -11281,7 +19774,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcStairTypeEnum
+
 		public IfcStairTypeEnum PredefinedType { get; set; }
+
+		public IfcStair() { }
+
+		public IfcStair(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcStairTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStairFlight : IfcBuildingElement
@@ -11299,11 +19808,31 @@ namespace IFC4
 		//11	RiserHeight : IfcPositiveLengthMeasure
 		//12	TreadLength : IfcPositiveLengthMeasure
 		//13	PredefinedType : IfcStairFlightTypeEnum
+
 		public IfcInteger NumberOfRisers { get; set; }
 		public IfcInteger NumberOfTreads { get; set; }
 		public IfcPositiveLengthMeasure RiserHeight { get; set; }
 		public IfcPositiveLengthMeasure TreadLength { get; set; }
 		public IfcStairFlightTypeEnum PredefinedType { get; set; }
+
+		public IfcStairFlight() { }
+
+		public IfcStairFlight(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcInteger NumberOfRisers, IfcInteger NumberOfTreads, IfcPositiveLengthMeasure RiserHeight, IfcPositiveLengthMeasure TreadLength, IfcStairFlightTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.NumberOfRisers = NumberOfRisers;
+			this.NumberOfTreads = NumberOfTreads;
+			this.RiserHeight = RiserHeight;
+			this.TreadLength = TreadLength;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStairFlightType : IfcBuildingElementType
@@ -11318,7 +19847,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcStairFlightTypeEnum
+
 		public IfcStairFlightTypeEnum PredefinedType { get; set; }
+
+		public IfcStairFlightType() { }
+
+		public IfcStairFlightType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcStairFlightTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStairType : IfcBuildingElementType
@@ -11333,7 +19879,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcStairTypeEnum
+
 		public IfcStairTypeEnum PredefinedType { get; set; }
+
+		public IfcStairType() { }
+
+		public IfcStairType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcStairTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcStructuralAction : IfcStructuralActivity
@@ -11348,7 +19911,24 @@ namespace IFC4
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
 		//10	DestabilizingLoad : IfcBoolean
+
 		public IfcBoolean DestabilizingLoad { get; set; }
+
+		public IfcStructuralAction() { }
+
+		public IfcStructuralAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.DestabilizingLoad = DestabilizingLoad;
+		}
 	}
 
 	public abstract class IfcStructuralActivity : IfcProduct
@@ -11362,9 +19942,25 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
+
 		public IfcStructuralLoad AppliedLoad { get; set; }
 		public IfcGlobalOrLocalEnum GlobalOrLocal { get; set; }
 		public List<IfcRelConnectsStructuralActivity> AssignedToStructuralItem { get; set; }
+
+		public IfcStructuralActivity() { }
+
+		public IfcStructuralActivity(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+		}
 	}
 
 	public class IfcStructuralAnalysisModel : IfcSystem
@@ -11379,11 +19975,28 @@ namespace IFC4
 		//8	LoadedBy : List<IfcStructuralLoadGroup>
 		//9	HasResults : List<IfcStructuralResultGroup>
 		//10	SharedPlacement : IfcObjectPlacement
+
 		public IfcAnalysisModelTypeEnum PredefinedType { get; set; }
 		public IfcAxis2Placement3D OrientationOf2DPlane { get; set; }
 		public List<IfcStructuralLoadGroup> LoadedBy { get; set; }
 		public List<IfcStructuralResultGroup> HasResults { get; set; }
 		public IfcObjectPlacement SharedPlacement { get; set; }
+
+		public IfcStructuralAnalysisModel() { }
+
+		public IfcStructuralAnalysisModel(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcAnalysisModelTypeEnum PredefinedType, IfcAxis2Placement3D OrientationOf2DPlane, List<IfcStructuralLoadGroup> LoadedBy, List<IfcStructuralResultGroup> HasResults, IfcObjectPlacement SharedPlacement)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.PredefinedType = PredefinedType;
+			this.OrientationOf2DPlane = OrientationOf2DPlane;
+			this.LoadedBy = LoadedBy;
+			this.HasResults = HasResults;
+			this.SharedPlacement = SharedPlacement;
+		}
 	}
 
 	public abstract class IfcStructuralConnection : IfcStructuralItem
@@ -11396,14 +20009,37 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedCondition : IfcBoundaryCondition
+
 		public IfcBoundaryCondition AppliedCondition { get; set; }
 		public List<IfcRelConnectsStructuralMember> ConnectsStructuralMembers { get; set; }
+
+		public IfcStructuralConnection() { }
+
+		public IfcStructuralConnection(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcBoundaryCondition AppliedCondition)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedCondition = AppliedCondition;
+		}
 	}
 
 	public abstract class IfcStructuralConnectionCondition : IfcBase
 	{
 		//1	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
+
+		public IfcStructuralConnectionCondition() { }
+
+		public IfcStructuralConnectionCondition(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcStructuralCurveAction : IfcStructuralAction
@@ -11420,8 +20056,27 @@ namespace IFC4
 		//10	DestabilizingLoad : IfcBoolean
 		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
 		//12	PredefinedType : IfcStructuralCurveActivityTypeEnum
+
 		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue { get; set; }
 		public IfcStructuralCurveActivityTypeEnum PredefinedType { get; set; }
+
+		public IfcStructuralCurveAction() { }
+
+		public IfcStructuralCurveAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad, IfcProjectedOrTrueLengthEnum ProjectedOrTrue, IfcStructuralCurveActivityTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.DestabilizingLoad = DestabilizingLoad;
+			this.ProjectedOrTrue = ProjectedOrTrue;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStructuralCurveConnection : IfcStructuralConnection
@@ -11435,7 +20090,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedCondition : IfcBoundaryCondition
 		//9	Axis : IfcDirection
+
 		public IfcDirection Axis { get; set; }
+
+		public IfcStructuralCurveConnection() { }
+
+		public IfcStructuralCurveConnection(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcBoundaryCondition AppliedCondition, IfcDirection Axis)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedCondition = AppliedCondition;
+			this.Axis = Axis;
+		}
 	}
 
 	public class IfcStructuralCurveMember : IfcStructuralMember
@@ -11449,8 +20120,24 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	PredefinedType : IfcStructuralCurveMemberTypeEnum
 		//9	Axis : IfcDirection
+
 		public IfcStructuralCurveMemberTypeEnum PredefinedType { get; set; }
 		public IfcDirection Axis { get; set; }
+
+		public IfcStructuralCurveMember() { }
+
+		public IfcStructuralCurveMember(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralCurveMemberTypeEnum PredefinedType, IfcDirection Axis)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.PredefinedType = PredefinedType;
+			this.Axis = Axis;
+		}
 	}
 
 	public class IfcStructuralCurveMemberVarying : IfcStructuralCurveMember
@@ -11464,6 +20151,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	PredefinedType : IfcStructuralCurveMemberTypeEnum
 		//9	Axis : IfcDirection
+
+		public IfcStructuralCurveMemberVarying() { }
+
+		public IfcStructuralCurveMemberVarying(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralCurveMemberTypeEnum PredefinedType, IfcDirection Axis)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.PredefinedType = PredefinedType;
+			this.Axis = Axis;
+		}
 	}
 
 	public class IfcStructuralCurveReaction : IfcStructuralReaction
@@ -11478,7 +20180,24 @@ namespace IFC4
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
 		//10	PredefinedType : IfcStructuralCurveActivityTypeEnum
+
 		public IfcStructuralCurveActivityTypeEnum PredefinedType { get; set; }
+
+		public IfcStructuralCurveReaction() { }
+
+		public IfcStructuralCurveReaction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcStructuralCurveActivityTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcStructuralItem : IfcProduct, IfcStructuralActivityAssignmentSelect
@@ -11490,7 +20209,21 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
+
 		public List<IfcRelConnectsStructuralActivity> AssignedStructuralActivity { get; set; }
+
+		public IfcStructuralItem() { }
+
+		public IfcStructuralItem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+		}
 	}
 
 	public class IfcStructuralLinearAction : IfcStructuralCurveAction
@@ -11507,12 +20240,38 @@ namespace IFC4
 		//10	DestabilizingLoad : IfcBoolean
 		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
 		//12	PredefinedType : IfcStructuralCurveActivityTypeEnum
+
+		public IfcStructuralLinearAction() { }
+
+		public IfcStructuralLinearAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad, IfcProjectedOrTrueLengthEnum ProjectedOrTrue, IfcStructuralCurveActivityTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.DestabilizingLoad = DestabilizingLoad;
+			this.ProjectedOrTrue = ProjectedOrTrue;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcStructuralLoad : IfcBase
 	{
 		//1	Name : IfcLabel
+
 		public IfcLabel Name { get; set; }
+
+		public IfcStructuralLoad() { }
+
+		public IfcStructuralLoad(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcStructuralLoadCase : IfcStructuralLoadGroup
@@ -11528,7 +20287,25 @@ namespace IFC4
 		//9	Coefficient : IfcRatioMeasure
 		//10	Purpose : IfcLabel
 		//11	SelfWeightCoefficients : List<IfcRatioMeasure>
+
 		public List<IfcRatioMeasure> SelfWeightCoefficients { get; set; }
+
+		public IfcStructuralLoadCase() { }
+
+		public IfcStructuralLoadCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLoadGroupTypeEnum PredefinedType, IfcActionTypeEnum ActionType, IfcActionSourceTypeEnum ActionSource, IfcRatioMeasure Coefficient, IfcLabel Purpose, List<IfcRatioMeasure> SelfWeightCoefficients)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.PredefinedType = PredefinedType;
+			this.ActionType = ActionType;
+			this.ActionSource = ActionSource;
+			this.Coefficient = Coefficient;
+			this.Purpose = Purpose;
+			this.SelfWeightCoefficients = SelfWeightCoefficients;
+		}
 	}
 
 	public class IfcStructuralLoadConfiguration : IfcStructuralLoad
@@ -11536,8 +20313,18 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Values : List<IfcStructuralLoadOrResult>
 		//3	Locations : List<List<IfcLengthMeasure>>
+
 		public List<IfcStructuralLoadOrResult> Values { get; set; }
 		public List<List<IfcLengthMeasure>> Locations { get; set; }
+
+		public IfcStructuralLoadConfiguration() { }
+
+		public IfcStructuralLoadConfiguration(IfcLabel Name, List<IfcStructuralLoadOrResult> Values, List<List<IfcLengthMeasure>> Locations)
+		{
+			this.Name = Name;
+			this.Values = Values;
+			this.Locations = Locations;
+		}
 	}
 
 	public class IfcStructuralLoadGroup : IfcGroup
@@ -11552,6 +20339,7 @@ namespace IFC4
 		//8	ActionSource : IfcActionSourceTypeEnum
 		//9	Coefficient : IfcRatioMeasure
 		//10	Purpose : IfcLabel
+
 		public IfcLoadGroupTypeEnum PredefinedType { get; set; }
 		public IfcActionTypeEnum ActionType { get; set; }
 		public IfcActionSourceTypeEnum ActionSource { get; set; }
@@ -11559,6 +20347,22 @@ namespace IFC4
 		public IfcLabel Purpose { get; set; }
 		public List<IfcStructuralResultGroup> SourceOfResultGroup { get; set; }
 		public List<IfcStructuralAnalysisModel> LoadGroupFor { get; set; }
+
+		public IfcStructuralLoadGroup() { }
+
+		public IfcStructuralLoadGroup(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLoadGroupTypeEnum PredefinedType, IfcActionTypeEnum ActionType, IfcActionSourceTypeEnum ActionSource, IfcRatioMeasure Coefficient, IfcLabel Purpose)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.PredefinedType = PredefinedType;
+			this.ActionType = ActionType;
+			this.ActionSource = ActionSource;
+			this.Coefficient = Coefficient;
+			this.Purpose = Purpose;
+		}
 	}
 
 	public class IfcStructuralLoadLinearForce : IfcStructuralLoadStatic
@@ -11570,17 +20374,38 @@ namespace IFC4
 		//5	LinearMomentX : IfcLinearMomentMeasure
 		//6	LinearMomentY : IfcLinearMomentMeasure
 		//7	LinearMomentZ : IfcLinearMomentMeasure
+
 		public IfcLinearForceMeasure LinearForceX { get; set; }
 		public IfcLinearForceMeasure LinearForceY { get; set; }
 		public IfcLinearForceMeasure LinearForceZ { get; set; }
 		public IfcLinearMomentMeasure LinearMomentX { get; set; }
 		public IfcLinearMomentMeasure LinearMomentY { get; set; }
 		public IfcLinearMomentMeasure LinearMomentZ { get; set; }
+
+		public IfcStructuralLoadLinearForce() { }
+
+		public IfcStructuralLoadLinearForce(IfcLabel Name, IfcLinearForceMeasure LinearForceX, IfcLinearForceMeasure LinearForceY, IfcLinearForceMeasure LinearForceZ, IfcLinearMomentMeasure LinearMomentX, IfcLinearMomentMeasure LinearMomentY, IfcLinearMomentMeasure LinearMomentZ)
+		{
+			this.Name = Name;
+			this.LinearForceX = LinearForceX;
+			this.LinearForceY = LinearForceY;
+			this.LinearForceZ = LinearForceZ;
+			this.LinearMomentX = LinearMomentX;
+			this.LinearMomentY = LinearMomentY;
+			this.LinearMomentZ = LinearMomentZ;
+		}
 	}
 
 	public abstract class IfcStructuralLoadOrResult : IfcStructuralLoad
 	{
 		//1	Name : IfcLabel
+
+		public IfcStructuralLoadOrResult() { }
+
+		public IfcStructuralLoadOrResult(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcStructuralLoadPlanarForce : IfcStructuralLoadStatic
@@ -11589,9 +20414,20 @@ namespace IFC4
 		//2	PlanarForceX : IfcPlanarForceMeasure
 		//3	PlanarForceY : IfcPlanarForceMeasure
 		//4	PlanarForceZ : IfcPlanarForceMeasure
+
 		public IfcPlanarForceMeasure PlanarForceX { get; set; }
 		public IfcPlanarForceMeasure PlanarForceY { get; set; }
 		public IfcPlanarForceMeasure PlanarForceZ { get; set; }
+
+		public IfcStructuralLoadPlanarForce() { }
+
+		public IfcStructuralLoadPlanarForce(IfcLabel Name, IfcPlanarForceMeasure PlanarForceX, IfcPlanarForceMeasure PlanarForceY, IfcPlanarForceMeasure PlanarForceZ)
+		{
+			this.Name = Name;
+			this.PlanarForceX = PlanarForceX;
+			this.PlanarForceY = PlanarForceY;
+			this.PlanarForceZ = PlanarForceZ;
+		}
 	}
 
 	public class IfcStructuralLoadSingleDisplacement : IfcStructuralLoadStatic
@@ -11603,12 +20439,26 @@ namespace IFC4
 		//5	RotationalDisplacementRX : IfcPlaneAngleMeasure
 		//6	RotationalDisplacementRY : IfcPlaneAngleMeasure
 		//7	RotationalDisplacementRZ : IfcPlaneAngleMeasure
+
 		public IfcLengthMeasure DisplacementX { get; set; }
 		public IfcLengthMeasure DisplacementY { get; set; }
 		public IfcLengthMeasure DisplacementZ { get; set; }
 		public IfcPlaneAngleMeasure RotationalDisplacementRX { get; set; }
 		public IfcPlaneAngleMeasure RotationalDisplacementRY { get; set; }
 		public IfcPlaneAngleMeasure RotationalDisplacementRZ { get; set; }
+
+		public IfcStructuralLoadSingleDisplacement() { }
+
+		public IfcStructuralLoadSingleDisplacement(IfcLabel Name, IfcLengthMeasure DisplacementX, IfcLengthMeasure DisplacementY, IfcLengthMeasure DisplacementZ, IfcPlaneAngleMeasure RotationalDisplacementRX, IfcPlaneAngleMeasure RotationalDisplacementRY, IfcPlaneAngleMeasure RotationalDisplacementRZ)
+		{
+			this.Name = Name;
+			this.DisplacementX = DisplacementX;
+			this.DisplacementY = DisplacementY;
+			this.DisplacementZ = DisplacementZ;
+			this.RotationalDisplacementRX = RotationalDisplacementRX;
+			this.RotationalDisplacementRY = RotationalDisplacementRY;
+			this.RotationalDisplacementRZ = RotationalDisplacementRZ;
+		}
 	}
 
 	public class IfcStructuralLoadSingleDisplacementDistortion : IfcStructuralLoadSingleDisplacement
@@ -11621,7 +20471,22 @@ namespace IFC4
 		//6	RotationalDisplacementRY : IfcPlaneAngleMeasure
 		//7	RotationalDisplacementRZ : IfcPlaneAngleMeasure
 		//8	Distortion : IfcCurvatureMeasure
+
 		public IfcCurvatureMeasure Distortion { get; set; }
+
+		public IfcStructuralLoadSingleDisplacementDistortion() { }
+
+		public IfcStructuralLoadSingleDisplacementDistortion(IfcLabel Name, IfcLengthMeasure DisplacementX, IfcLengthMeasure DisplacementY, IfcLengthMeasure DisplacementZ, IfcPlaneAngleMeasure RotationalDisplacementRX, IfcPlaneAngleMeasure RotationalDisplacementRY, IfcPlaneAngleMeasure RotationalDisplacementRZ, IfcCurvatureMeasure Distortion)
+		{
+			this.Name = Name;
+			this.DisplacementX = DisplacementX;
+			this.DisplacementY = DisplacementY;
+			this.DisplacementZ = DisplacementZ;
+			this.RotationalDisplacementRX = RotationalDisplacementRX;
+			this.RotationalDisplacementRY = RotationalDisplacementRY;
+			this.RotationalDisplacementRZ = RotationalDisplacementRZ;
+			this.Distortion = Distortion;
+		}
 	}
 
 	public class IfcStructuralLoadSingleForce : IfcStructuralLoadStatic
@@ -11633,12 +20498,26 @@ namespace IFC4
 		//5	MomentX : IfcTorqueMeasure
 		//6	MomentY : IfcTorqueMeasure
 		//7	MomentZ : IfcTorqueMeasure
+
 		public IfcForceMeasure ForceX { get; set; }
 		public IfcForceMeasure ForceY { get; set; }
 		public IfcForceMeasure ForceZ { get; set; }
 		public IfcTorqueMeasure MomentX { get; set; }
 		public IfcTorqueMeasure MomentY { get; set; }
 		public IfcTorqueMeasure MomentZ { get; set; }
+
+		public IfcStructuralLoadSingleForce() { }
+
+		public IfcStructuralLoadSingleForce(IfcLabel Name, IfcForceMeasure ForceX, IfcForceMeasure ForceY, IfcForceMeasure ForceZ, IfcTorqueMeasure MomentX, IfcTorqueMeasure MomentY, IfcTorqueMeasure MomentZ)
+		{
+			this.Name = Name;
+			this.ForceX = ForceX;
+			this.ForceY = ForceY;
+			this.ForceZ = ForceZ;
+			this.MomentX = MomentX;
+			this.MomentY = MomentY;
+			this.MomentZ = MomentZ;
+		}
 	}
 
 	public class IfcStructuralLoadSingleForceWarping : IfcStructuralLoadSingleForce
@@ -11651,12 +20530,34 @@ namespace IFC4
 		//6	MomentY : IfcTorqueMeasure
 		//7	MomentZ : IfcTorqueMeasure
 		//8	WarpingMoment : IfcWarpingMomentMeasure
+
 		public IfcWarpingMomentMeasure WarpingMoment { get; set; }
+
+		public IfcStructuralLoadSingleForceWarping() { }
+
+		public IfcStructuralLoadSingleForceWarping(IfcLabel Name, IfcForceMeasure ForceX, IfcForceMeasure ForceY, IfcForceMeasure ForceZ, IfcTorqueMeasure MomentX, IfcTorqueMeasure MomentY, IfcTorqueMeasure MomentZ, IfcWarpingMomentMeasure WarpingMoment)
+		{
+			this.Name = Name;
+			this.ForceX = ForceX;
+			this.ForceY = ForceY;
+			this.ForceZ = ForceZ;
+			this.MomentX = MomentX;
+			this.MomentY = MomentY;
+			this.MomentZ = MomentZ;
+			this.WarpingMoment = WarpingMoment;
+		}
 	}
 
 	public abstract class IfcStructuralLoadStatic : IfcStructuralLoadOrResult
 	{
 		//1	Name : IfcLabel
+
+		public IfcStructuralLoadStatic() { }
+
+		public IfcStructuralLoadStatic(IfcLabel Name)
+		{
+			this.Name = Name;
+		}
 	}
 
 	public class IfcStructuralLoadTemperature : IfcStructuralLoadStatic
@@ -11665,9 +20566,20 @@ namespace IFC4
 		//2	DeltaTConstant : IfcThermodynamicTemperatureMeasure
 		//3	DeltaTY : IfcThermodynamicTemperatureMeasure
 		//4	DeltaTZ : IfcThermodynamicTemperatureMeasure
+
 		public IfcThermodynamicTemperatureMeasure DeltaTConstant { get; set; }
 		public IfcThermodynamicTemperatureMeasure DeltaTY { get; set; }
 		public IfcThermodynamicTemperatureMeasure DeltaTZ { get; set; }
+
+		public IfcStructuralLoadTemperature() { }
+
+		public IfcStructuralLoadTemperature(IfcLabel Name, IfcThermodynamicTemperatureMeasure DeltaTConstant, IfcThermodynamicTemperatureMeasure DeltaTY, IfcThermodynamicTemperatureMeasure DeltaTZ)
+		{
+			this.Name = Name;
+			this.DeltaTConstant = DeltaTConstant;
+			this.DeltaTY = DeltaTY;
+			this.DeltaTZ = DeltaTZ;
+		}
 	}
 
 	public abstract class IfcStructuralMember : IfcStructuralItem
@@ -11679,7 +20591,21 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
+
 		public List<IfcRelConnectsStructuralMember> ConnectedBy { get; set; }
+
+		public IfcStructuralMember() { }
+
+		public IfcStructuralMember(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+		}
 	}
 
 	public class IfcStructuralPlanarAction : IfcStructuralSurfaceAction
@@ -11696,6 +20622,24 @@ namespace IFC4
 		//10	DestabilizingLoad : IfcBoolean
 		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
 		//12	PredefinedType : IfcStructuralSurfaceActivityTypeEnum
+
+		public IfcStructuralPlanarAction() { }
+
+		public IfcStructuralPlanarAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad, IfcProjectedOrTrueLengthEnum ProjectedOrTrue, IfcStructuralSurfaceActivityTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.DestabilizingLoad = DestabilizingLoad;
+			this.ProjectedOrTrue = ProjectedOrTrue;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStructuralPointAction : IfcStructuralAction
@@ -11710,6 +20654,22 @@ namespace IFC4
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
 		//10	DestabilizingLoad : IfcBoolean
+
+		public IfcStructuralPointAction() { }
+
+		public IfcStructuralPointAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.DestabilizingLoad = DestabilizingLoad;
+		}
 	}
 
 	public class IfcStructuralPointConnection : IfcStructuralConnection
@@ -11723,7 +20683,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedCondition : IfcBoundaryCondition
 		//9	ConditionCoordinateSystem : IfcAxis2Placement3D
+
 		public IfcAxis2Placement3D ConditionCoordinateSystem { get; set; }
+
+		public IfcStructuralPointConnection() { }
+
+		public IfcStructuralPointConnection(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcBoundaryCondition AppliedCondition, IfcAxis2Placement3D ConditionCoordinateSystem)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedCondition = AppliedCondition;
+			this.ConditionCoordinateSystem = ConditionCoordinateSystem;
+		}
 	}
 
 	public class IfcStructuralPointReaction : IfcStructuralReaction
@@ -11737,6 +20713,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
+
+		public IfcStructuralPointReaction() { }
+
+		public IfcStructuralPointReaction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+		}
 	}
 
 	public abstract class IfcStructuralReaction : IfcStructuralActivity
@@ -11750,6 +20741,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
+
+		public IfcStructuralReaction() { }
+
+		public IfcStructuralReaction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+		}
 	}
 
 	public class IfcStructuralResultGroup : IfcGroup
@@ -11762,10 +20768,25 @@ namespace IFC4
 		//6	TheoryType : IfcAnalysisTheoryTypeEnum
 		//7	ResultForLoadGroup : IfcStructuralLoadGroup
 		//8	IsLinear : IfcBoolean
+
 		public IfcAnalysisTheoryTypeEnum TheoryType { get; set; }
 		public IfcStructuralLoadGroup ResultForLoadGroup { get; set; }
 		public IfcBoolean IsLinear { get; set; }
 		public List<IfcStructuralAnalysisModel> ResultGroupFor { get; set; }
+
+		public IfcStructuralResultGroup() { }
+
+		public IfcStructuralResultGroup(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcAnalysisTheoryTypeEnum TheoryType, IfcStructuralLoadGroup ResultForLoadGroup, IfcBoolean IsLinear)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.TheoryType = TheoryType;
+			this.ResultForLoadGroup = ResultForLoadGroup;
+			this.IsLinear = IsLinear;
+		}
 	}
 
 	public class IfcStructuralSurfaceAction : IfcStructuralAction
@@ -11782,8 +20803,27 @@ namespace IFC4
 		//10	DestabilizingLoad : IfcBoolean
 		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
 		//12	PredefinedType : IfcStructuralSurfaceActivityTypeEnum
+
 		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue { get; set; }
 		public IfcStructuralSurfaceActivityTypeEnum PredefinedType { get; set; }
+
+		public IfcStructuralSurfaceAction() { }
+
+		public IfcStructuralSurfaceAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad, IfcProjectedOrTrueLengthEnum ProjectedOrTrue, IfcStructuralSurfaceActivityTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.DestabilizingLoad = DestabilizingLoad;
+			this.ProjectedOrTrue = ProjectedOrTrue;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcStructuralSurfaceConnection : IfcStructuralConnection
@@ -11796,6 +20836,20 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	AppliedCondition : IfcBoundaryCondition
+
+		public IfcStructuralSurfaceConnection() { }
+
+		public IfcStructuralSurfaceConnection(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcBoundaryCondition AppliedCondition)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedCondition = AppliedCondition;
+		}
 	}
 
 	public class IfcStructuralSurfaceMember : IfcStructuralMember
@@ -11809,8 +20863,24 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	PredefinedType : IfcStructuralSurfaceMemberTypeEnum
 		//9	Thickness : IfcPositiveLengthMeasure
+
 		public IfcStructuralSurfaceMemberTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure Thickness { get; set; }
+
+		public IfcStructuralSurfaceMember() { }
+
+		public IfcStructuralSurfaceMember(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralSurfaceMemberTypeEnum PredefinedType, IfcPositiveLengthMeasure Thickness)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.PredefinedType = PredefinedType;
+			this.Thickness = Thickness;
+		}
 	}
 
 	public class IfcStructuralSurfaceMemberVarying : IfcStructuralSurfaceMember
@@ -11824,6 +20894,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	PredefinedType : IfcStructuralSurfaceMemberTypeEnum
 		//9	Thickness : IfcPositiveLengthMeasure
+
+		public IfcStructuralSurfaceMemberVarying() { }
+
+		public IfcStructuralSurfaceMemberVarying(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralSurfaceMemberTypeEnum PredefinedType, IfcPositiveLengthMeasure Thickness)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.PredefinedType = PredefinedType;
+			this.Thickness = Thickness;
+		}
 	}
 
 	public class IfcStructuralSurfaceReaction : IfcStructuralReaction
@@ -11838,7 +20923,24 @@ namespace IFC4
 		//8	AppliedLoad : IfcStructuralLoad
 		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
 		//10	PredefinedType : IfcStructuralSurfaceActivityTypeEnum
+
 		public IfcStructuralSurfaceActivityTypeEnum PredefinedType { get; set; }
+
+		public IfcStructuralSurfaceReaction() { }
+
+		public IfcStructuralSurfaceReaction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcStructuralSurfaceActivityTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.AppliedLoad = AppliedLoad;
+			this.GlobalOrLocal = GlobalOrLocal;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcStyleModel : IfcRepresentation
@@ -11847,6 +20949,16 @@ namespace IFC4
 		//2	RepresentationIdentifier : IfcLabel
 		//3	RepresentationType : IfcLabel
 		//4	Items : List<IfcRepresentationItem>
+
+		public IfcStyleModel() { }
+
+		public IfcStyleModel(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
+		{
+			this.ContextOfItems = ContextOfItems;
+			this.RepresentationIdentifier = RepresentationIdentifier;
+			this.RepresentationType = RepresentationType;
+			this.Items = Items;
+		}
 	}
 
 	public class IfcStyledItem : IfcRepresentationItem
@@ -11854,9 +20966,19 @@ namespace IFC4
 		//1	Item : IfcRepresentationItem
 		//2	Styles : List<IfcStyleAssignmentSelect>
 		//3	Name : IfcLabel
+
 		public IfcRepresentationItem Item { get; set; }
 		public List<IfcStyleAssignmentSelect> Styles { get; set; }
 		public IfcLabel Name { get; set; }
+
+		public IfcStyledItem() { }
+
+		public IfcStyledItem(IfcRepresentationItem Item, List<IfcStyleAssignmentSelect> Styles, IfcLabel Name)
+		{
+			this.Item = Item;
+			this.Styles = Styles;
+			this.Name = Name;
+		}
 	}
 
 	public class IfcStyledRepresentation : IfcStyleModel
@@ -11865,6 +20987,16 @@ namespace IFC4
 		//2	RepresentationIdentifier : IfcLabel
 		//3	RepresentationType : IfcLabel
 		//4	Items : List<IfcRepresentationItem>
+
+		public IfcStyledRepresentation() { }
+
+		public IfcStyledRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
+		{
+			this.ContextOfItems = ContextOfItems;
+			this.RepresentationIdentifier = RepresentationIdentifier;
+			this.RepresentationType = RepresentationType;
+			this.Items = Items;
+		}
 	}
 
 	public class IfcSubContractResource : IfcConstructionResource
@@ -11880,7 +21012,25 @@ namespace IFC4
 		//9	BaseCosts : List<IfcAppliedValue>
 		//10	BaseQuantity : IfcPhysicalQuantity
 		//11	PredefinedType : IfcSubContractResourceTypeEnum
+
 		public IfcSubContractResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcSubContractResource() { }
+
+		public IfcSubContractResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcResourceTime Usage, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcSubContractResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Usage = Usage;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSubContractResourceType : IfcConstructionResourceType
@@ -11897,7 +21047,26 @@ namespace IFC4
 		//10	BaseCosts : List<IfcAppliedValue>
 		//11	BaseQuantity : IfcPhysicalQuantity
 		//12	PredefinedType : IfcSubContractResourceTypeEnum
+
 		public IfcSubContractResourceTypeEnum PredefinedType { get; set; }
+
+		public IfcSubContractResourceType() { }
+
+		public IfcSubContractResourceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType, List<IfcAppliedValue> BaseCosts, IfcPhysicalQuantity BaseQuantity, IfcSubContractResourceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+			this.BaseCosts = BaseCosts;
+			this.BaseQuantity = BaseQuantity;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSubedge : IfcEdge
@@ -11905,12 +21074,24 @@ namespace IFC4
 		//1	EdgeStart : IfcVertex
 		//2	EdgeEnd : IfcVertex
 		//3	ParentEdge : IfcEdge
+
 		public IfcEdge ParentEdge { get; set; }
+
+		public IfcSubedge() { }
+
+		public IfcSubedge(IfcVertex EdgeStart, IfcVertex EdgeEnd, IfcEdge ParentEdge)
+		{
+			this.EdgeStart = EdgeStart;
+			this.EdgeEnd = EdgeEnd;
+			this.ParentEdge = ParentEdge;
+		}
 	}
 
 	public abstract class IfcSurface : IfcGeometricRepresentationItem, IfcGeometricSetSelect, IfcSurfaceOrFaceSurface
 	{
 		public IfcDimensionCount Dim { get; set; }
+
+		public IfcSurface() { }
 	}
 
 	public class IfcSurfaceCurve : IfcCurve, IfcCurveOnSurface
@@ -11918,10 +21099,20 @@ namespace IFC4
 		//1	Curve3D : IfcCurve
 		//2	AssociatedGeometry : List<IfcPcurve>
 		//3	MasterRepresentation : IfcPreferredSurfaceCurveRepresentation
+
 		public IfcCurve Curve3D { get; set; }
 		public List<IfcPcurve> AssociatedGeometry { get; set; }
 		public IfcPreferredSurfaceCurveRepresentation MasterRepresentation { get; set; }
 		public List<IfcSurface> BasisSurface { get; set; }
+
+		public IfcSurfaceCurve() { }
+
+		public IfcSurfaceCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
+		{
+			this.Curve3D = Curve3D;
+			this.AssociatedGeometry = AssociatedGeometry;
+			this.MasterRepresentation = MasterRepresentation;
+		}
 	}
 
 	public class IfcSurfaceCurveSweptAreaSolid : IfcSweptAreaSolid
@@ -11932,10 +21123,23 @@ namespace IFC4
 		//4	StartParam : IfcParameterValue
 		//5	EndParam : IfcParameterValue
 		//6	ReferenceSurface : IfcSurface
+
 		public IfcCurve Directrix { get; set; }
 		public IfcParameterValue StartParam { get; set; }
 		public IfcParameterValue EndParam { get; set; }
 		public IfcSurface ReferenceSurface { get; set; }
+
+		public IfcSurfaceCurveSweptAreaSolid() { }
+
+		public IfcSurfaceCurveSweptAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcCurve Directrix, IfcParameterValue StartParam, IfcParameterValue EndParam, IfcSurface ReferenceSurface)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+			this.Directrix = Directrix;
+			this.StartParam = StartParam;
+			this.EndParam = EndParam;
+			this.ReferenceSurface = ReferenceSurface;
+		}
 	}
 
 	public class IfcSurfaceFeature : IfcFeatureElement
@@ -11949,7 +21153,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSurfaceFeatureTypeEnum
+
 		public IfcSurfaceFeatureTypeEnum PredefinedType { get; set; }
+
+		public IfcSurfaceFeature() { }
+
+		public IfcSurfaceFeature(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSurfaceFeatureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSurfaceOfLinearExtrusion : IfcSweptSurface
@@ -11958,9 +21178,20 @@ namespace IFC4
 		//2	Position : IfcAxis2Placement3D
 		//3	ExtrudedDirection : IfcDirection
 		//4	Depth : IfcLengthMeasure
+
 		public IfcDirection ExtrudedDirection { get; set; }
 		public IfcLengthMeasure Depth { get; set; }
 		public IfcVector ExtrusionAxis { get; set; }
+
+		public IfcSurfaceOfLinearExtrusion() { }
+
+		public IfcSurfaceOfLinearExtrusion(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position, IfcDirection ExtrudedDirection, IfcLengthMeasure Depth)
+		{
+			this.SweptCurve = SweptCurve;
+			this.Position = Position;
+			this.ExtrudedDirection = ExtrudedDirection;
+			this.Depth = Depth;
+		}
 	}
 
 	public class IfcSurfaceOfRevolution : IfcSweptSurface
@@ -11968,8 +21199,18 @@ namespace IFC4
 		//1	SweptCurve : IfcProfileDef
 		//2	Position : IfcAxis2Placement3D
 		//3	AxisPosition : IfcAxis1Placement
+
 		public IfcAxis1Placement AxisPosition { get; set; }
 		public IfcLine AxisLine { get; set; }
+
+		public IfcSurfaceOfRevolution() { }
+
+		public IfcSurfaceOfRevolution(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position, IfcAxis1Placement AxisPosition)
+		{
+			this.SweptCurve = SweptCurve;
+			this.Position = Position;
+			this.AxisPosition = AxisPosition;
+		}
 	}
 
 	public class IfcSurfaceReinforcementArea : IfcStructuralLoadOrResult
@@ -11978,9 +21219,20 @@ namespace IFC4
 		//2	SurfaceReinforcement1 : List<IfcLengthMeasure>
 		//3	SurfaceReinforcement2 : List<IfcLengthMeasure>
 		//4	ShearReinforcement : IfcRatioMeasure
+
 		public List<IfcLengthMeasure> SurfaceReinforcement1 { get; set; }
 		public List<IfcLengthMeasure> SurfaceReinforcement2 { get; set; }
 		public IfcRatioMeasure ShearReinforcement { get; set; }
+
+		public IfcSurfaceReinforcementArea() { }
+
+		public IfcSurfaceReinforcementArea(IfcLabel Name, List<IfcLengthMeasure> SurfaceReinforcement1, List<IfcLengthMeasure> SurfaceReinforcement2, IfcRatioMeasure ShearReinforcement)
+		{
+			this.Name = Name;
+			this.SurfaceReinforcement1 = SurfaceReinforcement1;
+			this.SurfaceReinforcement2 = SurfaceReinforcement2;
+			this.ShearReinforcement = ShearReinforcement;
+		}
 	}
 
 	public class IfcSurfaceStyle : IfcPresentationStyle, IfcPresentationStyleSelect
@@ -11988,8 +21240,18 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Side : IfcSurfaceSide
 		//3	Styles : List<IfcSurfaceStyleElementSelect>
+
 		public IfcSurfaceSide Side { get; set; }
 		public List<IfcSurfaceStyleElementSelect> Styles { get; set; }
+
+		public IfcSurfaceStyle() { }
+
+		public IfcSurfaceStyle(IfcLabel Name, IfcSurfaceSide Side, List<IfcSurfaceStyleElementSelect> Styles)
+		{
+			this.Name = Name;
+			this.Side = Side;
+			this.Styles = Styles;
+		}
 	}
 
 	public class IfcSurfaceStyleLighting : IfcPresentationItem, IfcSurfaceStyleElementSelect
@@ -11998,18 +21260,38 @@ namespace IFC4
 		//2	DiffuseReflectionColour : IfcColourRgb
 		//3	TransmissionColour : IfcColourRgb
 		//4	ReflectanceColour : IfcColourRgb
+
 		public IfcColourRgb DiffuseTransmissionColour { get; set; }
 		public IfcColourRgb DiffuseReflectionColour { get; set; }
 		public IfcColourRgb TransmissionColour { get; set; }
 		public IfcColourRgb ReflectanceColour { get; set; }
+
+		public IfcSurfaceStyleLighting() { }
+
+		public IfcSurfaceStyleLighting(IfcColourRgb DiffuseTransmissionColour, IfcColourRgb DiffuseReflectionColour, IfcColourRgb TransmissionColour, IfcColourRgb ReflectanceColour)
+		{
+			this.DiffuseTransmissionColour = DiffuseTransmissionColour;
+			this.DiffuseReflectionColour = DiffuseReflectionColour;
+			this.TransmissionColour = TransmissionColour;
+			this.ReflectanceColour = ReflectanceColour;
+		}
 	}
 
 	public class IfcSurfaceStyleRefraction : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
 		//1	RefractionIndex : IfcReal
 		//2	DispersionFactor : IfcReal
+
 		public IfcReal RefractionIndex { get; set; }
 		public IfcReal DispersionFactor { get; set; }
+
+		public IfcSurfaceStyleRefraction() { }
+
+		public IfcSurfaceStyleRefraction(IfcReal RefractionIndex, IfcReal DispersionFactor)
+		{
+			this.RefractionIndex = RefractionIndex;
+			this.DispersionFactor = DispersionFactor;
+		}
 	}
 
 	public class IfcSurfaceStyleRendering : IfcSurfaceStyleShading
@@ -12023,6 +21305,7 @@ namespace IFC4
 		//7	SpecularColour : IfcColourOrFactor
 		//8	SpecularHighlight : IfcSpecularHighlightSelect
 		//9	ReflectanceMethod : IfcReflectanceMethodEnum
+
 		public IfcColourOrFactor DiffuseColour { get; set; }
 		public IfcColourOrFactor TransmissionColour { get; set; }
 		public IfcColourOrFactor DiffuseTransmissionColour { get; set; }
@@ -12030,20 +21313,52 @@ namespace IFC4
 		public IfcColourOrFactor SpecularColour { get; set; }
 		public IfcSpecularHighlightSelect SpecularHighlight { get; set; }
 		public IfcReflectanceMethodEnum ReflectanceMethod { get; set; }
+
+		public IfcSurfaceStyleRendering() { }
+
+		public IfcSurfaceStyleRendering(IfcColourRgb SurfaceColour, IfcNormalisedRatioMeasure Transparency, IfcColourOrFactor DiffuseColour, IfcColourOrFactor TransmissionColour, IfcColourOrFactor DiffuseTransmissionColour, IfcColourOrFactor ReflectionColour, IfcColourOrFactor SpecularColour, IfcSpecularHighlightSelect SpecularHighlight, IfcReflectanceMethodEnum ReflectanceMethod)
+		{
+			this.SurfaceColour = SurfaceColour;
+			this.Transparency = Transparency;
+			this.DiffuseColour = DiffuseColour;
+			this.TransmissionColour = TransmissionColour;
+			this.DiffuseTransmissionColour = DiffuseTransmissionColour;
+			this.ReflectionColour = ReflectionColour;
+			this.SpecularColour = SpecularColour;
+			this.SpecularHighlight = SpecularHighlight;
+			this.ReflectanceMethod = ReflectanceMethod;
+		}
 	}
 
 	public class IfcSurfaceStyleShading : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
 		//1	SurfaceColour : IfcColourRgb
 		//2	Transparency : IfcNormalisedRatioMeasure
+
 		public IfcColourRgb SurfaceColour { get; set; }
 		public IfcNormalisedRatioMeasure Transparency { get; set; }
+
+		public IfcSurfaceStyleShading() { }
+
+		public IfcSurfaceStyleShading(IfcColourRgb SurfaceColour, IfcNormalisedRatioMeasure Transparency)
+		{
+			this.SurfaceColour = SurfaceColour;
+			this.Transparency = Transparency;
+		}
 	}
 
 	public class IfcSurfaceStyleWithTextures : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
 		//1	Textures : List<IfcSurfaceTexture>
+
 		public List<IfcSurfaceTexture> Textures { get; set; }
+
+		public IfcSurfaceStyleWithTextures() { }
+
+		public IfcSurfaceStyleWithTextures(List<IfcSurfaceTexture> Textures)
+		{
+			this.Textures = Textures;
+		}
 	}
 
 	public abstract class IfcSurfaceTexture : IfcPresentationItem
@@ -12053,6 +21368,7 @@ namespace IFC4
 		//3	Mode : IfcIdentifier
 		//4	TextureTransform : IfcCartesianTransformationOperator2D
 		//5	Parameter : List<IfcIdentifier>
+
 		public IfcBoolean RepeatS { get; set; }
 		public IfcBoolean RepeatT { get; set; }
 		public IfcIdentifier Mode { get; set; }
@@ -12060,14 +21376,34 @@ namespace IFC4
 		public List<IfcIdentifier> Parameter { get; set; }
 		public List<IfcTextureCoordinate> IsMappedBy { get; set; }
 		public List<IfcSurfaceStyleWithTextures> UsedInStyles { get; set; }
+
+		public IfcSurfaceTexture() { }
+
+		public IfcSurfaceTexture(IfcBoolean RepeatS, IfcBoolean RepeatT, IfcIdentifier Mode, IfcCartesianTransformationOperator2D TextureTransform, List<IfcIdentifier> Parameter)
+		{
+			this.RepeatS = RepeatS;
+			this.RepeatT = RepeatT;
+			this.Mode = Mode;
+			this.TextureTransform = TextureTransform;
+			this.Parameter = Parameter;
+		}
 	}
 
 	public abstract class IfcSweptAreaSolid : IfcSolidModel
 	{
 		//1	SweptArea : IfcProfileDef
 		//2	Position : IfcAxis2Placement3D
+
 		public IfcProfileDef SweptArea { get; set; }
 		public IfcAxis2Placement3D Position { get; set; }
+
+		public IfcSweptAreaSolid() { }
+
+		public IfcSweptAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position)
+		{
+			this.SweptArea = SweptArea;
+			this.Position = Position;
+		}
 	}
 
 	public class IfcSweptDiskSolid : IfcSolidModel
@@ -12077,11 +21413,23 @@ namespace IFC4
 		//3	InnerRadius : IfcPositiveLengthMeasure
 		//4	StartParam : IfcParameterValue
 		//5	EndParam : IfcParameterValue
+
 		public IfcCurve Directrix { get; set; }
 		public IfcPositiveLengthMeasure Radius { get; set; }
 		public IfcPositiveLengthMeasure InnerRadius { get; set; }
 		public IfcParameterValue StartParam { get; set; }
 		public IfcParameterValue EndParam { get; set; }
+
+		public IfcSweptDiskSolid() { }
+
+		public IfcSweptDiskSolid(IfcCurve Directrix, IfcPositiveLengthMeasure Radius, IfcPositiveLengthMeasure InnerRadius, IfcParameterValue StartParam, IfcParameterValue EndParam)
+		{
+			this.Directrix = Directrix;
+			this.Radius = Radius;
+			this.InnerRadius = InnerRadius;
+			this.StartParam = StartParam;
+			this.EndParam = EndParam;
+		}
 	}
 
 	public class IfcSweptDiskSolidPolygonal : IfcSweptDiskSolid
@@ -12092,15 +21440,37 @@ namespace IFC4
 		//4	StartParam : IfcParameterValue
 		//5	EndParam : IfcParameterValue
 		//6	FilletRadius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure FilletRadius { get; set; }
+
+		public IfcSweptDiskSolidPolygonal() { }
+
+		public IfcSweptDiskSolidPolygonal(IfcCurve Directrix, IfcPositiveLengthMeasure Radius, IfcPositiveLengthMeasure InnerRadius, IfcParameterValue StartParam, IfcParameterValue EndParam, IfcPositiveLengthMeasure FilletRadius)
+		{
+			this.Directrix = Directrix;
+			this.Radius = Radius;
+			this.InnerRadius = InnerRadius;
+			this.StartParam = StartParam;
+			this.EndParam = EndParam;
+			this.FilletRadius = FilletRadius;
+		}
 	}
 
 	public abstract class IfcSweptSurface : IfcSurface
 	{
 		//1	SweptCurve : IfcProfileDef
 		//2	Position : IfcAxis2Placement3D
+
 		public IfcProfileDef SweptCurve { get; set; }
 		public IfcAxis2Placement3D Position { get; set; }
+
+		public IfcSweptSurface() { }
+
+		public IfcSweptSurface(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position)
+		{
+			this.SweptCurve = SweptCurve;
+			this.Position = Position;
+		}
 	}
 
 	public class IfcSwitchingDevice : IfcFlowController
@@ -12114,7 +21484,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSwitchingDeviceTypeEnum
+
 		public IfcSwitchingDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcSwitchingDevice() { }
+
+		public IfcSwitchingDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSwitchingDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSwitchingDeviceType : IfcFlowControllerType
@@ -12129,7 +21515,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSwitchingDeviceTypeEnum
+
 		public IfcSwitchingDeviceTypeEnum PredefinedType { get; set; }
+
+		public IfcSwitchingDeviceType() { }
+
+		public IfcSwitchingDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSwitchingDeviceTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSystem : IfcGroup
@@ -12139,7 +21542,19 @@ namespace IFC4
 		//3	Name : IfcLabel
 		//4	Description : IfcText
 		//5	ObjectType : IfcLabel
+
 		public List<IfcRelServicesBuildings> ServicesBuildings { get; set; }
+
+		public IfcSystem() { }
+
+		public IfcSystem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+		}
 	}
 
 	public class IfcSystemFurnitureElement : IfcFurnishingElement
@@ -12153,7 +21568,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcSystemFurnitureElementTypeEnum
+
 		public IfcSystemFurnitureElementTypeEnum PredefinedType { get; set; }
+
+		public IfcSystemFurnitureElement() { }
+
+		public IfcSystemFurnitureElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSystemFurnitureElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcSystemFurnitureElementType : IfcFurnishingElementType
@@ -12168,7 +21599,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcSystemFurnitureElementTypeEnum
+
 		public IfcSystemFurnitureElementTypeEnum PredefinedType { get; set; }
+
+		public IfcSystemFurnitureElementType() { }
+
+		public IfcSystemFurnitureElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcSystemFurnitureElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTShapeProfileDef : IfcParameterizedProfileDef
@@ -12185,6 +21633,7 @@ namespace IFC4
 		//10	WebEdgeRadius : IfcNonNegativeLengthMeasure
 		//11	WebSlope : IfcPlaneAngleMeasure
 		//12	FlangeSlope : IfcPlaneAngleMeasure
+
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure FlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -12194,6 +21643,24 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure WebEdgeRadius { get; set; }
 		public IfcPlaneAngleMeasure WebSlope { get; set; }
 		public IfcPlaneAngleMeasure FlangeSlope { get; set; }
+
+		public IfcTShapeProfileDef() { }
+
+		public IfcTShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Depth, IfcPositiveLengthMeasure FlangeWidth, IfcPositiveLengthMeasure WebThickness, IfcPositiveLengthMeasure FlangeThickness, IfcNonNegativeLengthMeasure FilletRadius, IfcNonNegativeLengthMeasure FlangeEdgeRadius, IfcNonNegativeLengthMeasure WebEdgeRadius, IfcPlaneAngleMeasure WebSlope, IfcPlaneAngleMeasure FlangeSlope)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Depth = Depth;
+			this.FlangeWidth = FlangeWidth;
+			this.WebThickness = WebThickness;
+			this.FlangeThickness = FlangeThickness;
+			this.FilletRadius = FilletRadius;
+			this.FlangeEdgeRadius = FlangeEdgeRadius;
+			this.WebEdgeRadius = WebEdgeRadius;
+			this.WebSlope = WebSlope;
+			this.FlangeSlope = FlangeSlope;
+		}
 	}
 
 	public class IfcTable : IfcBase
@@ -12201,12 +21668,22 @@ namespace IFC4
 		//1	Name : IfcLabel
 		//2	Rows : List<IfcTableRow>
 		//3	Columns : List<IfcTableColumn>
+
 		public IfcLabel Name { get; set; }
 		public List<IfcTableRow> Rows { get; set; }
 		public List<IfcTableColumn> Columns { get; set; }
 		public IfcInteger NumberOfCellsInRow { get; set; }
 		public IfcInteger NumberOfHeadings { get; set; }
 		public IfcInteger NumberOfDataRows { get; set; }
+
+		public IfcTable() { }
+
+		public IfcTable(IfcLabel Name, List<IfcTableRow> Rows, List<IfcTableColumn> Columns)
+		{
+			this.Name = Name;
+			this.Rows = Rows;
+			this.Columns = Columns;
+		}
 	}
 
 	public class IfcTableColumn : IfcBase
@@ -12216,19 +21693,40 @@ namespace IFC4
 		//3	Description : IfcText
 		//4	Unit : IfcUnit
 		//5	ReferencePath : IfcReference
+
 		public IfcIdentifier Identifier { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcUnit Unit { get; set; }
 		public IfcReference ReferencePath { get; set; }
+
+		public IfcTableColumn() { }
+
+		public IfcTableColumn(IfcIdentifier Identifier, IfcLabel Name, IfcText Description, IfcUnit Unit, IfcReference ReferencePath)
+		{
+			this.Identifier = Identifier;
+			this.Name = Name;
+			this.Description = Description;
+			this.Unit = Unit;
+			this.ReferencePath = ReferencePath;
+		}
 	}
 
 	public class IfcTableRow : IfcBase
 	{
 		//1	RowCells : List<IfcValue>
 		//2	IsHeading : IfcBoolean
+
 		public List<IfcValue> RowCells { get; set; }
 		public IfcBoolean IsHeading { get; set; }
+
+		public IfcTableRow() { }
+
+		public IfcTableRow(List<IfcValue> RowCells, IfcBoolean IsHeading)
+		{
+			this.RowCells = RowCells;
+			this.IsHeading = IsHeading;
+		}
 	}
 
 	public class IfcTank : IfcFlowStorageDevice
@@ -12242,7 +21740,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcTankTypeEnum
+
 		public IfcTankTypeEnum PredefinedType { get; set; }
+
+		public IfcTank() { }
+
+		public IfcTank(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcTankTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTankType : IfcFlowStorageDeviceType
@@ -12257,7 +21771,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcTankTypeEnum
+
 		public IfcTankTypeEnum PredefinedType { get; set; }
+
+		public IfcTankType() { }
+
+		public IfcTankType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcTankTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTask : IfcProcess
@@ -12275,12 +21806,32 @@ namespace IFC4
 		//11	Priority : IfcInteger
 		//12	TaskTime : IfcTaskTime
 		//13	PredefinedType : IfcTaskTypeEnum
+
 		public IfcLabel Status { get; set; }
 		public IfcLabel WorkMethod { get; set; }
 		public IfcBoolean IsMilestone { get; set; }
 		public IfcInteger Priority { get; set; }
 		public IfcTaskTime TaskTime { get; set; }
 		public IfcTaskTypeEnum PredefinedType { get; set; }
+
+		public IfcTask() { }
+
+		public IfcTask(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcText LongDescription, IfcLabel Status, IfcLabel WorkMethod, IfcBoolean IsMilestone, IfcInteger Priority, IfcTaskTime TaskTime, IfcTaskTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.Status = Status;
+			this.WorkMethod = WorkMethod;
+			this.IsMilestone = IsMilestone;
+			this.Priority = Priority;
+			this.TaskTime = TaskTime;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTaskTime : IfcSchedulingTime
@@ -12305,6 +21856,7 @@ namespace IFC4
 		//18	ActualFinish : IfcDateTime
 		//19	RemainingTime : IfcDuration
 		//20	Completion : IfcPositiveRatioMeasure
+
 		public IfcTaskDurationEnum DurationType { get; set; }
 		public IfcDuration ScheduleDuration { get; set; }
 		public IfcDateTime ScheduleStart { get; set; }
@@ -12322,6 +21874,32 @@ namespace IFC4
 		public IfcDateTime ActualFinish { get; set; }
 		public IfcDuration RemainingTime { get; set; }
 		public IfcPositiveRatioMeasure Completion { get; set; }
+
+		public IfcTaskTime() { }
+
+		public IfcTaskTime(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcTaskDurationEnum DurationType, IfcDuration ScheduleDuration, IfcDateTime ScheduleStart, IfcDateTime ScheduleFinish, IfcDateTime EarlyStart, IfcDateTime EarlyFinish, IfcDateTime LateStart, IfcDateTime LateFinish, IfcDuration FreeFloat, IfcDuration TotalFloat, IfcBoolean IsCritical, IfcDateTime StatusTime, IfcDuration ActualDuration, IfcDateTime ActualStart, IfcDateTime ActualFinish, IfcDuration RemainingTime, IfcPositiveRatioMeasure Completion)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.DurationType = DurationType;
+			this.ScheduleDuration = ScheduleDuration;
+			this.ScheduleStart = ScheduleStart;
+			this.ScheduleFinish = ScheduleFinish;
+			this.EarlyStart = EarlyStart;
+			this.EarlyFinish = EarlyFinish;
+			this.LateStart = LateStart;
+			this.LateFinish = LateFinish;
+			this.FreeFloat = FreeFloat;
+			this.TotalFloat = TotalFloat;
+			this.IsCritical = IsCritical;
+			this.StatusTime = StatusTime;
+			this.ActualDuration = ActualDuration;
+			this.ActualStart = ActualStart;
+			this.ActualFinish = ActualFinish;
+			this.RemainingTime = RemainingTime;
+			this.Completion = Completion;
+		}
 	}
 
 	public class IfcTaskTimeRecurring : IfcTaskTime
@@ -12347,7 +21925,35 @@ namespace IFC4
 		//19	RemainingTime : IfcDuration
 		//20	Completion : IfcPositiveRatioMeasure
 		//21	Recurrence : IfcRecurrencePattern
+
 		public IfcRecurrencePattern Recurrence { get; set; }
+
+		public IfcTaskTimeRecurring() { }
+
+		public IfcTaskTimeRecurring(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcTaskDurationEnum DurationType, IfcDuration ScheduleDuration, IfcDateTime ScheduleStart, IfcDateTime ScheduleFinish, IfcDateTime EarlyStart, IfcDateTime EarlyFinish, IfcDateTime LateStart, IfcDateTime LateFinish, IfcDuration FreeFloat, IfcDuration TotalFloat, IfcBoolean IsCritical, IfcDateTime StatusTime, IfcDuration ActualDuration, IfcDateTime ActualStart, IfcDateTime ActualFinish, IfcDuration RemainingTime, IfcPositiveRatioMeasure Completion, IfcRecurrencePattern Recurrence)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.DurationType = DurationType;
+			this.ScheduleDuration = ScheduleDuration;
+			this.ScheduleStart = ScheduleStart;
+			this.ScheduleFinish = ScheduleFinish;
+			this.EarlyStart = EarlyStart;
+			this.EarlyFinish = EarlyFinish;
+			this.LateStart = LateStart;
+			this.LateFinish = LateFinish;
+			this.FreeFloat = FreeFloat;
+			this.TotalFloat = TotalFloat;
+			this.IsCritical = IsCritical;
+			this.StatusTime = StatusTime;
+			this.ActualDuration = ActualDuration;
+			this.ActualStart = ActualStart;
+			this.ActualFinish = ActualFinish;
+			this.RemainingTime = RemainingTime;
+			this.Completion = Completion;
+			this.Recurrence = Recurrence;
+		}
 	}
 
 	public class IfcTaskType : IfcTypeProcess
@@ -12363,8 +21969,26 @@ namespace IFC4
 		//9	ProcessType : IfcLabel
 		//10	PredefinedType : IfcTaskTypeEnum
 		//11	WorkMethod : IfcLabel
+
 		public IfcTaskTypeEnum PredefinedType { get; set; }
 		public IfcLabel WorkMethod { get; set; }
+
+		public IfcTaskType() { }
+
+		public IfcTaskType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ProcessType, IfcTaskTypeEnum PredefinedType, IfcLabel WorkMethod)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ProcessType = ProcessType;
+			this.PredefinedType = PredefinedType;
+			this.WorkMethod = WorkMethod;
+		}
 	}
 
 	public class IfcTelecomAddress : IfcAddress
@@ -12378,12 +22002,28 @@ namespace IFC4
 		//7	ElectronicMailAddresses : List<IfcLabel>
 		//8	WWWHomePageURL : IfcURIReference
 		//9	MessagingIDs : List<IfcURIReference>
+
 		public List<IfcLabel> TelephoneNumbers { get; set; }
 		public List<IfcLabel> FacsimileNumbers { get; set; }
 		public IfcLabel PagerNumber { get; set; }
 		public List<IfcLabel> ElectronicMailAddresses { get; set; }
 		public IfcURIReference WWWHomePageURL { get; set; }
 		public List<IfcURIReference> MessagingIDs { get; set; }
+
+		public IfcTelecomAddress() { }
+
+		public IfcTelecomAddress(IfcAddressTypeEnum Purpose, IfcText Description, IfcLabel UserDefinedPurpose, List<IfcLabel> TelephoneNumbers, List<IfcLabel> FacsimileNumbers, IfcLabel PagerNumber, List<IfcLabel> ElectronicMailAddresses, IfcURIReference WWWHomePageURL, List<IfcURIReference> MessagingIDs)
+		{
+			this.Purpose = Purpose;
+			this.Description = Description;
+			this.UserDefinedPurpose = UserDefinedPurpose;
+			this.TelephoneNumbers = TelephoneNumbers;
+			this.FacsimileNumbers = FacsimileNumbers;
+			this.PagerNumber = PagerNumber;
+			this.ElectronicMailAddresses = ElectronicMailAddresses;
+			this.WWWHomePageURL = WWWHomePageURL;
+			this.MessagingIDs = MessagingIDs;
+		}
 	}
 
 	public class IfcTendon : IfcReinforcingElement
@@ -12405,6 +22045,7 @@ namespace IFC4
 		//15	FrictionCoefficient : IfcNormalisedRatioMeasure
 		//16	AnchorageSlip : IfcPositiveLengthMeasure
 		//17	MinCurvatureRadius : IfcPositiveLengthMeasure
+
 		public IfcTendonTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
@@ -12413,6 +22054,29 @@ namespace IFC4
 		public IfcNormalisedRatioMeasure FrictionCoefficient { get; set; }
 		public IfcPositiveLengthMeasure AnchorageSlip { get; set; }
 		public IfcPositiveLengthMeasure MinCurvatureRadius { get; set; }
+
+		public IfcTendon() { }
+
+		public IfcTendon(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLabel SteelGrade, IfcTendonTypeEnum PredefinedType, IfcPositiveLengthMeasure NominalDiameter, IfcAreaMeasure CrossSectionArea, IfcForceMeasure TensionForce, IfcPressureMeasure PreStress, IfcNormalisedRatioMeasure FrictionCoefficient, IfcPositiveLengthMeasure AnchorageSlip, IfcPositiveLengthMeasure MinCurvatureRadius)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.SteelGrade = SteelGrade;
+			this.PredefinedType = PredefinedType;
+			this.NominalDiameter = NominalDiameter;
+			this.CrossSectionArea = CrossSectionArea;
+			this.TensionForce = TensionForce;
+			this.PreStress = PreStress;
+			this.FrictionCoefficient = FrictionCoefficient;
+			this.AnchorageSlip = AnchorageSlip;
+			this.MinCurvatureRadius = MinCurvatureRadius;
+		}
 	}
 
 	public class IfcTendonAnchor : IfcReinforcingElement
@@ -12427,7 +22091,24 @@ namespace IFC4
 		//8	Tag : IfcIdentifier
 		//9	SteelGrade : IfcLabel
 		//10	PredefinedType : IfcTendonAnchorTypeEnum
+
 		public IfcTendonAnchorTypeEnum PredefinedType { get; set; }
+
+		public IfcTendonAnchor() { }
+
+		public IfcTendonAnchor(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcLabel SteelGrade, IfcTendonAnchorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.SteelGrade = SteelGrade;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTendonAnchorType : IfcReinforcingElementType
@@ -12442,7 +22123,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcTendonAnchorTypeEnum
+
 		public IfcTendonAnchorTypeEnum PredefinedType { get; set; }
+
+		public IfcTendonAnchorType() { }
+
+		public IfcTendonAnchorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcTendonAnchorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTendonType : IfcReinforcingElementType
@@ -12460,24 +22158,53 @@ namespace IFC4
 		//11	NominalDiameter : IfcPositiveLengthMeasure
 		//12	CrossSectionArea : IfcAreaMeasure
 		//13	SheathDiameter : IfcPositiveLengthMeasure
+
 		public IfcTendonTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
 		public IfcPositiveLengthMeasure SheathDiameter { get; set; }
+
+		public IfcTendonType() { }
+
+		public IfcTendonType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcTendonTypeEnum PredefinedType, IfcPositiveLengthMeasure NominalDiameter, IfcAreaMeasure CrossSectionArea, IfcPositiveLengthMeasure SheathDiameter)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.NominalDiameter = NominalDiameter;
+			this.CrossSectionArea = CrossSectionArea;
+			this.SheathDiameter = SheathDiameter;
+		}
 	}
 
 	public abstract class IfcTessellatedFaceSet : IfcTessellatedItem, IfcBooleanOperand
 	{
 		//1	Coordinates : IfcCartesianPointList3D
+
 		public IfcCartesianPointList3D Coordinates { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public List<IfcIndexedColourMap> HasColours { get; set; }
 		public List<IfcIndexedTextureMap> HasTextures { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcTessellatedFaceSet() { }
+
+		public IfcTessellatedFaceSet(IfcCartesianPointList3D Coordinates)
+		{
+			this.Coordinates = Coordinates;
+		}
 	}
 
 	public abstract class IfcTessellatedItem : IfcGeometricRepresentationItem
 	{
+		public IfcTessellatedItem() { }
 	}
 
 	public class IfcTextLiteral : IfcGeometricRepresentationItem
@@ -12485,9 +22212,19 @@ namespace IFC4
 		//1	Literal : IfcPresentableText
 		//2	Placement : IfcAxis2Placement
 		//3	Path : IfcTextPath
+
 		public IfcPresentableText Literal { get; set; }
 		public IfcAxis2Placement Placement { get; set; }
 		public IfcTextPath Path { get; set; }
+
+		public IfcTextLiteral() { }
+
+		public IfcTextLiteral(IfcPresentableText Literal, IfcAxis2Placement Placement, IfcTextPath Path)
+		{
+			this.Literal = Literal;
+			this.Placement = Placement;
+			this.Path = Path;
+		}
 	}
 
 	public class IfcTextLiteralWithExtent : IfcTextLiteral
@@ -12497,8 +22234,20 @@ namespace IFC4
 		//3	Path : IfcTextPath
 		//4	Extent : IfcPlanarExtent
 		//5	BoxAlignment : IfcBoxAlignment
+
 		public IfcPlanarExtent Extent { get; set; }
 		public IfcBoxAlignment BoxAlignment { get; set; }
+
+		public IfcTextLiteralWithExtent() { }
+
+		public IfcTextLiteralWithExtent(IfcPresentableText Literal, IfcAxis2Placement Placement, IfcTextPath Path, IfcPlanarExtent Extent, IfcBoxAlignment BoxAlignment)
+		{
+			this.Literal = Literal;
+			this.Placement = Placement;
+			this.Path = Path;
+			this.Extent = Extent;
+			this.BoxAlignment = BoxAlignment;
+		}
 	}
 
 	public class IfcTextStyle : IfcPresentationStyle, IfcPresentationStyleSelect
@@ -12508,10 +22257,22 @@ namespace IFC4
 		//3	TextStyle : IfcTextStyleTextModel
 		//4	TextFontStyle : IfcTextFontSelect
 		//5	ModelOrDraughting : IfcBoolean
+
 		public IfcTextStyleForDefinedFont TextCharacterAppearance { get; set; }
 		public IfcTextStyleTextModel TextStyle { get; set; }
 		public IfcTextFontSelect TextFontStyle { get; set; }
 		public IfcBoolean ModelOrDraughting { get; set; }
+
+		public IfcTextStyle() { }
+
+		public IfcTextStyle(IfcLabel Name, IfcTextStyleForDefinedFont TextCharacterAppearance, IfcTextStyleTextModel TextStyle, IfcTextFontSelect TextFontStyle, IfcBoolean ModelOrDraughting)
+		{
+			this.Name = Name;
+			this.TextCharacterAppearance = TextCharacterAppearance;
+			this.TextStyle = TextStyle;
+			this.TextFontStyle = TextFontStyle;
+			this.ModelOrDraughting = ModelOrDraughting;
+		}
 	}
 
 	public class IfcTextStyleFontModel : IfcPreDefinedTextFont
@@ -12522,19 +22283,41 @@ namespace IFC4
 		//4	FontVariant : IfcFontVariant
 		//5	FontWeight : IfcFontWeight
 		//6	FontSize : IfcSizeSelect
+
 		public List<IfcTextFontName> FontFamily { get; set; }
 		public IfcFontStyle FontStyle { get; set; }
 		public IfcFontVariant FontVariant { get; set; }
 		public IfcFontWeight FontWeight { get; set; }
 		public IfcSizeSelect FontSize { get; set; }
+
+		public IfcTextStyleFontModel() { }
+
+		public IfcTextStyleFontModel(IfcLabel Name, List<IfcTextFontName> FontFamily, IfcFontStyle FontStyle, IfcFontVariant FontVariant, IfcFontWeight FontWeight, IfcSizeSelect FontSize)
+		{
+			this.Name = Name;
+			this.FontFamily = FontFamily;
+			this.FontStyle = FontStyle;
+			this.FontVariant = FontVariant;
+			this.FontWeight = FontWeight;
+			this.FontSize = FontSize;
+		}
 	}
 
 	public class IfcTextStyleForDefinedFont : IfcPresentationItem
 	{
 		//1	Colour : IfcColour
 		//2	BackgroundColour : IfcColour
+
 		public IfcColour Colour { get; set; }
 		public IfcColour BackgroundColour { get; set; }
+
+		public IfcTextStyleForDefinedFont() { }
+
+		public IfcTextStyleForDefinedFont(IfcColour Colour, IfcColour BackgroundColour)
+		{
+			this.Colour = Colour;
+			this.BackgroundColour = BackgroundColour;
+		}
 	}
 
 	public class IfcTextStyleTextModel : IfcPresentationItem
@@ -12546,6 +22329,7 @@ namespace IFC4
 		//5	WordSpacing : IfcSizeSelect
 		//6	TextTransform : IfcTextTransformation
 		//7	LineHeight : IfcSizeSelect
+
 		public IfcSizeSelect TextIndent { get; set; }
 		public IfcTextAlignment TextAlign { get; set; }
 		public IfcTextDecoration TextDecoration { get; set; }
@@ -12553,12 +22337,33 @@ namespace IFC4
 		public IfcSizeSelect WordSpacing { get; set; }
 		public IfcTextTransformation TextTransform { get; set; }
 		public IfcSizeSelect LineHeight { get; set; }
+
+		public IfcTextStyleTextModel() { }
+
+		public IfcTextStyleTextModel(IfcSizeSelect TextIndent, IfcTextAlignment TextAlign, IfcTextDecoration TextDecoration, IfcSizeSelect LetterSpacing, IfcSizeSelect WordSpacing, IfcTextTransformation TextTransform, IfcSizeSelect LineHeight)
+		{
+			this.TextIndent = TextIndent;
+			this.TextAlign = TextAlign;
+			this.TextDecoration = TextDecoration;
+			this.LetterSpacing = LetterSpacing;
+			this.WordSpacing = WordSpacing;
+			this.TextTransform = TextTransform;
+			this.LineHeight = LineHeight;
+		}
 	}
 
 	public abstract class IfcTextureCoordinate : IfcPresentationItem
 	{
 		//1	Maps : List<IfcSurfaceTexture>
+
 		public List<IfcSurfaceTexture> Maps { get; set; }
+
+		public IfcTextureCoordinate() { }
+
+		public IfcTextureCoordinate(List<IfcSurfaceTexture> Maps)
+		{
+			this.Maps = Maps;
+		}
 	}
 
 	public class IfcTextureCoordinateGenerator : IfcTextureCoordinate
@@ -12566,8 +22371,18 @@ namespace IFC4
 		//1	Maps : List<IfcSurfaceTexture>
 		//2	Mode : IfcLabel
 		//3	Parameter : List<IfcReal>
+
 		public IfcLabel Mode { get; set; }
 		public List<IfcReal> Parameter { get; set; }
+
+		public IfcTextureCoordinateGenerator() { }
+
+		public IfcTextureCoordinateGenerator(List<IfcSurfaceTexture> Maps, IfcLabel Mode, List<IfcReal> Parameter)
+		{
+			this.Maps = Maps;
+			this.Mode = Mode;
+			this.Parameter = Parameter;
+		}
 	}
 
 	public class IfcTextureMap : IfcTextureCoordinate
@@ -12575,28 +22390,63 @@ namespace IFC4
 		//1	Maps : List<IfcSurfaceTexture>
 		//2	Vertices : List<IfcTextureVertex>
 		//3	MappedTo : IfcFace
+
 		public List<IfcTextureVertex> Vertices { get; set; }
 		public IfcFace MappedTo { get; set; }
+
+		public IfcTextureMap() { }
+
+		public IfcTextureMap(List<IfcSurfaceTexture> Maps, List<IfcTextureVertex> Vertices, IfcFace MappedTo)
+		{
+			this.Maps = Maps;
+			this.Vertices = Vertices;
+			this.MappedTo = MappedTo;
+		}
 	}
 
 	public class IfcTextureVertex : IfcPresentationItem
 	{
 		//1	Coordinates : List<IfcParameterValue>
+
 		public List<IfcParameterValue> Coordinates { get; set; }
+
+		public IfcTextureVertex() { }
+
+		public IfcTextureVertex(List<IfcParameterValue> Coordinates)
+		{
+			this.Coordinates = Coordinates;
+		}
 	}
 
 	public class IfcTextureVertexList : IfcPresentationItem
 	{
 		//1	TexCoordsList : List<List<IfcParameterValue>>
+
 		public List<List<IfcParameterValue>> TexCoordsList { get; set; }
+
+		public IfcTextureVertexList() { }
+
+		public IfcTextureVertexList(List<List<IfcParameterValue>> TexCoordsList)
+		{
+			this.TexCoordsList = TexCoordsList;
+		}
 	}
 
 	public class IfcTimePeriod : IfcBase
 	{
 		//1	StartTime : IfcTime
 		//2	EndTime : IfcTime
+
 		public IfcTime StartTime { get; set; }
 		public IfcTime EndTime { get; set; }
+
+		public IfcTimePeriod() { }
+
+		public IfcTimePeriod(IfcTime StartTime, IfcTime EndTime)
+		{
+			this.StartTime = StartTime;
+			this.EndTime = EndTime;
+		}
 	}
 
 	public abstract class IfcTimeSeries : IfcBase, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
@@ -12609,6 +22459,7 @@ namespace IFC4
 		//6	DataOrigin : IfcDataOriginEnum
 		//7	UserDefinedDataOrigin : IfcLabel
 		//8	Unit : IfcUnit
+
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcDateTime StartTime { get; set; }
@@ -12618,16 +22469,39 @@ namespace IFC4
 		public IfcLabel UserDefinedDataOrigin { get; set; }
 		public IfcUnit Unit { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+
+		public IfcTimeSeries() { }
+
+		public IfcTimeSeries(IfcLabel Name, IfcText Description, IfcDateTime StartTime, IfcDateTime EndTime, IfcTimeSeriesDataTypeEnum TimeSeriesDataType, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcUnit Unit)
+		{
+			this.Name = Name;
+			this.Description = Description;
+			this.StartTime = StartTime;
+			this.EndTime = EndTime;
+			this.TimeSeriesDataType = TimeSeriesDataType;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.Unit = Unit;
+		}
 	}
 
 	public class IfcTimeSeriesValue : IfcBase
 	{
 		//1	ListValues : List<IfcValue>
+
 		public List<IfcValue> ListValues { get; set; }
+
+		public IfcTimeSeriesValue() { }
+
+		public IfcTimeSeriesValue(List<IfcValue> ListValues)
+		{
+			this.ListValues = ListValues;
+		}
 	}
 
 	public abstract class IfcTopologicalRepresentationItem : IfcRepresentationItem
 	{
+		public IfcTopologicalRepresentationItem() { }
 	}
 
 	public class IfcTopologyRepresentation : IfcShapeModel
@@ -12636,6 +22510,16 @@ namespace IFC4
 		//2	RepresentationIdentifier : IfcLabel
 		//3	RepresentationType : IfcLabel
 		//4	Items : List<IfcRepresentationItem>
+
+		public IfcTopologyRepresentation() { }
+
+		public IfcTopologyRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
+		{
+			this.ContextOfItems = ContextOfItems;
+			this.RepresentationIdentifier = RepresentationIdentifier;
+			this.RepresentationType = RepresentationType;
+			this.Items = Items;
+		}
 	}
 
 	public class IfcToroidalSurface : IfcElementarySurface
@@ -12643,8 +22527,18 @@ namespace IFC4
 		//1	Position : IfcAxis2Placement3D
 		//2	MajorRadius : IfcPositiveLengthMeasure
 		//3	MinorRadius : IfcPositiveLengthMeasure
+
 		public IfcPositiveLengthMeasure MajorRadius { get; set; }
 		public IfcPositiveLengthMeasure MinorRadius { get; set; }
+
+		public IfcToroidalSurface() { }
+
+		public IfcToroidalSurface(IfcAxis2Placement3D Position, IfcPositiveLengthMeasure MajorRadius, IfcPositiveLengthMeasure MinorRadius)
+		{
+			this.Position = Position;
+			this.MajorRadius = MajorRadius;
+			this.MinorRadius = MinorRadius;
+		}
 	}
 
 	public class IfcTransformer : IfcEnergyConversionDevice
@@ -12658,7 +22552,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcTransformerTypeEnum
+
 		public IfcTransformerTypeEnum PredefinedType { get; set; }
+
+		public IfcTransformer() { }
+
+		public IfcTransformer(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcTransformerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTransformerType : IfcEnergyConversionDeviceType
@@ -12673,7 +22583,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcTransformerTypeEnum
+
 		public IfcTransformerTypeEnum PredefinedType { get; set; }
+
+		public IfcTransformerType() { }
+
+		public IfcTransformerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcTransformerTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTransportElement : IfcElement
@@ -12687,7 +22614,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcTransportElementTypeEnum
+
 		public IfcTransportElementTypeEnum PredefinedType { get; set; }
+
+		public IfcTransportElement() { }
+
+		public IfcTransportElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcTransportElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTransportElementType : IfcElementType
@@ -12702,7 +22645,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcTransportElementTypeEnum
+
 		public IfcTransportElementTypeEnum PredefinedType { get; set; }
+
+		public IfcTransportElementType() { }
+
+		public IfcTransportElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcTransportElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTrapeziumProfileDef : IfcParameterizedProfileDef
@@ -12714,10 +22674,24 @@ namespace IFC4
 		//5	TopXDim : IfcPositiveLengthMeasure
 		//6	YDim : IfcPositiveLengthMeasure
 		//7	TopXOffset : IfcLengthMeasure
+
 		public IfcPositiveLengthMeasure BottomXDim { get; set; }
 		public IfcPositiveLengthMeasure TopXDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
 		public IfcLengthMeasure TopXOffset { get; set; }
+
+		public IfcTrapeziumProfileDef() { }
+
+		public IfcTrapeziumProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure BottomXDim, IfcPositiveLengthMeasure TopXDim, IfcPositiveLengthMeasure YDim, IfcLengthMeasure TopXOffset)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.BottomXDim = BottomXDim;
+			this.TopXDim = TopXDim;
+			this.YDim = YDim;
+			this.TopXOffset = TopXOffset;
+		}
 	}
 
 	public class IfcTriangulatedFaceSet : IfcTessellatedFaceSet
@@ -12727,11 +22701,23 @@ namespace IFC4
 		//3	Closed : IfcBoolean
 		//4	CoordIndex : List<List<IfcPositiveInteger>>
 		//5	PnIndex : List<IfcPositiveInteger>
+
 		public List<List<IfcParameterValue>> Normals { get; set; }
 		public IfcBoolean Closed { get; set; }
 		public List<List<IfcPositiveInteger>> CoordIndex { get; set; }
 		public List<IfcPositiveInteger> PnIndex { get; set; }
 		public IfcInteger NumberOfTriangles { get; set; }
+
+		public IfcTriangulatedFaceSet() { }
+
+		public IfcTriangulatedFaceSet(IfcCartesianPointList3D Coordinates, List<List<IfcParameterValue>> Normals, IfcBoolean Closed, List<List<IfcPositiveInteger>> CoordIndex, List<IfcPositiveInteger> PnIndex)
+		{
+			this.Coordinates = Coordinates;
+			this.Normals = Normals;
+			this.Closed = Closed;
+			this.CoordIndex = CoordIndex;
+			this.PnIndex = PnIndex;
+		}
 	}
 
 	public class IfcTrimmedCurve : IfcBoundedCurve
@@ -12741,11 +22727,23 @@ namespace IFC4
 		//3	Trim2 : List<IfcTrimmingSelect>
 		//4	SenseAgreement : IfcBoolean
 		//5	MasterRepresentation : IfcTrimmingPreference
+
 		public IfcCurve BasisCurve { get; set; }
 		public List<IfcTrimmingSelect> Trim1 { get; set; }
 		public List<IfcTrimmingSelect> Trim2 { get; set; }
 		public IfcBoolean SenseAgreement { get; set; }
 		public IfcTrimmingPreference MasterRepresentation { get; set; }
+
+		public IfcTrimmedCurve() { }
+
+		public IfcTrimmedCurve(IfcCurve BasisCurve, List<IfcTrimmingSelect> Trim1, List<IfcTrimmingSelect> Trim2, IfcBoolean SenseAgreement, IfcTrimmingPreference MasterRepresentation)
+		{
+			this.BasisCurve = BasisCurve;
+			this.Trim1 = Trim1;
+			this.Trim2 = Trim2;
+			this.SenseAgreement = SenseAgreement;
+			this.MasterRepresentation = MasterRepresentation;
+		}
 	}
 
 	public class IfcTubeBundle : IfcEnergyConversionDevice
@@ -12759,7 +22757,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcTubeBundleTypeEnum
+
 		public IfcTubeBundleTypeEnum PredefinedType { get; set; }
+
+		public IfcTubeBundle() { }
+
+		public IfcTubeBundle(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcTubeBundleTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTubeBundleType : IfcEnergyConversionDeviceType
@@ -12774,7 +22788,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcTubeBundleTypeEnum
+
 		public IfcTubeBundleTypeEnum PredefinedType { get; set; }
+
+		public IfcTubeBundleType() { }
+
+		public IfcTubeBundleType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcTubeBundleTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcTypeObject : IfcObjectDefinition
@@ -12785,9 +22816,22 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	ApplicableOccurrence : IfcIdentifier
 		//6	HasPropertySets : List<IfcPropertySetDefinition>
+
 		public IfcIdentifier ApplicableOccurrence { get; set; }
 		public List<IfcPropertySetDefinition> HasPropertySets { get; set; }
 		public List<IfcRelDefinesByType> Types { get; set; }
+
+		public IfcTypeObject() { }
+
+		public IfcTypeObject(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+		}
 	}
 
 	public abstract class IfcTypeProcess : IfcTypeObject, IfcProcessSelect
@@ -12801,6 +22845,7 @@ namespace IFC4
 		//7	Identification : IfcIdentifier
 		//8	LongDescription : IfcText
 		//9	ProcessType : IfcLabel
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
 		public IfcLabel ProcessType { get; set; }
@@ -12808,6 +22853,21 @@ namespace IFC4
 		public IfcIdentifier GetIdentification() { return Identification; }
 		public IfcText GetLongDescription() { return LongDescription; }
 		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
+
+		public IfcTypeProcess() { }
+
+		public IfcTypeProcess(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ProcessType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ProcessType = ProcessType;
+		}
 	}
 
 	public class IfcTypeProduct : IfcTypeObject, IfcProductSelect
@@ -12820,10 +22880,25 @@ namespace IFC4
 		//6	HasPropertySets : List<IfcPropertySetDefinition>
 		//7	RepresentationMaps : List<IfcRepresentationMap>
 		//8	Tag : IfcLabel
+
 		public List<IfcRepresentationMap> RepresentationMaps { get; set; }
 		public IfcLabel Tag { get; set; }
 		public List<IfcRelAssignsToProduct> ReferencedBy { get; set; }
 		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+
+		public IfcTypeProduct() { }
+
+		public IfcTypeProduct(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+		}
 	}
 
 	public abstract class IfcTypeResource : IfcTypeObject, IfcResourceSelect
@@ -12837,6 +22912,7 @@ namespace IFC4
 		//7	Identification : IfcIdentifier
 		//8	LongDescription : IfcText
 		//9	ResourceType : IfcLabel
+
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
 		public IfcLabel ResourceType { get; set; }
@@ -12844,6 +22920,21 @@ namespace IFC4
 		public IfcIdentifier GetIdentification() { return Identification; }
 		public IfcText GetLongDescription() { return LongDescription; }
 		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+
+		public IfcTypeResource() { }
+
+		public IfcTypeResource(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, IfcIdentifier Identification, IfcText LongDescription, IfcLabel ResourceType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.Identification = Identification;
+			this.LongDescription = LongDescription;
+			this.ResourceType = ResourceType;
+		}
 	}
 
 	public class IfcUShapeProfileDef : IfcParameterizedProfileDef
@@ -12858,6 +22949,7 @@ namespace IFC4
 		//8	FilletRadius : IfcNonNegativeLengthMeasure
 		//9	EdgeRadius : IfcNonNegativeLengthMeasure
 		//10	FlangeSlope : IfcPlaneAngleMeasure
+
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure FlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -12865,12 +22957,36 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure FilletRadius { get; set; }
 		public IfcNonNegativeLengthMeasure EdgeRadius { get; set; }
 		public IfcPlaneAngleMeasure FlangeSlope { get; set; }
+
+		public IfcUShapeProfileDef() { }
+
+		public IfcUShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Depth, IfcPositiveLengthMeasure FlangeWidth, IfcPositiveLengthMeasure WebThickness, IfcPositiveLengthMeasure FlangeThickness, IfcNonNegativeLengthMeasure FilletRadius, IfcNonNegativeLengthMeasure EdgeRadius, IfcPlaneAngleMeasure FlangeSlope)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Depth = Depth;
+			this.FlangeWidth = FlangeWidth;
+			this.WebThickness = WebThickness;
+			this.FlangeThickness = FlangeThickness;
+			this.FilletRadius = FilletRadius;
+			this.EdgeRadius = EdgeRadius;
+			this.FlangeSlope = FlangeSlope;
+		}
 	}
 
 	public class IfcUnitAssignment : IfcBase
 	{
 		//1	Units : List<IfcUnit>
+
 		public List<IfcUnit> Units { get; set; }
+
+		public IfcUnitAssignment() { }
+
+		public IfcUnitAssignment(List<IfcUnit> Units)
+		{
+			this.Units = Units;
+		}
 	}
 
 	public class IfcUnitaryControlElement : IfcDistributionControlElement
@@ -12884,7 +23000,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcUnitaryControlElementTypeEnum
+
 		public IfcUnitaryControlElementTypeEnum PredefinedType { get; set; }
+
+		public IfcUnitaryControlElement() { }
+
+		public IfcUnitaryControlElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcUnitaryControlElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcUnitaryControlElementType : IfcDistributionControlElementType
@@ -12899,7 +23031,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcUnitaryControlElementTypeEnum
+
 		public IfcUnitaryControlElementTypeEnum PredefinedType { get; set; }
+
+		public IfcUnitaryControlElementType() { }
+
+		public IfcUnitaryControlElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcUnitaryControlElementTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcUnitaryEquipment : IfcEnergyConversionDevice
@@ -12913,7 +23062,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcUnitaryEquipmentTypeEnum
+
 		public IfcUnitaryEquipmentTypeEnum PredefinedType { get; set; }
+
+		public IfcUnitaryEquipment() { }
+
+		public IfcUnitaryEquipment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcUnitaryEquipmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcUnitaryEquipmentType : IfcEnergyConversionDeviceType
@@ -12928,7 +23093,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcUnitaryEquipmentTypeEnum
+
 		public IfcUnitaryEquipmentTypeEnum PredefinedType { get; set; }
+
+		public IfcUnitaryEquipmentType() { }
+
+		public IfcUnitaryEquipmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcUnitaryEquipmentTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcValve : IfcFlowController
@@ -12942,7 +23124,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcValveTypeEnum
+
 		public IfcValveTypeEnum PredefinedType { get; set; }
+
+		public IfcValve() { }
+
+		public IfcValve(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcValveTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcValveType : IfcFlowControllerType
@@ -12957,33 +23155,80 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcValveTypeEnum
+
 		public IfcValveTypeEnum PredefinedType { get; set; }
+
+		public IfcValveType() { }
+
+		public IfcValveType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcValveTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcVector : IfcGeometricRepresentationItem, IfcHatchLineDistanceSelect, IfcVectorOrDirection
 	{
 		//1	Orientation : IfcDirection
 		//2	Magnitude : IfcLengthMeasure
+
 		public IfcDirection Orientation { get; set; }
 		public IfcLengthMeasure Magnitude { get; set; }
 		public IfcDimensionCount Dim { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
+
+		public IfcVector() { }
+		public IfcVector(IfcDirection Orientation, double Magnitude)
+		{
+			this.Orientation = Orientation;
+			this.Magnitude = (IfcLengthMeasure) Magnitude;
+		}
+		public IfcVector(IfcDirection Orientation, IfcLengthMeasure Magnitude)
+		{
+			this.Orientation = Orientation;
+			this.Magnitude = Magnitude;
+		}
 	}
 
 	public class IfcVertex : IfcTopologicalRepresentationItem
 	{
+		public IfcVertex() { }
 	}
 
 	public class IfcVertexLoop : IfcLoop
 	{
 		//1	LoopVertex : IfcVertex
+
 		public IfcVertex LoopVertex { get; set; }
+
+		public IfcVertexLoop() { }
+
+		public IfcVertexLoop(IfcVertex LoopVertex)
+		{
+			this.LoopVertex = LoopVertex;
+		}
 	}
 
 	public class IfcVertexPoint : IfcVertex, IfcPointOrVertexPoint
 	{
 		//1	VertexGeometry : IfcPoint
+
 		public IfcPoint VertexGeometry { get; set; }
+
+		public IfcVertexPoint() { }
+
+		public IfcVertexPoint(IfcPoint VertexGeometry)
+		{
+			this.VertexGeometry = VertexGeometry;
+		}
 	}
 
 	public class IfcVibrationIsolator : IfcElementComponent
@@ -12997,7 +23242,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcVibrationIsolatorTypeEnum
+
 		public IfcVibrationIsolatorTypeEnum PredefinedType { get; set; }
+
+		public IfcVibrationIsolator() { }
+
+		public IfcVibrationIsolator(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcVibrationIsolatorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcVibrationIsolatorType : IfcElementComponentType
@@ -13012,7 +23273,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcVibrationIsolatorTypeEnum
+
 		public IfcVibrationIsolatorTypeEnum PredefinedType { get; set; }
+
+		public IfcVibrationIsolatorType() { }
+
+		public IfcVibrationIsolatorType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcVibrationIsolatorTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcVirtualElement : IfcElement
@@ -13025,14 +23303,37 @@ namespace IFC4
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
+
+		public IfcVirtualElement() { }
+
+		public IfcVirtualElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+		}
 	}
 
 	public class IfcVirtualGridIntersection : IfcBase
 	{
 		//1	IntersectingAxes : List<IfcGridAxis>
 		//2	OffsetDistances : List<IfcLengthMeasure>
+
 		public List<IfcGridAxis> IntersectingAxes { get; set; }
 		public List<IfcLengthMeasure> OffsetDistances { get; set; }
+
+		public IfcVirtualGridIntersection() { }
+
+		public IfcVirtualGridIntersection(List<IfcGridAxis> IntersectingAxes, List<IfcLengthMeasure> OffsetDistances)
+		{
+			this.IntersectingAxes = IntersectingAxes;
+			this.OffsetDistances = OffsetDistances;
+		}
 	}
 
 	public class IfcVoidingFeature : IfcFeatureElementSubtraction
@@ -13046,7 +23347,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcVoidingFeatureTypeEnum
+
 		public IfcVoidingFeatureTypeEnum PredefinedType { get; set; }
+
+		public IfcVoidingFeature() { }
+
+		public IfcVoidingFeature(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcVoidingFeatureTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWall : IfcBuildingElement
@@ -13060,7 +23377,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcWallTypeEnum
+
 		public IfcWallTypeEnum PredefinedType { get; set; }
+
+		public IfcWall() { }
+
+		public IfcWall(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcWallTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWallElementedCase : IfcWall
@@ -13074,6 +23407,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcWallTypeEnum
+
+		public IfcWallElementedCase() { }
+
+		public IfcWallElementedCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcWallTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWallStandardCase : IfcWall
@@ -13087,6 +23435,21 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcWallTypeEnum
+
+		public IfcWallStandardCase() { }
+
+		public IfcWallStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcWallTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWallType : IfcBuildingElementType
@@ -13101,7 +23464,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcWallTypeEnum
+
 		public IfcWallTypeEnum PredefinedType { get; set; }
+
+		public IfcWallType() { }
+
+		public IfcWallType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcWallTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWasteTerminal : IfcFlowTerminal
@@ -13115,7 +23495,23 @@ namespace IFC4
 		//7	Representation : IfcProductRepresentation
 		//8	Tag : IfcIdentifier
 		//9	PredefinedType : IfcWasteTerminalTypeEnum
+
 		public IfcWasteTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcWasteTerminal() { }
+
+		public IfcWasteTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcWasteTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWasteTerminalType : IfcFlowTerminalType
@@ -13130,7 +23526,24 @@ namespace IFC4
 		//8	Tag : IfcLabel
 		//9	ElementType : IfcLabel
 		//10	PredefinedType : IfcWasteTerminalTypeEnum
+
 		public IfcWasteTerminalTypeEnum PredefinedType { get; set; }
+
+		public IfcWasteTerminalType() { }
+
+		public IfcWasteTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcWasteTerminalTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWindow : IfcBuildingElement
@@ -13148,11 +23561,31 @@ namespace IFC4
 		//11	PredefinedType : IfcWindowTypeEnum
 		//12	PartitioningType : IfcWindowTypePartitioningEnum
 		//13	UserDefinedPartitioningType : IfcLabel
+
 		public IfcPositiveLengthMeasure OverallHeight { get; set; }
 		public IfcPositiveLengthMeasure OverallWidth { get; set; }
 		public IfcWindowTypeEnum PredefinedType { get; set; }
 		public IfcWindowTypePartitioningEnum PartitioningType { get; set; }
 		public IfcLabel UserDefinedPartitioningType { get; set; }
+
+		public IfcWindow() { }
+
+		public IfcWindow(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure OverallHeight, IfcPositiveLengthMeasure OverallWidth, IfcWindowTypeEnum PredefinedType, IfcWindowTypePartitioningEnum PartitioningType, IfcLabel UserDefinedPartitioningType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.OverallHeight = OverallHeight;
+			this.OverallWidth = OverallWidth;
+			this.PredefinedType = PredefinedType;
+			this.PartitioningType = PartitioningType;
+			this.UserDefinedPartitioningType = UserDefinedPartitioningType;
+		}
 	}
 
 	public class IfcWindowLiningProperties : IfcPreDefinedPropertySet
@@ -13173,6 +23606,7 @@ namespace IFC4
 		//14	LiningOffset : IfcLengthMeasure
 		//15	LiningToPanelOffsetX : IfcLengthMeasure
 		//16	LiningToPanelOffsetY : IfcLengthMeasure
+
 		public IfcPositiveLengthMeasure LiningDepth { get; set; }
 		public IfcNonNegativeLengthMeasure LiningThickness { get; set; }
 		public IfcNonNegativeLengthMeasure TransomThickness { get; set; }
@@ -13185,6 +23619,28 @@ namespace IFC4
 		public IfcLengthMeasure LiningOffset { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetX { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetY { get; set; }
+
+		public IfcWindowLiningProperties() { }
+
+		public IfcWindowLiningProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcPositiveLengthMeasure LiningDepth, IfcNonNegativeLengthMeasure LiningThickness, IfcNonNegativeLengthMeasure TransomThickness, IfcNonNegativeLengthMeasure MullionThickness, IfcNormalisedRatioMeasure FirstTransomOffset, IfcNormalisedRatioMeasure SecondTransomOffset, IfcNormalisedRatioMeasure FirstMullionOffset, IfcNormalisedRatioMeasure SecondMullionOffset, IfcShapeAspect ShapeAspectStyle, IfcLengthMeasure LiningOffset, IfcLengthMeasure LiningToPanelOffsetX, IfcLengthMeasure LiningToPanelOffsetY)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.LiningDepth = LiningDepth;
+			this.LiningThickness = LiningThickness;
+			this.TransomThickness = TransomThickness;
+			this.MullionThickness = MullionThickness;
+			this.FirstTransomOffset = FirstTransomOffset;
+			this.SecondTransomOffset = SecondTransomOffset;
+			this.FirstMullionOffset = FirstMullionOffset;
+			this.SecondMullionOffset = SecondMullionOffset;
+			this.ShapeAspectStyle = ShapeAspectStyle;
+			this.LiningOffset = LiningOffset;
+			this.LiningToPanelOffsetX = LiningToPanelOffsetX;
+			this.LiningToPanelOffsetY = LiningToPanelOffsetY;
+		}
 	}
 
 	public class IfcWindowPanelProperties : IfcPreDefinedPropertySet
@@ -13198,11 +23654,27 @@ namespace IFC4
 		//7	FrameDepth : IfcPositiveLengthMeasure
 		//8	FrameThickness : IfcPositiveLengthMeasure
 		//9	ShapeAspectStyle : IfcShapeAspect
+
 		public IfcWindowPanelOperationEnum OperationType { get; set; }
 		public IfcWindowPanelPositionEnum PanelPosition { get; set; }
 		public IfcPositiveLengthMeasure FrameDepth { get; set; }
 		public IfcPositiveLengthMeasure FrameThickness { get; set; }
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
+
+		public IfcWindowPanelProperties() { }
+
+		public IfcWindowPanelProperties(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcWindowPanelOperationEnum OperationType, IfcWindowPanelPositionEnum PanelPosition, IfcPositiveLengthMeasure FrameDepth, IfcPositiveLengthMeasure FrameThickness, IfcShapeAspect ShapeAspectStyle)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.OperationType = OperationType;
+			this.PanelPosition = PanelPosition;
+			this.FrameDepth = FrameDepth;
+			this.FrameThickness = FrameThickness;
+			this.ShapeAspectStyle = ShapeAspectStyle;
+		}
 	}
 
 	public class IfcWindowStandardCase : IfcWindow
@@ -13220,6 +23692,25 @@ namespace IFC4
 		//11	PredefinedType : IfcWindowTypeEnum
 		//12	PartitioningType : IfcWindowTypePartitioningEnum
 		//13	UserDefinedPartitioningType : IfcLabel
+
+		public IfcWindowStandardCase() { }
+
+		public IfcWindowStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure OverallHeight, IfcPositiveLengthMeasure OverallWidth, IfcWindowTypeEnum PredefinedType, IfcWindowTypePartitioningEnum PartitioningType, IfcLabel UserDefinedPartitioningType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.ObjectPlacement = ObjectPlacement;
+			this.Representation = Representation;
+			this.Tag = Tag;
+			this.OverallHeight = OverallHeight;
+			this.OverallWidth = OverallWidth;
+			this.PredefinedType = PredefinedType;
+			this.PartitioningType = PartitioningType;
+			this.UserDefinedPartitioningType = UserDefinedPartitioningType;
+		}
 	}
 
 	public class IfcWindowStyle : IfcTypeProduct
@@ -13236,10 +23727,29 @@ namespace IFC4
 		//10	OperationType : IfcWindowStyleOperationEnum
 		//11	ParameterTakesPrecedence : IfcBoolean
 		//12	Sizeable : IfcBoolean
+
 		public IfcWindowStyleConstructionEnum ConstructionType { get; set; }
 		public IfcWindowStyleOperationEnum OperationType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
 		public IfcBoolean Sizeable { get; set; }
+
+		public IfcWindowStyle() { }
+
+		public IfcWindowStyle(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcWindowStyleConstructionEnum ConstructionType, IfcWindowStyleOperationEnum OperationType, IfcBoolean ParameterTakesPrecedence, IfcBoolean Sizeable)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ConstructionType = ConstructionType;
+			this.OperationType = OperationType;
+			this.ParameterTakesPrecedence = ParameterTakesPrecedence;
+			this.Sizeable = Sizeable;
+		}
 	}
 
 	public class IfcWindowType : IfcBuildingElementType
@@ -13257,10 +23767,30 @@ namespace IFC4
 		//11	PartitioningType : IfcWindowTypePartitioningEnum
 		//12	ParameterTakesPrecedence : IfcBoolean
 		//13	UserDefinedPartitioningType : IfcLabel
+
 		public IfcWindowTypeEnum PredefinedType { get; set; }
 		public IfcWindowTypePartitioningEnum PartitioningType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
 		public IfcLabel UserDefinedPartitioningType { get; set; }
+
+		public IfcWindowType() { }
+
+		public IfcWindowType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType, IfcWindowTypeEnum PredefinedType, IfcWindowTypePartitioningEnum PartitioningType, IfcBoolean ParameterTakesPrecedence, IfcLabel UserDefinedPartitioningType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ApplicableOccurrence = ApplicableOccurrence;
+			this.HasPropertySets = HasPropertySets;
+			this.RepresentationMaps = RepresentationMaps;
+			this.Tag = Tag;
+			this.ElementType = ElementType;
+			this.PredefinedType = PredefinedType;
+			this.PartitioningType = PartitioningType;
+			this.ParameterTakesPrecedence = ParameterTakesPrecedence;
+			this.UserDefinedPartitioningType = UserDefinedPartitioningType;
+		}
 	}
 
 	public class IfcWorkCalendar : IfcControl
@@ -13274,9 +23804,25 @@ namespace IFC4
 		//7	WorkingTimes : List<IfcWorkTime>
 		//8	ExceptionTimes : List<IfcWorkTime>
 		//9	PredefinedType : IfcWorkCalendarTypeEnum
+
 		public List<IfcWorkTime> WorkingTimes { get; set; }
 		public List<IfcWorkTime> ExceptionTimes { get; set; }
 		public IfcWorkCalendarTypeEnum PredefinedType { get; set; }
+
+		public IfcWorkCalendar() { }
+
+		public IfcWorkCalendar(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, List<IfcWorkTime> WorkingTimes, List<IfcWorkTime> ExceptionTimes, IfcWorkCalendarTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.WorkingTimes = WorkingTimes;
+			this.ExceptionTimes = ExceptionTimes;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public abstract class IfcWorkControl : IfcControl
@@ -13294,6 +23840,7 @@ namespace IFC4
 		//11	TotalFloat : IfcDuration
 		//12	StartTime : IfcDateTime
 		//13	FinishTime : IfcDateTime
+
 		public IfcDateTime CreationDate { get; set; }
 		public List<IfcPerson> Creators { get; set; }
 		public IfcLabel Purpose { get; set; }
@@ -13301,6 +23848,25 @@ namespace IFC4
 		public IfcDuration TotalFloat { get; set; }
 		public IfcDateTime StartTime { get; set; }
 		public IfcDateTime FinishTime { get; set; }
+
+		public IfcWorkControl() { }
+
+		public IfcWorkControl(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcDateTime CreationDate, List<IfcPerson> Creators, IfcLabel Purpose, IfcDuration Duration, IfcDuration TotalFloat, IfcDateTime StartTime, IfcDateTime FinishTime)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.CreationDate = CreationDate;
+			this.Creators = Creators;
+			this.Purpose = Purpose;
+			this.Duration = Duration;
+			this.TotalFloat = TotalFloat;
+			this.StartTime = StartTime;
+			this.FinishTime = FinishTime;
+		}
 	}
 
 	public class IfcWorkPlan : IfcWorkControl
@@ -13319,7 +23885,28 @@ namespace IFC4
 		//12	StartTime : IfcDateTime
 		//13	FinishTime : IfcDateTime
 		//14	PredefinedType : IfcWorkPlanTypeEnum
+
 		public IfcWorkPlanTypeEnum PredefinedType { get; set; }
+
+		public IfcWorkPlan() { }
+
+		public IfcWorkPlan(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcDateTime CreationDate, List<IfcPerson> Creators, IfcLabel Purpose, IfcDuration Duration, IfcDuration TotalFloat, IfcDateTime StartTime, IfcDateTime FinishTime, IfcWorkPlanTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.CreationDate = CreationDate;
+			this.Creators = Creators;
+			this.Purpose = Purpose;
+			this.Duration = Duration;
+			this.TotalFloat = TotalFloat;
+			this.StartTime = StartTime;
+			this.FinishTime = FinishTime;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWorkSchedule : IfcWorkControl
@@ -13338,7 +23925,28 @@ namespace IFC4
 		//12	StartTime : IfcDateTime
 		//13	FinishTime : IfcDateTime
 		//14	PredefinedType : IfcWorkScheduleTypeEnum
+
 		public IfcWorkScheduleTypeEnum PredefinedType { get; set; }
+
+		public IfcWorkSchedule() { }
+
+		public IfcWorkSchedule(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcIdentifier Identification, IfcDateTime CreationDate, List<IfcPerson> Creators, IfcLabel Purpose, IfcDuration Duration, IfcDuration TotalFloat, IfcDateTime StartTime, IfcDateTime FinishTime, IfcWorkScheduleTypeEnum PredefinedType)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.Identification = Identification;
+			this.CreationDate = CreationDate;
+			this.Creators = Creators;
+			this.Purpose = Purpose;
+			this.Duration = Duration;
+			this.TotalFloat = TotalFloat;
+			this.StartTime = StartTime;
+			this.FinishTime = FinishTime;
+			this.PredefinedType = PredefinedType;
+		}
 	}
 
 	public class IfcWorkTime : IfcSchedulingTime
@@ -13349,9 +23957,22 @@ namespace IFC4
 		//4	RecurrencePattern : IfcRecurrencePattern
 		//5	Start : IfcDate
 		//6	Finish : IfcDate
+
 		public IfcRecurrencePattern RecurrencePattern { get; set; }
 		public IfcDate Start { get; set; }
 		public IfcDate Finish { get; set; }
+
+		public IfcWorkTime() { }
+
+		public IfcWorkTime(IfcLabel Name, IfcDataOriginEnum DataOrigin, IfcLabel UserDefinedDataOrigin, IfcRecurrencePattern RecurrencePattern, IfcDate Start, IfcDate Finish)
+		{
+			this.Name = Name;
+			this.DataOrigin = DataOrigin;
+			this.UserDefinedDataOrigin = UserDefinedDataOrigin;
+			this.RecurrencePattern = RecurrencePattern;
+			this.Start = Start;
+			this.Finish = Finish;
+		}
 	}
 
 	public class IfcZShapeProfileDef : IfcParameterizedProfileDef
@@ -13365,12 +23986,28 @@ namespace IFC4
 		//7	FlangeThickness : IfcPositiveLengthMeasure
 		//8	FilletRadius : IfcNonNegativeLengthMeasure
 		//9	EdgeRadius : IfcNonNegativeLengthMeasure
+
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure FlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
 		public IfcPositiveLengthMeasure FlangeThickness { get; set; }
 		public IfcNonNegativeLengthMeasure FilletRadius { get; set; }
 		public IfcNonNegativeLengthMeasure EdgeRadius { get; set; }
+
+		public IfcZShapeProfileDef() { }
+
+		public IfcZShapeProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcAxis2Placement2D Position, IfcPositiveLengthMeasure Depth, IfcPositiveLengthMeasure FlangeWidth, IfcPositiveLengthMeasure WebThickness, IfcPositiveLengthMeasure FlangeThickness, IfcNonNegativeLengthMeasure FilletRadius, IfcNonNegativeLengthMeasure EdgeRadius)
+		{
+			this.ProfileType = ProfileType;
+			this.ProfileName = ProfileName;
+			this.Position = Position;
+			this.Depth = Depth;
+			this.FlangeWidth = FlangeWidth;
+			this.WebThickness = WebThickness;
+			this.FlangeThickness = FlangeThickness;
+			this.FilletRadius = FilletRadius;
+			this.EdgeRadius = EdgeRadius;
+		}
 	}
 
 	public class IfcZone : IfcSystem
@@ -13381,7 +24018,20 @@ namespace IFC4
 		//4	Description : IfcText
 		//5	ObjectType : IfcLabel
 		//6	LongName : IfcLabel
+
 		public IfcLabel LongName { get; set; }
+
+		public IfcZone() { }
+
+		public IfcZone(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName)
+		{
+			this.GlobalId = GlobalId;
+			this.OwnerHistory = OwnerHistory;
+			this.Name = Name;
+			this.Description = Description;
+			this.ObjectType = ObjectType;
+			this.LongName = LongName;
+		}
 	}
 
 }

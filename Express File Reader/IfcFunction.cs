@@ -15,9 +15,11 @@ namespace IFCReader
         public List<string> expressions;
 
         public string returnType;
+        public string rawText;
 
         public IfcFunction (string name)
         {
+            rawText = "";
             Args = new Dictionary<string, string>();
             Locals = new Dictionary<string, string>();
             returnType = "void";
@@ -47,13 +49,17 @@ namespace IFCReader
             {
                 s += "\n";
             }
-            foreach (var e in expressions)
-            {
-                s += e + "\n";
-            }
 
-
+            s += "return null;\n";
             s += "}\n";
+
+            s += "/*\n";
+            s += rawText;
+            //foreach (var e in expressions)
+            //{
+            //    s +=  e + "\n";
+            //}
+            s += "*/\n";
             return s;
         }
     }

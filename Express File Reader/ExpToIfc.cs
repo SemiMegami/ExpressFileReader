@@ -44,7 +44,7 @@ namespace IFCReader
 
             Dictionary<string, IFCClass> IFCClasses = new Dictionary<string, IFCClass>();
 
-            IFCClasses.Add("IfcBase", new IFCClass("class", "IfcBase", "") { isAbstract = true });
+          //  IFCClasses.Add("IfcBase", new IFCClass("class", "IfcBase", "") { isAbstract = true });
 
 
             Dictionary<string, IfcFunction> IFCFunctions = new Dictionary<string, IfcFunction>();
@@ -252,49 +252,46 @@ namespace IFCReader
                                             currentClass.consElement.Add(elemeentName, elementType);
                                         }
                                     }
-                                    else if (currentrule == "UNIQUE")
-                                    {
-                                        for (int i = 2; i < entityTexts.Length; i++)
-                                        {
-                                            string staticName = entityTexts[i].Replace(";", "").Replace(",", "");
+                                    //else if (currentrule == "UNIQUE")
+                                    //{
+                                    //    for (int i = 2; i < entityTexts.Length; i++)
+                                    //    {
+                                    //        string staticName = entityTexts[i].Replace(";", "").Replace(",", "");
 
-                                            currentClass.propElement[staticName] = "static " + currentClass.propElement[staticName];
-                                        }
-                                        continue;
-                                    }
+                                    //        currentClass.propElement[staticName] = "static " + currentClass.propElement[staticName];
+                                    //    }
+                                    //    continue;
+                                    //}
                                 }
 
                                 break;
 
                             case "FUNCTION":
+                            var function = new IfcFunction(texts[1]);
 
-                                
-
-                                var function = new IfcFunction(texts[1]);
-
-                                IFCFunctions.Add(texts[1], function);
+                            IFCFunctions.Add(texts[1], function);
 
 
-                                string wholeText = "";
-                                currentline = "";
-                                while (!currentline.Contains("END_FUNCTION;"))
-                                {
-
-                                    currentline = reader.ReadLine();
-                                 wholeText += currentline;
-                                }
+                            string wholeText = "";
+                            currentline = "";
+                            while (!currentline.Contains("END_FUNCTION;"))
+                            {
+                                currentline = reader.ReadLine();
+                                function.rawText += currentline + "\n";
+                                wholeText += currentline;
+                            }
                             wholeText = wholeText.Replace("\t", " ");
 
                             var spiltwhole = wholeText.Split(" ").ToList();
                             wholeText = "";
-                            foreach(var ele in spiltwhole)
+                            foreach (var ele in spiltwhole)
                             {
                                 if (ele != "")
-                                wholeText += ele + " ";
+                                    wholeText += ele + " ";
                             }
-                        //    function.expressions.Add("\t//" + wholeText);
+                            //    function.expressions.Add("\t//" + wholeText);
 
-                            string inout = wholeText.Substring(1,wholeText.IndexOf(")") - 1);
+                            string inout = wholeText.Substring(1, wholeText.IndexOf(")") - 1);
                             string[] inputs = inout.Split(";");
                             Dictionary<string, string> inputDict = new Dictionary<string, string>();
 
@@ -317,11 +314,11 @@ namespace IFCReader
                             outputType = outputType.Substring(outputType.IndexOf(":") + 1);
                             function.returnType = outputType;
                             wholeText = wholeText.Substring(wholeText.IndexOf(";") + 1);
-                            wholeText = wholeText.Replace("END_FUNCTION;","");
+                            wholeText = wholeText.Replace("END_FUNCTION;", "");
 
                             if (wholeText.Contains("END_LOCAL;"))
                             {
-                                string [] localExpresses = wholeText.Split("END_LOCAL;");
+                                string[] localExpresses = wholeText.Split("END_LOCAL;");
                                 string local = localExpresses[0].Replace("LOCAL", "");
                                 string[] locals = local.Split(";");
 
@@ -331,7 +328,7 @@ namespace IFCReader
 
                                     if (l.Contains(":"))
                                     {
-                                       
+
                                         var leftright = l.Split(":");
 
                                         var datanames = l.Substring(0, l.IndexOf(":"));
@@ -346,21 +343,21 @@ namespace IFCReader
                                                 lefts[j] += defaultValue;
                                             }
                                         }
-                                       
-                                        for(int j = 0; j < lefts.Length; j++)
+
+                                        for (int j = 0; j < lefts.Length; j++)
                                         {
                                             function.Locals.Add(lefts[j], datatype);
                                         }
                                     }
                                 }
                                 wholeText = localExpresses[1];
-                            //    function.expressions.Add("\t//" + local);
+                                //    function.expressions.Add("\t//" + local);
                             }
 
-                            function.expressions.Add(wholeText.Replace(";",";\n").Replace("*)", "*)\n"));
+                            function.expressions.Add(wholeText.Replace(";", ";\n").Replace("*)", "*)\n"));
 
 
-                         //   function.expressions.Add("\treturn null;");
+                            //   function.expressions.Add("\treturn null;");
 
                             break;
                             case "":
