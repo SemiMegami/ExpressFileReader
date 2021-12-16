@@ -520,6 +520,82 @@ namespace IFCReader
 
             }
         }
+
+        public static void CreateIfcCorrectDimensionTextFromExpress(string input, string output)
+        {
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string rawText;
+                string results = "";
+                while (!reader.EndOfStream)
+                {
+                    rawText = reader.ReadLine();
+
+                    if (rawText == "FUNCTION IfcCorrectDimensions")
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            rawText = reader.ReadLine();
+                            if (rawText.Contains(" : IF"))
+                            {
+                                string dimName = rawText.Split(":")[0].Replace(" ", "");
+                                rawText = reader.ReadLine();
+                                int index1 = rawText.LastIndexOf("(");
+                                int index2 = rawText.IndexOf(")");
+                                string parameters = rawText.Substring(index1, index2 - index1 + 1);
+                                results += "case IfcUnitEnum." + dimName + " : return Dim.Compare" + parameters + ";\n";
+                            }
+                        }
+                    }
+                }
+                using (StreamWriter writer = new StreamWriter(output))
+                {
+                    writer.WriteLine(results);
+                    writer.Close();
+                }
+                reader.Close();
+            }
+        }
+
+        public static void CreateIfcDimensionsForSiUnit(string input, string output)
+        {
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string rawText;
+                string results = "";
+                while (!reader.EndOfStream)
+                {
+                    rawText = reader.ReadLine();
+
+                    if (rawText == "FUNCTION IfcDimensionsForSiUnit")
+                    {
+                        while (!reader.EndOfStream)
+                        {
+                            rawText = reader.ReadLine();
+                            if (rawText.Contains("RETURN"))
+                            {
+                                string dimName = rawText.Split(":")[0].Replace(" ", "");
+                                rawText = reader.ReadLine();
+                                int index1 = rawText.LastIndexOf("(");
+                                int index2 = rawText.IndexOf(")");
+                                string parameters = rawText.Substring(index1, index2 - index1 + 1);
+                                results += "case \"" + dimName + "\" : return new IfcDimensionalExponents" + parameters + ";\n";
+                            }
+                            if (rawText.Contains("END_CASE;"))
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+                using (StreamWriter writer = new StreamWriter(output))
+                {
+                    writer.WriteLine(results);
+                    writer.Close();
+                }
+                reader.Close();
+            }
+        }
     }
 
 }

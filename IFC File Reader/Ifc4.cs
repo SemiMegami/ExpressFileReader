@@ -1243,7 +1243,7 @@ namespace IFC4
 		public const string NOTDEFINED = "NOTDEFINED";
 	}
 
-	public class IfcDerivedUnitEnum
+	public class IfcDerivedUnitEnum:STRING
 	{
 		public const string ANGULARVELOCITYUNIT = "ANGULARVELOCITYUNIT";
 		public const string AREADENSITYUNIT = "AREADENSITYUNIT";
@@ -2048,7 +2048,7 @@ namespace IFC4
 		public const string NULL = "NULL";
 	}
 
-	public class IfcObjectTypeEnum
+	public class IfcObjectTypeEnum: STRING
 	{
 		public const string PRODUCT = "PRODUCT";
 		public const string PROCESS = "PROCESS";
@@ -2452,7 +2452,7 @@ namespace IFC4
 		public const string ATTO = "ATTO";
 	}
 
-	public class IfcSIUnitName
+	public class IfcSIUnitName:STRING
 	{
 		public const string AMPERE = "AMPERE";
 		public const string BECQUEREL = "BECQUEREL";
@@ -2883,7 +2883,7 @@ namespace IFC4
 		public const string NOTDEFINED = "NOTDEFINED";
 	}
 
-	public class IfcUnitEnum
+	public class IfcUnitEnum :STRING
 	{
 		public const string ABSORBEDDOSEUNIT = "ABSORBEDDOSEUNIT";
 		public const string AMOUNTOFSUBSTANCEUNIT = "AMOUNTOFSUBSTANCEUNIT";
@@ -2915,6 +2915,8 @@ namespace IFC4
 		public const string TIMEUNIT = "TIMEUNIT";
 		public const string VOLUMEUNIT = "VOLUMEUNIT";
 		public const string USERDEFINED = "USERDEFINED";
+
+		
 	}
 
 	public class IfcUnitaryControlElementTypeEnum
@@ -3135,6 +3137,7 @@ namespace IFC4
 	{
 		IfcDirection GetRefDirection();
 		List<IfcDirection> GetP();
+		public IfcCartesianPoint GetLocation();
 	}
 
 	public interface IfcBendingParameterSelect
@@ -4269,7 +4272,7 @@ namespace IFC4
 		public List<IfcDirection> P { get; set; }
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
-
+		public IfcCartesianPoint GetLocation() { return Location; }
 		public IfcAxis2Placement2D() { }
 
 		public IfcAxis2Placement2D(IfcCartesianPoint Location, IfcDirection RefDirection)
@@ -4290,7 +4293,7 @@ namespace IFC4
 		public List<IfcDirection> P { get; set; }
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
-
+		public IfcCartesianPoint GetLocation() { return Location; }
 		public IfcAxis2Placement3D() { }
 
 		public IfcAxis2Placement3D(IfcCartesianPoint Location, IfcDirection Axis, IfcDirection RefDirection)

@@ -29,12 +29,31 @@ namespace IFC4
 
 		}
 
-		public object NVL(object a, object b)
+       
+        private static bool InTypeOf(object a, string typeName)
         {
-			return a == null ? b : a;
+            if(a.GetType().ToString() == typeName)
+            {
+                return true;
+            }
+            var type = Type.GetType(typeName);
+            if (type.IsInterface)
+            {
+                return a.GetType().GetInterface("IfcColour") != null;
+            }
+            return a.GetType().IsSubclassOf(Type.GetType(typeName));
         }
 
-        public IfcSurface IfcAssociatedSurface(IfcPcurve Arg)
+		
+
+        public static T NVL<T>(T a, T b)
+        {
+            return a == null ? b : a;
+        }
+        //
+
+
+        public static IfcSurface IfcAssociatedSurface(IfcPcurve Arg)
         {
             IfcSurface Surf;
             Surf = Arg.BasisSurface;
@@ -53,7 +72,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public List<IfcDirection> IfcBaseAxis(INTEGER Dim, IfcDirection Axis1, IfcDirection Axis2, IfcDirection Axis3)
+        public static List<IfcDirection> IfcBaseAxis(INTEGER Dim, IfcDirection Axis1, IfcDirection Axis2, IfcDirection Axis3)
         {
             List<IfcDirection> U;
             REAL Factor;
@@ -62,7 +81,7 @@ namespace IFC4
 
             if(Dim == 3)
             {
-                D1 = (IfcDirection) NVL(IfcNormalise(Axis3), new IfcDirection(0,0,1));
+                D1 = NVL(IfcNormalise(Axis3), new IfcDirection(0,0,1));
                 D2 = IfcFirstProjAxis(D1, Axis1);
                 U = new List<IfcDirection>() { IfcSecondProjAxis(D1, D2, Axis2), D1 };
             }
@@ -70,7 +89,7 @@ namespace IFC4
             {
                 if(Axis1!= null)
                 {
-                    D1 = (IfcDirection)IfcNormalise(Axis1);
+                    D1 = IfcNormalise(Axis1);
                     U = new List<IfcDirection>() { D1, IfcOrthogonalComplement(D1) };
                     if (Axis2 != null)
                     {
@@ -84,7 +103,7 @@ namespace IFC4
                 }
                else if (Axis2 != null)
                 {
-                    D1 = (IfcDirection)IfcNormalise(Axis2);
+                    D1 = IfcNormalise(Axis2);
                     U = new List<IfcDirection>() { D1, IfcOrthogonalComplement(D1) };
                     if (Axis2 != null)
                     {
@@ -147,7 +166,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcBase IfcBooleanChoose(BOOLEAN B, IfcBase Choice1, IfcBase Choice2)
+        public static IfcBase IfcBooleanChoose(BOOLEAN B, IfcBase Choice1, IfcBase Choice2)
         {
             if (B)
             {
@@ -169,9 +188,9 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public List<IfcDirection> IfcBuild2Axes(IfcDirection RefDirection)
+        public static List<IfcDirection> IfcBuild2Axes(IfcDirection RefDirection)
         {
-            IfcDirection D = (IfcDirection) NVL( IfcNormalise(RefDirection),new  IfcDirection(1.0, 0.0));
+            IfcDirection D =  NVL( IfcNormalise(RefDirection),new  IfcDirection(1.0, 0.0));
 
             return new List<IfcDirection>() { D, IfcOrthogonalComplement(D)};
         }
@@ -186,13 +205,13 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public List<IfcDirection> IfcBuildAxes(IfcDirection Axis, IfcDirection RefDirection)
+        public static List<IfcDirection> IfcBuildAxes(IfcDirection Axis, IfcDirection RefDirection)
         {
             IfcDirection D1;
             IfcDirection D2;
-            D1 = (IfcDirection)NVL(IfcNormalise(RefDirection), new IfcDirection(0.0, 0.0, 1.0));
+            D1 = NVL(IfcNormalise(RefDirection), new IfcDirection(0.0, 0.0, 1.0));
             D2 = IfcFirstProjAxis(D1, RefDirection);
-            return new List<IfcDirection>() { D2, ((IfcVector) IfcNormalise(IfcCrossProduct(D1, D2))).Orientation , D1}; ;
+            return new List<IfcDirection>() { D2, ( IfcNormalise(IfcCrossProduct(D1, D2))).Orientation , D1}; ;
         }
         /*
         (Axis, RefDirection : IfcDirection) 
@@ -206,7 +225,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public BOOLEAN IfcConsecutiveSegments(List<IfcSegmentIndexSelect> Segments)
+        public static BOOLEAN IfcConsecutiveSegments(List<IfcSegmentIndexSelect> Segments)
         {
             BOOLEAN Result = true;
             for(int i = 0; i < Segments.Count - 1; i++)
@@ -240,14 +259,47 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public BOOLEAN IfcConstraintsParamBSpline(INTEGER Degree, INTEGER UpKnots, INTEGER UpCp, List<INTEGER> KnotMult, List<IfcParameterValue> Knots)
+        public static BOOLEAN IfcConstraintsParamBSpline(INTEGER Degree, INTEGER UpKnots, INTEGER UpCp, List<INTEGER> KnotMult, List<IfcParameterValue> Knots)
         {
             BOOLEAN Result = true;
             INTEGER K;
             INTEGER Sum;
+            Sum = KnotMult[0];
+            for(int i = 1; i < UpKnots; i++)
+            {
+                Sum += KnotMult[i];
+            }
+
+            if(Degree < 1 || UpKnots < 2 || UpCp < Degree || Sum != Degree + UpCp + 2)
+            {
+                Result = false;
+                return Result;
+            }
+
+            K = KnotMult[0];
+            if(K<1 || K > Degree + 1)
+            {
+                Result = false;
+                return Result;
+            }
+            for (int i = 1; i < UpKnots; i++)
+            {
+                if(KnotMult[i] < 1 || Knots[i] <= Knots[i - 1])
+                {
+                    Result = false;
+                    return Result;
+                }
+                K = KnotMult[i];
+                if (K < 1 || K > Degree + 1)
+                {
+                    Result = false;
+                    return Result;
+                }
+
+            }
             //Find sum of knot multiplicities.
 
-            return null;
+            return Result;
         }
         /*
         ( Degree, UpKnots, UpCp : INTEGER;
@@ -300,7 +352,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDirection IfcConvertDirectionInto2D(IfcDirection Direction)
+        public static IfcDirection IfcConvertDirectionInto2D(IfcDirection Direction)
         {
             IfcDirection Direction2D = new IfcDirection(0, 1);
             Direction2D.DirectionRatios[0] = Direction.DirectionRatios[0];
@@ -322,27 +374,44 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcCorrectDimensions(string m, IfcDimensionalExponents Dim)
+        public static LOGICAL IfcCorrectDimensions(IfcUnitEnum m, IfcDimensionalExponents Dim)
         {
+
             switch (m)
             {
                 case IfcUnitEnum.LENGTHUNIT: return Dim.Compare(1, 0, 0, 0, 0, 0, 0);
                 case IfcUnitEnum.MASSUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.TIMEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICCURRENTUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.THERMODYNAMICTEMPERATUREUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.AMOUNTOFSUBSTANCEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.LUMINOUSINTENSITYUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.PLANEANGLEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.SOLIDANGLEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.AREAUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.VOLUMEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.ABSORBEDDOSEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.ABSORBEDDOSEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.ABSORBEDDOSEUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.TIMEUNIT: return Dim.Compare(0, 0, 1, 0, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCURRENTUNIT: return Dim.Compare(0, 0, 0, 1, 0, 0, 0);
+                case IfcUnitEnum.THERMODYNAMICTEMPERATUREUNIT: return Dim.Compare(0, 0, 0, 0, 1, 0, 0);
+                case IfcUnitEnum.AMOUNTOFSUBSTANCEUNIT: return Dim.Compare(0, 0, 0, 0, 0, 1, 0);
+                case IfcUnitEnum.LUMINOUSINTENSITYUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 1);
+                case IfcUnitEnum.PLANEANGLEUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.SOLIDANGLEUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.AREAUNIT: return Dim.Compare(2, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.VOLUMEUNIT: return Dim.Compare(3, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.ABSORBEDDOSEUNIT: return Dim.Compare(2, 0, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.RADIOACTIVITYUNIT: return Dim.Compare(0, 0, -1, 0, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCAPACITANCEUNIT: return Dim.Compare(-2, -1, 4, 2, 0, 0, 0);
+                case IfcUnitEnum.DOSEEQUIVALENTUNIT: return Dim.Compare(2, 0, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCHARGEUNIT: return Dim.Compare(0, 0, 1, 1, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCONDUCTANCEUNIT: return Dim.Compare(-2, -1, 3, 2, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICVOLTAGEUNIT: return Dim.Compare(2, 1, -3, -1, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICRESISTANCEUNIT: return Dim.Compare(2, 1, -3, -2, 0, 0, 0);
+                case IfcUnitEnum.ENERGYUNIT: return Dim.Compare(2, 1, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.FORCEUNIT: return Dim.Compare(1, 1, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.FREQUENCYUNIT: return Dim.Compare(0, 0, -1, 0, 0, 0, 0);
+                case IfcUnitEnum.INDUCTANCEUNIT: return Dim.Compare(2, 1, -2, -2, 0, 0, 0);
+                case IfcUnitEnum.ILLUMINANCEUNIT: return Dim.Compare(-2, 0, 0, 0, 0, 0, 1);
+                case IfcUnitEnum.LUMINOUSFLUXUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 1);
+                case IfcUnitEnum.MAGNETICFLUXUNIT: return Dim.Compare(2, 1, -2, -1, 0, 0, 0);
+                case IfcUnitEnum.MAGNETICFLUXDENSITYUNIT: return Dim.Compare(0, 1, -2, -1, 0, 0, 0);
+                case IfcUnitEnum.POWERUNIT: return Dim.Compare(2, 1, -3, 0, 0, 0, 0);
+                case IfcUnitEnum.PRESSUREUNIT: return Dim.Compare(-1, 1, -2, 0, 0, 0, 0);
 
+                default: return null;
             }
-            return null;
+            
         }
         /*
         (m   : IfcUnitEnum; Dim : IfcDimensionalExponents) : LOGICAL;  
@@ -500,14 +569,36 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcCorrectFillAreaStyle(SET[1:?] OF IfcFillStyleSelect Styles)
+        public static LOGICAL IfcCorrectFillAreaStyle(List< IfcFillStyleSelect> Styles)
         {
             INTEGER Hatching = 0;
             INTEGER Tiles = 0;
             INTEGER Colour = 0;
             INTEGER External = 0;
 
-            return null;
+
+            External = Styles.Where(e => InTypeOf(e, "IfcExternallyDefinedHatchStyle")).Count();
+            Hatching = Styles.Where(e => InTypeOf(e, "IfcFillAreaStyleHatching")).Count();
+            Tiles = Styles.Where(e => InTypeOf(e, "IfcFillAreaStyleTiles")).Count();
+            Colour = Styles.Where(e => InTypeOf(e, "IfcColour")).Count();
+
+            if(External > 1)
+            {
+                return false;
+            }
+
+            if(External == 1 && (Hatching > 0 || Tiles > 0 || Colour > 0)){
+                return false;
+            }
+            if(Colour > 1)
+            {
+                return false;
+            }
+            if(Hatching > 0 && Tiles > 0)
+            {
+                return false;
+            }
+            return true;
         }
         /*
         (Styles : SET[1:?] OF IfcFillStyleSelect)
@@ -560,8 +651,39 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcCorrectLocalPlacement(IfcAxis2Placement AxisPlacement, IfcObjectPlacement RelPlacement)
+        public static LOGICAL IfcCorrectLocalPlacement(IfcAxis2Placement AxisPlacement, IfcObjectPlacement RelPlacement)
         {
+            if(RelPlacement!= null)
+            {
+                if (InTypeOf(RelPlacement, "IfcGridPlacement"))
+                {
+                    return null;
+                }
+                if (InTypeOf(RelPlacement, "IfcLocalPlacement"))
+                {
+                    if (InTypeOf(AxisPlacement, "IfcAxis2Placement2D"))
+                    {
+                        return true;
+                    }
+                    if (InTypeOf(AxisPlacement, "IfcAxis2Placement3D"))
+                    {
+                        if( ((IfcPlacement) ((IfcLocalPlacement) RelPlacement).RelativePlacement).Dim ==3)
+                        {
+                            return true;
+                        }
+                        else
+                        {
+                            return false;
+                        }
+
+                     
+                    }
+                }
+            }
+            else
+            {
+                return true;
+            }
             return null;
         }
         /*
@@ -591,11 +713,39 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcCorrectObjectAssignment(IfcObjectTypeEnum Constraint, SET[1:?] OF IfcObjectDefinition Objects)
+        public static LOGICAL IfcCorrectObjectAssignment(IfcObjectTypeEnum Constraint, List<IfcObjectDefinition> Objects)
         {
-            INTEGER Count = 0;
+            if (Constraint == null) return true;
 
-            return null;
+            INTEGER Count = 0;
+            switch (Constraint)
+            {
+                case IfcObjectTypeEnum.NOTDEFINED:
+                    return true;
+                case IfcObjectTypeEnum.PRODUCT:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcProduct")).Count();
+                    return Count == 0;
+                case IfcObjectTypeEnum.PROCESS:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcProcess")).Count();
+                    return Count == 0;
+                case IfcObjectTypeEnum.CONTROL:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcControl")).Count();
+                    return Count == 0;
+                case IfcObjectTypeEnum.RESOURCE:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcResource")).Count();
+                    return Count == 0;
+                case IfcObjectTypeEnum.ACTOR:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcActor")).Count();
+                    return Count == 0;
+                case IfcObjectTypeEnum.GROUP:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcGroup")).Count();
+                    return Count == 0;
+                case IfcObjectTypeEnum.PROJECT:
+                    Count = Objects.Where(temp => InTypeOf(temp, "IfcProject")).Count();
+                    return Count == 0;
+                default:
+                    return null;
+            }
         }
         /*
         (Constraint: IfcObjectTypeEnum; Objects : SET[1:?] OF IfcObjectDefinition)
@@ -651,15 +801,30 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcCorrectUnitAssignment(SET[1:?] OF IfcUnit Units)
+        public static LOGICAL IfcCorrectUnitAssignment(List< IfcUnit> Units)
         {
             INTEGER NamedUnitNumber = 0;
             INTEGER DerivedUnitNumber = 0;
             INTEGER MonetaryUnitNumber = 0;
-            SET OF IfcUnitEnum NamedUnitNames = [];
-            SET OF IfcDerivedUnitEnum DerivedUnitNames = [];
+            List<IfcUnitEnum> NamedUnitNames = new List<IfcUnitEnum> ();
+            List<IfcDerivedUnitEnum> DerivedUnitNames = new List<IfcDerivedUnitEnum>();
+            NamedUnitNumber = Units.Where(temp => InTypeOf(temp, "IfcNamedUnit") && !(((IfcNamedUnit)temp).UnitType == IfcUnitEnum.USERDEFINED)).Count();
+            DerivedUnitNumber = Units.Where(temp => InTypeOf(temp, "IfcDerivedUnit") && !(((IfcDerivedUnit)temp).UnitType == IfcDerivedUnitEnum.USERDEFINED)).Count();
+            MonetaryUnitNumber = Units.Where(temp => InTypeOf(temp, "IfcMonetaryUnit")).Count();
 
-            return null;
+
+            for(int i = 0; i < Units.Count; i++)
+            {
+                if (InTypeOf(Units[i], "IfcNamedUnit") && !(((IfcNamedUnit)Units[i]).UnitType == IfcUnitEnum.USERDEFINED))
+                {
+                    NamedUnitNames.Add(((IfcNamedUnit) Units[i]).UnitType);
+                }
+                if (InTypeOf(Units[i], "IfcDerivedUnit") && !(((IfcDerivedUnit)Units[i]).UnitType == IfcDerivedUnitEnum.USERDEFINED))
+                {
+                    DerivedUnitNames.Add(((IfcDerivedUnit)Units[i]).UnitType);
+                }
+            }
+            return NamedUnitNames.Count == NamedUnitNumber && DerivedUnitNames.Count == DerivedUnitNumber && MonetaryUnitNumber <=1;
         }
         /*
         (Units : SET [1:?] OF IfcUnit)
@@ -690,15 +855,36 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcVector IfcCrossProduct(IfcDirection Arg1, IfcDirection Arg2)
+        public static IfcVector IfcCrossProduct(IfcDirection Arg1, IfcDirection Arg2)
         {
             REAL Mag;
             IfcDirection Res;
-            LIST[3:3] OF REAL  V1;
-            LIST[3:3] OF REAL V2;
+            List<IfcReal>  V1;
+            List<IfcReal>  V2;
             IfcVector Result;
+            if(Arg1 == null || Arg1.Dim == 2 || Arg2 == null || Arg2.Dim == 2)
+            {
+                return null;
+            }
 
-            return null;
+            V1 = IfcNormalise(Arg1).DirectionRatios;
+            V2 = IfcNormalise(Arg2).DirectionRatios;
+            Res = new IfcDirection(V1[1] * V2[2] - V1[2] * V2[1], V1[2] * V2[0] - V1[0] * V2[2], V1[0] * V2[1] - V1[1] * V2[0]);
+            Mag = 0;
+
+            for(int i = 0; i < 3; i++)
+            {
+                Mag += Res.DirectionRatios[i] * Res.DirectionRatios[i];
+            }
+            if(Mag > 0)
+            {
+                Result = new IfcVector(Res, Math.Sqrt(Mag));
+            }
+            else
+            {
+                Result = new IfcVector(Arg1, Math.Sqrt(0));
+            }
+            return Result;
         }
         /*
         (Arg1, Arg2 : IfcDirection) 
@@ -734,9 +920,52 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDimensionCount IfcCurveDim(IfcCurve Curve)
+        public static IfcDimensionCount IfcCurveDim(IfcCurve Curve)
         {
+            if (InTypeOf(Curve, "IfcLine"))
+            {
+                return ((IfcLine)Curve).Pnt.Dim;
+            }
+            if (InTypeOf(Curve, "IfcConic"))
+            {
+                return ((IfcPlacement)((IfcConic)Curve).Position).Dim;
+            }
+            if (InTypeOf(Curve, "IfcPolyline"))
+            {
+               
+            }
+            if (InTypeOf(Curve, "IfcTrimmedCurve"))
+            {
+                return IfcCurveDim(((IfcTrimmedCurve)Curve).BasisCurve);
+            }
+            if (InTypeOf(Curve, "IfcCompositeCurve"))
+            {
+                return ((IfcCompositeCurve)Curve).Segments[0].Dim;
+            }
+            if (InTypeOf(Curve, "IfcBSplineCurve"))
+            {
+                return ((IfcBSplineCurve)Curve).ControlPointsList[0].Dim;
+            }
+            if (InTypeOf(Curve, "IfcOffsetCurve2D"))
+            {
+                return (IfcDimensionCount) 2;
+            }
+            if (InTypeOf(Curve, "IfcOffsetCurve3D"))
+            {
+                return (IfcDimensionCount) 3;
+            }
+            if (InTypeOf(Curve, "IfcPcurve"))
+            {
+                return (IfcDimensionCount)3;
+            }
+            if (InTypeOf(Curve, "IfcIndexedPolyCurve"))
+            {
+                return   ((IfcIndexedPolyCurve)Curve).Points.Dim;
+            }
             return null;
+            
+            
+        
         }
         /*
         (Curve : IfcCurve)
@@ -776,11 +1005,20 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public BOOLEAN IfcCurveWeightsPositive(IfcRationalBSplineCurveWithKnots B)
+        public static BOOLEAN IfcCurveWeightsPositive(IfcRationalBSplineCurveWithKnots B)
         {
-            BOOLEAN Result = TRUE;
+            BOOLEAN Result = true;
 
-            return null;
+            for(int i = 0; i< B.UpperIndexOnControlPoints; i++)
+            {
+                if (B.Weights[i] < 0)
+                {
+                    Result = false;
+                    return Result;
+                }
+            }
+
+            return Result;
         }
         /*
         ( B: IfcRationalBSplineCurveWithKnots)
@@ -800,11 +1038,22 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDimensionalExponents IfcDeriveDimensionalExponents(SET[1:?] OF IfcDerivedUnitElement UnitElements)
+        public static IfcDimensionalExponents IfcDeriveDimensionalExponents(List<IfcDerivedUnitElement> UnitElements)
         {
-            IfcDimensionalExponents Result = IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);
+            IfcDimensionalExponents Result = new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);
+            for(int i = 0; i < UnitElements.Count; i++)
+            {
+                Result.LengthExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.LengthExponent;
+                Result.MassExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.MassExponent;
+                Result.TimeExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.TimeExponent;
+                Result.ElectricCurrentExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.ElectricCurrentExponent;
+                Result.ThermodynamicTemperatureExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.ThermodynamicTemperatureExponent;
+                Result.AmountOfSubstanceExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.AmountOfSubstanceExponent;
+                Result.LuminousIntensityExponent += UnitElements[i].Exponent * UnitElements[i].Unit.Dimensions.LuminousIntensityExponent;
 
-            return null;
+            }
+
+            return Result;
         }
         /*
         (UnitElements : SET [1:?] OF IfcDerivedUnitElement)
@@ -840,8 +1089,42 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDimensionalExponents IfcDimensionsForSiUnit(IfcSIUnitName n)
+        public static IfcDimensionalExponents IfcDimensionsForSiUnit(IfcSIUnitName n)
         {
+            switch (n)
+            {
+                case "METRE": return new IfcDimensionalExponents(1, 0, 0, 0, 0, 0, 0);
+                case "SQUARE_METRE": return new IfcDimensionalExponents(2, 0, 0, 0, 0, 0, 0);
+                case "CUBIC_METRE": return new IfcDimensionalExponents(3, 0, 0, 0, 0, 0, 0);
+                case "GRAM": return new IfcDimensionalExponents(0, 1, 0, 0, 0, 0, 0);
+                case "SECOND": return new IfcDimensionalExponents(0, 0, 1, 0, 0, 0, 0);
+                case "AMPERE": return new IfcDimensionalExponents(0, 0, 0, 1, 0, 0, 0);
+                case "KELVIN": return new IfcDimensionalExponents(0, 0, 0, 0, 1, 0, 0);
+                case "MOLE": return new IfcDimensionalExponents(0, 0, 0, 0, 0, 1, 0);
+                case "CANDELA": return new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 1);
+                case "RADIAN": return new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);
+                case "STERADIAN": return new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);
+                case "HERTZ": return new IfcDimensionalExponents(0, 0, -1, 0, 0, 0, 0);
+                case "NEWTON": return new IfcDimensionalExponents(1, 1, -2, 0, 0, 0, 0);
+                case "PASCAL": return new IfcDimensionalExponents(-1, 1, -2, 0, 0, 0, 0);
+                case "JOULE": return new IfcDimensionalExponents(2, 1, -2, 0, 0, 0, 0);
+                case "WATT": return new IfcDimensionalExponents(2, 1, -3, 0, 0, 0, 0);
+                case "COULOMB": return new IfcDimensionalExponents(0, 0, 1, 1, 0, 0, 0);
+                case "VOLT": return new IfcDimensionalExponents(2, 1, -3, -1, 0, 0, 0);
+                case "FARAD": return new IfcDimensionalExponents(-2, -1, 4, 2, 0, 0, 0);
+                case "OHM": return new IfcDimensionalExponents(2, 1, -3, -2, 0, 0, 0);
+                case "SIEMENS": return new IfcDimensionalExponents(-2, -1, 3, 2, 0, 0, 0);
+                case "WEBER": return new IfcDimensionalExponents(2, 1, -2, -1, 0, 0, 0);
+                case "TESLA": return new IfcDimensionalExponents(0, 1, -2, -1, 0, 0, 0);
+                case "HENRY": return new IfcDimensionalExponents(2, 1, -2, -2, 0, 0, 0);
+                case "DEGREE_CELSIUS": return new IfcDimensionalExponents(0, 0, 0, 0, 1, 0, 0);
+                case "LUMEN": return new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 1);
+                case "LUX": return new IfcDimensionalExponents(-2, 0, 0, 0, 0, 0, 1);
+                case "BECQUEREL": return new IfcDimensionalExponents(0, 0, -1, 0, 0, 0, 0);
+                case "GRAY": return new IfcDimensionalExponents(2, 0, -2, 0, 0, 0, 0);
+                case "SIEVERT": return new IfcDimensionalExponents(2, 0, -2, 0, 0, 0, 0);
+                case "OTHERWISE": return new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);
+            }
             return null;
         }
         /*
@@ -913,14 +1196,32 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public REAL IfcDotProduct(IfcDirection Arg1, IfcDirection Arg2)
+        public static REAL IfcDotProduct(IfcDirection Arg1, IfcDirection Arg2)
         {
             REAL Scalar;
             IfcDirection Vec1;
             IfcDirection Vec2;
             INTEGER Ndim;
-
-            return null;
+            if(Arg1 == null || Arg2 == null)
+            {
+                Scalar = null;
+            }
+            else if (Arg1.Dim != Arg2.Dim)
+            {
+                Scalar = null;
+            }
+            else
+            {
+                Vec1 = IfcNormalise(Arg1);
+                Vec2 = IfcNormalise(Arg2);
+                Ndim = Arg1.Dim;
+                Scalar = 0;
+                for(int i =0; i < Ndim;i++)
+                {
+                    Scalar += Vec1.DirectionRatios[i] * Vec2.DirectionRatios[i];
+                }          
+            }
+            return Scalar;
         }
         /*
         (Arg1, Arg2 : IfcDirection) 
@@ -952,14 +1253,50 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDirection IfcFirstProjAxis(IfcDirection ZAxis, IfcDirection Arg)
+        public static IfcDirection IfcFirstProjAxis(IfcDirection ZAxis, IfcDirection Arg)
         {
             IfcDirection XAxis;
             IfcDirection V;
             IfcDirection Z;
             IfcVector XVec;
-
-            return null;
+            if(ZAxis == null)
+            {
+                return null;
+            }
+            else
+            {
+                Z = IfcNormalise(ZAxis);
+                if(Arg == null)
+                {
+                    if(Z.DirectionRatios != new List<IfcReal>() { (IfcReal) 1, (IfcReal)0, (IfcReal)0 })
+                    {
+                        V = new IfcDirection(1, 0, 0);
+                    }
+                    else
+                    {
+                        V = new IfcDirection(0, 1, 0);
+                    }
+                }
+                else
+                {
+                    if(Arg.Dim!= 3)
+                    {
+                        return null;
+                    }
+                    if(IfcCrossProduct(Arg,Z).Magnitude == 0)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        V = IfcNormalise(Arg);
+                    }
+                }
+                XVec = IfcScalarTimesVector(IfcDotProduct(V, Z), Z);
+                XAxis = IfcVectorDifference(V, XVec).Orientation;
+                XAxis = IfcNormalise(XAxis);
+                return XAxis;
+            }
         }
         /*
         (ZAxis, Arg : IfcDirection) : IfcDirection;
@@ -998,12 +1335,41 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public SET[0:2] OF IfcSurface IfcGetBasisSurface(IfcCurveOnSurface C)
+        public static List<IfcSurface> IfcGetBasisSurface(IfcCurveOnSurface C)
         {
-            SET[0:2] OF IfcSurface   Surfs;
+            //NeedCheck
+            List<IfcSurface> Surfs;
             INTEGER N;
+            Surfs = new List<IfcSurface>();
 
-            return null;
+            if (InTypeOf(C, "IfcPcurve")){
+                Surfs = new List<IfcSurface>() { ((IfcPcurve)C).BasisSurface };
+            }
+            else if(InTypeOf(C, "IfcSurfaceCurve"))
+            {
+                N = ((IfcSurfaceCurve)C).AssociatedGeometry.Count;
+                for(int i = 0; i < N; i++)
+                {
+                    Surfs.Add(IfcAssociatedSurface(((IfcSurfaceCurve)C).AssociatedGeometry[i]));
+                }
+            }
+            if(InTypeOf(C, "IfcCompositeCurveOnSurface"))
+            {
+                // (* For an IfcCompositeCurveOnSurface the BasisSurface is the intersection of the BasisSurface of all the segments. *)
+                N = ((IfcCompositeCurve)C).Segments.Count;
+                Surfs = IfcGetBasisSurface((IfcCurveOnSurface)((IfcCompositeCurve)C).Segments[0].ParentCurve);
+                if(N > 1)
+                {
+                    for(int i = 1; i < N; i++)
+                    {
+                        Surfs.AddRange(IfcGetBasisSurface((IfcCurveOnSurface)((IfcCompositeCurve)C).Segments[i].ParentCurve));
+                    }
+                }
+            }
+
+
+            return Surfs;
+         
         }
         /*
         (C : IfcCurveOnSurface) : SET[0:2] OF IfcSurface;
@@ -1040,12 +1406,26 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public ARRAY OF GENERIC : T IfcListToArray(LIST[0:?] OF GENERIC : T Lis, INTEGER Low, INTEGER U)
+        public static List<object> IfcListToArray(List<object> Lis, INTEGER Low, INTEGER U)
         {
+            //NeedCheck
             INTEGER N;
-            ARRAY[Low: U] OF GENERIC : T Res;
-
-            return null;
+            List<object> Res;
+            N = Lis.Count;
+            if(N!= U-Low + 1)
+            {
+                return null;
+            }
+            else
+            {
+                Res = new List<object>();
+                for(int i = 1; i < N; i++)
+                {
+                    Res[Low + i - 1] = Lis[i];
+                }
+                return Res;
+            }
+          
         }
         /*
         (Lis : LIST [0:?] OF GENERIC : T;
@@ -1068,10 +1448,16 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcLoopHeadToTail(IfcEdgeLoop ALoop)
+        public static LOGICAL IfcLoopHeadToTail(IfcEdgeLoop ALoop)
         {
             INTEGER N;
-            LOGICAL P = TRUE;
+            LOGICAL P = true;
+
+            N = ALoop.EdgeList.Count();
+            for(int i = 1; i < N; i++)
+            {
+                P = P && ALoop.EdgeList[i - 1].EdgeEnd == ALoop.EdgeList[i].EdgeStart;
+            }
 
             return null;
         }
@@ -1091,9 +1477,10 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public ARRAY[Low1:U1] OF ARRAY[Low2:U2] OF GENERIC : T IfcMakeArrayOfArray(LIST[1:?] OF LIST[1:?] OF GENERIC : T Lis, INTEGER Low1, INTEGER U1, INTEGER Low2, INTEGER U2)
+        public static List<List<object>> IfcMakeArrayOfArray(List<List<object>> Lis, INTEGER Low1, INTEGER U1, INTEGER Low2, INTEGER U2)
         {
-            ARRAY[Low1: U1] OF ARRAY[Low2:U2] OF GENERIC : T Res;
+            //Later
+            List<List<object>> Res;
 
             return null;
         }
@@ -1126,11 +1513,18 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcLengthMeasure IfcMlsTotalThickness(IfcMaterialLayerSet LayerSet)
+        public static IfcLengthMeasure IfcMlsTotalThickness(IfcMaterialLayerSet LayerSet)
         {
-            IfcLengthMeasure Max = LayerSet.MaterialLayers[1].LayerThickness;
+            IfcLengthMeasure Max = LayerSet.MaterialLayers[0].LayerThickness;
+            if(LayerSet.MaterialLayers.Count > 0)
+            {
+                for(int i = 1; i < LayerSet.MaterialLayers.Count; i++)
+                {
+                    Max += LayerSet.MaterialLayers[i].LayerThickness;
+                }
+            }
 
-            return null;
+            return Max;
         }
         /*
         (LayerSet : IfcMaterialLayerSet) : IfcLengthMeasure;
@@ -1146,8 +1540,15 @@ namespace IFC4
           RETURN (Max);
         END_FUNCTION;
         */
-
-        public IfcVectorOrDirection IfcNormalise(IfcVectorOrDirection Arg)
+        public static IfcVector IfcNormalise(IfcVector Arg)
+        {
+            return (IfcVector)IfcNormalise((IfcVectorOrDirection)Arg);
+        }
+        public static IfcDirection IfcNormalise(IfcDirection Arg)
+        {
+            return (IfcDirection)IfcNormalise((IfcVectorOrDirection)Arg);
+        }
+        public static IfcVectorOrDirection IfcNormalise(IfcVectorOrDirection Arg)
         {
             INTEGER Ndim;
             IfcDirection V =new IfcDirection(1, 0);
@@ -1267,10 +1668,17 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDirection IfcOrthogonalComplement(IfcDirection Vec)
+        public static IfcDirection IfcOrthogonalComplement(IfcDirection Vec)
         {
             IfcDirection Result;
-
+            if(Vec == null || Vec.Dim != 2)
+            {
+                return null;
+            }
+            else
+            {
+                Result = new IfcDirection(-Vec.DirectionRatios[1], Vec.DirectionRatios[0]);
+            }
             return null;
         }
         /*
@@ -1288,12 +1696,23 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcPathHeadToTail(IfcPath APath)
+        public static LOGICAL IfcPathHeadToTail(IfcPath APath)
         {
             INTEGER N = 0;
-            LOGICAL P = UNKNOWN;
-
-            return null;
+            LOGICAL P = null;
+            N = APath.EdgeList.Count;
+            for(int i = 2; i < N; i++)
+            {
+                if(P == null)
+                {
+                    P = APath.EdgeList[i - 1].EdgeEnd == APath.EdgeList[i].EdgeEnd;
+                }
+                else
+                {
+                    P = P && APath.EdgeList[i - 1].EdgeEnd == APath.EdgeList[i].EdgeEnd;
+                }
+            }
+            return P;
         }
         /*
         (APath : IfcPath) : LOGICAL;
@@ -1310,8 +1729,16 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDimensionCount IfcPointListDim(IfcCartesianPointList PointList)
+        public static IfcDimensionCount IfcPointListDim(IfcCartesianPointList PointList)
         {
+            if (InTypeOf(PointList, "IfcCartesianPointList2D"))
+            {
+                return (IfcDimensionCount) 3;
+            }
+            if (InTypeOf(PointList, "IfcCartesianPointList3D"))
+            {
+                return (IfcDimensionCount) 2;
+            }
             return null;
         }
         /*
@@ -1328,9 +1755,11 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcSameAxis2Placement(IfcAxis2Placement ap1, IfcAxis2Placement ap2, REAL Epsilon)
+        public static LOGICAL IfcSameAxis2Placement(IfcAxis2Placement ap1, IfcAxis2Placement ap2, REAL Epsilon)
         {
-            return null;
+            return (IfcSameDirection(ap1.GetP()[0], ap2.GetP()[0], Epsilon) &&
+                  IfcSameDirection(ap1.GetP()[1], ap2.GetP()[1], Epsilon) &&
+                  IfcSameCartesianPoint(ap1.GetLocation(), ap1.GetLocation(), Epsilon));
         }
         /*
         (ap1, ap2 : IfcAxis2Placement; Epsilon : REAL)
@@ -1342,16 +1771,25 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcSameCartesianPoint(IfcCartesianPoint cp1, IfcCartesianPoint cp2, REAL Epsilon)
+        public static LOGICAL IfcSameCartesianPoint(IfcCartesianPoint cp1, IfcCartesianPoint cp2, REAL Epsilon)
         {
-            REAL cp1x = cp1.Coordinates[1];
-            REAL cp1y = cp1.Coordinates[2];
+            REAL cp1x = cp1.Coordinates[0];
+            REAL cp1y = cp1.Coordinates[1];
             REAL cp1z = 0;
-            REAL cp2x = cp2.Coordinates[1];
-            REAL cp2y = cp2.Coordinates[2];
+            REAL cp2x = cp2.Coordinates[0];
+            REAL cp2y = cp2.Coordinates[1];
             REAL cp2z = 0;
-
-            return null;
+            if(cp1.Coordinates.Count >2)
+            {
+                cp1z = cp1.Coordinates[2];
+            }
+            if (cp2.Coordinates.Count > 2)
+            {
+                cp2z = cp2.Coordinates[2];
+            }
+            return IfcSameValue(cp1x, cp2x, Epsilon) &&
+                  IfcSameValue(cp1y, cp2y, Epsilon) &&
+                  IfcSameValue(cp1z, cp2z, Epsilon);
         }
         /*
         (cp1, cp2 : IfcCartesianPoint; Epsilon : REAL)
@@ -1380,7 +1818,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcSameDirection(IfcDirection dir1, IfcDirection dir2, REAL Epsilon)
+        public static LOGICAL IfcSameDirection(IfcDirection dir1, IfcDirection dir2, REAL Epsilon)
         {
             REAL dir1x = dir1.DirectionRatios[1];
             REAL dir1y = dir1.DirectionRatios[2];
@@ -1388,8 +1826,17 @@ namespace IFC4
             REAL dir2x = dir2.DirectionRatios[1];
             REAL dir2y = dir2.DirectionRatios[2];
             REAL dir2z = 0;
-
-            return null;
+            if (dir1.DirectionRatios.Count > 2)
+            {
+                dir1z = dir1.DirectionRatios[2];
+            }
+            if (dir2.DirectionRatios.Count > 2)
+            {
+                dir2z = dir2.DirectionRatios[2];
+            }
+            return IfcSameValue(dir1x, dir2x, Epsilon) &&
+                   IfcSameValue(dir1y, dir2y, Epsilon) &&
+                   IfcSameValue(dir1z, dir2z, Epsilon);
         }
         /*
         (dir1, dir2 : IfcDirection; Epsilon : REAL)
@@ -1417,15 +1864,17 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcSameValidPrecision(REAL Epsilon1, REAL Epsilon2)
+        public static LOGICAL IfcSameValidPrecision(REAL Epsilon1, REAL Epsilon2)
         {
             REAL ValidEps1;
             REAL ValidEps2;
             REAL DefaultEps = 0.000001;
             REAL DerivationOfEps = 1.001;
             REAL UpperEps = 1.0;
-
-            return null;
+            ValidEps1 =  NVL(Epsilon1, DefaultEps);
+            ValidEps2 = NVL(Epsilon2, DefaultEps);
+            return((0.0 < ValidEps1) && (ValidEps1 <= (DerivationOfEps * ValidEps2)) &&
+                   (ValidEps2 <= (DerivationOfEps * ValidEps1)) &&(ValidEps2 < UpperEps));
         }
         /*
         (Epsilon1, Epsilon2 : REAL) : LOGICAL ;
@@ -1443,12 +1892,13 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcSameValue(REAL Value1, REAL Value2, REAL Epsilon)
+        public static LOGICAL IfcSameValue(REAL Value1, REAL Value2, REAL Epsilon)
         {
             REAL ValidEps;
             REAL DefaultEps = 0.000001;
+            ValidEps = NVL(Epsilon, DefaultEps);
 
-            return null;
+            return (Value1 + ValidEps > Value2) && (Value1 < Value2 + ValidEps);
         }
         /*
         (Value1, Value2 : REAL; Epsilon : REAL)
@@ -1463,13 +1913,40 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcVector IfcScalarTimesVector(REAL Scalar, IfcVectorOrDirection Vec)
+        public static IfcVector IfcScalarTimesVector(REAL Scalar, IfcVectorOrDirection Vec)
         {
             IfcDirection V;
             REAL Mag;
             IfcVector Result;
 
-            return null;
+            if(Scalar == null || Vec == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (InTypeOf(Vec, "IfcVector"))
+                {
+                    V = ((IfcVector)Vec).Orientation;
+                    Mag = Scalar * ((IfcVector)Vec).Magnitude;
+                }
+                else
+                {
+                    V = (IfcDirection) Vec;
+                    Mag = Scalar;
+                    
+                }
+                if (Mag < 0)
+                {
+                    for (int i = 0; i < V.DirectionRatios.Count; i++)
+                    {
+                        V.DirectionRatios[i] = (IfcReal)(-V.DirectionRatios[i]);
+                    }
+                    Mag = -Mag;
+                }
+                Result = new IfcVector(IfcNormalise(V), Mag);
+                return Result;
+            }
         }
         /*
         (Scalar : REAL; Vec : IfcVectorOrDirection)
@@ -1502,13 +1979,24 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcDirection IfcSecondProjAxis(IfcDirection ZAxis, IfcDirection XAxis, IfcDirection Arg)
+        public static IfcDirection IfcSecondProjAxis(IfcDirection ZAxis, IfcDirection XAxis, IfcDirection Arg)
         {
             IfcVector YAxis;
             IfcDirection V;
             IfcVector Temp;
+            if(Arg == null)
+            {
+                V = new IfcDirection(0, 1, 0);
+            }
+            else
+            {
+                V = Arg;
+            }
 
-            return null;
+            Temp = IfcScalarTimesVector(IfcDotProduct(V, ZAxis), ZAxis);
+            YAxis = IfcVectorDifference(V, Temp);
+            YAxis = IfcNormalise(YAxis);
+            return YAxis.Orientation;
         }
         /*
         (ZAxis, XAxis, Arg: IfcDirection) 
@@ -1533,11 +2021,159 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcShapeRepresentationTypes(IfcLabel RepType, SET OF IfcRepresentationItem Items)
+        public static LOGICAL IfcShapeRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem> Items)
         {
             INTEGER Count = 0;
+            switch (RepType)
+            {
+                case "Point":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcPoint")).Count();
+                    break;
+                case "PointCloud":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcCartesianPointList3D")).Count();
+                    break;
+                case "Curve": 
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcCurve")).Count();
+                    break;
+                case "Curve2D":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcCurve") && ((IfcCurve)temp).Dim == 2).Count();
+                    break;
+                case "Curve3D":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcCurve") && ((IfcCurve)temp).Dim == 3).Count();
+                    break;
+                case "Surface":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcSurface")).Count();
+                    break;
+                case "Surface2D":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcSurface") && ((IfcSurface)temp).Dim == 2).Count();
+                    break;
+                case "Surface3D":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcSurface") && ((IfcSurface)temp).Dim == 3).Count();
+                    break;
+                case "FillArea":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcAnnotationFillArea")).Count();
+                    break;
+                case "Text":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcTextLiteral")).Count();
+                    break;
+                case "AdvancedSurface": 
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcBSplineSurface")).Count();
+                    break;
+                case "Annotation2D":
+                    // needcheck
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcPoint")||
+                    InTypeOf(temp, "IfcCurve")||
+                    InTypeOf(temp, "IfcGeometricCurveSet")||
+                    InTypeOf(temp, "IfcAnnotationFillArea") ||
+                    InTypeOf(temp, "IfcTextLiteral")
+                    ).Count();
+                    break;
+                case "GeometricSet":
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcGeometricSet") ||
+                    InTypeOf(temp, "IfcPoint") ||
+                    InTypeOf(temp, "IfcCurve") ||
+                    InTypeOf(temp, "IfcSurface")
+                    ).Count();
+                    break;
 
-            return null;
+                case "GeometricCurveSet":
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcGeometricCurveSet") ||
+                    InTypeOf(temp, "IfcGeometricSet") ||
+                    InTypeOf(temp, "IfcPoint") ||
+                    InTypeOf(temp, "IfcCurve")
+                    ).Count();
+                    for(int i = 0; i < Items.Count; i++)
+                    {
+                        if(InTypeOf(Items[i], "IfcGeometricSet"))
+                        {
+                            if (((IfcGeometricSet)Items[i]).Elements.Where(temp =>InTypeOf(temp, "IfcSurface")).Count()> 0)
+                            {
+                                Count--;
+                            }
+                        }
+                    }
+                    break;
+                case "Tessellation":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcTessellatedItem")).Count();
+                    break;
+                case "SurfaceOrSolidModel":
+                    // needcheck
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcTessellatedItem") ||
+                    InTypeOf(temp, "IfcShellBasedSurfaceModel") ||
+                    InTypeOf(temp, "IfcFaceBasedSurfaceModel") ||
+                    InTypeOf(temp, "IfcSolidModel")
+                    ).Count();
+                    break;
+
+                case "SurfaceModel":
+                    // needcheck
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcTessellatedItem") ||
+                    InTypeOf(temp, "IfcShellBasedSurfaceModel") ||
+                    InTypeOf(temp, "IfcFaceBasedSurfaceModel")
+                    ).Count();
+                    break;
+                case "SolidModel":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcSolidModel")).Count();
+                    break;
+                case "SweptSolid":
+                    Count = Items.Where(temp =>(
+                        InTypeOf(temp, "IfcExtrudedAreaSolid") ||
+                        InTypeOf(temp, "IfcRevolvedAreaSolid")
+                    ) &&(
+                        !InTypeOf(temp, "IfcExtrudedAreaSolidTapered") &&
+                        !InTypeOf(temp, "IfcRevolvedAreaSolidTapered")
+                    )
+                    ).Count();
+                    break; ;
+                case "AdvancedSweptSolid":
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcSweptAreaSolid") ||
+                    InTypeOf(temp, "IfcSweptDiskSolid")
+                    ).Count();
+                    break;
+                case "CSG":
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcBooleanResult") ||
+                    InTypeOf(temp, "IfcCsgPrimitive3D") ||
+                    InTypeOf(temp, "IfcCsgSolid")
+                    ).Count();
+                    break;
+                case "Clipping":
+                    Count = Items.Where(temp =>
+                    InTypeOf(temp, "IfcCsgSolid") ||
+                    InTypeOf(temp, "IfcBooleanClippingResult")
+                    ).Count();
+                    break;
+                case "Brep":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcFacetedBrep")).Count();
+                    break;
+                case "AdvancedBrep":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcManifoldSolidBrep")).Count();
+                    break;
+                case "BoundingBox":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcBoundingBox")).Count();
+                    if(Items.Count > 1)
+                    {
+                        Count = 0;
+                    }
+                    break;
+                case "SectionedSpine":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcSectionedSpine")).Count();
+                    break;
+                case "LightSource":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcLightSource")).Count();
+                    break;
+                case "MappedRepresentation":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcMappedItem")).Count();
+                    break;
+                default: break;
+            }
+            return Count == Items.Count;
         }
         /*
         (RepType : IfcLabel; Items : SET OF IfcRepresentationItem) : LOGICAL;
@@ -1749,12 +2385,21 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public BOOLEAN IfcSurfaceWeightsPositive(IfcRationalBSplineSurfaceWithKnots B)
+        public static BOOLEAN IfcSurfaceWeightsPositive(IfcRationalBSplineSurfaceWithKnots B)
         {
-            BOOLEAN Result = TRUE;
-            ARRAY[0   Weights  B\IfcBSplineSurface.UUpper] OF ARRAY[0 : B\IfcBSplineSurface.VUpper ] OF REAL := B.Weights;
+            BOOLEAN Result = true;
+            List<List<IfcReal>> Weights = B.Weights;
 
-            return null;
+            for(int i = 0; i < B.UUpper; i++)
+            {
+                for (int j = 0; j < B.VUpper; j++)
+                {
+                    Result = false;
+                    return Result;
+                }
+            }
+
+            return Result;
         }
         /*
         ( B: IfcRationalBSplineSurfaceWithKnots) 
@@ -1777,11 +2422,33 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcTaperedSweptAreaProfiles(IfcProfileDef StartArea, IfcProfileDef EndArea)
+        public static LOGICAL IfcTaperedSweptAreaProfiles(IfcProfileDef StartArea, IfcProfileDef EndArea)
         {
-            LOGICAL Result = FALSE;
+            LOGICAL Result = false;
 
-            return null;
+            if (InTypeOf(StartArea, "IfcParameterizedProfileDef"))
+            {
+                if (InTypeOf(EndArea, "IfcDerivedProfileDef"))
+                {
+                    Result= StartArea == ((IfcDerivedProfileDef)EndArea).ParentProfile;
+                }
+                else
+                {
+                    Result =StartArea.GetType() == EndArea.GetType();
+                }
+            }
+            else
+            {
+                if (InTypeOf(EndArea, "IfcDerivedProfileDef"))
+                {
+                    Result = StartArea == ((IfcDerivedProfileDef)EndArea).ParentProfile;
+                }
+                else
+                {
+                    Result = false;
+                }
+            }
+            return Result;
         }
         /*
         (StartArea, EndArea : IfcProfileDef)
@@ -1809,11 +2476,33 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcTopologyRepresentationTypes(IfcLabel RepType, SET OF IfcRepresentationItem Items)
+        public static LOGICAL IfcTopologyRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem>Items)
         {
             INTEGER Count = 0;
-
-            return null;
+            switch (RepType)
+            {
+                case "Vertex":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcVertex")).Count();
+                    break;
+                case "Edge":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcEdge")).Count();
+                    break;
+                case "Path":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcPath")).Count();
+                    break;
+                case "Face":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcFace") ).Count();
+                    break;
+                case "Shell":
+                    Count = Items.Where(temp => InTypeOf(temp, "IfcOpenShell") || InTypeOf(temp, "IfcClosedShell")).Count();
+                    break;
+                case "Undefined":
+                    return true;
+                default:
+                    return null;
+                  
+            }
+            return Count == Items.Count;
         }
         /*
         (RepType : IfcLabel; Items : SET OF IfcRepresentationItem) : LOGICAL;
@@ -1856,14 +2545,38 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcUniqueDefinitionNames(SET[1:?] OF IfcRelDefinesByProperties Relations)
+        public static LOGICAL IfcUniqueDefinitionNames(List< IfcRelDefinesByProperties> Relations)
         {
             IfcPropertySetDefinitionSelect Definition;
             IfcPropertySetDefinitionSet DefinitionSet;
-            SET OF IfcPropertySetDefinition Properties = [];
+            List<IfcPropertySetDefinition> Properties = new List<IfcPropertySetDefinition>();
             LOGICAL Result;
-
-            return null;
+            if(Relations.Count == 0)
+            {
+                return true;
+            }
+            for(int i = 0;i < Relations.Count; i++)
+            {
+                Definition = Relations[i].RelatingPropertyDefinition;
+                if (InTypeOf(Definition, "IfcPropertySetDefinition"))
+                {
+                    Properties.Add((IfcPropertySetDefinition) Definition);
+                }
+                else
+                {
+                    if (InTypeOf(Definition, "IfcPropertySetDefinitionSet"))
+                    {
+                        DefinitionSet = (IfcPropertySetDefinitionSet)Definition;
+                        for(int j = 0; j < DefinitionSet.Value.Count; i++)
+                        {
+                            Properties.Add(DefinitionSet.Value[i]);
+                        }
+                        
+                    }
+                }
+            }
+            Result = IfcUniquePropertySetNames(Properties);
+            return Result;
         }
         /*
         (Relations : SET [1:?] OF IfcRelDefinesByProperties)
@@ -1901,11 +2614,18 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcUniquePropertyName(SET[1:?] OF IfcProperty Properties)
+        public static LOGICAL IfcUniquePropertyName(List< IfcProperty> Properties)
         {
-            SET OF IfcIdentifier Names = [];
-
-            return null;
+            List<IfcIdentifier> Names = new List<IfcIdentifier>() ;
+            for (int i = 0; i < Properties.Count; i++)
+            {
+                var name = Properties[i].Name;
+                if (!Names.Contains(name))
+                {
+                    Names.Add(name);
+                }
+            }
+            return Names.Count == Properties.Count;
         }
         /*
         (Properties : SET [1:?] OF IfcProperty)
@@ -1923,12 +2643,27 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcUniquePropertySetNames(SET[1:?] OF IfcPropertySetDefinition Properties)
+        public static LOGICAL IfcUniquePropertySetNames(List<IfcPropertySetDefinition> Properties)
         {
-            SET OF IfcLabel Names = [];
+            List<IfcLabel> Names = new List<IfcLabel>();
             INTEGER Unnamed = 0;
-
-            return null;
+            for(int i = 0; i < Properties.Count; i++)
+            {
+                if (InTypeOf(Properties[i], "IfcPropertySet"))
+                {
+                    var name = Properties[i].Name;
+                    if (!Names.Contains(name))
+                    {
+                        Names.Add(name);
+                    }
+                }
+                else
+                {
+                    Unnamed++;
+                }
+               
+            }
+            return Names.Count + Unnamed == Properties.Count;
         }
         /*
         (Properties : SET [1:?] OF IfcPropertySetDefinition)
@@ -1951,11 +2686,18 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcUniquePropertyTemplateNames(SET[1:?] OF IfcPropertyTemplate Properties)
+        public static LOGICAL IfcUniquePropertyTemplateNames(List<IfcPropertyTemplate> Properties)
         {
-            SET OF IfcLabel Names = [];
-
-            return null;
+            List<IfcLabel> Names = new List<IfcLabel>();
+            for (int i = 0; i < Properties.Count; i++)
+            {
+                var name = Properties[i].Name;
+                if (!Names.Contains(name))
+                {
+                    Names.Add(name);
+                }
+            }
+            return Names.Count == Properties.Count;
         }
         /*
         (Properties : SET [1:?] OF IfcPropertyTemplate)
@@ -1972,11 +2714,18 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public LOGICAL IfcUniqueQuantityNames(SET[1:?] OF IfcPhysicalQuantity Properties)
+        public static LOGICAL IfcUniqueQuantityNames(List<IfcPhysicalQuantity> Properties)
         {
-            SET OF IfcLabel Names = [];
-
-            return null;
+            List<IfcLabel> Names = new List<IfcLabel>();
+            for (int i = 0; i < Properties.Count; i++)
+            {
+                var name = Properties[i].Name;
+                if (!Names.Contains(name))
+                {
+                    Names.Add(name);
+                }
+            }
+            return Names.Count == Properties.Count;
         }
         /*
         (Properties : SET [1:?] OF IfcPhysicalQuantity)
@@ -1993,7 +2742,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcVector IfcVectorDifference(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
+        public static IfcVector IfcVectorDifference(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
         {
             IfcVector Result;
             IfcDirection Res;
@@ -2003,8 +2752,53 @@ namespace IFC4
             REAL Mag1;
             REAL Mag2;
             INTEGER Ndim;
-
-            return null;
+            if(Arg1 == null || Arg2 == null || Arg1.GetDim()!= Arg2.GetDim())
+            {
+                return null;
+            }
+            else
+            {
+                if (InTypeOf(Arg1, "IfcVector"))
+                {
+                    Mag1 = ((IfcVector)Arg1).Magnitude;
+                    Vec1 = ((IfcVector)Arg1).Orientation;
+                }
+                else
+                {
+                    Mag1 = 1;
+                    Vec1 = (IfcDirection) Arg1;
+                }
+                if (InTypeOf(Arg2, "IfcVector"))
+                {
+                    Mag2 = ((IfcVector)Arg2).Magnitude;
+                    Vec2 = ((IfcVector)Arg2).Orientation;
+                }
+                else
+                {
+                    Mag2 = 1;
+                    Vec2 = (IfcDirection)Arg2;
+                }
+                Vec1 = IfcNormalise(Vec1);
+                Vec2 = IfcNormalise(Vec2);
+                Ndim = Vec1.DirectionRatios.Count;
+                Mag = 0;
+                Res = Ndim == 2? new IfcDirection(0, 0): new IfcDirection(0, 0, 0);
+                
+                for(int i = 0; i < Ndim; i++)
+                {
+                    Res.DirectionRatios[i] = (IfcReal) (Mag1 * Vec1.DirectionRatios[i] - Mag2 * Vec2.DirectionRatios[i]);
+                    Mag += (IfcReal)(Res.DirectionRatios[i] * Res.DirectionRatios[i]);
+                }
+                if(Mag > 0)
+                {
+                    Result = new IfcVector(Res, Math.Sqrt(Mag));
+                }
+                else
+                {
+                    Result = new IfcVector(Vec1, 0);
+                }
+            }
+            return Result;
         }
         /*
         (Arg1, Arg2 : IfcVectorOrDirection)
@@ -2056,7 +2850,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public IfcVector IfcVectorSum(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
+        public static IfcVector IfcVectorSum(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
         {
             IfcVector Result;
             IfcDirection Res;
@@ -2066,8 +2860,53 @@ namespace IFC4
             REAL Mag1;
             REAL Mag2;
             INTEGER Ndim;
+            if (Arg1 == null || Arg2 == null || Arg1.GetDim() != Arg2.GetDim())
+            {
+                return null;
+            }
+            else
+            {
+                if (InTypeOf(Arg1, "IfcVector"))
+                {
+                    Mag1 = ((IfcVector)Arg1).Magnitude;
+                    Vec1 = ((IfcVector)Arg1).Orientation;
+                }
+                else
+                {
+                    Mag1 = 1;
+                    Vec1 = (IfcDirection)Arg1;
+                }
+                if (InTypeOf(Arg2, "IfcVector"))
+                {
+                    Mag2 = ((IfcVector)Arg2).Magnitude;
+                    Vec2 = ((IfcVector)Arg2).Orientation;
+                }
+                else
+                {
+                    Mag2 = 1;
+                    Vec2 = (IfcDirection)Arg2;
+                }
+                Vec1 = IfcNormalise(Vec1);
+                Vec2 = IfcNormalise(Vec2);
+                Ndim = Vec1.DirectionRatios.Count;
+                Mag = 0;
+                Res = Ndim == 2 ? new IfcDirection(0, 0) : new IfcDirection(0, 0, 0);
 
-            return null;
+                for (int i = 0; i < Ndim; i++)
+                {
+                    Res.DirectionRatios[i] = (IfcReal)(Mag1 * Vec1.DirectionRatios[i] + Mag2 * Vec2.DirectionRatios[i]);
+                    Mag += (IfcReal)(Res.DirectionRatios[i] * Res.DirectionRatios[i]);
+                }
+                if (Mag > 0)
+                {
+                    Result = new IfcVector(Res, Math.Sqrt(Mag));
+                }
+                else
+                {
+                    Result = new IfcVector(Vec1, 0);
+                }
+            }
+            return Result;
         }
         /*
         (Arg1, Arg2 : IfcVectorOrDirection) 
