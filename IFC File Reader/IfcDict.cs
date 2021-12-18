@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,9 @@ namespace IFC4
     {
         public void ImportIFC(string path)
         {
+            
+            
+            // read ifc file
             using (StreamReader reader = new StreamReader(path))
             {
                 while (!(reader.ReadLine() == "DATA;") && !reader.EndOfStream)
@@ -25,13 +29,21 @@ namespace IFC4
                     if (ifcText == "ENDSEC;") break;
                     ReadDataline(ifcText);
                 }
+                reader.Close();
+            }
 
+            // map ifcdata
+            List<IfcBase> items = Values.ToList();
+            Console.WriteLine("end reading");
+            foreach (var item in items)
+            {
+                MapAandSetProperties(item);
             }
         }
 
         private void ReadDataline(string ifcText)
         {
-           // Console.WriteLine(ifcText);
+
             string[] leftright = ifcText.Split('=');
             string key = leftright[0];
             string data = leftright[1].Substring(1);
@@ -39,12 +51,53 @@ namespace IFC4
             string name = data.Substring(0, nameLenght);
             string paraText = data.Substring(nameLenght + 1, data.Length - 3 - nameLenght);
             List<string> paramList = SplitParamText(paraText);
-
-
-
-
-            Add(key, CreateNewInstant(name));
+            IfcBase item = CreateNewInstant(name);
+            item.textParameters = paramList;
+            Add(key, item);
         }
+
+        public List<PropertyInfo> GetProperyList(string name)
+        {
+            Console.WriteLine(name);
+            List<PropertyInfo> propertyInfos = new List<PropertyInfo>();
+            if (name == "IfcBase")
+            {
+                return propertyInfos;
+            }
+            Type objectType = Type.GetType(name);
+            if (objectType.BaseType != null)
+            {
+                propertyInfos = GetProperyList(objectType.BaseType.Name);
+            }
+ 
+            propertyInfos.AddRange(objectType.GetProperties());
+            return propertyInfos;
+        }
+        public void MapAandSetProperties(IfcBase item)
+        {
+            var textParameters = item.textParameters;
+            var itemType = item.GetType();
+            var constructors = itemType.GetConstructors();
+        //    Console.WriteLine(itemType.Name);
+            for (int i = 0; i < constructors.Length; i++)
+            {
+                var parameters = constructors[i].GetParameters();
+                if(parameters.Length == textParameters.Count)
+                {
+                    for(int j = 0; j < textParameters.Count; j++)
+                    {
+                       // Console.WriteLine("\t" + j + ":\t" + parameters[j].Name + " = " + textParameters[j]);
+                        var property= itemType.GetProperty(parameters[j].Name);
+                        var value = GetInstance(textParameters[j], parameters[j].ParameterType);
+                        property.SetValue(item, value);
+                    }
+                    break;
+                }
+            }
+        //    Console.WriteLine();
+        }
+
+
 
         private List<string> SplitParamText(string paramText)
         {
@@ -61,6 +114,7 @@ namespace IFC4
                 if(c == '\'')
                 {
                     readingString = !readingString; // toggle 
+                    scanningText += c;
                 }
                 else if(!readingString && c == '(')
                 {
@@ -94,6 +148,320 @@ namespace IFC4
                 }
             }
             return outputText;
+        }
+        public T CastObject<T>(object input) {   
+    return (T) input;   
+}
+        private dynamic GetInstance(string input, Type type)
+        {
+            if(input.Length == 0)
+            {
+                return null;
+            }
+            if (input == "*")
+            {
+                return null;
+            }
+            if (input == "$")
+            {
+                return CreateNewInstant(type.Name.ToUpper());
+            }
+            if(input.Substring(0, 1) == "'")
+            {
+
+                switch (type.Name)
+                {
+                    case "IfcDate": return (IfcDate)input.Substring(1, input.Length - 2);
+                    case "IfcDateTime": return (IfcDateTime)input.Substring(1, input.Length - 2);
+                    case "IfcDescriptiveMeasure": return (IfcDescriptiveMeasure)input.Substring(1, input.Length - 2);
+                    case "IfcDuration": return (IfcDuration)input.Substring(1, input.Length - 2);
+                    case "IfcFontStyle": return (IfcFontStyle)input.Substring(1, input.Length - 2);
+                    case "IfcFontVariant": return (IfcFontVariant)input.Substring(1, input.Length - 2);
+                    case "IfcFontWeight": return (IfcFontWeight)input.Substring(1, input.Length - 2);
+                    case "IfcGloballyUniqueId": return (IfcGloballyUniqueId)input.Substring(1, input.Length - 2);
+                    case "IfcIdentifier": return (IfcIdentifier)input.Substring(1, input.Length - 2);
+                    case "IfcLabel": return (IfcLabel)input.Substring(1, input.Length - 2);
+                    case "IfcPresentableText": return (IfcPresentableText)input.Substring(1, input.Length - 2);
+                    case "IfcText": return (IfcText)input.Substring(1, input.Length - 2);
+                    case "IfcTextAlignment": return (IfcTextAlignment)input.Substring(1, input.Length - 2);
+                    case "IfcTextDecoration": return (IfcTextDecoration)input.Substring(1, input.Length - 2);
+                    case "IfcTextFontName": return (IfcTextFontName)input.Substring(1, input.Length - 2);
+                    case "IfcTextTransformation": return (IfcTextTransformation)input.Substring(1, input.Length - 2);
+                    case "IfcTime": return (IfcTime)input.Substring(1, input.Length - 2);
+                    case "IfcURIReference": return (IfcURIReference)input.Substring(1, input.Length - 2);
+                }
+
+
+            }
+            
+            if (input.Substring(0,1) == "#")
+            {
+                if(TryGetValue(input,out IfcBase value))
+                {
+                    return value;
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+            if (input.Substring(0, 1) == "(")
+            {
+                var words = SplitParamText(input.Substring(1, input.Length - 2));
+
+            }
+
+            if (int.TryParse(input, out int result))
+            {
+                switch (type.Name)
+                {
+                    case "IfcAbsorbedDoseMeasure": return (IfcAbsorbedDoseMeasure)result;
+                    case "IfcAccelerationMeasure": return (IfcAccelerationMeasure)result;
+                    case "IfcAmountOfSubstanceMeasure": return (IfcAmountOfSubstanceMeasure)result;
+                    case "IfcAngularVelocityMeasure": return (IfcAngularVelocityMeasure)result;
+                 //   case "IfcArcIndex": return (IfcArcIndex)result;
+                    case "IfcAreaDensityMeasure": return (IfcAreaDensityMeasure)result;
+                    case "IfcAreaMeasure": return (IfcAreaMeasure)result;
+                    case "IfcBinary": return (IfcBinary)result;
+                 //   case "IfcBoolean": return (IfcBoolean)result;
+                  //  case "IfcBoxAlignment": return (IfcBoxAlignment)result;
+                    case "IfcCardinalPointReference": return (IfcCardinalPointReference)result;
+                 //   case "IfcComplexNumber": return (IfcComplexNumber)result;
+                 //   case "IfcCompoundPlaneAngleMeasure": return (IfcCompoundPlaneAngleMeasure)result;
+                    case "IfcContextDependentMeasure": return (IfcContextDependentMeasure)result;
+                    case "IfcCountMeasure": return (IfcCountMeasure)result;
+                    case "IfcCurvatureMeasure": return (IfcCurvatureMeasure)result;
+                    case "IfcDayInMonthNumber": return (IfcDayInMonthNumber)result;
+                    case "IfcDayInWeekNumber": return (IfcDayInWeekNumber)result;
+                    case "IfcDimensionCount": return (IfcDimensionCount)result;
+                    case "IfcDoseEquivalentMeasure": return (IfcDoseEquivalentMeasure)result;
+                    case "IfcDynamicViscosityMeasure": return (IfcDynamicViscosityMeasure)result;
+                    case "IfcElectricCapacitanceMeasure": return (IfcElectricCapacitanceMeasure)result;
+                    case "IfcElectricChargeMeasure": return (IfcElectricChargeMeasure)result;
+                    case "IfcElectricConductanceMeasure": return (IfcElectricConductanceMeasure)result;
+                    case "IfcElectricCurrentMeasure": return (IfcElectricCurrentMeasure)result;
+                    case "IfcElectricResistanceMeasure": return (IfcElectricResistanceMeasure)result;
+                    case "IfcElectricVoltageMeasure": return (IfcElectricVoltageMeasure)result;
+                    case "IfcEnergyMeasure": return (IfcEnergyMeasure)result;
+                    case "IfcForceMeasure": return (IfcForceMeasure)result;
+                    case "IfcFrequencyMeasure": return (IfcFrequencyMeasure)result;
+                    case "IfcHeatFluxDensityMeasure": return (IfcHeatFluxDensityMeasure)result;
+                    case "IfcHeatingValueMeasure": return (IfcHeatingValueMeasure)result;
+                    case "IfcIlluminanceMeasure": return (IfcIlluminanceMeasure)result;
+                    case "IfcInductanceMeasure": return (IfcInductanceMeasure)result;
+                    case "IfcInteger": return (IfcInteger)result;
+                    case "IfcIntegerCountRateMeasure": return (IfcIntegerCountRateMeasure)result;
+                    case "IfcIonConcentrationMeasure": return (IfcIonConcentrationMeasure)result;
+                    case "IfcIsothermalMoistureCapacityMeasure": return (IfcIsothermalMoistureCapacityMeasure)result;
+                    case "IfcKinematicViscosityMeasure": return (IfcKinematicViscosityMeasure)result;
+                  //  case "IfcLanguageId": return (IfcLanguageId)result;
+                    case "IfcLengthMeasure": return (IfcLengthMeasure)result;
+                   // case "IfcLineIndex": return (IfcLineIndex)result;
+                    case "IfcLinearForceMeasure": return (IfcLinearForceMeasure)result;
+                    case "IfcLinearMomentMeasure": return (IfcLinearMomentMeasure)result;
+                    case "IfcLinearStiffnessMeasure": return (IfcLinearStiffnessMeasure)result;
+                    case "IfcLinearVelocityMeasure": return (IfcLinearVelocityMeasure)result;
+                  //  case "IfcLogical": return (IfcLogical)result;
+                    case "IfcLuminousFluxMeasure": return (IfcLuminousFluxMeasure)result;
+                    case "IfcLuminousIntensityDistributionMeasure": return (IfcLuminousIntensityDistributionMeasure)result;
+                    case "IfcLuminousIntensityMeasure": return (IfcLuminousIntensityMeasure)result;
+                    case "IfcMagneticFluxDensityMeasure": return (IfcMagneticFluxDensityMeasure)result;
+                    case "IfcMagneticFluxMeasure": return (IfcMagneticFluxMeasure)result;
+                    case "IfcMassDensityMeasure": return (IfcMassDensityMeasure)result;
+                    case "IfcMassFlowRateMeasure": return (IfcMassFlowRateMeasure)result;
+                    case "IfcMassMeasure": return (IfcMassMeasure)result;
+                    case "IfcMassPerLengthMeasure": return (IfcMassPerLengthMeasure)result;
+                    case "IfcModulusOfElasticityMeasure": return (IfcModulusOfElasticityMeasure)result;
+                    case "IfcModulusOfLinearSubgradeReactionMeasure": return (IfcModulusOfLinearSubgradeReactionMeasure)result;
+                    case "IfcModulusOfRotationalSubgradeReactionMeasure": return (IfcModulusOfRotationalSubgradeReactionMeasure)result;
+                    case "IfcModulusOfSubgradeReactionMeasure": return (IfcModulusOfSubgradeReactionMeasure)result;
+                    case "IfcMoistureDiffusivityMeasure": return (IfcMoistureDiffusivityMeasure)result;
+                    case "IfcMolecularWeightMeasure": return (IfcMolecularWeightMeasure)result;
+                    case "IfcMomentOfInertiaMeasure": return (IfcMomentOfInertiaMeasure)result;
+                    case "IfcMonetaryMeasure": return (IfcMonetaryMeasure)result;
+                    case "IfcMonthInYearNumber": return (IfcMonthInYearNumber)result;
+                    case "IfcNonNegativeLengthMeasure": return (IfcNonNegativeLengthMeasure)result;
+                    case "IfcNormalisedRatioMeasure": return (IfcNormalisedRatioMeasure)result;
+                    case "IfcNumericMeasure": return (IfcNumericMeasure)result;
+                    case "IfcPHMeasure": return (IfcPHMeasure)result;
+                    case "IfcParameterValue": return (IfcParameterValue)result;
+                    case "IfcPlanarForceMeasure": return (IfcPlanarForceMeasure)result;
+                    case "IfcPlaneAngleMeasure": return (IfcPlaneAngleMeasure)result;
+                    case "IfcPositiveInteger": return (IfcPositiveInteger)result;
+                    case "IfcPositiveLengthMeasure": return (IfcPositiveLengthMeasure)result;
+                    case "IfcPositivePlaneAngleMeasure": return (IfcPositivePlaneAngleMeasure)result;
+                    case "IfcPositiveRatioMeasure": return (IfcPositiveRatioMeasure)result;
+                    case "IfcPowerMeasure": return (IfcPowerMeasure)result;
+                    case "IfcPressureMeasure": return (IfcPressureMeasure)result;
+                   // case "IfcPropertySetDefinitionSet": return (IfcPropertySetDefinitionSet)result;
+                    case "IfcRadioActivityMeasure": return (IfcRadioActivityMeasure)result;
+                    case "IfcRatioMeasure": return (IfcRatioMeasure)result;
+                    case "IfcReal": return (IfcReal)result;
+                    case "IfcRotationalFrequencyMeasure": return (IfcRotationalFrequencyMeasure)result;
+                    case "IfcRotationalMassMeasure": return (IfcRotationalMassMeasure)result;
+                    case "IfcRotationalStiffnessMeasure": return (IfcRotationalStiffnessMeasure)result;
+                    case "IfcSectionModulusMeasure": return (IfcSectionModulusMeasure)result;
+                    case "IfcSectionalAreaIntegralMeasure": return (IfcSectionalAreaIntegralMeasure)result;
+                    case "IfcShearModulusMeasure": return (IfcShearModulusMeasure)result;
+                    case "IfcSolidAngleMeasure": return (IfcSolidAngleMeasure)result;
+                    case "IfcSoundPowerLevelMeasure": return (IfcSoundPowerLevelMeasure)result;
+                    case "IfcSoundPowerMeasure": return (IfcSoundPowerMeasure)result;
+                    case "IfcSoundPressureLevelMeasure": return (IfcSoundPressureLevelMeasure)result;
+                    case "IfcSoundPressureMeasure": return (IfcSoundPressureMeasure)result;
+                    case "IfcSpecificHeatCapacityMeasure": return (IfcSpecificHeatCapacityMeasure)result;
+                    case "IfcSpecularExponent": return (IfcSpecularExponent)result;
+                    case "IfcSpecularRoughness": return (IfcSpecularRoughness)result;
+                    case "IfcTemperatureGradientMeasure": return (IfcTemperatureGradientMeasure)result;
+                    case "IfcTemperatureRateOfChangeMeasure": return (IfcTemperatureRateOfChangeMeasure)result;
+                    case "IfcThermalAdmittanceMeasure": return (IfcThermalAdmittanceMeasure)result;
+                    case "IfcThermalConductivityMeasure": return (IfcThermalConductivityMeasure)result;
+                    case "IfcThermalExpansionCoefficientMeasure": return (IfcThermalExpansionCoefficientMeasure)result;
+                    case "IfcThermalResistanceMeasure": return (IfcThermalResistanceMeasure)result;
+                    case "IfcThermalTransmittanceMeasure": return (IfcThermalTransmittanceMeasure)result;
+                    case "IfcThermodynamicTemperatureMeasure": return (IfcThermodynamicTemperatureMeasure)result;
+                    case "IfcTimeMeasure": return (IfcTimeMeasure)result;
+                    case "IfcTimeStamp": return (IfcTimeStamp)result;
+                    case "IfcTorqueMeasure": return (IfcTorqueMeasure)result;
+                    case "IfcVaporPermeabilityMeasure": return (IfcVaporPermeabilityMeasure)result;
+                    case "IfcVolumeMeasure": return (IfcVolumeMeasure)result;
+                    case "IfcVolumetricFlowRateMeasure": return (IfcVolumetricFlowRateMeasure)result;
+                    case "IfcWarpingConstantMeasure": return (IfcWarpingConstantMeasure)result;
+                    case "IfcWarpingMomentMeasure": return (IfcWarpingMomentMeasure)result;
+                  
+
+
+
+
+                }
+            }
+
+
+            if (double.TryParse(input, out double result))
+            {
+                switch (type.Name)
+                {
+                    case "IfcAbsorbedDoseMeasure": return (IfcAbsorbedDoseMeasure)result;
+                    case "IfcAccelerationMeasure": return (IfcAccelerationMeasure)result;
+                    case "IfcAmountOfSubstanceMeasure": return (IfcAmountOfSubstanceMeasure)result;
+                    case "IfcAngularVelocityMeasure": return (IfcAngularVelocityMeasure)result;
+                    //   case "IfcArcIndex": return (IfcArcIndex)result;
+                    case "IfcAreaDensityMeasure": return (IfcAreaDensityMeasure)result;
+                    case "IfcAreaMeasure": return (IfcAreaMeasure)result;
+                    case "IfcBinary": return (IfcBinary)result;
+                    //   case "IfcBoolean": return (IfcBoolean)result;
+                    //  case "IfcBoxAlignment": return (IfcBoxAlignment)result;
+                    case "IfcCardinalPointReference": return (IfcCardinalPointReference)result;
+                    //   case "IfcComplexNumber": return (IfcComplexNumber)result;
+                    //   case "IfcCompoundPlaneAngleMeasure": return (IfcCompoundPlaneAngleMeasure)result;
+                    case "IfcContextDependentMeasure": return (IfcContextDependentMeasure)result;
+                    case "IfcCountMeasure": return (IfcCountMeasure)result;
+                    case "IfcCurvatureMeasure": return (IfcCurvatureMeasure)result;
+                    case "IfcDayInMonthNumber": return (IfcDayInMonthNumber)result;
+                    case "IfcDayInWeekNumber": return (IfcDayInWeekNumber)result;
+                    case "IfcDimensionCount": return (IfcDimensionCount)result;
+                    case "IfcDoseEquivalentMeasure": return (IfcDoseEquivalentMeasure)result;
+                    case "IfcDynamicViscosityMeasure": return (IfcDynamicViscosityMeasure)result;
+                    case "IfcElectricCapacitanceMeasure": return (IfcElectricCapacitanceMeasure)result;
+                    case "IfcElectricChargeMeasure": return (IfcElectricChargeMeasure)result;
+                    case "IfcElectricConductanceMeasure": return (IfcElectricConductanceMeasure)result;
+                    case "IfcElectricCurrentMeasure": return (IfcElectricCurrentMeasure)result;
+                    case "IfcElectricResistanceMeasure": return (IfcElectricResistanceMeasure)result;
+                    case "IfcElectricVoltageMeasure": return (IfcElectricVoltageMeasure)result;
+                    case "IfcEnergyMeasure": return (IfcEnergyMeasure)result;
+                    case "IfcForceMeasure": return (IfcForceMeasure)result;
+                    case "IfcFrequencyMeasure": return (IfcFrequencyMeasure)result;
+                    case "IfcHeatFluxDensityMeasure": return (IfcHeatFluxDensityMeasure)result;
+                    case "IfcHeatingValueMeasure": return (IfcHeatingValueMeasure)result;
+                    case "IfcIlluminanceMeasure": return (IfcIlluminanceMeasure)result;
+                    case "IfcInductanceMeasure": return (IfcInductanceMeasure)result;
+                    case "IfcInteger": return (IfcInteger)result;
+                    case "IfcIntegerCountRateMeasure": return (IfcIntegerCountRateMeasure)result;
+                    case "IfcIonConcentrationMeasure": return (IfcIonConcentrationMeasure)result;
+                    case "IfcIsothermalMoistureCapacityMeasure": return (IfcIsothermalMoistureCapacityMeasure)result;
+                    case "IfcKinematicViscosityMeasure": return (IfcKinematicViscosityMeasure)result;
+                    //  case "IfcLanguageId": return (IfcLanguageId)result;
+                    case "IfcLengthMeasure": return (IfcLengthMeasure)result;
+                    // case "IfcLineIndex": return (IfcLineIndex)result;
+                    case "IfcLinearForceMeasure": return (IfcLinearForceMeasure)result;
+                    case "IfcLinearMomentMeasure": return (IfcLinearMomentMeasure)result;
+                    case "IfcLinearStiffnessMeasure": return (IfcLinearStiffnessMeasure)result;
+                    case "IfcLinearVelocityMeasure": return (IfcLinearVelocityMeasure)result;
+                    //  case "IfcLogical": return (IfcLogical)result;
+                    case "IfcLuminousFluxMeasure": return (IfcLuminousFluxMeasure)result;
+                    case "IfcLuminousIntensityDistributionMeasure": return (IfcLuminousIntensityDistributionMeasure)result;
+                    case "IfcLuminousIntensityMeasure": return (IfcLuminousIntensityMeasure)result;
+                    case "IfcMagneticFluxDensityMeasure": return (IfcMagneticFluxDensityMeasure)result;
+                    case "IfcMagneticFluxMeasure": return (IfcMagneticFluxMeasure)result;
+                    case "IfcMassDensityMeasure": return (IfcMassDensityMeasure)result;
+                    case "IfcMassFlowRateMeasure": return (IfcMassFlowRateMeasure)result;
+                    case "IfcMassMeasure": return (IfcMassMeasure)result;
+                    case "IfcMassPerLengthMeasure": return (IfcMassPerLengthMeasure)result;
+                    case "IfcModulusOfElasticityMeasure": return (IfcModulusOfElasticityMeasure)result;
+                    case "IfcModulusOfLinearSubgradeReactionMeasure": return (IfcModulusOfLinearSubgradeReactionMeasure)result;
+                    case "IfcModulusOfRotationalSubgradeReactionMeasure": return (IfcModulusOfRotationalSubgradeReactionMeasure)result;
+                    case "IfcModulusOfSubgradeReactionMeasure": return (IfcModulusOfSubgradeReactionMeasure)result;
+                    case "IfcMoistureDiffusivityMeasure": return (IfcMoistureDiffusivityMeasure)result;
+                    case "IfcMolecularWeightMeasure": return (IfcMolecularWeightMeasure)result;
+                    case "IfcMomentOfInertiaMeasure": return (IfcMomentOfInertiaMeasure)result;
+                    case "IfcMonetaryMeasure": return (IfcMonetaryMeasure)result;
+                    case "IfcMonthInYearNumber": return (IfcMonthInYearNumber)result;
+                    case "IfcNonNegativeLengthMeasure": return (IfcNonNegativeLengthMeasure)result;
+                    case "IfcNormalisedRatioMeasure": return (IfcNormalisedRatioMeasure)result;
+                    case "IfcNumericMeasure": return (IfcNumericMeasure)result;
+                    case "IfcPHMeasure": return (IfcPHMeasure)result;
+                    case "IfcParameterValue": return (IfcParameterValue)result;
+                    case "IfcPlanarForceMeasure": return (IfcPlanarForceMeasure)result;
+                    case "IfcPlaneAngleMeasure": return (IfcPlaneAngleMeasure)result;
+                    case "IfcPositiveInteger": return (IfcPositiveInteger)result;
+                    case "IfcPositiveLengthMeasure": return (IfcPositiveLengthMeasure)result;
+                    case "IfcPositivePlaneAngleMeasure": return (IfcPositivePlaneAngleMeasure)result;
+                    case "IfcPositiveRatioMeasure": return (IfcPositiveRatioMeasure)result;
+                    case "IfcPowerMeasure": return (IfcPowerMeasure)result;
+                    case "IfcPressureMeasure": return (IfcPressureMeasure)result;
+                    // case "IfcPropertySetDefinitionSet": return (IfcPropertySetDefinitionSet)result;
+                    case "IfcRadioActivityMeasure": return (IfcRadioActivityMeasure)result;
+                    case "IfcRatioMeasure": return (IfcRatioMeasure)result;
+                    case "IfcReal": return (IfcReal)result;
+                    case "IfcRotationalFrequencyMeasure": return (IfcRotationalFrequencyMeasure)result;
+                    case "IfcRotationalMassMeasure": return (IfcRotationalMassMeasure)result;
+                    case "IfcRotationalStiffnessMeasure": return (IfcRotationalStiffnessMeasure)result;
+                    case "IfcSectionModulusMeasure": return (IfcSectionModulusMeasure)result;
+                    case "IfcSectionalAreaIntegralMeasure": return (IfcSectionalAreaIntegralMeasure)result;
+                    case "IfcShearModulusMeasure": return (IfcShearModulusMeasure)result;
+                    case "IfcSolidAngleMeasure": return (IfcSolidAngleMeasure)result;
+                    case "IfcSoundPowerLevelMeasure": return (IfcSoundPowerLevelMeasure)result;
+                    case "IfcSoundPowerMeasure": return (IfcSoundPowerMeasure)result;
+                    case "IfcSoundPressureLevelMeasure": return (IfcSoundPressureLevelMeasure)result;
+                    case "IfcSoundPressureMeasure": return (IfcSoundPressureMeasure)result;
+                    case "IfcSpecificHeatCapacityMeasure": return (IfcSpecificHeatCapacityMeasure)result;
+                    case "IfcSpecularExponent": return (IfcSpecularExponent)result;
+                    case "IfcSpecularRoughness": return (IfcSpecularRoughness)result;
+                    case "IfcTemperatureGradientMeasure": return (IfcTemperatureGradientMeasure)result;
+                    case "IfcTemperatureRateOfChangeMeasure": return (IfcTemperatureRateOfChangeMeasure)result;
+                    case "IfcThermalAdmittanceMeasure": return (IfcThermalAdmittanceMeasure)result;
+                    case "IfcThermalConductivityMeasure": return (IfcThermalConductivityMeasure)result;
+                    case "IfcThermalExpansionCoefficientMeasure": return (IfcThermalExpansionCoefficientMeasure)result;
+                    case "IfcThermalResistanceMeasure": return (IfcThermalResistanceMeasure)result;
+                    case "IfcThermalTransmittanceMeasure": return (IfcThermalTransmittanceMeasure)result;
+                    case "IfcThermodynamicTemperatureMeasure": return (IfcThermodynamicTemperatureMeasure)result;
+                    case "IfcTimeMeasure": return (IfcTimeMeasure)result;
+                    case "IfcTimeStamp": return (IfcTimeStamp)result;
+                    case "IfcTorqueMeasure": return (IfcTorqueMeasure)result;
+                    case "IfcVaporPermeabilityMeasure": return (IfcVaporPermeabilityMeasure)result;
+                    case "IfcVolumeMeasure": return (IfcVolumeMeasure)result;
+                    case "IfcVolumetricFlowRateMeasure": return (IfcVolumetricFlowRateMeasure)result;
+                    case "IfcWarpingConstantMeasure": return (IfcWarpingConstantMeasure)result;
+                    case "IfcWarpingMomentMeasure": return (IfcWarpingMomentMeasure)result;
+
+
+
+
+
+                }
+            }
+
+            return null;
         }
 
         private IfcBase CreateNewInstant(string name)

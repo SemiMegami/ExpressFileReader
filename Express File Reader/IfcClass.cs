@@ -20,9 +20,11 @@ namespace IFCReader
         public List<string> selectElements;
         public string dataType; // interface enum or class
         public bool isAbstract;
+        public string extraText;
 
         public IFCClass(string dataType, string name, string subOf = "")
         {
+            extraText = "";
             interfaces = new List<string>();
             propElement = new Dictionary<string, string>();
             consElement = new Dictionary<string, string>();
@@ -147,7 +149,8 @@ namespace IFCReader
 
                         str += "\t\t}\n";
                     }
-                   
+
+                    str += extraText;
                     break;
                 case "interface":
                     foreach (var ce in propElement)

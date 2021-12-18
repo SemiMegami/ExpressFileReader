@@ -1,24 +1,39 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace IFC4
 {
 	public class IfcAbsorbedDoseMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAbsorbedDoseMeasure() { }
+		public IfcAbsorbedDoseMeasure(double value) { Value = value; }
+		public static implicit operator IfcAbsorbedDoseMeasure(double x) { return new IfcAbsorbedDoseMeasure(x); }
+		public static implicit operator double(IfcAbsorbedDoseMeasure x) { return x.Value; }
 	}
 
 	public class IfcAccelerationMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAccelerationMeasure() { }
+		public IfcAccelerationMeasure(double value) { Value = value; }
+		public static implicit operator IfcAccelerationMeasure(double x) { return new IfcAccelerationMeasure(x); }
+		public static implicit operator double(IfcAccelerationMeasure x) { return x.Value; }
 	}
 
 	public class IfcAmountOfSubstanceMeasure : REAL, IfcMeasureValue
 	{
 		public IfcAmountOfSubstanceMeasure() { }
+		public IfcAmountOfSubstanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcAmountOfSubstanceMeasure(double x) { return new IfcAmountOfSubstanceMeasure(x); }
+		public static implicit operator double(IfcAmountOfSubstanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcAngularVelocityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAngularVelocityMeasure() { }
+		public IfcAngularVelocityMeasure(double value) { Value = value; }
+		public static implicit operator IfcAngularVelocityMeasure(double x) { return new IfcAngularVelocityMeasure(x); }
+		public static implicit operator double(IfcAngularVelocityMeasure x) { return x.Value; }
 	}
 
 	public class IfcArcIndex : IfcSegmentIndexSelect
@@ -32,21 +47,33 @@ namespace IFC4
 	public class IfcAreaDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAreaDensityMeasure() { }
+		public IfcAreaDensityMeasure(double value) { Value = value; }
+		public static implicit operator IfcAreaDensityMeasure(double x) { return new IfcAreaDensityMeasure(x); }
+		public static implicit operator double(IfcAreaDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcAreaMeasure : REAL, IfcMeasureValue
 	{
 		public IfcAreaMeasure() { }
+		public IfcAreaMeasure(double value) { Value = value; }
+		public static implicit operator IfcAreaMeasure(double x) { return new IfcAreaMeasure(x); }
+		public static implicit operator double(IfcAreaMeasure x) { return x.Value; }
 	}
 
 	public class IfcBinary : BINARY, IfcSimpleValue
 	{
 		public IfcBinary() { }
+		public IfcBinary(int value) { Value = value; }
+		public static implicit operator IfcBinary(int x) { return new IfcBinary(x); }
+		public static implicit operator int(IfcBinary x) { return x.Value; }
 	}
 
 	public class IfcBoolean : BOOLEAN, IfcModulusOfRotationalSubgradeReactionSelect, IfcModulusOfSubgradeReactionSelect, IfcModulusOfTranslationalSubgradeReactionSelect, IfcRotationalStiffnessSelect, IfcSimpleValue, IfcTranslationalStiffnessSelect, IfcWarpingStiffnessSelect
 	{
 		public IfcBoolean() { }
+		public IfcBoolean(bool value) { Value = value; }
+		public static implicit operator IfcBoolean(bool x) { return new IfcBoolean(x); }
+		public static implicit operator bool(IfcBoolean x) { return x.Value; }
 	}
 
 	public class IfcBoxAlignment : IfcLabel
@@ -57,6 +84,9 @@ namespace IFC4
 	public class IfcCardinalPointReference : INTEGER
 	{
 		public IfcCardinalPointReference() { }
+		public IfcCardinalPointReference(int value) { Value = value; }
+		public static implicit operator IfcCardinalPointReference(int x) { return new IfcCardinalPointReference(x); }
+		public static implicit operator int(IfcCardinalPointReference x) { return x.Value; }
 	}
 
 	public class IfcComplexNumber : IfcMeasureValue
@@ -76,181 +106,289 @@ namespace IFC4
 	public class IfcContextDependentMeasure : REAL, IfcMeasureValue
 	{
 		public IfcContextDependentMeasure() { }
+		public IfcContextDependentMeasure(double value) { Value = value; }
+		public static implicit operator IfcContextDependentMeasure(double x) { return new IfcContextDependentMeasure(x); }
+		public static implicit operator double(IfcContextDependentMeasure x) { return x.Value; }
 	}
 
 	public class IfcCountMeasure : NUMBER, IfcMeasureValue
 	{
 		public IfcCountMeasure() { }
+		public IfcCountMeasure(double value) { Value = value; }
+		public static implicit operator IfcCountMeasure(double x) { return new IfcCountMeasure(x); }
+		public static implicit operator double(IfcCountMeasure x) { return x.Value; }
 	}
 
 	public class IfcCurvatureMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcCurvatureMeasure() { }
+		public IfcCurvatureMeasure(double value) { Value = value; }
+		public static implicit operator IfcCurvatureMeasure(double x) { return new IfcCurvatureMeasure(x); }
+		public static implicit operator double(IfcCurvatureMeasure x) { return x.Value; }
 	}
 
 	public class IfcDate : STRING, IfcSimpleValue
 	{
 		public IfcDate() { }
+		public IfcDate(string value) { Value = value; }
+		public static implicit operator IfcDate(string x) { return new IfcDate(x); }
+		public static implicit operator string(IfcDate x) { return x.Value; }
 	}
 
 	public class IfcDateTime : STRING, IfcSimpleValue
 	{
 		public IfcDateTime() { }
+		public IfcDateTime(string value) { Value = value; }
+		public static implicit operator IfcDateTime(string x) { return new IfcDateTime(x); }
+		public static implicit operator string(IfcDateTime x) { return x.Value; }
 	}
 
 	public class IfcDayInMonthNumber : INTEGER
 	{
 		public IfcDayInMonthNumber() { }
+		public IfcDayInMonthNumber(int value) { Value = value; }
+		public static implicit operator IfcDayInMonthNumber(int x) { return new IfcDayInMonthNumber(x); }
+		public static implicit operator int(IfcDayInMonthNumber x) { return x.Value; }
 	}
 
 	public class IfcDayInWeekNumber : INTEGER
 	{
 		public IfcDayInWeekNumber() { }
+		public IfcDayInWeekNumber(int value) { Value = value; }
+		public static implicit operator IfcDayInWeekNumber(int x) { return new IfcDayInWeekNumber(x); }
+		public static implicit operator int(IfcDayInWeekNumber x) { return x.Value; }
 	}
 
 	public class IfcDescriptiveMeasure : STRING, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcDescriptiveMeasure() { }
+		public IfcDescriptiveMeasure(string value) { Value = value; }
+		public static implicit operator IfcDescriptiveMeasure(string x) { return new IfcDescriptiveMeasure(x); }
+		public static implicit operator string(IfcDescriptiveMeasure x) { return x.Value; }
 	}
 
 	public class IfcDimensionCount : INTEGER
 	{
 		public IfcDimensionCount() { }
+		public IfcDimensionCount(int value) { Value = value; }
+		public static implicit operator IfcDimensionCount(int x) { return new IfcDimensionCount(x); }
+		public static implicit operator int(IfcDimensionCount x) { return x.Value; }
 	}
 
 	public class IfcDoseEquivalentMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcDoseEquivalentMeasure() { }
+		public IfcDoseEquivalentMeasure(double value) { Value = value; }
+		public static implicit operator IfcDoseEquivalentMeasure(double x) { return new IfcDoseEquivalentMeasure(x); }
+		public static implicit operator double(IfcDoseEquivalentMeasure x) { return x.Value; }
 	}
 
 	public class IfcDuration : STRING, IfcSimpleValue, IfcTimeOrRatioSelect
 	{
 		public IfcDuration() { }
+		public IfcDuration(string value) { Value = value; }
+		public static implicit operator IfcDuration(string x) { return new IfcDuration(x); }
+		public static implicit operator string(IfcDuration x) { return x.Value; }
 	}
 
 	public class IfcDynamicViscosityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcDynamicViscosityMeasure() { }
+		public IfcDynamicViscosityMeasure(double value) { Value = value; }
+		public static implicit operator IfcDynamicViscosityMeasure(double x) { return new IfcDynamicViscosityMeasure(x); }
+		public static implicit operator double(IfcDynamicViscosityMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricCapacitanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricCapacitanceMeasure() { }
+		public IfcElectricCapacitanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcElectricCapacitanceMeasure(double x) { return new IfcElectricCapacitanceMeasure(x); }
+		public static implicit operator double(IfcElectricCapacitanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricChargeMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricChargeMeasure() { }
+		public IfcElectricChargeMeasure(double value) { Value = value; }
+		public static implicit operator IfcElectricChargeMeasure(double x) { return new IfcElectricChargeMeasure(x); }
+		public static implicit operator double(IfcElectricChargeMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricConductanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricConductanceMeasure() { }
+		public IfcElectricConductanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcElectricConductanceMeasure(double x) { return new IfcElectricConductanceMeasure(x); }
+		public static implicit operator double(IfcElectricConductanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricCurrentMeasure : REAL, IfcMeasureValue
 	{
 		public IfcElectricCurrentMeasure() { }
+		public IfcElectricCurrentMeasure(double value) { Value = value; }
+		public static implicit operator IfcElectricCurrentMeasure(double x) { return new IfcElectricCurrentMeasure(x); }
+		public static implicit operator double(IfcElectricCurrentMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricResistanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricResistanceMeasure() { }
+		public IfcElectricResistanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcElectricResistanceMeasure(double x) { return new IfcElectricResistanceMeasure(x); }
+		public static implicit operator double(IfcElectricResistanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricVoltageMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricVoltageMeasure() { }
+		public IfcElectricVoltageMeasure(double value) { Value = value; }
+		public static implicit operator IfcElectricVoltageMeasure(double x) { return new IfcElectricVoltageMeasure(x); }
+		public static implicit operator double(IfcElectricVoltageMeasure x) { return x.Value; }
 	}
 
 	public class IfcEnergyMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcEnergyMeasure() { }
+		public IfcEnergyMeasure(double value) { Value = value; }
+		public static implicit operator IfcEnergyMeasure(double x) { return new IfcEnergyMeasure(x); }
+		public static implicit operator double(IfcEnergyMeasure x) { return x.Value; }
 	}
 
 	public class IfcFontStyle : STRING
 	{
 		public IfcFontStyle() { }
+		public IfcFontStyle(string value) { Value = value; }
+		public static implicit operator IfcFontStyle(string x) { return new IfcFontStyle(x); }
+		public static implicit operator string(IfcFontStyle x) { return x.Value; }
 	}
 
 	public class IfcFontVariant : STRING
 	{
 		public IfcFontVariant() { }
+		public IfcFontVariant(string value) { Value = value; }
+		public static implicit operator IfcFontVariant(string x) { return new IfcFontVariant(x); }
+		public static implicit operator string(IfcFontVariant x) { return x.Value; }
 	}
 
 	public class IfcFontWeight : STRING
 	{
 		public IfcFontWeight() { }
+		public IfcFontWeight(string value) { Value = value; }
+		public static implicit operator IfcFontWeight(string x) { return new IfcFontWeight(x); }
+		public static implicit operator string(IfcFontWeight x) { return x.Value; }
 	}
 
 	public class IfcForceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcForceMeasure() { }
+		public IfcForceMeasure(double value) { Value = value; }
+		public static implicit operator IfcForceMeasure(double x) { return new IfcForceMeasure(x); }
+		public static implicit operator double(IfcForceMeasure x) { return x.Value; }
 	}
 
 	public class IfcFrequencyMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcFrequencyMeasure() { }
+		public IfcFrequencyMeasure(double value) { Value = value; }
+		public static implicit operator IfcFrequencyMeasure(double x) { return new IfcFrequencyMeasure(x); }
+		public static implicit operator double(IfcFrequencyMeasure x) { return x.Value; }
 	}
 
 	public class IfcGloballyUniqueId : STRING
 	{
 		public IfcGloballyUniqueId() { }
+		public IfcGloballyUniqueId(string value) { Value = value; }
+		public static implicit operator IfcGloballyUniqueId(string x) { return new IfcGloballyUniqueId(x); }
+		public static implicit operator string(IfcGloballyUniqueId x) { return x.Value; }
 	}
 
 	public class IfcHeatFluxDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcHeatFluxDensityMeasure() { }
+		public IfcHeatFluxDensityMeasure(double value) { Value = value; }
+		public static implicit operator IfcHeatFluxDensityMeasure(double x) { return new IfcHeatFluxDensityMeasure(x); }
+		public static implicit operator double(IfcHeatFluxDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcHeatingValueMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcHeatingValueMeasure() { }
+		public IfcHeatingValueMeasure(double value) { Value = value; }
+		public static implicit operator IfcHeatingValueMeasure(double x) { return new IfcHeatingValueMeasure(x); }
+		public static implicit operator double(IfcHeatingValueMeasure x) { return x.Value; }
 	}
 
 	public class IfcIdentifier : STRING, IfcSimpleValue
 	{
 		public IfcIdentifier() { }
+		public IfcIdentifier(string value) { Value = value; }
+		public static implicit operator IfcIdentifier(string x) { return new IfcIdentifier(x); }
+		public static implicit operator string(IfcIdentifier x) { return x.Value; }
 	}
 
 	public class IfcIlluminanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcIlluminanceMeasure() { }
+		public IfcIlluminanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcIlluminanceMeasure(double x) { return new IfcIlluminanceMeasure(x); }
+		public static implicit operator double(IfcIlluminanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcInductanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcInductanceMeasure() { }
+		public IfcInductanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcInductanceMeasure(double x) { return new IfcInductanceMeasure(x); }
+		public static implicit operator double(IfcInductanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcInteger : INTEGER, IfcSimpleValue
 	{
 		public IfcInteger() { }
+		public IfcInteger(int value) { Value = value; }
+		public static implicit operator IfcInteger(int x) { return new IfcInteger(x); }
+		public static implicit operator int(IfcInteger x) { return x.Value; }
 	}
 
 	public class IfcIntegerCountRateMeasure : INTEGER, IfcDerivedMeasureValue
 	{
 		public IfcIntegerCountRateMeasure() { }
+		public IfcIntegerCountRateMeasure(int value) { Value = value; }
+		public static implicit operator IfcIntegerCountRateMeasure(int x) { return new IfcIntegerCountRateMeasure(x); }
+		public static implicit operator int(IfcIntegerCountRateMeasure x) { return x.Value; }
 	}
 
 	public class IfcIonConcentrationMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcIonConcentrationMeasure() { }
+		public IfcIonConcentrationMeasure(double value) { Value = value; }
+		public static implicit operator IfcIonConcentrationMeasure(double x) { return new IfcIonConcentrationMeasure(x); }
+		public static implicit operator double(IfcIonConcentrationMeasure x) { return x.Value; }
 	}
 
 	public class IfcIsothermalMoistureCapacityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcIsothermalMoistureCapacityMeasure() { }
+		public IfcIsothermalMoistureCapacityMeasure(double value) { Value = value; }
+		public static implicit operator IfcIsothermalMoistureCapacityMeasure(double x) { return new IfcIsothermalMoistureCapacityMeasure(x); }
+		public static implicit operator double(IfcIsothermalMoistureCapacityMeasure x) { return x.Value; }
 	}
 
 	public class IfcKinematicViscosityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcKinematicViscosityMeasure() { }
+		public IfcKinematicViscosityMeasure(double value) { Value = value; }
+		public static implicit operator IfcKinematicViscosityMeasure(double x) { return new IfcKinematicViscosityMeasure(x); }
+		public static implicit operator double(IfcKinematicViscosityMeasure x) { return x.Value; }
 	}
 
 	public class IfcLabel : STRING, IfcSimpleValue
 	{
 		public IfcLabel() { }
+		public IfcLabel(string value) { Value = value; }
+		public static implicit operator IfcLabel(string x) { return new IfcLabel(x); }
+		public static implicit operator string(IfcLabel x) { return x.Value; }
 	}
 
 	public class IfcLanguageId : IfcIdentifier
@@ -261,6 +399,9 @@ namespace IFC4
 	public class IfcLengthMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcLengthMeasure() { }
+		public IfcLengthMeasure(double value) { Value = value; }
+		public static implicit operator IfcLengthMeasure(double x) { return new IfcLengthMeasure(x); }
+		public static implicit operator double(IfcLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcLineIndex : IfcSegmentIndexSelect
@@ -274,116 +415,185 @@ namespace IFC4
 	public class IfcLinearForceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLinearForceMeasure() { }
+		public IfcLinearForceMeasure(double value) { Value = value; }
+		public static implicit operator IfcLinearForceMeasure(double x) { return new IfcLinearForceMeasure(x); }
+		public static implicit operator double(IfcLinearForceMeasure x) { return x.Value; }
 	}
 
 	public class IfcLinearMomentMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLinearMomentMeasure() { }
+		public IfcLinearMomentMeasure(double value) { Value = value; }
+		public static implicit operator IfcLinearMomentMeasure(double x) { return new IfcLinearMomentMeasure(x); }
+		public static implicit operator double(IfcLinearMomentMeasure x) { return x.Value; }
 	}
 
 	public class IfcLinearStiffnessMeasure : REAL, IfcDerivedMeasureValue, IfcTranslationalStiffnessSelect
 	{
 		public IfcLinearStiffnessMeasure() { }
+		public IfcLinearStiffnessMeasure(double value) { Value = value; }
+		public static implicit operator IfcLinearStiffnessMeasure(double x) { return new IfcLinearStiffnessMeasure(x); }
+		public static implicit operator double(IfcLinearStiffnessMeasure x) { return x.Value; }
 	}
 
 	public class IfcLinearVelocityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLinearVelocityMeasure() { }
+		public IfcLinearVelocityMeasure(double value) { Value = value; }
+		public static implicit operator IfcLinearVelocityMeasure(double x) { return new IfcLinearVelocityMeasure(x); }
+		public static implicit operator double(IfcLinearVelocityMeasure x) { return x.Value; }
 	}
 
 	public class IfcLogical : LOGICAL, IfcSimpleValue
 	{
 		public IfcLogical() { }
+		public IfcLogical(bool value) { Value = value; }
+		public static implicit operator IfcLogical(bool x) { return new IfcLogical(x); }
+		public static implicit operator bool(IfcLogical x) { return x.Value; }
 	}
 
 	public class IfcLuminousFluxMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLuminousFluxMeasure() { }
+		public IfcLuminousFluxMeasure(double value) { Value = value; }
+		public static implicit operator IfcLuminousFluxMeasure(double x) { return new IfcLuminousFluxMeasure(x); }
+		public static implicit operator double(IfcLuminousFluxMeasure x) { return x.Value; }
 	}
 
 	public class IfcLuminousIntensityDistributionMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLuminousIntensityDistributionMeasure() { }
+		public IfcLuminousIntensityDistributionMeasure(double value) { Value = value; }
+		public static implicit operator IfcLuminousIntensityDistributionMeasure(double x) { return new IfcLuminousIntensityDistributionMeasure(x); }
+		public static implicit operator double(IfcLuminousIntensityDistributionMeasure x) { return x.Value; }
 	}
 
 	public class IfcLuminousIntensityMeasure : REAL, IfcMeasureValue
 	{
 		public IfcLuminousIntensityMeasure() { }
+		public IfcLuminousIntensityMeasure(double value) { Value = value; }
+		public static implicit operator IfcLuminousIntensityMeasure(double x) { return new IfcLuminousIntensityMeasure(x); }
+		public static implicit operator double(IfcLuminousIntensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMagneticFluxDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMagneticFluxDensityMeasure() { }
+		public IfcMagneticFluxDensityMeasure(double value) { Value = value; }
+		public static implicit operator IfcMagneticFluxDensityMeasure(double x) { return new IfcMagneticFluxDensityMeasure(x); }
+		public static implicit operator double(IfcMagneticFluxDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMagneticFluxMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMagneticFluxMeasure() { }
+		public IfcMagneticFluxMeasure(double value) { Value = value; }
+		public static implicit operator IfcMagneticFluxMeasure(double x) { return new IfcMagneticFluxMeasure(x); }
+		public static implicit operator double(IfcMagneticFluxMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMassDensityMeasure() { }
+		public IfcMassDensityMeasure(double value) { Value = value; }
+		public static implicit operator IfcMassDensityMeasure(double x) { return new IfcMassDensityMeasure(x); }
+		public static implicit operator double(IfcMassDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassFlowRateMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMassFlowRateMeasure() { }
+		public IfcMassFlowRateMeasure(double value) { Value = value; }
+		public static implicit operator IfcMassFlowRateMeasure(double x) { return new IfcMassFlowRateMeasure(x); }
+		public static implicit operator double(IfcMassFlowRateMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassMeasure : REAL, IfcMeasureValue
 	{
 		public IfcMassMeasure() { }
+		public IfcMassMeasure(double value) { Value = value; }
+		public static implicit operator IfcMassMeasure(double x) { return new IfcMassMeasure(x); }
+		public static implicit operator double(IfcMassMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassPerLengthMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMassPerLengthMeasure() { }
+		public IfcMassPerLengthMeasure(double value) { Value = value; }
+		public static implicit operator IfcMassPerLengthMeasure(double x) { return new IfcMassPerLengthMeasure(x); }
+		public static implicit operator double(IfcMassPerLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfElasticityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcModulusOfElasticityMeasure() { }
+		public IfcModulusOfElasticityMeasure(double value) { Value = value; }
+		public static implicit operator IfcModulusOfElasticityMeasure(double x) { return new IfcModulusOfElasticityMeasure(x); }
+		public static implicit operator double(IfcModulusOfElasticityMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfLinearSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfTranslationalSubgradeReactionSelect
 	{
 		public IfcModulusOfLinearSubgradeReactionMeasure() { }
+		public IfcModulusOfLinearSubgradeReactionMeasure(double value) { Value = value; }
+		public static implicit operator IfcModulusOfLinearSubgradeReactionMeasure(double x) { return new IfcModulusOfLinearSubgradeReactionMeasure(x); }
+		public static implicit operator double(IfcModulusOfLinearSubgradeReactionMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfRotationalSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfRotationalSubgradeReactionSelect
 	{
 		public IfcModulusOfRotationalSubgradeReactionMeasure() { }
+		public IfcModulusOfRotationalSubgradeReactionMeasure(double value) { Value = value; }
+		public static implicit operator IfcModulusOfRotationalSubgradeReactionMeasure(double x) { return new IfcModulusOfRotationalSubgradeReactionMeasure(x); }
+		public static implicit operator double(IfcModulusOfRotationalSubgradeReactionMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfSubgradeReactionSelect
 	{
 		public IfcModulusOfSubgradeReactionMeasure() { }
+		public IfcModulusOfSubgradeReactionMeasure(double value) { Value = value; }
+		public static implicit operator IfcModulusOfSubgradeReactionMeasure(double x) { return new IfcModulusOfSubgradeReactionMeasure(x); }
+		public static implicit operator double(IfcModulusOfSubgradeReactionMeasure x) { return x.Value; }
 	}
 
 	public class IfcMoistureDiffusivityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMoistureDiffusivityMeasure() { }
+		public IfcMoistureDiffusivityMeasure(double value) { Value = value; }
+		public static implicit operator IfcMoistureDiffusivityMeasure(double x) { return new IfcMoistureDiffusivityMeasure(x); }
+		public static implicit operator double(IfcMoistureDiffusivityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMolecularWeightMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMolecularWeightMeasure() { }
+		public IfcMolecularWeightMeasure(double value) { Value = value; }
+		public static implicit operator IfcMolecularWeightMeasure(double x) { return new IfcMolecularWeightMeasure(x); }
+		public static implicit operator double(IfcMolecularWeightMeasure x) { return x.Value; }
 	}
 
 	public class IfcMomentOfInertiaMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMomentOfInertiaMeasure() { }
+		public IfcMomentOfInertiaMeasure(double value) { Value = value; }
+		public static implicit operator IfcMomentOfInertiaMeasure(double x) { return new IfcMomentOfInertiaMeasure(x); }
+		public static implicit operator double(IfcMomentOfInertiaMeasure x) { return x.Value; }
 	}
 
 	public class IfcMonetaryMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMonetaryMeasure() { }
+		public IfcMonetaryMeasure(double value) { Value = value; }
+		public static implicit operator IfcMonetaryMeasure(double x) { return new IfcMonetaryMeasure(x); }
+		public static implicit operator double(IfcMonetaryMeasure x) { return x.Value; }
 	}
 
 	public class IfcMonthInYearNumber : INTEGER
 	{
 		public IfcMonthInYearNumber() { }
+		public IfcMonthInYearNumber(int value) { Value = value; }
+		public static implicit operator IfcMonthInYearNumber(int x) { return new IfcMonthInYearNumber(x); }
+		public static implicit operator int(IfcMonthInYearNumber x) { return x.Value; }
 	}
 
 	public class IfcNonNegativeLengthMeasure : IfcLengthMeasure, IfcMeasureValue
@@ -399,26 +609,41 @@ namespace IFC4
 	public class IfcNumericMeasure : NUMBER, IfcMeasureValue
 	{
 		public IfcNumericMeasure() { }
+		public IfcNumericMeasure(double value) { Value = value; }
+		public static implicit operator IfcNumericMeasure(double x) { return new IfcNumericMeasure(x); }
+		public static implicit operator double(IfcNumericMeasure x) { return x.Value; }
 	}
 
 	public class IfcPHMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPHMeasure() { }
+		public IfcPHMeasure(double value) { Value = value; }
+		public static implicit operator IfcPHMeasure(double x) { return new IfcPHMeasure(x); }
+		public static implicit operator double(IfcPHMeasure x) { return x.Value; }
 	}
 
 	public class IfcParameterValue : REAL, IfcMeasureValue, IfcTrimmingSelect
 	{
 		public IfcParameterValue() { }
+		public IfcParameterValue(double value) { Value = value; }
+		public static implicit operator IfcParameterValue(double x) { return new IfcParameterValue(x); }
+		public static implicit operator double(IfcParameterValue x) { return x.Value; }
 	}
 
 	public class IfcPlanarForceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPlanarForceMeasure() { }
+		public IfcPlanarForceMeasure(double value) { Value = value; }
+		public static implicit operator IfcPlanarForceMeasure(double x) { return new IfcPlanarForceMeasure(x); }
+		public static implicit operator double(IfcPlanarForceMeasure x) { return x.Value; }
 	}
 
 	public class IfcPlaneAngleMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue
 	{
 		public IfcPlaneAngleMeasure() { }
+		public IfcPlaneAngleMeasure(double value) { Value = value; }
+		public static implicit operator IfcPlaneAngleMeasure(double x) { return new IfcPlaneAngleMeasure(x); }
+		public static implicit operator double(IfcPlaneAngleMeasure x) { return x.Value; }
 	}
 
 	public class IfcPositiveInteger : IfcInteger, IfcSimpleValue
@@ -444,16 +669,25 @@ namespace IFC4
 	public class IfcPowerMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPowerMeasure() { }
+		public IfcPowerMeasure(double value) { Value = value; }
+		public static implicit operator IfcPowerMeasure(double x) { return new IfcPowerMeasure(x); }
+		public static implicit operator double(IfcPowerMeasure x) { return x.Value; }
 	}
 
 	public class IfcPresentableText : STRING
 	{
 		public IfcPresentableText() { }
+		public IfcPresentableText(string value) { Value = value; }
+		public static implicit operator IfcPresentableText(string x) { return new IfcPresentableText(x); }
+		public static implicit operator string(IfcPresentableText x) { return x.Value; }
 	}
 
 	public class IfcPressureMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPressureMeasure() { }
+		public IfcPressureMeasure(double value) { Value = value; }
+		public static implicit operator IfcPressureMeasure(double x) { return new IfcPressureMeasure(x); }
+		public static implicit operator double(IfcPressureMeasure x) { return x.Value; }
 	}
 
 	public class IfcPropertySetDefinitionSet : IfcPropertySetDefinitionSelect
@@ -466,202 +700,323 @@ namespace IFC4
 	public class IfcRadioActivityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcRadioActivityMeasure() { }
+		public IfcRadioActivityMeasure(double value) { Value = value; }
+		public static implicit operator IfcRadioActivityMeasure(double x) { return new IfcRadioActivityMeasure(x); }
+		public static implicit operator double(IfcRadioActivityMeasure x) { return x.Value; }
 	}
 
 	public class IfcRatioMeasure : REAL, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
 		public IfcRatioMeasure() { }
+		public IfcRatioMeasure(double value) { Value = value; }
+		public static implicit operator IfcRatioMeasure(double x) { return new IfcRatioMeasure(x); }
+		public static implicit operator double(IfcRatioMeasure x) { return x.Value; }
 	}
 
 	public class IfcReal : REAL, IfcSimpleValue
 	{
 		public IfcReal() { }
+		public IfcReal(double value) { Value = value; }
+		public static implicit operator IfcReal(double x) { return new IfcReal(x); }
+		public static implicit operator double(IfcReal x) { return x.Value; }
 	}
 
 	public class IfcRotationalFrequencyMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcRotationalFrequencyMeasure() { }
+		public IfcRotationalFrequencyMeasure(double value) { Value = value; }
+		public static implicit operator IfcRotationalFrequencyMeasure(double x) { return new IfcRotationalFrequencyMeasure(x); }
+		public static implicit operator double(IfcRotationalFrequencyMeasure x) { return x.Value; }
 	}
 
 	public class IfcRotationalMassMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcRotationalMassMeasure() { }
+		public IfcRotationalMassMeasure(double value) { Value = value; }
+		public static implicit operator IfcRotationalMassMeasure(double x) { return new IfcRotationalMassMeasure(x); }
+		public static implicit operator double(IfcRotationalMassMeasure x) { return x.Value; }
 	}
 
 	public class IfcRotationalStiffnessMeasure : REAL, IfcDerivedMeasureValue, IfcRotationalStiffnessSelect
 	{
 		public IfcRotationalStiffnessMeasure() { }
+		public IfcRotationalStiffnessMeasure(double value) { Value = value; }
+		public static implicit operator IfcRotationalStiffnessMeasure(double x) { return new IfcRotationalStiffnessMeasure(x); }
+		public static implicit operator double(IfcRotationalStiffnessMeasure x) { return x.Value; }
 	}
 
 	public class IfcSectionModulusMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSectionModulusMeasure() { }
+		public IfcSectionModulusMeasure(double value) { Value = value; }
+		public static implicit operator IfcSectionModulusMeasure(double x) { return new IfcSectionModulusMeasure(x); }
+		public static implicit operator double(IfcSectionModulusMeasure x) { return x.Value; }
 	}
 
 	public class IfcSectionalAreaIntegralMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSectionalAreaIntegralMeasure() { }
+		public IfcSectionalAreaIntegralMeasure(double value) { Value = value; }
+		public static implicit operator IfcSectionalAreaIntegralMeasure(double x) { return new IfcSectionalAreaIntegralMeasure(x); }
+		public static implicit operator double(IfcSectionalAreaIntegralMeasure x) { return x.Value; }
 	}
 
 	public class IfcShearModulusMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcShearModulusMeasure() { }
+		public IfcShearModulusMeasure(double value) { Value = value; }
+		public static implicit operator IfcShearModulusMeasure(double x) { return new IfcShearModulusMeasure(x); }
+		public static implicit operator double(IfcShearModulusMeasure x) { return x.Value; }
 	}
 
 	public class IfcSolidAngleMeasure : REAL, IfcMeasureValue
 	{
 		public IfcSolidAngleMeasure() { }
+		public IfcSolidAngleMeasure(double value) { Value = value; }
+		public static implicit operator IfcSolidAngleMeasure(double x) { return new IfcSolidAngleMeasure(x); }
+		public static implicit operator double(IfcSolidAngleMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPowerLevelMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPowerLevelMeasure() { }
+		public IfcSoundPowerLevelMeasure(double value) { Value = value; }
+		public static implicit operator IfcSoundPowerLevelMeasure(double x) { return new IfcSoundPowerLevelMeasure(x); }
+		public static implicit operator double(IfcSoundPowerLevelMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPowerMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPowerMeasure() { }
+		public IfcSoundPowerMeasure(double value) { Value = value; }
+		public static implicit operator IfcSoundPowerMeasure(double x) { return new IfcSoundPowerMeasure(x); }
+		public static implicit operator double(IfcSoundPowerMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPressureLevelMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPressureLevelMeasure() { }
+		public IfcSoundPressureLevelMeasure(double value) { Value = value; }
+		public static implicit operator IfcSoundPressureLevelMeasure(double x) { return new IfcSoundPressureLevelMeasure(x); }
+		public static implicit operator double(IfcSoundPressureLevelMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPressureMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPressureMeasure() { }
+		public IfcSoundPressureMeasure(double value) { Value = value; }
+		public static implicit operator IfcSoundPressureMeasure(double x) { return new IfcSoundPressureMeasure(x); }
+		public static implicit operator double(IfcSoundPressureMeasure x) { return x.Value; }
 	}
 
 	public class IfcSpecificHeatCapacityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSpecificHeatCapacityMeasure() { }
+		public IfcSpecificHeatCapacityMeasure(double value) { Value = value; }
+		public static implicit operator IfcSpecificHeatCapacityMeasure(double x) { return new IfcSpecificHeatCapacityMeasure(x); }
+		public static implicit operator double(IfcSpecificHeatCapacityMeasure x) { return x.Value; }
 	}
 
 	public class IfcSpecularExponent : REAL, IfcSpecularHighlightSelect
 	{
 		public IfcSpecularExponent() { }
+		public IfcSpecularExponent(double value) { Value = value; }
+		public static implicit operator IfcSpecularExponent(double x) { return new IfcSpecularExponent(x); }
+		public static implicit operator double(IfcSpecularExponent x) { return x.Value; }
 	}
 
 	public class IfcSpecularRoughness : REAL, IfcSpecularHighlightSelect
 	{
 		public IfcSpecularRoughness() { }
+		public IfcSpecularRoughness(double value) { Value = value; }
+		public static implicit operator IfcSpecularRoughness(double x) { return new IfcSpecularRoughness(x); }
+		public static implicit operator double(IfcSpecularRoughness x) { return x.Value; }
 	}
 
 	public class IfcTemperatureGradientMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcTemperatureGradientMeasure() { }
+		public IfcTemperatureGradientMeasure(double value) { Value = value; }
+		public static implicit operator IfcTemperatureGradientMeasure(double x) { return new IfcTemperatureGradientMeasure(x); }
+		public static implicit operator double(IfcTemperatureGradientMeasure x) { return x.Value; }
 	}
 
 	public class IfcTemperatureRateOfChangeMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcTemperatureRateOfChangeMeasure() { }
+		public IfcTemperatureRateOfChangeMeasure(double value) { Value = value; }
+		public static implicit operator IfcTemperatureRateOfChangeMeasure(double x) { return new IfcTemperatureRateOfChangeMeasure(x); }
+		public static implicit operator double(IfcTemperatureRateOfChangeMeasure x) { return x.Value; }
 	}
 
 	public class IfcText : STRING, IfcSimpleValue
 	{
 		public IfcText() { }
+		public IfcText(string value) { Value = value; }
+		public static implicit operator IfcText(string x) { return new IfcText(x); }
+		public static implicit operator string(IfcText x) { return x.Value; }
 	}
 
 	public class IfcTextAlignment : STRING
 	{
 		public IfcTextAlignment() { }
+		public IfcTextAlignment(string value) { Value = value; }
+		public static implicit operator IfcTextAlignment(string x) { return new IfcTextAlignment(x); }
+		public static implicit operator string(IfcTextAlignment x) { return x.Value; }
 	}
 
 	public class IfcTextDecoration : STRING
 	{
 		public IfcTextDecoration() { }
+		public IfcTextDecoration(string value) { Value = value; }
+		public static implicit operator IfcTextDecoration(string x) { return new IfcTextDecoration(x); }
+		public static implicit operator string(IfcTextDecoration x) { return x.Value; }
 	}
 
 	public class IfcTextFontName : STRING
 	{
 		public IfcTextFontName() { }
+		public IfcTextFontName(string value) { Value = value; }
+		public static implicit operator IfcTextFontName(string x) { return new IfcTextFontName(x); }
+		public static implicit operator string(IfcTextFontName x) { return x.Value; }
 	}
 
 	public class IfcTextTransformation : STRING
 	{
 		public IfcTextTransformation() { }
+		public IfcTextTransformation(string value) { Value = value; }
+		public static implicit operator IfcTextTransformation(string x) { return new IfcTextTransformation(x); }
+		public static implicit operator string(IfcTextTransformation x) { return x.Value; }
 	}
 
 	public class IfcThermalAdmittanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalAdmittanceMeasure() { }
+		public IfcThermalAdmittanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcThermalAdmittanceMeasure(double x) { return new IfcThermalAdmittanceMeasure(x); }
+		public static implicit operator double(IfcThermalAdmittanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalConductivityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalConductivityMeasure() { }
+		public IfcThermalConductivityMeasure(double value) { Value = value; }
+		public static implicit operator IfcThermalConductivityMeasure(double x) { return new IfcThermalConductivityMeasure(x); }
+		public static implicit operator double(IfcThermalConductivityMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalExpansionCoefficientMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalExpansionCoefficientMeasure() { }
+		public IfcThermalExpansionCoefficientMeasure(double value) { Value = value; }
+		public static implicit operator IfcThermalExpansionCoefficientMeasure(double x) { return new IfcThermalExpansionCoefficientMeasure(x); }
+		public static implicit operator double(IfcThermalExpansionCoefficientMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalResistanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalResistanceMeasure() { }
+		public IfcThermalResistanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcThermalResistanceMeasure(double x) { return new IfcThermalResistanceMeasure(x); }
+		public static implicit operator double(IfcThermalResistanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalTransmittanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalTransmittanceMeasure() { }
+		public IfcThermalTransmittanceMeasure(double value) { Value = value; }
+		public static implicit operator IfcThermalTransmittanceMeasure(double x) { return new IfcThermalTransmittanceMeasure(x); }
+		public static implicit operator double(IfcThermalTransmittanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermodynamicTemperatureMeasure : REAL, IfcMeasureValue
 	{
 		public IfcThermodynamicTemperatureMeasure() { }
+		public IfcThermodynamicTemperatureMeasure(double value) { Value = value; }
+		public static implicit operator IfcThermodynamicTemperatureMeasure(double x) { return new IfcThermodynamicTemperatureMeasure(x); }
+		public static implicit operator double(IfcThermodynamicTemperatureMeasure x) { return x.Value; }
 	}
 
 	public class IfcTime : STRING, IfcSimpleValue
 	{
 		public IfcTime() { }
+		public IfcTime(string value) { Value = value; }
+		public static implicit operator IfcTime(string x) { return new IfcTime(x); }
+		public static implicit operator string(IfcTime x) { return x.Value; }
 	}
 
 	public class IfcTimeMeasure : REAL, IfcMeasureValue
 	{
 		public IfcTimeMeasure() { }
+		public IfcTimeMeasure(double value) { Value = value; }
+		public static implicit operator IfcTimeMeasure(double x) { return new IfcTimeMeasure(x); }
+		public static implicit operator double(IfcTimeMeasure x) { return x.Value; }
 	}
 
 	public class IfcTimeStamp : INTEGER, IfcSimpleValue
 	{
 		public IfcTimeStamp() { }
+		public IfcTimeStamp(int value) { Value = value; }
+		public static implicit operator IfcTimeStamp(int x) { return new IfcTimeStamp(x); }
+		public static implicit operator int(IfcTimeStamp x) { return x.Value; }
 	}
 
 	public class IfcTorqueMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcTorqueMeasure() { }
+		public IfcTorqueMeasure(double value) { Value = value; }
+		public static implicit operator IfcTorqueMeasure(double x) { return new IfcTorqueMeasure(x); }
+		public static implicit operator double(IfcTorqueMeasure x) { return x.Value; }
 	}
 
 	public class IfcURIReference : STRING
 	{
 		public IfcURIReference() { }
+		public IfcURIReference(string value) { Value = value; }
+		public static implicit operator IfcURIReference(string x) { return new IfcURIReference(x); }
+		public static implicit operator string(IfcURIReference x) { return x.Value; }
 	}
 
 	public class IfcVaporPermeabilityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcVaporPermeabilityMeasure() { }
+		public IfcVaporPermeabilityMeasure(double value) { Value = value; }
+		public static implicit operator IfcVaporPermeabilityMeasure(double x) { return new IfcVaporPermeabilityMeasure(x); }
+		public static implicit operator double(IfcVaporPermeabilityMeasure x) { return x.Value; }
 	}
 
 	public class IfcVolumeMeasure : REAL, IfcMeasureValue
 	{
 		public IfcVolumeMeasure() { }
+		public IfcVolumeMeasure(double value) { Value = value; }
+		public static implicit operator IfcVolumeMeasure(double x) { return new IfcVolumeMeasure(x); }
+		public static implicit operator double(IfcVolumeMeasure x) { return x.Value; }
 	}
 
 	public class IfcVolumetricFlowRateMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcVolumetricFlowRateMeasure() { }
+		public IfcVolumetricFlowRateMeasure(double value) { Value = value; }
+		public static implicit operator IfcVolumetricFlowRateMeasure(double x) { return new IfcVolumetricFlowRateMeasure(x); }
+		public static implicit operator double(IfcVolumetricFlowRateMeasure x) { return x.Value; }
 	}
 
 	public class IfcWarpingConstantMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcWarpingConstantMeasure() { }
+		public IfcWarpingConstantMeasure(double value) { Value = value; }
+		public static implicit operator IfcWarpingConstantMeasure(double x) { return new IfcWarpingConstantMeasure(x); }
+		public static implicit operator double(IfcWarpingConstantMeasure x) { return x.Value; }
 	}
 
 	public class IfcWarpingMomentMeasure : REAL, IfcDerivedMeasureValue, IfcWarpingStiffnessSelect
 	{
 		public IfcWarpingMomentMeasure() { }
+		public IfcWarpingMomentMeasure(double value) { Value = value; }
+		public static implicit operator IfcWarpingMomentMeasure(double x) { return new IfcWarpingMomentMeasure(x); }
+		public static implicit operator double(IfcWarpingMomentMeasure x) { return x.Value; }
 	}
+
 
 	public class IfcActionRequestTypeEnum
 	{
@@ -2850,7 +3205,7 @@ namespace IFC4
 		public const string NOTDEFINED = "NOTDEFINED";
 	}
 
-	public class IfcTransitionCode
+	public class IfcTransitionCode:STRING
 	{
 		public const string DISCONTINUOUS = "DISCONTINUOUS";
 		public const string CONTINUOUS = "CONTINUOUS";
@@ -3216,6 +3571,7 @@ namespace IFC4
 
 	public interface IfcGeometricSetSelect
 	{
+		IfcDimensionCount GetDim();
 	}
 
 	public interface IfcGridPlacementDirectionSelect
@@ -3247,7 +3603,6 @@ namespace IFC4
 
 	public interface IfcMaterialSelect
 	{
-		List<IfcRelAssociatesMaterial> GetAssociatedTo();
 	}
 
 	public interface IfcMeasureValue : IfcValue
@@ -3443,7 +3798,8 @@ namespace IFC4
 		//6	TheActor : IfcActorSelect
 
 		public IfcActorSelect TheActor { get; set; }
-		public List<IfcRelAssignsToActor> IsActingUpon { get; set; }
+		//INVERSE
+		public List<IfcRelAssignsToActor> IsActingUpon;
 
 		public IfcActor() { }
 
@@ -3467,7 +3823,8 @@ namespace IFC4
 		public IfcRoleEnum Role { get; set; }
 		public IfcLabel UserDefinedRole { get; set; }
 		public IfcText Description { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+		//INVERSE
+		public List<IfcExternalReferenceRelationship> HasExternalReference;
 
 		public IfcActorRole() { }
 
@@ -3550,8 +3907,9 @@ namespace IFC4
 		public IfcAddressTypeEnum Purpose { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLabel UserDefinedPurpose { get; set; }
-		public List<IfcPerson> OfPerson { get; set; }
-		public List<IfcOrganization> OfOrganization { get; set; }
+		//INVERSE
+		public List<IfcPerson> OfPerson;
+		public List<IfcOrganization> OfOrganization;
 
 		public IfcAddress() { }
 
@@ -3864,8 +4222,8 @@ namespace IFC4
 		//5	ObjectType : IfcLabel
 		//6	ObjectPlacement : IfcObjectPlacement
 		//7	Representation : IfcProductRepresentation
-
-		public List<IfcRelContainedInSpatialStructure> ContainedInStructure { get; set; }
+		//INVERSE
+		public List<IfcRelContainedInSpatialStructure> ContainedInStructure;
 
 		public IfcAnnotation() { }
 
@@ -3944,7 +4302,8 @@ namespace IFC4
 		public IfcLabel Condition { get; set; }
 		public IfcArithmeticOperatorEnum ArithmeticOperator { get; set; }
 		public List<IfcAppliedValue> Components { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+		//INVERSE
+		public List<IfcExternalReferenceRelationship> HasExternalReference;
 
 		public IfcAppliedValue() { }
 
@@ -3984,11 +4343,12 @@ namespace IFC4
 		public IfcText Qualifier { get; set; }
 		public IfcActorSelect RequestingApproval { get; set; }
 		public IfcActorSelect GivingApproval { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
-		public List<IfcRelAssociatesApproval> ApprovedObjects { get; set; }
-		public List<IfcResourceApprovalRelationship> ApprovedResources { get; set; }
-		public List<IfcApprovalRelationship> IsRelatedWith { get; set; }
-		public List<IfcApprovalRelationship> Relates { get; set; }
+		//INVERSE
+		public List<IfcExternalReferenceRelationship> HasExternalReferences;
+		public List<IfcRelAssociatesApproval> ApprovedObjects;
+		public List<IfcResourceApprovalRelationship> ApprovedResources;
+		public List<IfcApprovalRelationship> IsRelatedWith;
+		public List<IfcApprovalRelationship> Relates;
 
 		public IfcApproval() { }
 
@@ -4252,8 +4612,9 @@ namespace IFC4
 		//2	Axis : IfcDirection
 
 		public IfcDirection Axis { get; set; }
-		public IfcDirection Z { get; set; }
-
+		public IfcDirection Z =>  NVL(IfcNormalise(Axis), new IfcDirection(0, 0, 1));
+		// (DERIVE)	Z : IfcDirection := NVL (IfcNormalise(Axis), IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcDirection([0.0,0.0,1.0])); {get;set;}
+		
 		public IfcAxis1Placement() { }
 
 		public IfcAxis1Placement(IfcCartesianPoint Location, IfcDirection Axis)
@@ -4269,8 +4630,10 @@ namespace IFC4
 		//2	RefDirection : IfcDirection
 
 		public IfcDirection RefDirection { get; set; }
-		public List<IfcDirection> P { get; set; }
+		public List<IfcDirection> P => IfcBuild2Axes(RefDirection);
+		// (DERIVE)	P : LIST [2:2] OF IfcDirection := IfcBuild2Axes(RefDirection); {get;set;}
 		public IfcDirection GetRefDirection() { return RefDirection; }
+
 		public List<IfcDirection> GetP() { return P; }
 		public IfcCartesianPoint GetLocation() { return Location; }
 		public IfcAxis2Placement2D() { }
@@ -4290,9 +4653,11 @@ namespace IFC4
 
 		public IfcDirection Axis { get; set; }
 		public IfcDirection RefDirection { get; set; }
-		public List<IfcDirection> P { get; set; }
+		public List<IfcDirection> P => IfcBuildAxes(Axis, RefDirection);
+		// (DERIVE)	P : LIST [3:3] OF IfcDirection := IfcBuildAxes(Axis, RefDirection); {get;set;}
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
+		
 		public IfcCartesianPoint GetLocation() { return Location; }
 		public IfcAxis2Placement3D() { }
 
@@ -4317,9 +4682,10 @@ namespace IFC4
 		public IfcBSplineCurveForm CurveForm { get; set; }
 		public IfcLogical ClosedCurve { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
-		public IfcInteger UpperIndexOnControlPoints { get; set; }
-		public List<IfcCartesianPoint> ControlPoints { get; set; }
-
+		public IfcInteger UpperIndexOnControlPoints => ControlPointsList.Count;
+		// (DERIVE)	UpperIndexOnControlPoints : IfcInteger := (SIZEOF(ControlPointsList) - 1); {get;set;}
+		public List<IfcCartesianPoint> ControlPoints => IfcListToArray(ControlPointsList, 0, UpperIndexOnControlPoints);
+		//// (DERIVE)	ControlPoints : ARRAY [0:UpperIndexOnControlPoints] OF IfcCartesianPoint := IfcListToArray(ControlPointsList,0,UpperIndexOnControlPoints); {get;set;}
 		public IfcBSplineCurve() { }
 
 		public IfcBSplineCurve(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect)
@@ -4346,10 +4712,10 @@ namespace IFC4
 		public List<IfcInteger> KnotMultiplicities { get; set; }
 		public List<IfcParameterValue> Knots { get; set; }
 		public IfcKnotType KnotSpec { get; set; }
-		public IfcInteger UpperIndexOnKnots { get; set; }
-
+		public IfcInteger UpperIndexOnKnots => Knots.Count;
+		// (DERIVE)	UpperIndexOnKnots : IfcInteger := SIZEOF(Knots); {get;set;}
 		public IfcBSplineCurveWithKnots() { }
-
+		
 		public IfcBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec)
 		{
 			this.Degree = Degree;
@@ -4380,9 +4746,12 @@ namespace IFC4
 		public IfcLogical UClosed { get; set; }
 		public IfcLogical VClosed { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
-		public IfcInteger UUpper { get; set; }
-		public IfcInteger VUpper { get; set; }
-		public List<List<IfcCartesianPoint>> ControlPoints { get; set; }
+		public IfcInteger UUpper => ControlPointsList.Count;
+		// (DERIVE)	UUpper : IfcInteger := SIZEOF(ControlPointsList) - 1; {get;set;}
+		public IfcInteger VUpper => ControlPointsList[0].Count; 
+		// (DERIVE)	VUpper : IfcInteger := SIZEOF(ControlPointsList[1]) - 1; {get;set;}
+		public List<List<IfcCartesianPoint>> ControlPoints => IfcMakeArrayOfArray(ControlPointsList, 0, UUpper, 0, VUpper);
+		// (DERIVE)	ControlPoints : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcCartesianPoint := IfcMakeArrayOfArray(ControlPointsList, {get;set;}
 
 		public IfcBSplineSurface() { }
 
@@ -4418,10 +4787,12 @@ namespace IFC4
 		public List<IfcParameterValue> UKnots { get; set; }
 		public List<IfcParameterValue> VKnots { get; set; }
 		public IfcKnotType KnotSpec { get; set; }
-		public IfcInteger KnotVUpper { get; set; }
-		public IfcInteger KnotUUpper { get; set; }
+		public IfcInteger KnotVUpper => VKnots.Count;
+        // (DERIVE)	KnotVUpper : IfcInteger := SIZEOF(VKnots); {get;set;}
+        public IfcInteger KnotUUpper => UKnots.Count;
+        // (DERIVE)	KnotUUpper : IfcInteger := SIZEOF(UKnots); {get;set;}
 
-		public IfcBSplineSurfaceWithKnots() { }
+        public IfcBSplineSurfaceWithKnots() { }
 
 		public IfcBSplineSurfaceWithKnots(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect, List<IfcInteger> UMultiplicities, List<IfcInteger> VMultiplicities, List<IfcParameterValue> UKnots, List<IfcParameterValue> VKnots, IfcKnotType KnotSpec)
 		{
@@ -4666,7 +5037,8 @@ namespace IFC4
 		public IfcBooleanOperator Operator { get; set; }
 		public IfcBooleanOperand FirstOperand { get; set; }
 		public IfcBooleanOperand SecondOperand { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => FirstOperand.GetDim();
+		// (DERIVE)	Dim : IfcDimensionCount := FirstOperand.Dim; {get;set;}
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcBooleanResult() { }
@@ -4840,7 +5212,7 @@ namespace IFC4
 		public IfcPositiveLengthMeasure XDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
 		public IfcPositiveLengthMeasure ZDim { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => (IfcDimensionCount) 3;
 
 		public IfcBoundingBox() { }
 
@@ -5493,8 +5865,8 @@ namespace IFC4
 		//1	Coordinates : List<IfcLengthMeasure>
 
 		public List<IfcLengthMeasure> Coordinates { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => (IfcDimensionCount) Coordinates.Count;
+		// (DERIVE)	Dim : IfcDimensionCount := HIINDEX(Coordinates); {get;set;}
 		public IfcCartesianPoint() { }
 
 		public IfcCartesianPoint(List<IfcLengthMeasure> Coordinates)
@@ -5505,8 +5877,8 @@ namespace IFC4
 
 	public abstract class IfcCartesianPointList : IfcGeometricRepresentationItem
 	{
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => IfcPointListDim(this);
+		// (DERIVE)	Dim : IfcDimensionCount := IfcPointListDim(SELF); {get;set;}
 		public IfcCartesianPointList() { }
 	}
 
@@ -5549,8 +5921,10 @@ namespace IFC4
 		public IfcDirection Axis2 { get; set; }
 		public IfcCartesianPoint LocalOrigin { get; set; }
 		public IfcReal Scale { get; set; }
-		public IfcReal Scl { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcReal Scl => NVL(Scale, (IfcReal)1);
+		// (DERIVE)	Scl : IfcReal := NVL(Scale, 1.0); {get;set;}
+		public IfcDimensionCount Dim => LocalOrigin.Dim;
+		// (DERIVE)	Dim : IfcDimensionCount := LocalOrigin.Dim; {get;set;}
 
 		public IfcCartesianTransformationOperator() { }
 
@@ -5570,8 +5944,8 @@ namespace IFC4
 		//3	LocalOrigin : IfcCartesianPoint
 		//4	Scale : IfcReal
 
-		public List<IfcDirection> U { get; set; }
-
+		public List<IfcDirection> U => IfcBaseAxis(2, Axis1, Axis2, null);
+		// (DERIVE)	U : LIST [2:2] OF IfcDirection := IfcBaseAxis(2,SELF\IfcCartesianTransformationOperator.Axis1, {get;set;}
 		public IfcCartesianTransformationOperator2D() { }
 
 		public IfcCartesianTransformationOperator2D(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale)
@@ -5592,8 +5966,8 @@ namespace IFC4
 		//5	Scale2 : IfcReal
 
 		public IfcReal Scale2 { get; set; }
-		public IfcReal Scl2 { get; set; }
-
+		public IfcReal Scl2 => NVL(Scale2, Scl);
+		// (DERIVE)	Scl2 : IfcReal := NVL(Scale2, SELF\IfcCartesianTransformationOperator.Scl); {get;set;}
 		public IfcCartesianTransformationOperator2DnonUniform() { }
 
 		public IfcCartesianTransformationOperator2DnonUniform(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcReal Scale2)
@@ -5615,8 +5989,8 @@ namespace IFC4
 		//5	Axis3 : IfcDirection
 
 		public IfcDirection Axis3 { get; set; }
-		public List<IfcDirection> U { get; set; }
-
+		public List<IfcDirection> U => IfcBaseAxis (3,Axis1,Axis2,Axis3);
+		// (DERIVE)	U : LIST [3:3] OF IfcDirection := IfcBaseAxis(3,SELF\IfcCartesianTransformationOperator.Axis1, {get;set;}
 		public IfcCartesianTransformationOperator3D() { }
 
 		public IfcCartesianTransformationOperator3D(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcDirection Axis3)
@@ -5641,9 +6015,10 @@ namespace IFC4
 
 		public IfcReal Scale2 { get; set; }
 		public IfcReal Scale3 { get; set; }
-		public IfcReal Scl2 { get; set; }
-		public IfcReal Scl3 { get; set; }
-
+		public IfcReal Scl2 => NVL(Scale2, Scl);
+		// (DERIVE)	Scl2 : IfcReal := NVL(Scale2, SELF\IfcCartesianTransformationOperator.Scl); {get;set;}	
+		public IfcReal Scl3 => NVL(Scale3, Scl);
+		// (DERIVE)	Scl3 : IfcReal := NVL(Scale3, SELF\IfcCartesianTransformationOperator.Scl); {get;set;}
 		public IfcCartesianTransformationOperator3DnonUniform() { }
 
 		public IfcCartesianTransformationOperator3DnonUniform(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcDirection Axis3, IfcReal Scale2, IfcReal Scale3)
@@ -5931,8 +6306,10 @@ namespace IFC4
 		public IfcText Description { get; set; }
 		public IfcURIReference Location { get; set; }
 		public List<IfcIdentifier> ReferenceTokens { get; set; }
-		public List<IfcRelAssociatesClassification> ClassificationForObjects { get; set; }
-		public List<IfcClassificationReference> HasReferences { get; set; }
+		//INVERSE
+		public List<IfcRelAssociatesClassification> ClassificationForObjects;
+		public List<IfcClassificationReference> HasReferences;
+		
 		public IfcText GetDescription() { return Description; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
 
@@ -5962,8 +6339,9 @@ namespace IFC4
 		public IfcClassificationReferenceSelect ReferencedSource { get; set; }
 		public IfcText Description { get; set; }
 		public IfcIdentifier Sort { get; set; }
-		public List<IfcRelAssociatesClassification> ClassificationRefForObjects { get; set; }
-		public List<IfcClassificationReference> HasReferences { get; set; }
+		//INVERSE
+		public List<IfcRelAssociatesClassification> ClassificationRefForObjects;
+		public List<IfcClassificationReference> HasReferences;
 		public IfcText GetDescription() { return Description; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
 
@@ -6312,9 +6690,10 @@ namespace IFC4
 
 		public List<IfcCompositeCurveSegment> Segments { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
-		public IfcInteger NSegments { get; set; }
-		public IfcLogical ClosedCurve { get; set; }
-
+		public IfcInteger NSegments => (IfcInteger) Segments.Count;
+		// (DERIVE)	NSegments : IfcInteger := SIZEOF(Segments); {get;set;}
+		public IfcLogical ClosedCurve => (IfcLogical) (Segments[Segments.Count - 1].Transition != IfcTransitionCode.DISCONTINUOUS);
+		// (DERIVE)	ClosedCurve : IfcLogical := Segments[NSegments].Transition <> Discontinuous; {get;set;}
 		public IfcCompositeCurve() { }
 
 		public IfcCompositeCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
@@ -6329,8 +6708,8 @@ namespace IFC4
 		//1	Segments : List<IfcCompositeCurveSegment>
 		//2	SelfIntersect : IfcLogical
 
-		public List<IfcSurface> BasisSurface { get; set; }
-
+		public List<IfcSurface> BasisSurface => IfcGetBasisSurface(this);
+		// (DERIVE)	BasisSurface : SET [0:1] OF IfcSurface := IfcGetBasisSurface(SELF); {get;set;}
 		public IfcCompositeCurveOnSurface() { }
 
 		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
@@ -6349,8 +6728,10 @@ namespace IFC4
 		public IfcTransitionCode Transition { get; set; }
 		public IfcBoolean SameSense { get; set; }
 		public IfcCurve ParentCurve { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-		public List<IfcCompositeCurve> UsingCurves { get; set; }
+		public IfcDimensionCount Dim => ParentCurve.Dim;
+		// (DERIVE)	Dim : IfcDimensionCount := ParentCurve.Dim; {get;set;}
+		//INVERSE
+		public List<IfcCompositeCurve> UsingCurves;
 
 		public IfcCompositeCurveSegment() { }
 
@@ -7534,8 +7915,8 @@ namespace IFC4
 
 		public IfcAxis2Placement3D Position { get; set; }
 		public IfcDimensionCount Dim { get; set; }
-		public IfcDimensionCount GetDim() { return Dim; }
-
+		public IfcDimensionCount GetDim() => (IfcDimensionCount)3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcCsgPrimitive3D() { }
 
 		public IfcCsgPrimitive3D(IfcAxis2Placement3D Position)
@@ -7652,8 +8033,9 @@ namespace IFC4
 
 	public abstract class IfcCurve : IfcGeometricRepresentationItem, IfcGeometricSetSelect
 	{
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => IfcCurveDim(this);
+		// (DERIVE)	Dim : IfcDimensionCount := IfcCurveDim(SELF); {get;set;}
+		public IfcDimensionCount GetDim() { return Dim; }
 		public IfcCurve() { }
 	}
 
@@ -7887,8 +8269,8 @@ namespace IFC4
 		public List<IfcDerivedUnitElement> Elements { get; set; }
 		public IfcDerivedUnitEnum UnitType { get; set; }
 		public IfcLabel UserDefinedType { get; set; }
-		public IfcDimensionalExponents Dimensions { get; set; }
-
+		public IfcDimensionalExponents Dimensions => IfcDeriveDimensionalExponents(Elements);
+		// (DERIVE)	Dimensions : IfcDimensionalExponents := IfcDeriveDimensionalExponents(Elements); {get;set;}
 		public IfcDerivedUnit() { }
 
 		public IfcDerivedUnit(List<IfcDerivedUnitElement> Elements, IfcDerivedUnitEnum UnitType, IfcLabel UserDefinedType)
@@ -7973,21 +8355,24 @@ namespace IFC4
 		//1	DirectionRatios : List<IfcReal>
 
 		public List<IfcReal> DirectionRatios { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => (IfcDimensionCount) DirectionRatios.Count;
+		// (DERIVE)	Dim : IfcDimensionCount := HIINDEX(DirectionRatios); {get;set;}
 		public List<IfcReal> GetDirectionRatios() { return DirectionRatios; }
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcDirection() { }
-		public IfcDirection(double a, double b)
-		{
-			this.DirectionRatios = new List<IfcReal>() { (IfcReal)a, (IfcReal)b };
-		}
-		public IfcDirection(double a, double b, double c) {
-			this.DirectionRatios = new List<IfcReal>() { (IfcReal)a, (IfcReal)b, (IfcReal)c } ;
-		}
+		
 		public IfcDirection(List<IfcReal> DirectionRatios)
 		{
 			this.DirectionRatios = DirectionRatios;
+		}
+		public IfcDirection(double x, double y)
+		{
+			this.DirectionRatios = new List<IfcReal>() { (IfcReal)x, (IfcReal)y };
+		}
+		public IfcDirection(double x, double y, double z)
+		{
+			this.DirectionRatios = new List<IfcReal>() { (IfcReal)x, (IfcReal)y, (IfcReal)z };
 		}
 	}
 
@@ -8987,8 +9372,8 @@ namespace IFC4
 		//1	EdgeList : List<IfcOrientedEdge>
 
 		public List<IfcOrientedEdge> EdgeList { get; set; }
-		public IfcInteger Ne { get; set; }
-
+		public IfcInteger Ne => (IfcInteger) EdgeList.Count;
+		// (DERIVE)	Ne : IfcInteger := SIZEOF(EdgeList); {get;set;}
 		public IfcEdgeLoop() { }
 
 		public IfcEdgeLoop(List<IfcOrientedEdge> EdgeList)
@@ -10223,8 +10608,8 @@ namespace IFC4
 		//1	FbsmFaces : List<IfcConnectedFaceSet>
 
 		public List<IfcConnectedFaceSet> FbsmFaces { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcFaceBasedSurfaceModel() { }
 
 		public IfcFaceBasedSurfaceModel(List<IfcConnectedFaceSet> FbsmFaces)
@@ -11596,7 +11981,8 @@ namespace IFC4
 		//1	Elements : List<IfcGeometricSetSelect>
 
 		public List<IfcGeometricSetSelect> Elements { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => Elements[0].GetDim();
+		// (DERIVE)	Dim : IfcDimensionCount := Elements[1].Dim; {get;set;}
 
 		public IfcGeometricSet() { }
 
@@ -11714,7 +12100,8 @@ namespace IFC4
 
 		public IfcSurface BaseSurface { get; set; }
 		public IfcBoolean AgreementFlag { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => (IfcDimensionCount) 3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcHalfSpaceSolid() { }
@@ -12970,7 +13357,7 @@ namespace IFC4
 		public List<IfcRelAssociatesMaterial> AssociatedTo { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
 		public List<IfcMaterialProperties> HasProperties { get; set; }
-		public List<IfcRelAssociatesMaterial> GetAssociatedTo() { return AssociatedTo; }
+		
 
 		public IfcMaterialDefinition() { }
 	}
@@ -13037,8 +13424,8 @@ namespace IFC4
 		public List<IfcMaterialLayer> MaterialLayers { get; set; }
 		public IfcLabel LayerSetName { get; set; }
 		public IfcText Description { get; set; }
-		public IfcLengthMeasure TotalThickness { get; set; }
-
+		public IfcLengthMeasure TotalThickness => IfcMlsTotalThickness(this);
+		// (DERIVE)	TotalThickness : IfcLengthMeasure := IfcMlsTotalThickness(SELF); {get;set;}
 		public IfcMaterialLayerSet() { }
 
 		public IfcMaterialLayerSet(List<IfcMaterialLayer> MaterialLayers, IfcLabel LayerSetName, IfcText Description)
@@ -13106,7 +13493,7 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialList : IfcBase
+	public class IfcMaterialList : IfcBase, IfcMaterialSelect
 	{
 		//1	Materials : List<IfcMaterial>
 
@@ -13289,7 +13676,6 @@ namespace IFC4
 	public abstract class IfcMaterialUsageDefinition : IfcBase, IfcMaterialSelect
 	{
 		public List<IfcRelAssociatesMaterial> AssociatedTo { get; set; }
-		public List<IfcRelAssociatesMaterial> GetAssociatedTo() { return AssociatedTo; }
 
 		public IfcMaterialUsageDefinition() { }
 	}
@@ -13674,7 +14060,6 @@ namespace IFC4
 	{
 		//1	Dimensions : IfcDimensionalExponents
 		//2	UnitType : IfcUnitEnum
-
 		public IfcDimensionalExponents Dimensions { get; set; }
 		public IfcUnitEnum UnitType { get; set; }
 		public IfcDimensionalExponents GetDimensions() { return Dimensions; }
@@ -13941,9 +14326,10 @@ namespace IFC4
 		public IfcText Description { get; set; }
 		public List<IfcActorRole> Roles { get; set; }
 		public List<IfcAddress> Addresses { get; set; }
-		public List<IfcOrganizationRelationship> IsRelatedBy { get; set; }
-		public List<IfcOrganizationRelationship> Relates { get; set; }
-		public List<IfcPersonAndOrganization> Engages { get; set; }
+		//INVERSE
+		public List<IfcOrganizationRelationship> IsRelatedBy;
+		public List<IfcOrganizationRelationship> Relates;
+		public List<IfcPersonAndOrganization> Engages;
 
 		public IfcOrganization() { }
 
@@ -14601,8 +14987,8 @@ namespace IFC4
 		//1	Location : IfcCartesianPoint
 
 		public IfcCartesianPoint Location { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => Location.Dim;
+		// (DERIVE)	Dim : IfcDimensionCount := Location.Dim; {get;set;}
 		public IfcPlacement() { }
 
 		public IfcPlacement(IfcCartesianPoint Location)
@@ -14750,6 +15136,7 @@ namespace IFC4
 
 	public abstract class IfcPoint : IfcGeometricRepresentationItem, IfcGeometricSetSelect, IfcPointOrVertexPoint
 	{
+		public IfcDimensionCount GetDim() { return null; }
 		public IfcPoint() { }
 	}
 
@@ -14760,8 +15147,8 @@ namespace IFC4
 
 		public IfcCurve BasisCurve { get; set; }
 		public IfcParameterValue PointParameter { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => BasisCurve.Dim;
+		// (DERIVE)	Dim : IfcDimensionCount := BasisCurve.Dim; {get;set;}
 		public IfcPointOnCurve() { }
 
 		public IfcPointOnCurve(IfcCurve BasisCurve, IfcParameterValue PointParameter)
@@ -14780,8 +15167,8 @@ namespace IFC4
 		public IfcSurface BasisSurface { get; set; }
 		public IfcParameterValue PointParameterU { get; set; }
 		public IfcParameterValue PointParameterV { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => BasisSurface.Dim;
+		// (DERIVE)	Dim : IfcDimensionCount := BasisSurface.Dim; {get;set;}
 		public IfcPointOnSurface() { }
 
 		public IfcPointOnSurface(IfcSurface BasisSurface, IfcParameterValue PointParameterU, IfcParameterValue PointParameterV)
@@ -16363,8 +16750,8 @@ namespace IFC4
 		//9	WeightsData : List<IfcReal>
 
 		public List<IfcReal> WeightsData { get; set; }
-		public List<IfcReal> Weights { get; set; }
-
+		public List<IfcReal> Weights => IfcListToArray(WeightsData, 0, UpperIndexOnControlPoints);
+		// (DERIVE)	Weights : ARRAY [0:UpperIndexOnControlPoints] OF IfcReal := IfcListToArray(WeightsData,0,SELF\IfcBSplineCurve.UpperIndexOnControlPoints); {get;set;}
 		public IfcRationalBSplineCurveWithKnots() { }
 
 		public IfcRationalBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec, List<IfcReal> WeightsData)
@@ -16398,8 +16785,8 @@ namespace IFC4
 		//13	WeightsData : List<List<IfcReal>>
 
 		public List<List<IfcReal>> WeightsData { get; set; }
-		public List<List<IfcReal>> Weights { get; set; }
-
+		public List<List<IfcReal>> Weights => IfcMakeArrayOfArray(WeightsData, 0, UUpper, 0, VUpper);
+		// (DERIVE)	Weights : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcReal := IfcMakeArrayOfArray(WeightsData,0,UUpper,0,VUpper); {get;set;}
 		public IfcRationalBSplineSurfaceWithKnots() { }
 
 		public IfcRationalBSplineSurfaceWithKnots(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect, List<IfcInteger> UMultiplicities, List<IfcInteger> VMultiplicities, List<IfcParameterValue> UKnots, List<IfcParameterValue> VKnots, IfcKnotType KnotSpec, List<List<IfcReal>> WeightsData)
@@ -18468,8 +18855,8 @@ namespace IFC4
 
 		public IfcAxis1Placement Axis { get; set; }
 		public IfcPlaneAngleMeasure Angle { get; set; }
-		public IfcLine AxisLine { get; set; }
-
+		public IfcLine AxisLine => new IfcLine(Axis.Location, new IfcVector(Axis.Z, 1));
+		// (DERIVE)	AxisLine : IfcLine := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcCurve() || IfcLine(Axis.Location, IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector(Axis.Z,1.0));
 		public IfcRevolvedAreaSolid() { }
 
 		public IfcRevolvedAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcAxis1Placement Axis, IfcPlaneAngleMeasure Angle)
@@ -18827,8 +19214,8 @@ namespace IFC4
 		public IfcCompositeCurve SpineCurve { get; set; }
 		public List<IfcProfileDef> CrossSections { get; set; }
 		public List<IfcAxis2Placement3D> CrossSectionPositions { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => (IfcDimensionCount) 3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcSectionedSpine() { }
 
 		public IfcSectionedSpine(IfcCompositeCurve SpineCurve, List<IfcProfileDef> CrossSections, List<IfcAxis2Placement3D> CrossSectionPositions)
@@ -19032,8 +19419,8 @@ namespace IFC4
 		//1	SbsmBoundary : List<IfcShell>
 
 		public List<IfcShell> SbsmBoundary { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcShellBasedSurfaceModel() { }
 
 		public IfcShellBasedSurfaceModel(List<IfcShell> SbsmBoundary)
@@ -19347,7 +19734,8 @@ namespace IFC4
 
 	public abstract class IfcSolidModel : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcSolidOrShell
 	{
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcSolidModel() { }
@@ -21092,8 +21480,9 @@ namespace IFC4
 
 	public abstract class IfcSurface : IfcGeometricRepresentationItem, IfcGeometricSetSelect, IfcSurfaceOrFaceSurface
 	{
-		public IfcDimensionCount Dim { get; set; }
-
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
+		public IfcDimensionCount GetDim() { return Dim; }
 		public IfcSurface() { }
 	}
 
@@ -21106,8 +21495,8 @@ namespace IFC4
 		public IfcCurve Curve3D { get; set; }
 		public List<IfcPcurve> AssociatedGeometry { get; set; }
 		public IfcPreferredSurfaceCurveRepresentation MasterRepresentation { get; set; }
-		public List<IfcSurface> BasisSurface { get; set; }
-
+		public List<IfcSurface> BasisSurface => IfcGetBasisSurface(this);
+		// (DERIVE)	BasisSurface : SET [1:2] OF IfcSurface := IfcGetBasisSurface(SELF); {get;set;}
 		public IfcSurfaceCurve() { }
 
 		public IfcSurfaceCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
@@ -21184,8 +21573,8 @@ namespace IFC4
 
 		public IfcDirection ExtrudedDirection { get; set; }
 		public IfcLengthMeasure Depth { get; set; }
-		public IfcVector ExtrusionAxis { get; set; }
-
+		public IfcVector ExtrusionAxis => new IfcVector(ExtrudedDirection, Depth);
+		// (DERIVE)	ExtrusionAxis : IfcVector := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector (ExtrudedDirection, Depth); {get;set;}
 		public IfcSurfaceOfLinearExtrusion() { }
 
 		public IfcSurfaceOfLinearExtrusion(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position, IfcDirection ExtrudedDirection, IfcLengthMeasure Depth)
@@ -21204,8 +21593,8 @@ namespace IFC4
 		//3	AxisPosition : IfcAxis1Placement
 
 		public IfcAxis1Placement AxisPosition { get; set; }
-		public IfcLine AxisLine { get; set; }
-
+		public IfcLine AxisLine => new IfcLine(AxisPosition.Location, new IfcVector(AxisPosition.Z, 1.0));
+		// (DERIVE)	AxisLine : IfcLine := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcCurve() || IfcLine(AxisPosition.Location, IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector(AxisPosition.Z,1.0));
 		public IfcSurfaceOfRevolution() { }
 
 		public IfcSurfaceOfRevolution(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position, IfcAxis1Placement AxisPosition)
@@ -21675,9 +22064,12 @@ namespace IFC4
 		public IfcLabel Name { get; set; }
 		public List<IfcTableRow> Rows { get; set; }
 		public List<IfcTableColumn> Columns { get; set; }
-		public IfcInteger NumberOfCellsInRow { get; set; }
-		public IfcInteger NumberOfHeadings { get; set; }
-		public IfcInteger NumberOfDataRows { get; set; }
+		public IfcInteger NumberOfCellsInRow => (IfcInteger) Rows[0].RowCells.Count;
+		// (DERIVE)	NumberOfCellsInRow : IfcInteger := HIINDEX(Rows[1].RowCells); {get;set;}
+		public IfcInteger NumberOfHeadings => (IfcInteger) Rows.Where(Temp => Temp.IsHeading).Count();
+		// (DERIVE)	NumberOfHeadings : IfcInteger := SIZEOF(QUERY( Temp <* Rows | Temp.IsHeading)); {get;set;}
+		public IfcInteger NumberOfDataRows => (IfcInteger)Rows.Where(Temp => !Temp.IsHeading).Count();
+		// (DERIVE)	NumberOfDataRows : IfcInteger := SIZEOF(QUERY( Temp <* Rows | NOT(Temp.IsHeading))); {get;set;}
 
 		public IfcTable() { }
 
@@ -22192,7 +22584,8 @@ namespace IFC4
 		//1	Coordinates : IfcCartesianPointList3D
 
 		public IfcCartesianPointList3D Coordinates { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public List<IfcIndexedColourMap> HasColours { get; set; }
 		public List<IfcIndexedTextureMap> HasTextures { get; set; }
 		public IfcDimensionCount GetDim() { return Dim; }
@@ -22709,8 +23102,8 @@ namespace IFC4
 		public IfcBoolean Closed { get; set; }
 		public List<List<IfcPositiveInteger>> CoordIndex { get; set; }
 		public List<IfcPositiveInteger> PnIndex { get; set; }
-		public IfcInteger NumberOfTriangles { get; set; }
-
+		public IfcInteger NumberOfTriangles => (IfcInteger) CoordIndex.Count();
+		// (DERIVE)	NumberOfTriangles : IfcInteger := SIZEOF(CoordIndex); {get;set;}
 		public IfcTriangulatedFaceSet() { }
 
 		public IfcTriangulatedFaceSet(IfcCartesianPointList3D Coordinates, List<List<IfcParameterValue>> Normals, IfcBoolean Closed, List<List<IfcPositiveInteger>> CoordIndex, List<IfcPositiveInteger> PnIndex)
@@ -23185,19 +23578,48 @@ namespace IFC4
 
 		public IfcDirection Orientation { get; set; }
 		public IfcLengthMeasure Magnitude { get; set; }
-		public IfcDimensionCount Dim { get; set; }
+		public IfcDimensionCount Dim => Orientation.Dim;
+		// (DERIVE)	Dim : IfcDimensionCount := Orientation.Dim; {get;set;}
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcVector() { }
-		public IfcVector(IfcDirection Orientation, double Magnitude)
-		{
-			this.Orientation = Orientation;
-			this.Magnitude = (IfcLengthMeasure) Magnitude;
-		}
+
+	
 		public IfcVector(IfcDirection Orientation, IfcLengthMeasure Magnitude)
 		{
 			this.Orientation = Orientation;
 			this.Magnitude = Magnitude;
+		}
+
+		public IfcVector(double x, double y)
+		{
+			double d = Math.Sqrt(x * x + y * y);
+			if (d > 0)
+			{
+				Orientation = new IfcDirection(x / d, y / d);
+				Magnitude = (IfcLengthMeasure)d;
+			}
+			else
+			{
+				Orientation = new IfcDirection(0, 0);
+				Magnitude = (IfcLengthMeasure)0;
+			}
+
+		}
+		public IfcVector(double x, double y, double z)
+		{
+			double d = Math.Sqrt(x * x + y * y + z * z);
+			if (d > 0)
+			{
+				Orientation = new IfcDirection(x / d, y / d, z / d);
+				Magnitude = (IfcLengthMeasure)d;
+			}
+			else
+			{
+				Orientation = new IfcDirection(0, 0, 0);
+				Magnitude = (IfcLengthMeasure)0;
+			}
+
 		}
 	}
 

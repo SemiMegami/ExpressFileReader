@@ -11,33 +11,7 @@ namespace IFCReader
     {
 
 
-        public static string ToC(string exp) // to c sharp
-        {
-            string s = "";
-            if(exp.Length == 0)
-            {
-                return exp;
-            }
-
-            string[] words = exp.Split(" ");
-            if (words.Length == 0)
-            {
-                return exp;
-            }
-
-            switch (words[0])
-            {
-                case "LIST":
-
-                    break;
-                default:
-                    return exp;
-            }
-
-
-
-            return s;
-        }
+      
 
         public static void CreateClassFromExpress(string input, string output)
         {
@@ -137,19 +111,22 @@ namespace IFCReader
 
                                         break;
                                     default:
-                                        if (texts[3].Contains("STRING"))
-                                        {
-                                            IFCClasses.Add(texts[1], new IFCClass("class", texts[1], "STRING"));
-
-                                        }
-                                        else
-                                        {
-                                            IFCClasses.Add(texts[1], new IFCClass("class", texts[1], texts[3].Replace(";", "")));
-
-                                        }
-
-
-                                        break;
+                                    string basictype = texts[3].Contains("STRING") ? "STRING" : texts[3].Replace(";", "");
+                                    IFCClass basicClass = new  IFCClass("class", texts[1], basictype);
+                                    //string extText = "public REAL(double value) { Value = value; }\n" + 
+                                    //                    "public static implicit operator REAL(double x) { return new REAL(x); }\n" +
+                                    //                    "public static implicit operator double(REAL x) { return x.Value; }\n";
+                                    string extText = "public {1}({0} value) { Value = value; }\n" +
+                                                       "public static implicit operator {1}({0} x) { return new {1}(x); }\n" +
+                                                       "public static implicit operator {0}({1} x) { return x.Value; }\n";
+                                    if (basicTypes.TryGetValue(basictype, out string value)){
+                                        extText = extText.Replace("{1}", texts[1]).Replace("{0}", value);
+                                        basicClass.extraText = extText;
+                                    }
+                                   // extText = extText.Replace("{1}", texts[1]).Replace("{0}", basicTypes[basictype]);
+                                   
+                                    IFCClasses.Add(texts[1], basicClass);
+                                    break;
                                 }
                                 break;
 
@@ -208,8 +185,9 @@ namespace IFCReader
                                             elementType = entityTexts[typeIndex].Replace(";", "").Replace(",", "");
                                         }
 
+                                   
 
-                                        if (entityTexts.Length > typeIndex + 3 && (elementType == "SET" || elementType == "ARRAY" || elementType == "LIST"))
+                                    if (entityTexts.Length > typeIndex + 3 && (elementType == "SET" || elementType == "ARRAY" || elementType == "LIST"))
                                         {
 
                                             typeIndex += 3;
@@ -246,7 +224,11 @@ namespace IFCReader
                                             }
                                         }
 
-                                        currentClass.propElement.Add(elemeentName, elementType);
+                                    if (currentrule == "DERIVE")
+                                    {
+                                        elemeentName += ";// (DERIVE)" + currentline;
+                                    }
+                                    currentClass.propElement.Add(elemeentName, elementType);
                                         if(currentrule == "SUPERTYPE" || currentrule == "SUBTYPE" || currentrule == "")
                                         {
                                             currentClass.consElement.Add(elemeentName, elementType);
@@ -520,6 +502,158 @@ namespace IFCReader
 
             }
         }
+
+
+        public static void CreateStringCastterFromExpress(string input, string output)
+        {
+            Dictionary<string, string> basicTypes = new Dictionary<string, string>()
+                {
+                    {"REAL","double"},
+                    {"INTEGER","int"},
+                    {"NUMBER","double"},
+                    {"LOGICAL","bool"},
+                    {"BOOLEAN","bool"},
+                    {"BINARY","int"},
+                    {"STRING","string"},
+
+                };
+
+
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string rawText;
+                string[] texts;
+                string results = "";
+                string className;
+
+
+
+                //try
+                //{
+                while (!reader.EndOfStream)
+                {
+                    rawText = reader.ReadLine();
+                    if (rawText.Length == 0) continue;
+                    texts = rawText.Split(' ').ToArray();
+                    if (texts.Length == 0) continue;
+                    switch (texts[0])
+                    {
+                        case "TYPE":
+                            className = texts[1];
+
+                            switch (texts[3])
+                            {
+                                case "SET":
+                                case "ARRAY":
+                                case "LIST":
+
+                                case "ENUMERATION":
+
+                                case "SELECT":
+
+                                default:
+                                    string basictype = texts[3].Contains("STRING") ? "STRING" : texts[3].Replace(";", "");
+                                    if(basictype == "STRING")
+                                    {
+                                        results += " case \"" + className + "\": return (" + className + ")input.Substring(1, input.Length - 2);\n";
+                                    }
+                                                          
+                                    break;
+                            }
+                            break;
+
+
+                    }
+                   
+                }
+
+
+
+                using (StreamWriter writer = new StreamWriter(output))
+                {
+                    writer.WriteLine(results);
+                    writer.Close();
+                }
+                reader.Close();
+            }
+        }
+
+
+        public static void CreateNumericCastterFromExpress(string input, string output)
+        {
+            Dictionary<string, string> basicTypes = new Dictionary<string, string>()
+                {
+                    {"REAL","double"},
+                    {"INTEGER","int"},
+                    {"NUMBER","double"},
+                    {"LOGICAL","bool"},
+                    {"BOOLEAN","bool"},
+                    {"BINARY","int"},
+                    {"STRING","string"},
+
+                };
+
+
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string rawText;
+                string[] texts;
+                string results = "";
+                string className;
+
+
+
+                //try
+                //{
+                while (!reader.EndOfStream)
+                {
+                    rawText = reader.ReadLine();
+                    if (rawText.Length == 0) continue;
+                    texts = rawText.Split(' ').ToArray();
+                    if (texts.Length == 0) continue;
+                    switch (texts[0])
+                    {
+                        case "TYPE":
+                            className = texts[1];
+
+                            switch (texts[3])
+                            {
+                                case "SET":
+                                case "ARRAY":
+                                case "LIST":
+
+                                case "ENUMERATION":
+
+                                case "SELECT":
+
+                                default:
+                                    string basictype = texts[3].Contains("STRING") ? "STRING" : texts[3].Replace(";", "");
+                                    if (basictype != "STRING")
+                                    {
+                                        results += " case \"" + className + "\": return (" + className + ")result;\n";
+                                    }
+
+                                    break;
+                            }
+                            break;
+
+
+                    }
+
+                }
+
+
+
+                using (StreamWriter writer = new StreamWriter(output))
+                {
+                    writer.WriteLine(results);
+                    writer.Close();
+                }
+                reader.Close();
+            }
+        }
+
+
 
         public static void CreateIfcCorrectDimensionTextFromExpress(string input, string output)
         {

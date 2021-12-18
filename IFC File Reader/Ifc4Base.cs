@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,26 +9,9 @@ namespace IFC4
 {
 	public abstract class IfcBase
 	{
-	
-
-		protected static List<string> ReadIFCDataLine(string ifcText)
-        {
-			List<string> outputText = new List<string>();
-
-			char[] chars = ifcText.ToCharArray();
 
 
-			int n = chars.Length;
-
-
-
-			
-
-
-
-			return outputText;
-
-		}
+        public List<string> textParameters;
 
        
         private static bool InTypeOf(object a, string typeName)
@@ -43,6 +27,8 @@ namespace IFC4
             }
             return a.GetType().IsSubclassOf(Type.GetType(typeName));
         }
+
+       
 
 		
 
@@ -1406,11 +1392,11 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<object> IfcListToArray(List<object> Lis, INTEGER Low, INTEGER U)
+        public static List<T> IfcListToArray<T>(List<T> Lis, INTEGER Low, INTEGER U)
         {
             //NeedCheck
             INTEGER N;
-            List<object> Res;
+            List<T> Res;
             N = Lis.Count;
             if(N!= U-Low + 1)
             {
@@ -1418,7 +1404,7 @@ namespace IFC4
             }
             else
             {
-                Res = new List<object>();
+                Res = new List<T>();
                 for(int i = 1; i < N; i++)
                 {
                     Res[Low + i - 1] = Lis[i];
@@ -1477,7 +1463,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<List<object>> IfcMakeArrayOfArray(List<List<object>> Lis, INTEGER Low1, INTEGER U1, INTEGER Low2, INTEGER U2)
+        public static List<List<T>> IfcMakeArrayOfArray<T>(List<List<T>> Lis, INTEGER Low1, INTEGER U1, INTEGER Low2, INTEGER U2)
         {
             //Later
             List<List<object>> Res;
@@ -1940,11 +1926,11 @@ namespace IFC4
                 {
                     for (int i = 0; i < V.DirectionRatios.Count; i++)
                     {
-                        V.DirectionRatios[i] = (IfcReal)(-V.DirectionRatios[i]);
+                        V.DirectionRatios[i] = (-V.DirectionRatios[i]);
                     }
                     Mag = -Mag;
                 }
-                Result = new IfcVector(IfcNormalise(V), Mag);
+                Result = new IfcVector(IfcNormalise(V), (IfcLengthMeasure) Mag);
                 return Result;
             }
         }
@@ -2024,7 +2010,7 @@ namespace IFC4
         public static LOGICAL IfcShapeRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem> Items)
         {
             INTEGER Count = 0;
-            switch (RepType)
+            switch ((string) RepType)
             {
                 case "Point":
                     Count = Items.Where(temp => InTypeOf(temp, "IfcPoint")).Count();
@@ -2394,8 +2380,11 @@ namespace IFC4
             {
                 for (int j = 0; j < B.VUpper; j++)
                 {
-                    Result = false;
-                    return Result;
+                    if (Weights[i][j] < 0)
+                    {
+                        Result = false;
+                        return Result;
+                    }    
                 }
             }
 
@@ -2479,7 +2468,7 @@ namespace IFC4
         public static LOGICAL IfcTopologyRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem>Items)
         {
             INTEGER Count = 0;
-            switch (RepType)
+            switch ((string) RepType)
             {
                 case "Vertex":
                     Count = Items.Where(temp => InTypeOf(temp, "IfcVertex")).Count();
