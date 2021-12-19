@@ -164,6 +164,7 @@ namespace IFCReader
                     {
                         str += "\t\tpublic const string " + enumElements[i] + " = \"" + enumElements[i] + "\";\n";
                     }
+                    str += extraText;
                     break;
                   
             }

@@ -1559,7 +1559,7 @@ namespace IFC4
                     }
                     else
                     {
-                        Vec.Magnitude = (IfcLengthMeasure)1;
+                        Vec.Magnitude = 1;
                     }
                 }
                 else
@@ -2556,9 +2556,9 @@ namespace IFC4
                     if (InTypeOf(Definition, "IfcPropertySetDefinitionSet"))
                     {
                         DefinitionSet = (IfcPropertySetDefinitionSet)Definition;
-                        for(int j = 0; j < DefinitionSet.Value.Count; i++)
+                        for(int j = 0; j < DefinitionSet.Count; i++)
                         {
-                            Properties.Add(DefinitionSet.Value[i]);
+                            Properties.Add(DefinitionSet[i]);
                         }
                         
                     }

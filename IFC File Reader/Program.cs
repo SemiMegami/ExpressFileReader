@@ -8,7 +8,7 @@ namespace IFC_File_Reader
         {
             
 
-            IfcDict IFC = new IfcDict();
+            Model IFC = new Model();
 
             IFC.ImportIFC("Open IFC Model/20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture.ifc");
 

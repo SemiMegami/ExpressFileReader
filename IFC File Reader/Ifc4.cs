@@ -36,12 +36,37 @@ namespace IFC4
 		public static implicit operator double(IfcAngularVelocityMeasure x) { return x.Value; }
 	}
 
-	public class IfcArcIndex : IfcSegmentIndexSelect
+	public class IfcArcIndex : List<IfcPositiveInteger>, IfcSegmentIndexSelect
 	{
-		public List<IfcPositiveInteger> Value { get; set; }
-		public List<IfcPositiveInteger> GetValue() { return Value; }
-
-		public IfcArcIndex() { }
+		
+		public List<IfcPositiveInteger> GetValue() { return this; }
+		public IfcArcIndex(){}
+		public IfcArcIndex(List<IfcPositiveInteger> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public IfcArcIndex(List<int> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public static implicit operator IfcArcIndex(List<int> x) { return new IfcArcIndex(x); }
+		public static implicit operator List<int>(IfcArcIndex x)
+		{
+			List<int> y = new List<int>();
+			foreach (var v in x)
+			{
+				y.Add(v);
+			}
+			return y;
+		}
 	}
 
 	public class IfcAreaDensityMeasure : REAL, IfcDerivedMeasureValue
@@ -79,6 +104,9 @@ namespace IFC4
 	public class IfcBoxAlignment : IfcLabel
 	{
 		public IfcBoxAlignment() { }
+		public IfcBoxAlignment(string value) { Value = value; }
+		public static implicit operator IfcBoxAlignment(string x) { return new IfcBoxAlignment(x); }
+		public static implicit operator string(IfcBoxAlignment x) { return x.Value; }
 	}
 
 	public class IfcCardinalPointReference : INTEGER
@@ -89,18 +117,66 @@ namespace IFC4
 		public static implicit operator int(IfcCardinalPointReference x) { return x.Value; }
 	}
 
-	public class IfcComplexNumber : IfcMeasureValue
+	public class IfcComplexNumber : List<REAL>, IfcMeasureValue
 	{
-		public List<REAL> Value { get; set; }
-
-		public IfcComplexNumber() { }
+		public IfcComplexNumber(){}
+		public IfcComplexNumber(List<REAL> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public IfcComplexNumber(List<double> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public static implicit operator IfcComplexNumber(List<double> x) { return new IfcComplexNumber(x); }
+		public static implicit operator List<double>(IfcComplexNumber x)
+		{
+			List<double> y = new List<double>();
+			foreach (var v in x)
+			{
+				y.Add(v);
+			}
+			return y;
+		}
 	}
 
-	public class IfcCompoundPlaneAngleMeasure : IfcDerivedMeasureValue
+	public class IfcCompoundPlaneAngleMeasure : List<INTEGER>, IfcDerivedMeasureValue
 	{
-		public List<INTEGER> Value { get; set; }
-
 		public IfcCompoundPlaneAngleMeasure() { }
+		public IfcCompoundPlaneAngleMeasure(List<INTEGER> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public IfcCompoundPlaneAngleMeasure(List<int> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public static implicit operator IfcCompoundPlaneAngleMeasure(List<int> x) { return new IfcCompoundPlaneAngleMeasure(x); }
+		public static implicit operator List<int>(IfcCompoundPlaneAngleMeasure x)
+		{
+			List<int> y = new List<int>();
+			foreach (var v in x)
+			{
+				y.Add(v);
+			}
+			return y;
+		}
 	}
 
 	public class IfcContextDependentMeasure : REAL, IfcMeasureValue
@@ -394,6 +470,9 @@ namespace IFC4
 	public class IfcLanguageId : IfcIdentifier
 	{
 		public IfcLanguageId() { }
+		public IfcLanguageId(string value) { Value = value; }
+		public static implicit operator IfcLanguageId(string x) { return new IfcLanguageId(x); }
+		public static implicit operator string(IfcLanguageId x) { return x.Value; }
 	}
 
 	public class IfcLengthMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue, IfcSizeSelect
@@ -404,12 +483,36 @@ namespace IFC4
 		public static implicit operator double(IfcLengthMeasure x) { return x.Value; }
 	}
 
-	public class IfcLineIndex : IfcSegmentIndexSelect
+	public class IfcLineIndex : List<IfcPositiveInteger>, IfcSegmentIndexSelect
 	{
-		public List<IfcPositiveInteger> Value { get; set; }
-		public List<IfcPositiveInteger> GetValue() { return Value; }
-
+		public List<IfcPositiveInteger> GetValue() { return this; }
 		public IfcLineIndex() { }
+		public IfcLineIndex(List<IfcPositiveInteger> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public IfcLineIndex(List<int> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
+		public static implicit operator IfcLineIndex(List<int> x) { return new IfcLineIndex(x); }
+		public static implicit operator List<int>(IfcLineIndex x)
+		{
+			List<int> y = new List<int>();
+			foreach (var v in x)
+			{
+				y.Add(v);
+			}
+			return y;
+		}
 	}
 
 	public class IfcLinearForceMeasure : REAL, IfcDerivedMeasureValue
@@ -599,11 +702,17 @@ namespace IFC4
 	public class IfcNonNegativeLengthMeasure : IfcLengthMeasure, IfcMeasureValue
 	{
 		public IfcNonNegativeLengthMeasure() { }
+		public IfcNonNegativeLengthMeasure(double value) { Value = value; }
+		public static implicit operator IfcNonNegativeLengthMeasure(double x) { return new IfcNonNegativeLengthMeasure(x); }
+		public static implicit operator double(IfcNonNegativeLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcNormalisedRatioMeasure : IfcRatioMeasure, IfcColourOrFactor, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcNormalisedRatioMeasure() { }
+		public IfcNormalisedRatioMeasure(double value) { Value = value; }
+		public static implicit operator IfcNormalisedRatioMeasure(double x) { return new IfcNormalisedRatioMeasure(x); }
+		public static implicit operator double(IfcNormalisedRatioMeasure x) { return x.Value; }
 	}
 
 	public class IfcNumericMeasure : NUMBER, IfcMeasureValue
@@ -649,21 +758,33 @@ namespace IFC4
 	public class IfcPositiveInteger : IfcInteger, IfcSimpleValue
 	{
 		public IfcPositiveInteger() { }
+		public IfcPositiveInteger(int value) { Value = value; }
+		public static implicit operator IfcPositiveInteger(int x) { return new IfcPositiveInteger(x); }
+		public static implicit operator int(IfcPositiveInteger x) { return x.Value; }
 	}
 
 	public class IfcPositiveLengthMeasure : IfcLengthMeasure, IfcHatchLineDistanceSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcPositiveLengthMeasure() { }
+		public IfcPositiveLengthMeasure(double value) { Value = value; }
+		public static implicit operator IfcPositiveLengthMeasure(double x) { return new IfcPositiveLengthMeasure(x); }
+		public static implicit operator double(IfcPositiveLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcPositivePlaneAngleMeasure : IfcPlaneAngleMeasure, IfcMeasureValue
 	{
 		public IfcPositivePlaneAngleMeasure() { }
+		public IfcPositivePlaneAngleMeasure(double value) { Value = value; }
+		public static implicit operator IfcPositivePlaneAngleMeasure(double x) { return new IfcPositivePlaneAngleMeasure(x); }
+		public static implicit operator double(IfcPositivePlaneAngleMeasure x) { return x.Value; }
 	}
 
 	public class IfcPositiveRatioMeasure : IfcRatioMeasure, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcPositiveRatioMeasure() { }
+		public IfcPositiveRatioMeasure(double value) { Value = value; }
+		public static implicit operator IfcPositiveRatioMeasure(double x) { return new IfcPositiveRatioMeasure(x); }
+		public static implicit operator double(IfcPositiveRatioMeasure x) { return x.Value; }
 	}
 
 	public class IfcPowerMeasure : REAL, IfcDerivedMeasureValue
@@ -690,11 +811,20 @@ namespace IFC4
 		public static implicit operator double(IfcPressureMeasure x) { return x.Value; }
 	}
 
-	public class IfcPropertySetDefinitionSet : IfcPropertySetDefinitionSelect
+	public class IfcPropertySetDefinitionSet : List<IfcPropertySetDefinition>, IfcPropertySetDefinitionSelect
 	{
-		public List<IfcPropertySetDefinition> Value { get; set; }
 
-		public IfcPropertySetDefinitionSet() { }
+		public IfcPropertySetDefinitionSet()
+		{
+		}
+		public IfcPropertySetDefinitionSet(List<IfcPropertySetDefinition> value)
+		{
+			Clear();
+			foreach (var v in value)
+			{
+				Add(v);
+			}
+		}
 	}
 
 	public class IfcRadioActivityMeasure : REAL, IfcDerivedMeasureValue
@@ -1017,7 +1147,6 @@ namespace IFC4
 		public static implicit operator double(IfcWarpingMomentMeasure x) { return x.Value; }
 	}
 
-
 	public class IfcActionRequestTypeEnum
 	{
 		public const string EMAIL = "EMAIL";
@@ -1027,6 +1156,10 @@ namespace IFC4
 		public const string VERBAL = "VERBAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcActionRequestTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcActionRequestTypeEnum(string x) { return new IfcActionRequestTypeEnum(x); }
+		public static implicit operator string(IfcActionRequestTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcActionSourceTypeEnum
@@ -1058,6 +1191,10 @@ namespace IFC4
 		public const string BRAKES = "BRAKES";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcActionSourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcActionSourceTypeEnum(string x) { return new IfcActionSourceTypeEnum(x); }
+		public static implicit operator string(IfcActionSourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcActionTypeEnum
@@ -1067,6 +1204,10 @@ namespace IFC4
 		public const string EXTRAORDINARY_A = "EXTRAORDINARY_A";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcActionTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcActionTypeEnum(string x) { return new IfcActionTypeEnum(x); }
+		public static implicit operator string(IfcActionTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcActuatorTypeEnum
@@ -1078,6 +1219,10 @@ namespace IFC4
 		public const string THERMOSTATICACTUATOR = "THERMOSTATICACTUATOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcActuatorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcActuatorTypeEnum(string x) { return new IfcActuatorTypeEnum(x); }
+		public static implicit operator string(IfcActuatorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAddressTypeEnum
@@ -1087,6 +1232,10 @@ namespace IFC4
 		public const string HOME = "HOME";
 		public const string DISTRIBUTIONPOINT = "DISTRIBUTIONPOINT";
 		public const string USERDEFINED = "USERDEFINED";
+		private string Value;
+		public IfcAddressTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAddressTypeEnum(string x) { return new IfcAddressTypeEnum(x); }
+		public static implicit operator string(IfcAddressTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAirTerminalBoxTypeEnum
@@ -1096,6 +1245,10 @@ namespace IFC4
 		public const string VARIABLEFLOWPRESSUREINDEPENDANT = "VARIABLEFLOWPRESSUREINDEPENDANT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAirTerminalBoxTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAirTerminalBoxTypeEnum(string x) { return new IfcAirTerminalBoxTypeEnum(x); }
+		public static implicit operator string(IfcAirTerminalBoxTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAirTerminalTypeEnum
@@ -1106,6 +1259,10 @@ namespace IFC4
 		public const string REGISTER = "REGISTER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAirTerminalTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAirTerminalTypeEnum(string x) { return new IfcAirTerminalTypeEnum(x); }
+		public static implicit operator string(IfcAirTerminalTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAirToAirHeatRecoveryTypeEnum
@@ -1121,6 +1278,10 @@ namespace IFC4
 		public const string THERMOSIPHONCOILTYPEHEATEXCHANGERS = "THERMOSIPHONCOILTYPEHEATEXCHANGERS";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAirToAirHeatRecoveryTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAirToAirHeatRecoveryTypeEnum(string x) { return new IfcAirToAirHeatRecoveryTypeEnum(x); }
+		public static implicit operator string(IfcAirToAirHeatRecoveryTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAlarmTypeEnum
@@ -1133,6 +1294,10 @@ namespace IFC4
 		public const string WHISTLE = "WHISTLE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAlarmTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAlarmTypeEnum(string x) { return new IfcAlarmTypeEnum(x); }
+		public static implicit operator string(IfcAlarmTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAnalysisModelTypeEnum
@@ -1142,6 +1307,10 @@ namespace IFC4
 		public const string LOADING_3D = "LOADING_3D";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAnalysisModelTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAnalysisModelTypeEnum(string x) { return new IfcAnalysisModelTypeEnum(x); }
+		public static implicit operator string(IfcAnalysisModelTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcAnalysisTheoryTypeEnum
@@ -1152,6 +1321,10 @@ namespace IFC4
 		public const string FULL_NONLINEAR_THEORY = "FULL_NONLINEAR_THEORY";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAnalysisTheoryTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAnalysisTheoryTypeEnum(string x) { return new IfcAnalysisTheoryTypeEnum(x); }
+		public static implicit operator string(IfcAnalysisTheoryTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcArithmeticOperatorEnum
@@ -1160,6 +1333,10 @@ namespace IFC4
 		public const string DIVIDE = "DIVIDE";
 		public const string MULTIPLY = "MULTIPLY";
 		public const string SUBTRACT = "SUBTRACT";
+		private string Value;
+		public IfcArithmeticOperatorEnum(string value) { Value = value; }
+		public static implicit operator IfcArithmeticOperatorEnum(string x) { return new IfcArithmeticOperatorEnum(x); }
+		public static implicit operator string(IfcArithmeticOperatorEnum x) { return x.Value; }
 	}
 
 	public class IfcAssemblyPlaceEnum
@@ -1167,6 +1344,10 @@ namespace IFC4
 		public const string SITE = "SITE";
 		public const string FACTORY = "FACTORY";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAssemblyPlaceEnum(string value) { Value = value; }
+		public static implicit operator IfcAssemblyPlaceEnum(string x) { return new IfcAssemblyPlaceEnum(x); }
+		public static implicit operator string(IfcAssemblyPlaceEnum x) { return x.Value; }
 	}
 
 	public class IfcAudioVisualApplianceTypeEnum
@@ -1184,6 +1365,10 @@ namespace IFC4
 		public const string TUNER = "TUNER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcAudioVisualApplianceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcAudioVisualApplianceTypeEnum(string x) { return new IfcAudioVisualApplianceTypeEnum(x); }
+		public static implicit operator string(IfcAudioVisualApplianceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcBSplineCurveForm
@@ -1194,6 +1379,10 @@ namespace IFC4
 		public const string PARABOLIC_ARC = "PARABOLIC_ARC";
 		public const string HYPERBOLIC_ARC = "HYPERBOLIC_ARC";
 		public const string UNSPECIFIED = "UNSPECIFIED";
+		private string Value;
+		public IfcBSplineCurveForm(string value) { Value = value; }
+		public static implicit operator IfcBSplineCurveForm(string x) { return new IfcBSplineCurveForm(x); }
+		public static implicit operator string(IfcBSplineCurveForm x) { return x.Value; }
 	}
 
 	public class IfcBSplineSurfaceForm
@@ -1209,6 +1398,10 @@ namespace IFC4
 		public const string QUADRIC_SURF = "QUADRIC_SURF";
 		public const string SURF_OF_LINEAR_EXTRUSION = "SURF_OF_LINEAR_EXTRUSION";
 		public const string UNSPECIFIED = "UNSPECIFIED";
+		private string Value;
+		public IfcBSplineSurfaceForm(string value) { Value = value; }
+		public static implicit operator IfcBSplineSurfaceForm(string x) { return new IfcBSplineSurfaceForm(x); }
+		public static implicit operator string(IfcBSplineSurfaceForm x) { return x.Value; }
 	}
 
 	public class IfcBeamTypeEnum
@@ -1221,6 +1414,10 @@ namespace IFC4
 		public const string T_BEAM = "T_BEAM";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcBeamTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcBeamTypeEnum(string x) { return new IfcBeamTypeEnum(x); }
+		public static implicit operator string(IfcBeamTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcBenchmarkEnum
@@ -1235,6 +1432,10 @@ namespace IFC4
 		public const string NOTINCLUDES = "NOTINCLUDES";
 		public const string INCLUDEDIN = "INCLUDEDIN";
 		public const string NOTINCLUDEDIN = "NOTINCLUDEDIN";
+		private string Value;
+		public IfcBenchmarkEnum(string value) { Value = value; }
+		public static implicit operator IfcBenchmarkEnum(string x) { return new IfcBenchmarkEnum(x); }
+		public static implicit operator string(IfcBenchmarkEnum x) { return x.Value; }
 	}
 
 	public class IfcBoilerTypeEnum
@@ -1243,6 +1444,10 @@ namespace IFC4
 		public const string STEAM = "STEAM";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcBoilerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcBoilerTypeEnum(string x) { return new IfcBoilerTypeEnum(x); }
+		public static implicit operator string(IfcBoilerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcBooleanOperator
@@ -1250,6 +1455,10 @@ namespace IFC4
 		public const string UNION = "UNION";
 		public const string INTERSECTION = "INTERSECTION";
 		public const string DIFFERENCE = "DIFFERENCE";
+		private string Value;
+		public IfcBooleanOperator(string value) { Value = value; }
+		public static implicit operator IfcBooleanOperator(string x) { return new IfcBooleanOperator(x); }
+		public static implicit operator string(IfcBooleanOperator x) { return x.Value; }
 	}
 
 	public class IfcBuildingElementPartTypeEnum
@@ -1258,6 +1467,10 @@ namespace IFC4
 		public const string PRECASTPANEL = "PRECASTPANEL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcBuildingElementPartTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcBuildingElementPartTypeEnum(string x) { return new IfcBuildingElementPartTypeEnum(x); }
+		public static implicit operator string(IfcBuildingElementPartTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcBuildingElementProxyTypeEnum
@@ -1269,6 +1482,10 @@ namespace IFC4
 		public const string PROVISIONFORSPACE = "PROVISIONFORSPACE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcBuildingElementProxyTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcBuildingElementProxyTypeEnum(string x) { return new IfcBuildingElementProxyTypeEnum(x); }
+		public static implicit operator string(IfcBuildingElementProxyTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcBuildingSystemTypeEnum
@@ -1281,12 +1498,20 @@ namespace IFC4
 		public const string TRANSPORT = "TRANSPORT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcBuildingSystemTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcBuildingSystemTypeEnum(string x) { return new IfcBuildingSystemTypeEnum(x); }
+		public static implicit operator string(IfcBuildingSystemTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcBurnerTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcBurnerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcBurnerTypeEnum(string x) { return new IfcBurnerTypeEnum(x); }
+		public static implicit operator string(IfcBurnerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCableCarrierFittingTypeEnum
@@ -1297,6 +1522,10 @@ namespace IFC4
 		public const string TEE = "TEE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCableCarrierFittingTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCableCarrierFittingTypeEnum(string x) { return new IfcCableCarrierFittingTypeEnum(x); }
+		public static implicit operator string(IfcCableCarrierFittingTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCableCarrierSegmentTypeEnum
@@ -1307,6 +1536,10 @@ namespace IFC4
 		public const string CONDUITSEGMENT = "CONDUITSEGMENT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCableCarrierSegmentTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCableCarrierSegmentTypeEnum(string x) { return new IfcCableCarrierSegmentTypeEnum(x); }
+		public static implicit operator string(IfcCableCarrierSegmentTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCableFittingTypeEnum
@@ -1318,6 +1551,10 @@ namespace IFC4
 		public const string TRANSITION = "TRANSITION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCableFittingTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCableFittingTypeEnum(string x) { return new IfcCableFittingTypeEnum(x); }
+		public static implicit operator string(IfcCableFittingTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCableSegmentTypeEnum
@@ -1328,6 +1565,10 @@ namespace IFC4
 		public const string CORESEGMENT = "CORESEGMENT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCableSegmentTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCableSegmentTypeEnum(string x) { return new IfcCableSegmentTypeEnum(x); }
+		public static implicit operator string(IfcCableSegmentTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcChangeActionEnum
@@ -1337,6 +1578,10 @@ namespace IFC4
 		public const string ADDED = "ADDED";
 		public const string DELETED = "DELETED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcChangeActionEnum(string value) { Value = value; }
+		public static implicit operator IfcChangeActionEnum(string x) { return new IfcChangeActionEnum(x); }
+		public static implicit operator string(IfcChangeActionEnum x) { return x.Value; }
 	}
 
 	public class IfcChillerTypeEnum
@@ -1346,12 +1591,20 @@ namespace IFC4
 		public const string HEATRECOVERY = "HEATRECOVERY";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcChillerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcChillerTypeEnum(string x) { return new IfcChillerTypeEnum(x); }
+		public static implicit operator string(IfcChillerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcChimneyTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcChimneyTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcChimneyTypeEnum(string x) { return new IfcChimneyTypeEnum(x); }
+		public static implicit operator string(IfcChimneyTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCoilTypeEnum
@@ -1365,6 +1618,10 @@ namespace IFC4
 		public const string WATERHEATINGCOIL = "WATERHEATINGCOIL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCoilTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCoilTypeEnum(string x) { return new IfcCoilTypeEnum(x); }
+		public static implicit operator string(IfcCoilTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcColumnTypeEnum
@@ -1373,6 +1630,10 @@ namespace IFC4
 		public const string PILASTER = "PILASTER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcColumnTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcColumnTypeEnum(string x) { return new IfcColumnTypeEnum(x); }
+		public static implicit operator string(IfcColumnTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCommunicationsApplianceTypeEnum
@@ -1391,12 +1652,20 @@ namespace IFC4
 		public const string SCANNER = "SCANNER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCommunicationsApplianceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCommunicationsApplianceTypeEnum(string x) { return new IfcCommunicationsApplianceTypeEnum(x); }
+		public static implicit operator string(IfcCommunicationsApplianceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcComplexPropertyTemplateTypeEnum
 	{
 		public const string P_COMPLEX = "P_COMPLEX";
 		public const string Q_COMPLEX = "Q_COMPLEX";
+		private string Value;
+		public IfcComplexPropertyTemplateTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcComplexPropertyTemplateTypeEnum(string x) { return new IfcComplexPropertyTemplateTypeEnum(x); }
+		public static implicit operator string(IfcComplexPropertyTemplateTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCompressorTypeEnum
@@ -1418,6 +1687,10 @@ namespace IFC4
 		public const string TWINSCREW = "TWINSCREW";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCompressorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCompressorTypeEnum(string x) { return new IfcCompressorTypeEnum(x); }
+		public static implicit operator string(IfcCompressorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCondenserTypeEnum
@@ -1431,6 +1704,10 @@ namespace IFC4
 		public const string WATERCOOLEDTUBEINTUBE = "WATERCOOLEDTUBEINTUBE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCondenserTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCondenserTypeEnum(string x) { return new IfcCondenserTypeEnum(x); }
+		public static implicit operator string(IfcCondenserTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcConnectionTypeEnum
@@ -1439,6 +1716,10 @@ namespace IFC4
 		public const string ATSTART = "ATSTART";
 		public const string ATEND = "ATEND";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcConnectionTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcConnectionTypeEnum(string x) { return new IfcConnectionTypeEnum(x); }
+		public static implicit operator string(IfcConnectionTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcConstraintEnum
@@ -1448,6 +1729,10 @@ namespace IFC4
 		public const string ADVISORY = "ADVISORY";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcConstraintEnum(string value) { Value = value; }
+		public static implicit operator IfcConstraintEnum(string x) { return new IfcConstraintEnum(x); }
+		public static implicit operator string(IfcConstraintEnum x) { return x.Value; }
 	}
 
 	public class IfcConstructionEquipmentResourceTypeEnum
@@ -1462,6 +1747,10 @@ namespace IFC4
 		public const string TRANSPORTING = "TRANSPORTING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcConstructionEquipmentResourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcConstructionEquipmentResourceTypeEnum(string x) { return new IfcConstructionEquipmentResourceTypeEnum(x); }
+		public static implicit operator string(IfcConstructionEquipmentResourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcConstructionMaterialResourceTypeEnum
@@ -1477,6 +1766,10 @@ namespace IFC4
 		public const string WOOD = "WOOD";
 		public const string NOTDEFINED = "NOTDEFINED";
 		public const string USERDEFINED = "USERDEFINED";
+		private string Value;
+		public IfcConstructionMaterialResourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcConstructionMaterialResourceTypeEnum(string x) { return new IfcConstructionMaterialResourceTypeEnum(x); }
+		public static implicit operator string(IfcConstructionMaterialResourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcConstructionProductResourceTypeEnum
@@ -1485,6 +1778,10 @@ namespace IFC4
 		public const string FORMWORK = "FORMWORK";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcConstructionProductResourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcConstructionProductResourceTypeEnum(string x) { return new IfcConstructionProductResourceTypeEnum(x); }
+		public static implicit operator string(IfcConstructionProductResourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcControllerTypeEnum
@@ -1496,6 +1793,10 @@ namespace IFC4
 		public const string TWOPOSITION = "TWOPOSITION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcControllerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcControllerTypeEnum(string x) { return new IfcControllerTypeEnum(x); }
+		public static implicit operator string(IfcControllerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCooledBeamTypeEnum
@@ -1504,6 +1805,10 @@ namespace IFC4
 		public const string PASSIVE = "PASSIVE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCooledBeamTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCooledBeamTypeEnum(string x) { return new IfcCooledBeamTypeEnum(x); }
+		public static implicit operator string(IfcCooledBeamTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCoolingTowerTypeEnum
@@ -1513,12 +1818,20 @@ namespace IFC4
 		public const string MECHANICALFORCEDDRAFT = "MECHANICALFORCEDDRAFT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCoolingTowerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCoolingTowerTypeEnum(string x) { return new IfcCoolingTowerTypeEnum(x); }
+		public static implicit operator string(IfcCoolingTowerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCostItemTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCostItemTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCostItemTypeEnum(string x) { return new IfcCostItemTypeEnum(x); }
+		public static implicit operator string(IfcCostItemTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCostScheduleTypeEnum
@@ -1532,6 +1845,10 @@ namespace IFC4
 		public const string SCHEDULEOFRATES = "SCHEDULEOFRATES";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCostScheduleTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCostScheduleTypeEnum(string x) { return new IfcCostScheduleTypeEnum(x); }
+		public static implicit operator string(IfcCostScheduleTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCoveringTypeEnum
@@ -1548,6 +1865,10 @@ namespace IFC4
 		public const string WRAPPING = "WRAPPING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCoveringTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCoveringTypeEnum(string x) { return new IfcCoveringTypeEnum(x); }
+		public static implicit operator string(IfcCoveringTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCrewResourceTypeEnum
@@ -1556,12 +1877,20 @@ namespace IFC4
 		public const string SITE = "SITE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCrewResourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCrewResourceTypeEnum(string x) { return new IfcCrewResourceTypeEnum(x); }
+		public static implicit operator string(IfcCrewResourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCurtainWallTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCurtainWallTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcCurtainWallTypeEnum(string x) { return new IfcCurtainWallTypeEnum(x); }
+		public static implicit operator string(IfcCurtainWallTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcCurveInterpolationEnum
@@ -1570,6 +1899,10 @@ namespace IFC4
 		public const string LOG_LINEAR = "LOG_LINEAR";
 		public const string LOG_LOG = "LOG_LOG";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcCurveInterpolationEnum(string value) { Value = value; }
+		public static implicit operator IfcCurveInterpolationEnum(string x) { return new IfcCurveInterpolationEnum(x); }
+		public static implicit operator string(IfcCurveInterpolationEnum x) { return x.Value; }
 	}
 
 	public class IfcDamperTypeEnum
@@ -1587,6 +1920,10 @@ namespace IFC4
 		public const string SMOKEDAMPER = "SMOKEDAMPER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDamperTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDamperTypeEnum(string x) { return new IfcDamperTypeEnum(x); }
+		public static implicit operator string(IfcDamperTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDataOriginEnum
@@ -1596,9 +1933,13 @@ namespace IFC4
 		public const string SIMULATED = "SIMULATED";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDataOriginEnum(string value) { Value = value; }
+		public static implicit operator IfcDataOriginEnum(string x) { return new IfcDataOriginEnum(x); }
+		public static implicit operator string(IfcDataOriginEnum x) { return x.Value; }
 	}
 
-	public class IfcDerivedUnitEnum:STRING
+	public class IfcDerivedUnitEnum
 	{
 		public const string ANGULARVELOCITYUNIT = "ANGULARVELOCITYUNIT";
 		public const string AREADENSITYUNIT = "AREADENSITYUNIT";
@@ -1653,12 +1994,20 @@ namespace IFC4
 		public const string WARPINGCONSTANTUNIT = "WARPINGCONSTANTUNIT";
 		public const string WARPINGMOMENTUNIT = "WARPINGMOMENTUNIT";
 		public const string USERDEFINED = "USERDEFINED";
+		private string Value;
+		public IfcDerivedUnitEnum(string value) { Value = value; }
+		public static implicit operator IfcDerivedUnitEnum(string x) { return new IfcDerivedUnitEnum(x); }
+		public static implicit operator string(IfcDerivedUnitEnum x) { return x.Value; }
 	}
 
 	public class IfcDirectionSenseEnum
 	{
 		public const string POSITIVE = "POSITIVE";
 		public const string NEGATIVE = "NEGATIVE";
+		private string Value;
+		public IfcDirectionSenseEnum(string value) { Value = value; }
+		public static implicit operator IfcDirectionSenseEnum(string x) { return new IfcDirectionSenseEnum(x); }
+		public static implicit operator string(IfcDirectionSenseEnum x) { return x.Value; }
 	}
 
 	public class IfcDiscreteAccessoryTypeEnum
@@ -1668,6 +2017,10 @@ namespace IFC4
 		public const string SHOE = "SHOE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDiscreteAccessoryTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDiscreteAccessoryTypeEnum(string x) { return new IfcDiscreteAccessoryTypeEnum(x); }
+		public static implicit operator string(IfcDiscreteAccessoryTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDistributionChamberElementTypeEnum
@@ -1682,6 +2035,10 @@ namespace IFC4
 		public const string VALVECHAMBER = "VALVECHAMBER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDistributionChamberElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDistributionChamberElementTypeEnum(string x) { return new IfcDistributionChamberElementTypeEnum(x); }
+		public static implicit operator string(IfcDistributionChamberElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDistributionPortTypeEnum
@@ -1692,6 +2049,10 @@ namespace IFC4
 		public const string PIPE = "PIPE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDistributionPortTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDistributionPortTypeEnum(string x) { return new IfcDistributionPortTypeEnum(x); }
+		public static implicit operator string(IfcDistributionPortTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDistributionSystemEnum
@@ -1740,6 +2101,10 @@ namespace IFC4
 		public const string WATERSUPPLY = "WATERSUPPLY";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDistributionSystemEnum(string value) { Value = value; }
+		public static implicit operator IfcDistributionSystemEnum(string x) { return new IfcDistributionSystemEnum(x); }
+		public static implicit operator string(IfcDistributionSystemEnum x) { return x.Value; }
 	}
 
 	public class IfcDocumentConfidentialityEnum
@@ -1750,6 +2115,10 @@ namespace IFC4
 		public const string PERSONAL = "PERSONAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDocumentConfidentialityEnum(string value) { Value = value; }
+		public static implicit operator IfcDocumentConfidentialityEnum(string x) { return new IfcDocumentConfidentialityEnum(x); }
+		public static implicit operator string(IfcDocumentConfidentialityEnum x) { return x.Value; }
 	}
 
 	public class IfcDocumentStatusEnum
@@ -1759,6 +2128,10 @@ namespace IFC4
 		public const string FINAL = "FINAL";
 		public const string REVISION = "REVISION";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDocumentStatusEnum(string value) { Value = value; }
+		public static implicit operator IfcDocumentStatusEnum(string x) { return new IfcDocumentStatusEnum(x); }
+		public static implicit operator string(IfcDocumentStatusEnum x) { return x.Value; }
 	}
 
 	public class IfcDoorPanelOperationEnum
@@ -1772,6 +2145,10 @@ namespace IFC4
 		public const string FIXEDPANEL = "FIXEDPANEL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDoorPanelOperationEnum(string value) { Value = value; }
+		public static implicit operator IfcDoorPanelOperationEnum(string x) { return new IfcDoorPanelOperationEnum(x); }
+		public static implicit operator string(IfcDoorPanelOperationEnum x) { return x.Value; }
 	}
 
 	public class IfcDoorPanelPositionEnum
@@ -1780,6 +2157,10 @@ namespace IFC4
 		public const string MIDDLE = "MIDDLE";
 		public const string RIGHT = "RIGHT";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDoorPanelPositionEnum(string value) { Value = value; }
+		public static implicit operator IfcDoorPanelPositionEnum(string x) { return new IfcDoorPanelPositionEnum(x); }
+		public static implicit operator string(IfcDoorPanelPositionEnum x) { return x.Value; }
 	}
 
 	public class IfcDoorStyleConstructionEnum
@@ -1793,6 +2174,10 @@ namespace IFC4
 		public const string PLASTIC = "PLASTIC";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDoorStyleConstructionEnum(string value) { Value = value; }
+		public static implicit operator IfcDoorStyleConstructionEnum(string x) { return new IfcDoorStyleConstructionEnum(x); }
+		public static implicit operator string(IfcDoorStyleConstructionEnum x) { return x.Value; }
 	}
 
 	public class IfcDoorStyleOperationEnum
@@ -1815,6 +2200,10 @@ namespace IFC4
 		public const string ROLLINGUP = "ROLLINGUP";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDoorStyleOperationEnum(string value) { Value = value; }
+		public static implicit operator IfcDoorStyleOperationEnum(string x) { return new IfcDoorStyleOperationEnum(x); }
+		public static implicit operator string(IfcDoorStyleOperationEnum x) { return x.Value; }
 	}
 
 	public class IfcDoorTypeEnum
@@ -1824,6 +2213,10 @@ namespace IFC4
 		public const string TRAPDOOR = "TRAPDOOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDoorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDoorTypeEnum(string x) { return new IfcDoorTypeEnum(x); }
+		public static implicit operator string(IfcDoorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDoorTypeOperationEnum
@@ -1848,6 +2241,10 @@ namespace IFC4
 		public const string SWING_FIXED_RIGHT = "SWING_FIXED_RIGHT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDoorTypeOperationEnum(string value) { Value = value; }
+		public static implicit operator IfcDoorTypeOperationEnum(string x) { return new IfcDoorTypeOperationEnum(x); }
+		public static implicit operator string(IfcDoorTypeOperationEnum x) { return x.Value; }
 	}
 
 	public class IfcDuctFittingTypeEnum
@@ -1861,6 +2258,10 @@ namespace IFC4
 		public const string TRANSITION = "TRANSITION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDuctFittingTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDuctFittingTypeEnum(string x) { return new IfcDuctFittingTypeEnum(x); }
+		public static implicit operator string(IfcDuctFittingTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDuctSegmentTypeEnum
@@ -1869,6 +2270,10 @@ namespace IFC4
 		public const string FLEXIBLESEGMENT = "FLEXIBLESEGMENT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDuctSegmentTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDuctSegmentTypeEnum(string x) { return new IfcDuctSegmentTypeEnum(x); }
+		public static implicit operator string(IfcDuctSegmentTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcDuctSilencerTypeEnum
@@ -1878,6 +2283,10 @@ namespace IFC4
 		public const string ROUND = "ROUND";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcDuctSilencerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcDuctSilencerTypeEnum(string x) { return new IfcDuctSilencerTypeEnum(x); }
+		public static implicit operator string(IfcDuctSilencerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElectricApplianceTypeEnum
@@ -1900,6 +2309,10 @@ namespace IFC4
 		public const string WASHINGMACHINE = "WASHINGMACHINE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElectricApplianceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElectricApplianceTypeEnum(string x) { return new IfcElectricApplianceTypeEnum(x); }
+		public static implicit operator string(IfcElectricApplianceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElectricDistributionBoardTypeEnum
@@ -1910,6 +2323,10 @@ namespace IFC4
 		public const string SWITCHBOARD = "SWITCHBOARD";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElectricDistributionBoardTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElectricDistributionBoardTypeEnum(string x) { return new IfcElectricDistributionBoardTypeEnum(x); }
+		public static implicit operator string(IfcElectricDistributionBoardTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElectricFlowStorageDeviceTypeEnum
@@ -1921,6 +2338,10 @@ namespace IFC4
 		public const string UPS = "UPS";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElectricFlowStorageDeviceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElectricFlowStorageDeviceTypeEnum(string x) { return new IfcElectricFlowStorageDeviceTypeEnum(x); }
+		public static implicit operator string(IfcElectricFlowStorageDeviceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElectricGeneratorTypeEnum
@@ -1930,6 +2351,10 @@ namespace IFC4
 		public const string STANDALONE = "STANDALONE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElectricGeneratorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElectricGeneratorTypeEnum(string x) { return new IfcElectricGeneratorTypeEnum(x); }
+		public static implicit operator string(IfcElectricGeneratorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElectricMotorTypeEnum
@@ -1941,6 +2366,10 @@ namespace IFC4
 		public const string SYNCHRONOUS = "SYNCHRONOUS";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElectricMotorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElectricMotorTypeEnum(string x) { return new IfcElectricMotorTypeEnum(x); }
+		public static implicit operator string(IfcElectricMotorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElectricTimeControlTypeEnum
@@ -1950,6 +2379,10 @@ namespace IFC4
 		public const string RELAY = "RELAY";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElectricTimeControlTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElectricTimeControlTypeEnum(string x) { return new IfcElectricTimeControlTypeEnum(x); }
+		public static implicit operator string(IfcElectricTimeControlTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElementAssemblyTypeEnum
@@ -1965,6 +2398,10 @@ namespace IFC4
 		public const string TRUSS = "TRUSS";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcElementAssemblyTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcElementAssemblyTypeEnum(string x) { return new IfcElementAssemblyTypeEnum(x); }
+		public static implicit operator string(IfcElementAssemblyTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcElementCompositionEnum
@@ -1972,6 +2409,10 @@ namespace IFC4
 		public const string COMPLEX = "COMPLEX";
 		public const string ELEMENT = "ELEMENT";
 		public const string PARTIAL = "PARTIAL";
+		private string Value;
+		public IfcElementCompositionEnum(string value) { Value = value; }
+		public static implicit operator IfcElementCompositionEnum(string x) { return new IfcElementCompositionEnum(x); }
+		public static implicit operator string(IfcElementCompositionEnum x) { return x.Value; }
 	}
 
 	public class IfcEngineTypeEnum
@@ -1980,6 +2421,10 @@ namespace IFC4
 		public const string INTERNALCOMBUSTION = "INTERNALCOMBUSTION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcEngineTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcEngineTypeEnum(string x) { return new IfcEngineTypeEnum(x); }
+		public static implicit operator string(IfcEngineTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcEvaporativeCoolerTypeEnum
@@ -1995,6 +2440,10 @@ namespace IFC4
 		public const string INDIRECTDIRECTCOMBINATION = "INDIRECTDIRECTCOMBINATION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcEvaporativeCoolerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcEvaporativeCoolerTypeEnum(string x) { return new IfcEvaporativeCoolerTypeEnum(x); }
+		public static implicit operator string(IfcEvaporativeCoolerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcEvaporatorTypeEnum
@@ -2007,6 +2456,10 @@ namespace IFC4
 		public const string SHELLANDCOIL = "SHELLANDCOIL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcEvaporatorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcEvaporatorTypeEnum(string x) { return new IfcEvaporatorTypeEnum(x); }
+		public static implicit operator string(IfcEvaporatorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcEventTriggerTypeEnum
@@ -2017,6 +2470,10 @@ namespace IFC4
 		public const string EVENTCOMPLEX = "EVENTCOMPLEX";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcEventTriggerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcEventTriggerTypeEnum(string x) { return new IfcEventTriggerTypeEnum(x); }
+		public static implicit operator string(IfcEventTriggerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcEventTypeEnum
@@ -2026,6 +2483,10 @@ namespace IFC4
 		public const string INTERMEDIATEEVENT = "INTERMEDIATEEVENT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcEventTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcEventTypeEnum(string x) { return new IfcEventTypeEnum(x); }
+		public static implicit operator string(IfcEventTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcExternalSpatialElementTypeEnum
@@ -2036,6 +2497,10 @@ namespace IFC4
 		public const string EXTERNAL_FIRE = "EXTERNAL_FIRE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcExternalSpatialElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcExternalSpatialElementTypeEnum(string x) { return new IfcExternalSpatialElementTypeEnum(x); }
+		public static implicit operator string(IfcExternalSpatialElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFanTypeEnum
@@ -2049,6 +2514,10 @@ namespace IFC4
 		public const string PROPELLORAXIAL = "PROPELLORAXIAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFanTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFanTypeEnum(string x) { return new IfcFanTypeEnum(x); }
+		public static implicit operator string(IfcFanTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFastenerTypeEnum
@@ -2058,6 +2527,10 @@ namespace IFC4
 		public const string WELD = "WELD";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFastenerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFastenerTypeEnum(string x) { return new IfcFastenerTypeEnum(x); }
+		public static implicit operator string(IfcFastenerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFilterTypeEnum
@@ -2070,6 +2543,10 @@ namespace IFC4
 		public const string WATERFILTER = "WATERFILTER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFilterTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFilterTypeEnum(string x) { return new IfcFilterTypeEnum(x); }
+		public static implicit operator string(IfcFilterTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFireSuppressionTerminalTypeEnum
@@ -2081,6 +2558,10 @@ namespace IFC4
 		public const string SPRINKLERDEFLECTOR = "SPRINKLERDEFLECTOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFireSuppressionTerminalTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFireSuppressionTerminalTypeEnum(string x) { return new IfcFireSuppressionTerminalTypeEnum(x); }
+		public static implicit operator string(IfcFireSuppressionTerminalTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFlowDirectionEnum
@@ -2089,6 +2570,10 @@ namespace IFC4
 		public const string SINK = "SINK";
 		public const string SOURCEANDSINK = "SOURCEANDSINK";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFlowDirectionEnum(string value) { Value = value; }
+		public static implicit operator IfcFlowDirectionEnum(string x) { return new IfcFlowDirectionEnum(x); }
+		public static implicit operator string(IfcFlowDirectionEnum x) { return x.Value; }
 	}
 
 	public class IfcFlowInstrumentTypeEnum
@@ -2103,6 +2588,10 @@ namespace IFC4
 		public const string VOLTMETER_RMS = "VOLTMETER_RMS";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFlowInstrumentTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFlowInstrumentTypeEnum(string x) { return new IfcFlowInstrumentTypeEnum(x); }
+		public static implicit operator string(IfcFlowInstrumentTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFlowMeterTypeEnum
@@ -2113,6 +2602,10 @@ namespace IFC4
 		public const string WATERMETER = "WATERMETER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFlowMeterTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFlowMeterTypeEnum(string x) { return new IfcFlowMeterTypeEnum(x); }
+		public static implicit operator string(IfcFlowMeterTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFootingTypeEnum
@@ -2124,6 +2617,10 @@ namespace IFC4
 		public const string STRIP_FOOTING = "STRIP_FOOTING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFootingTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFootingTypeEnum(string x) { return new IfcFootingTypeEnum(x); }
+		public static implicit operator string(IfcFootingTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcFurnitureTypeEnum
@@ -2137,6 +2634,10 @@ namespace IFC4
 		public const string SOFA = "SOFA";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcFurnitureTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcFurnitureTypeEnum(string x) { return new IfcFurnitureTypeEnum(x); }
+		public static implicit operator string(IfcFurnitureTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcGeographicElementTypeEnum
@@ -2144,6 +2645,10 @@ namespace IFC4
 		public const string TERRAIN = "TERRAIN";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcGeographicElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcGeographicElementTypeEnum(string x) { return new IfcGeographicElementTypeEnum(x); }
+		public static implicit operator string(IfcGeographicElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcGeometricProjectionEnum
@@ -2157,12 +2662,20 @@ namespace IFC4
 		public const string ELEVATION_VIEW = "ELEVATION_VIEW";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcGeometricProjectionEnum(string value) { Value = value; }
+		public static implicit operator IfcGeometricProjectionEnum(string x) { return new IfcGeometricProjectionEnum(x); }
+		public static implicit operator string(IfcGeometricProjectionEnum x) { return x.Value; }
 	}
 
 	public class IfcGlobalOrLocalEnum
 	{
 		public const string GLOBAL_COORDS = "GLOBAL_COORDS";
 		public const string LOCAL_COORDS = "LOCAL_COORDS";
+		private string Value;
+		public IfcGlobalOrLocalEnum(string value) { Value = value; }
+		public static implicit operator IfcGlobalOrLocalEnum(string x) { return new IfcGlobalOrLocalEnum(x); }
+		public static implicit operator string(IfcGlobalOrLocalEnum x) { return x.Value; }
 	}
 
 	public class IfcGridTypeEnum
@@ -2173,6 +2686,10 @@ namespace IFC4
 		public const string IRREGULAR = "IRREGULAR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcGridTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcGridTypeEnum(string x) { return new IfcGridTypeEnum(x); }
+		public static implicit operator string(IfcGridTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcHeatExchangerTypeEnum
@@ -2181,6 +2698,10 @@ namespace IFC4
 		public const string SHELLANDTUBE = "SHELLANDTUBE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcHeatExchangerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcHeatExchangerTypeEnum(string x) { return new IfcHeatExchangerTypeEnum(x); }
+		public static implicit operator string(IfcHeatExchangerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcHumidifierTypeEnum
@@ -2200,6 +2721,10 @@ namespace IFC4
 		public const string ASSISTEDSTEAM = "ASSISTEDSTEAM";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcHumidifierTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcHumidifierTypeEnum(string x) { return new IfcHumidifierTypeEnum(x); }
+		public static implicit operator string(IfcHumidifierTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcInterceptorTypeEnum
@@ -2210,6 +2735,10 @@ namespace IFC4
 		public const string PETROL = "PETROL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcInterceptorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcInterceptorTypeEnum(string x) { return new IfcInterceptorTypeEnum(x); }
+		public static implicit operator string(IfcInterceptorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcInternalOrExternalEnum
@@ -2220,6 +2749,10 @@ namespace IFC4
 		public const string EXTERNAL_WATER = "EXTERNAL_WATER";
 		public const string EXTERNAL_FIRE = "EXTERNAL_FIRE";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcInternalOrExternalEnum(string value) { Value = value; }
+		public static implicit operator IfcInternalOrExternalEnum(string x) { return new IfcInternalOrExternalEnum(x); }
+		public static implicit operator string(IfcInternalOrExternalEnum x) { return x.Value; }
 	}
 
 	public class IfcInventoryTypeEnum
@@ -2229,6 +2762,10 @@ namespace IFC4
 		public const string FURNITUREINVENTORY = "FURNITUREINVENTORY";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcInventoryTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcInventoryTypeEnum(string x) { return new IfcInventoryTypeEnum(x); }
+		public static implicit operator string(IfcInventoryTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcJunctionBoxTypeEnum
@@ -2237,6 +2774,10 @@ namespace IFC4
 		public const string POWER = "POWER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcJunctionBoxTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcJunctionBoxTypeEnum(string x) { return new IfcJunctionBoxTypeEnum(x); }
+		public static implicit operator string(IfcJunctionBoxTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcKnotType
@@ -2245,6 +2786,10 @@ namespace IFC4
 		public const string QUASI_UNIFORM_KNOTS = "QUASI_UNIFORM_KNOTS";
 		public const string PIECEWISE_BEZIER_KNOTS = "PIECEWISE_BEZIER_KNOTS";
 		public const string UNSPECIFIED = "UNSPECIFIED";
+		private string Value;
+		public IfcKnotType(string value) { Value = value; }
+		public static implicit operator IfcKnotType(string x) { return new IfcKnotType(x); }
+		public static implicit operator string(IfcKnotType x) { return x.Value; }
 	}
 
 	public class IfcLaborResourceTypeEnum
@@ -2270,6 +2815,10 @@ namespace IFC4
 		public const string SURVEYING = "SURVEYING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcLaborResourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcLaborResourceTypeEnum(string x) { return new IfcLaborResourceTypeEnum(x); }
+		public static implicit operator string(IfcLaborResourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcLampTypeEnum
@@ -2285,6 +2834,10 @@ namespace IFC4
 		public const string TUNGSTENFILAMENT = "TUNGSTENFILAMENT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcLampTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcLampTypeEnum(string x) { return new IfcLampTypeEnum(x); }
+		public static implicit operator string(IfcLampTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcLayerSetDirectionEnum
@@ -2292,6 +2845,10 @@ namespace IFC4
 		public const string AXIS1 = "AXIS1";
 		public const string AXIS2 = "AXIS2";
 		public const string AXIS3 = "AXIS3";
+		private string Value;
+		public IfcLayerSetDirectionEnum(string value) { Value = value; }
+		public static implicit operator IfcLayerSetDirectionEnum(string x) { return new IfcLayerSetDirectionEnum(x); }
+		public static implicit operator string(IfcLayerSetDirectionEnum x) { return x.Value; }
 	}
 
 	public class IfcLightDistributionCurveEnum
@@ -2300,6 +2857,10 @@ namespace IFC4
 		public const string TYPE_B = "TYPE_B";
 		public const string TYPE_C = "TYPE_C";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcLightDistributionCurveEnum(string value) { Value = value; }
+		public static implicit operator IfcLightDistributionCurveEnum(string x) { return new IfcLightDistributionCurveEnum(x); }
+		public static implicit operator string(IfcLightDistributionCurveEnum x) { return x.Value; }
 	}
 
 	public class IfcLightEmissionSourceEnum
@@ -2315,6 +2876,10 @@ namespace IFC4
 		public const string METALHALIDE = "METALHALIDE";
 		public const string TUNGSTENFILAMENT = "TUNGSTENFILAMENT";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcLightEmissionSourceEnum(string value) { Value = value; }
+		public static implicit operator IfcLightEmissionSourceEnum(string x) { return new IfcLightEmissionSourceEnum(x); }
+		public static implicit operator string(IfcLightEmissionSourceEnum x) { return x.Value; }
 	}
 
 	public class IfcLightFixtureTypeEnum
@@ -2324,6 +2889,10 @@ namespace IFC4
 		public const string SECURITYLIGHTING = "SECURITYLIGHTING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcLightFixtureTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcLightFixtureTypeEnum(string x) { return new IfcLightFixtureTypeEnum(x); }
+		public static implicit operator string(IfcLightFixtureTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcLoadGroupTypeEnum
@@ -2333,6 +2902,10 @@ namespace IFC4
 		public const string LOAD_COMBINATION = "LOAD_COMBINATION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcLoadGroupTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcLoadGroupTypeEnum(string x) { return new IfcLoadGroupTypeEnum(x); }
+		public static implicit operator string(IfcLoadGroupTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcLogicalOperatorEnum
@@ -2342,6 +2915,10 @@ namespace IFC4
 		public const string LOGICALXOR = "LOGICALXOR";
 		public const string LOGICALNOTAND = "LOGICALNOTAND";
 		public const string LOGICALNOTOR = "LOGICALNOTOR";
+		private string Value;
+		public IfcLogicalOperatorEnum(string value) { Value = value; }
+		public static implicit operator IfcLogicalOperatorEnum(string x) { return new IfcLogicalOperatorEnum(x); }
+		public static implicit operator string(IfcLogicalOperatorEnum x) { return x.Value; }
 	}
 
 	public class IfcMechanicalFastenerTypeEnum
@@ -2358,6 +2935,10 @@ namespace IFC4
 		public const string STUDSHEARCONNECTOR = "STUDSHEARCONNECTOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcMechanicalFastenerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcMechanicalFastenerTypeEnum(string x) { return new IfcMechanicalFastenerTypeEnum(x); }
+		public static implicit operator string(IfcMechanicalFastenerTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcMedicalDeviceTypeEnum
@@ -2369,6 +2950,10 @@ namespace IFC4
 		public const string VACUUMSTATION = "VACUUMSTATION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcMedicalDeviceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcMedicalDeviceTypeEnum(string x) { return new IfcMedicalDeviceTypeEnum(x); }
+		public static implicit operator string(IfcMedicalDeviceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcMemberTypeEnum
@@ -2387,6 +2972,10 @@ namespace IFC4
 		public const string STUD = "STUD";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcMemberTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcMemberTypeEnum(string x) { return new IfcMemberTypeEnum(x); }
+		public static implicit operator string(IfcMemberTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcMotorConnectionTypeEnum
@@ -2396,14 +2985,22 @@ namespace IFC4
 		public const string DIRECTDRIVE = "DIRECTDRIVE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcMotorConnectionTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcMotorConnectionTypeEnum(string x) { return new IfcMotorConnectionTypeEnum(x); }
+		public static implicit operator string(IfcMotorConnectionTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcNullStyle : IfcPresentationStyleSelect
 	{
 		public const string NULL = "NULL";
+		private string Value;
+		public IfcNullStyle(string value) { Value = value; }
+		public static implicit operator IfcNullStyle(string x) { return new IfcNullStyle(x); }
+		public static implicit operator string(IfcNullStyle x) { return x.Value; }
 	}
 
-	public class IfcObjectTypeEnum: STRING
+	public class IfcObjectTypeEnum
 	{
 		public const string PRODUCT = "PRODUCT";
 		public const string PROCESS = "PROCESS";
@@ -2413,6 +3010,10 @@ namespace IFC4
 		public const string GROUP = "GROUP";
 		public const string PROJECT = "PROJECT";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcObjectTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcObjectTypeEnum(string x) { return new IfcObjectTypeEnum(x); }
+		public static implicit operator string(IfcObjectTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcObjectiveEnum
@@ -2430,6 +3031,10 @@ namespace IFC4
 		public const string TRIGGERCONDITION = "TRIGGERCONDITION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcObjectiveEnum(string value) { Value = value; }
+		public static implicit operator IfcObjectiveEnum(string x) { return new IfcObjectiveEnum(x); }
+		public static implicit operator string(IfcObjectiveEnum x) { return x.Value; }
 	}
 
 	public class IfcOccupantTypeEnum
@@ -2443,6 +3048,10 @@ namespace IFC4
 		public const string TENANT = "TENANT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcOccupantTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcOccupantTypeEnum(string x) { return new IfcOccupantTypeEnum(x); }
+		public static implicit operator string(IfcOccupantTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcOpeningElementTypeEnum
@@ -2451,6 +3060,10 @@ namespace IFC4
 		public const string RECESS = "RECESS";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcOpeningElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcOpeningElementTypeEnum(string x) { return new IfcOpeningElementTypeEnum(x); }
+		public static implicit operator string(IfcOpeningElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcOutletTypeEnum
@@ -2462,12 +3075,20 @@ namespace IFC4
 		public const string TELEPHONEOUTLET = "TELEPHONEOUTLET";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcOutletTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcOutletTypeEnum(string x) { return new IfcOutletTypeEnum(x); }
+		public static implicit operator string(IfcOutletTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPerformanceHistoryTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPerformanceHistoryTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPerformanceHistoryTypeEnum(string x) { return new IfcPerformanceHistoryTypeEnum(x); }
+		public static implicit operator string(IfcPerformanceHistoryTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPermeableCoveringOperationEnum
@@ -2477,6 +3098,10 @@ namespace IFC4
 		public const string SCREEN = "SCREEN";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPermeableCoveringOperationEnum(string value) { Value = value; }
+		public static implicit operator IfcPermeableCoveringOperationEnum(string x) { return new IfcPermeableCoveringOperationEnum(x); }
+		public static implicit operator string(IfcPermeableCoveringOperationEnum x) { return x.Value; }
 	}
 
 	public class IfcPermitTypeEnum
@@ -2486,6 +3111,10 @@ namespace IFC4
 		public const string WORK = "WORK";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPermitTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPermitTypeEnum(string x) { return new IfcPermitTypeEnum(x); }
+		public static implicit operator string(IfcPermitTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPhysicalOrVirtualEnum
@@ -2493,6 +3122,10 @@ namespace IFC4
 		public const string PHYSICAL = "PHYSICAL";
 		public const string VIRTUAL = "VIRTUAL";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPhysicalOrVirtualEnum(string value) { Value = value; }
+		public static implicit operator IfcPhysicalOrVirtualEnum(string x) { return new IfcPhysicalOrVirtualEnum(x); }
+		public static implicit operator string(IfcPhysicalOrVirtualEnum x) { return x.Value; }
 	}
 
 	public class IfcPileConstructionEnum
@@ -2503,6 +3136,10 @@ namespace IFC4
 		public const string PREFAB_STEEL = "PREFAB_STEEL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPileConstructionEnum(string value) { Value = value; }
+		public static implicit operator IfcPileConstructionEnum(string x) { return new IfcPileConstructionEnum(x); }
+		public static implicit operator string(IfcPileConstructionEnum x) { return x.Value; }
 	}
 
 	public class IfcPileTypeEnum
@@ -2515,6 +3152,10 @@ namespace IFC4
 		public const string SUPPORT = "SUPPORT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPileTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPileTypeEnum(string x) { return new IfcPileTypeEnum(x); }
+		public static implicit operator string(IfcPileTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPipeFittingTypeEnum
@@ -2528,6 +3169,10 @@ namespace IFC4
 		public const string TRANSITION = "TRANSITION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPipeFittingTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPipeFittingTypeEnum(string x) { return new IfcPipeFittingTypeEnum(x); }
+		public static implicit operator string(IfcPipeFittingTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPipeSegmentTypeEnum
@@ -2539,6 +3184,10 @@ namespace IFC4
 		public const string SPOOL = "SPOOL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPipeSegmentTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPipeSegmentTypeEnum(string x) { return new IfcPipeSegmentTypeEnum(x); }
+		public static implicit operator string(IfcPipeSegmentTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPlateTypeEnum
@@ -2547,6 +3196,10 @@ namespace IFC4
 		public const string SHEET = "SHEET";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPlateTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPlateTypeEnum(string x) { return new IfcPlateTypeEnum(x); }
+		public static implicit operator string(IfcPlateTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPreferredSurfaceCurveRepresentation
@@ -2554,6 +3207,10 @@ namespace IFC4
 		public const string CURVE3D = "CURVE3D";
 		public const string PCURVE_S1 = "PCURVE_S1";
 		public const string PCURVE_S2 = "PCURVE_S2";
+		private string Value;
+		public IfcPreferredSurfaceCurveRepresentation(string value) { Value = value; }
+		public static implicit operator IfcPreferredSurfaceCurveRepresentation(string x) { return new IfcPreferredSurfaceCurveRepresentation(x); }
+		public static implicit operator string(IfcPreferredSurfaceCurveRepresentation x) { return x.Value; }
 	}
 
 	public class IfcProcedureTypeEnum
@@ -2567,12 +3224,20 @@ namespace IFC4
 		public const string STARTUP = "STARTUP";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcProcedureTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcProcedureTypeEnum(string x) { return new IfcProcedureTypeEnum(x); }
+		public static implicit operator string(IfcProcedureTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcProfileTypeEnum
 	{
 		public const string CURVE = "CURVE";
 		public const string AREA = "AREA";
+		private string Value;
+		public IfcProfileTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcProfileTypeEnum(string x) { return new IfcProfileTypeEnum(x); }
+		public static implicit operator string(IfcProfileTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcProjectOrderTypeEnum
@@ -2584,18 +3249,30 @@ namespace IFC4
 		public const string WORKORDER = "WORKORDER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcProjectOrderTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcProjectOrderTypeEnum(string x) { return new IfcProjectOrderTypeEnum(x); }
+		public static implicit operator string(IfcProjectOrderTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcProjectedOrTrueLengthEnum
 	{
 		public const string PROJECTED_LENGTH = "PROJECTED_LENGTH";
 		public const string TRUE_LENGTH = "TRUE_LENGTH";
+		private string Value;
+		public IfcProjectedOrTrueLengthEnum(string value) { Value = value; }
+		public static implicit operator IfcProjectedOrTrueLengthEnum(string x) { return new IfcProjectedOrTrueLengthEnum(x); }
+		public static implicit operator string(IfcProjectedOrTrueLengthEnum x) { return x.Value; }
 	}
 
 	public class IfcProjectionElementTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcProjectionElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcProjectionElementTypeEnum(string x) { return new IfcProjectionElementTypeEnum(x); }
+		public static implicit operator string(IfcProjectionElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPropertySetTemplateTypeEnum
@@ -2608,6 +3285,10 @@ namespace IFC4
 		public const string QTO_TYPEDRIVENOVERRIDE = "QTO_TYPEDRIVENOVERRIDE";
 		public const string QTO_OCCURRENCEDRIVEN = "QTO_OCCURRENCEDRIVEN";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPropertySetTemplateTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPropertySetTemplateTypeEnum(string x) { return new IfcPropertySetTemplateTypeEnum(x); }
+		public static implicit operator string(IfcPropertySetTemplateTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcProtectiveDeviceTrippingUnitTypeEnum
@@ -2618,6 +3299,10 @@ namespace IFC4
 		public const string THERMAL = "THERMAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcProtectiveDeviceTrippingUnitTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcProtectiveDeviceTrippingUnitTypeEnum(string x) { return new IfcProtectiveDeviceTrippingUnitTypeEnum(x); }
+		public static implicit operator string(IfcProtectiveDeviceTrippingUnitTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcProtectiveDeviceTypeEnum
@@ -2631,6 +3316,10 @@ namespace IFC4
 		public const string VARISTOR = "VARISTOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcProtectiveDeviceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcProtectiveDeviceTypeEnum(string x) { return new IfcProtectiveDeviceTypeEnum(x); }
+		public static implicit operator string(IfcProtectiveDeviceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcPumpTypeEnum
@@ -2644,6 +3333,10 @@ namespace IFC4
 		public const string VERTICALTURBINE = "VERTICALTURBINE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcPumpTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcPumpTypeEnum(string x) { return new IfcPumpTypeEnum(x); }
+		public static implicit operator string(IfcPumpTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcRailingTypeEnum
@@ -2653,6 +3346,10 @@ namespace IFC4
 		public const string BALUSTRADE = "BALUSTRADE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcRailingTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcRailingTypeEnum(string x) { return new IfcRailingTypeEnum(x); }
+		public static implicit operator string(IfcRailingTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcRampFlightTypeEnum
@@ -2661,6 +3358,10 @@ namespace IFC4
 		public const string SPIRAL = "SPIRAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcRampFlightTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcRampFlightTypeEnum(string x) { return new IfcRampFlightTypeEnum(x); }
+		public static implicit operator string(IfcRampFlightTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcRampTypeEnum
@@ -2673,6 +3374,10 @@ namespace IFC4
 		public const string SPIRAL_RAMP = "SPIRAL_RAMP";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcRampTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcRampTypeEnum(string x) { return new IfcRampTypeEnum(x); }
+		public static implicit operator string(IfcRampTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcRecurrenceTypeEnum
@@ -2685,6 +3390,10 @@ namespace IFC4
 		public const string BY_WEEKDAY_COUNT = "BY_WEEKDAY_COUNT";
 		public const string YEARLY_BY_DAY_OF_MONTH = "YEARLY_BY_DAY_OF_MONTH";
 		public const string YEARLY_BY_POSITION = "YEARLY_BY_POSITION";
+		private string Value;
+		public IfcRecurrenceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcRecurrenceTypeEnum(string x) { return new IfcRecurrenceTypeEnum(x); }
+		public static implicit operator string(IfcRecurrenceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcReflectanceMethodEnum
@@ -2699,6 +3408,10 @@ namespace IFC4
 		public const string PLASTIC = "PLASTIC";
 		public const string STRAUSS = "STRAUSS";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcReflectanceMethodEnum(string value) { Value = value; }
+		public static implicit operator IfcReflectanceMethodEnum(string x) { return new IfcReflectanceMethodEnum(x); }
+		public static implicit operator string(IfcReflectanceMethodEnum x) { return x.Value; }
 	}
 
 	public class IfcReinforcingBarRoleEnum
@@ -2713,12 +3426,20 @@ namespace IFC4
 		public const string ANCHORING = "ANCHORING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcReinforcingBarRoleEnum(string value) { Value = value; }
+		public static implicit operator IfcReinforcingBarRoleEnum(string x) { return new IfcReinforcingBarRoleEnum(x); }
+		public static implicit operator string(IfcReinforcingBarRoleEnum x) { return x.Value; }
 	}
 
 	public class IfcReinforcingBarSurfaceEnum
 	{
 		public const string PLAIN = "PLAIN";
 		public const string TEXTURED = "TEXTURED";
+		private string Value;
+		public IfcReinforcingBarSurfaceEnum(string value) { Value = value; }
+		public static implicit operator IfcReinforcingBarSurfaceEnum(string x) { return new IfcReinforcingBarSurfaceEnum(x); }
+		public static implicit operator string(IfcReinforcingBarSurfaceEnum x) { return x.Value; }
 	}
 
 	public class IfcReinforcingBarTypeEnum
@@ -2733,12 +3454,20 @@ namespace IFC4
 		public const string STUD = "STUD";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcReinforcingBarTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcReinforcingBarTypeEnum(string x) { return new IfcReinforcingBarTypeEnum(x); }
+		public static implicit operator string(IfcReinforcingBarTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcReinforcingMeshTypeEnum
 	{
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcReinforcingMeshTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcReinforcingMeshTypeEnum(string x) { return new IfcReinforcingMeshTypeEnum(x); }
+		public static implicit operator string(IfcReinforcingMeshTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcRoleEnum
@@ -2766,6 +3495,10 @@ namespace IFC4
 		public const string FIELDCONSTRUCTIONMANAGER = "FIELDCONSTRUCTIONMANAGER";
 		public const string RESELLER = "RESELLER";
 		public const string USERDEFINED = "USERDEFINED";
+		private string Value;
+		public IfcRoleEnum(string value) { Value = value; }
+		public static implicit operator IfcRoleEnum(string x) { return new IfcRoleEnum(x); }
+		public static implicit operator string(IfcRoleEnum x) { return x.Value; }
 	}
 
 	public class IfcRoofTypeEnum
@@ -2785,6 +3518,10 @@ namespace IFC4
 		public const string FREEFORM = "FREEFORM";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcRoofTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcRoofTypeEnum(string x) { return new IfcRoofTypeEnum(x); }
+		public static implicit operator string(IfcRoofTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSIPrefix
@@ -2805,9 +3542,13 @@ namespace IFC4
 		public const string PICO = "PICO";
 		public const string FEMTO = "FEMTO";
 		public const string ATTO = "ATTO";
+		private string Value;
+		public IfcSIPrefix(string value) { Value = value; }
+		public static implicit operator IfcSIPrefix(string x) { return new IfcSIPrefix(x); }
+		public static implicit operator string(IfcSIPrefix x) { return x.Value; }
 	}
 
-	public class IfcSIUnitName:STRING
+	public class IfcSIUnitName
 	{
 		public const string AMPERE = "AMPERE";
 		public const string BECQUEREL = "BECQUEREL";
@@ -2839,6 +3580,10 @@ namespace IFC4
 		public const string VOLT = "VOLT";
 		public const string WATT = "WATT";
 		public const string WEBER = "WEBER";
+		private string Value;
+		public IfcSIUnitName(string value) { Value = value; }
+		public static implicit operator IfcSIUnitName(string x) { return new IfcSIUnitName(x); }
+		public static implicit operator string(IfcSIUnitName x) { return x.Value; }
 	}
 
 	public class IfcSanitaryTerminalTypeEnum
@@ -2855,12 +3600,20 @@ namespace IFC4
 		public const string WCSEAT = "WCSEAT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSanitaryTerminalTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSanitaryTerminalTypeEnum(string x) { return new IfcSanitaryTerminalTypeEnum(x); }
+		public static implicit operator string(IfcSanitaryTerminalTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSectionTypeEnum
 	{
 		public const string UNIFORM = "UNIFORM";
 		public const string TAPERED = "TAPERED";
+		private string Value;
+		public IfcSectionTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSectionTypeEnum(string x) { return new IfcSectionTypeEnum(x); }
+		public static implicit operator string(IfcSectionTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSensorTypeEnum
@@ -2891,6 +3644,10 @@ namespace IFC4
 		public const string WINDSENSOR = "WINDSENSOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSensorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSensorTypeEnum(string x) { return new IfcSensorTypeEnum(x); }
+		public static implicit operator string(IfcSensorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSequenceEnum
@@ -2901,6 +3658,10 @@ namespace IFC4
 		public const string FINISH_FINISH = "FINISH_FINISH";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSequenceEnum(string value) { Value = value; }
+		public static implicit operator IfcSequenceEnum(string x) { return new IfcSequenceEnum(x); }
+		public static implicit operator string(IfcSequenceEnum x) { return x.Value; }
 	}
 
 	public class IfcShadingDeviceTypeEnum
@@ -2910,6 +3671,10 @@ namespace IFC4
 		public const string AWNING = "AWNING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcShadingDeviceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcShadingDeviceTypeEnum(string x) { return new IfcShadingDeviceTypeEnum(x); }
+		public static implicit operator string(IfcShadingDeviceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSimplePropertyTemplateTypeEnum
@@ -2926,6 +3691,10 @@ namespace IFC4
 		public const string Q_COUNT = "Q_COUNT";
 		public const string Q_WEIGHT = "Q_WEIGHT";
 		public const string Q_TIME = "Q_TIME";
+		private string Value;
+		public IfcSimplePropertyTemplateTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSimplePropertyTemplateTypeEnum(string x) { return new IfcSimplePropertyTemplateTypeEnum(x); }
+		public static implicit operator string(IfcSimplePropertyTemplateTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSlabTypeEnum
@@ -2936,6 +3705,10 @@ namespace IFC4
 		public const string BASESLAB = "BASESLAB";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSlabTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSlabTypeEnum(string x) { return new IfcSlabTypeEnum(x); }
+		public static implicit operator string(IfcSlabTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSolarDeviceTypeEnum
@@ -2944,6 +3717,10 @@ namespace IFC4
 		public const string SOLARPANEL = "SOLARPANEL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSolarDeviceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSolarDeviceTypeEnum(string x) { return new IfcSolarDeviceTypeEnum(x); }
+		public static implicit operator string(IfcSolarDeviceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSpaceHeaterTypeEnum
@@ -2952,6 +3729,10 @@ namespace IFC4
 		public const string RADIATOR = "RADIATOR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSpaceHeaterTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSpaceHeaterTypeEnum(string x) { return new IfcSpaceHeaterTypeEnum(x); }
+		public static implicit operator string(IfcSpaceHeaterTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSpaceTypeEnum
@@ -2963,6 +3744,10 @@ namespace IFC4
 		public const string EXTERNAL = "EXTERNAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSpaceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSpaceTypeEnum(string x) { return new IfcSpaceTypeEnum(x); }
+		public static implicit operator string(IfcSpaceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSpatialZoneTypeEnum
@@ -2977,6 +3762,10 @@ namespace IFC4
 		public const string VENTILATION = "VENTILATION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSpatialZoneTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSpatialZoneTypeEnum(string x) { return new IfcSpatialZoneTypeEnum(x); }
+		public static implicit operator string(IfcSpatialZoneTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStackTerminalTypeEnum
@@ -2986,6 +3775,10 @@ namespace IFC4
 		public const string RAINWATERHOPPER = "RAINWATERHOPPER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStackTerminalTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStackTerminalTypeEnum(string x) { return new IfcStackTerminalTypeEnum(x); }
+		public static implicit operator string(IfcStackTerminalTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStairFlightTypeEnum
@@ -2997,6 +3790,10 @@ namespace IFC4
 		public const string FREEFORM = "FREEFORM";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStairFlightTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStairFlightTypeEnum(string x) { return new IfcStairFlightTypeEnum(x); }
+		public static implicit operator string(IfcStairFlightTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStairTypeEnum
@@ -3017,6 +3814,10 @@ namespace IFC4
 		public const string TWO_CURVED_RUN_STAIR = "TWO_CURVED_RUN_STAIR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStairTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStairTypeEnum(string x) { return new IfcStairTypeEnum(x); }
+		public static implicit operator string(IfcStairTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStateEnum
@@ -3026,6 +3827,10 @@ namespace IFC4
 		public const string LOCKED = "LOCKED";
 		public const string READWRITELOCKED = "READWRITELOCKED";
 		public const string READONLYLOCKED = "READONLYLOCKED";
+		private string Value;
+		public IfcStateEnum(string value) { Value = value; }
+		public static implicit operator IfcStateEnum(string x) { return new IfcStateEnum(x); }
+		public static implicit operator string(IfcStateEnum x) { return x.Value; }
 	}
 
 	public class IfcStructuralCurveActivityTypeEnum
@@ -3039,6 +3844,10 @@ namespace IFC4
 		public const string DISCRETE = "DISCRETE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStructuralCurveActivityTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStructuralCurveActivityTypeEnum(string x) { return new IfcStructuralCurveActivityTypeEnum(x); }
+		public static implicit operator string(IfcStructuralCurveActivityTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStructuralCurveMemberTypeEnum
@@ -3050,6 +3859,10 @@ namespace IFC4
 		public const string COMPRESSION_MEMBER = "COMPRESSION_MEMBER";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStructuralCurveMemberTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStructuralCurveMemberTypeEnum(string x) { return new IfcStructuralCurveMemberTypeEnum(x); }
+		public static implicit operator string(IfcStructuralCurveMemberTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStructuralSurfaceActivityTypeEnum
@@ -3060,6 +3873,10 @@ namespace IFC4
 		public const string ISOCONTOUR = "ISOCONTOUR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStructuralSurfaceActivityTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStructuralSurfaceActivityTypeEnum(string x) { return new IfcStructuralSurfaceActivityTypeEnum(x); }
+		public static implicit operator string(IfcStructuralSurfaceActivityTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcStructuralSurfaceMemberTypeEnum
@@ -3069,6 +3886,10 @@ namespace IFC4
 		public const string SHELL = "SHELL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcStructuralSurfaceMemberTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcStructuralSurfaceMemberTypeEnum(string x) { return new IfcStructuralSurfaceMemberTypeEnum(x); }
+		public static implicit operator string(IfcStructuralSurfaceMemberTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSubContractResourceTypeEnum
@@ -3077,6 +3898,10 @@ namespace IFC4
 		public const string WORK = "WORK";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSubContractResourceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSubContractResourceTypeEnum(string x) { return new IfcSubContractResourceTypeEnum(x); }
+		public static implicit operator string(IfcSubContractResourceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSurfaceFeatureTypeEnum
@@ -3086,6 +3911,10 @@ namespace IFC4
 		public const string TREATMENT = "TREATMENT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSurfaceFeatureTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSurfaceFeatureTypeEnum(string x) { return new IfcSurfaceFeatureTypeEnum(x); }
+		public static implicit operator string(IfcSurfaceFeatureTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSurfaceSide
@@ -3093,6 +3922,10 @@ namespace IFC4
 		public const string POSITIVE = "POSITIVE";
 		public const string NEGATIVE = "NEGATIVE";
 		public const string BOTH = "BOTH";
+		private string Value;
+		public IfcSurfaceSide(string value) { Value = value; }
+		public static implicit operator IfcSurfaceSide(string x) { return new IfcSurfaceSide(x); }
+		public static implicit operator string(IfcSurfaceSide x) { return x.Value; }
 	}
 
 	public class IfcSwitchingDeviceTypeEnum
@@ -3108,6 +3941,10 @@ namespace IFC4
 		public const string TOGGLESWITCH = "TOGGLESWITCH";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSwitchingDeviceTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSwitchingDeviceTypeEnum(string x) { return new IfcSwitchingDeviceTypeEnum(x); }
+		public static implicit operator string(IfcSwitchingDeviceTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcSystemFurnitureElementTypeEnum
@@ -3116,6 +3953,10 @@ namespace IFC4
 		public const string WORKSURFACE = "WORKSURFACE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcSystemFurnitureElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcSystemFurnitureElementTypeEnum(string x) { return new IfcSystemFurnitureElementTypeEnum(x); }
+		public static implicit operator string(IfcSystemFurnitureElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTankTypeEnum
@@ -3129,6 +3970,10 @@ namespace IFC4
 		public const string VESSEL = "VESSEL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTankTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTankTypeEnum(string x) { return new IfcTankTypeEnum(x); }
+		public static implicit operator string(IfcTankTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTaskDurationEnum
@@ -3136,6 +3981,10 @@ namespace IFC4
 		public const string ELAPSEDTIME = "ELAPSEDTIME";
 		public const string WORKTIME = "WORKTIME";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTaskDurationEnum(string value) { Value = value; }
+		public static implicit operator IfcTaskDurationEnum(string x) { return new IfcTaskDurationEnum(x); }
+		public static implicit operator string(IfcTaskDurationEnum x) { return x.Value; }
 	}
 
 	public class IfcTaskTypeEnum
@@ -3154,6 +4003,10 @@ namespace IFC4
 		public const string RENOVATION = "RENOVATION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTaskTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTaskTypeEnum(string x) { return new IfcTaskTypeEnum(x); }
+		public static implicit operator string(IfcTaskTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTendonAnchorTypeEnum
@@ -3163,6 +4016,10 @@ namespace IFC4
 		public const string TENSIONING_END = "TENSIONING_END";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTendonAnchorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTendonAnchorTypeEnum(string x) { return new IfcTendonAnchorTypeEnum(x); }
+		public static implicit operator string(IfcTendonAnchorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTendonTypeEnum
@@ -3173,6 +4030,10 @@ namespace IFC4
 		public const string WIRE = "WIRE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTendonTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTendonTypeEnum(string x) { return new IfcTendonTypeEnum(x); }
+		public static implicit operator string(IfcTendonTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTextPath
@@ -3181,6 +4042,10 @@ namespace IFC4
 		public const string RIGHT = "RIGHT";
 		public const string UP = "UP";
 		public const string DOWN = "DOWN";
+		private string Value;
+		public IfcTextPath(string value) { Value = value; }
+		public static implicit operator IfcTextPath(string x) { return new IfcTextPath(x); }
+		public static implicit operator string(IfcTextPath x) { return x.Value; }
 	}
 
 	public class IfcTimeSeriesDataTypeEnum
@@ -3192,6 +4057,10 @@ namespace IFC4
 		public const string PIECEWISECONSTANT = "PIECEWISECONSTANT";
 		public const string PIECEWISECONTINUOUS = "PIECEWISECONTINUOUS";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTimeSeriesDataTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTimeSeriesDataTypeEnum(string x) { return new IfcTimeSeriesDataTypeEnum(x); }
+		public static implicit operator string(IfcTimeSeriesDataTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTransformerTypeEnum
@@ -3203,14 +4072,22 @@ namespace IFC4
 		public const string VOLTAGE = "VOLTAGE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTransformerTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTransformerTypeEnum(string x) { return new IfcTransformerTypeEnum(x); }
+		public static implicit operator string(IfcTransformerTypeEnum x) { return x.Value; }
 	}
 
-	public class IfcTransitionCode:STRING
+	public class IfcTransitionCode
 	{
 		public const string DISCONTINUOUS = "DISCONTINUOUS";
 		public const string CONTINUOUS = "CONTINUOUS";
 		public const string CONTSAMEGRADIENT = "CONTSAMEGRADIENT";
 		public const string CONTSAMEGRADIENTSAMECURVATURE = "CONTSAMEGRADIENTSAMECURVATURE";
+		private string Value;
+		public IfcTransitionCode(string value) { Value = value; }
+		public static implicit operator IfcTransitionCode(string x) { return new IfcTransitionCode(x); }
+		public static implicit operator string(IfcTransitionCode x) { return x.Value; }
 	}
 
 	public class IfcTransportElementTypeEnum
@@ -3222,6 +4099,10 @@ namespace IFC4
 		public const string LIFTINGGEAR = "LIFTINGGEAR";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTransportElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTransportElementTypeEnum(string x) { return new IfcTransportElementTypeEnum(x); }
+		public static implicit operator string(IfcTransportElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcTrimmingPreference
@@ -3229,6 +4110,10 @@ namespace IFC4
 		public const string CARTESIAN = "CARTESIAN";
 		public const string PARAMETER = "PARAMETER";
 		public const string UNSPECIFIED = "UNSPECIFIED";
+		private string Value;
+		public IfcTrimmingPreference(string value) { Value = value; }
+		public static implicit operator IfcTrimmingPreference(string x) { return new IfcTrimmingPreference(x); }
+		public static implicit operator string(IfcTrimmingPreference x) { return x.Value; }
 	}
 
 	public class IfcTubeBundleTypeEnum
@@ -3236,9 +4121,13 @@ namespace IFC4
 		public const string FINNED = "FINNED";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcTubeBundleTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcTubeBundleTypeEnum(string x) { return new IfcTubeBundleTypeEnum(x); }
+		public static implicit operator string(IfcTubeBundleTypeEnum x) { return x.Value; }
 	}
 
-	public class IfcUnitEnum :STRING
+	public class IfcUnitEnum
 	{
 		public const string ABSORBEDDOSEUNIT = "ABSORBEDDOSEUNIT";
 		public const string AMOUNTOFSUBSTANCEUNIT = "AMOUNTOFSUBSTANCEUNIT";
@@ -3270,8 +4159,10 @@ namespace IFC4
 		public const string TIMEUNIT = "TIMEUNIT";
 		public const string VOLUMEUNIT = "VOLUMEUNIT";
 		public const string USERDEFINED = "USERDEFINED";
-
-		
+		private string Value;
+		public IfcUnitEnum(string value) { Value = value; }
+		public static implicit operator IfcUnitEnum(string x) { return new IfcUnitEnum(x); }
+		public static implicit operator string(IfcUnitEnum x) { return x.Value; }
 	}
 
 	public class IfcUnitaryControlElementTypeEnum
@@ -3286,6 +4177,10 @@ namespace IFC4
 		public const string WEATHERSTATION = "WEATHERSTATION";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcUnitaryControlElementTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcUnitaryControlElementTypeEnum(string x) { return new IfcUnitaryControlElementTypeEnum(x); }
+		public static implicit operator string(IfcUnitaryControlElementTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcUnitaryEquipmentTypeEnum
@@ -3297,6 +4192,10 @@ namespace IFC4
 		public const string ROOFTOPUNIT = "ROOFTOPUNIT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcUnitaryEquipmentTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcUnitaryEquipmentTypeEnum(string x) { return new IfcUnitaryEquipmentTypeEnum(x); }
+		public static implicit operator string(IfcUnitaryEquipmentTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcValveTypeEnum
@@ -3324,6 +4223,10 @@ namespace IFC4
 		public const string STOPCOCK = "STOPCOCK";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcValveTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcValveTypeEnum(string x) { return new IfcValveTypeEnum(x); }
+		public static implicit operator string(IfcValveTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcVibrationIsolatorTypeEnum
@@ -3332,6 +4235,10 @@ namespace IFC4
 		public const string SPRING = "SPRING";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcVibrationIsolatorTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcVibrationIsolatorTypeEnum(string x) { return new IfcVibrationIsolatorTypeEnum(x); }
+		public static implicit operator string(IfcVibrationIsolatorTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcVoidingFeatureTypeEnum
@@ -3344,6 +4251,10 @@ namespace IFC4
 		public const string EDGE = "EDGE";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcVoidingFeatureTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcVoidingFeatureTypeEnum(string x) { return new IfcVoidingFeatureTypeEnum(x); }
+		public static implicit operator string(IfcVoidingFeatureTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcWallTypeEnum
@@ -3359,6 +4270,10 @@ namespace IFC4
 		public const string ELEMENTEDWALL = "ELEMENTEDWALL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWallTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcWallTypeEnum(string x) { return new IfcWallTypeEnum(x); }
+		public static implicit operator string(IfcWallTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcWasteTerminalTypeEnum
@@ -3372,6 +4287,10 @@ namespace IFC4
 		public const string WASTETRAP = "WASTETRAP";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWasteTerminalTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcWasteTerminalTypeEnum(string x) { return new IfcWasteTerminalTypeEnum(x); }
+		public static implicit operator string(IfcWasteTerminalTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcWindowPanelOperationEnum
@@ -3390,6 +4309,10 @@ namespace IFC4
 		public const string FIXEDCASEMENT = "FIXEDCASEMENT";
 		public const string OTHEROPERATION = "OTHEROPERATION";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWindowPanelOperationEnum(string value) { Value = value; }
+		public static implicit operator IfcWindowPanelOperationEnum(string x) { return new IfcWindowPanelOperationEnum(x); }
+		public static implicit operator string(IfcWindowPanelOperationEnum x) { return x.Value; }
 	}
 
 	public class IfcWindowPanelPositionEnum
@@ -3400,6 +4323,10 @@ namespace IFC4
 		public const string BOTTOM = "BOTTOM";
 		public const string TOP = "TOP";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWindowPanelPositionEnum(string value) { Value = value; }
+		public static implicit operator IfcWindowPanelPositionEnum(string x) { return new IfcWindowPanelPositionEnum(x); }
+		public static implicit operator string(IfcWindowPanelPositionEnum x) { return x.Value; }
 	}
 
 	public class IfcWindowStyleConstructionEnum
@@ -3412,6 +4339,10 @@ namespace IFC4
 		public const string PLASTIC = "PLASTIC";
 		public const string OTHER_CONSTRUCTION = "OTHER_CONSTRUCTION";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWindowStyleConstructionEnum(string value) { Value = value; }
+		public static implicit operator IfcWindowStyleConstructionEnum(string x) { return new IfcWindowStyleConstructionEnum(x); }
+		public static implicit operator string(IfcWindowStyleConstructionEnum x) { return x.Value; }
 	}
 
 	public class IfcWindowStyleOperationEnum
@@ -3427,6 +4358,10 @@ namespace IFC4
 		public const string TRIPLE_PANEL_HORIZONTAL = "TRIPLE_PANEL_HORIZONTAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWindowStyleOperationEnum(string value) { Value = value; }
+		public static implicit operator IfcWindowStyleOperationEnum(string x) { return new IfcWindowStyleOperationEnum(x); }
+		public static implicit operator string(IfcWindowStyleOperationEnum x) { return x.Value; }
 	}
 
 	public class IfcWindowTypeEnum
@@ -3436,6 +4371,10 @@ namespace IFC4
 		public const string LIGHTDOME = "LIGHTDOME";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWindowTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcWindowTypeEnum(string x) { return new IfcWindowTypeEnum(x); }
+		public static implicit operator string(IfcWindowTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcWindowTypePartitioningEnum
@@ -3451,6 +4390,10 @@ namespace IFC4
 		public const string TRIPLE_PANEL_HORIZONTAL = "TRIPLE_PANEL_HORIZONTAL";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWindowTypePartitioningEnum(string value) { Value = value; }
+		public static implicit operator IfcWindowTypePartitioningEnum(string x) { return new IfcWindowTypePartitioningEnum(x); }
+		public static implicit operator string(IfcWindowTypePartitioningEnum x) { return x.Value; }
 	}
 
 	public class IfcWorkCalendarTypeEnum
@@ -3460,6 +4403,10 @@ namespace IFC4
 		public const string THIRDSHIFT = "THIRDSHIFT";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWorkCalendarTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcWorkCalendarTypeEnum(string x) { return new IfcWorkCalendarTypeEnum(x); }
+		public static implicit operator string(IfcWorkCalendarTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcWorkPlanTypeEnum
@@ -3469,6 +4416,10 @@ namespace IFC4
 		public const string PLANNED = "PLANNED";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWorkPlanTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcWorkPlanTypeEnum(string x) { return new IfcWorkPlanTypeEnum(x); }
+		public static implicit operator string(IfcWorkPlanTypeEnum x) { return x.Value; }
 	}
 
 	public class IfcWorkScheduleTypeEnum
@@ -3478,6 +4429,10 @@ namespace IFC4
 		public const string PLANNED = "PLANNED";
 		public const string USERDEFINED = "USERDEFINED";
 		public const string NOTDEFINED = "NOTDEFINED";
+		private string Value;
+		public IfcWorkScheduleTypeEnum(string value) { Value = value; }
+		public static implicit operator IfcWorkScheduleTypeEnum(string x) { return new IfcWorkScheduleTypeEnum(x); }
+		public static implicit operator string(IfcWorkScheduleTypeEnum x) { return x.Value; }
 	}
 
 	public interface IfcActorSelect
@@ -3710,7 +4665,7 @@ namespace IFC4
 
 	public interface IfcStyleAssignmentSelect
 	{
-		IfcLabel GetName();
+	//	IfcLabel GetName();
 	}
 
 	public interface IfcSurfaceOrFaceSurface
@@ -3739,8 +4694,8 @@ namespace IFC4
 
 	public interface IfcUnit
 	{
-		IfcDimensionalExponents GetDimensions();
-		IfcUnitEnum GetUnitType();
+		//IfcDimensionalExponents GetDimensions();
+	//	IfcUnitEnum GetUnitType();
 	}
 
 	public interface IfcValue : IfcAppliedValueSelect, IfcMetricValueSelect
@@ -4612,9 +5567,9 @@ namespace IFC4
 		//2	Axis : IfcDirection
 
 		public IfcDirection Axis { get; set; }
-		public IfcDirection Z =>  NVL(IfcNormalise(Axis), new IfcDirection(0, 0, 1));
+		public IfcDirection Z => NVL(IfcNormalise(Axis), new IfcDirection(0, 0, 1));
 		// (DERIVE)	Z : IfcDirection := NVL (IfcNormalise(Axis), IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcDirection([0.0,0.0,1.0])); {get;set;}
-		
+
 		public IfcAxis1Placement() { }
 
 		public IfcAxis1Placement(IfcCartesianPoint Location, IfcDirection Axis)
@@ -4657,7 +5612,7 @@ namespace IFC4
 		// (DERIVE)	P : LIST [3:3] OF IfcDirection := IfcBuildAxes(Axis, RefDirection); {get;set;}
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
-		
+
 		public IfcCartesianPoint GetLocation() { return Location; }
 		public IfcAxis2Placement3D() { }
 
@@ -4715,7 +5670,7 @@ namespace IFC4
 		public IfcInteger UpperIndexOnKnots => Knots.Count;
 		// (DERIVE)	UpperIndexOnKnots : IfcInteger := SIZEOF(Knots); {get;set;}
 		public IfcBSplineCurveWithKnots() { }
-		
+
 		public IfcBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec)
 		{
 			this.Degree = Degree;
@@ -4748,7 +5703,7 @@ namespace IFC4
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcInteger UUpper => ControlPointsList.Count;
 		// (DERIVE)	UUpper : IfcInteger := SIZEOF(ControlPointsList) - 1; {get;set;}
-		public IfcInteger VUpper => ControlPointsList[0].Count; 
+		public IfcInteger VUpper => ControlPointsList[0].Count;
 		// (DERIVE)	VUpper : IfcInteger := SIZEOF(ControlPointsList[1]) - 1; {get;set;}
 		public List<List<IfcCartesianPoint>> ControlPoints => IfcMakeArrayOfArray(ControlPointsList, 0, UUpper, 0, VUpper);
 		// (DERIVE)	ControlPoints : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcCartesianPoint := IfcMakeArrayOfArray(ControlPointsList, {get;set;}
@@ -4788,11 +5743,11 @@ namespace IFC4
 		public List<IfcParameterValue> VKnots { get; set; }
 		public IfcKnotType KnotSpec { get; set; }
 		public IfcInteger KnotVUpper => VKnots.Count;
-        // (DERIVE)	KnotVUpper : IfcInteger := SIZEOF(VKnots); {get;set;}
-        public IfcInteger KnotUUpper => UKnots.Count;
-        // (DERIVE)	KnotUUpper : IfcInteger := SIZEOF(UKnots); {get;set;}
+		// (DERIVE)	KnotVUpper : IfcInteger := SIZEOF(VKnots); {get;set;}
+		public IfcInteger KnotUUpper => UKnots.Count;
+		// (DERIVE)	KnotUUpper : IfcInteger := SIZEOF(UKnots); {get;set;}
 
-        public IfcBSplineSurfaceWithKnots() { }
+		public IfcBSplineSurfaceWithKnots() { }
 
 		public IfcBSplineSurfaceWithKnots(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect, List<IfcInteger> UMultiplicities, List<IfcInteger> VMultiplicities, List<IfcParameterValue> UKnots, List<IfcParameterValue> VKnots, IfcKnotType KnotSpec)
 		{
@@ -5212,7 +6167,7 @@ namespace IFC4
 		public IfcPositiveLengthMeasure XDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
 		public IfcPositiveLengthMeasure ZDim { get; set; }
-		public IfcDimensionCount Dim => (IfcDimensionCount) 3;
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
 
 		public IfcBoundingBox() { }
 
@@ -5865,7 +6820,7 @@ namespace IFC4
 		//1	Coordinates : List<IfcLengthMeasure>
 
 		public List<IfcLengthMeasure> Coordinates { get; set; }
-		public IfcDimensionCount Dim => (IfcDimensionCount) Coordinates.Count;
+		public IfcDimensionCount Dim => (IfcDimensionCount)Coordinates.Count;
 		// (DERIVE)	Dim : IfcDimensionCount := HIINDEX(Coordinates); {get;set;}
 		public IfcCartesianPoint() { }
 
@@ -5989,7 +6944,7 @@ namespace IFC4
 		//5	Axis3 : IfcDirection
 
 		public IfcDirection Axis3 { get; set; }
-		public List<IfcDirection> U => IfcBaseAxis (3,Axis1,Axis2,Axis3);
+		public List<IfcDirection> U => IfcBaseAxis(3, Axis1, Axis2, Axis3);
 		// (DERIVE)	U : LIST [3:3] OF IfcDirection := IfcBaseAxis(3,SELF\IfcCartesianTransformationOperator.Axis1, {get;set;}
 		public IfcCartesianTransformationOperator3D() { }
 
@@ -6309,7 +7264,7 @@ namespace IFC4
 		//INVERSE
 		public List<IfcRelAssociatesClassification> ClassificationForObjects;
 		public List<IfcClassificationReference> HasReferences;
-		
+
 		public IfcText GetDescription() { return Description; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
 
@@ -6690,9 +7645,9 @@ namespace IFC4
 
 		public List<IfcCompositeCurveSegment> Segments { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
-		public IfcInteger NSegments => (IfcInteger) Segments.Count;
+		public IfcInteger NSegments => (IfcInteger)Segments.Count;
 		// (DERIVE)	NSegments : IfcInteger := SIZEOF(Segments); {get;set;}
-		public IfcLogical ClosedCurve => (IfcLogical) (Segments[Segments.Count - 1].Transition != IfcTransitionCode.DISCONTINUOUS);
+		public IfcLogical ClosedCurve => (IfcLogical)(Segments[Segments.Count - 1].Transition != IfcTransitionCode.DISCONTINUOUS);
 		// (DERIVE)	ClosedCurve : IfcLogical := Segments[NSegments].Transition <> Discontinuous; {get;set;}
 		public IfcCompositeCurve() { }
 
@@ -8260,7 +9215,7 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDerivedUnit : IfcBase
+	public class IfcDerivedUnit : IfcBase,IfcUnit
 	{
 		//1	Elements : List<IfcDerivedUnitElement>
 		//2	UnitType : IfcDerivedUnitEnum
@@ -8339,7 +9294,7 @@ namespace IFC4
 		}
 
 		public bool Compare(int LengthExponent, int MassExponent, int TimeExponent, int ElectricCurrentExponent, int ThermodynamicTemperatureExponent, int AmountOfSubstanceExponent, int LuminousIntensityExponent)
-        {
+		{
 			return this.LengthExponent == LengthExponent &&
 			this.MassExponent == MassExponent &&
 			this.TimeExponent == TimeExponent &&
@@ -8355,13 +9310,13 @@ namespace IFC4
 		//1	DirectionRatios : List<IfcReal>
 
 		public List<IfcReal> DirectionRatios { get; set; }
-		public IfcDimensionCount Dim => (IfcDimensionCount) DirectionRatios.Count;
+		public IfcDimensionCount Dim => (IfcDimensionCount)DirectionRatios.Count;
 		// (DERIVE)	Dim : IfcDimensionCount := HIINDEX(DirectionRatios); {get;set;}
 		public List<IfcReal> GetDirectionRatios() { return DirectionRatios; }
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcDirection() { }
-		
+
 		public IfcDirection(List<IfcReal> DirectionRatios)
 		{
 			this.DirectionRatios = DirectionRatios;
@@ -9372,7 +10327,7 @@ namespace IFC4
 		//1	EdgeList : List<IfcOrientedEdge>
 
 		public List<IfcOrientedEdge> EdgeList { get; set; }
-		public IfcInteger Ne => (IfcInteger) EdgeList.Count;
+		public IfcInteger Ne => (IfcInteger)EdgeList.Count;
 		// (DERIVE)	Ne : IfcInteger := SIZEOF(EdgeList); {get;set;}
 		public IfcEdgeLoop() { }
 
@@ -12100,7 +13055,7 @@ namespace IFC4
 
 		public IfcSurface BaseSurface { get; set; }
 		public IfcBoolean AgreementFlag { get; set; }
-		public IfcDimensionCount Dim => (IfcDimensionCount) 3;
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
 		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcDimensionCount GetDim() { return Dim; }
 
@@ -13357,7 +14312,7 @@ namespace IFC4
 		public List<IfcRelAssociatesMaterial> AssociatedTo { get; set; }
 		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
 		public List<IfcMaterialProperties> HasProperties { get; set; }
-		
+
 
 		public IfcMaterialDefinition() { }
 	}
@@ -15463,7 +16418,7 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPresentationStyleAssignment : IfcBase
+	public class IfcPresentationStyleAssignment : IfcBase, IfcStyleAssignmentSelect
 	{
 		//1	Styles : List<IfcPresentationStyleSelect>
 
@@ -19214,7 +20169,7 @@ namespace IFC4
 		public IfcCompositeCurve SpineCurve { get; set; }
 		public List<IfcProfileDef> CrossSections { get; set; }
 		public List<IfcAxis2Placement3D> CrossSectionPositions { get; set; }
-		public IfcDimensionCount Dim => (IfcDimensionCount) 3;
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
 		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
 		public IfcSectionedSpine() { }
 
@@ -22064,9 +23019,9 @@ namespace IFC4
 		public IfcLabel Name { get; set; }
 		public List<IfcTableRow> Rows { get; set; }
 		public List<IfcTableColumn> Columns { get; set; }
-		public IfcInteger NumberOfCellsInRow => (IfcInteger) Rows[0].RowCells.Count;
+		public IfcInteger NumberOfCellsInRow => (IfcInteger)Rows[0].RowCells.Count;
 		// (DERIVE)	NumberOfCellsInRow : IfcInteger := HIINDEX(Rows[1].RowCells); {get;set;}
-		public IfcInteger NumberOfHeadings => (IfcInteger) Rows.Where(Temp => Temp.IsHeading).Count();
+		public IfcInteger NumberOfHeadings => (IfcInteger)Rows.Where(Temp => Temp.IsHeading).Count();
 		// (DERIVE)	NumberOfHeadings : IfcInteger := SIZEOF(QUERY( Temp <* Rows | Temp.IsHeading)); {get;set;}
 		public IfcInteger NumberOfDataRows => (IfcInteger)Rows.Where(Temp => !Temp.IsHeading).Count();
 		// (DERIVE)	NumberOfDataRows : IfcInteger := SIZEOF(QUERY( Temp <* Rows | NOT(Temp.IsHeading))); {get;set;}
@@ -23102,7 +24057,7 @@ namespace IFC4
 		public IfcBoolean Closed { get; set; }
 		public List<List<IfcPositiveInteger>> CoordIndex { get; set; }
 		public List<IfcPositiveInteger> PnIndex { get; set; }
-		public IfcInteger NumberOfTriangles => (IfcInteger) CoordIndex.Count();
+		public IfcInteger NumberOfTriangles => (IfcInteger)CoordIndex.Count();
 		// (DERIVE)	NumberOfTriangles : IfcInteger := SIZEOF(CoordIndex); {get;set;}
 		public IfcTriangulatedFaceSet() { }
 
@@ -23584,7 +24539,7 @@ namespace IFC4
 
 		public IfcVector() { }
 
-	
+
 		public IfcVector(IfcDirection Orientation, IfcLengthMeasure Magnitude)
 		{
 			this.Orientation = Orientation;

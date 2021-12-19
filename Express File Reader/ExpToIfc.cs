@@ -73,8 +73,17 @@ namespace IFCReader
                                         break;
 
                                     case "ENUMERATION":
-                                        IFCClasses.Add(texts[1], new IFCClass("enum", texts[1]));
-                                        currentClass = IFCClasses.Last().Value;
+                                      //  IFCClasses.Add(texts[1], new IFCClass("enum", texts[1]));
+                                        IFCClass enumClass = new IFCClass("enum", texts[1]);
+                                        string infExtext = " private string Value;\n" +
+                                            "public {1}(string value) { Value = value; }\n" +
+                                            "public static implicit operator {1}(string x) { return new {1}(x); }\n" +
+                                            " public static implicit operator string({1} x) { return x.Value; }\n";
+                                        infExtext = infExtext.Replace("{1}", texts[1]);
+                                        enumClass.extraText = infExtext;
+                                        IFCClasses.Add(texts[1], enumClass);
+
+                                    currentClass = IFCClasses.Last().Value;
                                         while (true)
                                         {
                                             currentline = reader.ReadLine().Replace("\t", "").Replace("(", "").Replace(")", "").Replace(",", "");
@@ -91,9 +100,11 @@ namespace IFCReader
 
                                         break;
                                     case "SELECT":
-                                        IFCClasses.Add(texts[1], new IFCClass("interface", texts[1]));
+                                        IFCClass infClass = new IFCClass("interface", texts[1]);
+                                    
+                                        IFCClasses.Add(texts[1], infClass);
 
-                                        currentClass = IFCClasses.Last().Value;
+                                    currentClass = IFCClasses.Last().Value;
                                         while (true)
                                         {
                                             currentline = reader.ReadLine().Replace("\t", "").Replace("(", "").Replace(")", "").Replace(",", "");
@@ -113,9 +124,6 @@ namespace IFCReader
                                     default:
                                     string basictype = texts[3].Contains("STRING") ? "STRING" : texts[3].Replace(";", "");
                                     IFCClass basicClass = new  IFCClass("class", texts[1], basictype);
-                                    //string extText = "public REAL(double value) { Value = value; }\n" + 
-                                    //                    "public static implicit operator REAL(double x) { return new REAL(x); }\n" +
-                                    //                    "public static implicit operator double(REAL x) { return x.Value; }\n";
                                     string extText = "public {1}({0} value) { Value = value; }\n" +
                                                        "public static implicit operator {1}({0} x) { return new {1}(x); }\n" +
                                                        "public static implicit operator {0}({1} x) { return x.Value; }\n";
@@ -478,7 +486,7 @@ namespace IFCReader
 
                         foreach (var cls in IFCClasses)
                         {
-                            if (!cls.Value.isAbstract && cls.Value.dataType == "class")
+                            if ((!cls.Value.isAbstract && cls.Value.dataType == "class") )
                             {
                                 writer.WriteLine("case \"" + cls.Value.name.ToUpper() + "\" :");
                                 writer.WriteLine("return new " + cls.Value.name + "();");
@@ -493,7 +501,38 @@ namespace IFCReader
                         writer.Close();
                     }
 
-                    reader.Close();
+                    using (StreamWriter writer = new StreamWriter("IFC4CreateListFunction.txt"))
+                    {
+                        //string name = "dummy";
+                        //switch (name)
+                        //{
+                        //    case "IFC1":
+                        //        //n
+                        //        break;
+                        //}
+
+                        writer.WriteLine("switch (name)");
+                        writer.WriteLine("{");
+
+
+                        foreach (var cls in IFCClasses)
+                        {
+                          
+                                writer.WriteLine("case \"" + cls.Value.name + "\" :");
+                                writer.WriteLine("return new List<" + cls.Value.name + ">();");
+                            
+
+                        }
+
+                        writer.WriteLine("default :");
+                        writer.WriteLine("return null;");
+                        writer.WriteLine("}");
+
+                        writer.Close();
+                    }
+
+
+                reader.Close();
                 //}
                 //catch
                 //{
@@ -579,6 +618,74 @@ namespace IFCReader
         }
 
 
+
+
+        public static void CreateEnumCastterFromExpress(string input, string output)
+        {
+            Dictionary<string, string> basicTypes = new Dictionary<string, string>()
+                {
+                    {"REAL","double"},
+                    {"INTEGER","int"},
+                    {"NUMBER","double"},
+                    {"LOGICAL","bool"},
+                    {"BOOLEAN","bool"},
+                    {"BINARY","int"},
+                    {"STRING","string"},
+
+                };
+
+
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string rawText;
+                string[] texts;
+                string results = "";
+                string className;
+
+
+
+                //try
+                //{
+                while (!reader.EndOfStream)
+                {
+                    rawText = reader.ReadLine();
+                    if (rawText.Length == 0) continue;
+                    texts = rawText.Split(' ').ToArray();
+                    if (texts.Length == 0) continue;
+                    switch (texts[0])
+                    {
+                        case "TYPE":
+                            className = texts[1];
+
+                            switch (texts[3])
+                            {
+                             
+                                case "ENUMERATION":
+                                    results += " case \"" + className + "\": return (" + className + ")input.Substring(1, input.Length - 2);\n";
+
+                                    break;
+                            }
+                            break;
+
+
+                    }
+
+                }
+
+
+
+                using (StreamWriter writer = new StreamWriter(output))
+                {
+                    writer.WriteLine(results);
+                    writer.Close();
+                }
+                reader.Close();
+            }
+        }
+
+
+
+
         public static void CreateNumericCastterFromExpress(string input, string output)
         {
             Dictionary<string, string> basicTypes = new Dictionary<string, string>()
@@ -630,7 +737,7 @@ namespace IFCReader
                                     string basictype = texts[3].Contains("STRING") ? "STRING" : texts[3].Replace(";", "");
                                     if (basictype != "STRING")
                                     {
-                                        results += " case \"" + className + "\": return (" + className + ")result;\n";
+                                        results += " case \"" + className + "\": return (" + className + ")numericResult;\n";
                                     }
 
                                     break;
