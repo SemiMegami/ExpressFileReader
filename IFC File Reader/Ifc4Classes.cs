@@ -14935,7 +14935,7 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMonetaryUnit : IfcBase
+	public class IfcMonetaryUnit : IfcBase,IfcUnit
 	{
 		//1	Currency : IfcLabel
 

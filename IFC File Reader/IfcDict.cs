@@ -8,7 +8,7 @@ using System.IO;
 
 namespace IFC4
 {
-    class Model:Dictionary<string,IfcBase>
+    class IfcDict:Dictionary<string,IfcBase>
     {
         public void ImportIFC(string path)
         {
@@ -96,7 +96,7 @@ namespace IFC4
 
 
 
-        private List<string> SplitParamText(string paramText)
+        public List<string> SplitParamText(string paramText)
         {
             List<string> outputText = new List<string>();
             int bracketCount = 0;
