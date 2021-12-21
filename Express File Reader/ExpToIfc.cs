@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace IFCReader
 {
+   
     class ExpToIfc
     {
 
@@ -538,6 +539,87 @@ namespace IFCReader
                 //{
                 //    reader.Close();
                 //}
+
+            }
+        }
+
+
+
+        public static void CreateEnumClassFromExpress(string input, string output)
+        {
+
+            Dictionary<string, IFCClass> IFCClasses = new Dictionary<string, IFCClass>();
+
+            //  IFCClasses.Add("IfcBase", new IFCClass("class", "IfcBase", "") { isAbstract = true });
+
+
+            Dictionary<string, IfcFunction> IFCFunctions = new Dictionary<string, IfcFunction>();
+            
+
+            Dictionary<string, string> basicTypes = new Dictionary<string, string>()
+                {
+                    {"REAL","double"},
+                    {"INTEGER","int"},
+                    {"NUMBER","double"},
+                    {"LOGICAL","bool"},
+                    {"BOOLEAN","bool"},
+                    {"BINARY","int"},
+                    {"STRING","string"},
+
+                };
+
+
+            using (StreamReader reader = new StreamReader(input))
+            {
+                string rawText;
+                string[] texts;
+                string[] entityTexts;
+                IFCClass currentClass;
+                string currentline;
+                string currentrule = "";
+                string className;
+                string results = "";
+
+
+                //try
+                //{
+                while (!reader.EndOfStream)
+                {
+                    rawText = reader.ReadLine();
+                    if (rawText.Length == 0) continue;
+                    texts = rawText.Split(' ').ToArray();
+                    if (texts.Length == 0) continue;
+                    switch (texts[0])
+                    {
+                        case "TYPE":
+                           
+                        case "ENTITY":
+                            className = texts[1].Replace(";", "");
+                            results += "public const string " + className.ToUpper() + " = \"" + className + "\";\n";
+                            break;
+
+                        case "FUNCTION":
+                            break;
+                        case "":
+
+                            break;
+                        default:
+                            break;
+                    }
+
+                }
+
+
+
+
+
+                using (StreamWriter writer = new StreamWriter(output))
+                {
+                    writer.WriteLine(results);
+                    writer.Close();
+                }
+                reader.Close();
+
 
             }
         }

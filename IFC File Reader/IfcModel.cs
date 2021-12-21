@@ -15,5 +15,20 @@ namespace IFC4
             dict.ImportIFC(path);
             AddRange(dict.Values);
         }
+
+        public List<IfcBase> GetInstances<T>()
+        {
+            string name = typeof(T).Name;
+            List<IfcBase> result = new List<IfcBase>();
+            foreach (var item in this)
+            {
+                if (item.InTypeOf(name))
+                {
+                    result.Add(item);
+                }
+
+            }
+            return result;
+        }
     }
 }

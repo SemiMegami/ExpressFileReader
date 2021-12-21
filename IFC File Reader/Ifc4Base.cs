@@ -13,8 +13,11 @@ namespace IFC4
 
         public List<string> textParameters;
 
-       
 
+        public bool InTypeOf<T>()
+        {
+            return InTypeOf(this, typeof(T).Name);
+        }
         public bool InTypeOf( string typeName)
         {
             return InTypeOf(this, typeName);
@@ -569,10 +572,10 @@ namespace IFC4
             INTEGER External = 0;
 
 
-            External = Styles.Where(e => InTypeOf(e, "IfcExternallyDefinedHatchStyle")).Count();
-            Hatching = Styles.Where(e => InTypeOf(e, "IfcFillAreaStyleHatching")).Count();
-            Tiles = Styles.Where(e => InTypeOf(e, "IfcFillAreaStyleTiles")).Count();
-            Colour = Styles.Where(e => InTypeOf(e, "IfcColour")).Count();
+            External = Styles.Where(e => InTypeOf(e, EntityName.IFCEXTERNALLYDEFINEDHATCHSTYLE)).Count();
+            Hatching = Styles.Where(e => InTypeOf(e, EntityName.IFCFILLAREASTYLEHATCHING)).Count();
+            Tiles = Styles.Where(e => InTypeOf(e, EntityName.IFCFILLAREASTYLETILES)).Count();
+            Colour = Styles.Where(e => InTypeOf(e, EntityName.IFCCOLOUR)).Count();
 
             if(External > 1)
             {
@@ -647,17 +650,17 @@ namespace IFC4
         {
             if(RelPlacement!= null)
             {
-                if (InTypeOf(RelPlacement, "IfcGridPlacement"))
+                if (InTypeOf(RelPlacement, EntityName.IFCGRIDPLACEMENT))
                 {
                     return null;
                 }
-                if (InTypeOf(RelPlacement, "IfcLocalPlacement"))
+                if (InTypeOf(RelPlacement, EntityName.IFCLOCALPLACEMENT))
                 {
-                    if (InTypeOf(AxisPlacement, "IfcAxis2Placement2D"))
+                    if (InTypeOf(AxisPlacement, EntityName.IFCAXIS2PLACEMENT2D))
                     {
                         return true;
                     }
-                    if (InTypeOf(AxisPlacement, "IfcAxis2Placement3D"))
+                    if (InTypeOf(AxisPlacement, EntityName.IFCAXIS2PLACEMENT3D))
                     {
                         if( ((IfcPlacement) ((IfcLocalPlacement) RelPlacement).RelativePlacement).Dim ==3)
                         {
@@ -667,8 +670,6 @@ namespace IFC4
                         {
                             return false;
                         }
-
-                     
                     }
                 }
             }
@@ -715,25 +716,25 @@ namespace IFC4
                 case IfcObjectTypeEnum.NOTDEFINED:
                     return true;
                 case IfcObjectTypeEnum.PRODUCT:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcProduct")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCPRODUCT)).Count();
                     return Count == 0;
                 case IfcObjectTypeEnum.PROCESS:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcProcess")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCPROCESS)).Count();
                     return Count == 0;
                 case IfcObjectTypeEnum.CONTROL:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcControl")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCCONTROL)).Count();
                     return Count == 0;
                 case IfcObjectTypeEnum.RESOURCE:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcResource")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCRESOURCE)).Count();
                     return Count == 0;
                 case IfcObjectTypeEnum.ACTOR:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcActor")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCACTOR)).Count();
                     return Count == 0;
                 case IfcObjectTypeEnum.GROUP:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcGroup")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCGROUP)).Count();
                     return Count == 0;
                 case IfcObjectTypeEnum.PROJECT:
-                    Count = Objects.Where(temp => InTypeOf(temp, "IfcProject")).Count();
+                    Count = Objects.Where(temp => InTypeOf(temp, EntityName.IFCPROJECT)).Count();
                     return Count == 0;
                 default:
                     return null;
@@ -800,18 +801,18 @@ namespace IFC4
             INTEGER MonetaryUnitNumber = 0;
             List<IfcUnitEnum> NamedUnitNames = new List<IfcUnitEnum> ();
             List<IfcDerivedUnitEnum> DerivedUnitNames = new List<IfcDerivedUnitEnum>();
-            NamedUnitNumber = Units.Where(temp => InTypeOf(temp, "IfcNamedUnit") && !(((IfcNamedUnit)temp).UnitType == IfcUnitEnum.USERDEFINED)).Count();
-            DerivedUnitNumber = Units.Where(temp => InTypeOf(temp, "IfcDerivedUnit") && !(((IfcDerivedUnit)temp).UnitType == IfcDerivedUnitEnum.USERDEFINED)).Count();
-            MonetaryUnitNumber = Units.Where(temp => InTypeOf(temp, "IfcMonetaryUnit")).Count();
+            NamedUnitNumber = Units.Where(temp => InTypeOf(temp, EntityName.IFCNAMEDUNIT) && !(((IfcNamedUnit)temp).UnitType == IfcUnitEnum.USERDEFINED)).Count();
+            DerivedUnitNumber = Units.Where(temp => InTypeOf(temp,EntityName.IFCDERIVEDUNIT) && !(((IfcDerivedUnit)temp).UnitType == IfcDerivedUnitEnum.USERDEFINED)).Count();
+            MonetaryUnitNumber = Units.Where(temp => InTypeOf(temp, EntityName.IFCMONETARYUNIT)).Count();
 
 
-            for(int i = 0; i < Units.Count; i++)
+            for (int i = 0; i < Units.Count; i++)
             {
-                if (InTypeOf(Units[i], "IfcNamedUnit") && !(((IfcNamedUnit)Units[i]).UnitType == IfcUnitEnum.USERDEFINED))
+                if (InTypeOf(Units[i], EntityName.IFCNAMEDUNIT) && !(((IfcNamedUnit)Units[i]).UnitType == IfcUnitEnum.USERDEFINED))
                 {
                     NamedUnitNames.Add(((IfcNamedUnit) Units[i]).UnitType);
                 }
-                if (InTypeOf(Units[i], "IfcDerivedUnit") && !(((IfcDerivedUnit)Units[i]).UnitType == IfcDerivedUnitEnum.USERDEFINED))
+                if (InTypeOf(Units[i], EntityName.IFCDERIVEDUNIT) && !(((IfcDerivedUnit)Units[i]).UnitType == IfcDerivedUnitEnum.USERDEFINED))
                 {
                     DerivedUnitNames.Add(((IfcDerivedUnit)Units[i]).UnitType);
                 }
@@ -914,43 +915,43 @@ namespace IFC4
 
         protected static IfcDimensionCount IfcCurveDim(IfcCurve Curve)
         {
-            if (InTypeOf(Curve, "IfcLine"))
+            if (InTypeOf(Curve, EntityName.IFCLINE))
             {
                 return ((IfcLine)Curve).Pnt.Dim;
             }
-            if (InTypeOf(Curve, "IfcConic"))
+            if (InTypeOf(Curve, EntityName.IFCCONIC))
             {
                 return ((IfcPlacement)((IfcConic)Curve).Position).Dim;
             }
-            if (InTypeOf(Curve, "IfcPolyline"))
+            if (InTypeOf(Curve, EntityName.IFCPOLYLINE))
             {
-               
+                return ((IfcPolyline)Curve).Points[0].Dim;
             }
-            if (InTypeOf(Curve, "IfcTrimmedCurve"))
+            if (InTypeOf(Curve, EntityName.IFCTRIMMEDCURVE))
             {
                 return IfcCurveDim(((IfcTrimmedCurve)Curve).BasisCurve);
             }
-            if (InTypeOf(Curve, "IfcCompositeCurve"))
+            if (InTypeOf(Curve, EntityName.IFCCOMPOSITECURVE))
             {
                 return ((IfcCompositeCurve)Curve).Segments[0].Dim;
             }
-            if (InTypeOf(Curve, "IfcBSplineCurve"))
+            if (InTypeOf(Curve, EntityName.IFCBSPLINECURVE))
             {
                 return ((IfcBSplineCurve)Curve).ControlPointsList[0].Dim;
             }
-            if (InTypeOf(Curve, "IfcOffsetCurve2D"))
+            if (InTypeOf(Curve, EntityName.IFCOFFSETCURVE2D))
             {
-                return (IfcDimensionCount) 2;
+                return 2;
             }
-            if (InTypeOf(Curve, "IfcOffsetCurve3D"))
+            if (InTypeOf(Curve,  EntityName.IFCOFFSETCURVE3D))
             {
-                return (IfcDimensionCount) 3;
+                return  3;
             }
-            if (InTypeOf(Curve, "IfcPcurve"))
+            if (InTypeOf(Curve, EntityName.IFCPCURVE))
             {
-                return (IfcDimensionCount)3;
+                return 3;
             }
-            if (InTypeOf(Curve, "IfcIndexedPolyCurve"))
+            if (InTypeOf(Curve, EntityName.IFCINDEXEDPOLYCURVE))
             {
                 return   ((IfcIndexedPolyCurve)Curve).Points.Dim;
             }
@@ -1334,10 +1335,10 @@ namespace IFC4
             INTEGER N;
             Surfs = new List<IfcSurface>();
 
-            if (InTypeOf(C, "IfcPcurve")){
+            if (InTypeOf(C, EntityName.IFCPCURVE)){
                 Surfs = new List<IfcSurface>() { ((IfcPcurve)C).BasisSurface };
             }
-            else if(InTypeOf(C, "IfcSurfaceCurve"))
+            else if(InTypeOf(C, EntityName.IFCSURFACECURVE))
             {
                 N = ((IfcSurfaceCurve)C).AssociatedGeometry.Count;
                 for(int i = 0; i < N; i++)
@@ -1345,7 +1346,7 @@ namespace IFC4
                     Surfs.Add(IfcAssociatedSurface(((IfcSurfaceCurve)C).AssociatedGeometry[i]));
                 }
             }
-            if(InTypeOf(C, "IfcCompositeCurveOnSurface"))
+            if(InTypeOf(C, EntityName.IFCCOMPOSITECURVEONSURFACE))
             {
                 // (* For an IfcCompositeCurveOnSurface the BasisSurface is the intersection of the BasisSurface of all the segments. *)
                 N = ((IfcCompositeCurve)C).Segments.Count;
@@ -1723,13 +1724,13 @@ namespace IFC4
 
         protected static IfcDimensionCount IfcPointListDim(IfcCartesianPointList PointList)
         {
-            if (InTypeOf(PointList, "IfcCartesianPointList2D"))
+            if (InTypeOf(PointList, EntityName.IFCCARTESIANPOINTLIST2D))
             {
-                return (IfcDimensionCount) 3;
+                return 2;
             }
-            if (InTypeOf(PointList, "IfcCartesianPointList3D"))
+            if (InTypeOf(PointList, EntityName.IFCCARTESIANPOINTLIST3D))
             {
-                return (IfcDimensionCount) 2;
+                return 3;
             }
             return null;
         }
@@ -1917,7 +1918,7 @@ namespace IFC4
             }
             else
             {
-                if (InTypeOf(Vec, "IfcVector"))
+                if (InTypeOf(Vec, EntityName.IFCVECTOR))
                 {
                     V = ((IfcVector)Vec).Orientation;
                     Mag = Scalar * ((IfcVector)Vec).Magnitude;
@@ -2019,69 +2020,69 @@ namespace IFC4
             switch ((string) RepType)
             {
                 case "Point":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcPoint")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCPOINT)).Count();
                     break;
                 case "PointCloud":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcCartesianPointList3D")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCCARTESIANPOINTLIST3D)).Count();
                     break;
                 case "Curve": 
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcCurve")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCCURVE)).Count();
                     break;
                 case "Curve2D":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcCurve") && ((IfcCurve)temp).Dim == 2).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCCURVE) && ((IfcCurve)temp).Dim == 2).Count();
                     break;
                 case "Curve3D":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcCurve") && ((IfcCurve)temp).Dim == 3).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCCURVE) && ((IfcCurve)temp).Dim == 3).Count();
                     break;
                 case "Surface":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcSurface")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCSURFACE)).Count();
                     break;
                 case "Surface2D":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcSurface") && ((IfcSurface)temp).Dim == 2).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCSURFACE) && ((IfcSurface)temp).Dim == 2).Count();
                     break;
                 case "Surface3D":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcSurface") && ((IfcSurface)temp).Dim == 3).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCSURFACE) && ((IfcSurface)temp).Dim == 3).Count();
                     break;
                 case "FillArea":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcAnnotationFillArea")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCANNOTATIONFILLAREA)).Count();
                     break;
                 case "Text":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcTextLiteral")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCTEXTLITERAL)).Count();
                     break;
                 case "AdvancedSurface": 
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcBSplineSurface")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCBSPLINESURFACE)).Count();
                     break;
                 case "Annotation2D":
                     // needcheck
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcPoint")||
-                    InTypeOf(temp, "IfcCurve")||
-                    InTypeOf(temp, "IfcGeometricCurveSet")||
-                    InTypeOf(temp, "IfcAnnotationFillArea") ||
-                    InTypeOf(temp, "IfcTextLiteral")
+                    InTypeOf(temp, EntityName.IFCPOINT) ||
+                    InTypeOf(temp, EntityName.IFCCURVE) ||
+                    InTypeOf(temp, EntityName.IFCGEOMETRICCURVESET) ||
+                    InTypeOf(temp, EntityName.IFCANNOTATIONFILLAREA) ||
+                    InTypeOf(temp, EntityName.IFCTEXTLITERAL)
                     ).Count();
                     break;
                 case "GeometricSet":
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcGeometricSet") ||
-                    InTypeOf(temp, "IfcPoint") ||
-                    InTypeOf(temp, "IfcCurve") ||
-                    InTypeOf(temp, "IfcSurface")
+                    InTypeOf(temp, EntityName.IFCGEOMETRICSET) ||
+                    InTypeOf(temp, EntityName.IFCPOINT) ||
+                    InTypeOf(temp, EntityName.IFCCURVE) ||
+                    InTypeOf(temp, EntityName.IFCSURFACE)
                     ).Count();
                     break;
 
                 case "GeometricCurveSet":
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcGeometricCurveSet") ||
-                    InTypeOf(temp, "IfcGeometricSet") ||
-                    InTypeOf(temp, "IfcPoint") ||
-                    InTypeOf(temp, "IfcCurve")
+                    InTypeOf(temp, EntityName.IFCGEOMETRICCURVESET) ||
+                    InTypeOf(temp, EntityName.IFCGEOMETRICSET) ||
+                    InTypeOf(temp, EntityName.IFCPOINT) ||
+                    InTypeOf(temp, EntityName.IFCCURVE)
                     ).Count();
                     for(int i = 0; i < Items.Count; i++)
                     {
-                        if(InTypeOf(Items[i], "IfcGeometricSet"))
+                        if(InTypeOf(Items[i], EntityName.IFCGEOMETRICSET))
                         {
-                            if (((IfcGeometricSet)Items[i]).Elements.Where(temp =>InTypeOf(temp, "IfcSurface")).Count()> 0)
+                            if (((IfcGeometricSet)Items[i]).Elements.Where(temp =>InTypeOf(temp, EntityName.IFCSURFACE)).Count()> 0)
                             {
                                 Count--;
                             }
@@ -2089,79 +2090,79 @@ namespace IFC4
                     }
                     break;
                 case "Tessellation":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcTessellatedItem")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCTESSELLATEDITEM)).Count();
                     break;
                 case "SurfaceOrSolidModel":
                     // needcheck
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcTessellatedItem") ||
-                    InTypeOf(temp, "IfcShellBasedSurfaceModel") ||
-                    InTypeOf(temp, "IfcFaceBasedSurfaceModel") ||
-                    InTypeOf(temp, "IfcSolidModel")
+                    InTypeOf(temp, EntityName.IFCTESSELLATEDITEM) ||
+                    InTypeOf(temp, EntityName.IFCSHELLBASEDSURFACEMODEL) ||
+                    InTypeOf(temp, EntityName.IFCFACEBASEDSURFACEMODEL) ||
+                    InTypeOf(temp, EntityName.IFCSOLIDMODEL)
                     ).Count();
                     break;
 
                 case "SurfaceModel":
                     // needcheck
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcTessellatedItem") ||
-                    InTypeOf(temp, "IfcShellBasedSurfaceModel") ||
-                    InTypeOf(temp, "IfcFaceBasedSurfaceModel")
+                    InTypeOf(temp, EntityName.IFCTESSELLATEDITEM) ||
+                    InTypeOf(temp, EntityName.IFCSHELLBASEDSURFACEMODEL) ||
+                    InTypeOf(temp, EntityName.IFCFACEBASEDSURFACEMODEL)
                     ).Count();
                     break;
                 case "SolidModel":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcSolidModel")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCSOLIDMODEL)).Count();
                     break;
                 case "SweptSolid":
                     Count = Items.Where(temp =>(
-                        InTypeOf(temp, "IfcExtrudedAreaSolid") ||
-                        InTypeOf(temp, "IfcRevolvedAreaSolid")
+                        InTypeOf(temp, EntityName.IFCEXTRUDEDAREASOLID) ||
+                        InTypeOf(temp, EntityName.IFCREVOLVEDAREASOLID)
                     ) &&(
-                        !InTypeOf(temp, "IfcExtrudedAreaSolidTapered") &&
-                        !InTypeOf(temp, "IfcRevolvedAreaSolidTapered")
+                        !InTypeOf(temp, EntityName.IFCEXTRUDEDAREASOLIDTAPERED) &&
+                        !InTypeOf(temp, EntityName.IFCREVOLVEDAREASOLIDTAPERED)
                     )
                     ).Count();
                     break; ;
                 case "AdvancedSweptSolid":
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcSweptAreaSolid") ||
-                    InTypeOf(temp, "IfcSweptDiskSolid")
+                    InTypeOf(temp, EntityName.IFCSWEPTAREASOLID) ||
+                    InTypeOf(temp, EntityName.IFCSWEPTDISKSOLID)
                     ).Count();
                     break;
                 case "CSG":
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcBooleanResult") ||
-                    InTypeOf(temp, "IfcCsgPrimitive3D") ||
-                    InTypeOf(temp, "IfcCsgSolid")
+                    InTypeOf(temp, EntityName.IFCBOOLEANRESULT) ||
+                    InTypeOf(temp, EntityName.IFCCSGPRIMITIVE3D) ||
+                    InTypeOf(temp, EntityName.IFCCSGSOLID)
                     ).Count();
                     break;
                 case "Clipping":
                     Count = Items.Where(temp =>
-                    InTypeOf(temp, "IfcCsgSolid") ||
-                    InTypeOf(temp, "IfcBooleanClippingResult")
+                    InTypeOf(temp, EntityName.IFCCSGSOLID) ||
+                    InTypeOf(temp, EntityName.IFCBOOLEANCLIPPINGRESULT)
                     ).Count();
                     break;
                 case "Brep":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcFacetedBrep")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCFACETEDBREP)).Count();
                     break;
                 case "AdvancedBrep":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcManifoldSolidBrep")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCMANIFOLDSOLIDBREP)).Count();
                     break;
                 case "BoundingBox":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcBoundingBox")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCBOUNDINGBOX)).Count();
                     if(Items.Count > 1)
                     {
                         Count = 0;
                     }
                     break;
                 case "SectionedSpine":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcSectionedSpine")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCSECTIONEDSPINE)).Count();
                     break;
                 case "LightSource":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcLightSource")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCLIGHTSOURCE)).Count();
                     break;
                 case "MappedRepresentation":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcMappedItem")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCMAPPEDITEM)).Count();
                     break;
                 default: break;
             }
@@ -2421,9 +2422,9 @@ namespace IFC4
         {
             LOGICAL Result = false;
 
-            if (InTypeOf(StartArea, "IfcParameterizedProfileDef"))
+            if (InTypeOf(StartArea, EntityName.IFCPARAMETERIZEDPROFILEDEF))
             {
-                if (InTypeOf(EndArea, "IfcDerivedProfileDef"))
+                if (InTypeOf(EndArea, EntityName.IFCDERIVEDPROFILEDEF))
                 {
                     Result= StartArea == ((IfcDerivedProfileDef)EndArea).ParentProfile;
                 }
@@ -2434,7 +2435,7 @@ namespace IFC4
             }
             else
             {
-                if (InTypeOf(EndArea, "IfcDerivedProfileDef"))
+                if (InTypeOf(EndArea, EntityName.IFCDERIVEDPROFILEDEF))
                 {
                     Result = StartArea == ((IfcDerivedProfileDef)EndArea).ParentProfile;
                 }
@@ -2477,19 +2478,19 @@ namespace IFC4
             switch ((string) RepType)
             {
                 case "Vertex":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcVertex")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCVERTEX)).Count();
                     break;
                 case "Edge":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcEdge")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCEDGE)).Count();
                     break;
                 case "Path":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcPath")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCPATH)).Count();
                     break;
                 case "Face":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcFace") ).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCFACE) ).Count();
                     break;
                 case "Shell":
-                    Count = Items.Where(temp => InTypeOf(temp, "IfcOpenShell") || InTypeOf(temp, "IfcClosedShell")).Count();
+                    Count = Items.Where(temp => InTypeOf(temp, EntityName.IFCOPENSHELL) || InTypeOf(temp, EntityName.IFCCLOSEDSHELL)).Count();
                     break;
                 case "Undefined":
                     return true;
@@ -2553,20 +2554,19 @@ namespace IFC4
             for(int i = 0;i < Relations.Count; i++)
             {
                 Definition = Relations[i].RelatingPropertyDefinition;
-                if (InTypeOf(Definition, "IfcPropertySetDefinition"))
+                if (InTypeOf(Definition, EntityName.IFCPROPERTYSETDEFINITION))
                 {
                     Properties.Add((IfcPropertySetDefinition) Definition);
                 }
                 else
                 {
-                    if (InTypeOf(Definition, "IfcPropertySetDefinitionSet"))
+                    if (InTypeOf(Definition, EntityName.IFCPROPERTYSETDEFINITIONSET))
                     {
                         DefinitionSet = (IfcPropertySetDefinitionSet)Definition;
                         for(int j = 0; j < DefinitionSet.Count; i++)
                         {
                             Properties.Add(DefinitionSet[i]);
                         }
-                        
                     }
                 }
             }
@@ -2644,7 +2644,7 @@ namespace IFC4
             INTEGER Unnamed = 0;
             for(int i = 0; i < Properties.Count; i++)
             {
-                if (InTypeOf(Properties[i], "IfcPropertySet"))
+                if (InTypeOf(Properties[i],EntityName.IFCPROPERTYSET))
                 {
                     var name = Properties[i].Name;
                     if (!Names.Contains(name))
@@ -2753,7 +2753,7 @@ namespace IFC4
             }
             else
             {
-                if (InTypeOf(Arg1, "IfcVector"))
+                if (InTypeOf(Arg1, EntityName.IFCVECTOR))
                 {
                     Mag1 = ((IfcVector)Arg1).Magnitude;
                     Vec1 = ((IfcVector)Arg1).Orientation;
@@ -2763,7 +2763,7 @@ namespace IFC4
                     Mag1 = 1;
                     Vec1 = (IfcDirection) Arg1;
                 }
-                if (InTypeOf(Arg2, "IfcVector"))
+                if (InTypeOf(Arg2, EntityName.IFCVECTOR))
                 {
                     Mag2 = ((IfcVector)Arg2).Magnitude;
                     Vec2 = ((IfcVector)Arg2).Orientation;
@@ -2861,7 +2861,7 @@ namespace IFC4
             }
             else
             {
-                if (InTypeOf(Arg1, "IfcVector"))
+                if (InTypeOf(Arg1, EntityName.IFCVECTOR))
                 {
                     Mag1 = ((IfcVector)Arg1).Magnitude;
                     Vec1 = ((IfcVector)Arg1).Orientation;
@@ -2871,7 +2871,7 @@ namespace IFC4
                     Mag1 = 1;
                     Vec1 = (IfcDirection)Arg1;
                 }
-                if (InTypeOf(Arg2, "IfcVector"))
+                if (InTypeOf(Arg2, EntityName.IFCVECTOR))
                 {
                     Mag2 = ((IfcVector)Arg2).Magnitude;
                     Vec2 = ((IfcVector)Arg2).Orientation;

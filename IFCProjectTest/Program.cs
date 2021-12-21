@@ -18,15 +18,9 @@ namespace IFCProjectTest
         static void TestLoadProject()
         {
             IfcModel model = new IfcModel();
-            model.ImportIFC("../../../../Open IFC Model/20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Sprinkle.ifc");
-            foreach (var item in model)
-            {
-                if (item.InTypeOf("IfcBase"))
-                {
+            model.ImportIFC("../../../../../Open IFC Model/20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural.ifc");
+            var elements = model.GetInstances<IfcBuildingElement>() ;
 
-                }
-            }
-            var geo = model.Where(geo=> geo is IfcBeam) as List<IfcBeam>;
         }
     }
 }

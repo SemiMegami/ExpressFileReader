@@ -12,7 +12,7 @@ namespace IFC_File_Reader
 
            // IFC.ImportIFC("Open IFC Model/20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture.ifc");
            // IFC.ImportIFC("Open IFC Model/20181220Holter_Tower_10.ifc");
-            IFC.ImportIFC("Open IFC Model/20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Sprinkle.ifc");
+            IFC.ImportIFC("../../../../../Open IFC Model/20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Sprinkle.ifc");
         }
     }
 }
