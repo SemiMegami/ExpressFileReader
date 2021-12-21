@@ -14,32 +14,38 @@ namespace IFC4
         public List<string> textParameters;
 
        
-        private static bool InTypeOf(object a, string typeName)
+
+        public bool InTypeOf( string typeName)
         {
-            if(a.GetType().ToString() == typeName)
+            return InTypeOf(this, typeName);
+        }
+
+        public static bool InTypeOf(object a, string typeName)
+        {
+            if (a.GetType().Name == typeName)
             {
                 return true;
             }
-            var type = Type.GetType(typeName);
+            var type = Type.GetType("IFC4." + typeName);
             if (type.IsInterface)
             {
-                return a.GetType().GetInterface("IfcColour") != null;
+                return a.GetType().GetInterface("IFC4." + typeName) != null;
             }
-            return a.GetType().IsSubclassOf(Type.GetType(typeName));
+            return a.GetType().IsSubclassOf(type);
         }
 
-       
 
-		
 
-        public static T NVL<T>(T a, T b)
+
+
+        protected static T NVL<T>(T a, T b)
         {
             return a == null ? b : a;
         }
         //
 
 
-        public static IfcSurface IfcAssociatedSurface(IfcPcurve Arg)
+        protected static IfcSurface IfcAssociatedSurface(IfcPcurve Arg)
         {
             IfcSurface Surf;
             Surf = Arg.BasisSurface;
@@ -58,7 +64,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<IfcDirection> IfcBaseAxis(INTEGER Dim, IfcDirection Axis1, IfcDirection Axis2, IfcDirection Axis3)
+        protected static List<IfcDirection> IfcBaseAxis(INTEGER Dim, IfcDirection Axis1, IfcDirection Axis2, IfcDirection Axis3)
         {
             List<IfcDirection> U;
             REAL Factor;
@@ -152,7 +158,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcBase IfcBooleanChoose(BOOLEAN B, IfcBase Choice1, IfcBase Choice2)
+        protected static IfcBase IfcBooleanChoose(BOOLEAN B, IfcBase Choice1, IfcBase Choice2)
         {
             if (B)
             {
@@ -174,7 +180,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<IfcDirection> IfcBuild2Axes(IfcDirection RefDirection)
+        protected static List<IfcDirection> IfcBuild2Axes(IfcDirection RefDirection)
         {
             IfcDirection D =  NVL( IfcNormalise(RefDirection),new  IfcDirection(1.0, 0.0));
 
@@ -191,7 +197,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<IfcDirection> IfcBuildAxes(IfcDirection Axis, IfcDirection RefDirection)
+        protected static List<IfcDirection> IfcBuildAxes(IfcDirection Axis, IfcDirection RefDirection)
         {
             IfcDirection D1;
             IfcDirection D2;
@@ -211,7 +217,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static BOOLEAN IfcConsecutiveSegments(List<IfcSegmentIndexSelect> Segments)
+        protected static BOOLEAN IfcConsecutiveSegments(List<IfcSegmentIndexSelect> Segments)
         {
             BOOLEAN Result = true;
             for(int i = 0; i < Segments.Count - 1; i++)
@@ -245,7 +251,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static BOOLEAN IfcConstraintsParamBSpline(INTEGER Degree, INTEGER UpKnots, INTEGER UpCp, List<INTEGER> KnotMult, List<IfcParameterValue> Knots)
+        protected static BOOLEAN IfcConstraintsParamBSpline(INTEGER Degree, INTEGER UpKnots, INTEGER UpCp, List<INTEGER> KnotMult, List<IfcParameterValue> Knots)
         {
             BOOLEAN Result = true;
             INTEGER K;
@@ -338,7 +344,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDirection IfcConvertDirectionInto2D(IfcDirection Direction)
+        protected static IfcDirection IfcConvertDirectionInto2D(IfcDirection Direction)
         {
             IfcDirection Direction2D = new IfcDirection(0, 1);
             Direction2D.DirectionRatios[0] = Direction.DirectionRatios[0];
@@ -360,7 +366,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcCorrectDimensions(IfcUnitEnum m, IfcDimensionalExponents Dim)
+        protected static LOGICAL IfcCorrectDimensions(IfcUnitEnum m, IfcDimensionalExponents Dim)
         {
 
             switch (m)
@@ -555,7 +561,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcCorrectFillAreaStyle(List< IfcFillStyleSelect> Styles)
+        protected static LOGICAL IfcCorrectFillAreaStyle(List< IfcFillStyleSelect> Styles)
         {
             INTEGER Hatching = 0;
             INTEGER Tiles = 0;
@@ -637,7 +643,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcCorrectLocalPlacement(IfcAxis2Placement AxisPlacement, IfcObjectPlacement RelPlacement)
+        protected static LOGICAL IfcCorrectLocalPlacement(IfcAxis2Placement AxisPlacement, IfcObjectPlacement RelPlacement)
         {
             if(RelPlacement!= null)
             {
@@ -699,7 +705,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcCorrectObjectAssignment(IfcObjectTypeEnum Constraint, List<IfcObjectDefinition> Objects)
+        protected static LOGICAL IfcCorrectObjectAssignment(IfcObjectTypeEnum Constraint, List<IfcObjectDefinition> Objects)
         {
             if (Constraint == null) return true;
 
@@ -787,7 +793,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcCorrectUnitAssignment(List< IfcUnit> Units)
+        protected static LOGICAL IfcCorrectUnitAssignment(List< IfcUnit> Units)
         {
             INTEGER NamedUnitNumber = 0;
             INTEGER DerivedUnitNumber = 0;
@@ -841,7 +847,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcVector IfcCrossProduct(IfcDirection Arg1, IfcDirection Arg2)
+        protected static IfcVector IfcCrossProduct(IfcDirection Arg1, IfcDirection Arg2)
         {
             REAL Mag;
             IfcDirection Res;
@@ -906,7 +912,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDimensionCount IfcCurveDim(IfcCurve Curve)
+        protected static IfcDimensionCount IfcCurveDim(IfcCurve Curve)
         {
             if (InTypeOf(Curve, "IfcLine"))
             {
@@ -991,7 +997,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static BOOLEAN IfcCurveWeightsPositive(IfcRationalBSplineCurveWithKnots B)
+        protected static BOOLEAN IfcCurveWeightsPositive(IfcRationalBSplineCurveWithKnots B)
         {
             BOOLEAN Result = true;
 
@@ -1024,7 +1030,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDimensionalExponents IfcDeriveDimensionalExponents(List<IfcDerivedUnitElement> UnitElements)
+        protected static IfcDimensionalExponents IfcDeriveDimensionalExponents(List<IfcDerivedUnitElement> UnitElements)
         {
             IfcDimensionalExponents Result = new IfcDimensionalExponents(0, 0, 0, 0, 0, 0, 0);
             for(int i = 0; i < UnitElements.Count; i++)
@@ -1075,7 +1081,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDimensionalExponents IfcDimensionsForSiUnit(IfcSIUnitName n)
+        protected static IfcDimensionalExponents IfcDimensionsForSiUnit(IfcSIUnitName n)
         {
             switch (n)
             {
@@ -1182,7 +1188,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static REAL IfcDotProduct(IfcDirection Arg1, IfcDirection Arg2)
+        protected static REAL IfcDotProduct(IfcDirection Arg1, IfcDirection Arg2)
         {
             REAL Scalar;
             IfcDirection Vec1;
@@ -1239,7 +1245,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDirection IfcFirstProjAxis(IfcDirection ZAxis, IfcDirection Arg)
+        protected static IfcDirection IfcFirstProjAxis(IfcDirection ZAxis, IfcDirection Arg)
         {
             IfcDirection XAxis;
             IfcDirection V;
@@ -1321,7 +1327,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<IfcSurface> IfcGetBasisSurface(IfcCurveOnSurface C)
+        protected static List<IfcSurface> IfcGetBasisSurface(IfcCurveOnSurface C)
         {
             //NeedCheck
             List<IfcSurface> Surfs;
@@ -1392,7 +1398,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<T> IfcListToArray<T>(List<T> Lis, INTEGER Low, INTEGER U)
+        protected static List<T> IfcListToArray<T>(List<T> Lis, INTEGER Low, INTEGER U)
         {
             //NeedCheck
             INTEGER N;
@@ -1434,7 +1440,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcLoopHeadToTail(IfcEdgeLoop ALoop)
+        protected static LOGICAL IfcLoopHeadToTail(IfcEdgeLoop ALoop)
         {
             INTEGER N;
             LOGICAL P = true;
@@ -1463,7 +1469,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static List<List<T>> IfcMakeArrayOfArray<T>(List<List<T>> Lis, INTEGER Low1, INTEGER U1, INTEGER Low2, INTEGER U2)
+        protected static List<List<T>> IfcMakeArrayOfArray<T>(List<List<T>> Lis, INTEGER Low1, INTEGER U1, INTEGER Low2, INTEGER U2)
         {
             //Later
             List<List<object>> Res;
@@ -1499,7 +1505,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcLengthMeasure IfcMlsTotalThickness(IfcMaterialLayerSet LayerSet)
+        protected static IfcLengthMeasure IfcMlsTotalThickness(IfcMaterialLayerSet LayerSet)
         {
             IfcLengthMeasure Max = LayerSet.MaterialLayers[0].LayerThickness;
             if(LayerSet.MaterialLayers.Count > 0)
@@ -1526,15 +1532,15 @@ namespace IFC4
           RETURN (Max);
         END_FUNCTION;
         */
-        public static IfcVector IfcNormalise(IfcVector Arg)
+        protected static IfcVector IfcNormalise(IfcVector Arg)
         {
             return (IfcVector)IfcNormalise((IfcVectorOrDirection)Arg);
         }
-        public static IfcDirection IfcNormalise(IfcDirection Arg)
+        protected static IfcDirection IfcNormalise(IfcDirection Arg)
         {
             return (IfcDirection)IfcNormalise((IfcVectorOrDirection)Arg);
         }
-        public static IfcVectorOrDirection IfcNormalise(IfcVectorOrDirection Arg)
+        protected static IfcVectorOrDirection IfcNormalise(IfcVectorOrDirection Arg)
         {
             INTEGER Ndim;
             IfcDirection V =new IfcDirection(1, 0);
@@ -1654,7 +1660,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDirection IfcOrthogonalComplement(IfcDirection Vec)
+        protected static IfcDirection IfcOrthogonalComplement(IfcDirection Vec)
         {
             IfcDirection Result;
             if(Vec == null || Vec.Dim != 2)
@@ -1682,7 +1688,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcPathHeadToTail(IfcPath APath)
+        protected static LOGICAL IfcPathHeadToTail(IfcPath APath)
         {
             INTEGER N = 0;
             LOGICAL P = null;
@@ -1715,7 +1721,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDimensionCount IfcPointListDim(IfcCartesianPointList PointList)
+        protected static IfcDimensionCount IfcPointListDim(IfcCartesianPointList PointList)
         {
             if (InTypeOf(PointList, "IfcCartesianPointList2D"))
             {
@@ -1741,7 +1747,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcSameAxis2Placement(IfcAxis2Placement ap1, IfcAxis2Placement ap2, REAL Epsilon)
+        protected static LOGICAL IfcSameAxis2Placement(IfcAxis2Placement ap1, IfcAxis2Placement ap2, REAL Epsilon)
         {
             return (IfcSameDirection(ap1.GetP()[0], ap2.GetP()[0], Epsilon) &&
                   IfcSameDirection(ap1.GetP()[1], ap2.GetP()[1], Epsilon) &&
@@ -1757,7 +1763,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcSameCartesianPoint(IfcCartesianPoint cp1, IfcCartesianPoint cp2, REAL Epsilon)
+        protected static LOGICAL IfcSameCartesianPoint(IfcCartesianPoint cp1, IfcCartesianPoint cp2, REAL Epsilon)
         {
             REAL cp1x = cp1.Coordinates[0];
             REAL cp1y = cp1.Coordinates[1];
@@ -1804,7 +1810,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcSameDirection(IfcDirection dir1, IfcDirection dir2, REAL Epsilon)
+        protected static LOGICAL IfcSameDirection(IfcDirection dir1, IfcDirection dir2, REAL Epsilon)
         {
             REAL dir1x = dir1.DirectionRatios[1];
             REAL dir1y = dir1.DirectionRatios[2];
@@ -1850,7 +1856,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcSameValidPrecision(REAL Epsilon1, REAL Epsilon2)
+        protected static LOGICAL IfcSameValidPrecision(REAL Epsilon1, REAL Epsilon2)
         {
             REAL ValidEps1;
             REAL ValidEps2;
@@ -1878,7 +1884,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcSameValue(REAL Value1, REAL Value2, REAL Epsilon)
+        protected static LOGICAL IfcSameValue(REAL Value1, REAL Value2, REAL Epsilon)
         {
             REAL ValidEps;
             REAL DefaultEps = 0.000001;
@@ -1899,7 +1905,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcVector IfcScalarTimesVector(REAL Scalar, IfcVectorOrDirection Vec)
+        protected static IfcVector IfcScalarTimesVector(REAL Scalar, IfcVectorOrDirection Vec)
         {
             IfcDirection V;
             REAL Mag;
@@ -1965,7 +1971,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcDirection IfcSecondProjAxis(IfcDirection ZAxis, IfcDirection XAxis, IfcDirection Arg)
+        protected static IfcDirection IfcSecondProjAxis(IfcDirection ZAxis, IfcDirection XAxis, IfcDirection Arg)
         {
             IfcVector YAxis;
             IfcDirection V;
@@ -2007,7 +2013,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcShapeRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem> Items)
+        protected static LOGICAL IfcShapeRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem> Items)
         {
             INTEGER Count = 0;
             switch ((string) RepType)
@@ -2371,7 +2377,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static BOOLEAN IfcSurfaceWeightsPositive(IfcRationalBSplineSurfaceWithKnots B)
+        protected static BOOLEAN IfcSurfaceWeightsPositive(IfcRationalBSplineSurfaceWithKnots B)
         {
             BOOLEAN Result = true;
             List<List<IfcReal>> Weights = B.Weights;
@@ -2411,7 +2417,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcTaperedSweptAreaProfiles(IfcProfileDef StartArea, IfcProfileDef EndArea)
+        protected static LOGICAL IfcTaperedSweptAreaProfiles(IfcProfileDef StartArea, IfcProfileDef EndArea)
         {
             LOGICAL Result = false;
 
@@ -2465,7 +2471,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcTopologyRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem>Items)
+        protected static LOGICAL IfcTopologyRepresentationTypes(IfcLabel RepType, List<IfcRepresentationItem>Items)
         {
             INTEGER Count = 0;
             switch ((string) RepType)
@@ -2534,7 +2540,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcUniqueDefinitionNames(List< IfcRelDefinesByProperties> Relations)
+        protected static LOGICAL IfcUniqueDefinitionNames(List< IfcRelDefinesByProperties> Relations)
         {
             IfcPropertySetDefinitionSelect Definition;
             IfcPropertySetDefinitionSet DefinitionSet;
@@ -2603,7 +2609,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcUniquePropertyName(List< IfcProperty> Properties)
+        protected static LOGICAL IfcUniquePropertyName(List< IfcProperty> Properties)
         {
             List<IfcIdentifier> Names = new List<IfcIdentifier>() ;
             for (int i = 0; i < Properties.Count; i++)
@@ -2632,7 +2638,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcUniquePropertySetNames(List<IfcPropertySetDefinition> Properties)
+        protected static LOGICAL IfcUniquePropertySetNames(List<IfcPropertySetDefinition> Properties)
         {
             List<IfcLabel> Names = new List<IfcLabel>();
             INTEGER Unnamed = 0;
@@ -2675,7 +2681,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcUniquePropertyTemplateNames(List<IfcPropertyTemplate> Properties)
+        protected static LOGICAL IfcUniquePropertyTemplateNames(List<IfcPropertyTemplate> Properties)
         {
             List<IfcLabel> Names = new List<IfcLabel>();
             for (int i = 0; i < Properties.Count; i++)
@@ -2703,7 +2709,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static LOGICAL IfcUniqueQuantityNames(List<IfcPhysicalQuantity> Properties)
+        protected static LOGICAL IfcUniqueQuantityNames(List<IfcPhysicalQuantity> Properties)
         {
             List<IfcLabel> Names = new List<IfcLabel>();
             for (int i = 0; i < Properties.Count; i++)
@@ -2731,7 +2737,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcVector IfcVectorDifference(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
+        protected static IfcVector IfcVectorDifference(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
         {
             IfcVector Result;
             IfcDirection Res;
@@ -2839,7 +2845,7 @@ namespace IFC4
         END_FUNCTION;
         */
 
-        public static IfcVector IfcVectorSum(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
+        protected static IfcVector IfcVectorSum(IfcVectorOrDirection Arg1, IfcVectorOrDirection Arg2)
         {
             IfcVector Result;
             IfcDirection Res;
