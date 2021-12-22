@@ -431,15 +431,11 @@ namespace IFCReader
                         }
 
 
-
                         if (cls.Value.dataType == "class")
                         {
                             cls.Value.GetFullCons(IFCClasses);
                         }
                     }
-
-
-
 
 
 
@@ -533,16 +529,76 @@ namespace IFCReader
                     }
 
 
-                reader.Close();
-                //}
-                //catch
-                //{
-                //    reader.Close();
-                //}
 
+                Dictionary<string,List<string>> SubclassLists = new Dictionary<string, List<string>>();
+
+                foreach (var ifcclass in IFCClasses.Values)
+                {
+                    string superName = ifcclass.subOf;
+
+                    if (IFCClasses.TryGetValue(superName, out IFCClass iFCClass))
+                    {
+                        if (!SubclassLists.ContainsKey(superName))
+                        {
+                            SubclassLists.Add(superName, new List<string>());
+                        }
+                        SubclassLists[superName].Add(ifcclass.name);
+                    }
+
+                   
+                }
+              
+
+                void GetSubNames(List<string> results, string name)
+                {
+                    if (IFCClasses.TryGetValue(name, out IFCClass iFCClass))
+                    {
+                        //if (!iFCClass.isAbstract)
+                        //{
+                            
+                        //}
+                        results.Add(name);
+                        if (SubclassLists.TryGetValue(name, out List<string> subs))
+                        {
+                            foreach (var sub in subs)
+                            {
+                                GetSubNames(results, sub);
+                            }
+                        }
+                    }
+
+                }
+             
+
+
+                void CreateSeperateClassFile(string name)
+                {
+                    using (StreamWriter writer = new StreamWriter(name +" ClassList.txt"))
+                    {
+
+                        List<string> GeometricRepresentationItemName = new List<string>();
+                        GetSubNames(GeometricRepresentationItemName, name);
+
+                        foreach (var g in GeometricRepresentationItemName)
+                        {
+                            writer.WriteLine(IFCClasses[g]);
+                        }
+                    }
+                }
+
+
+                CreateSeperateClassFile("IfcCurve");
+
+
+
+
+
+
+                reader.Close();
             }
         }
 
+     
 
 
         public static void CreateEnumClassFromExpress(string input, string output)

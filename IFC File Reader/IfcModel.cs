@@ -1,34 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 namespace IFC4
 {
-    public class IfcModel:List<IfcBase>
+    public class IfcModel
     {
+      
+        IfcDict instances;
         public IfcModel()
         {
-            
+            instances = new IfcDict();
         }
         public void ImportIFC(string path)
-        {
-            Clear();
-            IfcDict dict = new IfcDict();
-            dict.ImportIFC(path);
-            AddRange(dict.Values);
+        {  
+            instances.ImportIFC(path);
         }
 
-        public List<IfcBase> GetInstances<T>()
+        public List<T> GetInstances<T>()
         {
-            string name = typeof(T).Name;
-            List<IfcBase> result = new List<IfcBase>();
-            foreach (var item in this)
-            {
-                if (item.InTypeOf(name))
-                {
-                    result.Add(item);
-                }
-
-            }
-            return result;
+            return instances.OfType<T>().ToList();
         }
     }
 }
