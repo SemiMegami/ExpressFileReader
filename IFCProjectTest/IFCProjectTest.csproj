@@ -7,5 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IFC File Reader\IFC File Reader.csproj" />
+    <ProjectReference Include="..\IFC Geometry\IFC Geometry.csproj" />
   </ItemGroup>
 </Project>

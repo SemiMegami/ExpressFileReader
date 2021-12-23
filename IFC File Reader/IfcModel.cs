@@ -18,7 +18,8 @@ namespace IFC4
 
         public List<T> GetInstances<T>()
         {
-            return instances.OfType<T>().ToList();
+            var s = instances.Values.OfType<T>();
+            return s.ToList();
         }
     }
 }

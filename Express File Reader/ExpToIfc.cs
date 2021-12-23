@@ -553,10 +553,6 @@ namespace IFCReader
                 {
                     if (IFCClasses.TryGetValue(name, out IFCClass iFCClass))
                     {
-                        //if (!iFCClass.isAbstract)
-                        //{
-                            
-                        //}
                         results.Add(name);
                         if (SubclassLists.TryGetValue(name, out List<string> subs))
                         {
@@ -571,7 +567,7 @@ namespace IFCReader
              
 
 
-                void CreateSeperateClassFile(string name)
+                void CreateSeperateClassFile(string name, string codeText)
                 {
                     using (StreamWriter writer = new StreamWriter(name +" ClassList.txt"))
                     {
@@ -581,16 +577,24 @@ namespace IFCReader
 
                         foreach (var g in GeometricRepresentationItemName)
                         {
-                            writer.WriteLine(IFCClasses[g]);
+                            if (!IFCClasses[g].isAbstract)
+                            {
+                                writer.WriteLine("//https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/{0}.htm".Replace("{0}", g.ToLower()));
+                                writer.WriteLine(codeText.Replace("{0}",g).Replace("{1}",g.Replace("Ifc","").Replace("{2}",g.ToLower())));
+                              //  writer.WriteLine(IFCClasses[g]);
+                            }
+                          
                         }
                     }
                 }
 
 
-                CreateSeperateClassFile("IfcCurve");
+                CreateSeperateClassFile("IfcCurve", "public static List<Vector3> GetCurve({0} {1})\n{\n List<Vector3> points = new List<Vector3>();\n return points;\n}\n");
 
 
+                CreateSeperateClassFile("IfcSolidModel", "public static Mesh GetSolid({0} {1})\n{\n Mesh mesh = new Mesh();\n return mesh;\n}\n");
 
+                CreateSeperateClassFile("IfcProfileDef", "public static List<Vector3> GetCurve({0} {1})\n{\n List<Vector3> points = new List<Vector3>();\n return points;\n}\n");
 
 
 
