@@ -26,8 +26,6 @@ namespace IFCProjectTest
           foreach (var e in elements)
             {
                 ProfileDef profileDef = ProfileDefMaker.GetProfileDef( e);
-
-                
             }
 
         }

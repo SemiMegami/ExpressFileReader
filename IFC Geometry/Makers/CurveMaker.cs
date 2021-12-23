@@ -11,11 +11,32 @@ namespace IFC_Geometry
     class CurveMaker
     {
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm
-        //public static List<Vector3> GetCurve<T>(T entity) where T : IfcCurve
-        //{
-        //    Console.WriteLine("I am here");
-        //    return GetCurve((T)entity);
-        //}
+        public static List<Vector3> GetCurve(IfcCurve Curve)
+        {
+            switch (Curve.GetType().Name)
+            {
+                case EntityName.IFCBSPLINECURVEWITHKNOTS: return GetCurve((IfcBSplineCurveWithKnots)Curve);
+                case EntityName.IFCRATIONALBSPLINECURVEWITHKNOTS: return GetCurve((IfcRationalBSplineCurveWithKnots)Curve);
+                case EntityName.IFCCOMPOSITECURVE: return GetCurve((IfcCompositeCurve)Curve);
+                case EntityName.IFCCOMPOSITECURVEONSURFACE: return GetCurve((IfcCompositeCurveOnSurface)Curve);
+                case EntityName.IFCBOUNDARYCURVE: return GetCurve((IfcBoundaryCurve)Curve);
+                case EntityName.IFCOUTERBOUNDARYCURVE: return GetCurve((IfcOuterBoundaryCurve)Curve);
+                case EntityName.IFCINDEXEDPOLYCURVE: return GetCurve((IfcIndexedPolyCurve)Curve);
+                case EntityName.IFCPOLYLINE: return GetCurve((IfcPolyline)Curve);
+                case EntityName.IFCTRIMMEDCURVE: return GetCurve((IfcTrimmedCurve)Curve);
+                case EntityName.IFCCIRCLE: return GetCurve((IfcCircle)Curve);
+                case EntityName.IFCELLIPSE: return GetCurve((IfcEllipse)Curve);
+                case EntityName.IFCLINE: return GetCurve((IfcLine)Curve);
+                case EntityName.IFCOFFSETCURVE2D: return GetCurve((IfcOffsetCurve2D)Curve);
+                case EntityName.IFCOFFSETCURVE3D: return GetCurve((IfcOffsetCurve3D)Curve);
+                case EntityName.IFCPCURVE: return GetCurve((IfcPcurve)Curve);
+                case EntityName.IFCSURFACECURVE: return GetCurve((IfcSurfaceCurve)Curve);
+                case EntityName.IFCINTERSECTIONCURVE: return GetCurve((IfcIntersectionCurve)Curve);
+                case EntityName.IFCSEAMCURVE: return GetCurve((IfcSeamCurve)Curve);
+            }
+            return null;
+        }
+
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm
         public static List<Vector3> GetCurve(IfcBSplineCurveWithKnots BSplineCurveWithKnots)
         {
@@ -155,11 +176,6 @@ namespace IFC_Geometry
             List<Vector3> points = new List<Vector3>();
             return points;
         }
-
-
-
-
-
 
     }
 }

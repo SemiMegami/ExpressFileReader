@@ -15,22 +15,41 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcprofiledef.htm;
         public static ProfileDef GetProfileDef(IfcProfileDef ProfileDef)
         {
-           
-            ProfileDef profileDef = new ProfileDef();
-            return profileDef;
+            switch (ProfileDef.GetType().Name)
+            {
+                case EntityName.IFCARBITRARYCLOSEDPROFILEDEF: return GetProfileDef((IfcArbitraryClosedProfileDef)ProfileDef);
+                case EntityName.IFCARBITRARYPROFILEDEFWITHVOIDS: return GetProfileDef((IfcArbitraryProfileDefWithVoids)ProfileDef);
+                case EntityName.IFCARBITRARYOPENPROFILEDEF: return GetProfileDef((IfcArbitraryOpenProfileDef)ProfileDef);
+                case EntityName.IFCCENTERLINEPROFILEDEF: return GetProfileDef((IfcCenterLineProfileDef)ProfileDef);
+                case EntityName.IFCCOMPOSITEPROFILEDEF: return GetProfileDef((IfcCompositeProfileDef)ProfileDef);
+                case EntityName.IFCDERIVEDPROFILEDEF:return GetProfileDef((IfcDerivedProfileDef)ProfileDef);
+                case EntityName.IFCMIRROREDPROFILEDEF: return GetProfileDef((IfcMirroredProfileDef)ProfileDef);
+                case EntityName.IFCASYMMETRICISHAPEPROFILEDEF: return GetProfileDef((IfcAsymmetricIShapeProfileDef)ProfileDef);
+                case EntityName.IFCCSHAPEPROFILEDEF: return GetProfileDef((IfcCShapeProfileDef)ProfileDef);
+                case EntityName.IFCCIRCLEPROFILEDEF: return GetProfileDef((IfcCircleProfileDef)ProfileDef);
+                case EntityName.IFCCIRCLEHOLLOWPROFILEDEF:return GetProfileDef((IfcCircleHollowProfileDef)ProfileDef);
+                case EntityName.IFCELLIPSEPROFILEDEF: return GetProfileDef((IfcEllipseProfileDef)ProfileDef);
+                case EntityName.IFCISHAPEPROFILEDEF: return GetProfileDef((IfcIShapeProfileDef)ProfileDef);
+                case EntityName.IFCLSHAPEPROFILEDEF: return GetProfileDef((IfcLShapeProfileDef)ProfileDef);
+                case EntityName.IFCRECTANGLEPROFILEDEF: return GetProfileDef((IfcRectangleProfileDef)ProfileDef);
+                case EntityName.IFCRECTANGLEHOLLOWPROFILEDEF: return GetProfileDef((IfcRectangleHollowProfileDef)ProfileDef);
+                case EntityName.IFCROUNDEDRECTANGLEPROFILEDEF: return GetProfileDef((IfcRoundedRectangleProfileDef)ProfileDef);
+                case EntityName.IFCTSHAPEPROFILEDEF: return GetProfileDef((IfcTShapeProfileDef)ProfileDef);
+                case EntityName.IFCTRAPEZIUMPROFILEDEF: return GetProfileDef((IfcTrapeziumProfileDef)ProfileDef);
+                case EntityName.IFCUSHAPEPROFILEDEF: return GetProfileDef((IfcUShapeProfileDef)ProfileDef);
+                case EntityName.IFCZSHAPEPROFILEDEF: return GetProfileDef((IfcZShapeProfileDef)ProfileDef);
+                default:return null;
+            }
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcarbitraryclosedprofiledef.htm
         public static ProfileDef GetProfileDef(IfcArbitraryClosedProfileDef ArbitraryClosedProfileDef)
         {
-            var outer = CurveMaker.GetCurve((IfcPolyline) ArbitraryClosedProfileDef.OuterCurve);
-            // IfcCurve outerCurve =;
+            var outer = CurveMaker.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
             List<Vector2> vector2s = new List<Vector2>();
             for (int i = 0; i < outer.Count; i++)
             {
-               
                 vector2s.Add(new Vector2(outer[i].X,outer[i].Y));
-
             }
             ProfileDef profileDef = new ProfileDef();
             profileDef.OutterCurve = vector2s;
@@ -148,6 +167,13 @@ namespace IFC_Geometry
         {
             double w = RectangleProfileDef.XDim;
             double h = RectangleProfileDef.YDim;
+            double x = RectangleProfileDef.Position.Location.Coordinates[0];
+            double y = RectangleProfileDef.Position.Location.Coordinates[1];
+            double dirx1 = RectangleProfileDef.Position.P[0].DirectionRatios[0];
+            double diry1 = RectangleProfileDef.Position.P[0].DirectionRatios[1];
+            double dirx2 = RectangleProfileDef.Position.P[1].DirectionRatios[0];
+            double diry2 = RectangleProfileDef.Position.P[1].DirectionRatios[1];
+            
             ProfileDef profileDef = new ProfileDef();
             return profileDef;
         }

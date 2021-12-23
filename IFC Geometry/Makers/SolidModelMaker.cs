@@ -11,6 +11,26 @@ namespace IFC_Geometry
 {
     public class SolidModelMaker
     {
+        public static Mesh3D GetSolid(IfcSolidModel SolidModel)
+        {
+            switch (SolidModel.GetType().Name)
+            {
+                case EntityName.IFCCSGSOLID:return GetSolid((IfcCsgSolid)SolidModel);
+                case EntityName.IFCADVANCEDBREP: return GetSolid((IfcAdvancedBrep)SolidModel);
+                case EntityName.IFCADVANCEDBREPWITHVOIDS: return GetSolid((IfcAdvancedBrepWithVoids)SolidModel);
+                case EntityName.IFCFACETEDBREP: return GetSolid((IfcFacetedBrep)SolidModel);
+                case EntityName.IFCFACETEDBREPWITHVOIDS: return GetSolid((IfcFacetedBrepWithVoids)SolidModel);
+                case EntityName.IFCEXTRUDEDAREASOLID: return GetSolid((IfcExtrudedAreaSolid)SolidModel);
+                case EntityName.IFCEXTRUDEDAREASOLIDTAPERED: return GetSolid((IfcExtrudedAreaSolidTapered)SolidModel);
+                case EntityName.IFCFIXEDREFERENCESWEPTAREASOLID: return GetSolid((IfcFixedReferenceSweptAreaSolid)SolidModel);
+                case EntityName.IFCREVOLVEDAREASOLID: return GetSolid((IfcRevolvedAreaSolid)SolidModel);
+                case EntityName.IFCREVOLVEDAREASOLIDTAPERED: return GetSolid((IfcRevolvedAreaSolidTapered)SolidModel);
+                case EntityName.IFCSURFACECURVESWEPTAREASOLID: return GetSolid((IfcSurfaceCurveSweptAreaSolid)SolidModel);
+                case EntityName.IFCSWEPTDISKSOLID: return GetSolid((IfcSweptDiskSolid)SolidModel);
+                case EntityName.IFCSWEPTDISKSOLIDPOLYGONAL: return GetSolid((IfcSweptDiskSolidPolygonal)SolidModel);
+                default: return null;
+            }
+        }
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifccsgsolid.htm
         public static Mesh3D GetSolid(IfcCsgSolid CsgSolid)
         {
