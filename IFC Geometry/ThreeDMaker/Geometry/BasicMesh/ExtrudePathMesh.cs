@@ -9,19 +9,19 @@ namespace ThreeDMaker.Geometry
         {
            
         }
-        public ExtrudePathMesh(Line3D section, Path3D path, bool close = true)
+        public ExtrudePathMesh(Polyline3D section, Path3D path, bool close = true)
         {
             Generate(section, path, close);
         }
 
-        public ExtrudePathMesh(Line2D section, Path3D path, bool close = true)
+        public ExtrudePathMesh(PolyLine2D section, Path3D path, bool close = true)
         {
             Generate(section, path, close);
         }
 
-        public void Generate(Line2D section, Path3D path, bool close = true)
+        public void Generate(PolyLine2D section, Path3D path, bool close = true)
         {
-            Line3D section3 = new Line3D();
+            Polyline3D section3 = new Polyline3D();
             foreach (Vector2 s in section)
             {
                 section3.Add(new Vector3(s, 0));
@@ -29,7 +29,7 @@ namespace ThreeDMaker.Geometry
             Generate(section3, path, close);
         }
 
-        public void Generate(Line3D section, Path3D path, bool close = true)
+        public void Generate(Polyline3D section, Path3D path, bool close = true)
         {
             Vertices = new List<Vector3>();
             Triangles = new List<int>();

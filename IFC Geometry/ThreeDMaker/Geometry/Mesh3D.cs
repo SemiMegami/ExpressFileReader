@@ -135,9 +135,44 @@ namespace ThreeDMaker.Geometry
 
         public void ExportToObj(string path)
         {
-            using(StreamWriter writer = new StreamWriter(path))
+            //using(StreamWriter writer = new StreamWriter(path))
+            //{
+            //    writer.Write(ToObjText());
+            //}
+            DirectExportToObj(path);
+        }
+
+        public void DirectExportToObj(string path)
+        {
+            using (StreamWriter writer = new StreamWriter(path))
             {
-                writer.Write(ToObjText());
+
+
+               
+                foreach (var v in Vertices)
+                {
+                    writer.Write("v " + v.X + " " + v.Y + " " + v.Z + "\n");
+                }
+
+                foreach (var v in Normals)
+                {
+                    writer.Write("vn " + v.X + " " + v.Y + " " + v.Z + "\n");
+                }
+
+                foreach (var v in UVs)
+                {
+                    writer.Write("vt " + v.X + " " + v.Y + "\n");
+                }
+
+                int n = Triangles.Count;
+
+                for (int i = 0; i < n; i += 3)
+                {
+                    int f1 = Triangles[i] + 1;
+                    int f2 = Triangles[i + 1] + 1;
+                    int f3 = Triangles[i + 2] + 1;
+                    writer.Write("f " + f1 + " " + f3 + " " + f2 + "\n");
+                }
             }
         }
     }

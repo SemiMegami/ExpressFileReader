@@ -7,7 +7,7 @@ namespace ThreeDMaker.Geometry
     {
 
 
-        public OutlineMesh(Line2D section)
+        public OutlineMesh(PolyLine2D section)
         {
             Vertices.Clear();
             foreach (var s in section)
@@ -17,7 +17,7 @@ namespace ThreeDMaker.Geometry
             Triangles = EarClippingAlgorithm(section);
         }
 
-        public OutlineMesh(Line3D section)
+        public OutlineMesh(Polyline3D section)
         {
             Vertices.Clear();
             List<Vector2> Vector2s = new List<Vector2>();

@@ -5702,7 +5702,7 @@ namespace IFC4
 
 		public IfcDirection Axis { get; set; }
 		public IfcDirection RefDirection { get; set; }
-		public List<IfcDirection> P => IfcBuildAxes(Axis, RefDirection);
+		public List<IfcDirection> P => Axis != null? IfcBuildAxes(Axis, RefDirection): new List<IfcDirection>() {new IfcDirection(1,0,0), new IfcDirection(0, 1, 0), new IfcDirection(0, 0, 1) };
 		// (DERIVE)	P : LIST [3:3] OF IfcDirection := IfcBuildAxes(Axis, RefDirection); {get;set;}
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
@@ -6970,7 +6970,7 @@ namespace IFC4
 		public IfcDirection Axis2 { get; set; }
 		public IfcCartesianPoint LocalOrigin { get; set; }
 		public IfcReal Scale { get; set; }
-		public IfcReal Scl => NVL(Scale, (IfcReal)1);
+		public IfcReal Scl => NVL(Scale, 1);
 		// (DERIVE)	Scl : IfcReal := NVL(Scale, 1.0); {get;set;}
 		public IfcDimensionCount Dim => LocalOrigin.Dim;
 		// (DERIVE)	Dim : IfcDimensionCount := LocalOrigin.Dim; {get;set;}

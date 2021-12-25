@@ -24,12 +24,7 @@ namespace IFC_Geometry
         {
             if(outterCurve.Count > 2)
             {
-                Line2D line = new Line2D();
-                foreach(var o in OutterCurve)
-                {
-                    line.Add(o.X, o.Y);
-                }
-                mesh = new OutlineMesh(line);
+                mesh = new OutlineMesh(new PolyLine2D(OutterCurve));
             }
         }
         public Mesh3D Mesh => mesh;

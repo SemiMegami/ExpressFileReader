@@ -9,6 +9,8 @@ namespace ThreeDMaker.Geometry
 {
     class GeometryUtil
     {
+        public const float lengthTol = 0.001f;
+        public const float AreaTol = 0.000001f;
         public static bool IsonTriangle(Vector2 p, Vector2 p1, Vector2 p2, Vector2 p3, bool includeOnLine = true)
         {
             float A = TriangleArea(p1, p2, p3);
@@ -69,6 +71,18 @@ namespace ThreeDMaker.Geometry
             else
             {
                 return (A1 * A2 < 0 && B1 * B2 < 0);
+            }
+        }
+
+        public static Vector2 GetRight(Vector2 v)
+        {
+            if (v.X == 0 && v.Y == 0)
+            {
+                return Vector2.Zero;
+            }
+            else
+            {
+                return Vector2.Normalize(new Vector2(v.Y,-v.X));
             }
         }
 

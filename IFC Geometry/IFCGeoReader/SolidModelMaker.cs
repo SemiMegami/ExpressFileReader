@@ -1,4 +1,5 @@
-﻿using IFC4;
+﻿using IFC_Geometry.IFCGeoReader;
+using IFC4;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,12 +7,71 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using ThreeDMaker.Geometry;
-
+using IFC4;
 namespace IFC_Geometry
 {
     public class SolidModelMaker
     {
-        public static Mesh3D GetSolid(IfcSolidModel SolidModel)
+
+        public static List<Mesh3D> GetSolids(IfcMappedItem mappedItem)
+        {
+            List<Mesh3D> meshes = new List<Mesh3D>();
+            var mappedItems = mappedItem.MappingSource.MappedRepresentation.Items;
+            var origin = mappedItem.MappingSource.MappingOrigin;
+            var t = mappedItem.MappingTarget;
+
+            if (t.InTypeOf(EntityName.IFCCARTESIANTRANSFORMATIONOPERATOR3D))
+            {
+                var t3 = (IfcCartesianTransformationOperator3D)t;
+                var c = t3.LocalOrigin.Coordinates;
+
+                Console.WriteLine(c[0] + "\t" + c[1] + "\t" + c[2]);
+            }
+            foreach (var item in mappedItems)
+            {
+                
+                if (item.InTypeOf(EntityName.IFCSOLIDMODEL))
+                {
+                 
+
+                    Mesh3D mesh = GetSolid((IfcSolidModel)item);
+                    if(mesh!= null)
+                    {
+                        meshes.Add(mesh);
+                    }
+                }
+                else if (item.InTypeOf(EntityName.IFCMAPPEDITEM))
+                {
+                    meshes.AddRange(GetSolids((IfcMappedItem) item));
+                }
+            }
+
+            foreach (var mesh in meshes)
+            {
+                var vertices = mesh.Vertices;
+                for (int i = 0; i < vertices.Count; i++)
+                {
+                    vertices[i] = IFCGeoUtil.TransformPoint((IfcAxis2Placement3D) origin, vertices[i]);
+                    if(t!= null)
+                    {
+                        if (t.InTypeOf(EntityName.IFCCARTESIANTRANSFORMATIONOPERATOR3D))
+                        {
+                            vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator3D)t, vertices[i]);
+                        }
+                        if (t.InTypeOf(EntityName.IFCCARTESIANTRANSFORMATIONOPERATOR2D))
+                        {
+                            vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator2D)t, vertices[i]);
+                        }
+                    }
+                  
+                }
+            }
+
+
+            return meshes;
+        }
+
+            public static Mesh3D GetSolid(IfcSolidModel SolidModel)
         {
             switch (SolidModel.GetType().Name)
             {
@@ -69,10 +129,61 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm
         public static Mesh3D GetSolid(IfcExtrudedAreaSolid ExtrudedAreaSolid)
         {
+
             var sweptArea = ExtrudedAreaSolid.SweptArea;
             var profileDef = ProfileDefMaker.GetProfileDef(sweptArea);
-            Mesh3D Mesh3D = new Mesh3D();
-            return Mesh3D;
+            if (profileDef.Mesh!= null)
+            {
+                Mesh3D Mesh3D = new Mesh3D();
+                float d = (float) ExtrudedAreaSolid.Depth;
+                var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
+                
+             
+                Path3D path = new Path3D();
+                path.Add(new AxisPoint3D());
+               
+            
+                Vector3 front = new Vector3(0,0,1);
+
+                Vector3 right = new Vector3(1, 0, 0);
+
+                Vector3 up = new Vector3(0, 1, 0);
+                AxisPoint3D p0 = new AxisPoint3D()
+                {
+                    Position = new Vector3(0, 0, 0),
+                    Front = front,
+                    Right = right,
+                    Up = up
+
+                };
+                AxisPoint3D p1 = new AxisPoint3D()
+                {
+                    Position = new Vector3((float)direction[0] * d, (float)direction[1] * d, (float)direction[2] * d),
+                    Front = front,
+                    Right = right,
+                    Up = up
+
+                };
+                Path3D point3Ds = new Path3D() { p0, p1 };
+
+                PolyLine2D p = new PolyLine2D(profileDef.OutterCurve);
+                Mesh3D = new ExtrudePathMesh(p, point3Ds);
+                var vertives = Mesh3D.Vertices;
+                for (int i = 0; i < vertives.Count; i++)
+                {
+                    vertives[i] = IFCGeoUtil.TransformPoint(ExtrudedAreaSolid.Position, vertives[i]);
+                }
+
+
+
+
+                return Mesh3D;
+            }
+            else
+            {
+                return null;
+            }
+            
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolidtapered.htm

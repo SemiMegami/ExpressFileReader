@@ -161,7 +161,8 @@ namespace IFC4
             }
             if (input == "$")
             {
-                return CreateNew(type.Name.ToUpper());
+                return null;
+                //return CreateNew(type.Name.ToUpper());
             }
             if(input.Substring(0, 1) == "'")
             {

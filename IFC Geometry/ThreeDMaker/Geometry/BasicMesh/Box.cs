@@ -10,7 +10,7 @@ namespace ThreeDMaker.Geometry
     {
         public Box(float w, float d, float h, float x = 0, float y = 0, float z = 0)
         {
-            Line2D section = new Line2D();
+            PolyLine2D section = new PolyLine2D();
 
             section.Add(- w / 2,- d / 2);
             section.Add(+ w / 2,- d / 2);

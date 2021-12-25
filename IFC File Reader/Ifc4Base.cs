@@ -69,7 +69,7 @@ namespace IFC4
 
         protected static List<IfcDirection> IfcBaseAxis(INTEGER Dim, IfcDirection Axis1, IfcDirection Axis2, IfcDirection Axis3)
         {
-            List<IfcDirection> U;
+            List<IfcDirection> U = null;
             REAL Factor;
             IfcDirection D1;
             IfcDirection D2;
@@ -78,7 +78,7 @@ namespace IFC4
             {
                 D1 = NVL(IfcNormalise(Axis3), new IfcDirection(0,0,1));
                 D2 = IfcFirstProjAxis(D1, Axis1);
-                U = new List<IfcDirection>() { IfcSecondProjAxis(D1, D2, Axis2), D1 };
+                U = new List<IfcDirection>() {D2, IfcSecondProjAxis(D1, D2, Axis2), D1 };
             }
             else
             {
@@ -91,8 +91,8 @@ namespace IFC4
                         Factor = IfcDotProduct(Axis2, U[2]);
                         if(Factor < 0)
                         {
-                            U[1].DirectionRatios[0] = (IfcReal)(-U[1].DirectionRatios[0]);
-                            U[1].DirectionRatios[1] = (IfcReal)(-U[1].DirectionRatios[1]);
+                            U[1].DirectionRatios[0] = -U[1].DirectionRatios[0];
+                            U[1].DirectionRatios[1] = -U[1].DirectionRatios[1];
                         }
                     }
                 }
@@ -105,8 +105,8 @@ namespace IFC4
                         Factor = IfcDotProduct(Axis2, U[2]);
                         if (Factor < 0)
                         {
-                            U[0].DirectionRatios[0] = (IfcReal)(-U[0].DirectionRatios[0]);
-                            U[0].DirectionRatios[1] = (IfcReal)(-U[0].DirectionRatios[1]);
+                            U[0].DirectionRatios[0] = -U[0].DirectionRatios[0];
+                            U[0].DirectionRatios[1] = -U[0].DirectionRatios[1];
                         }
                     }
                 }
@@ -204,7 +204,7 @@ namespace IFC4
         {
             IfcDirection D1;
             IfcDirection D2;
-            D1 = NVL(IfcNormalise(RefDirection), new IfcDirection(0.0, 0.0, 1.0));
+            D1 = NVL(IfcNormalise(Axis), new IfcDirection(0.0, 0.0, 1.0));
             D2 = IfcFirstProjAxis(D1, RefDirection);
             return new List<IfcDirection>() { D2, ( IfcNormalise(IfcCrossProduct(D1, D2))).Orientation , D1}; ;
         }
@@ -1199,7 +1199,7 @@ namespace IFC4
             {
                 Scalar = null;
             }
-            else if (Arg1.Dim != Arg2.Dim)
+            else if ((double) Arg1.Dim != (double)Arg2.Dim)
             {
                 Scalar = null;
             }
@@ -1261,7 +1261,7 @@ namespace IFC4
                 Z = IfcNormalise(ZAxis);
                 if(Arg == null)
                 {
-                    if(Z.DirectionRatios != new List<IfcReal>() { (IfcReal) 1, (IfcReal)0, (IfcReal)0 })
+                    if(Z.DirectionRatios[0]!= 1 || Z.DirectionRatios[0] != 0 || Z.DirectionRatios[0] != 0)
                     {
                         V = new IfcDirection(1, 0, 0);
                     }
@@ -1554,7 +1554,7 @@ namespace IFC4
             }
             else
             {
-                if (Type.GetType("IfcVector") == Arg.GetType())
+                if (InTypeOf(Arg, EntityName.IFCVECTOR))
                 {
                     IfcVector ArgVec = (IfcVector)Arg;
                     Ndim = Arg.GetDim();
@@ -1589,7 +1589,7 @@ namespace IFC4
                 {
                     V.DirectionRatios[i] = (IfcReal)(V.DirectionRatios[i] / Mag);
                 }
-                if (Type.GetType("IfcVector") == Arg.GetType())
+                if (InTypeOf(Arg, EntityName.IFCVECTOR))
                 {
                     Vec.Orientation = V;
                     Result = Vec;
@@ -1937,7 +1937,7 @@ namespace IFC4
                     }
                     Mag = -Mag;
                 }
-                Result = new IfcVector(IfcNormalise(V), (IfcLengthMeasure) Mag);
+                Result = new IfcVector(IfcNormalise(V), (double) Mag);
                 return Result;
             }
         }
@@ -1988,6 +1988,8 @@ namespace IFC4
 
             Temp = IfcScalarTimesVector(IfcDotProduct(V, ZAxis), ZAxis);
             YAxis = IfcVectorDifference(V, Temp);
+            Temp = IfcScalarTimesVector(IfcDotProduct(V, XAxis), XAxis);
+            YAxis = IfcVectorDifference(YAxis, Temp);
             YAxis = IfcNormalise(YAxis);
             return YAxis.Orientation;
         }
@@ -2747,7 +2749,7 @@ namespace IFC4
             REAL Mag1;
             REAL Mag2;
             INTEGER Ndim;
-            if(Arg1 == null || Arg2 == null || Arg1.GetDim()!= Arg2.GetDim())
+            if(Arg1 == null || Arg2 == null || (double) Arg1.GetDim()!= (double) Arg2.GetDim())
             {
                 return null;
             }

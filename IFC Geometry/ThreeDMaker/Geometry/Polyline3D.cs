@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
-public partial class Line3D:List<Vector3>
+public partial class Polyline3D:List<Vector3>
 {
 
 }
