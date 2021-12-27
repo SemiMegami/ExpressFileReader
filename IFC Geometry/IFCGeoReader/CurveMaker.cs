@@ -55,6 +55,31 @@ namespace IFC_Geometry
         public static List<Vector3> GetCurve(IfcCompositeCurve CompositeCurve)
         {
             List<Vector3> points = new List<Vector3>();
+            int i;
+            foreach (var secment in CompositeCurve.Segments)
+            {
+                var curve = secment.ParentCurve; 
+                List<Vector3> sectorpoints = GetCurve(curve);
+                foreach (var point in sectorpoints)
+                {
+                    i = points.Count - 1;
+                    if(i == -1 || Math.Abs(points[i].X - point.X) > 0.00001 || Math.Abs(points[i].Y - point.Y) > 0.00001 || Math.Abs(points[i].Z - point.Z) > 0.00001)
+                    {
+                        points.Add(point);
+                    }
+                }
+
+            }
+            i = points.Count - 1;
+
+            if(points.Count > 1)
+            {
+                if (Math.Abs(points[i].X - points[0].X) > 0.00001 && Math.Abs(points[i].Y - points[0].Y) > 0.00001 && Math.Abs(points[i].Z - points[0].Z) > 0.00001)
+                {
+                    points.RemoveAt(i);
+                }
+            }
+          
             return points;
         }
 

@@ -133,46 +133,68 @@ namespace ThreeDMaker.Geometry
             return text;
         }
 
-        public void ExportToObj(string path)
-        {
-            //using(StreamWriter writer = new StreamWriter(path))
-            //{
-            //    writer.Write(ToObjText());
-            //}
-            DirectExportToObj(path);
-        }
+      
 
-        public void DirectExportToObj(string path)
+        public void ExportToObj(string path, bool swapxyz = false)
         {
             using (StreamWriter writer = new StreamWriter(path))
             {
 
-
-               
-                foreach (var v in Vertices)
+                if (swapxyz)
                 {
-                    writer.Write("v " + v.X + " " + v.Y + " " + v.Z + "\n");
-                }
+                    foreach (var v in Vertices)
+                    {
+                        writer.Write("v " + v.X + " " + (v.Z) + " " + (-v.Y) + "\n");
+                    }
 
-                foreach (var v in Normals)
+                    foreach (var v in Normals)
+                    {
+                        writer.Write("vn " + v.X + " " + (v.Z) + " " + (-v.Y) + "\n");
+                    }
+
+                    foreach (var v in UVs)
+                    {
+                        writer.Write("vt " + v.X + " " + v.Y + "\n");
+                    }
+
+                    int n = Triangles.Count;
+
+                    for (int i = 0; i < n; i += 3)
+                    {
+                        int f1 = Triangles[i] + 1;
+                        int f2 = Triangles[i + 1] + 1;
+                        int f3 = Triangles[i + 2] + 1;
+                        writer.Write("f " + f1 + " " + f2 + " " + f3 + "\n");
+                    }
+                }
+                else
                 {
-                    writer.Write("vn " + v.X + " " + v.Y + " " + v.Z + "\n");
-                }
+                    foreach (var v in Vertices)
+                    {
+                        writer.Write("v " + v.X + " " + v.Y + " " + v.Z + "\n");
+                    }
 
-                foreach (var v in UVs)
-                {
-                    writer.Write("vt " + v.X + " " + v.Y + "\n");
-                }
+                    foreach (var v in Normals)
+                    {
+                        writer.Write("vn " + v.X + " " + v.Y + " " + v.Z + "\n");
+                    }
 
-                int n = Triangles.Count;
+                    foreach (var v in UVs)
+                    {
+                        writer.Write("vt " + v.X + " " + v.Y + "\n");
+                    }
 
-                for (int i = 0; i < n; i += 3)
-                {
-                    int f1 = Triangles[i] + 1;
-                    int f2 = Triangles[i + 1] + 1;
-                    int f3 = Triangles[i + 2] + 1;
-                    writer.Write("f " + f1 + " " + f3 + " " + f2 + "\n");
+                    int n = Triangles.Count;
+
+                    for (int i = 0; i < n; i += 3)
+                    {
+                        int f1 = Triangles[i] + 1;
+                        int f2 = Triangles[i + 1] + 1;
+                        int f3 = Triangles[i + 2] + 1;
+                        writer.Write("f " + f1 + " " + f3 + " " + f2 + "\n");
+                    }
                 }
+                
             }
         }
     }

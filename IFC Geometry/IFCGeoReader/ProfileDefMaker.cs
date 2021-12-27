@@ -1,4 +1,5 @@
-﻿using IFC4;
+﻿using IFC_Geometry.IFCGeoReader;
+using IFC4;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -77,9 +78,16 @@ namespace IFC_Geometry
          
              var outer = CurveMaker.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
             List<Vector2> vector2s = new List<Vector2>();
-            for (int i = 0; i < outer.Count - 1; i++)
+            for (int i = 0; i < outer.Count; i++)
             {
                 vector2s.Add(new Vector2(outer[i].X,outer[i].Y));
+                if(i == outer.Count - 1)
+                {
+                    if(Math.Abs(outer[i].X - vector2s[0].X) < 0.00001 && Math.Abs(outer[i].Y - vector2s[0].Y) < 0.00001)
+                    {
+                        vector2s.RemoveAt(i);
+                    }
+                }
             }
             ProfileDef profileDef = new ProfileDef();
             profileDef.OutterCurve = vector2s;
@@ -92,9 +100,16 @@ namespace IFC_Geometry
             
             var outer = CurveMaker.GetCurve(ArbitraryProfileDefWithVoids.OuterCurve);
             List<Vector2> vector2s = new List<Vector2>();
-            for (int i = 0; i < outer.Count - 1; i++)
+            for (int i = 0; i < outer.Count; i++)
             {
                 vector2s.Add(new Vector2(outer[i].X, outer[i].Y));
+                if (i == outer.Count - 1)
+                {
+                    if (Math.Abs(outer[i].X - vector2s[0].X) < 0.00001 && Math.Abs(outer[i].Y - vector2s[0].Y) < 0.00001)
+                    {
+                        vector2s.RemoveAt(i);
+                    }
+                }
             }
 
             List< List<Vector2>> innervector2s = new List<List<Vector2>>();
@@ -102,9 +117,16 @@ namespace IFC_Geometry
             {
                 List<Vector2> innervecs = new List<Vector2>();
                 var inner = CurveMaker.GetCurve(innerCurve);
-                for (int i = 0; i < inner.Count - 1; i++)
+                for (int i = 0; i < inner.Count; i++)
                 {
                     innervecs.Add(new Vector2(inner[i].X, inner[i].Y));
+                    if (i == inner.Count - 1)
+                    {
+                        if (Math.Abs(inner[i].X - innervecs[0].X) < 0.00001 && Math.Abs(inner[i].Y - innervecs[0].Y) < 0.00001)
+                        {
+                            innervecs.RemoveAt(i);
+                        }
+                    }
                 }
                 innervector2s.Add(innervecs);
             }
@@ -199,6 +221,7 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcasymmetricishapeprofiledef.htm
         public static ProfileDef GetProfileDef(IfcAsymmetricIShapeProfileDef AsymmetricIShapeProfileDef)
         {
+
             float x1 = (float) AsymmetricIShapeProfileDef.WebThickness / 2;
             float x2 = (float)AsymmetricIShapeProfileDef.TopFlangeWidth / 2;
             float x3 = (float)AsymmetricIShapeProfileDef.BottomFlangeWidth / 2;
@@ -223,6 +246,8 @@ namespace IFC_Geometry
                 { -x3, y1 },
             };
 
+            var moved = IFCGeoUtil.TransformPoints(AsymmetricIShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -256,6 +281,8 @@ namespace IFC_Geometry
                 { -x2, y3 },
                 { -x2, -y3 },
             };
+            var moved = IFCGeoUtil.TransformPoints(CShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -278,8 +305,10 @@ namespace IFC_Geometry
                 vector2s.Add(new Vector2((float) ( r * Math.Cos(theta)), (float)( r * Math.Cos(theta))));
 
             }
+            var moved = IFCGeoUtil.TransformPoints(CircleProfileDef.Position, vector2s);
+            var line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef();
-            profileDef.OutterCurve = vector2s;
+            profileDef.OutterCurve = line;
             return profileDef;
         }
 
@@ -301,8 +330,10 @@ namespace IFC_Geometry
                 vector2s.Add(new Vector2((float)( r * Math.Cos(theta)), (float)( r * Math.Cos(theta))));
 
             }
+            var moved = IFCGeoUtil.TransformPoints(CircleHollowProfileDef.Position, vector2s);
+            var line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef();
-            profileDef.OutterCurve = vector2s;
+            profileDef.OutterCurve = line;
             return profileDef;
         }
 
@@ -313,10 +344,6 @@ namespace IFC_Geometry
             double r1 = EllipseProfileDef.SemiAxis1;
             double r2 = EllipseProfileDef.SemiAxis1;
           
-            var location = EllipseProfileDef.Position.Location;
-            
-            double x = location.Coordinates[0];
-            double y = location.Coordinates[1];
             int n = pfm.curveDetail * 4;
             double dTheta = 2 * Math.PI / n;
             List<Vector2> vector2s = new List<Vector2>();
@@ -327,8 +354,10 @@ namespace IFC_Geometry
                 vector2s.Add(new Vector2((float)( r1 * Math.Cos(theta)), (float)( r2 * Math.Cos(theta))));
 
             }
+            var moved = IFCGeoUtil.TransformPoints(EllipseProfileDef.Position, vector2s);
+            var line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef();
-            profileDef.OutterCurve = vector2s;
+            profileDef.OutterCurve = line;
             return profileDef;
         }
 
@@ -358,7 +387,8 @@ namespace IFC_Geometry
                 { -x3, y2 },
                 { -x3, y1 },
             };
-
+            var moved = IFCGeoUtil.TransformPoints(IShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -387,7 +417,8 @@ namespace IFC_Geometry
                { -x2, y2 },
                { -x2, -y2 },
             };
-
+            var moved = IFCGeoUtil.TransformPoints(LShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -411,6 +442,8 @@ namespace IFC_Geometry
                 {-w,-h },
 
             };
+            var moved = IFCGeoUtil.TransformPoints(RectangleProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -435,6 +468,8 @@ namespace IFC_Geometry
                 {-w,-h },
 
             };
+            var moved = IFCGeoUtil.TransformPoints(RectangleHollowProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -461,6 +496,8 @@ namespace IFC_Geometry
                 {-w,-h +r},
                 {-w + r,-h},
             };
+            var moved = IFCGeoUtil.TransformPoints(RoundedRectangleProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -487,6 +524,8 @@ namespace IFC_Geometry
                 {-x1,y1 },
                 {-x1,-y2 },
             };
+            var moved = IFCGeoUtil.TransformPoints(TShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -521,6 +560,8 @@ namespace IFC_Geometry
                 {-x2, y2 },
                 {-x1, y2 },
             };
+            var moved = IFCGeoUtil.TransformPoints(UShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line
@@ -546,6 +587,8 @@ namespace IFC_Geometry
                 {-x1, y1 },
                 {-x1, -y2 },
             };
+            var moved = IFCGeoUtil.TransformPoints(ZShapeProfileDef.Position, line);
+            line = new PolyLine2D(moved);
             ProfileDef profileDef = new ProfileDef()
             {
                 OutterCurve = line

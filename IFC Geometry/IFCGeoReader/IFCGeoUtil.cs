@@ -25,7 +25,6 @@ namespace IFC_Geometry.IFCGeoReader
 
         public static Vector3 TransformPoint(IfcLocalPlacement localplacemnt, Vector3 v)
         {
-
             var relativePlacement = (IfcAxis2Placement3D)localplacemnt.RelativePlacement;
             if(relativePlacement == null)
             {
@@ -36,15 +35,26 @@ namespace IFC_Geometry.IFCGeoReader
             {
                 return v1;
             }
-
             return TransformPoint((IfcLocalPlacement)localplacemnt.PlacementRelTo, v1);
-
         }
 
+        public static Vector2 TransformPoint(IfcLocalPlacement localplacemnt, Vector2 v)
+        {
+            var relativePlacement = (IfcAxis2Placement2D)localplacemnt.RelativePlacement;
+            if (relativePlacement == null)
+            {
+                return v;
+            }
+            Vector2 v1 = TransformPoint(relativePlacement, v);
+            if (localplacemnt.PlacementRelTo == null)
+            {
+                return v1;
+            }
+            return TransformPoint((IfcLocalPlacement)localplacemnt.PlacementRelTo, v1);
+        }
 
         public static Vector3 TransformPoint(IfcAxis2Placement3D position, Vector3 V)
         {
-
             var coordinate = position.Location.Coordinates;
             var P = position.P;
 
@@ -54,6 +64,30 @@ namespace IFC_Geometry.IFCGeoReader
 
             return new Vector3((float)x, (float)y, (float)z);
         }
+        public static Vector2 TransformPoint(IfcAxis2Placement2D position, Vector2 V)
+        {
+            var coordinate = position.Location.Coordinates;
+            var P = position.P;
+            var x = coordinate[0] + P[0].DirectionRatios[0] * V.X + P[1].DirectionRatios[0] * V.Y;
+            var y = coordinate[1] + P[0].DirectionRatios[1] * V.X + P[1].DirectionRatios[1] * V.Y;
+            return new Vector2((float)x, (float)y);
+        }
+
+        public static List<Vector2> TransformPoints(IfcAxis2Placement2D position, List<Vector2> Vs)
+        {
+            var coordinate = position.Location.Coordinates;
+            var P = position.P;
+            List<Vector2> V2 = new List<Vector2>();
+            foreach (var V in Vs)
+            {
+                var x = coordinate[0] + P[0].DirectionRatios[0] * V.X + P[1].DirectionRatios[0] * V.Y;
+                var y = coordinate[1] + P[0].DirectionRatios[1] * V.X + P[1].DirectionRatios[1] * V.Y;
+                V2.Add(new Vector2((float)x, (float)y));
+            }
+
+            return V2;
+        }
+
 
 
 
@@ -68,9 +102,14 @@ namespace IFC_Geometry.IFCGeoReader
             return new Vector3((float)x, (float)y, (float)z);
         }
 
+
+
+
+
+
+
         public static Vector3 TransformPoint(IfcCartesianTransformationOperator2D transform, Vector3 v)
         {
-
             return v;
         }
         public static Vector3 TransformPoint(IfcCartesianTransformationOperator3D transform, Vector3 V)
@@ -84,30 +123,6 @@ namespace IFC_Geometry.IFCGeoReader
             return new Vector3((float)x, (float)y, (float)z);
         }
 
-        Vector2 TransformPoint(IfcCartesianTransformationOperator2D transform, Vector2 vector)
-        {
-            var u = transform.U;
-            // transform.a
-            return new Vector2();
-        }
-
-        
-
-        Vector2 GetAxisChange(IfcDirection axis1, IfcDirection axis2, Vector2 vector)
-        {
-            // transform.a
-            return new Vector2();
-        }
-        Vector2 GetTranslate(IfcCartesianPoint LocalOrigin, Vector2 vector)
-        {
-            // transform.a
-            return new Vector2(vector.X * (float)LocalOrigin.Coordinates[0], vector.Y * (float)LocalOrigin.Coordinates[1]);
-        
-        }
-        Vector2 GetScale(IfcReal scale, Vector2 vector)
-        {
-            // transform.a
-            return new Vector2(vector.X * (float)scale,  vector.Y * (float)scale);
-        }
+       
     }
 }

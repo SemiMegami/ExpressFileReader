@@ -1672,7 +1672,7 @@ namespace IFC4
             {
                 Result = new IfcDirection(-Vec.DirectionRatios[1], Vec.DirectionRatios[0]);
             }
-            return null;
+            return Result;
         }
         /*
         (Vec : IfcDirection) 

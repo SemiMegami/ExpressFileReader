@@ -6,7 +6,7 @@ namespace IFC_Geometry
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
         }
     }
 }

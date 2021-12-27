@@ -12,7 +12,7 @@ namespace IFCProjectTest
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        
             TestLoadProject();
         }
 
@@ -20,16 +20,18 @@ namespace IFCProjectTest
 
         static void TestLoadProject()
         {
+          //  string filename = "20181220Holter_Tower_10";
+            string filename = "20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture";
+          //  string filename = "20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural";
             IfcModel model = new IfcModel();
-           model.ImportIFC("../../../../../Open IFC Model/20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural.ifc");
+           model.ImportIFC("../../../../../Open IFC Model/"+ filename + ".ifc");
             //model.ImportIFC("../../../../../Open IFC Model/20160125Autodesk_Hospital_Parking Garage_2015 - IFC4.ifc");
 
 
             var elemments = model.GetInstances<IfcElement>();
-            var solids = model.GetInstances<IfcSolidModel>();
             var columns = model.GetInstances<IfcColumn>();
             List<Mesh3D> meshes = new List<Mesh3D>() ;
-            foreach (var element in columns)
+            foreach (var element in elemments)
             {
 
                 if (element.Representation != null)
@@ -57,8 +59,12 @@ namespace IFCProjectTest
                                         addingMeshes.Add(mesh);
                                       
                                     }
-                                  
+                                    if (addingMeshes.Count == 0)
+                                    {
+
+                                    }
                                 }
+                              
                             }
 
                             else if (item.InTypeOf(EntityName.IFCMAPPEDITEM))
@@ -67,7 +73,11 @@ namespace IFCProjectTest
                                 if (addings != null)
                                 {
                                     addingMeshes.AddRange(addings);
-                                }   
+                                }
+                                if (addingMeshes.Count == 0)
+                                {
+
+                                }
                             }
                             foreach (var mesh in addingMeshes)
                             {
@@ -78,10 +88,7 @@ namespace IFCProjectTest
                                 }
                               
                             }
-                            if(addingMeshes.Count == 0)
-                            {
-
-                            }
+                          
                             meshes.AddRange(addingMeshes);
                         }
                     }
@@ -108,7 +115,7 @@ namespace IFCProjectTest
                 Vertices = vertices
             };
             fullmesh.ReCalculateNormal();
-            fullmesh.ExportToObj("../../../../../test.obj");
+            fullmesh.ExportToObj("../../../../../" + filename +".obj", true);
            
         }
     }

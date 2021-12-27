@@ -12,8 +12,8 @@ namespace IFC4
     {
         public void ImportIFC(string path)
         {
-            
-            
+
+            Console.WriteLine("reading");
             // read ifc file
             using (StreamReader reader = new StreamReader(path))
             {
@@ -33,12 +33,15 @@ namespace IFC4
             }
 
             // map ifcdata
-            List<IfcBase> items = Values.ToList();
             Console.WriteLine("end reading");
+            Console.WriteLine("mapping");
+            List<IfcBase> items = Values.ToList();
+           
             foreach (var item in items)
             {
                 MapAandSetProperties(item);
             }
+            Console.WriteLine("end mapping");
         }
 
         private void ReadDataline(string ifcText)

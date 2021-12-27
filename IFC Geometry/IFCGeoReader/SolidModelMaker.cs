@@ -20,13 +20,6 @@ namespace IFC_Geometry
             var origin = mappedItem.MappingSource.MappingOrigin;
             var t = mappedItem.MappingTarget;
 
-            if (t.InTypeOf(EntityName.IFCCARTESIANTRANSFORMATIONOPERATOR3D))
-            {
-                var t3 = (IfcCartesianTransformationOperator3D)t;
-                var c = t3.LocalOrigin.Coordinates;
-
-                Console.WriteLine(c[0] + "\t" + c[1] + "\t" + c[2]);
-            }
             foreach (var item in mappedItems)
             {
                 
