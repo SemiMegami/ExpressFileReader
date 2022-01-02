@@ -52,7 +52,6 @@ C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\bin
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\bin\Debug\net5.0\Express File Reader.dll
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\bin\Debug\net5.0\ref\Express File Reader.dll
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\bin\Debug\net5.0\Express File Reader.pdb
-C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.csproj.AssemblyReference.cache
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.AssemblyInfoInputs.cache
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.AssemblyInfo.cs
@@ -61,3 +60,4 @@ C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\ref\Express File Reader.dll
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.pdb
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.genruntimeconfig.cache
+C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.csproj.AssemblyReference.cache

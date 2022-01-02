@@ -14,13 +14,17 @@ namespace IFC4
         public List<string> textParameters;
 
 
-        public bool InTypeOf<T>()
+        public  bool InTypeOf<T>()
         {
             return InTypeOf(this, typeof(T).Name);
         }
         public bool InTypeOf( string typeName)
         {
             return InTypeOf(this, typeName);
+        }
+        public static bool InTypeOf<T>(object a)
+        {
+            return InTypeOf(a, typeof(T).Name);
         }
 
         public static bool InTypeOf(object a, string typeName)

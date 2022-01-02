@@ -17,19 +17,28 @@ namespace IFCProjectTest
         }
 
 
-
         static void TestLoadProject()
         {
           //  string filename = "20181220Holter_Tower_10";
-            string filename = "20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture";
-          //  string filename = "20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural";
+            // string filename = "20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture";
+            //  string filename = "20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural";
+            string filename = "20160125OTC-Conference Center - IFC4";
+           
             IfcModel model = new IfcModel();
            model.ImportIFC("../../../../../Open IFC Model/"+ filename + ".ifc");
             //model.ImportIFC("../../../../../Open IFC Model/20160125Autodesk_Hospital_Parking Garage_2015 - IFC4.ifc");
 
 
+
+
+
             var elemments = model.GetInstances<IfcElement>();
-            var columns = model.GetInstances<IfcColumn>();
+            var localplacements = model.GetInstances<IfcLocalPlacement>();
+
+            var placementToMat = IFCGeoUtil.SetGlobalMat(localplacements);
+
+        //    var solidModels = model.GetInstances<IfcSolidModel>();
+
             List<Mesh3D> meshes = new List<Mesh3D>() ;
             foreach (var element in elemments)
             {
@@ -54,17 +63,12 @@ namespace IFCProjectTest
                                 {
                                     var extrude = (IfcExtrudedAreaSolid)solid;
                                     Mesh3D mesh = SolidModelMaker.GetSolid(extrude);
-                                    if(mesh != null)
+                                    if (mesh != null)
                                     {
                                         addingMeshes.Add(mesh);
-                                      
-                                    }
-                                    if (addingMeshes.Count == 0)
-                                    {
 
                                     }
                                 }
-                              
                             }
 
                             else if (item.InTypeOf(EntityName.IFCMAPPEDITEM))
@@ -74,21 +78,25 @@ namespace IFCProjectTest
                                 {
                                     addingMeshes.AddRange(addings);
                                 }
-                                if (addingMeshes.Count == 0)
-                                {
+                            }
 
-                                }
-                            }
-                            foreach (var mesh in addingMeshes)
+
+                            var objectPlacement = element.ObjectPlacement;
+                            if (objectPlacement.InTypeOf(EntityName.IFCLOCALPLACEMENT))
                             {
-                                var vertives = mesh.Vertices;
-                                for (int i = 0; i < vertives.Count; i++)
+                                var globalmat = Matrix4x4.Transpose(placementToMat[(IfcLocalPlacement)objectPlacement][1]);
+                                foreach (var mesh in addingMeshes)
                                 {
-                                    vertives[i] = IFCGeoUtil.TransformPoint(element, vertives[i]);
+                                    var vertives = mesh.Vertices;                      
+                                    for (int i = 0; i < vertives.Count; i++)
+                                    {
+                                       // vertives[i] = IFCGeoUtil.TransformPoint(element, vertives[i]);
+                                        vertives[i] = Vector3.Transform(vertives[i], globalmat);
+                                    }
                                 }
-                              
+
                             }
-                          
+
                             meshes.AddRange(addingMeshes);
                         }
                     }

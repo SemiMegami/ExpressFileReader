@@ -90,7 +90,26 @@ namespace IFC4
                     {
                         var property= itemType.GetProperty(parameters[j].Name);
                         var value = GetInstance(textParameters[j], parameters[j].ParameterType);
-                        property.SetValue(item, value);
+                        try
+                        {
+                            property.SetValue(item, value);
+                        }
+                        catch (Exception e)
+                        {
+                            if (e is ArgumentOutOfRangeException)
+                            {
+                               Console.WriteLine("Argument is out of range");
+                            }
+                            else if (e is FormatException)
+                            {
+                                Console.WriteLine("Format Exception");
+                            }
+                            else
+                            {
+                                Console.WriteLine(e.Message);
+                            }
+                        }
+
                     }
                     break;
                 }

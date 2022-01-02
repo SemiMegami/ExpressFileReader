@@ -10,9 +10,13 @@ namespace IFCReader
     public class IFCClass
     {
         public string name;
-        public string subOf;
+        public string superclassname;
+        public List<string> subclasses;
         public List<string> interfaces; // interface
-        public Dictionary<string, string> propElement;
+        public Dictionary<string, string> deriveElements;
+        public Dictionary<string, string> inverseElement;
+        public Dictionary<string, string> propElement; // get set
+        public Dictionary<string, string> getElement; // get set
         public Dictionary<string, string> consElement; // inout element in ifc files
         public Dictionary<string, string> fullConsElement; // inout element in ifc files including super class
 
@@ -26,16 +30,20 @@ namespace IFCReader
         {
             extraText = "";
             interfaces = new List<string>();
+            subclasses = new List<string>();
             propElement = new Dictionary<string, string>();
+            getElement = new Dictionary<string, string>();
             consElement = new Dictionary<string, string>();
             fullConsElement = new Dictionary<string, string>();
+            deriveElements = new Dictionary<string, string>();
+            inverseElement = new Dictionary<string, string>();
             enumElements = new List<string>();
             selectElements = new List<string>();
             this.dataType = dataType;
             this.name = name;
             isAbstract = false;
 
-            this.subOf = subOf;
+            this.superclassname = subOf;
 
         }
 
@@ -44,9 +52,9 @@ namespace IFCReader
         {
             Dictionary<string, string> fullCons = new Dictionary<string, string>();
 
-            if (IFCClasses.ContainsKey(subOf))
+            if (IFCClasses.ContainsKey(superclassname))
             {
-                var superClass = IFCClasses[subOf];
+                var superClass = IFCClasses[superclassname];
                 Dictionary<string, string> superfullCons = superClass.GetFullCons(IFCClasses);
                 foreach (var s in superfullCons)
                 {
@@ -65,9 +73,9 @@ namespace IFCReader
         public override string ToString()
         {
             string str = "\tpublic " + (isAbstract ? "abstract " : "") + (dataType == "interface" ? dataType : "class") + " " + name;
-            if (subOf.Length > 0)
+            if (superclassname.Length > 0)
             {
-                str += " : " + subOf;
+                str += " : " + superclassname;
             }
 
             if (interfaces.Count > 0)
@@ -76,7 +84,7 @@ namespace IFCReader
                 {
                     if (i == 0)
                     {
-                        str += subOf.Length > 0 ? ", " : " : ";
+                        str += superclassname.Length > 0 ? ", " : " : ";
                     }
 
                     str += interfaces[i];
@@ -88,17 +96,36 @@ namespace IFCReader
             }
             str += "\n\t{\n";
 
-            /// show list of ifc prop
-            int count = 1;
-            foreach (var f in fullConsElement)
-            {
-                str += "\t\t//" + count + "\t" + f.Key + " : " + f.Value + "\n";
-                count++;
-            }
-            if(fullConsElement.Count > 0)
-            {
-                str += "\n";
-            }
+            // show list of ifc prop
+           
+
+            //if (subclasses.Count > 0)
+            //{
+            //    str += "//Superclass of : ";
+            //    foreach (var f in subclasses)
+            //    {
+            //        str += " " + f + ",";
+            //    }
+            //    str += "\n";
+            //}
+          
+          
+
+            //int count = 1;
+            //if (fullConsElement.Count > 0)
+            //{
+            //    str += "//Property list\n";
+            //}
+           
+            //foreach (var f in fullConsElement)
+            //{
+            //    str += "\t\t//" + count + "\t" + f.Key + " : " + f.Value + "\n";
+            //    count++;
+            //}
+            //if (fullConsElement.Count > 0)
+            //{
+            //    str += "\n";
+            //}
 
 
             switch (dataType)
@@ -109,14 +136,23 @@ namespace IFCReader
                     foreach (var ce in propElement)
                     {
 
-                        if (ce.Key.Contains("{"))
-                        {
-                            str += "\t\tpublic " + ce.Value + " " + ce.Key + "\n";
-                        }
-                        else
-                        {
-                            str += "\t\tpublic " + ce.Value + " " + ce.Key + " {get;set;}\n";
-                        }
+                      
+                        str += "\t\tpublic " + ce.Value + " " + ce.Key + " {get;set;}\n";
+                        
+                    }
+                    foreach (var ce in deriveElements)
+                    {
+                        str += "\t\tpublic " + ce.Value + " " + ce.Key + ";\n";
+
+                    }
+                    foreach (var ce in inverseElement)
+                    {
+                        str += "\t\tpublic " + ce.Value + " " + ce.Key + " ;\n";
+                    }
+
+                    foreach (var ce in getElement)
+                    {
+                        str += "\t\tpublic " + ce.Value + " " + ce.Key + "\n";
                     }
                     if (propElement.Count > 0)
                     {
@@ -124,7 +160,7 @@ namespace IFCReader
                     }
                     str += "\t\tpublic " + name + "(){}\n";
                    
-
+                    //constructor
                     if(fullConsElement.Count > 0)
                     {
                         str += "\n";
