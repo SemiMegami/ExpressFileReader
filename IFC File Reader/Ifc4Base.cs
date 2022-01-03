@@ -42,8 +42,25 @@ namespace IFC4
         }
 
 
+        static bool CompareDimensionalExponents(IfcDimensionalExponents Dim, int LengthExponent, int MassExponent, int TimeExponent, int ElectricCurrentExponent, int ThermodynamicTemperatureExponent, int AmountOfSubstanceExponent, int LuminousIntensityExponent)
+        {
+            return Dim.LengthExponent == LengthExponent &&
+            Dim.MassExponent == MassExponent &&
+            Dim.TimeExponent == TimeExponent &&
+            Dim.ElectricCurrentExponent == ElectricCurrentExponent &&
+            Dim.ThermodynamicTemperatureExponent == ThermodynamicTemperatureExponent &&
+            Dim.AmountOfSubstanceExponent == AmountOfSubstanceExponent &&
+            Dim.LuminousIntensityExponent == LuminousIntensityExponent;
+        }
 
-
+        public static IfcDirection GetDirection(double x, double y)
+        {
+            return new IfcDirection(new List<IfcReal>() { x, y});
+        }
+        public static IfcDirection GetDirection(double x, double y, double z)
+        {
+            return new IfcDirection(new List<IfcReal>() { x, y, z });
+        }
 
         protected static T NVL<T>(T a, T b)
         {
@@ -80,7 +97,7 @@ namespace IFC4
 
             if(Dim == 3)
             {
-                D1 = NVL(IfcNormalise(Axis3), new IfcDirection(0,0,1));
+                D1 = NVL(IfcNormalise(Axis3), GetDirection(0,0,1));
                 D2 = IfcFirstProjAxis(D1, Axis1);
                 U = new List<IfcDirection>() {D2, IfcSecondProjAxis(D1, D2, Axis2), D1 };
             }
@@ -116,7 +133,7 @@ namespace IFC4
                 }
                 else
                 {
-                    U = new List<IfcDirection>() { new IfcDirection(1,0), new IfcDirection(0, 1) };
+                    U = new List<IfcDirection>() { GetDirection(1,0), GetDirection(0, 1) };
                 }
                
             }
@@ -189,7 +206,7 @@ namespace IFC4
 
         protected static List<IfcDirection> IfcBuild2Axes(IfcDirection RefDirection)
         {
-            IfcDirection D =  NVL( IfcNormalise(RefDirection),new  IfcDirection(1.0, 0.0));
+            IfcDirection D =  NVL( IfcNormalise(RefDirection), GetDirection(1.0, 0.0));
 
             return new List<IfcDirection>() { D, IfcOrthogonalComplement(D)};
         }
@@ -208,7 +225,7 @@ namespace IFC4
         {
             IfcDirection D1;
             IfcDirection D2;
-            D1 = NVL(IfcNormalise(Axis), new IfcDirection(0.0, 0.0, 1.0));
+            D1 = NVL(IfcNormalise(Axis), GetDirection(0.0, 0.0, 1.0));
             D2 = IfcFirstProjAxis(D1, RefDirection);
             return new List<IfcDirection>() { D2, ( IfcNormalise(IfcCrossProduct(D1, D2))).Orientation , D1}; ;
         }
@@ -353,7 +370,7 @@ namespace IFC4
 
         protected static IfcDirection IfcConvertDirectionInto2D(IfcDirection Direction)
         {
-            IfcDirection Direction2D = new IfcDirection(0, 1);
+            IfcDirection Direction2D = GetDirection(0, 1);
             Direction2D.DirectionRatios[0] = Direction.DirectionRatios[0];
             Direction2D.DirectionRatios[1] = Direction.DirectionRatios[1];
             return Direction2D;
@@ -378,35 +395,35 @@ namespace IFC4
 
             switch (m)
             {
-                case IfcUnitEnum.LENGTHUNIT: return Dim.Compare(1, 0, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.MASSUNIT: return Dim.Compare(0, 1, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.TIMEUNIT: return Dim.Compare(0, 0, 1, 0, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICCURRENTUNIT: return Dim.Compare(0, 0, 0, 1, 0, 0, 0);
-                case IfcUnitEnum.THERMODYNAMICTEMPERATUREUNIT: return Dim.Compare(0, 0, 0, 0, 1, 0, 0);
-                case IfcUnitEnum.AMOUNTOFSUBSTANCEUNIT: return Dim.Compare(0, 0, 0, 0, 0, 1, 0);
-                case IfcUnitEnum.LUMINOUSINTENSITYUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 1);
-                case IfcUnitEnum.PLANEANGLEUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.SOLIDANGLEUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.AREAUNIT: return Dim.Compare(2, 0, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.VOLUMEUNIT: return Dim.Compare(3, 0, 0, 0, 0, 0, 0);
-                case IfcUnitEnum.ABSORBEDDOSEUNIT: return Dim.Compare(2, 0, -2, 0, 0, 0, 0);
-                case IfcUnitEnum.RADIOACTIVITYUNIT: return Dim.Compare(0, 0, -1, 0, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICCAPACITANCEUNIT: return Dim.Compare(-2, -1, 4, 2, 0, 0, 0);
-                case IfcUnitEnum.DOSEEQUIVALENTUNIT: return Dim.Compare(2, 0, -2, 0, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICCHARGEUNIT: return Dim.Compare(0, 0, 1, 1, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICCONDUCTANCEUNIT: return Dim.Compare(-2, -1, 3, 2, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICVOLTAGEUNIT: return Dim.Compare(2, 1, -3, -1, 0, 0, 0);
-                case IfcUnitEnum.ELECTRICRESISTANCEUNIT: return Dim.Compare(2, 1, -3, -2, 0, 0, 0);
-                case IfcUnitEnum.ENERGYUNIT: return Dim.Compare(2, 1, -2, 0, 0, 0, 0);
-                case IfcUnitEnum.FORCEUNIT: return Dim.Compare(1, 1, -2, 0, 0, 0, 0);
-                case IfcUnitEnum.FREQUENCYUNIT: return Dim.Compare(0, 0, -1, 0, 0, 0, 0);
-                case IfcUnitEnum.INDUCTANCEUNIT: return Dim.Compare(2, 1, -2, -2, 0, 0, 0);
-                case IfcUnitEnum.ILLUMINANCEUNIT: return Dim.Compare(-2, 0, 0, 0, 0, 0, 1);
-                case IfcUnitEnum.LUMINOUSFLUXUNIT: return Dim.Compare(0, 0, 0, 0, 0, 0, 1);
-                case IfcUnitEnum.MAGNETICFLUXUNIT: return Dim.Compare(2, 1, -2, -1, 0, 0, 0);
-                case IfcUnitEnum.MAGNETICFLUXDENSITYUNIT: return Dim.Compare(0, 1, -2, -1, 0, 0, 0);
-                case IfcUnitEnum.POWERUNIT: return Dim.Compare(2, 1, -3, 0, 0, 0, 0);
-                case IfcUnitEnum.PRESSUREUNIT: return Dim.Compare(-1, 1, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.LENGTHUNIT: return CompareDimensionalExponents(Dim, 1, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.MASSUNIT: return CompareDimensionalExponents(Dim,0, 1, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.TIMEUNIT: return CompareDimensionalExponents(Dim,0, 0, 1, 0, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCURRENTUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 1, 0, 0, 0);
+                case IfcUnitEnum.THERMODYNAMICTEMPERATUREUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 0, 1, 0, 0);
+                case IfcUnitEnum.AMOUNTOFSUBSTANCEUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 0, 0, 1, 0);
+                case IfcUnitEnum.LUMINOUSINTENSITYUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 0, 0, 0, 1);
+                case IfcUnitEnum.PLANEANGLEUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.SOLIDANGLEUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.AREAUNIT: return CompareDimensionalExponents(Dim,2, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.VOLUMEUNIT: return CompareDimensionalExponents(Dim,3, 0, 0, 0, 0, 0, 0);
+                case IfcUnitEnum.ABSORBEDDOSEUNIT: return CompareDimensionalExponents(Dim,2, 0, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.RADIOACTIVITYUNIT: return CompareDimensionalExponents(Dim,0, 0, -1, 0, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCAPACITANCEUNIT: return CompareDimensionalExponents(Dim,-2, -1, 4, 2, 0, 0, 0);
+                case IfcUnitEnum.DOSEEQUIVALENTUNIT: return CompareDimensionalExponents(Dim,2, 0, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCHARGEUNIT: return CompareDimensionalExponents(Dim,0, 0, 1, 1, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICCONDUCTANCEUNIT: return CompareDimensionalExponents(Dim,-2, -1, 3, 2, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICVOLTAGEUNIT: return CompareDimensionalExponents(Dim,2, 1, -3, -1, 0, 0, 0);
+                case IfcUnitEnum.ELECTRICRESISTANCEUNIT: return CompareDimensionalExponents(Dim,2, 1, -3, -2, 0, 0, 0);
+                case IfcUnitEnum.ENERGYUNIT: return CompareDimensionalExponents(Dim,2, 1, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.FORCEUNIT: return CompareDimensionalExponents(Dim,1, 1, -2, 0, 0, 0, 0);
+                case IfcUnitEnum.FREQUENCYUNIT: return CompareDimensionalExponents(Dim,0, 0, -1, 0, 0, 0, 0);
+                case IfcUnitEnum.INDUCTANCEUNIT: return CompareDimensionalExponents(Dim,2, 1, -2, -2, 0, 0, 0);
+                case IfcUnitEnum.ILLUMINANCEUNIT: return CompareDimensionalExponents(Dim,-2, 0, 0, 0, 0, 0, 1);
+                case IfcUnitEnum.LUMINOUSFLUXUNIT: return CompareDimensionalExponents(Dim,0, 0, 0, 0, 0, 0, 1);
+                case IfcUnitEnum.MAGNETICFLUXUNIT: return CompareDimensionalExponents(Dim,2, 1, -2, -1, 0, 0, 0);
+                case IfcUnitEnum.MAGNETICFLUXDENSITYUNIT: return CompareDimensionalExponents(Dim,0, 1, -2, -1, 0, 0, 0);
+                case IfcUnitEnum.POWERUNIT: return CompareDimensionalExponents(Dim,2, 1, -3, 0, 0, 0, 0);
+                case IfcUnitEnum.PRESSUREUNIT: return CompareDimensionalExponents(Dim,-1, 1, -2, 0, 0, 0, 0);
 
                 default: return null;
             }
@@ -866,7 +883,7 @@ namespace IFC4
 
             V1 = IfcNormalise(Arg1).DirectionRatios;
             V2 = IfcNormalise(Arg2).DirectionRatios;
-            Res = new IfcDirection(V1[1] * V2[2] - V1[2] * V2[1], V1[2] * V2[0] - V1[0] * V2[2], V1[0] * V2[1] - V1[1] * V2[0]);
+            Res = GetDirection(V1[1] * V2[2] - V1[2] * V2[1], V1[2] * V2[0] - V1[0] * V2[2], V1[0] * V2[1] - V1[1] * V2[0]);
             Mag = 0;
 
             for(int i = 0; i < 3; i++)
@@ -1267,11 +1284,11 @@ namespace IFC4
                 {
                     if(Z.DirectionRatios[0]!= 1 || Z.DirectionRatios[0] != 0 || Z.DirectionRatios[0] != 0)
                     {
-                        V = new IfcDirection(1, 0, 0);
+                        V = GetDirection(1, 0, 0);
                     }
                     else
                     {
-                        V = new IfcDirection(0, 1, 0);
+                        V = GetDirection(0, 1, 0);
                     }
                 }
                 else
@@ -1548,8 +1565,8 @@ namespace IFC4
         protected static IfcVectorOrDirection IfcNormalise(IfcVectorOrDirection Arg)
         {
             INTEGER Ndim;
-            IfcDirection V =new IfcDirection(1, 0);
-            IfcVector Vec =new IfcVector( new IfcDirection(1 , 0), 1);
+            IfcDirection V =GetDirection(1, 0);
+            IfcVector Vec =new IfcVector( GetDirection(1 , 0), 1);
             REAL Mag;
             IfcVectorOrDirection Result = V;
             if(Arg== null)
@@ -1674,7 +1691,7 @@ namespace IFC4
             }
             else
             {
-                Result = new IfcDirection(-Vec.DirectionRatios[1], Vec.DirectionRatios[0]);
+                Result = GetDirection(-Vec.DirectionRatios[1], Vec.DirectionRatios[0]);
             }
             return Result;
         }
@@ -1983,7 +2000,7 @@ namespace IFC4
             IfcVector Temp;
             if(Arg == null)
             {
-                V = new IfcDirection(0, 1, 0);
+                V = GetDirection(0, 1, 0);
             }
             else
             {
@@ -2783,7 +2800,7 @@ namespace IFC4
                 Vec2 = IfcNormalise(Vec2);
                 Ndim = Vec1.DirectionRatios.Count;
                 Mag = 0;
-                Res = Ndim == 2? new IfcDirection(0, 0): new IfcDirection(0, 0, 0);
+                Res = Ndim == 2? GetDirection(0, 0): GetDirection(0, 0, 0);
                 
                 for(int i = 0; i < Ndim; i++)
                 {
@@ -2891,7 +2908,7 @@ namespace IFC4
                 Vec2 = IfcNormalise(Vec2);
                 Ndim = Vec1.DirectionRatios.Count;
                 Mag = 0;
-                Res = Ndim == 2 ? new IfcDirection(0, 0) : new IfcDirection(0, 0, 0);
+                Res = Ndim == 2 ? GetDirection(0, 0) : GetDirection(0, 0, 0);
 
                 for (int i = 0; i < Ndim; i++)
                 {

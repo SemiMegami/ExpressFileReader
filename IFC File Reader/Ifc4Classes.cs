@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-
+using System.Collections.Generic;
 namespace IFC4
 {
-
-	
-
-
 	public class IfcAbsorbedDoseMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAbsorbedDoseMeasure() { }
@@ -42,9 +37,8 @@ namespace IFC4
 
 	public class IfcArcIndex : List<IfcPositiveInteger>, IfcSegmentIndexSelect
 	{
-		
 		public List<IfcPositiveInteger> GetValue() { return this; }
-		public IfcArcIndex(){}
+		public IfcArcIndex() { }
 		public IfcArcIndex(List<IfcPositiveInteger> value)
 		{
 			Clear();
@@ -58,13 +52,13 @@ namespace IFC4
 			Clear();
 			foreach (var v in value)
 			{
-				Add(v);
+				Add((IfcPositiveInteger)v);
 			}
 		}
 		public static implicit operator IfcArcIndex(List<int> x) { return new IfcArcIndex(x); }
 		public static implicit operator List<int>(IfcArcIndex x)
 		{
-			List<int> y = new List<int>();
+			IfcArcIndex y = new IfcArcIndex();
 			foreach (var v in x)
 			{
 				y.Add(v);
@@ -105,7 +99,7 @@ namespace IFC4
 		public static implicit operator bool(IfcBoolean x) { return x.Value; }
 	}
 
-	public class IfcBoxAlignment : IfcLabel
+	public class IfcBoxAlignment : IfcLabel, IfcSimpleValue
 	{
 		public IfcBoxAlignment() { }
 		public IfcBoxAlignment(string value) { Value = value; }
@@ -123,7 +117,7 @@ namespace IFC4
 
 	public class IfcComplexNumber : List<REAL>, IfcMeasureValue
 	{
-		public IfcComplexNumber(){}
+		public IfcComplexNumber() { }
 		public IfcComplexNumber(List<REAL> value)
 		{
 			Clear();
@@ -137,13 +131,13 @@ namespace IFC4
 			Clear();
 			foreach (var v in value)
 			{
-				Add(v);
+				Add((REAL)v);
 			}
 		}
 		public static implicit operator IfcComplexNumber(List<double> x) { return new IfcComplexNumber(x); }
 		public static implicit operator List<double>(IfcComplexNumber x)
 		{
-			List<double> y = new List<double>();
+			IfcComplexNumber y = new IfcComplexNumber();
 			foreach (var v in x)
 			{
 				y.Add(v);
@@ -168,13 +162,13 @@ namespace IFC4
 			Clear();
 			foreach (var v in value)
 			{
-				Add(v);
+				Add((INTEGER)v);
 			}
 		}
 		public static implicit operator IfcCompoundPlaneAngleMeasure(List<int> x) { return new IfcCompoundPlaneAngleMeasure(x); }
 		public static implicit operator List<int>(IfcCompoundPlaneAngleMeasure x)
 		{
-			List<int> y = new List<int>();
+			IfcCompoundPlaneAngleMeasure y = new IfcCompoundPlaneAngleMeasure();
 			foreach (var v in x)
 			{
 				y.Add(v);
@@ -471,7 +465,7 @@ namespace IFC4
 		public static implicit operator string(IfcLabel x) { return x.Value; }
 	}
 
-	public class IfcLanguageId : IfcIdentifier
+	public class IfcLanguageId : IfcIdentifier, IfcSimpleValue
 	{
 		public IfcLanguageId() { }
 		public IfcLanguageId(string value) { Value = value; }
@@ -504,13 +498,13 @@ namespace IFC4
 			Clear();
 			foreach (var v in value)
 			{
-				Add(v);
+				Add((IfcPositiveInteger)v);
 			}
 		}
 		public static implicit operator IfcLineIndex(List<int> x) { return new IfcLineIndex(x); }
 		public static implicit operator List<int>(IfcLineIndex x)
 		{
-			List<int> y = new List<int>();
+			IfcLineIndex y = new IfcLineIndex();
 			foreach (var v in x)
 			{
 				y.Add(v);
@@ -703,7 +697,7 @@ namespace IFC4
 		public static implicit operator int(IfcMonthInYearNumber x) { return x.Value; }
 	}
 
-	public class IfcNonNegativeLengthMeasure : IfcLengthMeasure, IfcMeasureValue
+	public class IfcNonNegativeLengthMeasure : IfcLengthMeasure, IfcBendingParameterSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcNonNegativeLengthMeasure() { }
 		public IfcNonNegativeLengthMeasure(double value) { Value = value; }
@@ -711,7 +705,7 @@ namespace IFC4
 		public static implicit operator double(IfcNonNegativeLengthMeasure x) { return x.Value; }
 	}
 
-	public class IfcNormalisedRatioMeasure : IfcRatioMeasure, IfcColourOrFactor, IfcMeasureValue, IfcSizeSelect
+	public class IfcNormalisedRatioMeasure : IfcRatioMeasure, IfcColourOrFactor, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
 		public IfcNormalisedRatioMeasure() { }
 		public IfcNormalisedRatioMeasure(double value) { Value = value; }
@@ -767,7 +761,7 @@ namespace IFC4
 		public static implicit operator int(IfcPositiveInteger x) { return x.Value; }
 	}
 
-	public class IfcPositiveLengthMeasure : IfcLengthMeasure, IfcHatchLineDistanceSelect, IfcMeasureValue, IfcSizeSelect
+	public class IfcPositiveLengthMeasure : IfcLengthMeasure, IfcBendingParameterSelect, IfcHatchLineDistanceSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcPositiveLengthMeasure() { }
 		public IfcPositiveLengthMeasure(double value) { Value = value; }
@@ -775,7 +769,7 @@ namespace IFC4
 		public static implicit operator double(IfcPositiveLengthMeasure x) { return x.Value; }
 	}
 
-	public class IfcPositivePlaneAngleMeasure : IfcPlaneAngleMeasure, IfcMeasureValue
+	public class IfcPositivePlaneAngleMeasure : IfcPlaneAngleMeasure, IfcBendingParameterSelect, IfcMeasureValue
 	{
 		public IfcPositivePlaneAngleMeasure() { }
 		public IfcPositivePlaneAngleMeasure(double value) { Value = value; }
@@ -783,7 +777,7 @@ namespace IFC4
 		public static implicit operator double(IfcPositivePlaneAngleMeasure x) { return x.Value; }
 	}
 
-	public class IfcPositiveRatioMeasure : IfcRatioMeasure, IfcMeasureValue, IfcSizeSelect
+	public class IfcPositiveRatioMeasure : IfcRatioMeasure, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
 		public IfcPositiveRatioMeasure() { }
 		public IfcPositiveRatioMeasure(double value) { Value = value; }
@@ -817,10 +811,7 @@ namespace IFC4
 
 	public class IfcPropertySetDefinitionSet : List<IfcPropertySetDefinition>, IfcPropertySetDefinitionSelect
 	{
-
-		public IfcPropertySetDefinitionSet()
-		{
-		}
+		public IfcPropertySetDefinitionSet() { }
 		public IfcPropertySetDefinitionSet(List<IfcPropertySetDefinition> value)
 		{
 			Clear();
@@ -4441,6 +4432,7 @@ namespace IFC4
 
 	public interface IfcActorSelect
 	{
+		List<IfcActorRole> GetRoles();
 	}
 
 	public interface IfcAppliedValueSelect
@@ -4449,9 +4441,12 @@ namespace IFC4
 
 	public interface IfcAxis2Placement
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
+		IfcCartesianPoint GetLocation();
+		IfcDimensionCount GetDim();
 		IfcDirection GetRefDirection();
 		List<IfcDirection> GetP();
-		public IfcCartesianPoint GetLocation();
 	}
 
 	public interface IfcBendingParameterSelect
@@ -4460,23 +4455,30 @@ namespace IFC4
 
 	public interface IfcBooleanOperand
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 		IfcDimensionCount GetDim();
 	}
 
 	public interface IfcClassificationReferenceSelect
 	{
+		IfcLabel GetName();
 		IfcText GetDescription();
+		IfcURIReference GetLocation();
 		List<IfcClassificationReference> GetHasReferences();
 	}
 
 	public interface IfcClassificationSelect
 	{
+		IfcLabel GetName();
 		IfcText GetDescription();
+		IfcURIReference GetLocation();
 		List<IfcClassificationReference> GetHasReferences();
 	}
 
 	public interface IfcColour : IfcFillStyleSelect
 	{
+		IfcLabel GetName();
 	}
 
 	public interface IfcColourOrFactor
@@ -4490,6 +4492,8 @@ namespace IFC4
 
 	public interface IfcCsgSelect
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 		IfcDimensionCount GetDim();
 	}
 
@@ -4499,18 +4503,28 @@ namespace IFC4
 
 	public interface IfcCurveOnSurface
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
+		IfcDimensionCount GetDim();
 	}
 
 	public interface IfcCurveOrEdgeCurve
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 	}
 
 	public interface IfcCurveStyleFontSelect : IfcCurveFontOrScaledCurveFontSelect
 	{
+		IfcLabel GetName();
 	}
 
 	public interface IfcDefinitionSelect
 	{
+		IfcGloballyUniqueId GetGlobalId();
+		IfcOwnerHistory GetOwnerHistory();
+		IfcLabel GetName();
+		IfcText GetDescription();
 		List<IfcRelDeclares> GetHasContext();
 		List<IfcRelAssociates> GetHasAssociations();
 	}
@@ -4521,7 +4535,10 @@ namespace IFC4
 
 	public interface IfcDocumentSelect
 	{
+		IfcIdentifier GetIdentification();
+		IfcLabel GetName();
 		IfcText GetDescription();
+		IfcURIReference GetLocation();
 	}
 
 	public interface IfcFillStyleSelect
@@ -4530,13 +4547,13 @@ namespace IFC4
 
 	public interface IfcGeometricSetSelect
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 		IfcDimensionCount GetDim();
 	}
 
 	public interface IfcGridPlacementDirectionSelect
 	{
-		List<IfcReal> GetDirectionRatios();
-		IfcDimensionCount GetDim();
 	}
 
 	public interface IfcHatchLineDistanceSelect
@@ -4549,15 +4566,13 @@ namespace IFC4
 
 	public interface IfcLibrarySelect
 	{
+		IfcLabel GetName();
+		IfcURIReference GetLocation();
 		IfcText GetDescription();
 	}
 
 	public interface IfcLightDistributionDataSourceSelect
 	{
-		IfcURIReference GetLocation();
-		IfcIdentifier GetIdentification();
-		IfcLabel GetName();
-		List<IfcExternalReferenceRelationship> GetExternalReferenceForResources();
 	}
 
 	public interface IfcMaterialSelect
@@ -4590,6 +4605,8 @@ namespace IFC4
 
 	public interface IfcPointOrVertexPoint
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 	}
 
 	public interface IfcPresentationStyleSelect
@@ -4598,6 +4615,17 @@ namespace IFC4
 
 	public interface IfcProcessSelect
 	{
+		IfcGloballyUniqueId GetGlobalId();
+		IfcOwnerHistory GetOwnerHistory();
+		IfcLabel GetName();
+		IfcText GetDescription();
+		List<IfcRelAssigns> GetHasAssignments();
+		List<IfcRelNests> GetNests();
+		List<IfcRelNests> GetIsNestedBy();
+		List<IfcRelDeclares> GetHasContext();
+		List<IfcRelAggregates> GetIsDecomposedBy();
+		List<IfcRelAggregates> GetDecomposes();
+		List<IfcRelAssociates> GetHasAssociations();
 		IfcIdentifier GetIdentification();
 		IfcText GetLongDescription();
 		List<IfcRelAssignsToProcess> GetOperatesOn();
@@ -4605,12 +4633,22 @@ namespace IFC4
 
 	public interface IfcProductRepresentationSelect
 	{
-		List<IfcProduct> GetShapeOfProduct();
 		List<IfcShapeAspect> GetHasShapeAspects();
 	}
 
 	public interface IfcProductSelect
 	{
+		IfcGloballyUniqueId GetGlobalId();
+		IfcOwnerHistory GetOwnerHistory();
+		IfcLabel GetName();
+		IfcText GetDescription();
+		List<IfcRelAssigns> GetHasAssignments();
+		List<IfcRelNests> GetNests();
+		List<IfcRelNests> GetIsNestedBy();
+		List<IfcRelDeclares> GetHasContext();
+		List<IfcRelAggregates> GetIsDecomposedBy();
+		List<IfcRelAggregates> GetDecomposes();
+		List<IfcRelAssociates> GetHasAssociations();
 		List<IfcRelAssignsToProduct> GetReferencedBy();
 	}
 
@@ -4624,9 +4662,22 @@ namespace IFC4
 
 	public interface IfcResourceSelect
 	{
+		IfcGloballyUniqueId GetGlobalId();
+		IfcOwnerHistory GetOwnerHistory();
+		IfcLabel GetName();
+		IfcText GetDescription();
+		List<IfcRelAssigns> GetHasAssignments();
+		List<IfcRelNests> GetNests();
+		List<IfcRelNests> GetIsNestedBy();
+		List<IfcRelDeclares> GetHasContext();
+		List<IfcRelAggregates> GetIsDecomposedBy();
+		List<IfcRelAggregates> GetDecomposes();
+		List<IfcRelAssociates> GetHasAssociations();
 		IfcIdentifier GetIdentification();
 		IfcText GetLongDescription();
 		List<IfcRelAssignsToResource> GetResourceOf();
+		List<IfcAppliedValue> GetBaseCosts();
+		IfcPhysicalQuantity GetBaseQuantity();
 	}
 
 	public interface IfcRotationalStiffnessSelect
@@ -4640,6 +4691,9 @@ namespace IFC4
 
 	public interface IfcShell
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
+		List<IfcFace> GetCfsFaces();
 	}
 
 	public interface IfcSimpleValue : IfcValue
@@ -4652,10 +4706,35 @@ namespace IFC4
 
 	public interface IfcSolidOrShell
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 	}
 
 	public interface IfcSpaceBoundarySelect
 	{
+		IfcGloballyUniqueId GetGlobalId();
+		IfcOwnerHistory GetOwnerHistory();
+		IfcLabel GetName();
+		IfcText GetDescription();
+		List<IfcRelAssigns> GetHasAssignments();
+		List<IfcRelNests> GetNests();
+		List<IfcRelNests> GetIsNestedBy();
+		List<IfcRelDeclares> GetHasContext();
+		List<IfcRelAggregates> GetIsDecomposedBy();
+		List<IfcRelAggregates> GetDecomposes();
+		List<IfcRelAssociates> GetHasAssociations();
+		IfcLabel GetObjectType();
+		List<IfcRelDefinesByObject> GetIsDeclaredBy();
+		List<IfcRelDefinesByObject> GetDeclares();
+		List<IfcRelDefinesByType> GetIsTypedBy();
+		List<IfcRelDefinesByProperties> GetIsDefinedBy();
+		IfcObjectPlacement GetObjectPlacement();
+		IfcProductRepresentation GetRepresentation();
+		List<IfcRelAssignsToProduct> GetReferencedBy();
+		IfcLabel GetLongName();
+		List<IfcRelContainedInSpatialStructure> GetContainsElements();
+		List<IfcRelServicesBuildings> GetServicedBySystems();
+		List<IfcRelReferencedInSpatialStructure> GetReferencesElements();
 		List<IfcRelSpaceBoundary> GetBoundedBy();
 	}
 
@@ -4665,15 +4744,35 @@ namespace IFC4
 
 	public interface IfcStructuralActivityAssignmentSelect
 	{
+		IfcGloballyUniqueId GetGlobalId();
+		IfcOwnerHistory GetOwnerHistory();
+		IfcLabel GetName();
+		IfcText GetDescription();
+		List<IfcRelAssigns> GetHasAssignments();
+		List<IfcRelNests> GetNests();
+		List<IfcRelNests> GetIsNestedBy();
+		List<IfcRelDeclares> GetHasContext();
+		List<IfcRelAggregates> GetIsDecomposedBy();
+		List<IfcRelAggregates> GetDecomposes();
+		List<IfcRelAssociates> GetHasAssociations();
+		IfcLabel GetObjectType();
+		List<IfcRelDefinesByObject> GetIsDeclaredBy();
+		List<IfcRelDefinesByObject> GetDeclares();
+		List<IfcRelDefinesByType> GetIsTypedBy();
+		List<IfcRelDefinesByProperties> GetIsDefinedBy();
+		IfcObjectPlacement GetObjectPlacement();
+		IfcProductRepresentation GetRepresentation();
+		List<IfcRelAssignsToProduct> GetReferencedBy();
 	}
 
 	public interface IfcStyleAssignmentSelect
 	{
-	//	IfcLabel GetName();
 	}
 
 	public interface IfcSurfaceOrFaceSurface
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 	}
 
 	public interface IfcSurfaceStyleElementSelect
@@ -4682,6 +4781,7 @@ namespace IFC4
 
 	public interface IfcTextFontSelect
 	{
+		IfcLabel GetName();
 	}
 
 	public interface IfcTimeOrRatioSelect
@@ -4698,8 +4798,6 @@ namespace IFC4
 
 	public interface IfcUnit
 	{
-		//IfcDimensionalExponents GetDimensions();
-	//	IfcUnitEnum GetUnitType();
 	}
 
 	public interface IfcValue : IfcAppliedValueSelect, IfcMetricValueSelect
@@ -4708,6 +4806,8 @@ namespace IFC4
 
 	public interface IfcVectorOrDirection
 	{
+		List<IfcPresentationLayerAssignment> GetLayerAssignment();
+		List<IfcStyledItem> GetStyledByItem();
 		IfcDimensionCount GetDim();
 	}
 
@@ -4715,21 +4815,17 @@ namespace IFC4
 	{
 	}
 
-	public class IfcActionRequest : IfcControl
+	public class IfcActionRequest : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	PredefinedType : IfcActionRequestTypeEnum
-		//8	Status : IfcLabel
-		//9	LongDescription : IfcText
-
 		public IfcActionRequestTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcText LongDescription { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcActionRequest() { }
 
@@ -4747,18 +4843,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcActor : IfcObject
+	public class IfcActor : IfcObject, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	TheActor : IfcActorSelect
-
 		public IfcActorSelect TheActor { get; set; }
-		//INVERSE
 		public List<IfcRelAssignsToActor> IsActingUpon;
+		// INVERSE : IsActingUpon : SET [0:?] OF IfcRelAssignsToActor FOR RelatingActor;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcActor() { }
 
@@ -4773,17 +4868,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcActorRole : IfcBase
+	public class IfcActorRole : IfcBase, IfcResourceObjectSelect
 	{
-		//1	Role : IfcRoleEnum
-		//2	UserDefinedRole : IfcLabel
-		//3	Description : IfcText
-
 		public IfcRoleEnum Role { get; set; }
 		public IfcLabel UserDefinedRole { get; set; }
 		public IfcText Description { get; set; }
-		//INVERSE
 		public List<IfcExternalReferenceRelationship> HasExternalReference;
+		// INVERSE : HasExternalReference : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 
 		public IfcActorRole() { }
 
@@ -4795,18 +4886,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcActuator : IfcDistributionControlElement
+	public class IfcActuator : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcActuatorTypeEnum
-
 		public IfcActuatorTypeEnum PredefinedType { get; set; }
 
 		public IfcActuator() { }
@@ -4825,19 +4906,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcActuatorType : IfcDistributionControlElementType
+	public class IfcActuatorType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcActuatorTypeEnum
-
 		public IfcActuatorTypeEnum PredefinedType { get; set; }
 
 		public IfcActuatorType() { }
@@ -4859,16 +4929,13 @@ namespace IFC4
 
 	public abstract class IfcAddress : IfcBase, IfcObjectReferenceSelect
 	{
-		//1	Purpose : IfcAddressTypeEnum
-		//2	Description : IfcText
-		//3	UserDefinedPurpose : IfcLabel
-
 		public IfcAddressTypeEnum Purpose { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLabel UserDefinedPurpose { get; set; }
-		//INVERSE
 		public List<IfcPerson> OfPerson;
+		// INVERSE : OfPerson : SET [0:?] OF IfcPerson FOR Addresses;
 		public List<IfcOrganization> OfOrganization;
+		// INVERSE : OfOrganization : SET [0:?] OF IfcOrganization FOR Addresses;
 
 		public IfcAddress() { }
 
@@ -4880,10 +4947,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAdvancedBrep : IfcManifoldSolidBrep
+	public class IfcAdvancedBrep : IfcManifoldSolidBrep, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	Outer : IfcClosedShell
-
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 		public IfcAdvancedBrep() { }
 
 		public IfcAdvancedBrep(IfcClosedShell Outer)
@@ -4892,11 +4960,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAdvancedBrepWithVoids : IfcAdvancedBrep
+	public class IfcAdvancedBrepWithVoids : IfcAdvancedBrep, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	Outer : IfcClosedShell
-		//2	Voids : List<IfcClosedShell>
-
 		public List<IfcClosedShell> Voids { get; set; }
 
 		public IfcAdvancedBrepWithVoids() { }
@@ -4908,12 +4973,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAdvancedFace : IfcFaceSurface
+	public class IfcAdvancedFace : IfcFaceSurface, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	Bounds : List<IfcFaceBound>
-		//2	FaceSurface : IfcSurface
-		//3	SameSense : IfcBoolean
-
 		public IfcAdvancedFace() { }
 
 		public IfcAdvancedFace(List<IfcFaceBound> Bounds, IfcSurface FaceSurface, IfcBoolean SameSense)
@@ -4924,18 +4985,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAirTerminal : IfcFlowTerminal
+	public class IfcAirTerminal : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcAirTerminalTypeEnum
-
 		public IfcAirTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcAirTerminal() { }
@@ -4954,18 +5005,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAirTerminalBox : IfcFlowController
+	public class IfcAirTerminalBox : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcAirTerminalBoxTypeEnum
-
 		public IfcAirTerminalBoxTypeEnum PredefinedType { get; set; }
 
 		public IfcAirTerminalBox() { }
@@ -4984,19 +5025,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAirTerminalBoxType : IfcFlowControllerType
+	public class IfcAirTerminalBoxType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcAirTerminalBoxTypeEnum
-
 		public IfcAirTerminalBoxTypeEnum PredefinedType { get; set; }
 
 		public IfcAirTerminalBoxType() { }
@@ -5016,19 +5046,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAirTerminalType : IfcFlowTerminalType
+	public class IfcAirTerminalType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcAirTerminalTypeEnum
-
 		public IfcAirTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcAirTerminalType() { }
@@ -5048,18 +5067,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAirToAirHeatRecovery : IfcEnergyConversionDevice
+	public class IfcAirToAirHeatRecovery : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcAirToAirHeatRecoveryTypeEnum
-
 		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType { get; set; }
 
 		public IfcAirToAirHeatRecovery() { }
@@ -5078,19 +5087,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAirToAirHeatRecoveryType : IfcEnergyConversionDeviceType
+	public class IfcAirToAirHeatRecoveryType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcAirToAirHeatRecoveryTypeEnum
-
 		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType { get; set; }
 
 		public IfcAirToAirHeatRecoveryType() { }
@@ -5110,18 +5108,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAlarm : IfcDistributionControlElement
+	public class IfcAlarm : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcAlarmTypeEnum
-
 		public IfcAlarmTypeEnum PredefinedType { get; set; }
 
 		public IfcAlarm() { }
@@ -5140,19 +5128,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAlarmType : IfcDistributionControlElementType
+	public class IfcAlarmType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcAlarmTypeEnum
-
 		public IfcAlarmTypeEnum PredefinedType { get; set; }
 
 		public IfcAlarmType() { }
@@ -5172,18 +5149,22 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAnnotation : IfcProduct
+	public class IfcAnnotation : IfcProduct, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//INVERSE
 		public List<IfcRelContainedInSpatialStructure> ContainedInStructure;
-
+		// INVERSE : ContainedInStructure : SET [0:1] OF IfcRelContainedInSpatialStructure FOR RelatedElements;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 		public IfcAnnotation() { }
 
 		public IfcAnnotation(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
@@ -5198,11 +5179,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAnnotationFillArea : IfcGeometricRepresentationItem
+	public class IfcAnnotationFillArea : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	OuterBoundary : IfcCurve
-		//2	InnerBoundaries : List<IfcCurve>
-
 		public IfcCurve OuterBoundary { get; set; }
 		public List<IfcCurve> InnerBoundaries { get; set; }
 
@@ -5217,11 +5195,6 @@ namespace IFC4
 
 	public class IfcApplication : IfcBase
 	{
-		//1	ApplicationDeveloper : IfcOrganization
-		//2	Version : IfcLabel
-		//3	ApplicationFullName : IfcLabel
-		//4	ApplicationIdentifier : IfcIdentifier
-
 		public IfcOrganization ApplicationDeveloper { get; set; }
 		public IfcLabel Version { get; set; }
 		public IfcLabel ApplicationFullName { get; set; }
@@ -5240,17 +5213,6 @@ namespace IFC4
 
 	public class IfcAppliedValue : IfcBase, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	AppliedValue : IfcAppliedValueSelect
-		//4	UnitBasis : IfcMeasureWithUnit
-		//5	ApplicableDate : IfcDate
-		//6	FixedUntilDate : IfcDate
-		//7	Category : IfcLabel
-		//8	Condition : IfcLabel
-		//9	ArithmeticOperator : IfcArithmeticOperatorEnum
-		//10	Components : List<IfcAppliedValue>
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcAppliedValueSelect AppliedValue { get; set; }
@@ -5261,8 +5223,8 @@ namespace IFC4
 		public IfcLabel Condition { get; set; }
 		public IfcArithmeticOperatorEnum ArithmeticOperator { get; set; }
 		public List<IfcAppliedValue> Components { get; set; }
-		//INVERSE
 		public List<IfcExternalReferenceRelationship> HasExternalReference;
+		// INVERSE : HasExternalReference : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 
 		public IfcAppliedValue() { }
 
@@ -5281,18 +5243,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcApproval : IfcBase
+	public class IfcApproval : IfcBase, IfcResourceObjectSelect
 	{
-		//1	Identifier : IfcIdentifier
-		//2	Name : IfcLabel
-		//3	Description : IfcText
-		//4	TimeOfApproval : IfcDateTime
-		//5	Status : IfcLabel
-		//6	Level : IfcLabel
-		//7	Qualifier : IfcText
-		//8	RequestingApproval : IfcActorSelect
-		//9	GivingApproval : IfcActorSelect
-
 		public IfcIdentifier Identifier { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -5302,12 +5254,16 @@ namespace IFC4
 		public IfcText Qualifier { get; set; }
 		public IfcActorSelect RequestingApproval { get; set; }
 		public IfcActorSelect GivingApproval { get; set; }
-		//INVERSE
 		public List<IfcExternalReferenceRelationship> HasExternalReferences;
+		// INVERSE : HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 		public List<IfcRelAssociatesApproval> ApprovedObjects;
+		// INVERSE : ApprovedObjects : SET [0:?] OF IfcRelAssociatesApproval FOR RelatingApproval;
 		public List<IfcResourceApprovalRelationship> ApprovedResources;
+		// INVERSE : ApprovedResources : SET [0:?] OF IfcResourceApprovalRelationship FOR RelatingApproval;
 		public List<IfcApprovalRelationship> IsRelatedWith;
+		// INVERSE : IsRelatedWith : SET [0:?] OF IfcApprovalRelationship FOR RelatedApprovals;
 		public List<IfcApprovalRelationship> Relates;
+		// INVERSE : Relates : SET [0:?] OF IfcApprovalRelationship FOR RelatingApproval;
 
 		public IfcApproval() { }
 
@@ -5327,11 +5283,6 @@ namespace IFC4
 
 	public class IfcApprovalRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingApproval : IfcApproval
-		//4	RelatedApprovals : List<IfcApproval>
-
 		public IfcApproval RelatingApproval { get; set; }
 		public List<IfcApproval> RelatedApprovals { get; set; }
 
@@ -5346,12 +5297,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcArbitraryClosedProfileDef : IfcProfileDef
+	public class IfcArbitraryClosedProfileDef : IfcProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	OuterCurve : IfcCurve
-
 		public IfcCurve OuterCurve { get; set; }
 
 		public IfcArbitraryClosedProfileDef() { }
@@ -5364,12 +5311,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcArbitraryOpenProfileDef : IfcProfileDef
+	public class IfcArbitraryOpenProfileDef : IfcProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Curve : IfcBoundedCurve
-
 		public IfcBoundedCurve Curve { get; set; }
 
 		public IfcArbitraryOpenProfileDef() { }
@@ -5382,13 +5325,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcArbitraryProfileDefWithVoids : IfcArbitraryClosedProfileDef
+	public class IfcArbitraryProfileDefWithVoids : IfcArbitraryClosedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	OuterCurve : IfcCurve
-		//4	InnerCurves : List<IfcCurve>
-
 		public List<IfcCurve> InnerCurves { get; set; }
 
 		public IfcArbitraryProfileDefWithVoids() { }
@@ -5402,23 +5340,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAsset : IfcGroup
+	public class IfcAsset : IfcGroup, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	OriginalValue : IfcCostValue
-		//8	CurrentValue : IfcCostValue
-		//9	TotalReplacementCost : IfcCostValue
-		//10	Owner : IfcActorSelect
-		//11	User : IfcActorSelect
-		//12	ResponsiblePerson : IfcPerson
-		//13	IncorporationDate : IfcDate
-		//14	DepreciatedValue : IfcCostValue
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcCostValue OriginalValue { get; set; }
 		public IfcCostValue CurrentValue { get; set; }
@@ -5450,24 +5373,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAsymmetricIShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcAsymmetricIShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	BottomFlangeWidth : IfcPositiveLengthMeasure
-		//5	OverallDepth : IfcPositiveLengthMeasure
-		//6	WebThickness : IfcPositiveLengthMeasure
-		//7	BottomFlangeThickness : IfcPositiveLengthMeasure
-		//8	BottomFlangeFilletRadius : IfcNonNegativeLengthMeasure
-		//9	TopFlangeWidth : IfcPositiveLengthMeasure
-		//10	TopFlangeThickness : IfcPositiveLengthMeasure
-		//11	TopFlangeFilletRadius : IfcNonNegativeLengthMeasure
-		//12	BottomFlangeEdgeRadius : IfcNonNegativeLengthMeasure
-		//13	BottomFlangeSlope : IfcPlaneAngleMeasure
-		//14	TopFlangeEdgeRadius : IfcNonNegativeLengthMeasure
-		//15	TopFlangeSlope : IfcPlaneAngleMeasure
-
 		public IfcPositiveLengthMeasure BottomFlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure OverallDepth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -5503,18 +5410,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAudioVisualAppliance : IfcFlowTerminal
+	public class IfcAudioVisualAppliance : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcAudioVisualApplianceTypeEnum
-
 		public IfcAudioVisualApplianceTypeEnum PredefinedType { get; set; }
 
 		public IfcAudioVisualAppliance() { }
@@ -5533,19 +5430,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAudioVisualApplianceType : IfcFlowTerminalType
+	public class IfcAudioVisualApplianceType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcAudioVisualApplianceTypeEnum
-
 		public IfcAudioVisualApplianceTypeEnum PredefinedType { get; set; }
 
 		public IfcAudioVisualApplianceType() { }
@@ -5565,14 +5451,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAxis1Placement : IfcPlacement
+	public class IfcAxis1Placement : IfcPlacement, IfcLayeredItem
 	{
-		//1	Location : IfcCartesianPoint
-		//2	Axis : IfcDirection
-
 		public IfcDirection Axis { get; set; }
-		public IfcDirection Z => NVL(IfcNormalise(Axis), new IfcDirection(0, 0, 1));
-		// (DERIVE)	Z : IfcDirection := NVL (IfcNormalise(Axis), IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcDirection([0.0,0.0,1.0])); {get;set;}
+		public IfcDirection Z => GetDirection(0, 0, 1);
+		// DERIVE : Z : IfcDirection := NVL (IfcNormalise(Axis), IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcDirection([0.0,0.0,1.0]));
 
 		public IfcAxis1Placement() { }
 
@@ -5583,18 +5466,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAxis2Placement2D : IfcPlacement, IfcAxis2Placement
+	public class IfcAxis2Placement2D : IfcPlacement, IfcAxis2Placement, IfcLayeredItem
 	{
-		//1	Location : IfcCartesianPoint
-		//2	RefDirection : IfcDirection
-
 		public IfcDirection RefDirection { get; set; }
 		public List<IfcDirection> P => IfcBuild2Axes(RefDirection);
-		// (DERIVE)	P : LIST [2:2] OF IfcDirection := IfcBuild2Axes(RefDirection); {get;set;}
-		public IfcDirection GetRefDirection() { return RefDirection; }
-
-		public List<IfcDirection> GetP() { return P; }
+		// DERIVE : P : LIST [2:2] OF IfcDirection := IfcBuild2Axes(RefDirection);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 		public IfcCartesianPoint GetLocation() { return Location; }
+		public IfcDimensionCount GetDim() { return Dim; }
+		public IfcDirection GetRefDirection() { return RefDirection; }
+		public List<IfcDirection> GetP() { return P; }
+
 		public IfcAxis2Placement2D() { }
 
 		public IfcAxis2Placement2D(IfcCartesianPoint Location, IfcDirection RefDirection)
@@ -5604,20 +5487,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcAxis2Placement3D : IfcPlacement, IfcAxis2Placement
+	public class IfcAxis2Placement3D : IfcPlacement, IfcAxis2Placement, IfcLayeredItem
 	{
-		//1	Location : IfcCartesianPoint
-		//2	Axis : IfcDirection
-		//3	RefDirection : IfcDirection
-
 		public IfcDirection Axis { get; set; }
 		public IfcDirection RefDirection { get; set; }
-		public List<IfcDirection> P => Axis != null? IfcBuildAxes(Axis, RefDirection): new List<IfcDirection>() {new IfcDirection(1,0,0), new IfcDirection(0, 1, 0), new IfcDirection(0, 0, 1) };
-		// (DERIVE)	P : LIST [3:3] OF IfcDirection := IfcBuildAxes(Axis, RefDirection); {get;set;}
+		public List<IfcDirection> P => Axis != null ? IfcBuildAxes(Axis, RefDirection) : new List<IfcDirection>() { GetDirection(1, 0, 0), GetDirection(0, 1, 0), GetDirection(0, 0, 1) };
+		// DERIVE : P : LIST [3:3] OF IfcDirection := IfcBuildAxes(Axis, RefDirection);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcCartesianPoint GetLocation() { return Location; }
+		public IfcDimensionCount GetDim() { return Dim; }
 		public IfcDirection GetRefDirection() { return RefDirection; }
 		public List<IfcDirection> GetP() { return P; }
 
-		public IfcCartesianPoint GetLocation() { return Location; }
 		public IfcAxis2Placement3D() { }
 
 		public IfcAxis2Placement3D(IfcCartesianPoint Location, IfcDirection Axis, IfcDirection RefDirection)
@@ -5628,23 +5510,18 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcBSplineCurve : IfcBoundedCurve
+	public abstract class IfcBSplineCurve : IfcBoundedCurve, IfcLayeredItem
 	{
-		//1	Degree : IfcInteger
-		//2	ControlPointsList : List<IfcCartesianPoint>
-		//3	CurveForm : IfcBSplineCurveForm
-		//4	ClosedCurve : IfcLogical
-		//5	SelfIntersect : IfcLogical
-
 		public IfcInteger Degree { get; set; }
 		public List<IfcCartesianPoint> ControlPointsList { get; set; }
 		public IfcBSplineCurveForm CurveForm { get; set; }
 		public IfcLogical ClosedCurve { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcInteger UpperIndexOnControlPoints => ControlPointsList.Count;
-		// (DERIVE)	UpperIndexOnControlPoints : IfcInteger := (SIZEOF(ControlPointsList) - 1); {get;set;}
+		// DERIVE : UpperIndexOnControlPoints : IfcInteger := (SIZEOF(ControlPointsList) - 1);
 		public List<IfcCartesianPoint> ControlPoints => IfcListToArray(ControlPointsList, 0, UpperIndexOnControlPoints);
-		//// (DERIVE)	ControlPoints : ARRAY [0:UpperIndexOnControlPoints] OF IfcCartesianPoint := IfcListToArray(ControlPointsList,0,UpperIndexOnControlPoints); {get;set;}
+		// DERIVE : ControlPoints : ARRAY [0:UpperIndexOnControlPoints] OF IfcCartesianPoint := IfcListToArray(ControlPointsList,0,UpperIndexOnControlPoints);
+
 		public IfcBSplineCurve() { }
 
 		public IfcBSplineCurve(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect)
@@ -5657,22 +5534,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBSplineCurveWithKnots : IfcBSplineCurve
+	public class IfcBSplineCurveWithKnots : IfcBSplineCurve, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Degree : IfcInteger
-		//2	ControlPointsList : List<IfcCartesianPoint>
-		//3	CurveForm : IfcBSplineCurveForm
-		//4	ClosedCurve : IfcLogical
-		//5	SelfIntersect : IfcLogical
-		//6	KnotMultiplicities : List<IfcInteger>
-		//7	Knots : List<IfcParameterValue>
-		//8	KnotSpec : IfcKnotType
-
 		public List<IfcInteger> KnotMultiplicities { get; set; }
 		public List<IfcParameterValue> Knots { get; set; }
 		public IfcKnotType KnotSpec { get; set; }
 		public IfcInteger UpperIndexOnKnots => Knots.Count;
-		// (DERIVE)	UpperIndexOnKnots : IfcInteger := SIZEOF(Knots); {get;set;}
+		// DERIVE : UpperIndexOnKnots : IfcInteger := SIZEOF(Knots);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcBSplineCurveWithKnots() { }
 
 		public IfcBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec)
@@ -5688,16 +5560,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcBSplineSurface : IfcBoundedSurface
+	public abstract class IfcBSplineSurface : IfcBoundedSurface, IfcLayeredItem
 	{
-		//1	UDegree : IfcInteger
-		//2	VDegree : IfcInteger
-		//3	ControlPointsList : List<List<IfcCartesianPoint>>
-		//4	SurfaceForm : IfcBSplineSurfaceForm
-		//5	UClosed : IfcLogical
-		//6	VClosed : IfcLogical
-		//7	SelfIntersect : IfcLogical
-
 		public IfcInteger UDegree { get; set; }
 		public IfcInteger VDegree { get; set; }
 		public List<List<IfcCartesianPoint>> ControlPointsList { get; set; }
@@ -5706,11 +5570,11 @@ namespace IFC4
 		public IfcLogical VClosed { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcInteger UUpper => ControlPointsList.Count;
-		// (DERIVE)	UUpper : IfcInteger := SIZEOF(ControlPointsList) - 1; {get;set;}
+		// DERIVE : UUpper : IfcInteger := SIZEOF(ControlPointsList) - 1;
 		public IfcInteger VUpper => ControlPointsList[0].Count;
-		// (DERIVE)	VUpper : IfcInteger := SIZEOF(ControlPointsList[1]) - 1; {get;set;}
+		// DERIVE : VUpper : IfcInteger := SIZEOF(ControlPointsList[1]) - 1;
 		public List<List<IfcCartesianPoint>> ControlPoints => IfcMakeArrayOfArray(ControlPointsList, 0, UUpper, 0, VUpper);
-		// (DERIVE)	ControlPoints : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcCartesianPoint := IfcMakeArrayOfArray(ControlPointsList, {get;set;}
+		// DERIVE : ControlPoints : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcCartesianPoint := IfcMakeArrayOfArray(ControlPointsList,
 
 		public IfcBSplineSurface() { }
 
@@ -5726,30 +5590,20 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBSplineSurfaceWithKnots : IfcBSplineSurface
+	public class IfcBSplineSurfaceWithKnots : IfcBSplineSurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	UDegree : IfcInteger
-		//2	VDegree : IfcInteger
-		//3	ControlPointsList : List<List<IfcCartesianPoint>>
-		//4	SurfaceForm : IfcBSplineSurfaceForm
-		//5	UClosed : IfcLogical
-		//6	VClosed : IfcLogical
-		//7	SelfIntersect : IfcLogical
-		//8	UMultiplicities : List<IfcInteger>
-		//9	VMultiplicities : List<IfcInteger>
-		//10	UKnots : List<IfcParameterValue>
-		//11	VKnots : List<IfcParameterValue>
-		//12	KnotSpec : IfcKnotType
-
 		public List<IfcInteger> UMultiplicities { get; set; }
 		public List<IfcInteger> VMultiplicities { get; set; }
 		public List<IfcParameterValue> UKnots { get; set; }
 		public List<IfcParameterValue> VKnots { get; set; }
 		public IfcKnotType KnotSpec { get; set; }
 		public IfcInteger KnotVUpper => VKnots.Count;
-		// (DERIVE)	KnotVUpper : IfcInteger := SIZEOF(VKnots); {get;set;}
+		// DERIVE : KnotVUpper : IfcInteger := SIZEOF(VKnots);
 		public IfcInteger KnotUUpper => UKnots.Count;
-		// (DERIVE)	KnotUUpper : IfcInteger := SIZEOF(UKnots); {get;set;}
+		// DERIVE : KnotUUpper : IfcInteger := SIZEOF(UKnots);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcBSplineSurfaceWithKnots() { }
 
@@ -5770,19 +5624,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBeam : IfcBuildingElement
+	public class IfcBeam : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcBeamTypeEnum
-
 		public IfcBeamTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcBeam() { }
 
@@ -5800,18 +5663,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBeamStandardCase : IfcBeam
+	public class IfcBeamStandardCase : IfcBeam, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcBeamTypeEnum
-
 		public IfcBeamStandardCase() { }
 
 		public IfcBeamStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcBeamTypeEnum PredefinedType)
@@ -5828,19 +5681,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBeamType : IfcBuildingElementType
+	public class IfcBeamType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcBeamTypeEnum
-
 		public IfcBeamTypeEnum PredefinedType { get; set; }
 
 		public IfcBeamType() { }
@@ -5862,14 +5704,6 @@ namespace IFC4
 
 	public class IfcBlobTexture : IfcSurfaceTexture
 	{
-		//1	RepeatS : IfcBoolean
-		//2	RepeatT : IfcBoolean
-		//3	Mode : IfcIdentifier
-		//4	TextureTransform : IfcCartesianTransformationOperator2D
-		//5	Parameter : List<IfcIdentifier>
-		//6	RasterFormat : IfcIdentifier
-		//7	RasterCode : IfcBinary
-
 		public IfcIdentifier RasterFormat { get; set; }
 		public IfcBinary RasterCode { get; set; }
 
@@ -5887,16 +5721,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBlock : IfcCsgPrimitive3D
+	public class IfcBlock : IfcCsgPrimitive3D, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	XLength : IfcPositiveLengthMeasure
-		//3	YLength : IfcPositiveLengthMeasure
-		//4	ZLength : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure XLength { get; set; }
 		public IfcPositiveLengthMeasure YLength { get; set; }
 		public IfcPositiveLengthMeasure ZLength { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcBlock() { }
 
@@ -5909,18 +5741,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBoiler : IfcEnergyConversionDevice
+	public class IfcBoiler : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcBoilerTypeEnum
-
 		public IfcBoilerTypeEnum PredefinedType { get; set; }
 
 		public IfcBoiler() { }
@@ -5939,19 +5761,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBoilerType : IfcEnergyConversionDeviceType
+	public class IfcBoilerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcBoilerTypeEnum
-
 		public IfcBoilerTypeEnum PredefinedType { get; set; }
 
 		public IfcBoilerType() { }
@@ -5971,12 +5782,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBooleanClippingResult : IfcBooleanResult
+	public class IfcBooleanClippingResult : IfcBooleanResult, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Operator : IfcBooleanOperator
-		//2	FirstOperand : IfcBooleanOperand
-		//3	SecondOperand : IfcBooleanOperand
-
 		public IfcBooleanClippingResult() { }
 
 		public IfcBooleanClippingResult(IfcBooleanOperator Operator, IfcBooleanOperand FirstOperand, IfcBooleanOperand SecondOperand)
@@ -5987,17 +5794,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBooleanResult : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcCsgSelect
+	public class IfcBooleanResult : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Operator : IfcBooleanOperator
-		//2	FirstOperand : IfcBooleanOperand
-		//3	SecondOperand : IfcBooleanOperand
-
 		public IfcBooleanOperator Operator { get; set; }
 		public IfcBooleanOperand FirstOperand { get; set; }
 		public IfcBooleanOperand SecondOperand { get; set; }
 		public IfcDimensionCount Dim => FirstOperand.GetDim();
-		// (DERIVE)	Dim : IfcDimensionCount := FirstOperand.Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := FirstOperand.Dim;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcBooleanResult() { }
@@ -6012,8 +5817,6 @@ namespace IFC4
 
 	public abstract class IfcBoundaryCondition : IfcBase
 	{
-		//1	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
 
 		public IfcBoundaryCondition() { }
@@ -6024,11 +5827,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBoundaryCurve : IfcCompositeCurveOnSurface
+	public class IfcBoundaryCurve : IfcCompositeCurveOnSurface, IfcCurveOnSurface, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Segments : List<IfcCompositeCurveSegment>
-		//2	SelfIntersect : IfcLogical
-
 		public IfcBoundaryCurve() { }
 
 		public IfcBoundaryCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
@@ -6040,14 +5840,6 @@ namespace IFC4
 
 	public class IfcBoundaryEdgeCondition : IfcBoundaryCondition
 	{
-		//1	Name : IfcLabel
-		//2	TranslationalStiffnessByLengthX : IfcModulusOfTranslationalSubgradeReactionSelect
-		//3	TranslationalStiffnessByLengthY : IfcModulusOfTranslationalSubgradeReactionSelect
-		//4	TranslationalStiffnessByLengthZ : IfcModulusOfTranslationalSubgradeReactionSelect
-		//5	RotationalStiffnessByLengthX : IfcModulusOfRotationalSubgradeReactionSelect
-		//6	RotationalStiffnessByLengthY : IfcModulusOfRotationalSubgradeReactionSelect
-		//7	RotationalStiffnessByLengthZ : IfcModulusOfRotationalSubgradeReactionSelect
-
 		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthX { get; set; }
 		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthY { get; set; }
 		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthZ { get; set; }
@@ -6071,11 +5863,6 @@ namespace IFC4
 
 	public class IfcBoundaryFaceCondition : IfcBoundaryCondition
 	{
-		//1	Name : IfcLabel
-		//2	TranslationalStiffnessByAreaX : IfcModulusOfSubgradeReactionSelect
-		//3	TranslationalStiffnessByAreaY : IfcModulusOfSubgradeReactionSelect
-		//4	TranslationalStiffnessByAreaZ : IfcModulusOfSubgradeReactionSelect
-
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaX { get; set; }
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaY { get; set; }
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaZ { get; set; }
@@ -6093,14 +5880,6 @@ namespace IFC4
 
 	public class IfcBoundaryNodeCondition : IfcBoundaryCondition
 	{
-		//1	Name : IfcLabel
-		//2	TranslationalStiffnessX : IfcTranslationalStiffnessSelect
-		//3	TranslationalStiffnessY : IfcTranslationalStiffnessSelect
-		//4	TranslationalStiffnessZ : IfcTranslationalStiffnessSelect
-		//5	RotationalStiffnessX : IfcRotationalStiffnessSelect
-		//6	RotationalStiffnessY : IfcRotationalStiffnessSelect
-		//7	RotationalStiffnessZ : IfcRotationalStiffnessSelect
-
 		public IfcTranslationalStiffnessSelect TranslationalStiffnessX { get; set; }
 		public IfcTranslationalStiffnessSelect TranslationalStiffnessY { get; set; }
 		public IfcTranslationalStiffnessSelect TranslationalStiffnessZ { get; set; }
@@ -6124,15 +5903,6 @@ namespace IFC4
 
 	public class IfcBoundaryNodeConditionWarping : IfcBoundaryNodeCondition
 	{
-		//1	Name : IfcLabel
-		//2	TranslationalStiffnessX : IfcTranslationalStiffnessSelect
-		//3	TranslationalStiffnessY : IfcTranslationalStiffnessSelect
-		//4	TranslationalStiffnessZ : IfcTranslationalStiffnessSelect
-		//5	RotationalStiffnessX : IfcRotationalStiffnessSelect
-		//6	RotationalStiffnessY : IfcRotationalStiffnessSelect
-		//7	RotationalStiffnessZ : IfcRotationalStiffnessSelect
-		//8	WarpingStiffness : IfcWarpingStiffnessSelect
-
 		public IfcWarpingStiffnessSelect WarpingStiffness { get; set; }
 
 		public IfcBoundaryNodeConditionWarping() { }
@@ -6150,28 +5920,24 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcBoundedCurve : IfcCurve, IfcCurveOrEdgeCurve
+	public abstract class IfcBoundedCurve : IfcCurve, IfcLayeredItem
 	{
 		public IfcBoundedCurve() { }
 	}
 
-	public abstract class IfcBoundedSurface : IfcSurface
+	public abstract class IfcBoundedSurface : IfcSurface, IfcLayeredItem
 	{
 		public IfcBoundedSurface() { }
 	}
 
-	public class IfcBoundingBox : IfcGeometricRepresentationItem
+	public class IfcBoundingBox : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Corner : IfcCartesianPoint
-		//2	XDim : IfcPositiveLengthMeasure
-		//3	YDim : IfcPositiveLengthMeasure
-		//4	ZDim : IfcPositiveLengthMeasure
-
 		public IfcCartesianPoint Corner { get; set; }
 		public IfcPositiveLengthMeasure XDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
 		public IfcPositiveLengthMeasure ZDim { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// DERIVE : Dim : IfcDimensionCount := 3;
 
 		public IfcBoundingBox() { }
 
@@ -6184,12 +5950,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBoxedHalfSpace : IfcHalfSpaceSolid
+	public class IfcBoxedHalfSpace : IfcHalfSpaceSolid, IfcBooleanOperand, IfcLayeredItem
 	{
-		//1	BaseSurface : IfcSurface
-		//2	AgreementFlag : IfcBoolean
-		//3	Enclosure : IfcBoundingBox
-
 		public IfcBoundingBox Enclosure { get; set; }
 
 		public IfcBoxedHalfSpace() { }
@@ -6202,24 +5964,23 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuilding : IfcSpatialStructureElement
+	public class IfcBuilding : IfcSpatialStructureElement, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	CompositionType : IfcElementCompositionEnum
-		//10	ElevationOfRefHeight : IfcLengthMeasure
-		//11	ElevationOfTerrain : IfcLengthMeasure
-		//12	BuildingAddress : IfcPostalAddress
-
 		public IfcLengthMeasure ElevationOfRefHeight { get; set; }
 		public IfcLengthMeasure ElevationOfTerrain { get; set; }
 		public IfcPostalAddress BuildingAddress { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcBuilding() { }
 
@@ -6242,15 +6003,6 @@ namespace IFC4
 
 	public abstract class IfcBuildingElement : IfcElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcBuildingElement() { }
 
 		public IfcBuildingElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -6266,19 +6018,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuildingElementPart : IfcElementComponent
+	public class IfcBuildingElementPart : IfcElementComponent, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcBuildingElementPartTypeEnum
-
 		public IfcBuildingElementPartTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcBuildingElementPart() { }
 
@@ -6296,19 +6057,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuildingElementPartType : IfcElementComponentType
+	public class IfcBuildingElementPartType : IfcElementComponentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcBuildingElementPartTypeEnum
-
 		public IfcBuildingElementPartTypeEnum PredefinedType { get; set; }
 
 		public IfcBuildingElementPartType() { }
@@ -6328,19 +6078,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuildingElementProxy : IfcBuildingElement
+	public class IfcBuildingElementProxy : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcBuildingElementProxyTypeEnum
-
 		public IfcBuildingElementProxyTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcBuildingElementProxy() { }
 
@@ -6358,19 +6117,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuildingElementProxyType : IfcBuildingElementType
+	public class IfcBuildingElementProxyType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcBuildingElementProxyTypeEnum
-
 		public IfcBuildingElementProxyTypeEnum PredefinedType { get; set; }
 
 		public IfcBuildingElementProxyType() { }
@@ -6392,16 +6140,6 @@ namespace IFC4
 
 	public abstract class IfcBuildingElementType : IfcElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcBuildingElementType() { }
 
 		public IfcBuildingElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -6418,20 +6156,21 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuildingStorey : IfcSpatialStructureElement
+	public class IfcBuildingStorey : IfcSpatialStructureElement, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	CompositionType : IfcElementCompositionEnum
-		//10	Elevation : IfcLengthMeasure
-
 		public IfcLengthMeasure Elevation { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcBuildingStorey() { }
 
@@ -6450,16 +6189,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBuildingSystem : IfcSystem
+	public class IfcBuildingSystem : IfcSystem, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	PredefinedType : IfcBuildingSystemTypeEnum
-		//7	LongName : IfcLabel
-
 		public IfcBuildingSystemTypeEnum PredefinedType { get; set; }
 		public IfcLabel LongName { get; set; }
 
@@ -6477,18 +6208,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBurner : IfcEnergyConversionDevice
+	public class IfcBurner : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcBurnerTypeEnum
-
 		public IfcBurnerTypeEnum PredefinedType { get; set; }
 
 		public IfcBurner() { }
@@ -6507,19 +6228,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcBurnerType : IfcEnergyConversionDeviceType
+	public class IfcBurnerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcBurnerTypeEnum
-
 		public IfcBurnerTypeEnum PredefinedType { get; set; }
 
 		public IfcBurnerType() { }
@@ -6539,17 +6249,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcCShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Depth : IfcPositiveLengthMeasure
-		//5	Width : IfcPositiveLengthMeasure
-		//6	WallThickness : IfcPositiveLengthMeasure
-		//7	Girth : IfcPositiveLengthMeasure
-		//8	InternalFilletRadius : IfcNonNegativeLengthMeasure
-
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure Width { get; set; }
 		public IfcPositiveLengthMeasure WallThickness { get; set; }
@@ -6571,18 +6272,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableCarrierFitting : IfcFlowFitting
+	public class IfcCableCarrierFitting : IfcFlowFitting, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCableCarrierFittingTypeEnum
-
 		public IfcCableCarrierFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcCableCarrierFitting() { }
@@ -6601,19 +6292,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableCarrierFittingType : IfcFlowFittingType
+	public class IfcCableCarrierFittingType : IfcFlowFittingType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCableCarrierFittingTypeEnum
-
 		public IfcCableCarrierFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcCableCarrierFittingType() { }
@@ -6633,18 +6313,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableCarrierSegment : IfcFlowSegment
+	public class IfcCableCarrierSegment : IfcFlowSegment, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCableCarrierSegmentTypeEnum
-
 		public IfcCableCarrierSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcCableCarrierSegment() { }
@@ -6663,19 +6333,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableCarrierSegmentType : IfcFlowSegmentType
+	public class IfcCableCarrierSegmentType : IfcFlowSegmentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCableCarrierSegmentTypeEnum
-
 		public IfcCableCarrierSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcCableCarrierSegmentType() { }
@@ -6695,18 +6354,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableFitting : IfcFlowFitting
+	public class IfcCableFitting : IfcFlowFitting, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCableFittingTypeEnum
-
 		public IfcCableFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcCableFitting() { }
@@ -6725,19 +6374,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableFittingType : IfcFlowFittingType
+	public class IfcCableFittingType : IfcFlowFittingType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCableFittingTypeEnum
-
 		public IfcCableFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcCableFittingType() { }
@@ -6757,18 +6395,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableSegment : IfcFlowSegment
+	public class IfcCableSegment : IfcFlowSegment, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCableSegmentTypeEnum
-
 		public IfcCableSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcCableSegment() { }
@@ -6787,19 +6415,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCableSegmentType : IfcFlowSegmentType
+	public class IfcCableSegmentType : IfcFlowSegmentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCableSegmentTypeEnum
-
 		public IfcCableSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcCableSegmentType() { }
@@ -6819,13 +6436,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCartesianPoint : IfcPoint, IfcTrimmingSelect
+	public class IfcCartesianPoint : IfcPoint, IfcGeometricSetSelect, IfcLayeredItem, IfcPointOrVertexPoint, IfcTrimmingSelect
 	{
-		//1	Coordinates : List<IfcLengthMeasure>
-
 		public List<IfcLengthMeasure> Coordinates { get; set; }
-		public IfcDimensionCount Dim => (IfcDimensionCount)Coordinates.Count;
-		// (DERIVE)	Dim : IfcDimensionCount := HIINDEX(Coordinates); {get;set;}
+		public IfcDimensionCount Dim => Coordinates.Count;
+		// DERIVE : Dim : IfcDimensionCount := HIINDEX(Coordinates);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcCartesianPoint() { }
 
 		public IfcCartesianPoint(List<IfcLengthMeasure> Coordinates)
@@ -6834,17 +6453,15 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcCartesianPointList : IfcGeometricRepresentationItem
+	public abstract class IfcCartesianPointList : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
 		public IfcDimensionCount Dim => IfcPointListDim(this);
-		// (DERIVE)	Dim : IfcDimensionCount := IfcPointListDim(SELF); {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := IfcPointListDim(SELF);
 		public IfcCartesianPointList() { }
 	}
 
-	public class IfcCartesianPointList2D : IfcCartesianPointList
+	public class IfcCartesianPointList2D : IfcCartesianPointList, IfcLayeredItem
 	{
-		//1	CoordList : List<List<IfcLengthMeasure>>
-
 		public List<List<IfcLengthMeasure>> CoordList { get; set; }
 
 		public IfcCartesianPointList2D() { }
@@ -6855,10 +6472,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCartesianPointList3D : IfcCartesianPointList
+	public class IfcCartesianPointList3D : IfcCartesianPointList, IfcLayeredItem
 	{
-		//1	CoordList : List<List<IfcLengthMeasure>>
-
 		public List<List<IfcLengthMeasure>> CoordList { get; set; }
 
 		public IfcCartesianPointList3D() { }
@@ -6869,21 +6484,16 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcCartesianTransformationOperator : IfcGeometricRepresentationItem
+	public abstract class IfcCartesianTransformationOperator : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Axis1 : IfcDirection
-		//2	Axis2 : IfcDirection
-		//3	LocalOrigin : IfcCartesianPoint
-		//4	Scale : IfcReal
-
 		public IfcDirection Axis1 { get; set; }
 		public IfcDirection Axis2 { get; set; }
 		public IfcCartesianPoint LocalOrigin { get; set; }
 		public IfcReal Scale { get; set; }
 		public IfcReal Scl => NVL(Scale, 1);
-		// (DERIVE)	Scl : IfcReal := NVL(Scale, 1.0); {get;set;}
+		// DERIVE : Scl : IfcReal := NVL(Scale, 1.0);
 		public IfcDimensionCount Dim => LocalOrigin.Dim;
-		// (DERIVE)	Dim : IfcDimensionCount := LocalOrigin.Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := LocalOrigin.Dim;
 
 		public IfcCartesianTransformationOperator() { }
 
@@ -6896,15 +6506,10 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCartesianTransformationOperator2D : IfcCartesianTransformationOperator
+	public class IfcCartesianTransformationOperator2D : IfcCartesianTransformationOperator, IfcLayeredItem
 	{
-		//1	Axis1 : IfcDirection
-		//2	Axis2 : IfcDirection
-		//3	LocalOrigin : IfcCartesianPoint
-		//4	Scale : IfcReal
-
 		public List<IfcDirection> U => IfcBaseAxis(2, Axis1, Axis2, null);
-		// (DERIVE)	U : LIST [2:2] OF IfcDirection := IfcBaseAxis(2,SELF\IfcCartesianTransformationOperator.Axis1, {get;set;}
+		// DERIVE : U : LIST [2:2] OF IfcDirection := IfcBaseAxis(2,SELF\IfcCartesianTransformationOperator.Axis1,
 		public IfcCartesianTransformationOperator2D() { }
 
 		public IfcCartesianTransformationOperator2D(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale)
@@ -6916,17 +6521,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCartesianTransformationOperator2DnonUniform : IfcCartesianTransformationOperator2D
+	public class IfcCartesianTransformationOperator2DnonUniform : IfcCartesianTransformationOperator2D, IfcLayeredItem
 	{
-		//1	Axis1 : IfcDirection
-		//2	Axis2 : IfcDirection
-		//3	LocalOrigin : IfcCartesianPoint
-		//4	Scale : IfcReal
-		//5	Scale2 : IfcReal
-
 		public IfcReal Scale2 { get; set; }
 		public IfcReal Scl2 => NVL(Scale2, Scl);
-		// (DERIVE)	Scl2 : IfcReal := NVL(Scale2, SELF\IfcCartesianTransformationOperator.Scl); {get;set;}
+		// DERIVE : Scl2 : IfcReal := NVL(Scale2, SELF\IfcCartesianTransformationOperator.Scl);
+
 		public IfcCartesianTransformationOperator2DnonUniform() { }
 
 		public IfcCartesianTransformationOperator2DnonUniform(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcReal Scale2)
@@ -6939,17 +6539,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCartesianTransformationOperator3D : IfcCartesianTransformationOperator
+	public class IfcCartesianTransformationOperator3D : IfcCartesianTransformationOperator, IfcLayeredItem
 	{
-		//1	Axis1 : IfcDirection
-		//2	Axis2 : IfcDirection
-		//3	LocalOrigin : IfcCartesianPoint
-		//4	Scale : IfcReal
-		//5	Axis3 : IfcDirection
-
 		public IfcDirection Axis3 { get; set; }
 		public List<IfcDirection> U => IfcBaseAxis(3, Axis1, Axis2, Axis3);
-		// (DERIVE)	U : LIST [3:3] OF IfcDirection := IfcBaseAxis(3,SELF\IfcCartesianTransformationOperator.Axis1, {get;set;}
+		// DERIVE : U : LIST [3:3] OF IfcDirection := IfcBaseAxis(3,SELF\IfcCartesianTransformationOperator.Axis1,
+
 		public IfcCartesianTransformationOperator3D() { }
 
 		public IfcCartesianTransformationOperator3D(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcDirection Axis3)
@@ -6962,22 +6557,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCartesianTransformationOperator3DnonUniform : IfcCartesianTransformationOperator3D
+	public class IfcCartesianTransformationOperator3DnonUniform : IfcCartesianTransformationOperator3D, IfcLayeredItem
 	{
-		//1	Axis1 : IfcDirection
-		//2	Axis2 : IfcDirection
-		//3	LocalOrigin : IfcCartesianPoint
-		//4	Scale : IfcReal
-		//5	Axis3 : IfcDirection
-		//6	Scale2 : IfcReal
-		//7	Scale3 : IfcReal
-
 		public IfcReal Scale2 { get; set; }
 		public IfcReal Scale3 { get; set; }
 		public IfcReal Scl2 => NVL(Scale2, Scl);
-		// (DERIVE)	Scl2 : IfcReal := NVL(Scale2, SELF\IfcCartesianTransformationOperator.Scl); {get;set;}	
+		// DERIVE : Scl2 : IfcReal := NVL(Scale2, SELF\IfcCartesianTransformationOperator.Scl);
 		public IfcReal Scl3 => NVL(Scale3, Scl);
-		// (DERIVE)	Scl3 : IfcReal := NVL(Scale3, SELF\IfcCartesianTransformationOperator.Scl); {get;set;}
+		// DERIVE : Scl3 : IfcReal := NVL(Scale3, SELF\IfcCartesianTransformationOperator.Scl);
+
 		public IfcCartesianTransformationOperator3DnonUniform() { }
 
 		public IfcCartesianTransformationOperator3DnonUniform(IfcDirection Axis1, IfcDirection Axis2, IfcCartesianPoint LocalOrigin, IfcReal Scale, IfcDirection Axis3, IfcReal Scale2, IfcReal Scale3)
@@ -6992,13 +6580,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCenterLineProfileDef : IfcArbitraryOpenProfileDef
+	public class IfcCenterLineProfileDef : IfcArbitraryOpenProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Curve : IfcBoundedCurve
-		//4	Thickness : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Thickness { get; set; }
 
 		public IfcCenterLineProfileDef() { }
@@ -7012,18 +6595,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcChiller : IfcEnergyConversionDevice
+	public class IfcChiller : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcChillerTypeEnum
-
 		public IfcChillerTypeEnum PredefinedType { get; set; }
 
 		public IfcChiller() { }
@@ -7042,19 +6615,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcChillerType : IfcEnergyConversionDeviceType
+	public class IfcChillerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcChillerTypeEnum
-
 		public IfcChillerTypeEnum PredefinedType { get; set; }
 
 		public IfcChillerType() { }
@@ -7074,19 +6636,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcChimney : IfcBuildingElement
+	public class IfcChimney : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcChimneyTypeEnum
-
 		public IfcChimneyTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcChimney() { }
 
@@ -7104,19 +6675,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcChimneyType : IfcBuildingElementType
+	public class IfcChimneyType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcChimneyTypeEnum
-
 		public IfcChimneyTypeEnum PredefinedType { get; set; }
 
 		public IfcChimneyType() { }
@@ -7136,12 +6696,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCircle : IfcConic
+	public class IfcCircle : IfcConic, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement
-		//2	Radius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Radius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcCircle() { }
 
@@ -7152,14 +6712,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCircleHollowProfileDef : IfcCircleProfileDef
+	public class IfcCircleHollowProfileDef : IfcCircleProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Radius : IfcPositiveLengthMeasure
-		//5	WallThickness : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure WallThickness { get; set; }
 
 		public IfcCircleHollowProfileDef() { }
@@ -7174,13 +6728,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCircleProfileDef : IfcParameterizedProfileDef
+	public class IfcCircleProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Radius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Radius { get; set; }
 
 		public IfcCircleProfileDef() { }
@@ -7194,17 +6743,27 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCivilElement : IfcElement
+	public class IfcCivilElement : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 		public IfcCivilElement() { }
 
 		public IfcCivilElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -7220,18 +6779,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCivilElementType : IfcElementType
+	public class IfcCivilElementType : IfcElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcCivilElementType() { }
 
 		public IfcCivilElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -7248,16 +6797,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcClassification : IfcExternalInformation, IfcClassificationReferenceSelect, IfcClassificationSelect
+	public class IfcClassification : IfcExternalInformation, IfcClassificationReferenceSelect, IfcClassificationSelect, IfcResourceObjectSelect
 	{
-		//1	Source : IfcLabel
-		//2	Edition : IfcLabel
-		//3	EditionDate : IfcDate
-		//4	Name : IfcLabel
-		//5	Description : IfcText
-		//6	Location : IfcURIReference
-		//7	ReferenceTokens : List<IfcIdentifier>
-
 		public IfcLabel Source { get; set; }
 		public IfcLabel Edition { get; set; }
 		public IfcDate EditionDate { get; set; }
@@ -7265,11 +6806,13 @@ namespace IFC4
 		public IfcText Description { get; set; }
 		public IfcURIReference Location { get; set; }
 		public List<IfcIdentifier> ReferenceTokens { get; set; }
-		//INVERSE
 		public List<IfcRelAssociatesClassification> ClassificationForObjects;
+		// INVERSE : ClassificationForObjects : SET [0:?] OF IfcRelAssociatesClassification FOR RelatingClassification;
 		public List<IfcClassificationReference> HasReferences;
-
+		// INVERSE : HasReferences : SET [0:?] OF IfcClassificationReference FOR ReferencedSource;
+		public IfcLabel GetName() { return Name; }
 		public IfcText GetDescription() { return Description; }
+		public IfcURIReference GetLocation() { return Location; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
 
 		public IfcClassification() { }
@@ -7286,22 +6829,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcClassificationReference : IfcExternalReference, IfcClassificationReferenceSelect, IfcClassificationSelect
+	public class IfcClassificationReference : IfcExternalReference, IfcClassificationReferenceSelect, IfcClassificationSelect, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-		//4	ReferencedSource : IfcClassificationReferenceSelect
-		//5	Description : IfcText
-		//6	Sort : IfcIdentifier
-
 		public IfcClassificationReferenceSelect ReferencedSource { get; set; }
 		public IfcText Description { get; set; }
 		public IfcIdentifier Sort { get; set; }
-		//INVERSE
 		public List<IfcRelAssociatesClassification> ClassificationRefForObjects;
+		// INVERSE : ClassificationRefForObjects : SET [0:?] OF IfcRelAssociatesClassification FOR RelatingClassification;
 		public List<IfcClassificationReference> HasReferences;
+		// INVERSE : HasReferences : SET [0:?] OF IfcClassificationReference FOR ReferencedSource;
+		public IfcLabel GetName() { return Name; }
 		public IfcText GetDescription() { return Description; }
+		public IfcURIReference GetLocation() { return Location; }
 		public List<IfcClassificationReference> GetHasReferences() { return HasReferences; }
 
 		public IfcClassificationReference() { }
@@ -7317,10 +6856,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcClosedShell : IfcConnectedFaceSet, IfcShell, IfcSolidOrShell
+	public class IfcClosedShell : IfcConnectedFaceSet, IfcLayeredItem, IfcShell, IfcSolidOrShell
 	{
-		//1	CfsFaces : List<IfcFace>
-
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public List<IfcFace> GetCfsFaces() { return CfsFaces; }
 		public IfcClosedShell() { }
 
 		public IfcClosedShell(List<IfcFace> CfsFaces)
@@ -7329,18 +6869,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCoil : IfcEnergyConversionDevice
+	public class IfcCoil : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCoilTypeEnum
-
 		public IfcCoilTypeEnum PredefinedType { get; set; }
 
 		public IfcCoil() { }
@@ -7359,19 +6889,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCoilType : IfcEnergyConversionDeviceType
+	public class IfcCoilType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCoilTypeEnum
-
 		public IfcCoilTypeEnum PredefinedType { get; set; }
 
 		public IfcCoilType() { }
@@ -7391,16 +6910,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcColourRgb : IfcColourSpecification, IfcColourOrFactor
+	public class IfcColourRgb : IfcColourSpecification, IfcColour, IfcColourOrFactor
 	{
-		//1	Name : IfcLabel
-		//2	Red : IfcNormalisedRatioMeasure
-		//3	Green : IfcNormalisedRatioMeasure
-		//4	Blue : IfcNormalisedRatioMeasure
-
 		public IfcNormalisedRatioMeasure Red { get; set; }
 		public IfcNormalisedRatioMeasure Green { get; set; }
 		public IfcNormalisedRatioMeasure Blue { get; set; }
+		public IfcLabel GetName() { return Name; }
 
 		public IfcColourRgb() { }
 
@@ -7415,8 +6930,6 @@ namespace IFC4
 
 	public class IfcColourRgbList : IfcPresentationItem
 	{
-		//1	ColourList : List<List<IfcNormalisedRatioMeasure>>
-
 		public List<List<IfcNormalisedRatioMeasure>> ColourList { get; set; }
 
 		public IfcColourRgbList() { }
@@ -7427,10 +6940,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcColourSpecification : IfcPresentationItem, IfcColour
+	public abstract class IfcColourSpecification : IfcPresentationItem
 	{
-		//1	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
 
 		public IfcColourSpecification() { }
@@ -7441,19 +6952,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcColumn : IfcBuildingElement
+	public class IfcColumn : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcColumnTypeEnum
-
 		public IfcColumnTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcColumn() { }
 
@@ -7471,18 +6991,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcColumnStandardCase : IfcColumn
+	public class IfcColumnStandardCase : IfcColumn, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcColumnTypeEnum
-
 		public IfcColumnStandardCase() { }
 
 		public IfcColumnStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcColumnTypeEnum PredefinedType)
@@ -7499,19 +7009,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcColumnType : IfcBuildingElementType
+	public class IfcColumnType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcColumnTypeEnum
-
 		public IfcColumnTypeEnum PredefinedType { get; set; }
 
 		public IfcColumnType() { }
@@ -7531,18 +7030,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCommunicationsAppliance : IfcFlowTerminal
+	public class IfcCommunicationsAppliance : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCommunicationsApplianceTypeEnum
-
 		public IfcCommunicationsApplianceTypeEnum PredefinedType { get; set; }
 
 		public IfcCommunicationsAppliance() { }
@@ -7561,19 +7050,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCommunicationsApplianceType : IfcFlowTerminalType
+	public class IfcCommunicationsApplianceType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCommunicationsApplianceTypeEnum
-
 		public IfcCommunicationsApplianceTypeEnum PredefinedType { get; set; }
 
 		public IfcCommunicationsApplianceType() { }
@@ -7593,13 +7071,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcComplexProperty : IfcProperty
+	public class IfcComplexProperty : IfcProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	UsageName : IfcIdentifier
-		//4	HasProperties : List<IfcProperty>
-
 		public IfcIdentifier UsageName { get; set; }
 		public List<IfcProperty> HasProperties { get; set; }
 
@@ -7614,19 +7087,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcComplexPropertyTemplate : IfcPropertyTemplate
+	public class IfcComplexPropertyTemplate : IfcPropertyTemplate, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	UsageName : IfcLabel
-		//6	TemplateType : IfcComplexPropertyTemplateTypeEnum
-		//7	HasPropertyTemplates : List<IfcPropertyTemplate>
-
 		public IfcLabel UsageName { get; set; }
 		public IfcComplexPropertyTemplateTypeEnum TemplateType { get; set; }
 		public List<IfcPropertyTemplate> HasPropertyTemplates { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcComplexPropertyTemplate() { }
 
@@ -7642,17 +7113,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCompositeCurve : IfcBoundedCurve
+	public class IfcCompositeCurve : IfcBoundedCurve, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Segments : List<IfcCompositeCurveSegment>
-		//2	SelfIntersect : IfcLogical
-
 		public List<IfcCompositeCurveSegment> Segments { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcInteger NSegments => (IfcInteger)Segments.Count;
-		// (DERIVE)	NSegments : IfcInteger := SIZEOF(Segments); {get;set;}
+		// DERIVE : NSegments : IfcInteger := SIZEOF(Segments);
 		public IfcLogical ClosedCurve => (IfcLogical)(Segments[Segments.Count - 1].Transition != IfcTransitionCode.DISCONTINUOUS);
-		// (DERIVE)	ClosedCurve : IfcLogical := Segments[NSegments].Transition <> Discontinuous; {get;set;}
+		// DERIVE : ClosedCurve : IfcLogical := Segments[NSegments].Transition <> Discontinuous;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcCompositeCurve() { }
 
 		public IfcCompositeCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
@@ -7662,13 +7134,10 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCompositeCurveOnSurface : IfcCompositeCurve, IfcCurveOnSurface
+	public class IfcCompositeCurveOnSurface : IfcCompositeCurve, IfcCurveOnSurface, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Segments : List<IfcCompositeCurveSegment>
-		//2	SelfIntersect : IfcLogical
-
 		public List<IfcSurface> BasisSurface => IfcGetBasisSurface(this);
-		// (DERIVE)	BasisSurface : SET [0:1] OF IfcSurface := IfcGetBasisSurface(SELF); {get;set;}
+		// DERIVE : BasisSurface : SET [0:1] OF IfcSurface := IfcGetBasisSurface(SELF);
 		public IfcCompositeCurveOnSurface() { }
 
 		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
@@ -7678,19 +7147,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCompositeCurveSegment : IfcGeometricRepresentationItem
+	public class IfcCompositeCurveSegment : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Transition : IfcTransitionCode
-		//2	SameSense : IfcBoolean
-		//3	ParentCurve : IfcCurve
-
 		public IfcTransitionCode Transition { get; set; }
 		public IfcBoolean SameSense { get; set; }
 		public IfcCurve ParentCurve { get; set; }
 		public IfcDimensionCount Dim => ParentCurve.Dim;
-		// (DERIVE)	Dim : IfcDimensionCount := ParentCurve.Dim; {get;set;}
-		//INVERSE
+		// DERIVE : Dim : IfcDimensionCount := ParentCurve.Dim;
 		public List<IfcCompositeCurve> UsingCurves;
+		// INVERSE : UsingCurves : SET [1:?] OF IfcCompositeCurve FOR Segments;
 
 		public IfcCompositeCurveSegment() { }
 
@@ -7702,13 +7167,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCompositeProfileDef : IfcProfileDef
+	public class IfcCompositeProfileDef : IfcProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Profiles : List<IfcProfileDef>
-		//4	Label : IfcLabel
-
 		public List<IfcProfileDef> Profiles { get; set; }
 		public IfcLabel Label { get; set; }
 
@@ -7723,18 +7183,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCompressor : IfcFlowMovingDevice
+	public class IfcCompressor : IfcFlowMovingDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCompressorTypeEnum
-
 		public IfcCompressorTypeEnum PredefinedType { get; set; }
 
 		public IfcCompressor() { }
@@ -7753,19 +7203,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCompressorType : IfcFlowMovingDeviceType
+	public class IfcCompressorType : IfcFlowMovingDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCompressorTypeEnum
-
 		public IfcCompressorTypeEnum PredefinedType { get; set; }
 
 		public IfcCompressorType() { }
@@ -7785,18 +7224,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCondenser : IfcEnergyConversionDevice
+	public class IfcCondenser : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCondenserTypeEnum
-
 		public IfcCondenserTypeEnum PredefinedType { get; set; }
 
 		public IfcCondenser() { }
@@ -7815,19 +7244,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCondenserType : IfcEnergyConversionDeviceType
+	public class IfcCondenserType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCondenserTypeEnum
-
 		public IfcCondenserTypeEnum PredefinedType { get; set; }
 
 		public IfcCondenserType() { }
@@ -7847,10 +7265,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcConic : IfcCurve
+	public abstract class IfcConic : IfcCurve, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement
-
 		public IfcAxis2Placement Position { get; set; }
 
 		public IfcConic() { }
@@ -7861,10 +7277,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConnectedFaceSet : IfcTopologicalRepresentationItem
+	public class IfcConnectedFaceSet : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
-		//1	CfsFaces : List<IfcFace>
-
 		public List<IfcFace> CfsFaces { get; set; }
 
 		public IfcConnectedFaceSet() { }
@@ -7877,9 +7291,6 @@ namespace IFC4
 
 	public class IfcConnectionCurveGeometry : IfcConnectionGeometry
 	{
-		//1	CurveOnRelatingElement : IfcCurveOrEdgeCurve
-		//2	CurveOnRelatedElement : IfcCurveOrEdgeCurve
-
 		public IfcCurveOrEdgeCurve CurveOnRelatingElement { get; set; }
 		public IfcCurveOrEdgeCurve CurveOnRelatedElement { get; set; }
 
@@ -7899,12 +7310,6 @@ namespace IFC4
 
 	public class IfcConnectionPointEccentricity : IfcConnectionPointGeometry
 	{
-		//1	PointOnRelatingElement : IfcPointOrVertexPoint
-		//2	PointOnRelatedElement : IfcPointOrVertexPoint
-		//3	EccentricityInX : IfcLengthMeasure
-		//4	EccentricityInY : IfcLengthMeasure
-		//5	EccentricityInZ : IfcLengthMeasure
-
 		public IfcLengthMeasure EccentricityInX { get; set; }
 		public IfcLengthMeasure EccentricityInY { get; set; }
 		public IfcLengthMeasure EccentricityInZ { get; set; }
@@ -7923,9 +7328,6 @@ namespace IFC4
 
 	public class IfcConnectionPointGeometry : IfcConnectionGeometry
 	{
-		//1	PointOnRelatingElement : IfcPointOrVertexPoint
-		//2	PointOnRelatedElement : IfcPointOrVertexPoint
-
 		public IfcPointOrVertexPoint PointOnRelatingElement { get; set; }
 		public IfcPointOrVertexPoint PointOnRelatedElement { get; set; }
 
@@ -7940,9 +7342,6 @@ namespace IFC4
 
 	public class IfcConnectionSurfaceGeometry : IfcConnectionGeometry
 	{
-		//1	SurfaceOnRelatingElement : IfcSurfaceOrFaceSurface
-		//2	SurfaceOnRelatedElement : IfcSurfaceOrFaceSurface
-
 		public IfcSurfaceOrFaceSurface SurfaceOnRelatingElement { get; set; }
 		public IfcSurfaceOrFaceSurface SurfaceOnRelatedElement { get; set; }
 
@@ -7957,9 +7356,6 @@ namespace IFC4
 
 	public class IfcConnectionVolumeGeometry : IfcConnectionGeometry
 	{
-		//1	VolumeOnRelatingElement : IfcSolidOrShell
-		//2	VolumeOnRelatedElement : IfcSolidOrShell
-
 		public IfcSolidOrShell VolumeOnRelatingElement { get; set; }
 		public IfcSolidOrShell VolumeOnRelatedElement { get; set; }
 
@@ -7974,14 +7370,6 @@ namespace IFC4
 
 	public abstract class IfcConstraint : IfcBase, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	ConstraintGrade : IfcConstraintEnum
-		//4	ConstraintSource : IfcLabel
-		//5	CreatingActor : IfcActorSelect
-		//6	CreationTime : IfcDateTime
-		//7	UserDefinedGrade : IfcLabel
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcConstraintEnum ConstraintGrade { get; set; }
@@ -7989,8 +7377,10 @@ namespace IFC4
 		public IfcActorSelect CreatingActor { get; set; }
 		public IfcDateTime CreationTime { get; set; }
 		public IfcLabel UserDefinedGrade { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
-		public List<IfcResourceConstraintRelationship> PropertiesForConstraint { get; set; }
+		public List<IfcExternalReferenceRelationship> HasExternalReferences;
+		// INVERSE : HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+		public List<IfcResourceConstraintRelationship> PropertiesForConstraint;
+		// INVERSE : PropertiesForConstraint : SET [0:?] OF IfcResourceConstraintRelationship FOR RelatingConstraint;
 
 		public IfcConstraint() { }
 
@@ -8006,21 +7396,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConstructionEquipmentResource : IfcConstructionResource
+	public class IfcConstructionEquipmentResource : IfcConstructionResource, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-		//11	PredefinedType : IfcConstructionEquipmentResourceTypeEnum
-
 		public IfcConstructionEquipmentResourceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcConstructionEquipmentResource() { }
 
@@ -8040,22 +7434,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConstructionEquipmentResourceType : IfcConstructionResourceType
+	public class IfcConstructionEquipmentResourceType : IfcConstructionResourceType, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-		//12	PredefinedType : IfcConstructionEquipmentResourceTypeEnum
-
 		public IfcConstructionEquipmentResourceTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcConstructionEquipmentResourceType() { }
 
@@ -8076,21 +7467,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConstructionMaterialResource : IfcConstructionResource
+	public class IfcConstructionMaterialResource : IfcConstructionResource, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-		//11	PredefinedType : IfcConstructionMaterialResourceTypeEnum
-
 		public IfcConstructionMaterialResourceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcConstructionMaterialResource() { }
 
@@ -8110,22 +7505,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConstructionMaterialResourceType : IfcConstructionResourceType
+	public class IfcConstructionMaterialResourceType : IfcConstructionResourceType, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-		//12	PredefinedType : IfcConstructionMaterialResourceTypeEnum
-
 		public IfcConstructionMaterialResourceTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcConstructionMaterialResourceType() { }
 
@@ -8146,21 +7538,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConstructionProductResource : IfcConstructionResource
+	public class IfcConstructionProductResource : IfcConstructionResource, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-		//11	PredefinedType : IfcConstructionProductResourceTypeEnum
-
 		public IfcConstructionProductResourceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcConstructionProductResource() { }
 
@@ -8180,22 +7576,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConstructionProductResourceType : IfcConstructionResourceType
+	public class IfcConstructionProductResourceType : IfcConstructionResourceType, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-		//12	PredefinedType : IfcConstructionProductResourceTypeEnum
-
 		public IfcConstructionProductResourceTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcConstructionProductResourceType() { }
 
@@ -8218,17 +7611,6 @@ namespace IFC4
 
 	public abstract class IfcConstructionResource : IfcResource
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-
 		public IfcResourceTime Usage { get; set; }
 		public List<IfcAppliedValue> BaseCosts { get; set; }
 		public IfcPhysicalQuantity BaseQuantity { get; set; }
@@ -8252,18 +7634,6 @@ namespace IFC4
 
 	public abstract class IfcConstructionResourceType : IfcTypeResource
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-
 		public List<IfcAppliedValue> BaseCosts { get; set; }
 		public IfcPhysicalQuantity BaseQuantity { get; set; }
 
@@ -8287,23 +7657,15 @@ namespace IFC4
 
 	public abstract class IfcContext : IfcObjectDefinition
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	LongName : IfcLabel
-		//7	Phase : IfcLabel
-		//8	RepresentationContexts : List<IfcRepresentationContext>
-		//9	UnitsInContext : IfcUnitAssignment
-
 		public IfcLabel ObjectType { get; set; }
 		public IfcLabel LongName { get; set; }
 		public IfcLabel Phase { get; set; }
 		public List<IfcRepresentationContext> RepresentationContexts { get; set; }
 		public IfcUnitAssignment UnitsInContext { get; set; }
-		public List<IfcRelDefinesByProperties> IsDefinedBy { get; set; }
-		public List<IfcRelDeclares> Declares { get; set; }
+		public List<IfcRelDefinesByProperties> IsDefinedBy;
+		// INVERSE : IsDefinedBy : SET [0:?] OF IfcRelDefinesByProperties FOR RelatedObjects;
+		public List<IfcRelDeclares> Declares;
+		// INVERSE : Declares : SET [0:?] OF IfcRelDeclares FOR RelatingContext;
 
 		public IfcContext() { }
 
@@ -8321,14 +7683,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcContextDependentUnit : IfcNamedUnit, IfcResourceObjectSelect
+	public class IfcContextDependentUnit : IfcNamedUnit, IfcResourceObjectSelect, IfcUnit
 	{
-		//1	Dimensions : IfcDimensionalExponents
-		//2	UnitType : IfcUnitEnum
-		//3	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+		public List<IfcExternalReferenceRelationship> HasExternalReference;
+		// INVERSE : HasExternalReference : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 
 		public IfcContextDependentUnit() { }
 
@@ -8342,15 +7701,9 @@ namespace IFC4
 
 	public abstract class IfcControl : IfcObject
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-
 		public IfcIdentifier Identification { get; set; }
-		public List<IfcRelAssignsToControl> Controls { get; set; }
+		public List<IfcRelAssignsToControl> Controls;
+		// INVERSE : Controls : SET [0:?] OF IfcRelAssignsToControl FOR RelatingControl;
 
 		public IfcControl() { }
 
@@ -8365,18 +7718,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcController : IfcDistributionControlElement
+	public class IfcController : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcControllerTypeEnum
-
 		public IfcControllerTypeEnum PredefinedType { get; set; }
 
 		public IfcController() { }
@@ -8395,19 +7738,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcControllerType : IfcDistributionControlElementType
+	public class IfcControllerType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcControllerTypeEnum
-
 		public IfcControllerTypeEnum PredefinedType { get; set; }
 
 		public IfcControllerType() { }
@@ -8427,16 +7759,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConversionBasedUnit : IfcNamedUnit, IfcResourceObjectSelect
+	public class IfcConversionBasedUnit : IfcNamedUnit, IfcResourceObjectSelect, IfcUnit
 	{
-		//1	Dimensions : IfcDimensionalExponents
-		//2	UnitType : IfcUnitEnum
-		//3	Name : IfcLabel
-		//4	ConversionFactor : IfcMeasureWithUnit
-
 		public IfcLabel Name { get; set; }
 		public IfcMeasureWithUnit ConversionFactor { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+		public List<IfcExternalReferenceRelationship> HasExternalReference;
+		// INVERSE : HasExternalReference : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 
 		public IfcConversionBasedUnit() { }
 
@@ -8449,14 +7777,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcConversionBasedUnitWithOffset : IfcConversionBasedUnit
+	public class IfcConversionBasedUnitWithOffset : IfcConversionBasedUnit, IfcResourceObjectSelect, IfcUnit
 	{
-		//1	Dimensions : IfcDimensionalExponents
-		//2	UnitType : IfcUnitEnum
-		//3	Name : IfcLabel
-		//4	ConversionFactor : IfcMeasureWithUnit
-		//5	ConversionOffset : IfcReal
-
 		public IfcReal ConversionOffset { get; set; }
 
 		public IfcConversionBasedUnitWithOffset() { }
@@ -8471,18 +7793,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCooledBeam : IfcEnergyConversionDevice
+	public class IfcCooledBeam : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCooledBeamTypeEnum
-
 		public IfcCooledBeamTypeEnum PredefinedType { get; set; }
 
 		public IfcCooledBeam() { }
@@ -8501,19 +7813,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCooledBeamType : IfcEnergyConversionDeviceType
+	public class IfcCooledBeamType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCooledBeamTypeEnum
-
 		public IfcCooledBeamTypeEnum PredefinedType { get; set; }
 
 		public IfcCooledBeamType() { }
@@ -8533,18 +7834,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCoolingTower : IfcEnergyConversionDevice
+	public class IfcCoolingTower : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCoolingTowerTypeEnum
-
 		public IfcCoolingTowerTypeEnum PredefinedType { get; set; }
 
 		public IfcCoolingTower() { }
@@ -8563,19 +7854,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCoolingTowerType : IfcEnergyConversionDeviceType
+	public class IfcCoolingTowerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCoolingTowerTypeEnum
-
 		public IfcCoolingTowerTypeEnum PredefinedType { get; set; }
 
 		public IfcCoolingTowerType() { }
@@ -8597,9 +7877,6 @@ namespace IFC4
 
 	public abstract class IfcCoordinateOperation : IfcBase
 	{
-		//1	SourceCRS : IfcCoordinateReferenceSystemSelect
-		//2	TargetCRS : IfcCoordinateReferenceSystem
-
 		public IfcCoordinateReferenceSystemSelect SourceCRS { get; set; }
 		public IfcCoordinateReferenceSystem TargetCRS { get; set; }
 
@@ -8612,19 +7889,14 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcCoordinateReferenceSystem : IfcBase, IfcCoordinateReferenceSystemSelect
+	public abstract class IfcCoordinateReferenceSystem : IfcBase
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	GeodeticDatum : IfcIdentifier
-		//4	VerticalDatum : IfcIdentifier
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcIdentifier GeodeticDatum { get; set; }
 		public IfcIdentifier VerticalDatum { get; set; }
-		public List<IfcCoordinateOperation> HasCoordinateOperation { get; set; }
-		public List<IfcCoordinateOperation> GetHasCoordinateOperation() { return HasCoordinateOperation; }
+		public List<IfcCoordinateOperation> HasCoordinateOperation;
+		// INVERSE : HasCoordinateOperation : SET [0:1] OF IfcCoordinateOperation FOR SourceCRS;
 
 		public IfcCoordinateReferenceSystem() { }
 
@@ -8637,21 +7909,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCostItem : IfcControl
+	public class IfcCostItem : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	PredefinedType : IfcCostItemTypeEnum
-		//8	CostValues : List<IfcCostValue>
-		//9	CostQuantities : List<IfcPhysicalQuantity>
-
 		public IfcCostItemTypeEnum PredefinedType { get; set; }
 		public List<IfcCostValue> CostValues { get; set; }
 		public List<IfcPhysicalQuantity> CostQuantities { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcCostItem() { }
 
@@ -8669,23 +7937,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCostSchedule : IfcControl
+	public class IfcCostSchedule : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	PredefinedType : IfcCostScheduleTypeEnum
-		//8	Status : IfcLabel
-		//9	SubmittedOn : IfcDateTime
-		//10	UpdateDate : IfcDateTime
-
 		public IfcCostScheduleTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcDateTime SubmittedOn { get; set; }
 		public IfcDateTime UpdateDate { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcCostSchedule() { }
 
@@ -8704,19 +7967,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCostValue : IfcAppliedValue
+	public class IfcCostValue : IfcAppliedValue, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	AppliedValue : IfcAppliedValueSelect
-		//4	UnitBasis : IfcMeasureWithUnit
-		//5	ApplicableDate : IfcDate
-		//6	FixedUntilDate : IfcDate
-		//7	Category : IfcLabel
-		//8	Condition : IfcLabel
-		//9	ArithmeticOperator : IfcArithmeticOperatorEnum
-		//10	Components : List<IfcAppliedValue>
-
 		public IfcCostValue() { }
 
 		public IfcCostValue(IfcLabel Name, IfcText Description, IfcAppliedValueSelect AppliedValue, IfcMeasureWithUnit UnitBasis, IfcDate ApplicableDate, IfcDate FixedUntilDate, IfcLabel Category, IfcLabel Condition, IfcArithmeticOperatorEnum ArithmeticOperator, List<IfcAppliedValue> Components)
@@ -8734,21 +7986,32 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCovering : IfcBuildingElement
+	public class IfcCovering : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCoveringTypeEnum
-
 		public IfcCoveringTypeEnum PredefinedType { get; set; }
-		public List<IfcRelCoversSpaces> CoversSpaces { get; set; }
-		public List<IfcRelCoversBldgElements> CoversElements { get; set; }
+		public List<IfcRelCoversSpaces> CoversSpaces;
+		// INVERSE : CoversSpaces : SET [0:1] OF IfcRelCoversSpaces FOR RelatedCoverings;
+		public List<IfcRelCoversBldgElements> CoversElements;
+		// INVERSE : CoversElements : SET [0:1] OF IfcRelCoversBldgElements FOR RelatedCoverings;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcCovering() { }
 
@@ -8766,19 +8029,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCoveringType : IfcBuildingElementType
+	public class IfcCoveringType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCoveringTypeEnum
-
 		public IfcCoveringTypeEnum PredefinedType { get; set; }
 
 		public IfcCoveringType() { }
@@ -8798,21 +8050,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCrewResource : IfcConstructionResource
+	public class IfcCrewResource : IfcConstructionResource, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-		//11	PredefinedType : IfcCrewResourceTypeEnum
-
 		public IfcCrewResourceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcCrewResource() { }
 
@@ -8832,22 +8088,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCrewResourceType : IfcConstructionResourceType
+	public class IfcCrewResourceType : IfcConstructionResourceType, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-		//12	PredefinedType : IfcCrewResourceTypeEnum
-
 		public IfcCrewResourceTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcCrewResourceType() { }
 
@@ -8868,14 +8121,12 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcCsgPrimitive3D : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcCsgSelect
+	public abstract class IfcCsgPrimitive3D : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-
 		public IfcAxis2Placement3D Position { get; set; }
-		public IfcDimensionCount Dim { get; set; }
-		public IfcDimensionCount GetDim() => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
+		public IfcDimensionCount Dim => (IfcDimensionCount)3;
+		// DERIVE : Dim : IfcDimensionCount := 3;
+
 		public IfcCsgPrimitive3D() { }
 
 		public IfcCsgPrimitive3D(IfcAxis2Placement3D Position)
@@ -8884,11 +8135,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCsgSolid : IfcSolidModel
+	public class IfcCsgSolid : IfcSolidModel, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	TreeRootExpression : IfcCsgSelect
-
 		public IfcCsgSelect TreeRootExpression { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcCsgSolid() { }
 
@@ -8900,14 +8152,6 @@ namespace IFC4
 
 	public class IfcCurrencyRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingMonetaryUnit : IfcMonetaryUnit
-		//4	RelatedMonetaryUnit : IfcMonetaryUnit
-		//5	ExchangeRate : IfcPositiveRatioMeasure
-		//6	RateDateTime : IfcDateTime
-		//7	RateSource : IfcLibraryInformation
-
 		public IfcMonetaryUnit RelatingMonetaryUnit { get; set; }
 		public IfcMonetaryUnit RelatedMonetaryUnit { get; set; }
 		public IfcPositiveRatioMeasure ExchangeRate { get; set; }
@@ -8928,19 +8172,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCurtainWall : IfcBuildingElement
+	public class IfcCurtainWall : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcCurtainWallTypeEnum
-
 		public IfcCurtainWallTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcCurtainWall() { }
 
@@ -8958,19 +8211,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCurtainWallType : IfcBuildingElementType
+	public class IfcCurtainWallType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcCurtainWallTypeEnum
-
 		public IfcCurtainWallTypeEnum PredefinedType { get; set; }
 
 		public IfcCurtainWallType() { }
@@ -8990,23 +8232,21 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcCurve : IfcGeometricRepresentationItem, IfcGeometricSetSelect
+	public abstract class IfcCurve : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
 		public IfcDimensionCount Dim => IfcCurveDim(this);
-		// (DERIVE)	Dim : IfcDimensionCount := IfcCurveDim(SELF); {get;set;}
-		public IfcDimensionCount GetDim() { return Dim; }
+		// DERIVE : Dim : IfcDimensionCount := IfcCurveDim(SELF);
 		public IfcCurve() { }
 	}
 
-	public class IfcCurveBoundedPlane : IfcBoundedSurface
+	public class IfcCurveBoundedPlane : IfcBoundedSurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	BasisSurface : IfcPlane
-		//2	OuterBoundary : IfcCurve
-		//3	InnerBoundaries : List<IfcCurve>
-
 		public IfcPlane BasisSurface { get; set; }
 		public IfcCurve OuterBoundary { get; set; }
 		public List<IfcCurve> InnerBoundaries { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcCurveBoundedPlane() { }
 
@@ -9018,15 +8258,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCurveBoundedSurface : IfcBoundedSurface
+	public class IfcCurveBoundedSurface : IfcBoundedSurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	BasisSurface : IfcSurface
-		//2	Boundaries : List<IfcBoundaryCurve>
-		//3	ImplicitOuter : IfcBoolean
-
 		public IfcSurface BasisSurface { get; set; }
 		public List<IfcBoundaryCurve> Boundaries { get; set; }
 		public IfcBoolean ImplicitOuter { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcCurveBoundedSurface() { }
 
@@ -9038,14 +8277,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCurveStyle : IfcPresentationStyle, IfcPresentationStyleSelect
+	public class IfcCurveStyle : IfcPresentationStyle, IfcPresentationStyleSelect, IfcStyleAssignmentSelect
 	{
-		//1	Name : IfcLabel
-		//2	CurveFont : IfcCurveFontOrScaledCurveFontSelect
-		//3	CurveWidth : IfcSizeSelect
-		//4	CurveColour : IfcColour
-		//5	ModelOrDraughting : IfcBoolean
-
 		public IfcCurveFontOrScaledCurveFontSelect CurveFont { get; set; }
 		public IfcSizeSelect CurveWidth { get; set; }
 		public IfcColour CurveColour { get; set; }
@@ -9065,11 +8298,9 @@ namespace IFC4
 
 	public class IfcCurveStyleFont : IfcPresentationItem, IfcCurveStyleFontSelect
 	{
-		//1	Name : IfcLabel
-		//2	PatternList : List<IfcCurveStyleFontPattern>
-
 		public IfcLabel Name { get; set; }
 		public List<IfcCurveStyleFontPattern> PatternList { get; set; }
+		public IfcLabel GetName() { return Name; }
 
 		public IfcCurveStyleFont() { }
 
@@ -9082,10 +8313,6 @@ namespace IFC4
 
 	public class IfcCurveStyleFontAndScaling : IfcPresentationItem, IfcCurveFontOrScaledCurveFontSelect
 	{
-		//1	Name : IfcLabel
-		//2	CurveFont : IfcCurveStyleFontSelect
-		//3	CurveFontScaling : IfcPositiveRatioMeasure
-
 		public IfcLabel Name { get; set; }
 		public IfcCurveStyleFontSelect CurveFont { get; set; }
 		public IfcPositiveRatioMeasure CurveFontScaling { get; set; }
@@ -9102,9 +8329,6 @@ namespace IFC4
 
 	public class IfcCurveStyleFontPattern : IfcPresentationItem
 	{
-		//1	VisibleSegmentLength : IfcLengthMeasure
-		//2	InvisibleSegmentLength : IfcPositiveLengthMeasure
-
 		public IfcLengthMeasure VisibleSegmentLength { get; set; }
 		public IfcPositiveLengthMeasure InvisibleSegmentLength { get; set; }
 
@@ -9117,12 +8341,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcCylindricalSurface : IfcElementarySurface
+	public class IfcCylindricalSurface : IfcElementarySurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	Radius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Radius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcCylindricalSurface() { }
 
@@ -9133,18 +8357,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDamper : IfcFlowController
+	public class IfcDamper : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcDamperTypeEnum
-
 		public IfcDamperTypeEnum PredefinedType { get; set; }
 
 		public IfcDamper() { }
@@ -9163,19 +8377,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDamperType : IfcFlowControllerType
+	public class IfcDamperType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDamperTypeEnum
-
 		public IfcDamperTypeEnum PredefinedType { get; set; }
 
 		public IfcDamperType() { }
@@ -9195,14 +8398,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDerivedProfileDef : IfcProfileDef
+	public class IfcDerivedProfileDef : IfcProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	ParentProfile : IfcProfileDef
-		//4	Operator : IfcCartesianTransformationOperator2D
-		//5	Label : IfcLabel
-
 		public IfcProfileDef ParentProfile { get; set; }
 		public IfcCartesianTransformationOperator2D Operator { get; set; }
 		public IfcLabel Label { get; set; }
@@ -9219,17 +8416,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDerivedUnit : IfcBase,IfcUnit
+	public class IfcDerivedUnit : IfcBase, IfcUnit
 	{
-		//1	Elements : List<IfcDerivedUnitElement>
-		//2	UnitType : IfcDerivedUnitEnum
-		//3	UserDefinedType : IfcLabel
-
 		public List<IfcDerivedUnitElement> Elements { get; set; }
 		public IfcDerivedUnitEnum UnitType { get; set; }
 		public IfcLabel UserDefinedType { get; set; }
 		public IfcDimensionalExponents Dimensions => IfcDeriveDimensionalExponents(Elements);
-		// (DERIVE)	Dimensions : IfcDimensionalExponents := IfcDeriveDimensionalExponents(Elements); {get;set;}
+		// DERIVE : Dimensions : IfcDimensionalExponents := IfcDeriveDimensionalExponents(Elements);
+
 		public IfcDerivedUnit() { }
 
 		public IfcDerivedUnit(List<IfcDerivedUnitElement> Elements, IfcDerivedUnitEnum UnitType, IfcLabel UserDefinedType)
@@ -9242,9 +8436,6 @@ namespace IFC4
 
 	public class IfcDerivedUnitElement : IfcBase
 	{
-		//1	Unit : IfcNamedUnit
-		//2	Exponent : INTEGER
-
 		public IfcNamedUnit Unit { get; set; }
 		public INTEGER Exponent { get; set; }
 
@@ -9259,14 +8450,6 @@ namespace IFC4
 
 	public class IfcDimensionalExponents : IfcBase
 	{
-		//1	LengthExponent : INTEGER
-		//2	MassExponent : INTEGER
-		//3	TimeExponent : INTEGER
-		//4	ElectricCurrentExponent : INTEGER
-		//5	ThermodynamicTemperatureExponent : INTEGER
-		//6	AmountOfSubstanceExponent : INTEGER
-		//7	LuminousIntensityExponent : INTEGER
-
 		public INTEGER LengthExponent { get; set; }
 		public INTEGER MassExponent { get; set; }
 		public INTEGER TimeExponent { get; set; }
@@ -9276,16 +8459,7 @@ namespace IFC4
 		public INTEGER LuminousIntensityExponent { get; set; }
 
 		public IfcDimensionalExponents() { }
-		public IfcDimensionalExponents(int LengthExponent, int MassExponent, int TimeExponent, int ElectricCurrentExponent, int ThermodynamicTemperatureExponent, int AmountOfSubstanceExponent, int LuminousIntensityExponent)
-		{
-			this.LengthExponent = LengthExponent;
-			this.MassExponent = MassExponent;
-			this.TimeExponent = TimeExponent;
-			this.ElectricCurrentExponent = ElectricCurrentExponent;
-			this.ThermodynamicTemperatureExponent = ThermodynamicTemperatureExponent;
-			this.AmountOfSubstanceExponent = AmountOfSubstanceExponent;
-			this.LuminousIntensityExponent = LuminousIntensityExponent;
-		}
+
 		public IfcDimensionalExponents(INTEGER LengthExponent, INTEGER MassExponent, INTEGER TimeExponent, INTEGER ElectricCurrentExponent, INTEGER ThermodynamicTemperatureExponent, INTEGER AmountOfSubstanceExponent, INTEGER LuminousIntensityExponent)
 		{
 			this.LengthExponent = LengthExponent;
@@ -9296,27 +8470,15 @@ namespace IFC4
 			this.AmountOfSubstanceExponent = AmountOfSubstanceExponent;
 			this.LuminousIntensityExponent = LuminousIntensityExponent;
 		}
-
-		public bool Compare(int LengthExponent, int MassExponent, int TimeExponent, int ElectricCurrentExponent, int ThermodynamicTemperatureExponent, int AmountOfSubstanceExponent, int LuminousIntensityExponent)
-		{
-			return this.LengthExponent == LengthExponent &&
-			this.MassExponent == MassExponent &&
-			this.TimeExponent == TimeExponent &&
-			this.ElectricCurrentExponent == ElectricCurrentExponent &&
-			this.ThermodynamicTemperatureExponent == ThermodynamicTemperatureExponent &&
-			this.AmountOfSubstanceExponent == AmountOfSubstanceExponent &&
-			this.LuminousIntensityExponent == LuminousIntensityExponent;
-		}
 	}
 
-	public class IfcDirection : IfcGeometricRepresentationItem, IfcGridPlacementDirectionSelect, IfcVectorOrDirection
+	public class IfcDirection : IfcGeometricRepresentationItem, IfcGridPlacementDirectionSelect, IfcLayeredItem, IfcVectorOrDirection
 	{
-		//1	DirectionRatios : List<IfcReal>
-
 		public List<IfcReal> DirectionRatios { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)DirectionRatios.Count;
-		// (DERIVE)	Dim : IfcDimensionCount := HIINDEX(DirectionRatios); {get;set;}
-		public List<IfcReal> GetDirectionRatios() { return DirectionRatios; }
+		// DERIVE : Dim : IfcDimensionCount := HIINDEX(DirectionRatios);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcDirection() { }
@@ -9325,29 +8487,30 @@ namespace IFC4
 		{
 			this.DirectionRatios = DirectionRatios;
 		}
-		public IfcDirection(double x, double y)
-		{
-			this.DirectionRatios = new List<IfcReal>() { (IfcReal)x, (IfcReal)y };
-		}
-		public IfcDirection(double x, double y, double z)
-		{
-			this.DirectionRatios = new List<IfcReal>() { (IfcReal)x, (IfcReal)y, (IfcReal)z };
-		}
 	}
 
-	public class IfcDiscreteAccessory : IfcElementComponent
+	public class IfcDiscreteAccessory : IfcElementComponent, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcDiscreteAccessoryTypeEnum
-
 		public IfcDiscreteAccessoryTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcDiscreteAccessory() { }
 
@@ -9365,19 +8528,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDiscreteAccessoryType : IfcElementComponentType
+	public class IfcDiscreteAccessoryType : IfcElementComponentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDiscreteAccessoryTypeEnum
-
 		public IfcDiscreteAccessoryTypeEnum PredefinedType { get; set; }
 
 		public IfcDiscreteAccessoryType() { }
@@ -9397,18 +8549,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionChamberElement : IfcDistributionFlowElement
+	public class IfcDistributionChamberElement : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcDistributionChamberElementTypeEnum
-
 		public IfcDistributionChamberElementTypeEnum PredefinedType { get; set; }
 
 		public IfcDistributionChamberElement() { }
@@ -9427,19 +8569,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionChamberElementType : IfcDistributionFlowElementType
+	public class IfcDistributionChamberElementType : IfcDistributionFlowElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDistributionChamberElementTypeEnum
-
 		public IfcDistributionChamberElementTypeEnum PredefinedType { get; set; }
 
 		public IfcDistributionChamberElementType() { }
@@ -9459,16 +8590,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionCircuit : IfcDistributionSystem
+	public class IfcDistributionCircuit : IfcDistributionSystem, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	LongName : IfcLabel
-		//7	PredefinedType : IfcDistributionSystemEnum
-
 		public IfcDistributionCircuit() { }
 
 		public IfcDistributionCircuit(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcDistributionSystemEnum PredefinedType)
@@ -9483,19 +8606,10 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionControlElement : IfcDistributionElement
+	public class IfcDistributionControlElement : IfcDistributionElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
-		public List<IfcRelFlowControlElements> AssignedToFlowElement { get; set; }
-
+		public List<IfcRelFlowControlElements> AssignedToFlowElement;
+		// INVERSE : AssignedToFlowElement : SET [0:1] OF IfcRelFlowControlElements FOR RelatedControlElements;
 		public IfcDistributionControlElement() { }
 
 		public IfcDistributionControlElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -9513,16 +8627,6 @@ namespace IFC4
 
 	public abstract class IfcDistributionControlElementType : IfcDistributionElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcDistributionControlElementType() { }
 
 		public IfcDistributionControlElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -9539,19 +8643,29 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionElement : IfcElement
+	public class IfcDistributionElement : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
-		public List<IfcRelConnectsPortToElement> HasPorts { get; set; }
-
+		public List<IfcRelConnectsPortToElement> HasPorts;
+		// INVERSE : HasPorts : SET [0:?] OF IfcRelConnectsPortToElement FOR RelatedElement;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 		public IfcDistributionElement() { }
 
 		public IfcDistributionElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -9567,18 +8681,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionElementType : IfcElementType
+	public class IfcDistributionElementType : IfcElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcDistributionElementType() { }
 
 		public IfcDistributionElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -9595,19 +8699,10 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionFlowElement : IfcDistributionElement
+	public class IfcDistributionFlowElement : IfcDistributionElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
-		public List<IfcRelFlowControlElements> HasControlElements { get; set; }
-
+		public List<IfcRelFlowControlElements> HasControlElements;
+		// INVERSE : HasControlElements : SET [0:1] OF IfcRelFlowControlElements FOR RelatingFlowElement;
 		public IfcDistributionFlowElement() { }
 
 		public IfcDistributionFlowElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -9625,16 +8720,6 @@ namespace IFC4
 
 	public abstract class IfcDistributionFlowElementType : IfcDistributionElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcDistributionFlowElementType() { }
 
 		public IfcDistributionFlowElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -9651,22 +8736,23 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionPort : IfcPort
+	public class IfcDistributionPort : IfcPort, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	FlowDirection : IfcFlowDirectionEnum
-		//9	PredefinedType : IfcDistributionPortTypeEnum
-		//10	SystemType : IfcDistributionSystemEnum
-
 		public IfcFlowDirectionEnum FlowDirection { get; set; }
 		public IfcDistributionPortTypeEnum PredefinedType { get; set; }
 		public IfcDistributionSystemEnum SystemType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcDistributionPort() { }
 
@@ -9685,16 +8771,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDistributionSystem : IfcSystem
+	public class IfcDistributionSystem : IfcSystem, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	LongName : IfcLabel
-		//7	PredefinedType : IfcDistributionSystemEnum
-
 		public IfcLabel LongName { get; set; }
 		public IfcDistributionSystemEnum PredefinedType { get; set; }
 
@@ -9712,26 +8790,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDocumentInformation : IfcExternalInformation, IfcDocumentSelect
+	public class IfcDocumentInformation : IfcExternalInformation, IfcDocumentSelect, IfcResourceObjectSelect
 	{
-		//1	Identification : IfcIdentifier
-		//2	Name : IfcLabel
-		//3	Description : IfcText
-		//4	Location : IfcURIReference
-		//5	Purpose : IfcText
-		//6	IntendedUse : IfcText
-		//7	Scope : IfcText
-		//8	Revision : IfcLabel
-		//9	DocumentOwner : IfcActorSelect
-		//10	Editors : List<IfcActorSelect>
-		//11	CreationTime : IfcDateTime
-		//12	LastRevisionTime : IfcDateTime
-		//13	ElectronicFormat : IfcIdentifier
-		//14	ValidFrom : IfcDate
-		//15	ValidUntil : IfcDate
-		//16	Confidentiality : IfcDocumentConfidentialityEnum
-		//17	Status : IfcDocumentStatusEnum
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -9749,11 +8809,18 @@ namespace IFC4
 		public IfcDate ValidUntil { get; set; }
 		public IfcDocumentConfidentialityEnum Confidentiality { get; set; }
 		public IfcDocumentStatusEnum Status { get; set; }
-		public List<IfcRelAssociatesDocument> DocumentInfoForObjects { get; set; }
-		public List<IfcDocumentReference> HasDocumentReferences { get; set; }
-		public List<IfcDocumentInformationRelationship> IsPointedTo { get; set; }
-		public List<IfcDocumentInformationRelationship> IsPointer { get; set; }
+		public List<IfcRelAssociatesDocument> DocumentInfoForObjects;
+		// INVERSE : DocumentInfoForObjects : SET [0:?] OF IfcRelAssociatesDocument FOR RelatingDocument;
+		public List<IfcDocumentReference> HasDocumentReferences;
+		// INVERSE : HasDocumentReferences : SET [0:?] OF IfcDocumentReference FOR ReferencedDocument;
+		public List<IfcDocumentInformationRelationship> IsPointedTo;
+		// INVERSE : IsPointedTo : SET [0:?] OF IfcDocumentInformationRelationship FOR RelatedDocuments;
+		public List<IfcDocumentInformationRelationship> IsPointer;
+		// INVERSE : IsPointer : SET [0:1] OF IfcDocumentInformationRelationship FOR RelatingDocument;
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcLabel GetName() { return Name; }
 		public IfcText GetDescription() { return Description; }
+		public IfcURIReference GetLocation() { return Location; }
 
 		public IfcDocumentInformation() { }
 
@@ -9781,12 +8848,6 @@ namespace IFC4
 
 	public class IfcDocumentInformationRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingDocument : IfcDocumentInformation
-		//4	RelatedDocuments : List<IfcDocumentInformation>
-		//5	RelationshipType : IfcLabel
-
 		public IfcDocumentInformation RelatingDocument { get; set; }
 		public List<IfcDocumentInformation> RelatedDocuments { get; set; }
 		public IfcLabel RelationshipType { get; set; }
@@ -9803,18 +8864,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDocumentReference : IfcExternalReference, IfcDocumentSelect
+	public class IfcDocumentReference : IfcExternalReference, IfcDocumentSelect, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ReferencedDocument : IfcDocumentInformation
-
 		public IfcText Description { get; set; }
 		public IfcDocumentInformation ReferencedDocument { get; set; }
-		public List<IfcRelAssociatesDocument> DocumentRefForObjects { get; set; }
+		public List<IfcRelAssociatesDocument> DocumentRefForObjects;
+		// INVERSE : DocumentRefForObjects : SET [0:?] OF IfcRelAssociatesDocument FOR RelatingDocument;
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcLabel GetName() { return Name; }
 		public IfcText GetDescription() { return Description; }
+		public IfcURIReference GetLocation() { return Location; }
 
 		public IfcDocumentReference() { }
 
@@ -9828,27 +8887,32 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDoor : IfcBuildingElement
+	public class IfcDoor : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	OverallHeight : IfcPositiveLengthMeasure
-		//10	OverallWidth : IfcPositiveLengthMeasure
-		//11	PredefinedType : IfcDoorTypeEnum
-		//12	OperationType : IfcDoorTypeOperationEnum
-		//13	UserDefinedOperationType : IfcLabel
-
 		public IfcPositiveLengthMeasure OverallHeight { get; set; }
 		public IfcPositiveLengthMeasure OverallWidth { get; set; }
 		public IfcDoorTypeEnum PredefinedType { get; set; }
 		public IfcDoorTypeOperationEnum OperationType { get; set; }
 		public IfcLabel UserDefinedOperationType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcDoor() { }
 
@@ -9870,26 +8934,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDoorLiningProperties : IfcPreDefinedPropertySet
+	public class IfcDoorLiningProperties : IfcPreDefinedPropertySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	LiningDepth : IfcPositiveLengthMeasure
-		//6	LiningThickness : IfcNonNegativeLengthMeasure
-		//7	ThresholdDepth : IfcPositiveLengthMeasure
-		//8	ThresholdThickness : IfcNonNegativeLengthMeasure
-		//9	TransomThickness : IfcNonNegativeLengthMeasure
-		//10	TransomOffset : IfcLengthMeasure
-		//11	LiningOffset : IfcLengthMeasure
-		//12	ThresholdOffset : IfcLengthMeasure
-		//13	CasingThickness : IfcPositiveLengthMeasure
-		//14	CasingDepth : IfcPositiveLengthMeasure
-		//15	ShapeAspectStyle : IfcShapeAspect
-		//16	LiningToPanelOffsetX : IfcLengthMeasure
-		//17	LiningToPanelOffsetY : IfcLengthMeasure
-
 		public IfcPositiveLengthMeasure LiningDepth { get; set; }
 		public IfcNonNegativeLengthMeasure LiningThickness { get; set; }
 		public IfcPositiveLengthMeasure ThresholdDepth { get; set; }
@@ -9903,6 +8949,12 @@ namespace IFC4
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetX { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetY { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcDoorLiningProperties() { }
 
@@ -9928,23 +8980,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDoorPanelProperties : IfcPreDefinedPropertySet
+	public class IfcDoorPanelProperties : IfcPreDefinedPropertySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	PanelDepth : IfcPositiveLengthMeasure
-		//6	PanelOperation : IfcDoorPanelOperationEnum
-		//7	PanelWidth : IfcNormalisedRatioMeasure
-		//8	PanelPosition : IfcDoorPanelPositionEnum
-		//9	ShapeAspectStyle : IfcShapeAspect
-
 		public IfcPositiveLengthMeasure PanelDepth { get; set; }
 		public IfcDoorPanelOperationEnum PanelOperation { get; set; }
 		public IfcNormalisedRatioMeasure PanelWidth { get; set; }
 		public IfcDoorPanelPositionEnum PanelPosition { get; set; }
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcDoorPanelProperties() { }
 
@@ -9962,22 +9010,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDoorStandardCase : IfcDoor
+	public class IfcDoorStandardCase : IfcDoor, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	OverallHeight : IfcPositiveLengthMeasure
-		//10	OverallWidth : IfcPositiveLengthMeasure
-		//11	PredefinedType : IfcDoorTypeEnum
-		//12	OperationType : IfcDoorTypeOperationEnum
-		//13	UserDefinedOperationType : IfcLabel
-
 		public IfcDoorStandardCase() { }
 
 		public IfcDoorStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure OverallHeight, IfcPositiveLengthMeasure OverallWidth, IfcDoorTypeEnum PredefinedType, IfcDoorTypeOperationEnum OperationType, IfcLabel UserDefinedOperationType)
@@ -9998,21 +9032,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDoorStyle : IfcTypeProduct
+	public class IfcDoorStyle : IfcTypeProduct, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	OperationType : IfcDoorStyleOperationEnum
-		//10	ConstructionType : IfcDoorStyleConstructionEnum
-		//11	ParameterTakesPrecedence : IfcBoolean
-		//12	Sizeable : IfcBoolean
-
 		public IfcDoorStyleOperationEnum OperationType { get; set; }
 		public IfcDoorStyleConstructionEnum ConstructionType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
@@ -10037,22 +9058,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDoorType : IfcBuildingElementType
+	public class IfcDoorType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDoorTypeEnum
-		//11	OperationType : IfcDoorTypeOperationEnum
-		//12	ParameterTakesPrecedence : IfcBoolean
-		//13	UserDefinedOperationType : IfcLabel
-
 		public IfcDoorTypeEnum PredefinedType { get; set; }
 		public IfcDoorTypeOperationEnum OperationType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
@@ -10078,10 +9085,9 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDraughtingPreDefinedColour : IfcPreDefinedColour
+	public class IfcDraughtingPreDefinedColour : IfcPreDefinedColour, IfcColour
 	{
-		//1	Name : IfcLabel
-
+		public IfcLabel GetName() { return Name; }
 		public IfcDraughtingPreDefinedColour() { }
 
 		public IfcDraughtingPreDefinedColour(IfcLabel Name)
@@ -10090,10 +9096,9 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDraughtingPreDefinedCurveFont : IfcPreDefinedCurveFont
+	public class IfcDraughtingPreDefinedCurveFont : IfcPreDefinedCurveFont, IfcCurveStyleFontSelect
 	{
-		//1	Name : IfcLabel
-
+		public IfcLabel GetName() { return Name; }
 		public IfcDraughtingPreDefinedCurveFont() { }
 
 		public IfcDraughtingPreDefinedCurveFont(IfcLabel Name)
@@ -10102,18 +9107,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDuctFitting : IfcFlowFitting
+	public class IfcDuctFitting : IfcFlowFitting, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcDuctFittingTypeEnum
-
 		public IfcDuctFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcDuctFitting() { }
@@ -10132,19 +9127,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDuctFittingType : IfcFlowFittingType
+	public class IfcDuctFittingType : IfcFlowFittingType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDuctFittingTypeEnum
-
 		public IfcDuctFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcDuctFittingType() { }
@@ -10164,18 +9148,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDuctSegment : IfcFlowSegment
+	public class IfcDuctSegment : IfcFlowSegment, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcDuctSegmentTypeEnum
-
 		public IfcDuctSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcDuctSegment() { }
@@ -10194,19 +9168,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDuctSegmentType : IfcFlowSegmentType
+	public class IfcDuctSegmentType : IfcFlowSegmentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDuctSegmentTypeEnum
-
 		public IfcDuctSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcDuctSegmentType() { }
@@ -10226,18 +9189,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDuctSilencer : IfcFlowTreatmentDevice
+	public class IfcDuctSilencer : IfcFlowTreatmentDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcDuctSilencerTypeEnum
-
 		public IfcDuctSilencerTypeEnum PredefinedType { get; set; }
 
 		public IfcDuctSilencer() { }
@@ -10256,19 +9209,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcDuctSilencerType : IfcFlowTreatmentDeviceType
+	public class IfcDuctSilencerType : IfcFlowTreatmentDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcDuctSilencerTypeEnum
-
 		public IfcDuctSilencerTypeEnum PredefinedType { get; set; }
 
 		public IfcDuctSilencerType() { }
@@ -10288,11 +9230,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEdge : IfcTopologicalRepresentationItem
+	public class IfcEdge : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
-		//1	EdgeStart : IfcVertex
-		//2	EdgeEnd : IfcVertex
-
 		public IfcVertex EdgeStart { get; set; }
 		public IfcVertex EdgeEnd { get; set; }
 
@@ -10305,15 +9244,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEdgeCurve : IfcEdge, IfcCurveOrEdgeCurve
+	public class IfcEdgeCurve : IfcEdge, IfcCurveOrEdgeCurve, IfcLayeredItem
 	{
-		//1	EdgeStart : IfcVertex
-		//2	EdgeEnd : IfcVertex
-		//3	EdgeGeometry : IfcCurve
-		//4	SameSense : IfcBoolean
-
 		public IfcCurve EdgeGeometry { get; set; }
 		public IfcBoolean SameSense { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 
 		public IfcEdgeCurve() { }
 
@@ -10326,13 +9262,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEdgeLoop : IfcLoop
+	public class IfcEdgeLoop : IfcLoop, IfcLayeredItem
 	{
-		//1	EdgeList : List<IfcOrientedEdge>
-
 		public List<IfcOrientedEdge> EdgeList { get; set; }
 		public IfcInteger Ne => (IfcInteger)EdgeList.Count;
-		// (DERIVE)	Ne : IfcInteger := SIZEOF(EdgeList); {get;set;}
+		// DERIVE : Ne : IfcInteger := SIZEOF(EdgeList);
+
 		public IfcEdgeLoop() { }
 
 		public IfcEdgeLoop(List<IfcOrientedEdge> EdgeList)
@@ -10341,18 +9276,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricAppliance : IfcFlowTerminal
+	public class IfcElectricAppliance : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcElectricApplianceTypeEnum
-
 		public IfcElectricApplianceTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricAppliance() { }
@@ -10371,19 +9296,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricApplianceType : IfcFlowTerminalType
+	public class IfcElectricApplianceType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElectricApplianceTypeEnum
-
 		public IfcElectricApplianceTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricApplianceType() { }
@@ -10403,18 +9317,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricDistributionBoard : IfcFlowController
+	public class IfcElectricDistributionBoard : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcElectricDistributionBoardTypeEnum
-
 		public IfcElectricDistributionBoardTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricDistributionBoard() { }
@@ -10433,19 +9337,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricDistributionBoardType : IfcFlowControllerType
+	public class IfcElectricDistributionBoardType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElectricDistributionBoardTypeEnum
-
 		public IfcElectricDistributionBoardTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricDistributionBoardType() { }
@@ -10465,18 +9358,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricFlowStorageDevice : IfcFlowStorageDevice
+	public class IfcElectricFlowStorageDevice : IfcFlowStorageDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcElectricFlowStorageDeviceTypeEnum
-
 		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricFlowStorageDevice() { }
@@ -10495,19 +9378,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricFlowStorageDeviceType : IfcFlowStorageDeviceType
+	public class IfcElectricFlowStorageDeviceType : IfcFlowStorageDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElectricFlowStorageDeviceTypeEnum
-
 		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricFlowStorageDeviceType() { }
@@ -10527,18 +9399,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricGenerator : IfcEnergyConversionDevice
+	public class IfcElectricGenerator : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcElectricGeneratorTypeEnum
-
 		public IfcElectricGeneratorTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricGenerator() { }
@@ -10557,19 +9419,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricGeneratorType : IfcEnergyConversionDeviceType
+	public class IfcElectricGeneratorType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElectricGeneratorTypeEnum
-
 		public IfcElectricGeneratorTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricGeneratorType() { }
@@ -10589,18 +9440,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricMotor : IfcEnergyConversionDevice
+	public class IfcElectricMotor : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcElectricMotorTypeEnum
-
 		public IfcElectricMotorTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricMotor() { }
@@ -10619,19 +9460,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricMotorType : IfcEnergyConversionDeviceType
+	public class IfcElectricMotorType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElectricMotorTypeEnum
-
 		public IfcElectricMotorTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricMotorType() { }
@@ -10651,18 +9481,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricTimeControl : IfcFlowController
+	public class IfcElectricTimeControl : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcElectricTimeControlTypeEnum
-
 		public IfcElectricTimeControlTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricTimeControl() { }
@@ -10681,19 +9501,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElectricTimeControlType : IfcFlowControllerType
+	public class IfcElectricTimeControlType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElectricTimeControlTypeEnum
-
 		public IfcElectricTimeControlTypeEnum PredefinedType { get; set; }
 
 		public IfcElectricTimeControlType() { }
@@ -10713,30 +9522,33 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcElement : IfcProduct, IfcStructuralActivityAssignmentSelect
+	public abstract class IfcElement : IfcProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcIdentifier Tag { get; set; }
-		public List<IfcRelFillsElement> FillsVoids { get; set; }
-		public List<IfcRelConnectsElements> ConnectedTo { get; set; }
-		public List<IfcRelInterferesElements> IsInterferedByElements { get; set; }
-		public List<IfcRelInterferesElements> InterferesElements { get; set; }
-		public List<IfcRelProjectsElement> HasProjections { get; set; }
-		public List<IfcRelReferencedInSpatialStructure> ReferencedInStructures { get; set; }
-		public List<IfcRelVoidsElement> HasOpenings { get; set; }
-		public List<IfcRelConnectsWithRealizingElements> IsConnectionRealization { get; set; }
-		public List<IfcRelSpaceBoundary> ProvidesBoundaries { get; set; }
-		public List<IfcRelConnectsElements> ConnectedFrom { get; set; }
-		public List<IfcRelContainedInSpatialStructure> ContainedInStructure { get; set; }
-		public List<IfcRelCoversBldgElements> HasCoverings { get; set; }
+		public List<IfcRelFillsElement> FillsVoids;
+		// INVERSE : FillsVoids : SET [0:1] OF IfcRelFillsElement FOR RelatedBuildingElement;
+		public List<IfcRelConnectsElements> ConnectedTo;
+		// INVERSE : ConnectedTo : SET [0:?] OF IfcRelConnectsElements FOR RelatingElement;
+		public List<IfcRelInterferesElements> IsInterferedByElements;
+		// INVERSE : IsInterferedByElements : SET [0:?] OF IfcRelInterferesElements FOR RelatedElement;
+		public List<IfcRelInterferesElements> InterferesElements;
+		// INVERSE : InterferesElements : SET [0:?] OF IfcRelInterferesElements FOR RelatingElement;
+		public List<IfcRelProjectsElement> HasProjections;
+		// INVERSE : HasProjections : SET [0:?] OF IfcRelProjectsElement FOR RelatingElement;
+		public List<IfcRelReferencedInSpatialStructure> ReferencedInStructures;
+		// INVERSE : ReferencedInStructures : SET [0:?] OF IfcRelReferencedInSpatialStructure FOR RelatedElements;
+		public List<IfcRelVoidsElement> HasOpenings;
+		// INVERSE : HasOpenings : SET [0:?] OF IfcRelVoidsElement FOR RelatingBuildingElement;
+		public List<IfcRelConnectsWithRealizingElements> IsConnectionRealization;
+		// INVERSE : IsConnectionRealization : SET [0:?] OF IfcRelConnectsWithRealizingElements FOR RealizingElements;
+		public List<IfcRelSpaceBoundary> ProvidesBoundaries;
+		// INVERSE : ProvidesBoundaries : SET [0:?] OF IfcRelSpaceBoundary FOR RelatedBuildingElement;
+		public List<IfcRelConnectsElements> ConnectedFrom;
+		// INVERSE : ConnectedFrom : SET [0:?] OF IfcRelConnectsElements FOR RelatedElement;
+		public List<IfcRelContainedInSpatialStructure> ContainedInStructure;
+		// INVERSE : ContainedInStructure : SET [0:1] OF IfcRelContainedInSpatialStructure FOR RelatedElements;
+		public List<IfcRelCoversBldgElements> HasCoverings;
+		// INVERSE : HasCoverings : SET [0:?] OF IfcRelCoversBldgElements FOR RelatingBuildingElement;
 
 		public IfcElement() { }
 
@@ -10753,21 +9565,29 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElementAssembly : IfcElement
+	public class IfcElementAssembly : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	AssemblyPlace : IfcAssemblyPlaceEnum
-		//10	PredefinedType : IfcElementAssemblyTypeEnum
-
 		public IfcAssemblyPlaceEnum AssemblyPlace { get; set; }
 		public IfcElementAssemblyTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcElementAssembly() { }
 
@@ -10786,19 +9606,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElementAssemblyType : IfcElementType
+	public class IfcElementAssemblyType : IfcElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcElementAssemblyTypeEnum
-
 		public IfcElementAssemblyTypeEnum PredefinedType { get; set; }
 
 		public IfcElementAssemblyType() { }
@@ -10820,15 +9629,6 @@ namespace IFC4
 
 	public abstract class IfcElementComponent : IfcElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcElementComponent() { }
 
 		public IfcElementComponent(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -10846,16 +9646,6 @@ namespace IFC4
 
 	public abstract class IfcElementComponentType : IfcElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcElementComponentType() { }
 
 		public IfcElementComponentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -10872,17 +9662,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcElementQuantity : IfcQuantitySet
+	public class IfcElementQuantity : IfcQuantitySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	MethodOfMeasurement : IfcLabel
-		//6	Quantities : List<IfcPhysicalQuantity>
-
 		public IfcLabel MethodOfMeasurement { get; set; }
 		public List<IfcPhysicalQuantity> Quantities { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcElementQuantity() { }
 
@@ -10899,16 +9688,6 @@ namespace IFC4
 
 	public abstract class IfcElementType : IfcTypeProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcLabel ElementType { get; set; }
 
 		public IfcElementType() { }
@@ -10927,10 +9706,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcElementarySurface : IfcSurface
+	public abstract class IfcElementarySurface : IfcSurface, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-
 		public IfcAxis2Placement3D Position { get; set; }
 
 		public IfcElementarySurface() { }
@@ -10941,14 +9718,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEllipse : IfcConic
+	public class IfcEllipse : IfcConic, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement
-		//2	SemiAxis1 : IfcPositiveLengthMeasure
-		//3	SemiAxis2 : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure SemiAxis1 { get; set; }
 		public IfcPositiveLengthMeasure SemiAxis2 { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcEllipse() { }
 
@@ -10960,14 +9736,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEllipseProfileDef : IfcParameterizedProfileDef
+	public class IfcEllipseProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	SemiAxis1 : IfcPositiveLengthMeasure
-		//5	SemiAxis2 : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure SemiAxis1 { get; set; }
 		public IfcPositiveLengthMeasure SemiAxis2 { get; set; }
 
@@ -10983,17 +9753,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEnergyConversionDevice : IfcDistributionFlowElement
+	public class IfcEnergyConversionDevice : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcEnergyConversionDevice() { }
 
 		public IfcEnergyConversionDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -11011,16 +9772,6 @@ namespace IFC4
 
 	public abstract class IfcEnergyConversionDeviceType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcEnergyConversionDeviceType() { }
 
 		public IfcEnergyConversionDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -11037,18 +9788,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEngine : IfcEnergyConversionDevice
+	public class IfcEngine : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcEngineTypeEnum
-
 		public IfcEngineTypeEnum PredefinedType { get; set; }
 
 		public IfcEngine() { }
@@ -11067,19 +9808,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEngineType : IfcEnergyConversionDeviceType
+	public class IfcEngineType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcEngineTypeEnum
-
 		public IfcEngineTypeEnum PredefinedType { get; set; }
 
 		public IfcEngineType() { }
@@ -11099,18 +9829,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEvaporativeCooler : IfcEnergyConversionDevice
+	public class IfcEvaporativeCooler : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcEvaporativeCoolerTypeEnum
-
 		public IfcEvaporativeCoolerTypeEnum PredefinedType { get; set; }
 
 		public IfcEvaporativeCooler() { }
@@ -11129,19 +9849,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEvaporativeCoolerType : IfcEnergyConversionDeviceType
+	public class IfcEvaporativeCoolerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcEvaporativeCoolerTypeEnum
-
 		public IfcEvaporativeCoolerTypeEnum PredefinedType { get; set; }
 
 		public IfcEvaporativeCoolerType() { }
@@ -11161,18 +9870,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEvaporator : IfcEnergyConversionDevice
+	public class IfcEvaporator : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcEvaporatorTypeEnum
-
 		public IfcEvaporatorTypeEnum PredefinedType { get; set; }
 
 		public IfcEvaporator() { }
@@ -11191,19 +9890,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEvaporatorType : IfcEnergyConversionDeviceType
+	public class IfcEvaporatorType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcEvaporatorTypeEnum
-
 		public IfcEvaporatorTypeEnum PredefinedType { get; set; }
 
 		public IfcEvaporatorType() { }
@@ -11223,24 +9911,26 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEvent : IfcProcess
+	public class IfcEvent : IfcProcess, IfcDefinitionSelect, IfcProcessSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	PredefinedType : IfcEventTypeEnum
-		//9	EventTriggerType : IfcEventTriggerTypeEnum
-		//10	UserDefinedEventTriggerType : IfcLabel
-		//11	EventOccurenceTime : IfcEventTime
-
 		public IfcEventTypeEnum PredefinedType { get; set; }
 		public IfcEventTriggerTypeEnum EventTriggerType { get; set; }
 		public IfcLabel UserDefinedEventTriggerType { get; set; }
 		public IfcEventTime EventOccurenceTime { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
 
 		public IfcEvent() { }
 
@@ -11262,14 +9952,6 @@ namespace IFC4
 
 	public class IfcEventTime : IfcSchedulingTime
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-		//4	ActualDate : IfcDateTime
-		//5	EarlyDate : IfcDateTime
-		//6	LateDate : IfcDateTime
-		//7	ScheduleDate : IfcDateTime
-
 		public IfcDateTime ActualDate { get; set; }
 		public IfcDateTime EarlyDate { get; set; }
 		public IfcDateTime LateDate { get; set; }
@@ -11289,24 +9971,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcEventType : IfcTypeProcess
+	public class IfcEventType : IfcTypeProcess, IfcDefinitionSelect, IfcProcessSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ProcessType : IfcLabel
-		//10	PredefinedType : IfcEventTypeEnum
-		//11	EventTriggerType : IfcEventTriggerTypeEnum
-		//12	UserDefinedEventTriggerType : IfcLabel
-
 		public IfcEventTypeEnum PredefinedType { get; set; }
 		public IfcEventTriggerTypeEnum EventTriggerType { get; set; }
 		public IfcLabel UserDefinedEventTriggerType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
 
 		public IfcEventType() { }
 
@@ -11327,12 +10004,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcExtendedProperties : IfcPropertyAbstraction
+	public abstract class IfcExtendedProperties : IfcPropertyAbstraction, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	Properties : List<IfcProperty>
-
 		public IfcIdentifier Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcProperty> Properties { get; set; }
@@ -11354,18 +10027,11 @@ namespace IFC4
 
 	public abstract class IfcExternalReference : IfcBase, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-
 		public IfcURIReference Location { get; set; }
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel Name { get; set; }
-		public List<IfcExternalReferenceRelationship> ExternalReferenceForResources { get; set; }
-		public IfcURIReference GetLocation() { return Location; }
-		public IfcIdentifier GetIdentification() { return Identification; }
-		public IfcLabel GetName() { return Name; }
-		public List<IfcExternalReferenceRelationship> GetExternalReferenceForResources() { return ExternalReferenceForResources; }
+		public List<IfcExternalReferenceRelationship> ExternalReferenceForResources;
+		// INVERSE : ExternalReferenceForResources : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatingReference;
 
 		public IfcExternalReference() { }
 
@@ -11379,11 +10045,6 @@ namespace IFC4
 
 	public class IfcExternalReferenceRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingReference : IfcExternalReference
-		//4	RelatedResourceObjects : List<IfcResourceObjectSelect>
-
 		public IfcExternalReference RelatingReference { get; set; }
 		public List<IfcResourceObjectSelect> RelatedResourceObjects { get; set; }
 
@@ -11398,20 +10059,34 @@ namespace IFC4
 		}
 	}
 
-	public class IfcExternalSpatialElement : IfcExternalSpatialStructureElement, IfcSpaceBoundarySelect
+	public class IfcExternalSpatialElement : IfcExternalSpatialStructureElement, IfcDefinitionSelect, IfcProductSelect, IfcSpaceBoundarySelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	PredefinedType : IfcExternalSpatialElementTypeEnum
-
 		public IfcExternalSpatialElementTypeEnum PredefinedType { get; set; }
-		public List<IfcRelSpaceBoundary> BoundedBy { get; set; }
+		public List<IfcRelSpaceBoundary> BoundedBy;
+		// INVERSE : BoundedBy : SET [0:?] OF IfcRelSpaceBoundary FOR RelatingSpace;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
+		public IfcLabel GetLongName() { return LongName; }
+		public List<IfcRelContainedInSpatialStructure> GetContainsElements() { return ContainsElements; }
+		public List<IfcRelServicesBuildings> GetServicedBySystems() { return ServicedBySystems; }
+		public List<IfcRelReferencedInSpatialStructure> GetReferencesElements() { return ReferencesElements; }
 		public List<IfcRelSpaceBoundary> GetBoundedBy() { return BoundedBy; }
 
 		public IfcExternalSpatialElement() { }
@@ -11432,15 +10107,6 @@ namespace IFC4
 
 	public abstract class IfcExternalSpatialStructureElement : IfcSpatialElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-
 		public IfcExternalSpatialStructureElement() { }
 
 		public IfcExternalSpatialStructureElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcLabel LongName)
@@ -11456,12 +10122,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcExternallyDefinedHatchStyle : IfcExternalReference, IfcFillStyleSelect
+	public class IfcExternallyDefinedHatchStyle : IfcExternalReference, IfcFillStyleSelect, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-
 		public IfcExternallyDefinedHatchStyle() { }
 
 		public IfcExternallyDefinedHatchStyle(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
@@ -11472,12 +10134,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcExternallyDefinedSurfaceStyle : IfcExternalReference, IfcSurfaceStyleElementSelect
+	public class IfcExternallyDefinedSurfaceStyle : IfcExternalReference, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect, IfcSurfaceStyleElementSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-
 		public IfcExternallyDefinedSurfaceStyle() { }
 
 		public IfcExternallyDefinedSurfaceStyle(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
@@ -11488,12 +10146,9 @@ namespace IFC4
 		}
 	}
 
-	public class IfcExternallyDefinedTextFont : IfcExternalReference, IfcTextFontSelect
+	public class IfcExternallyDefinedTextFont : IfcExternalReference, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect, IfcTextFontSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-
+		public IfcLabel GetName() { return Name; }
 		public IfcExternallyDefinedTextFont() { }
 
 		public IfcExternallyDefinedTextFont(IfcURIReference Location, IfcIdentifier Identification, IfcLabel Name)
@@ -11504,15 +10159,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcExtrudedAreaSolid : IfcSweptAreaSolid
+	public class IfcExtrudedAreaSolid : IfcSweptAreaSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	ExtrudedDirection : IfcDirection
-		//4	Depth : IfcPositiveLengthMeasure
-
 		public IfcDirection ExtrudedDirection { get; set; }
 		public IfcPositiveLengthMeasure Depth { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcExtrudedAreaSolid() { }
 
@@ -11525,14 +10178,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcExtrudedAreaSolidTapered : IfcExtrudedAreaSolid
+	public class IfcExtrudedAreaSolidTapered : IfcExtrudedAreaSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	ExtrudedDirection : IfcDirection
-		//4	Depth : IfcPositiveLengthMeasure
-		//5	EndSweptArea : IfcProfileDef
-
 		public IfcProfileDef EndSweptArea { get; set; }
 
 		public IfcExtrudedAreaSolidTapered() { }
@@ -11547,12 +10194,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFace : IfcTopologicalRepresentationItem
+	public class IfcFace : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
-		//1	Bounds : List<IfcFaceBound>
-
 		public List<IfcFaceBound> Bounds { get; set; }
-		public List<IfcTextureMap> HasTextureMaps { get; set; }
+		public List<IfcTextureMap> HasTextureMaps;
+		// INVERSE : HasTextureMaps : SET [0:?] OF IfcTextureMap FOR MappedTo;
 
 		public IfcFace() { }
 
@@ -11562,13 +10208,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFaceBasedSurfaceModel : IfcGeometricRepresentationItem, IfcSurfaceOrFaceSurface
+	public class IfcFaceBasedSurfaceModel : IfcGeometricRepresentationItem, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	FbsmFaces : List<IfcConnectedFaceSet>
-
 		public List<IfcConnectedFaceSet> FbsmFaces { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := 3;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+
 		public IfcFaceBasedSurfaceModel() { }
 
 		public IfcFaceBasedSurfaceModel(List<IfcConnectedFaceSet> FbsmFaces)
@@ -11577,11 +10224,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFaceBound : IfcTopologicalRepresentationItem
+	public class IfcFaceBound : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
-		//1	Bound : IfcLoop
-		//2	Orientation : IfcBoolean
-
 		public IfcLoop Bound { get; set; }
 		public IfcBoolean Orientation { get; set; }
 
@@ -11594,11 +10238,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFaceOuterBound : IfcFaceBound
+	public class IfcFaceOuterBound : IfcFaceBound, IfcLayeredItem
 	{
-		//1	Bound : IfcLoop
-		//2	Orientation : IfcBoolean
-
 		public IfcFaceOuterBound() { }
 
 		public IfcFaceOuterBound(IfcLoop Bound, IfcBoolean Orientation)
@@ -11608,14 +10249,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFaceSurface : IfcFace, IfcSurfaceOrFaceSurface
+	public class IfcFaceSurface : IfcFace, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	Bounds : List<IfcFaceBound>
-		//2	FaceSurface : IfcSurface
-		//3	SameSense : IfcBoolean
-
 		public IfcSurface FaceSurface { get; set; }
 		public IfcBoolean SameSense { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 
 		public IfcFaceSurface() { }
 
@@ -11627,10 +10266,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFacetedBrep : IfcManifoldSolidBrep
+	public class IfcFacetedBrep : IfcManifoldSolidBrep, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	Outer : IfcClosedShell
-
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 		public IfcFacetedBrep() { }
 
 		public IfcFacetedBrep(IfcClosedShell Outer)
@@ -11639,11 +10279,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFacetedBrepWithVoids : IfcFacetedBrep
+	public class IfcFacetedBrepWithVoids : IfcFacetedBrep, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	Outer : IfcClosedShell
-		//2	Voids : List<IfcClosedShell>
-
 		public List<IfcClosedShell> Voids { get; set; }
 
 		public IfcFacetedBrepWithVoids() { }
@@ -11657,14 +10294,6 @@ namespace IFC4
 
 	public class IfcFailureConnectionCondition : IfcStructuralConnectionCondition
 	{
-		//1	Name : IfcLabel
-		//2	TensionFailureX : IfcForceMeasure
-		//3	TensionFailureY : IfcForceMeasure
-		//4	TensionFailureZ : IfcForceMeasure
-		//5	CompressionFailureX : IfcForceMeasure
-		//6	CompressionFailureY : IfcForceMeasure
-		//7	CompressionFailureZ : IfcForceMeasure
-
 		public IfcForceMeasure TensionFailureX { get; set; }
 		public IfcForceMeasure TensionFailureY { get; set; }
 		public IfcForceMeasure TensionFailureZ { get; set; }
@@ -11686,18 +10315,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFan : IfcFlowMovingDevice
+	public class IfcFan : IfcFlowMovingDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFanTypeEnum
-
 		public IfcFanTypeEnum PredefinedType { get; set; }
 
 		public IfcFan() { }
@@ -11716,19 +10335,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFanType : IfcFlowMovingDeviceType
+	public class IfcFanType : IfcFlowMovingDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFanTypeEnum
-
 		public IfcFanTypeEnum PredefinedType { get; set; }
 
 		public IfcFanType() { }
@@ -11748,19 +10356,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFastener : IfcElementComponent
+	public class IfcFastener : IfcElementComponent, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFastenerTypeEnum
-
 		public IfcFastenerTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcFastener() { }
 
@@ -11778,19 +10395,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFastenerType : IfcElementComponentType
+	public class IfcFastenerType : IfcElementComponentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFastenerTypeEnum
-
 		public IfcFastenerTypeEnum PredefinedType { get; set; }
 
 		public IfcFastenerType() { }
@@ -11812,15 +10418,6 @@ namespace IFC4
 
 	public abstract class IfcFeatureElement : IfcElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFeatureElement() { }
 
 		public IfcFeatureElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -11838,17 +10435,8 @@ namespace IFC4
 
 	public abstract class IfcFeatureElementAddition : IfcFeatureElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
-		public IfcRelProjectsElement ProjectsElements { get; set; }
-
+		public IfcRelProjectsElement ProjectsElements;
+		// INVERSE : ProjectsElements : IfcRelProjectsElement FOR RelatedFeatureElement;
 		public IfcFeatureElementAddition() { }
 
 		public IfcFeatureElementAddition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -11866,17 +10454,8 @@ namespace IFC4
 
 	public abstract class IfcFeatureElementSubtraction : IfcFeatureElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
-		public IfcRelVoidsElement VoidsElements { get; set; }
-
+		public IfcRelVoidsElement VoidsElements;
+		// INVERSE : VoidsElements : IfcRelVoidsElement FOR RelatedOpeningElement;
 		public IfcFeatureElementSubtraction() { }
 
 		public IfcFeatureElementSubtraction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -11892,12 +10471,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFillAreaStyle : IfcPresentationStyle, IfcPresentationStyleSelect
+	public class IfcFillAreaStyle : IfcPresentationStyle, IfcPresentationStyleSelect, IfcStyleAssignmentSelect
 	{
-		//1	Name : IfcLabel
-		//2	FillStyles : List<IfcFillStyleSelect>
-		//3	ModelorDraughting : IfcBoolean
-
 		public List<IfcFillStyleSelect> FillStyles { get; set; }
 		public IfcBoolean ModelorDraughting { get; set; }
 
@@ -11911,14 +10486,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFillAreaStyleHatching : IfcGeometricRepresentationItem, IfcFillStyleSelect
+	public class IfcFillAreaStyleHatching : IfcGeometricRepresentationItem, IfcFillStyleSelect, IfcLayeredItem
 	{
-		//1	HatchLineAppearance : IfcCurveStyle
-		//2	StartOfNextHatchLine : IfcHatchLineDistanceSelect
-		//3	PointOfReferenceHatchLine : IfcCartesianPoint
-		//4	PatternStart : IfcCartesianPoint
-		//5	HatchLineAngle : IfcPlaneAngleMeasure
-
 		public IfcCurveStyle HatchLineAppearance { get; set; }
 		public IfcHatchLineDistanceSelect StartOfNextHatchLine { get; set; }
 		public IfcCartesianPoint PointOfReferenceHatchLine { get; set; }
@@ -11937,12 +10506,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFillAreaStyleTiles : IfcGeometricRepresentationItem, IfcFillStyleSelect
+	public class IfcFillAreaStyleTiles : IfcGeometricRepresentationItem, IfcFillStyleSelect, IfcLayeredItem
 	{
-		//1	TilingPattern : List<IfcVector>
-		//2	Tiles : List<IfcStyledItem>
-		//3	TilingScale : IfcPositiveRatioMeasure
-
 		public List<IfcVector> TilingPattern { get; set; }
 		public List<IfcStyledItem> Tiles { get; set; }
 		public IfcPositiveRatioMeasure TilingScale { get; set; }
@@ -11957,18 +10522,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFilter : IfcFlowTreatmentDevice
+	public class IfcFilter : IfcFlowTreatmentDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFilterTypeEnum
-
 		public IfcFilterTypeEnum PredefinedType { get; set; }
 
 		public IfcFilter() { }
@@ -11987,19 +10542,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFilterType : IfcFlowTreatmentDeviceType
+	public class IfcFilterType : IfcFlowTreatmentDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFilterTypeEnum
-
 		public IfcFilterTypeEnum PredefinedType { get; set; }
 
 		public IfcFilterType() { }
@@ -12019,18 +10563,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFireSuppressionTerminal : IfcFlowTerminal
+	public class IfcFireSuppressionTerminal : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFireSuppressionTerminalTypeEnum
-
 		public IfcFireSuppressionTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcFireSuppressionTerminal() { }
@@ -12049,19 +10583,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFireSuppressionTerminalType : IfcFlowTerminalType
+	public class IfcFireSuppressionTerminalType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFireSuppressionTerminalTypeEnum
-
 		public IfcFireSuppressionTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcFireSuppressionTerminalType() { }
@@ -12081,19 +10604,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFixedReferenceSweptAreaSolid : IfcSweptAreaSolid
+	public class IfcFixedReferenceSweptAreaSolid : IfcSweptAreaSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	Directrix : IfcCurve
-		//4	StartParam : IfcParameterValue
-		//5	EndParam : IfcParameterValue
-		//6	FixedReference : IfcDirection
-
 		public IfcCurve Directrix { get; set; }
 		public IfcParameterValue StartParam { get; set; }
 		public IfcParameterValue EndParam { get; set; }
 		public IfcDirection FixedReference { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcFixedReferenceSweptAreaSolid() { }
 
@@ -12108,17 +10627,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowController : IfcDistributionFlowElement
+	public class IfcFlowController : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowController() { }
 
 		public IfcFlowController(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12136,16 +10646,6 @@ namespace IFC4
 
 	public abstract class IfcFlowControllerType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowControllerType() { }
 
 		public IfcFlowControllerType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12162,17 +10662,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowFitting : IfcDistributionFlowElement
+	public class IfcFlowFitting : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowFitting() { }
 
 		public IfcFlowFitting(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12190,16 +10681,6 @@ namespace IFC4
 
 	public abstract class IfcFlowFittingType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowFittingType() { }
 
 		public IfcFlowFittingType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12216,18 +10697,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowInstrument : IfcDistributionControlElement
+	public class IfcFlowInstrument : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFlowInstrumentTypeEnum
-
 		public IfcFlowInstrumentTypeEnum PredefinedType { get; set; }
 
 		public IfcFlowInstrument() { }
@@ -12246,19 +10717,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowInstrumentType : IfcDistributionControlElementType
+	public class IfcFlowInstrumentType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFlowInstrumentTypeEnum
-
 		public IfcFlowInstrumentTypeEnum PredefinedType { get; set; }
 
 		public IfcFlowInstrumentType() { }
@@ -12278,18 +10738,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowMeter : IfcFlowController
+	public class IfcFlowMeter : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFlowMeterTypeEnum
-
 		public IfcFlowMeterTypeEnum PredefinedType { get; set; }
 
 		public IfcFlowMeter() { }
@@ -12308,19 +10758,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowMeterType : IfcFlowControllerType
+	public class IfcFlowMeterType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFlowMeterTypeEnum
-
 		public IfcFlowMeterTypeEnum PredefinedType { get; set; }
 
 		public IfcFlowMeterType() { }
@@ -12340,17 +10779,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowMovingDevice : IfcDistributionFlowElement
+	public class IfcFlowMovingDevice : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowMovingDevice() { }
 
 		public IfcFlowMovingDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12368,16 +10798,6 @@ namespace IFC4
 
 	public abstract class IfcFlowMovingDeviceType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowMovingDeviceType() { }
 
 		public IfcFlowMovingDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12394,17 +10814,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowSegment : IfcDistributionFlowElement
+	public class IfcFlowSegment : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowSegment() { }
 
 		public IfcFlowSegment(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12422,16 +10833,6 @@ namespace IFC4
 
 	public abstract class IfcFlowSegmentType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowSegmentType() { }
 
 		public IfcFlowSegmentType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12448,17 +10849,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowStorageDevice : IfcDistributionFlowElement
+	public class IfcFlowStorageDevice : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowStorageDevice() { }
 
 		public IfcFlowStorageDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12476,16 +10868,6 @@ namespace IFC4
 
 	public abstract class IfcFlowStorageDeviceType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowStorageDeviceType() { }
 
 		public IfcFlowStorageDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12502,17 +10884,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowTerminal : IfcDistributionFlowElement
+	public class IfcFlowTerminal : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowTerminal() { }
 
 		public IfcFlowTerminal(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12530,16 +10903,6 @@ namespace IFC4
 
 	public abstract class IfcFlowTerminalType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowTerminalType() { }
 
 		public IfcFlowTerminalType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12556,17 +10919,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFlowTreatmentDevice : IfcDistributionFlowElement
+	public class IfcFlowTreatmentDevice : IfcDistributionFlowElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
 		public IfcFlowTreatmentDevice() { }
 
 		public IfcFlowTreatmentDevice(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12584,16 +10938,6 @@ namespace IFC4
 
 	public abstract class IfcFlowTreatmentDeviceType : IfcDistributionFlowElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFlowTreatmentDeviceType() { }
 
 		public IfcFlowTreatmentDeviceType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12610,19 +10954,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFooting : IfcBuildingElement
+	public class IfcFooting : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFootingTypeEnum
-
 		public IfcFootingTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcFooting() { }
 
@@ -12640,19 +10993,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFootingType : IfcBuildingElementType
+	public class IfcFootingType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcFootingTypeEnum
-
 		public IfcFootingTypeEnum PredefinedType { get; set; }
 
 		public IfcFootingType() { }
@@ -12672,17 +11014,27 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFurnishingElement : IfcElement
+	public class IfcFurnishingElement : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 		public IfcFurnishingElement() { }
 
 		public IfcFurnishingElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -12698,18 +11050,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFurnishingElementType : IfcElementType
+	public class IfcFurnishingElementType : IfcElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcFurnishingElementType() { }
 
 		public IfcFurnishingElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -12726,18 +11068,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFurniture : IfcFurnishingElement
+	public class IfcFurniture : IfcFurnishingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcFurnitureTypeEnum
-
 		public IfcFurnitureTypeEnum PredefinedType { get; set; }
 
 		public IfcFurniture() { }
@@ -12756,20 +11088,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcFurnitureType : IfcFurnishingElementType
+	public class IfcFurnitureType : IfcFurnishingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	AssemblyPlace : IfcAssemblyPlaceEnum
-		//11	PredefinedType : IfcFurnitureTypeEnum
-
 		public IfcAssemblyPlaceEnum AssemblyPlace { get; set; }
 		public IfcFurnitureTypeEnum PredefinedType { get; set; }
 
@@ -12791,19 +11111,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcGeographicElement : IfcElement
+	public class IfcGeographicElement : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcGeographicElementTypeEnum
-
 		public IfcGeographicElementTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcGeographicElement() { }
 
@@ -12821,19 +11150,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcGeographicElementType : IfcElementType
+	public class IfcGeographicElementType : IfcElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcGeographicElementTypeEnum
-
 		public IfcGeographicElementTypeEnum PredefinedType { get; set; }
 
 		public IfcGeographicElementType() { }
@@ -12853,10 +11171,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcGeometricCurveSet : IfcGeometricSet
+	public class IfcGeometricCurveSet : IfcGeometricSet, IfcLayeredItem
 	{
-		//1	Elements : List<IfcGeometricSetSelect>
-
 		public IfcGeometricCurveSet() { }
 
 		public IfcGeometricCurveSet(List<IfcGeometricSetSelect> Elements)
@@ -12867,19 +11183,14 @@ namespace IFC4
 
 	public class IfcGeometricRepresentationContext : IfcRepresentationContext, IfcCoordinateReferenceSystemSelect
 	{
-		//1	ContextIdentifier : IfcLabel
-		//2	ContextType : IfcLabel
-		//3	CoordinateSpaceDimension : IfcDimensionCount
-		//4	Precision : IfcReal
-		//5	WorldCoordinateSystem : IfcAxis2Placement
-		//6	TrueNorth : IfcDirection
-
 		public IfcDimensionCount CoordinateSpaceDimension { get; set; }
 		public IfcReal Precision { get; set; }
 		public IfcAxis2Placement WorldCoordinateSystem { get; set; }
 		public IfcDirection TrueNorth { get; set; }
-		public List<IfcGeometricRepresentationSubContext> HasSubContexts { get; set; }
-		public List<IfcCoordinateOperation> HasCoordinateOperation { get; set; }
+		public List<IfcGeometricRepresentationSubContext> HasSubContexts;
+		// INVERSE : HasSubContexts : SET [0:?] OF IfcGeometricRepresentationSubContext FOR ParentContext;
+		public List<IfcCoordinateOperation> HasCoordinateOperation;
+		// INVERSE : HasCoordinateOperation : SET [0:1] OF IfcCoordinateOperation FOR SourceCRS;
 		public List<IfcCoordinateOperation> GetHasCoordinateOperation() { return HasCoordinateOperation; }
 
 		public IfcGeometricRepresentationContext() { }
@@ -12895,24 +11206,13 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcGeometricRepresentationItem : IfcRepresentationItem
+	public abstract class IfcGeometricRepresentationItem : IfcRepresentationItem, IfcLayeredItem
 	{
 		public IfcGeometricRepresentationItem() { }
 	}
 
-	public class IfcGeometricRepresentationSubContext : IfcGeometricRepresentationContext
+	public class IfcGeometricRepresentationSubContext : IfcGeometricRepresentationContext, IfcCoordinateReferenceSystemSelect
 	{
-		//1	ContextIdentifier : IfcLabel
-		//2	ContextType : IfcLabel
-		//3	CoordinateSpaceDimension : IfcDimensionCount
-		//4	Precision : IfcReal
-		//5	WorldCoordinateSystem : IfcAxis2Placement
-		//6	TrueNorth : IfcDirection
-		//7	ParentContext : IfcGeometricRepresentationContext
-		//8	TargetScale : IfcPositiveRatioMeasure
-		//9	TargetView : IfcGeometricProjectionEnum
-		//10	UserDefinedTargetView : IfcLabel
-
 		public IfcGeometricRepresentationContext ParentContext { get; set; }
 		public IfcPositiveRatioMeasure TargetScale { get; set; }
 		public IfcGeometricProjectionEnum TargetView { get; set; }
@@ -12935,13 +11235,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcGeometricSet : IfcGeometricRepresentationItem
+	public class IfcGeometricSet : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Elements : List<IfcGeometricSetSelect>
-
 		public List<IfcGeometricSetSelect> Elements { get; set; }
 		public IfcDimensionCount Dim => Elements[0].GetDim();
-		// (DERIVE)	Dim : IfcDimensionCount := Elements[1].Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := Elements[1].Dim;
 
 		public IfcGeometricSet() { }
 
@@ -12951,25 +11249,26 @@ namespace IFC4
 		}
 	}
 
-	public class IfcGrid : IfcProduct
+	public class IfcGrid : IfcProduct, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	UAxes : List<IfcGridAxis>
-		//9	VAxes : List<IfcGridAxis>
-		//10	WAxes : List<IfcGridAxis>
-		//11	PredefinedType : IfcGridTypeEnum
-
 		public List<IfcGridAxis> UAxes { get; set; }
 		public List<IfcGridAxis> VAxes { get; set; }
 		public List<IfcGridAxis> WAxes { get; set; }
 		public IfcGridTypeEnum PredefinedType { get; set; }
-		public List<IfcRelContainedInSpatialStructure> ContainedInStructure { get; set; }
+		public List<IfcRelContainedInSpatialStructure> ContainedInStructure;
+		// INVERSE : ContainedInStructure : SET [0:1] OF IfcRelContainedInSpatialStructure FOR RelatedElements;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcGrid() { }
 
@@ -12991,17 +11290,17 @@ namespace IFC4
 
 	public class IfcGridAxis : IfcBase
 	{
-		//1	AxisTag : IfcLabel
-		//2	AxisCurve : IfcCurve
-		//3	SameSense : IfcBoolean
-
 		public IfcLabel AxisTag { get; set; }
 		public IfcCurve AxisCurve { get; set; }
 		public IfcBoolean SameSense { get; set; }
-		public List<IfcGrid> PartOfW { get; set; }
-		public List<IfcGrid> PartOfV { get; set; }
-		public List<IfcGrid> PartOfU { get; set; }
-		public List<IfcVirtualGridIntersection> HasIntersections { get; set; }
+		public List<IfcGrid> PartOfW;
+		// INVERSE : PartOfW : SET [0:1] OF IfcGrid FOR WAxes;
+		public List<IfcGrid> PartOfV;
+		// INVERSE : PartOfV : SET [0:1] OF IfcGrid FOR VAxes;
+		public List<IfcGrid> PartOfU;
+		// INVERSE : PartOfU : SET [0:1] OF IfcGrid FOR UAxes;
+		public List<IfcVirtualGridIntersection> HasIntersections;
+		// INVERSE : HasIntersections : SET [0:?] OF IfcVirtualGridIntersection FOR IntersectingAxes;
 
 		public IfcGridAxis() { }
 
@@ -13015,9 +11314,6 @@ namespace IFC4
 
 	public class IfcGridPlacement : IfcObjectPlacement
 	{
-		//1	PlacementLocation : IfcVirtualGridIntersection
-		//2	PlacementRefDirection : IfcGridPlacementDirectionSelect
-
 		public IfcVirtualGridIntersection PlacementLocation { get; set; }
 		public IfcGridPlacementDirectionSelect PlacementRefDirection { get; set; }
 
@@ -13030,16 +11326,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcGroup : IfcObject
+	public class IfcGroup : IfcObject, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-
-		public List<IfcRelAssignsToGroup> IsGroupedBy { get; set; }
-
+		public List<IfcRelAssignsToGroup> IsGroupedBy;
+		// INVERSE : IsGroupedBy : SET [0:?] OF IfcRelAssignsToGroup FOR RelatingGroup;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 		public IfcGroup() { }
 
 		public IfcGroup(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType)
@@ -13052,15 +11348,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcHalfSpaceSolid : IfcGeometricRepresentationItem, IfcBooleanOperand
+	public class IfcHalfSpaceSolid : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcLayeredItem
 	{
-		//1	BaseSurface : IfcSurface
-		//2	AgreementFlag : IfcBoolean
-
 		public IfcSurface BaseSurface { get; set; }
 		public IfcBoolean AgreementFlag { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := 3;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcHalfSpaceSolid() { }
@@ -13072,18 +11367,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcHeatExchanger : IfcEnergyConversionDevice
+	public class IfcHeatExchanger : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcHeatExchangerTypeEnum
-
 		public IfcHeatExchangerTypeEnum PredefinedType { get; set; }
 
 		public IfcHeatExchanger() { }
@@ -13102,19 +11387,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcHeatExchangerType : IfcEnergyConversionDeviceType
+	public class IfcHeatExchangerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcHeatExchangerTypeEnum
-
 		public IfcHeatExchangerTypeEnum PredefinedType { get; set; }
 
 		public IfcHeatExchangerType() { }
@@ -13134,18 +11408,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcHumidifier : IfcEnergyConversionDevice
+	public class IfcHumidifier : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcHumidifierTypeEnum
-
 		public IfcHumidifierTypeEnum PredefinedType { get; set; }
 
 		public IfcHumidifier() { }
@@ -13164,19 +11428,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcHumidifierType : IfcEnergyConversionDeviceType
+	public class IfcHumidifierType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcHumidifierTypeEnum
-
 		public IfcHumidifierTypeEnum PredefinedType { get; set; }
 
 		public IfcHumidifierType() { }
@@ -13196,19 +11449,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcIShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcIShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	OverallWidth : IfcPositiveLengthMeasure
-		//5	OverallDepth : IfcPositiveLengthMeasure
-		//6	WebThickness : IfcPositiveLengthMeasure
-		//7	FlangeThickness : IfcPositiveLengthMeasure
-		//8	FilletRadius : IfcNonNegativeLengthMeasure
-		//9	FlangeEdgeRadius : IfcNonNegativeLengthMeasure
-		//10	FlangeSlope : IfcPlaneAngleMeasure
-
 		public IfcPositiveLengthMeasure OverallWidth { get; set; }
 		public IfcPositiveLengthMeasure OverallDepth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -13236,13 +11478,6 @@ namespace IFC4
 
 	public class IfcImageTexture : IfcSurfaceTexture
 	{
-		//1	RepeatS : IfcBoolean
-		//2	RepeatT : IfcBoolean
-		//3	Mode : IfcIdentifier
-		//4	TextureTransform : IfcCartesianTransformationOperator2D
-		//5	Parameter : List<IfcIdentifier>
-		//6	URLReference : IfcURIReference
-
 		public IfcURIReference URLReference { get; set; }
 
 		public IfcImageTexture() { }
@@ -13260,11 +11495,6 @@ namespace IFC4
 
 	public class IfcIndexedColourMap : IfcPresentationItem
 	{
-		//1	MappedTo : IfcTessellatedFaceSet
-		//2	Opacity : IfcNormalisedRatioMeasure
-		//3	Colours : IfcColourRgbList
-		//4	ColourIndex : List<IfcPositiveInteger>
-
 		public IfcTessellatedFaceSet MappedTo { get; set; }
 		public IfcNormalisedRatioMeasure Opacity { get; set; }
 		public IfcColourRgbList Colours { get; set; }
@@ -13281,15 +11511,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcIndexedPolyCurve : IfcBoundedCurve
+	public class IfcIndexedPolyCurve : IfcBoundedCurve, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Points : IfcCartesianPointList
-		//2	Segments : List<IfcSegmentIndexSelect>
-		//3	SelfIntersect : IfcBoolean
-
 		public IfcCartesianPointList Points { get; set; }
 		public List<IfcSegmentIndexSelect> Segments { get; set; }
 		public IfcBoolean SelfIntersect { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcIndexedPolyCurve() { }
 
@@ -13301,12 +11530,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcIndexedPolygonalFace : IfcTessellatedItem
+	public class IfcIndexedPolygonalFace : IfcTessellatedItem, IfcLayeredItem
 	{
-		//1	CoordIndex : List<IfcPositiveInteger>
-
 		public List<IfcPositiveInteger> CoordIndex { get; set; }
-		public List<IfcPolygonalFaceSet> ToFaceSet { get; set; }
+		public List<IfcPolygonalFaceSet> ToFaceSet;
+		// INVERSE : ToFaceSet : SET [1:?] OF IfcPolygonalFaceSet FOR Faces;
 
 		public IfcIndexedPolygonalFace() { }
 
@@ -13316,11 +11544,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcIndexedPolygonalFaceWithVoids : IfcIndexedPolygonalFace
+	public class IfcIndexedPolygonalFaceWithVoids : IfcIndexedPolygonalFace, IfcLayeredItem
 	{
-		//1	CoordIndex : List<IfcPositiveInteger>
-		//2	InnerCoordIndices : List<List<IfcPositiveInteger>>
-
 		public List<List<IfcPositiveInteger>> InnerCoordIndices { get; set; }
 
 		public IfcIndexedPolygonalFaceWithVoids() { }
@@ -13334,10 +11559,6 @@ namespace IFC4
 
 	public abstract class IfcIndexedTextureMap : IfcTextureCoordinate
 	{
-		//1	Maps : List<IfcSurfaceTexture>
-		//2	MappedTo : IfcTessellatedFaceSet
-		//3	TexCoords : IfcTextureVertexList
-
 		public IfcTessellatedFaceSet MappedTo { get; set; }
 		public IfcTextureVertexList TexCoords { get; set; }
 
@@ -13353,11 +11574,6 @@ namespace IFC4
 
 	public class IfcIndexedTriangleTextureMap : IfcIndexedTextureMap
 	{
-		//1	Maps : List<IfcSurfaceTexture>
-		//2	MappedTo : IfcTessellatedFaceSet
-		//3	TexCoords : IfcTextureVertexList
-		//4	TexCoordIndex : List<List<IfcPositiveInteger>>
-
 		public List<List<IfcPositiveInteger>> TexCoordIndex { get; set; }
 
 		public IfcIndexedTriangleTextureMap() { }
@@ -13371,18 +11587,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcInterceptor : IfcFlowTreatmentDevice
+	public class IfcInterceptor : IfcFlowTreatmentDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcInterceptorTypeEnum
-
 		public IfcInterceptorTypeEnum PredefinedType { get; set; }
 
 		public IfcInterceptor() { }
@@ -13401,19 +11607,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcInterceptorType : IfcFlowTreatmentDeviceType
+	public class IfcInterceptorType : IfcFlowTreatmentDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcInterceptorTypeEnum
-
 		public IfcInterceptorTypeEnum PredefinedType { get; set; }
 
 		public IfcInterceptorType() { }
@@ -13433,12 +11628,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcIntersectionCurve : IfcSurfaceCurve
+	public class IfcIntersectionCurve : IfcSurfaceCurve, IfcCurveOnSurface, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Curve3D : IfcCurve
-		//2	AssociatedGeometry : List<IfcPcurve>
-		//3	MasterRepresentation : IfcPreferredSurfaceCurveRepresentation
-
 		public IfcIntersectionCurve() { }
 
 		public IfcIntersectionCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
@@ -13449,20 +11640,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcInventory : IfcGroup
+	public class IfcInventory : IfcGroup, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	PredefinedType : IfcInventoryTypeEnum
-		//7	Jurisdiction : IfcActorSelect
-		//8	ResponsiblePersons : List<IfcPerson>
-		//9	LastUpdateDate : IfcDate
-		//10	CurrentValue : IfcCostValue
-		//11	OriginalValue : IfcCostValue
-
 		public IfcInventoryTypeEnum PredefinedType { get; set; }
 		public IfcActorSelect Jurisdiction { get; set; }
 		public List<IfcPerson> ResponsiblePersons { get; set; }
@@ -13488,18 +11667,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcIrregularTimeSeries : IfcTimeSeries
+	public class IfcIrregularTimeSeries : IfcTimeSeries, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	StartTime : IfcDateTime
-		//4	EndTime : IfcDateTime
-		//5	TimeSeriesDataType : IfcTimeSeriesDataTypeEnum
-		//6	DataOrigin : IfcDataOriginEnum
-		//7	UserDefinedDataOrigin : IfcLabel
-		//8	Unit : IfcUnit
-		//9	Values : List<IfcIrregularTimeSeriesValue>
-
 		public List<IfcIrregularTimeSeriesValue> Values { get; set; }
 
 		public IfcIrregularTimeSeries() { }
@@ -13520,9 +11689,6 @@ namespace IFC4
 
 	public class IfcIrregularTimeSeriesValue : IfcBase
 	{
-		//1	TimeStamp : IfcDateTime
-		//2	ListValues : List<IfcValue>
-
 		public IfcDateTime TimeStamp { get; set; }
 		public List<IfcValue> ListValues { get; set; }
 
@@ -13535,18 +11701,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcJunctionBox : IfcFlowFitting
+	public class IfcJunctionBox : IfcFlowFitting, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcJunctionBoxTypeEnum
-
 		public IfcJunctionBoxTypeEnum PredefinedType { get; set; }
 
 		public IfcJunctionBox() { }
@@ -13565,19 +11721,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcJunctionBoxType : IfcFlowFittingType
+	public class IfcJunctionBoxType : IfcFlowFittingType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcJunctionBoxTypeEnum
-
 		public IfcJunctionBoxTypeEnum PredefinedType { get; set; }
 
 		public IfcJunctionBoxType() { }
@@ -13597,18 +11742,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcLShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Depth : IfcPositiveLengthMeasure
-		//5	Width : IfcPositiveLengthMeasure
-		//6	Thickness : IfcPositiveLengthMeasure
-		//7	FilletRadius : IfcNonNegativeLengthMeasure
-		//8	EdgeRadius : IfcNonNegativeLengthMeasure
-		//9	LegSlope : IfcPlaneAngleMeasure
-
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure Width { get; set; }
 		public IfcPositiveLengthMeasure Thickness { get; set; }
@@ -13632,21 +11767,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLaborResource : IfcConstructionResource
+	public class IfcLaborResource : IfcConstructionResource, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-		//11	PredefinedType : IfcLaborResourceTypeEnum
-
 		public IfcLaborResourceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcLaborResource() { }
 
@@ -13666,22 +11805,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLaborResourceType : IfcConstructionResourceType
+	public class IfcLaborResourceType : IfcConstructionResourceType, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-		//12	PredefinedType : IfcLaborResourceTypeEnum
-
 		public IfcLaborResourceTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcLaborResourceType() { }
 
@@ -13704,12 +11840,6 @@ namespace IFC4
 
 	public class IfcLagTime : IfcSchedulingTime
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-		//4	LagValue : IfcTimeOrRatioSelect
-		//5	DurationType : IfcTaskDurationEnum
-
 		public IfcTimeOrRatioSelect LagValue { get; set; }
 		public IfcTaskDurationEnum DurationType { get; set; }
 
@@ -13725,18 +11855,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLamp : IfcFlowTerminal
+	public class IfcLamp : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcLampTypeEnum
-
 		public IfcLampTypeEnum PredefinedType { get; set; }
 
 		public IfcLamp() { }
@@ -13755,19 +11875,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLampType : IfcFlowTerminalType
+	public class IfcLampType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcLampTypeEnum
-
 		public IfcLampTypeEnum PredefinedType { get; set; }
 
 		public IfcLampType() { }
@@ -13787,23 +11896,20 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLibraryInformation : IfcExternalInformation, IfcLibrarySelect
+	public class IfcLibraryInformation : IfcExternalInformation, IfcLibrarySelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Version : IfcLabel
-		//3	Publisher : IfcActorSelect
-		//4	VersionDate : IfcDateTime
-		//5	Location : IfcURIReference
-		//6	Description : IfcText
-
 		public IfcLabel Name { get; set; }
 		public IfcLabel Version { get; set; }
 		public IfcActorSelect Publisher { get; set; }
 		public IfcDateTime VersionDate { get; set; }
 		public IfcURIReference Location { get; set; }
 		public IfcText Description { get; set; }
-		public List<IfcRelAssociatesLibrary> LibraryInfoForObjects { get; set; }
-		public List<IfcLibraryReference> HasLibraryReferences { get; set; }
+		public List<IfcRelAssociatesLibrary> LibraryInfoForObjects;
+		// INVERSE : LibraryInfoForObjects : SET [0:?] OF IfcRelAssociatesLibrary FOR RelatingLibrary;
+		public List<IfcLibraryReference> HasLibraryReferences;
+		// INVERSE : HasLibraryReferences : SET [0:?] OF IfcLibraryReference FOR ReferencedLibrary;
+		public IfcLabel GetName() { return Name; }
+		public IfcURIReference GetLocation() { return Location; }
 		public IfcText GetDescription() { return Description; }
 
 		public IfcLibraryInformation() { }
@@ -13819,19 +11925,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLibraryReference : IfcExternalReference, IfcLibrarySelect
+	public class IfcLibraryReference : IfcExternalReference, IfcLibrarySelect, IfcLightDistributionDataSourceSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Location : IfcURIReference
-		//2	Identification : IfcIdentifier
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	Language : IfcLanguageId
-		//6	ReferencedLibrary : IfcLibraryInformation
-
 		public IfcText Description { get; set; }
 		public IfcLanguageId Language { get; set; }
 		public IfcLibraryInformation ReferencedLibrary { get; set; }
-		public List<IfcRelAssociatesLibrary> LibraryRefForObjects { get; set; }
+		public List<IfcRelAssociatesLibrary> LibraryRefForObjects;
+		// INVERSE : LibraryRefForObjects : SET [0:?] OF IfcRelAssociatesLibrary FOR RelatingLibrary;
+		public IfcLabel GetName() { return Name; }
+		public IfcURIReference GetLocation() { return Location; }
 		public IfcText GetDescription() { return Description; }
 
 		public IfcLibraryReference() { }
@@ -13849,10 +11951,6 @@ namespace IFC4
 
 	public class IfcLightDistributionData : IfcBase
 	{
-		//1	MainPlaneAngle : IfcPlaneAngleMeasure
-		//2	SecondaryPlaneAngle : List<IfcPlaneAngleMeasure>
-		//3	LuminousIntensity : List<IfcLuminousIntensityDistributionMeasure>
-
 		public IfcPlaneAngleMeasure MainPlaneAngle { get; set; }
 		public List<IfcPlaneAngleMeasure> SecondaryPlaneAngle { get; set; }
 		public List<IfcLuminousIntensityDistributionMeasure> LuminousIntensity { get; set; }
@@ -13867,18 +11965,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightFixture : IfcFlowTerminal
+	public class IfcLightFixture : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcLightFixtureTypeEnum
-
 		public IfcLightFixtureTypeEnum PredefinedType { get; set; }
 
 		public IfcLightFixture() { }
@@ -13897,19 +11985,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightFixtureType : IfcFlowTerminalType
+	public class IfcLightFixtureType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcLightFixtureTypeEnum
-
 		public IfcLightFixtureTypeEnum PredefinedType { get; set; }
 
 		public IfcLightFixtureType() { }
@@ -13929,11 +12006,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightIntensityDistribution : IfcBase
+	public class IfcLightIntensityDistribution : IfcBase, IfcLightDistributionDataSourceSelect
 	{
-		//1	LightDistributionCurve : IfcLightDistributionCurveEnum
-		//2	DistributionData : List<IfcLightDistributionData>
-
 		public IfcLightDistributionCurveEnum LightDistributionCurve { get; set; }
 		public List<IfcLightDistributionData> DistributionData { get; set; }
 
@@ -13946,13 +12020,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcLightSource : IfcGeometricRepresentationItem
+	public abstract class IfcLightSource : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Name : IfcLabel
-		//2	LightColour : IfcColourRgb
-		//3	AmbientIntensity : IfcNormalisedRatioMeasure
-		//4	Intensity : IfcNormalisedRatioMeasure
-
 		public IfcLabel Name { get; set; }
 		public IfcColourRgb LightColour { get; set; }
 		public IfcNormalisedRatioMeasure AmbientIntensity { get; set; }
@@ -13969,13 +12038,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightSourceAmbient : IfcLightSource
+	public class IfcLightSourceAmbient : IfcLightSource, IfcLayeredItem
 	{
-		//1	Name : IfcLabel
-		//2	LightColour : IfcColourRgb
-		//3	AmbientIntensity : IfcNormalisedRatioMeasure
-		//4	Intensity : IfcNormalisedRatioMeasure
-
 		public IfcLightSourceAmbient() { }
 
 		public IfcLightSourceAmbient(IfcLabel Name, IfcColourRgb LightColour, IfcNormalisedRatioMeasure AmbientIntensity, IfcNormalisedRatioMeasure Intensity)
@@ -13987,14 +12051,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightSourceDirectional : IfcLightSource
+	public class IfcLightSourceDirectional : IfcLightSource, IfcLayeredItem
 	{
-		//1	Name : IfcLabel
-		//2	LightColour : IfcColourRgb
-		//3	AmbientIntensity : IfcNormalisedRatioMeasure
-		//4	Intensity : IfcNormalisedRatioMeasure
-		//5	Orientation : IfcDirection
-
 		public IfcDirection Orientation { get; set; }
 
 		public IfcLightSourceDirectional() { }
@@ -14009,19 +12067,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightSourceGoniometric : IfcLightSource
+	public class IfcLightSourceGoniometric : IfcLightSource, IfcLayeredItem
 	{
-		//1	Name : IfcLabel
-		//2	LightColour : IfcColourRgb
-		//3	AmbientIntensity : IfcNormalisedRatioMeasure
-		//4	Intensity : IfcNormalisedRatioMeasure
-		//5	Position : IfcAxis2Placement3D
-		//6	ColourAppearance : IfcColourRgb
-		//7	ColourTemperature : IfcThermodynamicTemperatureMeasure
-		//8	LuminousFlux : IfcLuminousFluxMeasure
-		//9	LightEmissionSource : IfcLightEmissionSourceEnum
-		//10	LightDistributionDataSource : IfcLightDistributionDataSourceSelect
-
 		public IfcAxis2Placement3D Position { get; set; }
 		public IfcColourRgb ColourAppearance { get; set; }
 		public IfcThermodynamicTemperatureMeasure ColourTemperature { get; set; }
@@ -14046,18 +12093,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightSourcePositional : IfcLightSource
+	public class IfcLightSourcePositional : IfcLightSource, IfcLayeredItem
 	{
-		//1	Name : IfcLabel
-		//2	LightColour : IfcColourRgb
-		//3	AmbientIntensity : IfcNormalisedRatioMeasure
-		//4	Intensity : IfcNormalisedRatioMeasure
-		//5	Position : IfcCartesianPoint
-		//6	Radius : IfcPositiveLengthMeasure
-		//7	ConstantAttenuation : IfcReal
-		//8	DistanceAttenuation : IfcReal
-		//9	QuadricAttenuation : IfcReal
-
 		public IfcCartesianPoint Position { get; set; }
 		public IfcPositiveLengthMeasure Radius { get; set; }
 		public IfcReal ConstantAttenuation { get; set; }
@@ -14080,22 +12117,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLightSourceSpot : IfcLightSourcePositional
+	public class IfcLightSourceSpot : IfcLightSourcePositional, IfcLayeredItem
 	{
-		//1	Name : IfcLabel
-		//2	LightColour : IfcColourRgb
-		//3	AmbientIntensity : IfcNormalisedRatioMeasure
-		//4	Intensity : IfcNormalisedRatioMeasure
-		//5	Position : IfcCartesianPoint
-		//6	Radius : IfcPositiveLengthMeasure
-		//7	ConstantAttenuation : IfcReal
-		//8	DistanceAttenuation : IfcReal
-		//9	QuadricAttenuation : IfcReal
-		//10	Orientation : IfcDirection
-		//11	ConcentrationExponent : IfcReal
-		//12	SpreadAngle : IfcPositivePlaneAngleMeasure
-		//13	BeamWidthAngle : IfcPositivePlaneAngleMeasure
-
 		public IfcDirection Orientation { get; set; }
 		public IfcReal ConcentrationExponent { get; set; }
 		public IfcPositivePlaneAngleMeasure SpreadAngle { get; set; }
@@ -14121,13 +12144,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLine : IfcCurve
+	public class IfcLine : IfcCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Pnt : IfcCartesianPoint
-		//2	Dir : IfcVector
-
 		public IfcCartesianPoint Pnt { get; set; }
 		public IfcVector Dir { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcLine() { }
 
@@ -14140,9 +12163,6 @@ namespace IFC4
 
 	public class IfcLocalPlacement : IfcObjectPlacement
 	{
-		//1	PlacementRelTo : IfcObjectPlacement
-		//2	RelativePlacement : IfcAxis2Placement
-
 		public IfcObjectPlacement PlacementRelTo { get; set; }
 		public IfcAxis2Placement RelativePlacement { get; set; }
 
@@ -14155,15 +12175,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcLoop : IfcTopologicalRepresentationItem
+	public class IfcLoop : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
 		public IfcLoop() { }
 	}
 
-	public abstract class IfcManifoldSolidBrep : IfcSolidModel
+	public abstract class IfcManifoldSolidBrep : IfcSolidModel, IfcLayeredItem
 	{
-		//1	Outer : IfcClosedShell
-
 		public IfcClosedShell Outer { get; set; }
 
 		public IfcManifoldSolidBrep() { }
@@ -14176,15 +12194,6 @@ namespace IFC4
 
 	public class IfcMapConversion : IfcCoordinateOperation
 	{
-		//1	SourceCRS : IfcCoordinateReferenceSystemSelect
-		//2	TargetCRS : IfcCoordinateReferenceSystem
-		//3	Eastings : IfcLengthMeasure
-		//4	Northings : IfcLengthMeasure
-		//5	OrthogonalHeight : IfcLengthMeasure
-		//6	XAxisAbscissa : IfcReal
-		//7	XAxisOrdinate : IfcReal
-		//8	Scale : IfcReal
-
 		public IfcLengthMeasure Eastings { get; set; }
 		public IfcLengthMeasure Northings { get; set; }
 		public IfcLengthMeasure OrthogonalHeight { get; set; }
@@ -14207,11 +12216,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMappedItem : IfcRepresentationItem
+	public class IfcMappedItem : IfcRepresentationItem, IfcLayeredItem
 	{
-		//1	MappingSource : IfcRepresentationMap
-		//2	MappingTarget : IfcCartesianTransformationOperator
-
 		public IfcRepresentationMap MappingSource { get; set; }
 		public IfcCartesianTransformationOperator MappingTarget { get; set; }
 
@@ -14224,18 +12230,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterial : IfcMaterialDefinition
+	public class IfcMaterial : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Category : IfcLabel
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLabel Category { get; set; }
-		public List<IfcMaterialDefinitionRepresentation> HasRepresentation { get; set; }
-		public List<IfcMaterialRelationship> IsRelatedWith { get; set; }
-		public List<IfcMaterialRelationship> RelatesTo { get; set; }
+		public List<IfcMaterialDefinitionRepresentation> HasRepresentation;
+		// INVERSE : HasRepresentation : SET [0:1] OF IfcMaterialDefinitionRepresentation FOR RepresentedMaterial;
+		public List<IfcMaterialRelationship> IsRelatedWith;
+		// INVERSE : IsRelatedWith : SET [0:?] OF IfcMaterialRelationship FOR RelatedMaterials;
+		public List<IfcMaterialRelationship> RelatesTo;
+		// INVERSE : RelatesTo : SET [0:1] OF IfcMaterialRelationship FOR RelatingMaterial;
 
 		public IfcMaterial() { }
 
@@ -14249,9 +12254,6 @@ namespace IFC4
 
 	public class IfcMaterialClassificationRelationship : IfcBase
 	{
-		//1	MaterialClassifications : List<IfcClassificationSelect>
-		//2	ClassifiedMaterial : IfcMaterial
-
 		public List<IfcClassificationSelect> MaterialClassifications { get; set; }
 		public IfcMaterial ClassifiedMaterial { get; set; }
 
@@ -14264,20 +12266,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialConstituent : IfcMaterialDefinition
+	public class IfcMaterialConstituent : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Material : IfcMaterial
-		//4	Fraction : IfcNormalisedRatioMeasure
-		//5	Category : IfcLabel
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcMaterial Material { get; set; }
 		public IfcNormalisedRatioMeasure Fraction { get; set; }
 		public IfcLabel Category { get; set; }
-		public IfcMaterialConstituentSet ToMaterialConstituentSet { get; set; }
+		public IfcMaterialConstituentSet ToMaterialConstituentSet;
+		// INVERSE : ToMaterialConstituentSet : IfcMaterialConstituentSet FOR MaterialConstituents;
 
 		public IfcMaterialConstituent() { }
 
@@ -14291,12 +12288,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialConstituentSet : IfcMaterialDefinition
+	public class IfcMaterialConstituentSet : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	MaterialConstituents : List<IfcMaterialConstituent>
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcMaterialConstituent> MaterialConstituents { get; set; }
@@ -14313,21 +12306,17 @@ namespace IFC4
 
 	public abstract class IfcMaterialDefinition : IfcBase, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		public List<IfcRelAssociatesMaterial> AssociatedTo { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
-		public List<IfcMaterialProperties> HasProperties { get; set; }
-
-
+		public List<IfcRelAssociatesMaterial> AssociatedTo;
+		// INVERSE : AssociatedTo : SET [0:?] OF IfcRelAssociatesMaterial FOR RelatingMaterial;
+		public List<IfcExternalReferenceRelationship> HasExternalReferences;
+		// INVERSE : HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+		public List<IfcMaterialProperties> HasProperties;
+		// INVERSE : HasProperties : SET [0:?] OF IfcMaterialProperties FOR Material;
 		public IfcMaterialDefinition() { }
 	}
 
 	public class IfcMaterialDefinitionRepresentation : IfcProductRepresentation
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Representations : List<IfcRepresentation>
-		//4	RepresentedMaterial : IfcMaterial
-
 		public IfcMaterial RepresentedMaterial { get; set; }
 
 		public IfcMaterialDefinitionRepresentation() { }
@@ -14341,16 +12330,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialLayer : IfcMaterialDefinition
+	public class IfcMaterialLayer : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Material : IfcMaterial
-		//2	LayerThickness : IfcNonNegativeLengthMeasure
-		//3	IsVentilated : IfcLogical
-		//4	Name : IfcLabel
-		//5	Description : IfcText
-		//6	Category : IfcLabel
-		//7	Priority : IfcInteger
-
 		public IfcMaterial Material { get; set; }
 		public IfcNonNegativeLengthMeasure LayerThickness { get; set; }
 		public IfcLogical IsVentilated { get; set; }
@@ -14358,7 +12339,8 @@ namespace IFC4
 		public IfcText Description { get; set; }
 		public IfcLabel Category { get; set; }
 		public IfcInteger Priority { get; set; }
-		public IfcMaterialLayerSet ToMaterialLayerSet { get; set; }
+		public IfcMaterialLayerSet ToMaterialLayerSet;
+		// INVERSE : ToMaterialLayerSet : IfcMaterialLayerSet FOR MaterialLayers;
 
 		public IfcMaterialLayer() { }
 
@@ -14374,17 +12356,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialLayerSet : IfcMaterialDefinition
+	public class IfcMaterialLayerSet : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	MaterialLayers : List<IfcMaterialLayer>
-		//2	LayerSetName : IfcLabel
-		//3	Description : IfcText
-
 		public List<IfcMaterialLayer> MaterialLayers { get; set; }
 		public IfcLabel LayerSetName { get; set; }
 		public IfcText Description { get; set; }
 		public IfcLengthMeasure TotalThickness => IfcMlsTotalThickness(this);
-		// (DERIVE)	TotalThickness : IfcLengthMeasure := IfcMlsTotalThickness(SELF); {get;set;}
+		// DERIVE : TotalThickness : IfcLengthMeasure := IfcMlsTotalThickness(SELF);
+
 		public IfcMaterialLayerSet() { }
 
 		public IfcMaterialLayerSet(List<IfcMaterialLayer> MaterialLayers, IfcLabel LayerSetName, IfcText Description)
@@ -14395,14 +12374,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialLayerSetUsage : IfcMaterialUsageDefinition
+	public class IfcMaterialLayerSetUsage : IfcMaterialUsageDefinition, IfcMaterialSelect
 	{
-		//1	ForLayerSet : IfcMaterialLayerSet
-		//2	LayerSetDirection : IfcLayerSetDirectionEnum
-		//3	DirectionSense : IfcDirectionSenseEnum
-		//4	OffsetFromReferenceLine : IfcLengthMeasure
-		//5	ReferenceExtent : IfcPositiveLengthMeasure
-
 		public IfcMaterialLayerSet ForLayerSet { get; set; }
 		public IfcLayerSetDirectionEnum LayerSetDirection { get; set; }
 		public IfcDirectionSenseEnum DirectionSense { get; set; }
@@ -14421,18 +12394,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialLayerWithOffsets : IfcMaterialLayer
+	public class IfcMaterialLayerWithOffsets : IfcMaterialLayer, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Material : IfcMaterial
-		//2	LayerThickness : IfcNonNegativeLengthMeasure
-		//3	IsVentilated : IfcLogical
-		//4	Name : IfcLabel
-		//5	Description : IfcText
-		//6	Category : IfcLabel
-		//7	Priority : IfcInteger
-		//8	OffsetDirection : IfcLayerSetDirectionEnum
-		//9	OffsetValues : List<IfcLengthMeasure>
-
 		public IfcLayerSetDirectionEnum OffsetDirection { get; set; }
 		public List<IfcLengthMeasure> OffsetValues { get; set; }
 
@@ -14454,8 +12417,6 @@ namespace IFC4
 
 	public class IfcMaterialList : IfcBase, IfcMaterialSelect
 	{
-		//1	Materials : List<IfcMaterial>
-
 		public List<IfcMaterial> Materials { get; set; }
 
 		public IfcMaterialList() { }
@@ -14466,22 +12427,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialProfile : IfcMaterialDefinition
+	public class IfcMaterialProfile : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Material : IfcMaterial
-		//4	Profile : IfcProfileDef
-		//5	Priority : IfcInteger
-		//6	Category : IfcLabel
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcMaterial Material { get; set; }
 		public IfcProfileDef Profile { get; set; }
 		public IfcInteger Priority { get; set; }
 		public IfcLabel Category { get; set; }
-		public IfcMaterialProfileSet ToMaterialProfileSet { get; set; }
+		public IfcMaterialProfileSet ToMaterialProfileSet;
+		// INVERSE : ToMaterialProfileSet : IfcMaterialProfileSet FOR MaterialProfiles;
 
 		public IfcMaterialProfile() { }
 
@@ -14496,13 +12451,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialProfileSet : IfcMaterialDefinition
+	public class IfcMaterialProfileSet : IfcMaterialDefinition, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	MaterialProfiles : List<IfcMaterialProfile>
-		//4	CompositeProfile : IfcCompositeProfileDef
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcMaterialProfile> MaterialProfiles { get; set; }
@@ -14519,12 +12469,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialProfileSetUsage : IfcMaterialUsageDefinition
+	public class IfcMaterialProfileSetUsage : IfcMaterialUsageDefinition, IfcMaterialSelect
 	{
-		//1	ForProfileSet : IfcMaterialProfileSet
-		//2	CardinalPoint : IfcCardinalPointReference
-		//3	ReferenceExtent : IfcPositiveLengthMeasure
-
 		public IfcMaterialProfileSet ForProfileSet { get; set; }
 		public IfcCardinalPointReference CardinalPoint { get; set; }
 		public IfcPositiveLengthMeasure ReferenceExtent { get; set; }
@@ -14539,14 +12485,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialProfileSetUsageTapering : IfcMaterialProfileSetUsage
+	public class IfcMaterialProfileSetUsageTapering : IfcMaterialProfileSetUsage, IfcMaterialSelect
 	{
-		//1	ForProfileSet : IfcMaterialProfileSet
-		//2	CardinalPoint : IfcCardinalPointReference
-		//3	ReferenceExtent : IfcPositiveLengthMeasure
-		//4	ForProfileEndSet : IfcMaterialProfileSet
-		//5	CardinalEndPoint : IfcCardinalPointReference
-
 		public IfcMaterialProfileSet ForProfileEndSet { get; set; }
 		public IfcCardinalPointReference CardinalEndPoint { get; set; }
 
@@ -14562,16 +12502,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialProfileWithOffsets : IfcMaterialProfile
+	public class IfcMaterialProfileWithOffsets : IfcMaterialProfile, IfcMaterialSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Material : IfcMaterial
-		//4	Profile : IfcProfileDef
-		//5	Priority : IfcInteger
-		//6	Category : IfcLabel
-		//7	OffsetValues : List<IfcLengthMeasure>
-
 		public List<IfcLengthMeasure> OffsetValues { get; set; }
 
 		public IfcMaterialProfileWithOffsets() { }
@@ -14588,13 +12520,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMaterialProperties : IfcExtendedProperties
+	public class IfcMaterialProperties : IfcExtendedProperties, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	Properties : List<IfcProperty>
-		//4	Material : IfcMaterialDefinition
-
 		public IfcMaterialDefinition Material { get; set; }
 
 		public IfcMaterialProperties() { }
@@ -14610,12 +12537,6 @@ namespace IFC4
 
 	public class IfcMaterialRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingMaterial : IfcMaterial
-		//4	RelatedMaterials : List<IfcMaterial>
-		//5	Expression : IfcLabel
-
 		public IfcMaterial RelatingMaterial { get; set; }
 		public List<IfcMaterial> RelatedMaterials { get; set; }
 		public IfcLabel Expression { get; set; }
@@ -14634,16 +12555,13 @@ namespace IFC4
 
 	public abstract class IfcMaterialUsageDefinition : IfcBase, IfcMaterialSelect
 	{
-		public List<IfcRelAssociatesMaterial> AssociatedTo { get; set; }
-
+		public List<IfcRelAssociatesMaterial> AssociatedTo;
+		// INVERSE : AssociatedTo : SET [1:?] OF IfcRelAssociatesMaterial FOR RelatingMaterial;
 		public IfcMaterialUsageDefinition() { }
 	}
 
-	public class IfcMeasureWithUnit : IfcBase
+	public class IfcMeasureWithUnit : IfcBase, IfcAppliedValueSelect, IfcMetricValueSelect
 	{
-		//1	ValueComponent : IfcValue
-		//2	UnitComponent : IfcUnit
-
 		public IfcValue ValueComponent { get; set; }
 		public IfcUnit UnitComponent { get; set; }
 
@@ -14656,23 +12574,30 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMechanicalFastener : IfcElementComponent
+	public class IfcMechanicalFastener : IfcElementComponent, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	NominalDiameter : IfcPositiveLengthMeasure
-		//10	NominalLength : IfcPositiveLengthMeasure
-		//11	PredefinedType : IfcMechanicalFastenerTypeEnum
-
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcPositiveLengthMeasure NominalLength { get; set; }
 		public IfcMechanicalFastenerTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcMechanicalFastener() { }
 
@@ -14692,21 +12617,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMechanicalFastenerType : IfcElementComponentType
+	public class IfcMechanicalFastenerType : IfcElementComponentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcMechanicalFastenerTypeEnum
-		//11	NominalDiameter : IfcPositiveLengthMeasure
-		//12	NominalLength : IfcPositiveLengthMeasure
-
 		public IfcMechanicalFastenerTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcPositiveLengthMeasure NominalLength { get; set; }
@@ -14730,18 +12642,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMedicalDevice : IfcFlowTerminal
+	public class IfcMedicalDevice : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcMedicalDeviceTypeEnum
-
 		public IfcMedicalDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcMedicalDevice() { }
@@ -14760,19 +12662,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMedicalDeviceType : IfcFlowTerminalType
+	public class IfcMedicalDeviceType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcMedicalDeviceTypeEnum
-
 		public IfcMedicalDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcMedicalDeviceType() { }
@@ -14792,19 +12683,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMember : IfcBuildingElement
+	public class IfcMember : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcMemberTypeEnum
-
 		public IfcMemberTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcMember() { }
 
@@ -14822,18 +12722,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMemberStandardCase : IfcMember
+	public class IfcMemberStandardCase : IfcMember, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcMemberTypeEnum
-
 		public IfcMemberStandardCase() { }
 
 		public IfcMemberStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcMemberTypeEnum PredefinedType)
@@ -14850,19 +12740,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMemberType : IfcBuildingElementType
+	public class IfcMemberType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcMemberTypeEnum
-
 		public IfcMemberTypeEnum PredefinedType { get; set; }
 
 		public IfcMemberType() { }
@@ -14882,20 +12761,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMetric : IfcConstraint
+	public class IfcMetric : IfcConstraint, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	ConstraintGrade : IfcConstraintEnum
-		//4	ConstraintSource : IfcLabel
-		//5	CreatingActor : IfcActorSelect
-		//6	CreationTime : IfcDateTime
-		//7	UserDefinedGrade : IfcLabel
-		//8	Benchmark : IfcBenchmarkEnum
-		//9	ValueSource : IfcLabel
-		//10	DataValue : IfcMetricValueSelect
-		//11	ReferencePath : IfcReference
-
 		public IfcBenchmarkEnum Benchmark { get; set; }
 		public IfcLabel ValueSource { get; set; }
 		public IfcMetricValueSelect DataValue { get; set; }
@@ -14919,14 +12786,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMirroredProfileDef : IfcDerivedProfileDef
+	public class IfcMirroredProfileDef : IfcDerivedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	ParentProfile : IfcProfileDef
-		//4	Operator : IfcCartesianTransformationOperator2D
-		//5	Label : IfcLabel
-
 		public IfcMirroredProfileDef() { }
 
 		public IfcMirroredProfileDef(IfcProfileTypeEnum ProfileType, IfcLabel ProfileName, IfcProfileDef ParentProfile, IfcCartesianTransformationOperator2D Operator, IfcLabel Label)
@@ -14939,10 +12800,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMonetaryUnit : IfcBase,IfcUnit
+	public class IfcMonetaryUnit : IfcBase, IfcUnit
 	{
-		//1	Currency : IfcLabel
-
 		public IfcLabel Currency { get; set; }
 
 		public IfcMonetaryUnit() { }
@@ -14953,18 +12812,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMotorConnection : IfcEnergyConversionDevice
+	public class IfcMotorConnection : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcMotorConnectionTypeEnum
-
 		public IfcMotorConnectionTypeEnum PredefinedType { get; set; }
 
 		public IfcMotorConnection() { }
@@ -14983,19 +12832,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcMotorConnectionType : IfcEnergyConversionDeviceType
+	public class IfcMotorConnectionType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcMotorConnectionTypeEnum
-
 		public IfcMotorConnectionTypeEnum PredefinedType { get; set; }
 
 		public IfcMotorConnectionType() { }
@@ -15017,12 +12855,8 @@ namespace IFC4
 
 	public abstract class IfcNamedUnit : IfcBase, IfcUnit
 	{
-		//1	Dimensions : IfcDimensionalExponents
-		//2	UnitType : IfcUnitEnum
 		public IfcDimensionalExponents Dimensions { get; set; }
 		public IfcUnitEnum UnitType { get; set; }
-		public IfcDimensionalExponents GetDimensions() { return Dimensions; }
-		public IfcUnitEnum GetUnitType() { return UnitType; }
 
 		public IfcNamedUnit() { }
 
@@ -15035,17 +12869,15 @@ namespace IFC4
 
 	public abstract class IfcObject : IfcObjectDefinition
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-
 		public IfcLabel ObjectType { get; set; }
-		public List<IfcRelDefinesByObject> IsDeclaredBy { get; set; }
-		public List<IfcRelDefinesByObject> Declares { get; set; }
-		public List<IfcRelDefinesByType> IsTypedBy { get; set; }
-		public List<IfcRelDefinesByProperties> IsDefinedBy { get; set; }
+		public List<IfcRelDefinesByObject> IsDeclaredBy;
+		// INVERSE : IsDeclaredBy : SET [0:1] OF IfcRelDefinesByObject FOR RelatedObjects;
+		public List<IfcRelDefinesByObject> Declares;
+		// INVERSE : Declares : SET [0:?] OF IfcRelDefinesByObject FOR RelatingObject;
+		public List<IfcRelDefinesByType> IsTypedBy;
+		// INVERSE : IsTypedBy : SET [0:1] OF IfcRelDefinesByType FOR RelatedObjects;
+		public List<IfcRelDefinesByProperties> IsDefinedBy;
+		// INVERSE : IsDefinedBy : SET [0:?] OF IfcRelDefinesByProperties FOR RelatedObjects;
 
 		public IfcObject() { }
 
@@ -15059,23 +12891,22 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcObjectDefinition : IfcRoot, IfcDefinitionSelect
+	public abstract class IfcObjectDefinition : IfcRoot
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
-		public List<IfcRelAssigns> HasAssignments { get; set; }
-		public List<IfcRelNests> Nests { get; set; }
-		public List<IfcRelNests> IsNestedBy { get; set; }
-		public List<IfcRelDeclares> HasContext { get; set; }
-		public List<IfcRelAggregates> IsDecomposedBy { get; set; }
-		public List<IfcRelAggregates> Decomposes { get; set; }
-		public List<IfcRelAssociates> HasAssociations { get; set; }
-		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
-		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
-
+		public List<IfcRelAssigns> HasAssignments;
+		// INVERSE : HasAssignments : SET [0:?] OF IfcRelAssigns FOR RelatedObjects;
+		public List<IfcRelNests> Nests;
+		// INVERSE : Nests : SET [0:1] OF IfcRelNests FOR RelatedObjects;
+		public List<IfcRelNests> IsNestedBy;
+		// INVERSE : IsNestedBy : SET [0:?] OF IfcRelNests FOR RelatingObject;
+		public List<IfcRelDeclares> HasContext;
+		// INVERSE : HasContext : SET [0:1] OF IfcRelDeclares FOR RelatedDefinitions;
+		public List<IfcRelAggregates> IsDecomposedBy;
+		// INVERSE : IsDecomposedBy : SET [0:?] OF IfcRelAggregates FOR RelatingObject;
+		public List<IfcRelAggregates> Decomposes;
+		// INVERSE : Decomposes : SET [0:1] OF IfcRelAggregates FOR RelatedObjects;
+		public List<IfcRelAssociates> HasAssociations;
+		// INVERSE : HasAssociations : SET [0:?] OF IfcRelAssociates FOR RelatedObjects;
 		public IfcObjectDefinition() { }
 
 		public IfcObjectDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -15089,26 +12920,15 @@ namespace IFC4
 
 	public abstract class IfcObjectPlacement : IfcBase
 	{
-		public List<IfcProduct> PlacesObject { get; set; }
-		public List<IfcLocalPlacement> ReferencedByPlacements { get; set; }
-
+		public List<IfcProduct> PlacesObject;
+		// INVERSE : PlacesObject : SET [0:?] OF IfcProduct FOR ObjectPlacement;
+		public List<IfcLocalPlacement> ReferencedByPlacements;
+		// INVERSE : ReferencedByPlacements : SET [0:?] OF IfcLocalPlacement FOR PlacementRelTo;
 		public IfcObjectPlacement() { }
 	}
 
-	public class IfcObjective : IfcConstraint
+	public class IfcObjective : IfcConstraint, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	ConstraintGrade : IfcConstraintEnum
-		//4	ConstraintSource : IfcLabel
-		//5	CreatingActor : IfcActorSelect
-		//6	CreationTime : IfcDateTime
-		//7	UserDefinedGrade : IfcLabel
-		//8	BenchmarkValues : List<IfcConstraint>
-		//9	LogicalAggregator : IfcLogicalOperatorEnum
-		//10	ObjectiveQualifier : IfcObjectiveEnum
-		//11	UserDefinedQualifier : IfcLabel
-
 		public List<IfcConstraint> BenchmarkValues { get; set; }
 		public IfcLogicalOperatorEnum LogicalAggregator { get; set; }
 		public IfcObjectiveEnum ObjectiveQualifier { get; set; }
@@ -15132,16 +12952,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOccupant : IfcActor
+	public class IfcOccupant : IfcActor, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	TheActor : IfcActorSelect
-		//7	PredefinedType : IfcOccupantTypeEnum
-
 		public IfcOccupantTypeEnum PredefinedType { get; set; }
 
 		public IfcOccupant() { }
@@ -15158,15 +12970,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOffsetCurve2D : IfcCurve
+	public class IfcOffsetCurve2D : IfcCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	BasisCurve : IfcCurve
-		//2	Distance : IfcLengthMeasure
-		//3	SelfIntersect : IfcLogical
-
 		public IfcCurve BasisCurve { get; set; }
 		public IfcLengthMeasure Distance { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcOffsetCurve2D() { }
 
@@ -15178,17 +12989,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOffsetCurve3D : IfcCurve
+	public class IfcOffsetCurve3D : IfcCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	BasisCurve : IfcCurve
-		//2	Distance : IfcLengthMeasure
-		//3	SelfIntersect : IfcLogical
-		//4	RefDirection : IfcDirection
-
 		public IfcCurve BasisCurve { get; set; }
 		public IfcLengthMeasure Distance { get; set; }
 		public IfcLogical SelfIntersect { get; set; }
 		public IfcDirection RefDirection { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcOffsetCurve3D() { }
 
@@ -15201,10 +13010,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOpenShell : IfcConnectedFaceSet, IfcShell
+	public class IfcOpenShell : IfcConnectedFaceSet, IfcLayeredItem, IfcShell
 	{
-		//1	CfsFaces : List<IfcFace>
-
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public List<IfcFace> GetCfsFaces() { return CfsFaces; }
 		public IfcOpenShell() { }
 
 		public IfcOpenShell(List<IfcFace> CfsFaces)
@@ -15213,20 +13023,30 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOpeningElement : IfcFeatureElementSubtraction
+	public class IfcOpeningElement : IfcFeatureElementSubtraction, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcOpeningElementTypeEnum
-
 		public IfcOpeningElementTypeEnum PredefinedType { get; set; }
-		public List<IfcRelFillsElement> HasFillings { get; set; }
+		public List<IfcRelFillsElement> HasFillings;
+		// INVERSE : HasFillings : SET [0:?] OF IfcRelFillsElement FOR RelatingOpeningElement;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcOpeningElement() { }
 
@@ -15244,18 +13064,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOpeningStandardCase : IfcOpeningElement
+	public class IfcOpeningStandardCase : IfcOpeningElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcOpeningElementTypeEnum
-
 		public IfcOpeningStandardCase() { }
 
 		public IfcOpeningStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcOpeningElementTypeEnum PredefinedType)
@@ -15272,23 +13082,20 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOrganization : IfcBase
+	public class IfcOrganization : IfcBase, IfcActorSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Identification : IfcIdentifier
-		//2	Name : IfcLabel
-		//3	Description : IfcText
-		//4	Roles : List<IfcActorRole>
-		//5	Addresses : List<IfcAddress>
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcActorRole> Roles { get; set; }
 		public List<IfcAddress> Addresses { get; set; }
-		//INVERSE
 		public List<IfcOrganizationRelationship> IsRelatedBy;
+		// INVERSE : IsRelatedBy : SET [0:?] OF IfcOrganizationRelationship FOR RelatedOrganizations;
 		public List<IfcOrganizationRelationship> Relates;
+		// INVERSE : Relates : SET [0:?] OF IfcOrganizationRelationship FOR RelatingOrganization;
 		public List<IfcPersonAndOrganization> Engages;
+		// INVERSE : Engages : SET [0:?] OF IfcPersonAndOrganization FOR TheOrganization;
+		public List<IfcActorRole> GetRoles() { return Roles; }
 
 		public IfcOrganization() { }
 
@@ -15304,11 +13111,6 @@ namespace IFC4
 
 	public class IfcOrganizationRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingOrganization : IfcOrganization
-		//4	RelatedOrganizations : List<IfcOrganization>
-
 		public IfcOrganization RelatingOrganization { get; set; }
 		public List<IfcOrganization> RelatedOrganizations { get; set; }
 
@@ -15323,13 +13125,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOrientedEdge : IfcEdge
+	public class IfcOrientedEdge : IfcEdge, IfcLayeredItem
 	{
-		//1	EdgeStart : IfcVertex
-		//2	EdgeEnd : IfcVertex
-		//3	EdgeElement : IfcEdge
-		//4	Orientation : IfcBoolean
-
 		public IfcEdge EdgeElement { get; set; }
 		public IfcBoolean Orientation { get; set; }
 
@@ -15344,11 +13141,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOuterBoundaryCurve : IfcBoundaryCurve
+	public class IfcOuterBoundaryCurve : IfcBoundaryCurve, IfcCurveOnSurface, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Segments : List<IfcCompositeCurveSegment>
-		//2	SelfIntersect : IfcLogical
-
 		public IfcOuterBoundaryCurve() { }
 
 		public IfcOuterBoundaryCurve(List<IfcCompositeCurveSegment> Segments, IfcLogical SelfIntersect)
@@ -15358,18 +13152,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOutlet : IfcFlowTerminal
+	public class IfcOutlet : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcOutletTypeEnum
-
 		public IfcOutletTypeEnum PredefinedType { get; set; }
 
 		public IfcOutlet() { }
@@ -15388,19 +13172,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcOutletType : IfcFlowTerminalType
+	public class IfcOutletType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcOutletTypeEnum
-
 		public IfcOutletTypeEnum PredefinedType { get; set; }
 
 		public IfcOutletType() { }
@@ -15422,15 +13195,6 @@ namespace IFC4
 
 	public class IfcOwnerHistory : IfcBase
 	{
-		//1	OwningUser : IfcPersonAndOrganization
-		//2	OwningApplication : IfcApplication
-		//3	State : IfcStateEnum
-		//4	ChangeAction : IfcChangeActionEnum
-		//5	LastModifiedDate : IfcTimeStamp
-		//6	LastModifyingUser : IfcPersonAndOrganization
-		//7	LastModifyingApplication : IfcApplication
-		//8	CreationDate : IfcTimeStamp
-
 		public IfcPersonAndOrganization OwningUser { get; set; }
 		public IfcApplication OwningApplication { get; set; }
 		public IfcStateEnum State { get; set; }
@@ -15455,12 +13219,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcParameterizedProfileDef : IfcProfileDef
+	public abstract class IfcParameterizedProfileDef : IfcProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-
 		public IfcAxis2Placement2D Position { get; set; }
 
 		public IfcParameterizedProfileDef() { }
@@ -15473,10 +13233,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPath : IfcTopologicalRepresentationItem
+	public class IfcPath : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
-		//1	EdgeList : List<IfcOrientedEdge>
-
 		public List<IfcOrientedEdge> EdgeList { get; set; }
 
 		public IfcPath() { }
@@ -15487,13 +13245,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPcurve : IfcCurve, IfcCurveOnSurface
+	public class IfcPcurve : IfcCurve, IfcCurveOnSurface, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	BasisSurface : IfcSurface
-		//2	ReferenceCurve : IfcCurve
-
 		public IfcSurface BasisSurface { get; set; }
 		public IfcCurve ReferenceCurve { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcPcurve() { }
 
@@ -15504,19 +13262,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPerformanceHistory : IfcControl
+	public class IfcPerformanceHistory : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LifeCyclePhase : IfcLabel
-		//8	PredefinedType : IfcPerformanceHistoryTypeEnum
-
 		public IfcLabel LifeCyclePhase { get; set; }
 		public IfcPerformanceHistoryTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcPerformanceHistory() { }
 
@@ -15533,23 +13288,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPermeableCoveringProperties : IfcPreDefinedPropertySet
+	public class IfcPermeableCoveringProperties : IfcPreDefinedPropertySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	OperationType : IfcPermeableCoveringOperationEnum
-		//6	PanelPosition : IfcWindowPanelPositionEnum
-		//7	FrameDepth : IfcPositiveLengthMeasure
-		//8	FrameThickness : IfcPositiveLengthMeasure
-		//9	ShapeAspectStyle : IfcShapeAspect
-
 		public IfcPermeableCoveringOperationEnum OperationType { get; set; }
 		public IfcWindowPanelPositionEnum PanelPosition { get; set; }
 		public IfcPositiveLengthMeasure FrameDepth { get; set; }
 		public IfcPositiveLengthMeasure FrameThickness { get; set; }
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcPermeableCoveringProperties() { }
 
@@ -15567,21 +13318,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPermit : IfcControl
+	public class IfcPermit : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	PredefinedType : IfcPermitTypeEnum
-		//8	Status : IfcLabel
-		//9	LongDescription : IfcText
-
 		public IfcPermitTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcText LongDescription { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcPermit() { }
 
@@ -15599,17 +13346,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPerson : IfcBase, IfcActorSelect
+	public class IfcPerson : IfcBase, IfcActorSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Identification : IfcIdentifier
-		//2	FamilyName : IfcLabel
-		//3	GivenName : IfcLabel
-		//4	MiddleNames : List<IfcLabel>
-		//5	PrefixTitles : List<IfcLabel>
-		//6	SuffixTitles : List<IfcLabel>
-		//7	Roles : List<IfcActorRole>
-		//8	Addresses : List<IfcAddress>
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcLabel FamilyName { get; set; }
 		public IfcLabel GivenName { get; set; }
@@ -15618,7 +13356,9 @@ namespace IFC4
 		public List<IfcLabel> SuffixTitles { get; set; }
 		public List<IfcActorRole> Roles { get; set; }
 		public List<IfcAddress> Addresses { get; set; }
-		public List<IfcPersonAndOrganization> EngagedIn { get; set; }
+		public List<IfcPersonAndOrganization> EngagedIn;
+		// INVERSE : EngagedIn : SET [0:?] OF IfcPersonAndOrganization FOR ThePerson;
+		public List<IfcActorRole> GetRoles() { return Roles; }
 
 		public IfcPerson() { }
 
@@ -15635,15 +13375,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPersonAndOrganization : IfcBase
+	public class IfcPersonAndOrganization : IfcBase, IfcActorSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	ThePerson : IfcPerson
-		//2	TheOrganization : IfcOrganization
-		//3	Roles : List<IfcActorRole>
-
 		public IfcPerson ThePerson { get; set; }
 		public IfcOrganization TheOrganization { get; set; }
 		public List<IfcActorRole> Roles { get; set; }
+		public List<IfcActorRole> GetRoles() { return Roles; }
 
 		public IfcPersonAndOrganization() { }
 
@@ -15655,15 +13392,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPhysicalComplexQuantity : IfcPhysicalQuantity
+	public class IfcPhysicalComplexQuantity : IfcPhysicalQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	HasQuantities : List<IfcPhysicalQuantity>
-		//4	Discrimination : IfcLabel
-		//5	Quality : IfcLabel
-		//6	Usage : IfcLabel
-
 		public List<IfcPhysicalQuantity> HasQuantities { get; set; }
 		public IfcLabel Discrimination { get; set; }
 		public IfcLabel Quality { get; set; }
@@ -15684,13 +13414,12 @@ namespace IFC4
 
 	public abstract class IfcPhysicalQuantity : IfcBase, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
-		public List<IfcPhysicalComplexQuantity> PartOfComplex { get; set; }
+		public List<IfcExternalReferenceRelationship> HasExternalReferences;
+		// INVERSE : HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+		public List<IfcPhysicalComplexQuantity> PartOfComplex;
+		// INVERSE : PartOfComplex : SET [0:1] OF IfcPhysicalComplexQuantity FOR HasQuantities;
 
 		public IfcPhysicalQuantity() { }
 
@@ -15701,12 +13430,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPhysicalSimpleQuantity : IfcPhysicalQuantity
+	public abstract class IfcPhysicalSimpleQuantity : IfcPhysicalQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-
 		public IfcNamedUnit Unit { get; set; }
 
 		public IfcPhysicalSimpleQuantity() { }
@@ -15719,21 +13444,29 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPile : IfcBuildingElement
+	public class IfcPile : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcPileTypeEnum
-		//10	ConstructionType : IfcPileConstructionEnum
-
 		public IfcPileTypeEnum PredefinedType { get; set; }
 		public IfcPileConstructionEnum ConstructionType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcPile() { }
 
@@ -15752,19 +13485,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPileType : IfcBuildingElementType
+	public class IfcPileType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcPileTypeEnum
-
 		public IfcPileTypeEnum PredefinedType { get; set; }
 
 		public IfcPileType() { }
@@ -15784,18 +13506,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPipeFitting : IfcFlowFitting
+	public class IfcPipeFitting : IfcFlowFitting, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcPipeFittingTypeEnum
-
 		public IfcPipeFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcPipeFitting() { }
@@ -15814,19 +13526,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPipeFittingType : IfcFlowFittingType
+	public class IfcPipeFittingType : IfcFlowFittingType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcPipeFittingTypeEnum
-
 		public IfcPipeFittingTypeEnum PredefinedType { get; set; }
 
 		public IfcPipeFittingType() { }
@@ -15846,18 +13547,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPipeSegment : IfcFlowSegment
+	public class IfcPipeSegment : IfcFlowSegment, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcPipeSegmentTypeEnum
-
 		public IfcPipeSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcPipeSegment() { }
@@ -15876,19 +13567,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPipeSegmentType : IfcFlowSegmentType
+	public class IfcPipeSegmentType : IfcFlowSegmentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcPipeSegmentTypeEnum
-
 		public IfcPipeSegmentTypeEnum PredefinedType { get; set; }
 
 		public IfcPipeSegmentType() { }
@@ -15910,16 +13590,6 @@ namespace IFC4
 
 	public class IfcPixelTexture : IfcSurfaceTexture
 	{
-		//1	RepeatS : IfcBoolean
-		//2	RepeatT : IfcBoolean
-		//3	Mode : IfcIdentifier
-		//4	TextureTransform : IfcCartesianTransformationOperator2D
-		//5	Parameter : List<IfcIdentifier>
-		//6	Width : IfcInteger
-		//7	Height : IfcInteger
-		//8	ColourComponents : IfcInteger
-		//9	Pixel : List<IfcBinary>
-
 		public IfcInteger Width { get; set; }
 		public IfcInteger Height { get; set; }
 		public IfcInteger ColourComponents { get; set; }
@@ -15941,13 +13611,12 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPlacement : IfcGeometricRepresentationItem
+	public abstract class IfcPlacement : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Location : IfcCartesianPoint
-
 		public IfcCartesianPoint Location { get; set; }
 		public IfcDimensionCount Dim => Location.Dim;
-		// (DERIVE)	Dim : IfcDimensionCount := Location.Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := Location.Dim;
+
 		public IfcPlacement() { }
 
 		public IfcPlacement(IfcCartesianPoint Location)
@@ -15956,12 +13625,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPlanarBox : IfcPlanarExtent
+	public class IfcPlanarBox : IfcPlanarExtent, IfcLayeredItem
 	{
-		//1	SizeInX : IfcLengthMeasure
-		//2	SizeInY : IfcLengthMeasure
-		//3	Placement : IfcAxis2Placement
-
 		public IfcAxis2Placement Placement { get; set; }
 
 		public IfcPlanarBox() { }
@@ -15974,11 +13639,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPlanarExtent : IfcGeometricRepresentationItem
+	public class IfcPlanarExtent : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	SizeInX : IfcLengthMeasure
-		//2	SizeInY : IfcLengthMeasure
-
 		public IfcLengthMeasure SizeInX { get; set; }
 		public IfcLengthMeasure SizeInY { get; set; }
 
@@ -15991,10 +13653,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPlane : IfcElementarySurface
+	public class IfcPlane : IfcElementarySurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	Position : IfcAxis2Placement3D
-
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 		public IfcPlane() { }
 
 		public IfcPlane(IfcAxis2Placement3D Position)
@@ -16003,19 +13666,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPlate : IfcBuildingElement
+	public class IfcPlate : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcPlateTypeEnum
-
 		public IfcPlateTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcPlate() { }
 
@@ -16033,18 +13705,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPlateStandardCase : IfcPlate
+	public class IfcPlateStandardCase : IfcPlate, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcPlateTypeEnum
-
 		public IfcPlateStandardCase() { }
 
 		public IfcPlateStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPlateTypeEnum PredefinedType)
@@ -16061,19 +13723,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPlateType : IfcBuildingElementType
+	public class IfcPlateType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcPlateTypeEnum
-
 		public IfcPlateTypeEnum PredefinedType { get; set; }
 
 		public IfcPlateType() { }
@@ -16093,21 +13744,21 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPoint : IfcGeometricRepresentationItem, IfcGeometricSetSelect, IfcPointOrVertexPoint
+	public abstract class IfcPoint : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		public IfcDimensionCount GetDim() { return null; }
 		public IfcPoint() { }
 	}
 
-	public class IfcPointOnCurve : IfcPoint
+	public class IfcPointOnCurve : IfcPoint, IfcGeometricSetSelect, IfcLayeredItem, IfcPointOrVertexPoint
 	{
-		//1	BasisCurve : IfcCurve
-		//2	PointParameter : IfcParameterValue
-
 		public IfcCurve BasisCurve { get; set; }
 		public IfcParameterValue PointParameter { get; set; }
 		public IfcDimensionCount Dim => BasisCurve.Dim;
-		// (DERIVE)	Dim : IfcDimensionCount := BasisCurve.Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := BasisCurve.Dim;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcPointOnCurve() { }
 
 		public IfcPointOnCurve(IfcCurve BasisCurve, IfcParameterValue PointParameter)
@@ -16117,17 +13768,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPointOnSurface : IfcPoint
+	public class IfcPointOnSurface : IfcPoint, IfcGeometricSetSelect, IfcLayeredItem, IfcPointOrVertexPoint
 	{
-		//1	BasisSurface : IfcSurface
-		//2	PointParameterU : IfcParameterValue
-		//3	PointParameterV : IfcParameterValue
-
 		public IfcSurface BasisSurface { get; set; }
 		public IfcParameterValue PointParameterU { get; set; }
 		public IfcParameterValue PointParameterV { get; set; }
 		public IfcDimensionCount Dim => BasisSurface.Dim;
-		// (DERIVE)	Dim : IfcDimensionCount := BasisSurface.Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := BasisSurface.Dim;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcPointOnSurface() { }
 
 		public IfcPointOnSurface(IfcSurface BasisSurface, IfcParameterValue PointParameterU, IfcParameterValue PointParameterV)
@@ -16138,10 +13789,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPolyLoop : IfcLoop
+	public class IfcPolyLoop : IfcLoop, IfcLayeredItem
 	{
-		//1	Polygon : List<IfcCartesianPoint>
-
 		public List<IfcCartesianPoint> Polygon { get; set; }
 
 		public IfcPolyLoop() { }
@@ -16152,13 +13801,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPolygonalBoundedHalfSpace : IfcHalfSpaceSolid
+	public class IfcPolygonalBoundedHalfSpace : IfcHalfSpaceSolid, IfcBooleanOperand, IfcLayeredItem
 	{
-		//1	BaseSurface : IfcSurface
-		//2	AgreementFlag : IfcBoolean
-		//3	Position : IfcAxis2Placement3D
-		//4	PolygonalBoundary : IfcBoundedCurve
-
 		public IfcAxis2Placement3D Position { get; set; }
 		public IfcBoundedCurve PolygonalBoundary { get; set; }
 
@@ -16173,16 +13817,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPolygonalFaceSet : IfcTessellatedFaceSet
+	public class IfcPolygonalFaceSet : IfcTessellatedFaceSet, IfcBooleanOperand, IfcLayeredItem
 	{
-		//1	Coordinates : IfcCartesianPointList3D
-		//2	Closed : IfcBoolean
-		//3	Faces : List<IfcIndexedPolygonalFace>
-		//4	PnIndex : List<IfcPositiveInteger>
-
 		public IfcBoolean Closed { get; set; }
 		public List<IfcIndexedPolygonalFace> Faces { get; set; }
 		public List<IfcPositiveInteger> PnIndex { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcPolygonalFaceSet() { }
 
@@ -16195,11 +13837,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPolyline : IfcBoundedCurve
+	public class IfcPolyline : IfcBoundedCurve, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Points : List<IfcCartesianPoint>
-
 		public List<IfcCartesianPoint> Points { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcPolyline() { }
 
@@ -16211,18 +13854,12 @@ namespace IFC4
 
 	public abstract class IfcPort : IfcProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-
-		public List<IfcRelConnectsPortToElement> ContainedIn { get; set; }
-		public List<IfcRelConnectsPorts> ConnectedFrom { get; set; }
-		public List<IfcRelConnectsPorts> ConnectedTo { get; set; }
-
+		public List<IfcRelConnectsPortToElement> ContainedIn;
+		// INVERSE : ContainedIn : SET [0:1] OF IfcRelConnectsPortToElement FOR RelatingPort;
+		public List<IfcRelConnectsPorts> ConnectedFrom;
+		// INVERSE : ConnectedFrom : SET [0:1] OF IfcRelConnectsPorts FOR RelatedPort;
+		public List<IfcRelConnectsPorts> ConnectedTo;
+		// INVERSE : ConnectedTo : SET [0:1] OF IfcRelConnectsPorts FOR RelatingPort;
 		public IfcPort() { }
 
 		public IfcPort(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
@@ -16237,19 +13874,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPostalAddress : IfcAddress
+	public class IfcPostalAddress : IfcAddress, IfcObjectReferenceSelect
 	{
-		//1	Purpose : IfcAddressTypeEnum
-		//2	Description : IfcText
-		//3	UserDefinedPurpose : IfcLabel
-		//4	InternalLocation : IfcLabel
-		//5	AddressLines : List<IfcLabel>
-		//6	PostalBox : IfcLabel
-		//7	Town : IfcLabel
-		//8	Region : IfcLabel
-		//9	PostalCode : IfcLabel
-		//10	Country : IfcLabel
-
 		public IfcLabel InternalLocation { get; set; }
 		public List<IfcLabel> AddressLines { get; set; }
 		public IfcLabel PostalBox { get; set; }
@@ -16275,10 +13901,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPreDefinedColour : IfcPreDefinedItem, IfcColour
+	public abstract class IfcPreDefinedColour : IfcPreDefinedItem
 	{
-		//1	Name : IfcLabel
-
 		public IfcPreDefinedColour() { }
 
 		public IfcPreDefinedColour(IfcLabel Name)
@@ -16287,10 +13911,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPreDefinedCurveFont : IfcPreDefinedItem, IfcCurveStyleFontSelect
+	public abstract class IfcPreDefinedCurveFont : IfcPreDefinedItem
 	{
-		//1	Name : IfcLabel
-
 		public IfcPreDefinedCurveFont() { }
 
 		public IfcPreDefinedCurveFont(IfcLabel Name)
@@ -16301,8 +13923,6 @@ namespace IFC4
 
 	public abstract class IfcPreDefinedItem : IfcPresentationItem
 	{
-		//1	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
 
 		public IfcPreDefinedItem() { }
@@ -16313,18 +13933,13 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPreDefinedProperties : IfcPropertyAbstraction
+	public abstract class IfcPreDefinedProperties : IfcPropertyAbstraction, IfcResourceObjectSelect
 	{
 		public IfcPreDefinedProperties() { }
 	}
 
-	public abstract class IfcPreDefinedPropertySet : IfcPropertySetDefinition
+	public abstract class IfcPreDefinedPropertySet : IfcPropertySetDefinition, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcPreDefinedPropertySet() { }
 
 		public IfcPreDefinedPropertySet(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -16336,10 +13951,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPreDefinedTextFont : IfcPreDefinedItem, IfcTextFontSelect
+	public abstract class IfcPreDefinedTextFont : IfcPreDefinedItem
 	{
-		//1	Name : IfcLabel
-
 		public IfcPreDefinedTextFont() { }
 
 		public IfcPreDefinedTextFont(IfcLabel Name)
@@ -16355,11 +13968,6 @@ namespace IFC4
 
 	public class IfcPresentationLayerAssignment : IfcBase
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	AssignedItems : List<IfcLayeredItem>
-		//4	Identifier : IfcIdentifier
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcLayeredItem> AssignedItems { get; set; }
@@ -16378,15 +13986,6 @@ namespace IFC4
 
 	public class IfcPresentationLayerWithStyle : IfcPresentationLayerAssignment
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	AssignedItems : List<IfcLayeredItem>
-		//4	Identifier : IfcIdentifier
-		//5	LayerOn : IfcLogical
-		//6	LayerFrozen : IfcLogical
-		//7	LayerBlocked : IfcLogical
-		//8	LayerStyles : List<IfcPresentationStyle>
-
 		public IfcLogical LayerOn { get; set; }
 		public IfcLogical LayerFrozen { get; set; }
 		public IfcLogical LayerBlocked { get; set; }
@@ -16409,10 +14008,7 @@ namespace IFC4
 
 	public abstract class IfcPresentationStyle : IfcBase, IfcStyleAssignmentSelect
 	{
-		//1	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
-		public IfcLabel GetName() { return Name; }
 
 		public IfcPresentationStyle() { }
 
@@ -16424,8 +14020,6 @@ namespace IFC4
 
 	public class IfcPresentationStyleAssignment : IfcBase, IfcStyleAssignmentSelect
 	{
-		//1	Styles : List<IfcPresentationStyleSelect>
-
 		public List<IfcPresentationStyleSelect> Styles { get; set; }
 
 		public IfcPresentationStyleAssignment() { }
@@ -16436,18 +14030,23 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProcedure : IfcProcess
+	public class IfcProcedure : IfcProcess, IfcDefinitionSelect, IfcProcessSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	PredefinedType : IfcProcedureTypeEnum
-
 		public IfcProcedureTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
 
 		public IfcProcedure() { }
 
@@ -16464,20 +14063,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProcedureType : IfcTypeProcess
+	public class IfcProcedureType : IfcTypeProcess, IfcDefinitionSelect, IfcProcessSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ProcessType : IfcLabel
-		//10	PredefinedType : IfcProcedureTypeEnum
-
 		public IfcProcedureTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
 
 		public IfcProcedureType() { }
 
@@ -16496,24 +14092,16 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcProcess : IfcObject, IfcProcessSelect
+	public abstract class IfcProcess : IfcObject
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
-		public List<IfcRelSequence> IsPredecessorTo { get; set; }
-		public List<IfcRelSequence> IsSuccessorFrom { get; set; }
-		public List<IfcRelAssignsToProcess> OperatesOn { get; set; }
-		public IfcIdentifier GetIdentification() { return Identification; }
-		public IfcText GetLongDescription() { return LongDescription; }
-		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
+		public List<IfcRelSequence> IsPredecessorTo;
+		// INVERSE : IsPredecessorTo : SET [0:?] OF IfcRelSequence FOR RelatingProcess;
+		public List<IfcRelSequence> IsSuccessorFrom;
+		// INVERSE : IsSuccessorFrom : SET [0:?] OF IfcRelSequence FOR RelatedProcess;
+		public List<IfcRelAssignsToProcess> OperatesOn;
+		// INVERSE : OperatesOn : SET [0:?] OF IfcRelAssignsToProcess FOR RelatingProcess;
 
 		public IfcProcess() { }
 
@@ -16529,20 +14117,12 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcProduct : IfcObject, IfcProductSelect
+	public abstract class IfcProduct : IfcObject
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-
 		public IfcObjectPlacement ObjectPlacement { get; set; }
 		public IfcProductRepresentation Representation { get; set; }
-		public List<IfcRelAssignsToProduct> ReferencedBy { get; set; }
-		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public List<IfcRelAssignsToProduct> ReferencedBy;
+		// INVERSE : ReferencedBy : SET [0:?] OF IfcRelAssignsToProduct FOR RelatingProduct;
 
 		public IfcProduct() { }
 
@@ -16560,15 +14140,11 @@ namespace IFC4
 
 	public class IfcProductDefinitionShape : IfcProductRepresentation, IfcProductRepresentationSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Representations : List<IfcRepresentation>
-
-		public List<IfcProduct> ShapeOfProduct { get; set; }
-		public List<IfcShapeAspect> HasShapeAspects { get; set; }
-		public List<IfcProduct> GetShapeOfProduct() { return ShapeOfProduct; }
+		public List<IfcProduct> ShapeOfProduct;
+		// INVERSE : ShapeOfProduct : SET [1:?] OF IfcProduct FOR Representation;
+		public List<IfcShapeAspect> HasShapeAspects;
+		// INVERSE : HasShapeAspects : SET [0:?] OF IfcShapeAspect FOR PartOfProductDefinitionShape;
 		public List<IfcShapeAspect> GetHasShapeAspects() { return HasShapeAspects; }
-
 		public IfcProductDefinitionShape() { }
 
 		public IfcProductDefinitionShape(IfcLabel Name, IfcText Description, List<IfcRepresentation> Representations)
@@ -16581,10 +14157,6 @@ namespace IFC4
 
 	public abstract class IfcProductRepresentation : IfcBase
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Representations : List<IfcRepresentation>
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public List<IfcRepresentation> Representations { get; set; }
@@ -16601,13 +14173,12 @@ namespace IFC4
 
 	public class IfcProfileDef : IfcBase, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-
 		public IfcProfileTypeEnum ProfileType { get; set; }
 		public IfcLabel ProfileName { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
-		public List<IfcProfileProperties> HasProperties { get; set; }
+		public List<IfcExternalReferenceRelationship> HasExternalReference;
+		// INVERSE : HasExternalReference : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
+		public List<IfcProfileProperties> HasProperties;
+		// INVERSE : HasProperties : SET [0:?] OF IfcProfileProperties FOR ProfileDefinition;
 
 		public IfcProfileDef() { }
 
@@ -16618,13 +14189,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProfileProperties : IfcExtendedProperties
+	public class IfcProfileProperties : IfcExtendedProperties, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	Properties : List<IfcProperty>
-		//4	ProfileDefinition : IfcProfileDef
-
 		public IfcProfileDef ProfileDefinition { get; set; }
 
 		public IfcProfileProperties() { }
@@ -16638,18 +14204,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProject : IfcContext
+	public class IfcProject : IfcContext, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	LongName : IfcLabel
-		//7	Phase : IfcLabel
-		//8	RepresentationContexts : List<IfcRepresentationContext>
-		//9	UnitsInContext : IfcUnitAssignment
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 		public IfcProject() { }
 
 		public IfcProject(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcLabel Phase, List<IfcRepresentationContext> RepresentationContexts, IfcUnitAssignment UnitsInContext)
@@ -16666,18 +14228,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProjectLibrary : IfcContext
+	public class IfcProjectLibrary : IfcContext, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	LongName : IfcLabel
-		//7	Phase : IfcLabel
-		//8	RepresentationContexts : List<IfcRepresentationContext>
-		//9	UnitsInContext : IfcUnitAssignment
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 		public IfcProjectLibrary() { }
 
 		public IfcProjectLibrary(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcLabel LongName, IfcLabel Phase, List<IfcRepresentationContext> RepresentationContexts, IfcUnitAssignment UnitsInContext)
@@ -16694,21 +14252,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProjectOrder : IfcControl
+	public class IfcProjectOrder : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	PredefinedType : IfcProjectOrderTypeEnum
-		//8	Status : IfcLabel
-		//9	LongDescription : IfcText
-
 		public IfcProjectOrderTypeEnum PredefinedType { get; set; }
 		public IfcLabel Status { get; set; }
 		public IfcText LongDescription { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcProjectOrder() { }
 
@@ -16726,19 +14280,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProjectedCRS : IfcCoordinateReferenceSystem
+	public class IfcProjectedCRS : IfcCoordinateReferenceSystem, IfcCoordinateReferenceSystemSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	GeodeticDatum : IfcIdentifier
-		//4	VerticalDatum : IfcIdentifier
-		//5	MapProjection : IfcIdentifier
-		//6	MapZone : IfcIdentifier
-		//7	MapUnit : IfcNamedUnit
-
 		public IfcIdentifier MapProjection { get; set; }
 		public IfcIdentifier MapZone { get; set; }
 		public IfcNamedUnit MapUnit { get; set; }
+		public List<IfcCoordinateOperation> GetHasCoordinateOperation() { return HasCoordinateOperation; }
 
 		public IfcProjectedCRS() { }
 
@@ -16754,19 +14301,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProjectionElement : IfcFeatureElementAddition
+	public class IfcProjectionElement : IfcFeatureElementAddition, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcProjectionElementTypeEnum
-
 		public IfcProjectionElementTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcProjectionElement() { }
 
@@ -16784,19 +14340,22 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcProperty : IfcPropertyAbstraction
+	public abstract class IfcProperty : IfcPropertyAbstraction, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-
 		public IfcIdentifier Name { get; set; }
 		public IfcText Description { get; set; }
-		public List<IfcPropertySet> PartOfPset { get; set; }
-		public List<IfcPropertyDependencyRelationship> PropertyForDependance { get; set; }
-		public List<IfcPropertyDependencyRelationship> PropertyDependsOn { get; set; }
-		public List<IfcComplexProperty> PartOfComplex { get; set; }
-		public List<IfcResourceConstraintRelationship> HasConstraints { get; set; }
-		public List<IfcResourceApprovalRelationship> HasApprovals { get; set; }
+		public List<IfcPropertySet> PartOfPset;
+		// INVERSE : PartOfPset : SET [0:?] OF IfcPropertySet FOR HasProperties;
+		public List<IfcPropertyDependencyRelationship> PropertyForDependance;
+		// INVERSE : PropertyForDependance : SET [0:?] OF IfcPropertyDependencyRelationship FOR DependingProperty;
+		public List<IfcPropertyDependencyRelationship> PropertyDependsOn;
+		// INVERSE : PropertyDependsOn : SET [0:?] OF IfcPropertyDependencyRelationship FOR DependantProperty;
+		public List<IfcComplexProperty> PartOfComplex;
+		// INVERSE : PartOfComplex : SET [0:?] OF IfcComplexProperty FOR HasProperties;
+		public List<IfcResourceConstraintRelationship> HasConstraints;
+		// INVERSE : HasConstraints : SET [0:?] OF IfcResourceConstraintRelationship FOR RelatedResourceObjects;
+		public List<IfcResourceApprovalRelationship> HasApprovals;
+		// INVERSE : HasApprovals : SET [0:?] OF IfcResourceApprovalRelationship FOR RelatedResourceObjects;
 
 		public IfcProperty() { }
 
@@ -16809,20 +14368,13 @@ namespace IFC4
 
 	public abstract class IfcPropertyAbstraction : IfcBase, IfcResourceObjectSelect
 	{
-		public List<IfcExternalReferenceRelationship> HasExternalReferences { get; set; }
-
+		public List<IfcExternalReferenceRelationship> HasExternalReferences;
+		// INVERSE : HasExternalReferences : SET [0:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 		public IfcPropertyAbstraction() { }
 	}
 
-	public class IfcPropertyBoundedValue : IfcSimpleProperty
+	public class IfcPropertyBoundedValue : IfcSimpleProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	UpperBoundValue : IfcValue
-		//4	LowerBoundValue : IfcValue
-		//5	Unit : IfcUnit
-		//6	SetPointValue : IfcValue
-
 		public IfcValue UpperBoundValue { get; set; }
 		public IfcValue LowerBoundValue { get; set; }
 		public IfcUnit Unit { get; set; }
@@ -16841,18 +14393,12 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcPropertyDefinition : IfcRoot, IfcDefinitionSelect
+	public abstract class IfcPropertyDefinition : IfcRoot
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
-		public List<IfcRelDeclares> HasContext { get; set; }
-		public List<IfcRelAssociates> HasAssociations { get; set; }
-		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
-		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
-
+		public List<IfcRelDeclares> HasContext;
+		// INVERSE : HasContext : SET [0:1] OF IfcRelDeclares FOR RelatedDefinitions;
+		public List<IfcRelAssociates> HasAssociations;
+		// INVERSE : HasAssociations : SET [0:?] OF IfcRelAssociates FOR RelatedObjects;
 		public IfcPropertyDefinition() { }
 
 		public IfcPropertyDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -16866,12 +14412,6 @@ namespace IFC4
 
 	public class IfcPropertyDependencyRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	DependingProperty : IfcProperty
-		//4	DependantProperty : IfcProperty
-		//5	Expression : IfcText
-
 		public IfcProperty DependingProperty { get; set; }
 		public IfcProperty DependantProperty { get; set; }
 		public IfcText Expression { get; set; }
@@ -16888,13 +14428,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertyEnumeratedValue : IfcSimpleProperty
+	public class IfcPropertyEnumeratedValue : IfcSimpleProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	EnumerationValues : List<IfcValue>
-		//4	EnumerationReference : IfcPropertyEnumeration
-
 		public List<IfcValue> EnumerationValues { get; set; }
 		public IfcPropertyEnumeration EnumerationReference { get; set; }
 
@@ -16909,12 +14444,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertyEnumeration : IfcPropertyAbstraction
+	public class IfcPropertyEnumeration : IfcPropertyAbstraction, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	EnumerationValues : List<IfcValue>
-		//3	Unit : IfcUnit
-
 		public IfcLabel Name { get; set; }
 		public List<IfcValue> EnumerationValues { get; set; }
 		public IfcUnit Unit { get; set; }
@@ -16929,13 +14460,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertyListValue : IfcSimpleProperty
+	public class IfcPropertyListValue : IfcSimpleProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	ListValues : List<IfcValue>
-		//4	Unit : IfcUnit
-
 		public List<IfcValue> ListValues { get; set; }
 		public IfcUnit Unit { get; set; }
 
@@ -16950,13 +14476,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertyReferenceValue : IfcSimpleProperty
+	public class IfcPropertyReferenceValue : IfcSimpleProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	UsageName : IfcText
-		//4	PropertyReference : IfcObjectReferenceSelect
-
 		public IfcText UsageName { get; set; }
 		public IfcObjectReferenceSelect PropertyReference { get; set; }
 
@@ -16971,15 +14492,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertySet : IfcPropertySetDefinition
+	public class IfcPropertySet : IfcPropertySetDefinition, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	HasProperties : List<IfcProperty>
-
 		public List<IfcProperty> HasProperties { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcPropertySet() { }
 
@@ -16995,15 +14516,12 @@ namespace IFC4
 
 	public abstract class IfcPropertySetDefinition : IfcPropertyDefinition, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
-		public List<IfcTypeObject> DefinesType { get; set; }
-		public List<IfcRelDefinesByTemplate> IsDefinedBy { get; set; }
-		public List<IfcRelDefinesByProperties> DefinesOccurrence { get; set; }
-
+		public List<IfcTypeObject> DefinesType;
+		// INVERSE : DefinesType : SET [0:?] OF IfcTypeObject FOR HasPropertySets;
+		public List<IfcRelDefinesByTemplate> IsDefinedBy;
+		// INVERSE : IsDefinedBy : SET [0:?] OF IfcRelDefinesByTemplate FOR RelatedPropertySets;
+		public List<IfcRelDefinesByProperties> DefinesOccurrence;
+		// INVERSE : DefinesOccurrence : SET [0:?] OF IfcRelDefinesByProperties FOR RelatingPropertyDefinition;
 		public IfcPropertySetDefinition() { }
 
 		public IfcPropertySetDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -17015,20 +14533,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertySetTemplate : IfcPropertyTemplateDefinition
+	public class IfcPropertySetTemplate : IfcPropertyTemplateDefinition, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	TemplateType : IfcPropertySetTemplateTypeEnum
-		//6	ApplicableEntity : IfcIdentifier
-		//7	HasPropertyTemplates : List<IfcPropertyTemplate>
-
 		public IfcPropertySetTemplateTypeEnum TemplateType { get; set; }
 		public IfcIdentifier ApplicableEntity { get; set; }
 		public List<IfcPropertyTemplate> HasPropertyTemplates { get; set; }
-		public List<IfcRelDefinesByTemplate> Defines { get; set; }
+		public List<IfcRelDefinesByTemplate> Defines;
+		// INVERSE : Defines : SET [0:?] OF IfcRelDefinesByTemplate FOR RelatingTemplate;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcPropertySetTemplate() { }
 
@@ -17044,13 +14561,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertySingleValue : IfcSimpleProperty
+	public class IfcPropertySingleValue : IfcSimpleProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	NominalValue : IfcValue
-		//4	Unit : IfcUnit
-
 		public IfcValue NominalValue { get; set; }
 		public IfcUnit Unit { get; set; }
 
@@ -17065,17 +14577,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPropertyTableValue : IfcSimpleProperty
+	public class IfcPropertyTableValue : IfcSimpleProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-		//3	DefiningValues : List<IfcValue>
-		//4	DefinedValues : List<IfcValue>
-		//5	Expression : IfcText
-		//6	DefiningUnit : IfcUnit
-		//7	DefinedUnit : IfcUnit
-		//8	CurveInterpolation : IfcCurveInterpolationEnum
-
 		public List<IfcValue> DefiningValues { get; set; }
 		public List<IfcValue> DefinedValues { get; set; }
 		public IfcText Expression { get; set; }
@@ -17100,14 +14603,10 @@ namespace IFC4
 
 	public abstract class IfcPropertyTemplate : IfcPropertyTemplateDefinition
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
-		public List<IfcComplexPropertyTemplate> PartOfComplexTemplate { get; set; }
-		public List<IfcPropertySetTemplate> PartOfPsetTemplate { get; set; }
-
+		public List<IfcComplexPropertyTemplate> PartOfComplexTemplate;
+		// INVERSE : PartOfComplexTemplate : SET [0:?] OF IfcComplexPropertyTemplate FOR HasPropertyTemplates;
+		public List<IfcPropertySetTemplate> PartOfPsetTemplate;
+		// INVERSE : PartOfPsetTemplate : SET [0:?] OF IfcPropertySetTemplate FOR HasPropertyTemplates;
 		public IfcPropertyTemplate() { }
 
 		public IfcPropertyTemplate(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -17121,11 +14620,6 @@ namespace IFC4
 
 	public abstract class IfcPropertyTemplateDefinition : IfcPropertyDefinition
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcPropertyTemplateDefinition() { }
 
 		public IfcPropertyTemplateDefinition(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -17137,18 +14631,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProtectiveDevice : IfcFlowController
+	public class IfcProtectiveDevice : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcProtectiveDeviceTypeEnum
-
 		public IfcProtectiveDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcProtectiveDevice() { }
@@ -17167,18 +14651,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProtectiveDeviceTrippingUnit : IfcDistributionControlElement
+	public class IfcProtectiveDeviceTrippingUnit : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcProtectiveDeviceTrippingUnitTypeEnum
-
 		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType { get; set; }
 
 		public IfcProtectiveDeviceTrippingUnit() { }
@@ -17197,19 +14671,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProtectiveDeviceTrippingUnitType : IfcDistributionControlElementType
+	public class IfcProtectiveDeviceTrippingUnitType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcProtectiveDeviceTrippingUnitTypeEnum
-
 		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType { get; set; }
 
 		public IfcProtectiveDeviceTrippingUnitType() { }
@@ -17229,19 +14692,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProtectiveDeviceType : IfcFlowControllerType
+	public class IfcProtectiveDeviceType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcProtectiveDeviceTypeEnum
-
 		public IfcProtectiveDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcProtectiveDeviceType() { }
@@ -17261,20 +14713,22 @@ namespace IFC4
 		}
 	}
 
-	public class IfcProxy : IfcProduct
+	public class IfcProxy : IfcProduct, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	ProxyType : IfcObjectTypeEnum
-		//9	Tag : IfcLabel
-
 		public IfcObjectTypeEnum ProxyType { get; set; }
 		public IfcLabel Tag { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcProxy() { }
 
@@ -17292,18 +14746,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPump : IfcFlowMovingDevice
+	public class IfcPump : IfcFlowMovingDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcPumpTypeEnum
-
 		public IfcPumpTypeEnum PredefinedType { get; set; }
 
 		public IfcPump() { }
@@ -17322,19 +14766,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcPumpType : IfcFlowMovingDeviceType
+	public class IfcPumpType : IfcFlowMovingDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcPumpTypeEnum
-
 		public IfcPumpTypeEnum PredefinedType { get; set; }
 
 		public IfcPumpType() { }
@@ -17354,14 +14787,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcQuantityArea : IfcPhysicalSimpleQuantity
+	public class IfcQuantityArea : IfcPhysicalSimpleQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-		//4	AreaValue : IfcAreaMeasure
-		//5	Formula : IfcLabel
-
 		public IfcAreaMeasure AreaValue { get; set; }
 		public IfcLabel Formula { get; set; }
 
@@ -17377,14 +14804,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcQuantityCount : IfcPhysicalSimpleQuantity
+	public class IfcQuantityCount : IfcPhysicalSimpleQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-		//4	CountValue : IfcCountMeasure
-		//5	Formula : IfcLabel
-
 		public IfcCountMeasure CountValue { get; set; }
 		public IfcLabel Formula { get; set; }
 
@@ -17400,14 +14821,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcQuantityLength : IfcPhysicalSimpleQuantity
+	public class IfcQuantityLength : IfcPhysicalSimpleQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-		//4	LengthValue : IfcLengthMeasure
-		//5	Formula : IfcLabel
-
 		public IfcLengthMeasure LengthValue { get; set; }
 		public IfcLabel Formula { get; set; }
 
@@ -17423,13 +14838,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcQuantitySet : IfcPropertySetDefinition
+	public abstract class IfcQuantitySet : IfcPropertySetDefinition, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcQuantitySet() { }
 
 		public IfcQuantitySet(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -17441,14 +14851,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcQuantityTime : IfcPhysicalSimpleQuantity
+	public class IfcQuantityTime : IfcPhysicalSimpleQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-		//4	TimeValue : IfcTimeMeasure
-		//5	Formula : IfcLabel
-
 		public IfcTimeMeasure TimeValue { get; set; }
 		public IfcLabel Formula { get; set; }
 
@@ -17464,14 +14868,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcQuantityVolume : IfcPhysicalSimpleQuantity
+	public class IfcQuantityVolume : IfcPhysicalSimpleQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-		//4	VolumeValue : IfcVolumeMeasure
-		//5	Formula : IfcLabel
-
 		public IfcVolumeMeasure VolumeValue { get; set; }
 		public IfcLabel Formula { get; set; }
 
@@ -17487,14 +14885,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcQuantityWeight : IfcPhysicalSimpleQuantity
+	public class IfcQuantityWeight : IfcPhysicalSimpleQuantity, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	Unit : IfcNamedUnit
-		//4	WeightValue : IfcMassMeasure
-		//5	Formula : IfcLabel
-
 		public IfcMassMeasure WeightValue { get; set; }
 		public IfcLabel Formula { get; set; }
 
@@ -17510,19 +14902,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRailing : IfcBuildingElement
+	public class IfcRailing : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcRailingTypeEnum
-
 		public IfcRailingTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcRailing() { }
 
@@ -17540,19 +14941,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRailingType : IfcBuildingElementType
+	public class IfcRailingType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcRailingTypeEnum
-
 		public IfcRailingTypeEnum PredefinedType { get; set; }
 
 		public IfcRailingType() { }
@@ -17572,19 +14962,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRamp : IfcBuildingElement
+	public class IfcRamp : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcRampTypeEnum
-
 		public IfcRampTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcRamp() { }
 
@@ -17602,19 +15001,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRampFlight : IfcBuildingElement
+	public class IfcRampFlight : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcRampFlightTypeEnum
-
 		public IfcRampFlightTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcRampFlight() { }
 
@@ -17632,19 +15040,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRampFlightType : IfcBuildingElementType
+	public class IfcRampFlightType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcRampFlightTypeEnum
-
 		public IfcRampFlightTypeEnum PredefinedType { get; set; }
 
 		public IfcRampFlightType() { }
@@ -17664,19 +15061,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRampType : IfcBuildingElementType
+	public class IfcRampType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcRampTypeEnum
-
 		public IfcRampTypeEnum PredefinedType { get; set; }
 
 		public IfcRampType() { }
@@ -17696,21 +15082,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRationalBSplineCurveWithKnots : IfcBSplineCurveWithKnots
+	public class IfcRationalBSplineCurveWithKnots : IfcBSplineCurveWithKnots, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Degree : IfcInteger
-		//2	ControlPointsList : List<IfcCartesianPoint>
-		//3	CurveForm : IfcBSplineCurveForm
-		//4	ClosedCurve : IfcLogical
-		//5	SelfIntersect : IfcLogical
-		//6	KnotMultiplicities : List<IfcInteger>
-		//7	Knots : List<IfcParameterValue>
-		//8	KnotSpec : IfcKnotType
-		//9	WeightsData : List<IfcReal>
-
 		public List<IfcReal> WeightsData { get; set; }
 		public List<IfcReal> Weights => IfcListToArray(WeightsData, 0, UpperIndexOnControlPoints);
-		// (DERIVE)	Weights : ARRAY [0:UpperIndexOnControlPoints] OF IfcReal := IfcListToArray(WeightsData,0,SELF\IfcBSplineCurve.UpperIndexOnControlPoints); {get;set;}
+		// DERIVE : Weights : ARRAY [0:UpperIndexOnControlPoints] OF IfcReal := IfcListToArray(WeightsData,0,SELF\IfcBSplineCurve.UpperIndexOnControlPoints);
+
 		public IfcRationalBSplineCurveWithKnots() { }
 
 		public IfcRationalBSplineCurveWithKnots(IfcInteger Degree, List<IfcCartesianPoint> ControlPointsList, IfcBSplineCurveForm CurveForm, IfcLogical ClosedCurve, IfcLogical SelfIntersect, List<IfcInteger> KnotMultiplicities, List<IfcParameterValue> Knots, IfcKnotType KnotSpec, List<IfcReal> WeightsData)
@@ -17727,25 +15104,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRationalBSplineSurfaceWithKnots : IfcBSplineSurfaceWithKnots
+	public class IfcRationalBSplineSurfaceWithKnots : IfcBSplineSurfaceWithKnots, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	UDegree : IfcInteger
-		//2	VDegree : IfcInteger
-		//3	ControlPointsList : List<List<IfcCartesianPoint>>
-		//4	SurfaceForm : IfcBSplineSurfaceForm
-		//5	UClosed : IfcLogical
-		//6	VClosed : IfcLogical
-		//7	SelfIntersect : IfcLogical
-		//8	UMultiplicities : List<IfcInteger>
-		//9	VMultiplicities : List<IfcInteger>
-		//10	UKnots : List<IfcParameterValue>
-		//11	VKnots : List<IfcParameterValue>
-		//12	KnotSpec : IfcKnotType
-		//13	WeightsData : List<List<IfcReal>>
-
 		public List<List<IfcReal>> WeightsData { get; set; }
 		public List<List<IfcReal>> Weights => IfcMakeArrayOfArray(WeightsData, 0, UUpper, 0, VUpper);
-		// (DERIVE)	Weights : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcReal := IfcMakeArrayOfArray(WeightsData,0,UUpper,0,VUpper); {get;set;}
+		// DERIVE : Weights : ARRAY [0:UUpper] OF ARRAY [0:VUpper] OF IfcReal := IfcMakeArrayOfArray(WeightsData,0,UUpper,0,VUpper);
+
 		public IfcRationalBSplineSurfaceWithKnots() { }
 
 		public IfcRationalBSplineSurfaceWithKnots(IfcInteger UDegree, IfcInteger VDegree, List<List<IfcCartesianPoint>> ControlPointsList, IfcBSplineSurfaceForm SurfaceForm, IfcLogical UClosed, IfcLogical VClosed, IfcLogical SelfIntersect, List<IfcInteger> UMultiplicities, List<IfcInteger> VMultiplicities, List<IfcParameterValue> UKnots, List<IfcParameterValue> VKnots, IfcKnotType KnotSpec, List<List<IfcReal>> WeightsData)
@@ -17766,17 +15130,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRectangleHollowProfileDef : IfcRectangleProfileDef
+	public class IfcRectangleHollowProfileDef : IfcRectangleProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	XDim : IfcPositiveLengthMeasure
-		//5	YDim : IfcPositiveLengthMeasure
-		//6	WallThickness : IfcPositiveLengthMeasure
-		//7	InnerFilletRadius : IfcNonNegativeLengthMeasure
-		//8	OuterFilletRadius : IfcNonNegativeLengthMeasure
-
 		public IfcPositiveLengthMeasure WallThickness { get; set; }
 		public IfcNonNegativeLengthMeasure InnerFilletRadius { get; set; }
 		public IfcNonNegativeLengthMeasure OuterFilletRadius { get; set; }
@@ -17796,14 +15151,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRectangleProfileDef : IfcParameterizedProfileDef
+	public class IfcRectangleProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	XDim : IfcPositiveLengthMeasure
-		//5	YDim : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure XDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
 
@@ -17819,16 +15168,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRectangularPyramid : IfcCsgPrimitive3D
+	public class IfcRectangularPyramid : IfcCsgPrimitive3D, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	XLength : IfcPositiveLengthMeasure
-		//3	YLength : IfcPositiveLengthMeasure
-		//4	Height : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure XLength { get; set; }
 		public IfcPositiveLengthMeasure YLength { get; set; }
 		public IfcPositiveLengthMeasure Height { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcRectangularPyramid() { }
 
@@ -17841,16 +15188,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRectangularTrimmedSurface : IfcBoundedSurface
+	public class IfcRectangularTrimmedSurface : IfcBoundedSurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	BasisSurface : IfcSurface
-		//2	U1 : IfcParameterValue
-		//3	V1 : IfcParameterValue
-		//4	U2 : IfcParameterValue
-		//5	V2 : IfcParameterValue
-		//6	Usense : IfcBoolean
-		//7	Vsense : IfcBoolean
-
 		public IfcSurface BasisSurface { get; set; }
 		public IfcParameterValue U1 { get; set; }
 		public IfcParameterValue V1 { get; set; }
@@ -17858,6 +15197,9 @@ namespace IFC4
 		public IfcParameterValue V2 { get; set; }
 		public IfcBoolean Usense { get; set; }
 		public IfcBoolean Vsense { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcRectangularTrimmedSurface() { }
 
@@ -17875,15 +15217,6 @@ namespace IFC4
 
 	public class IfcRecurrencePattern : IfcBase
 	{
-		//1	RecurrenceType : IfcRecurrenceTypeEnum
-		//2	DayComponent : List<IfcDayInMonthNumber>
-		//3	WeekdayComponent : List<IfcDayInWeekNumber>
-		//4	MonthComponent : List<IfcMonthInYearNumber>
-		//5	Position : IfcInteger
-		//6	Interval : IfcInteger
-		//7	Occurrences : IfcInteger
-		//8	TimePeriods : List<IfcTimePeriod>
-
 		public IfcRecurrenceTypeEnum RecurrenceType { get; set; }
 		public List<IfcDayInMonthNumber> DayComponent { get; set; }
 		public List<IfcDayInWeekNumber> WeekdayComponent { get; set; }
@@ -17908,14 +15241,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReference : IfcBase
+	public class IfcReference : IfcBase, IfcAppliedValueSelect, IfcMetricValueSelect
 	{
-		//1	TypeIdentifier : IfcIdentifier
-		//2	AttributeIdentifier : IfcIdentifier
-		//3	InstanceName : IfcLabel
-		//4	ListPositions : List<IfcInteger>
-		//5	InnerReference : IfcReference
-
 		public IfcIdentifier TypeIdentifier { get; set; }
 		public IfcIdentifier AttributeIdentifier { get; set; }
 		public IfcLabel InstanceName { get; set; }
@@ -17934,19 +15261,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRegularTimeSeries : IfcTimeSeries
+	public class IfcRegularTimeSeries : IfcTimeSeries, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	StartTime : IfcDateTime
-		//4	EndTime : IfcDateTime
-		//5	TimeSeriesDataType : IfcTimeSeriesDataTypeEnum
-		//6	DataOrigin : IfcDataOriginEnum
-		//7	UserDefinedDataOrigin : IfcLabel
-		//8	Unit : IfcUnit
-		//9	TimeStep : IfcTimeMeasure
-		//10	Values : List<IfcTimeSeriesValue>
-
 		public IfcTimeMeasure TimeStep { get; set; }
 		public List<IfcTimeSeriesValue> Values { get; set; }
 
@@ -17967,15 +15283,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReinforcementBarProperties : IfcPreDefinedProperties
+	public class IfcReinforcementBarProperties : IfcPreDefinedProperties, IfcResourceObjectSelect
 	{
-		//1	TotalCrossSectionArea : IfcAreaMeasure
-		//2	SteelGrade : IfcLabel
-		//3	BarSurface : IfcReinforcingBarSurfaceEnum
-		//4	EffectiveDepth : IfcLengthMeasure
-		//5	NominalBarDiameter : IfcPositiveLengthMeasure
-		//6	BarCount : IfcCountMeasure
-
 		public IfcAreaMeasure TotalCrossSectionArea { get; set; }
 		public IfcLabel SteelGrade { get; set; }
 		public IfcReinforcingBarSurfaceEnum BarSurface { get; set; }
@@ -17996,17 +15305,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReinforcementDefinitionProperties : IfcPreDefinedPropertySet
+	public class IfcReinforcementDefinitionProperties : IfcPreDefinedPropertySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	DefinitionType : IfcLabel
-		//6	ReinforcementSectionDefinitions : List<IfcSectionReinforcementProperties>
-
 		public IfcLabel DefinitionType { get; set; }
 		public List<IfcSectionReinforcementProperties> ReinforcementSectionDefinitions { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcReinforcementDefinitionProperties() { }
 
@@ -18021,28 +15329,32 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReinforcingBar : IfcReinforcingElement
+	public class IfcReinforcingBar : IfcReinforcingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	SteelGrade : IfcLabel
-		//10	NominalDiameter : IfcPositiveLengthMeasure
-		//11	CrossSectionArea : IfcAreaMeasure
-		//12	BarLength : IfcPositiveLengthMeasure
-		//13	PredefinedType : IfcReinforcingBarTypeEnum
-		//14	BarSurface : IfcReinforcingBarSurfaceEnum
-
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
 		public IfcPositiveLengthMeasure BarLength { get; set; }
 		public IfcReinforcingBarTypeEnum PredefinedType { get; set; }
 		public IfcReinforcingBarSurfaceEnum BarSurface { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcReinforcingBar() { }
 
@@ -18065,25 +15377,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReinforcingBarType : IfcReinforcingElementType
+	public class IfcReinforcingBarType : IfcReinforcingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcReinforcingBarTypeEnum
-		//11	NominalDiameter : IfcPositiveLengthMeasure
-		//12	CrossSectionArea : IfcAreaMeasure
-		//13	BarLength : IfcPositiveLengthMeasure
-		//14	BarSurface : IfcReinforcingBarSurfaceEnum
-		//15	BendingShapeCode : IfcLabel
-		//16	BendingParameters : List<IfcBendingParameterSelect>
-
 		public IfcReinforcingBarTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
@@ -18117,16 +15412,6 @@ namespace IFC4
 
 	public abstract class IfcReinforcingElement : IfcElementComponent
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	SteelGrade : IfcLabel
-
 		public IfcLabel SteelGrade { get; set; }
 
 		public IfcReinforcingElement() { }
@@ -18147,16 +15432,6 @@ namespace IFC4
 
 	public abstract class IfcReinforcingElementType : IfcElementComponentType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcReinforcingElementType() { }
 
 		public IfcReinforcingElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -18173,27 +15448,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReinforcingMesh : IfcReinforcingElement
+	public class IfcReinforcingMesh : IfcReinforcingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	SteelGrade : IfcLabel
-		//10	MeshLength : IfcPositiveLengthMeasure
-		//11	MeshWidth : IfcPositiveLengthMeasure
-		//12	LongitudinalBarNominalDiameter : IfcPositiveLengthMeasure
-		//13	TransverseBarNominalDiameter : IfcPositiveLengthMeasure
-		//14	LongitudinalBarCrossSectionArea : IfcAreaMeasure
-		//15	TransverseBarCrossSectionArea : IfcAreaMeasure
-		//16	LongitudinalBarSpacing : IfcPositiveLengthMeasure
-		//17	TransverseBarSpacing : IfcPositiveLengthMeasure
-		//18	PredefinedType : IfcReinforcingMeshTypeEnum
-
 		public IfcPositiveLengthMeasure MeshLength { get; set; }
 		public IfcPositiveLengthMeasure MeshWidth { get; set; }
 		public IfcPositiveLengthMeasure LongitudinalBarNominalDiameter { get; set; }
@@ -18203,6 +15459,25 @@ namespace IFC4
 		public IfcPositiveLengthMeasure LongitudinalBarSpacing { get; set; }
 		public IfcPositiveLengthMeasure TransverseBarSpacing { get; set; }
 		public IfcReinforcingMeshTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcReinforcingMesh() { }
 
@@ -18229,29 +15504,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReinforcingMeshType : IfcReinforcingElementType
+	public class IfcReinforcingMeshType : IfcReinforcingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcReinforcingMeshTypeEnum
-		//11	MeshLength : IfcPositiveLengthMeasure
-		//12	MeshWidth : IfcPositiveLengthMeasure
-		//13	LongitudinalBarNominalDiameter : IfcPositiveLengthMeasure
-		//14	TransverseBarNominalDiameter : IfcPositiveLengthMeasure
-		//15	LongitudinalBarCrossSectionArea : IfcAreaMeasure
-		//16	TransverseBarCrossSectionArea : IfcAreaMeasure
-		//17	LongitudinalBarSpacing : IfcPositiveLengthMeasure
-		//18	TransverseBarSpacing : IfcPositiveLengthMeasure
-		//19	BendingShapeCode : IfcLabel
-		//20	BendingParameters : List<IfcBendingParameterSelect>
-
 		public IfcReinforcingMeshTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure MeshLength { get; set; }
 		public IfcPositiveLengthMeasure MeshWidth { get; set; }
@@ -18293,13 +15547,6 @@ namespace IFC4
 
 	public class IfcRelAggregates : IfcRelDecomposes
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingObject : IfcObjectDefinition
-		//6	RelatedObjects : List<IfcObjectDefinition>
-
 		public IfcObjectDefinition RelatingObject { get; set; }
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
 
@@ -18318,13 +15565,6 @@ namespace IFC4
 
 	public abstract class IfcRelAssigns : IfcRelationship
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
 		public IfcObjectTypeEnum RelatedObjectsType { get; set; }
 
@@ -18343,15 +15583,6 @@ namespace IFC4
 
 	public class IfcRelAssignsToActor : IfcRelAssigns
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingActor : IfcActor
-		//8	ActingRole : IfcActorRole
-
 		public IfcActor RelatingActor { get; set; }
 		public IfcActorRole ActingRole { get; set; }
 
@@ -18368,33 +15599,10 @@ namespace IFC4
 			this.RelatingActor = RelatingActor;
 			this.ActingRole = ActingRole;
 		}
-
-		public void InverseMap()
-        {
-			if(RelatingActor != null) {
-				if (RelatingActor.IsActingUpon == null)
-				{
-					RelatingActor.IsActingUpon = new List<IfcRelAssignsToActor>();
-				}
-                if (!RelatingActor.IsActingUpon.Contains(this))
-                {
-					RelatingActor.IsActingUpon.Add(this);
-				}
-			}
-			
-        }
 	}
 
 	public class IfcRelAssignsToControl : IfcRelAssigns
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingControl : IfcControl
-
 		public IfcControl RelatingControl { get; set; }
 
 		public IfcRelAssignsToControl() { }
@@ -18413,14 +15621,6 @@ namespace IFC4
 
 	public class IfcRelAssignsToGroup : IfcRelAssigns
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingGroup : IfcGroup
-
 		public IfcGroup RelatingGroup { get; set; }
 
 		public IfcRelAssignsToGroup() { }
@@ -18439,15 +15639,6 @@ namespace IFC4
 
 	public class IfcRelAssignsToGroupByFactor : IfcRelAssignsToGroup
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingGroup : IfcGroup
-		//8	Factor : IfcRatioMeasure
-
 		public IfcRatioMeasure Factor { get; set; }
 
 		public IfcRelAssignsToGroupByFactor() { }
@@ -18467,15 +15658,6 @@ namespace IFC4
 
 	public class IfcRelAssignsToProcess : IfcRelAssigns
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingProcess : IfcProcessSelect
-		//8	QuantityInProcess : IfcMeasureWithUnit
-
 		public IfcProcessSelect RelatingProcess { get; set; }
 		public IfcMeasureWithUnit QuantityInProcess { get; set; }
 
@@ -18496,14 +15678,6 @@ namespace IFC4
 
 	public class IfcRelAssignsToProduct : IfcRelAssigns
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingProduct : IfcProductSelect
-
 		public IfcProductSelect RelatingProduct { get; set; }
 
 		public IfcRelAssignsToProduct() { }
@@ -18522,14 +15696,6 @@ namespace IFC4
 
 	public class IfcRelAssignsToResource : IfcRelAssigns
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatedObjectsType : IfcObjectTypeEnum
-		//7	RelatingResource : IfcResourceSelect
-
 		public IfcResourceSelect RelatingResource { get; set; }
 
 		public IfcRelAssignsToResource() { }
@@ -18548,12 +15714,6 @@ namespace IFC4
 
 	public abstract class IfcRelAssociates : IfcRelationship
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-
 		public List<IfcDefinitionSelect> RelatedObjects { get; set; }
 
 		public IfcRelAssociates() { }
@@ -18570,13 +15730,6 @@ namespace IFC4
 
 	public class IfcRelAssociatesApproval : IfcRelAssociates
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-		//6	RelatingApproval : IfcApproval
-
 		public IfcApproval RelatingApproval { get; set; }
 
 		public IfcRelAssociatesApproval() { }
@@ -18594,13 +15747,6 @@ namespace IFC4
 
 	public class IfcRelAssociatesClassification : IfcRelAssociates
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-		//6	RelatingClassification : IfcClassificationSelect
-
 		public IfcClassificationSelect RelatingClassification { get; set; }
 
 		public IfcRelAssociatesClassification() { }
@@ -18618,14 +15764,6 @@ namespace IFC4
 
 	public class IfcRelAssociatesConstraint : IfcRelAssociates
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-		//6	Intent : IfcLabel
-		//7	RelatingConstraint : IfcConstraint
-
 		public IfcLabel Intent { get; set; }
 		public IfcConstraint RelatingConstraint { get; set; }
 
@@ -18645,13 +15783,6 @@ namespace IFC4
 
 	public class IfcRelAssociatesDocument : IfcRelAssociates
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-		//6	RelatingDocument : IfcDocumentSelect
-
 		public IfcDocumentSelect RelatingDocument { get; set; }
 
 		public IfcRelAssociatesDocument() { }
@@ -18669,13 +15800,6 @@ namespace IFC4
 
 	public class IfcRelAssociatesLibrary : IfcRelAssociates
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-		//6	RelatingLibrary : IfcLibrarySelect
-
 		public IfcLibrarySelect RelatingLibrary { get; set; }
 
 		public IfcRelAssociatesLibrary() { }
@@ -18693,13 +15817,6 @@ namespace IFC4
 
 	public class IfcRelAssociatesMaterial : IfcRelAssociates
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcDefinitionSelect>
-		//6	RelatingMaterial : IfcMaterialSelect
-
 		public IfcMaterialSelect RelatingMaterial { get; set; }
 
 		public IfcRelAssociatesMaterial() { }
@@ -18717,11 +15834,6 @@ namespace IFC4
 
 	public abstract class IfcRelConnects : IfcRelationship
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcRelConnects() { }
 
 		public IfcRelConnects(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -18735,14 +15847,6 @@ namespace IFC4
 
 	public class IfcRelConnectsElements : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ConnectionGeometry : IfcConnectionGeometry
-		//6	RelatingElement : IfcElement
-		//7	RelatedElement : IfcElement
-
 		public IfcConnectionGeometry ConnectionGeometry { get; set; }
 		public IfcElement RelatingElement { get; set; }
 		public IfcElement RelatedElement { get; set; }
@@ -18763,18 +15867,6 @@ namespace IFC4
 
 	public class IfcRelConnectsPathElements : IfcRelConnectsElements
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ConnectionGeometry : IfcConnectionGeometry
-		//6	RelatingElement : IfcElement
-		//7	RelatedElement : IfcElement
-		//8	RelatingPriorities : List<IfcInteger>
-		//9	RelatedPriorities : List<IfcInteger>
-		//10	RelatedConnectionType : IfcConnectionTypeEnum
-		//11	RelatingConnectionType : IfcConnectionTypeEnum
-
 		public List<IfcInteger> RelatingPriorities { get; set; }
 		public List<IfcInteger> RelatedPriorities { get; set; }
 		public IfcConnectionTypeEnum RelatedConnectionType { get; set; }
@@ -18800,13 +15892,6 @@ namespace IFC4
 
 	public class IfcRelConnectsPortToElement : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingPort : IfcPort
-		//6	RelatedElement : IfcDistributionElement
-
 		public IfcPort RelatingPort { get; set; }
 		public IfcDistributionElement RelatedElement { get; set; }
 
@@ -18825,14 +15910,6 @@ namespace IFC4
 
 	public class IfcRelConnectsPorts : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingPort : IfcPort
-		//6	RelatedPort : IfcPort
-		//7	RealizingElement : IfcElement
-
 		public IfcPort RelatingPort { get; set; }
 		public IfcPort RelatedPort { get; set; }
 		public IfcElement RealizingElement { get; set; }
@@ -18853,13 +15930,6 @@ namespace IFC4
 
 	public class IfcRelConnectsStructuralActivity : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingElement : IfcStructuralActivityAssignmentSelect
-		//6	RelatedStructuralActivity : IfcStructuralActivity
-
 		public IfcStructuralActivityAssignmentSelect RelatingElement { get; set; }
 		public IfcStructuralActivity RelatedStructuralActivity { get; set; }
 
@@ -18878,17 +15948,6 @@ namespace IFC4
 
 	public class IfcRelConnectsStructuralMember : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingStructuralMember : IfcStructuralMember
-		//6	RelatedStructuralConnection : IfcStructuralConnection
-		//7	AppliedCondition : IfcBoundaryCondition
-		//8	AdditionalConditions : IfcStructuralConnectionCondition
-		//9	SupportedLength : IfcLengthMeasure
-		//10	ConditionCoordinateSystem : IfcAxis2Placement3D
-
 		public IfcStructuralMember RelatingStructuralMember { get; set; }
 		public IfcStructuralConnection RelatedStructuralConnection { get; set; }
 		public IfcBoundaryCondition AppliedCondition { get; set; }
@@ -18915,18 +15974,6 @@ namespace IFC4
 
 	public class IfcRelConnectsWithEccentricity : IfcRelConnectsStructuralMember
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingStructuralMember : IfcStructuralMember
-		//6	RelatedStructuralConnection : IfcStructuralConnection
-		//7	AppliedCondition : IfcBoundaryCondition
-		//8	AdditionalConditions : IfcStructuralConnectionCondition
-		//9	SupportedLength : IfcLengthMeasure
-		//10	ConditionCoordinateSystem : IfcAxis2Placement3D
-		//11	ConnectionConstraint : IfcConnectionGeometry
-
 		public IfcConnectionGeometry ConnectionConstraint { get; set; }
 
 		public IfcRelConnectsWithEccentricity() { }
@@ -18949,16 +15996,6 @@ namespace IFC4
 
 	public class IfcRelConnectsWithRealizingElements : IfcRelConnectsElements
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ConnectionGeometry : IfcConnectionGeometry
-		//6	RelatingElement : IfcElement
-		//7	RelatedElement : IfcElement
-		//8	RealizingElements : List<IfcElement>
-		//9	ConnectionType : IfcLabel
-
 		public List<IfcElement> RealizingElements { get; set; }
 		public IfcLabel ConnectionType { get; set; }
 
@@ -18980,13 +16017,6 @@ namespace IFC4
 
 	public class IfcRelContainedInSpatialStructure : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedElements : List<IfcProduct>
-		//6	RelatingStructure : IfcSpatialElement
-
 		public List<IfcProduct> RelatedElements { get; set; }
 		public IfcSpatialElement RelatingStructure { get; set; }
 
@@ -19005,13 +16035,6 @@ namespace IFC4
 
 	public class IfcRelCoversBldgElements : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingBuildingElement : IfcElement
-		//6	RelatedCoverings : List<IfcCovering>
-
 		public IfcElement RelatingBuildingElement { get; set; }
 		public List<IfcCovering> RelatedCoverings { get; set; }
 
@@ -19030,13 +16053,6 @@ namespace IFC4
 
 	public class IfcRelCoversSpaces : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingSpace : IfcSpace
-		//6	RelatedCoverings : List<IfcCovering>
-
 		public IfcSpace RelatingSpace { get; set; }
 		public List<IfcCovering> RelatedCoverings { get; set; }
 
@@ -19055,13 +16071,6 @@ namespace IFC4
 
 	public class IfcRelDeclares : IfcRelationship
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingContext : IfcContext
-		//6	RelatedDefinitions : List<IfcDefinitionSelect>
-
 		public IfcContext RelatingContext { get; set; }
 		public List<IfcDefinitionSelect> RelatedDefinitions { get; set; }
 
@@ -19080,11 +16089,6 @@ namespace IFC4
 
 	public abstract class IfcRelDecomposes : IfcRelationship
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcRelDecomposes() { }
 
 		public IfcRelDecomposes(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -19098,11 +16102,6 @@ namespace IFC4
 
 	public abstract class IfcRelDefines : IfcRelationship
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcRelDefines() { }
 
 		public IfcRelDefines(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -19116,13 +16115,6 @@ namespace IFC4
 
 	public class IfcRelDefinesByObject : IfcRelDefines
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObject>
-		//6	RelatingObject : IfcObject
-
 		public List<IfcObject> RelatedObjects { get; set; }
 		public IfcObject RelatingObject { get; set; }
 
@@ -19141,13 +16133,6 @@ namespace IFC4
 
 	public class IfcRelDefinesByProperties : IfcRelDefines
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObjectDefinition>
-		//6	RelatingPropertyDefinition : IfcPropertySetDefinitionSelect
-
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
 		public IfcPropertySetDefinitionSelect RelatingPropertyDefinition { get; set; }
 
@@ -19166,13 +16151,6 @@ namespace IFC4
 
 	public class IfcRelDefinesByTemplate : IfcRelDefines
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedPropertySets : List<IfcPropertySetDefinition>
-		//6	RelatingTemplate : IfcPropertySetTemplate
-
 		public List<IfcPropertySetDefinition> RelatedPropertySets { get; set; }
 		public IfcPropertySetTemplate RelatingTemplate { get; set; }
 
@@ -19191,13 +16169,6 @@ namespace IFC4
 
 	public class IfcRelDefinesByType : IfcRelDefines
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedObjects : List<IfcObject>
-		//6	RelatingType : IfcTypeObject
-
 		public List<IfcObject> RelatedObjects { get; set; }
 		public IfcTypeObject RelatingType { get; set; }
 
@@ -19216,13 +16187,6 @@ namespace IFC4
 
 	public class IfcRelFillsElement : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingOpeningElement : IfcOpeningElement
-		//6	RelatedBuildingElement : IfcElement
-
 		public IfcOpeningElement RelatingOpeningElement { get; set; }
 		public IfcElement RelatedBuildingElement { get; set; }
 
@@ -19241,13 +16205,6 @@ namespace IFC4
 
 	public class IfcRelFlowControlElements : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedControlElements : List<IfcDistributionControlElement>
-		//6	RelatingFlowElement : IfcDistributionFlowElement
-
 		public List<IfcDistributionControlElement> RelatedControlElements { get; set; }
 		public IfcDistributionFlowElement RelatingFlowElement { get; set; }
 
@@ -19266,16 +16223,6 @@ namespace IFC4
 
 	public class IfcRelInterferesElements : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingElement : IfcElement
-		//6	RelatedElement : IfcElement
-		//7	InterferenceGeometry : IfcConnectionGeometry
-		//8	InterferenceType : IfcIdentifier
-		//9	ImpliedOrder : LOGICAL
-
 		public IfcElement RelatingElement { get; set; }
 		public IfcElement RelatedElement { get; set; }
 		public IfcConnectionGeometry InterferenceGeometry { get; set; }
@@ -19300,13 +16247,6 @@ namespace IFC4
 
 	public class IfcRelNests : IfcRelDecomposes
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingObject : IfcObjectDefinition
-		//6	RelatedObjects : List<IfcObjectDefinition>
-
 		public IfcObjectDefinition RelatingObject { get; set; }
 		public List<IfcObjectDefinition> RelatedObjects { get; set; }
 
@@ -19325,13 +16265,6 @@ namespace IFC4
 
 	public class IfcRelProjectsElement : IfcRelDecomposes
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingElement : IfcElement
-		//6	RelatedFeatureElement : IfcFeatureElementAddition
-
 		public IfcElement RelatingElement { get; set; }
 		public IfcFeatureElementAddition RelatedFeatureElement { get; set; }
 
@@ -19350,13 +16283,6 @@ namespace IFC4
 
 	public class IfcRelReferencedInSpatialStructure : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatedElements : List<IfcProduct>
-		//6	RelatingStructure : IfcSpatialElement
-
 		public List<IfcProduct> RelatedElements { get; set; }
 		public IfcSpatialElement RelatingStructure { get; set; }
 
@@ -19375,16 +16301,6 @@ namespace IFC4
 
 	public class IfcRelSequence : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingProcess : IfcProcess
-		//6	RelatedProcess : IfcProcess
-		//7	TimeLag : IfcLagTime
-		//8	SequenceType : IfcSequenceEnum
-		//9	UserDefinedSequenceType : IfcLabel
-
 		public IfcProcess RelatingProcess { get; set; }
 		public IfcProcess RelatedProcess { get; set; }
 		public IfcLagTime TimeLag { get; set; }
@@ -19409,13 +16325,6 @@ namespace IFC4
 
 	public class IfcRelServicesBuildings : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingSystem : IfcSystem
-		//6	RelatedBuildings : List<IfcSpatialElement>
-
 		public IfcSystem RelatingSystem { get; set; }
 		public List<IfcSpatialElement> RelatedBuildings { get; set; }
 
@@ -19434,16 +16343,6 @@ namespace IFC4
 
 	public class IfcRelSpaceBoundary : IfcRelConnects
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingSpace : IfcSpaceBoundarySelect
-		//6	RelatedBuildingElement : IfcElement
-		//7	ConnectionGeometry : IfcConnectionGeometry
-		//8	PhysicalOrVirtualBoundary : IfcPhysicalOrVirtualEnum
-		//9	InternalOrExternalBoundary : IfcInternalOrExternalEnum
-
 		public IfcSpaceBoundarySelect RelatingSpace { get; set; }
 		public IfcElement RelatedBuildingElement { get; set; }
 		public IfcConnectionGeometry ConnectionGeometry { get; set; }
@@ -19468,19 +16367,9 @@ namespace IFC4
 
 	public class IfcRelSpaceBoundary1stLevel : IfcRelSpaceBoundary
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingSpace : IfcSpaceBoundarySelect
-		//6	RelatedBuildingElement : IfcElement
-		//7	ConnectionGeometry : IfcConnectionGeometry
-		//8	PhysicalOrVirtualBoundary : IfcPhysicalOrVirtualEnum
-		//9	InternalOrExternalBoundary : IfcInternalOrExternalEnum
-		//10	ParentBoundary : IfcRelSpaceBoundary1stLevel
-
 		public IfcRelSpaceBoundary1stLevel ParentBoundary { get; set; }
-		public List<IfcRelSpaceBoundary1stLevel> InnerBoundaries { get; set; }
+		public List<IfcRelSpaceBoundary1stLevel> InnerBoundaries;
+		// INVERSE : InnerBoundaries : SET [0:?] OF IfcRelSpaceBoundary1stLevel FOR ParentBoundary;
 
 		public IfcRelSpaceBoundary1stLevel() { }
 
@@ -19501,20 +16390,9 @@ namespace IFC4
 
 	public class IfcRelSpaceBoundary2ndLevel : IfcRelSpaceBoundary1stLevel
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingSpace : IfcSpaceBoundarySelect
-		//6	RelatedBuildingElement : IfcElement
-		//7	ConnectionGeometry : IfcConnectionGeometry
-		//8	PhysicalOrVirtualBoundary : IfcPhysicalOrVirtualEnum
-		//9	InternalOrExternalBoundary : IfcInternalOrExternalEnum
-		//10	ParentBoundary : IfcRelSpaceBoundary1stLevel
-		//11	CorrespondingBoundary : IfcRelSpaceBoundary2ndLevel
-
 		public IfcRelSpaceBoundary2ndLevel CorrespondingBoundary { get; set; }
-		public List<IfcRelSpaceBoundary2ndLevel> Corresponds { get; set; }
+		public List<IfcRelSpaceBoundary2ndLevel> Corresponds;
+		// INVERSE : Corresponds : SET [0:1] OF IfcRelSpaceBoundary2ndLevel FOR CorrespondingBoundary;
 
 		public IfcRelSpaceBoundary2ndLevel() { }
 
@@ -19536,13 +16414,6 @@ namespace IFC4
 
 	public class IfcRelVoidsElement : IfcRelDecomposes
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	RelatingBuildingElement : IfcElement
-		//6	RelatedOpeningElement : IfcFeatureElementSubtraction
-
 		public IfcElement RelatingBuildingElement { get; set; }
 		public IfcFeatureElementSubtraction RelatedOpeningElement { get; set; }
 
@@ -19561,11 +16432,6 @@ namespace IFC4
 
 	public abstract class IfcRelationship : IfcRoot
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcRelationship() { }
 
 		public IfcRelationship(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description)
@@ -19577,13 +16443,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcReparametrisedCompositeCurveSegment : IfcCompositeCurveSegment
+	public class IfcReparametrisedCompositeCurveSegment : IfcCompositeCurveSegment, IfcLayeredItem
 	{
-		//1	Transition : IfcTransitionCode
-		//2	SameSense : IfcBoolean
-		//3	ParentCurve : IfcCurve
-		//4	ParamLength : IfcParameterValue
-
 		public IfcParameterValue ParamLength { get; set; }
 
 		public IfcReparametrisedCompositeCurveSegment() { }
@@ -19599,18 +16460,16 @@ namespace IFC4
 
 	public abstract class IfcRepresentation : IfcBase, IfcLayeredItem
 	{
-		//1	ContextOfItems : IfcRepresentationContext
-		//2	RepresentationIdentifier : IfcLabel
-		//3	RepresentationType : IfcLabel
-		//4	Items : List<IfcRepresentationItem>
-
 		public IfcRepresentationContext ContextOfItems { get; set; }
 		public IfcLabel RepresentationIdentifier { get; set; }
 		public IfcLabel RepresentationType { get; set; }
 		public List<IfcRepresentationItem> Items { get; set; }
-		public List<IfcRepresentationMap> RepresentationMap { get; set; }
-		public List<IfcPresentationLayerAssignment> LayerAssignments { get; set; }
-		public List<IfcProductRepresentation> OfProductRepresentation { get; set; }
+		public List<IfcRepresentationMap> RepresentationMap;
+		// INVERSE : RepresentationMap : SET [0:1] OF IfcRepresentationMap FOR MappedRepresentation;
+		public List<IfcPresentationLayerAssignment> LayerAssignments;
+		// INVERSE : LayerAssignments : SET [0:?] OF IfcPresentationLayerAssignment FOR AssignedItems;
+		public List<IfcProductRepresentation> OfProductRepresentation;
+		// INVERSE : OfProductRepresentation : SET [0:?] OF IfcProductRepresentation FOR Representations;
 
 		public IfcRepresentation() { }
 
@@ -19625,12 +16484,10 @@ namespace IFC4
 
 	public abstract class IfcRepresentationContext : IfcBase
 	{
-		//1	ContextIdentifier : IfcLabel
-		//2	ContextType : IfcLabel
-
 		public IfcLabel ContextIdentifier { get; set; }
 		public IfcLabel ContextType { get; set; }
-		public List<IfcRepresentation> RepresentationsInContext { get; set; }
+		public List<IfcRepresentation> RepresentationsInContext;
+		// INVERSE : RepresentationsInContext : SET [0:?] OF IfcRepresentation FOR ContextOfItems;
 
 		public IfcRepresentationContext() { }
 
@@ -19643,21 +16500,22 @@ namespace IFC4
 
 	public abstract class IfcRepresentationItem : IfcBase, IfcLayeredItem
 	{
-		public List<IfcPresentationLayerAssignment> LayerAssignment { get; set; }
-		public List<IfcStyledItem> StyledByItem { get; set; }
-
+		public List<IfcPresentationLayerAssignment> LayerAssignment;
+		// INVERSE : LayerAssignment : SET [0:1] OF IfcPresentationLayerAssignment FOR AssignedItems;
+		public List<IfcStyledItem> StyledByItem;
+		// INVERSE : StyledByItem : SET [0:1] OF IfcStyledItem FOR Item;
 		public IfcRepresentationItem() { }
 	}
 
-	public class IfcRepresentationMap : IfcBase
+	public class IfcRepresentationMap : IfcBase, IfcProductRepresentationSelect
 	{
-		//1	MappingOrigin : IfcAxis2Placement
-		//2	MappedRepresentation : IfcRepresentation
-
 		public IfcAxis2Placement MappingOrigin { get; set; }
 		public IfcRepresentation MappedRepresentation { get; set; }
-		public List<IfcShapeAspect> HasShapeAspects { get; set; }
-		public List<IfcMappedItem> MapUsage { get; set; }
+		public List<IfcShapeAspect> HasShapeAspects;
+		// INVERSE : HasShapeAspects : SET [0:?] OF IfcShapeAspect FOR PartOfProductDefinitionShape;
+		public List<IfcMappedItem> MapUsage;
+		// INVERSE : MapUsage : SET [0:?] OF IfcMappedItem FOR MappingSource;
+		public List<IfcShapeAspect> GetHasShapeAspects() { return HasShapeAspects; }
 
 		public IfcRepresentationMap() { }
 
@@ -19668,22 +16526,12 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcResource : IfcObject, IfcResourceSelect
+	public abstract class IfcResource : IfcObject
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
-		public List<IfcRelAssignsToResource> ResourceOf { get; set; }
-		public IfcIdentifier GetIdentification() { return Identification; }
-		public IfcText GetLongDescription() { return LongDescription; }
-		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcRelAssignsToResource> ResourceOf;
+		// INVERSE : ResourceOf : SET [0:?] OF IfcRelAssignsToResource FOR RelatingResource;
 
 		public IfcResource() { }
 
@@ -19701,11 +16549,6 @@ namespace IFC4
 
 	public class IfcResourceApprovalRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatedResourceObjects : List<IfcResourceObjectSelect>
-		//4	RelatingApproval : IfcApproval
-
 		public List<IfcResourceObjectSelect> RelatedResourceObjects { get; set; }
 		public IfcApproval RelatingApproval { get; set; }
 
@@ -19722,11 +16565,6 @@ namespace IFC4
 
 	public class IfcResourceConstraintRelationship : IfcResourceLevelRelationship
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	RelatingConstraint : IfcConstraint
-		//4	RelatedResourceObjects : List<IfcResourceObjectSelect>
-
 		public IfcConstraint RelatingConstraint { get; set; }
 		public List<IfcResourceObjectSelect> RelatedResourceObjects { get; set; }
 
@@ -19743,9 +16581,6 @@ namespace IFC4
 
 	public abstract class IfcResourceLevelRelationship : IfcBase
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 
@@ -19760,25 +16595,6 @@ namespace IFC4
 
 	public class IfcResourceTime : IfcSchedulingTime
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-		//4	ScheduleWork : IfcDuration
-		//5	ScheduleUsage : IfcPositiveRatioMeasure
-		//6	ScheduleStart : IfcDateTime
-		//7	ScheduleFinish : IfcDateTime
-		//8	ScheduleContour : IfcLabel
-		//9	LevelingDelay : IfcDuration
-		//10	IsOverAllocated : IfcBoolean
-		//11	StatusTime : IfcDateTime
-		//12	ActualWork : IfcDuration
-		//13	ActualUsage : IfcPositiveRatioMeasure
-		//14	ActualStart : IfcDateTime
-		//15	ActualFinish : IfcDateTime
-		//16	RemainingWork : IfcDuration
-		//17	RemainingUsage : IfcPositiveRatioMeasure
-		//18	Completion : IfcPositiveRatioMeasure
-
 		public IfcDuration ScheduleWork { get; set; }
 		public IfcPositiveRatioMeasure ScheduleUsage { get; set; }
 		public IfcDateTime ScheduleStart { get; set; }
@@ -19820,17 +16636,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRevolvedAreaSolid : IfcSweptAreaSolid
+	public class IfcRevolvedAreaSolid : IfcSweptAreaSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	Axis : IfcAxis1Placement
-		//4	Angle : IfcPlaneAngleMeasure
-
 		public IfcAxis1Placement Axis { get; set; }
 		public IfcPlaneAngleMeasure Angle { get; set; }
 		public IfcLine AxisLine => new IfcLine(Axis.Location, new IfcVector(Axis.Z, 1));
-		// (DERIVE)	AxisLine : IfcLine := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcCurve() || IfcLine(Axis.Location, IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector(Axis.Z,1.0));
+		// DERIVE : AxisLine : IfcLine := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcCurve() || IfcLine(Axis.Location, 
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcRevolvedAreaSolid() { }
 
 		public IfcRevolvedAreaSolid(IfcProfileDef SweptArea, IfcAxis2Placement3D Position, IfcAxis1Placement Axis, IfcPlaneAngleMeasure Angle)
@@ -19842,14 +16657,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRevolvedAreaSolidTapered : IfcRevolvedAreaSolid
+	public class IfcRevolvedAreaSolidTapered : IfcRevolvedAreaSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	Axis : IfcAxis1Placement
-		//4	Angle : IfcPlaneAngleMeasure
-		//5	EndSweptArea : IfcProfileDef
-
 		public IfcProfileDef EndSweptArea { get; set; }
 
 		public IfcRevolvedAreaSolidTapered() { }
@@ -19864,14 +16673,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRightCircularCone : IfcCsgPrimitive3D
+	public class IfcRightCircularCone : IfcCsgPrimitive3D, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	Height : IfcPositiveLengthMeasure
-		//3	BottomRadius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Height { get; set; }
 		public IfcPositiveLengthMeasure BottomRadius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcRightCircularCone() { }
 
@@ -19883,14 +16691,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRightCircularCylinder : IfcCsgPrimitive3D
+	public class IfcRightCircularCylinder : IfcCsgPrimitive3D, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	Height : IfcPositiveLengthMeasure
-		//3	Radius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Height { get; set; }
 		public IfcPositiveLengthMeasure Radius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcRightCircularCylinder() { }
 
@@ -19902,19 +16709,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRoof : IfcBuildingElement
+	public class IfcRoof : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcRoofTypeEnum
-
 		public IfcRoofTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcRoof() { }
 
@@ -19932,19 +16748,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRoofType : IfcBuildingElementType
+	public class IfcRoofType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcRoofTypeEnum
-
 		public IfcRoofTypeEnum PredefinedType { get; set; }
 
 		public IfcRoofType() { }
@@ -19966,11 +16771,6 @@ namespace IFC4
 
 	public abstract class IfcRoot : IfcBase
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-
 		public IfcGloballyUniqueId GlobalId { get; set; }
 		public IfcOwnerHistory OwnerHistory { get; set; }
 		public IfcLabel Name { get; set; }
@@ -19987,15 +16787,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcRoundedRectangleProfileDef : IfcRectangleProfileDef
+	public class IfcRoundedRectangleProfileDef : IfcRectangleProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	XDim : IfcPositiveLengthMeasure
-		//5	YDim : IfcPositiveLengthMeasure
-		//6	RoundingRadius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure RoundingRadius { get; set; }
 
 		public IfcRoundedRectangleProfileDef() { }
@@ -20011,13 +16804,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSIUnit : IfcNamedUnit
+	public class IfcSIUnit : IfcNamedUnit, IfcUnit
 	{
-		//1	Dimensions : IfcDimensionalExponents
-		//2	UnitType : IfcUnitEnum
-		//3	Prefix : IfcSIPrefix
-		//4	Name : IfcSIUnitName
-
 		public IfcSIPrefix Prefix { get; set; }
 		public IfcSIUnitName Name { get; set; }
 
@@ -20032,18 +16820,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSanitaryTerminal : IfcFlowTerminal
+	public class IfcSanitaryTerminal : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSanitaryTerminalTypeEnum
-
 		public IfcSanitaryTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcSanitaryTerminal() { }
@@ -20062,19 +16840,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSanitaryTerminalType : IfcFlowTerminalType
+	public class IfcSanitaryTerminalType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSanitaryTerminalTypeEnum
-
 		public IfcSanitaryTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcSanitaryTerminalType() { }
@@ -20096,10 +16863,6 @@ namespace IFC4
 
 	public abstract class IfcSchedulingTime : IfcBase
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-
 		public IfcLabel Name { get; set; }
 		public IfcDataOriginEnum DataOrigin { get; set; }
 		public IfcLabel UserDefinedDataOrigin { get; set; }
@@ -20114,12 +16877,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSeamCurve : IfcSurfaceCurve
+	public class IfcSeamCurve : IfcSurfaceCurve, IfcCurveOnSurface, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Curve3D : IfcCurve
-		//2	AssociatedGeometry : List<IfcPcurve>
-		//3	MasterRepresentation : IfcPreferredSurfaceCurveRepresentation
-
 		public IfcSeamCurve() { }
 
 		public IfcSeamCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
@@ -20130,12 +16889,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSectionProperties : IfcPreDefinedProperties
+	public class IfcSectionProperties : IfcPreDefinedProperties, IfcResourceObjectSelect
 	{
-		//1	SectionType : IfcSectionTypeEnum
-		//2	StartProfile : IfcProfileDef
-		//3	EndProfile : IfcProfileDef
-
 		public IfcSectionTypeEnum SectionType { get; set; }
 		public IfcProfileDef StartProfile { get; set; }
 		public IfcProfileDef EndProfile { get; set; }
@@ -20150,15 +16905,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSectionReinforcementProperties : IfcPreDefinedProperties
+	public class IfcSectionReinforcementProperties : IfcPreDefinedProperties, IfcResourceObjectSelect
 	{
-		//1	LongitudinalStartPosition : IfcLengthMeasure
-		//2	LongitudinalEndPosition : IfcLengthMeasure
-		//3	TransversePosition : IfcLengthMeasure
-		//4	ReinforcementRole : IfcReinforcingBarRoleEnum
-		//5	SectionDefinition : IfcSectionProperties
-		//6	CrossSectionReinforcementDefinitions : List<IfcReinforcementBarProperties>
-
 		public IfcLengthMeasure LongitudinalStartPosition { get; set; }
 		public IfcLengthMeasure LongitudinalEndPosition { get; set; }
 		public IfcLengthMeasure TransversePosition { get; set; }
@@ -20179,17 +16927,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSectionedSpine : IfcGeometricRepresentationItem
+	public class IfcSectionedSpine : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	SpineCurve : IfcCompositeCurve
-		//2	CrossSections : List<IfcProfileDef>
-		//3	CrossSectionPositions : List<IfcAxis2Placement3D>
-
 		public IfcCompositeCurve SpineCurve { get; set; }
 		public List<IfcProfileDef> CrossSections { get; set; }
 		public List<IfcAxis2Placement3D> CrossSectionPositions { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := 3;
+
 		public IfcSectionedSpine() { }
 
 		public IfcSectionedSpine(IfcCompositeCurve SpineCurve, List<IfcProfileDef> CrossSections, List<IfcAxis2Placement3D> CrossSectionPositions)
@@ -20200,18 +16945,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSensor : IfcDistributionControlElement
+	public class IfcSensor : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSensorTypeEnum
-
 		public IfcSensorTypeEnum PredefinedType { get; set; }
 
 		public IfcSensor() { }
@@ -20230,19 +16965,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSensorType : IfcDistributionControlElementType
+	public class IfcSensorType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSensorTypeEnum
-
 		public IfcSensorTypeEnum PredefinedType { get; set; }
 
 		public IfcSensorType() { }
@@ -20262,19 +16986,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcShadingDevice : IfcBuildingElement
+	public class IfcShadingDevice : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcShadingDeviceTypeEnum
-
 		public IfcShadingDeviceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcShadingDevice() { }
 
@@ -20292,19 +17025,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcShadingDeviceType : IfcBuildingElementType
+	public class IfcShadingDeviceType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcShadingDeviceTypeEnum
-
 		public IfcShadingDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcShadingDeviceType() { }
@@ -20326,12 +17048,6 @@ namespace IFC4
 
 	public class IfcShapeAspect : IfcBase
 	{
-		//1	ShapeRepresentations : List<IfcShapeModel>
-		//2	Name : IfcLabel
-		//3	Description : IfcText
-		//4	ProductDefinitional : IfcLogical
-		//5	PartOfProductDefinitionShape : IfcProductRepresentationSelect
-
 		public List<IfcShapeModel> ShapeRepresentations { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -20350,15 +17066,10 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcShapeModel : IfcRepresentation
+	public abstract class IfcShapeModel : IfcRepresentation, IfcLayeredItem
 	{
-		//1	ContextOfItems : IfcRepresentationContext
-		//2	RepresentationIdentifier : IfcLabel
-		//3	RepresentationType : IfcLabel
-		//4	Items : List<IfcRepresentationItem>
-
-		public List<IfcShapeAspect> OfShapeAspect { get; set; }
-
+		public List<IfcShapeAspect> OfShapeAspect;
+		// INVERSE : OfShapeAspect : SET [0:1] OF IfcShapeAspect FOR ShapeRepresentations;
 		public IfcShapeModel() { }
 
 		public IfcShapeModel(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
@@ -20370,13 +17081,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcShapeRepresentation : IfcShapeModel
+	public class IfcShapeRepresentation : IfcShapeModel, IfcLayeredItem
 	{
-		//1	ContextOfItems : IfcRepresentationContext
-		//2	RepresentationIdentifier : IfcLabel
-		//3	RepresentationType : IfcLabel
-		//4	Items : List<IfcRepresentationItem>
-
 		public IfcShapeRepresentation() { }
 
 		public IfcShapeRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
@@ -20388,13 +17094,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcShellBasedSurfaceModel : IfcGeometricRepresentationItem
+	public class IfcShellBasedSurfaceModel : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	SbsmBoundary : List<IfcShell>
-
 		public List<IfcShell> SbsmBoundary { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := 3;
+
 		public IfcShellBasedSurfaceModel() { }
 
 		public IfcShellBasedSurfaceModel(List<IfcShell> SbsmBoundary)
@@ -20403,11 +17108,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcSimpleProperty : IfcProperty
+	public abstract class IfcSimpleProperty : IfcProperty, IfcResourceObjectSelect
 	{
-		//1	Name : IfcIdentifier
-		//2	Description : IfcText
-
 		public IfcSimpleProperty() { }
 
 		public IfcSimpleProperty(IfcIdentifier Name, IfcText Description)
@@ -20417,21 +17119,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSimplePropertyTemplate : IfcPropertyTemplate
+	public class IfcSimplePropertyTemplate : IfcPropertyTemplate, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	TemplateType : IfcSimplePropertyTemplateTypeEnum
-		//6	PrimaryMeasureType : IfcLabel
-		//7	SecondaryMeasureType : IfcLabel
-		//8	Enumerators : IfcPropertyEnumeration
-		//9	PrimaryUnit : IfcUnit
-		//10	SecondaryUnit : IfcUnit
-		//11	Expression : IfcLabel
-		//12	AccessState : IfcStateEnum
-
 		public IfcSimplePropertyTemplateTypeEnum TemplateType { get; set; }
 		public IfcLabel PrimaryMeasureType { get; set; }
 		public IfcLabel SecondaryMeasureType { get; set; }
@@ -20440,6 +17129,12 @@ namespace IFC4
 		public IfcUnit SecondaryUnit { get; set; }
 		public IfcLabel Expression { get; set; }
 		public IfcStateEnum AccessState { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcSimplePropertyTemplate() { }
 
@@ -20460,28 +17155,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSite : IfcSpatialStructureElement
+	public class IfcSite : IfcSpatialStructureElement, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	CompositionType : IfcElementCompositionEnum
-		//10	RefLatitude : IfcCompoundPlaneAngleMeasure
-		//11	RefLongitude : IfcCompoundPlaneAngleMeasure
-		//12	RefElevation : IfcLengthMeasure
-		//13	LandTitleNumber : IfcLabel
-		//14	SiteAddress : IfcPostalAddress
-
 		public IfcCompoundPlaneAngleMeasure RefLatitude { get; set; }
 		public IfcCompoundPlaneAngleMeasure RefLongitude { get; set; }
 		public IfcLengthMeasure RefElevation { get; set; }
 		public IfcLabel LandTitleNumber { get; set; }
 		public IfcPostalAddress SiteAddress { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcSite() { }
 
@@ -20504,19 +17196,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSlab : IfcBuildingElement
+	public class IfcSlab : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSlabTypeEnum
-
 		public IfcSlabTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcSlab() { }
 
@@ -20534,18 +17235,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSlabElementedCase : IfcSlab
+	public class IfcSlabElementedCase : IfcSlab, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSlabTypeEnum
-
 		public IfcSlabElementedCase() { }
 
 		public IfcSlabElementedCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSlabTypeEnum PredefinedType)
@@ -20562,18 +17253,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSlabStandardCase : IfcSlab
+	public class IfcSlabStandardCase : IfcSlab, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSlabTypeEnum
-
 		public IfcSlabStandardCase() { }
 
 		public IfcSlabStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcSlabTypeEnum PredefinedType)
@@ -20590,19 +17271,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSlabType : IfcBuildingElementType
+	public class IfcSlabType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSlabTypeEnum
-
 		public IfcSlabTypeEnum PredefinedType { get; set; }
 
 		public IfcSlabType() { }
@@ -20624,11 +17294,6 @@ namespace IFC4
 
 	public class IfcSlippageConnectionCondition : IfcStructuralConnectionCondition
 	{
-		//1	Name : IfcLabel
-		//2	SlippageX : IfcLengthMeasure
-		//3	SlippageY : IfcLengthMeasure
-		//4	SlippageZ : IfcLengthMeasure
-
 		public IfcLengthMeasure SlippageX { get; set; }
 		public IfcLengthMeasure SlippageY { get; set; }
 		public IfcLengthMeasure SlippageZ { get; set; }
@@ -20644,18 +17309,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSolarDevice : IfcEnergyConversionDevice
+	public class IfcSolarDevice : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSolarDeviceTypeEnum
-
 		public IfcSolarDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcSolarDevice() { }
@@ -20674,19 +17329,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSolarDeviceType : IfcEnergyConversionDeviceType
+	public class IfcSolarDeviceType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSolarDeviceTypeEnum
-
 		public IfcSolarDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcSolarDeviceType() { }
@@ -20706,33 +17350,44 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcSolidModel : IfcGeometricRepresentationItem, IfcBooleanOperand, IfcSolidOrShell
+	public abstract class IfcSolidModel : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
-		public IfcDimensionCount GetDim() { return Dim; }
-
+		// DERIVE : Dim : IfcDimensionCount := 3;
 		public IfcSolidModel() { }
 	}
 
-	public class IfcSpace : IfcSpatialStructureElement, IfcSpaceBoundarySelect
+	public class IfcSpace : IfcSpatialStructureElement, IfcDefinitionSelect, IfcProductSelect, IfcSpaceBoundarySelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	CompositionType : IfcElementCompositionEnum
-		//10	PredefinedType : IfcSpaceTypeEnum
-		//11	ElevationWithFlooring : IfcLengthMeasure
-
 		public IfcSpaceTypeEnum PredefinedType { get; set; }
 		public IfcLengthMeasure ElevationWithFlooring { get; set; }
-		public List<IfcRelCoversSpaces> HasCoverings { get; set; }
-		public List<IfcRelSpaceBoundary> BoundedBy { get; set; }
+		public List<IfcRelCoversSpaces> HasCoverings;
+		// INVERSE : HasCoverings : SET [0:?] OF IfcRelCoversSpaces FOR RelatingSpace;
+		public List<IfcRelSpaceBoundary> BoundedBy;
+		// INVERSE : BoundedBy : SET [0:?] OF IfcRelSpaceBoundary FOR RelatingSpace;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
+		public IfcLabel GetLongName() { return LongName; }
+		public List<IfcRelContainedInSpatialStructure> GetContainsElements() { return ContainsElements; }
+		public List<IfcRelServicesBuildings> GetServicedBySystems() { return ServicedBySystems; }
+		public List<IfcRelReferencedInSpatialStructure> GetReferencesElements() { return ReferencesElements; }
 		public List<IfcRelSpaceBoundary> GetBoundedBy() { return BoundedBy; }
 
 		public IfcSpace() { }
@@ -20753,18 +17408,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSpaceHeater : IfcFlowTerminal
+	public class IfcSpaceHeater : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSpaceHeaterTypeEnum
-
 		public IfcSpaceHeaterTypeEnum PredefinedType { get; set; }
 
 		public IfcSpaceHeater() { }
@@ -20783,19 +17428,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSpaceHeaterType : IfcFlowTerminalType
+	public class IfcSpaceHeaterType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSpaceHeaterTypeEnum
-
 		public IfcSpaceHeaterTypeEnum PredefinedType { get; set; }
 
 		public IfcSpaceHeaterType() { }
@@ -20815,20 +17449,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSpaceType : IfcSpatialStructureElementType
+	public class IfcSpaceType : IfcSpatialStructureElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSpaceTypeEnum
-		//11	LongName : IfcLabel
-
 		public IfcSpaceTypeEnum PredefinedType { get; set; }
 		public IfcLabel LongName { get; set; }
 
@@ -20852,19 +17474,13 @@ namespace IFC4
 
 	public abstract class IfcSpatialElement : IfcProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-
 		public IfcLabel LongName { get; set; }
-		public List<IfcRelContainedInSpatialStructure> ContainsElements { get; set; }
-		public List<IfcRelServicesBuildings> ServicedBySystems { get; set; }
-		public List<IfcRelReferencedInSpatialStructure> ReferencesElements { get; set; }
+		public List<IfcRelContainedInSpatialStructure> ContainsElements;
+		// INVERSE : ContainsElements : SET [0:?] OF IfcRelContainedInSpatialStructure FOR RelatingStructure;
+		public List<IfcRelServicesBuildings> ServicedBySystems;
+		// INVERSE : ServicedBySystems : SET [0:?] OF IfcRelServicesBuildings FOR RelatedBuildings;
+		public List<IfcRelReferencedInSpatialStructure> ReferencesElements;
+		// INVERSE : ReferencesElements : SET [0:?] OF IfcRelReferencedInSpatialStructure FOR RelatingStructure;
 
 		public IfcSpatialElement() { }
 
@@ -20883,16 +17499,6 @@ namespace IFC4
 
 	public abstract class IfcSpatialElementType : IfcTypeProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcLabel ElementType { get; set; }
 
 		public IfcSpatialElementType() { }
@@ -20913,16 +17519,6 @@ namespace IFC4
 
 	public abstract class IfcSpatialStructureElement : IfcSpatialElement
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	CompositionType : IfcElementCompositionEnum
-
 		public IfcElementCompositionEnum CompositionType { get; set; }
 
 		public IfcSpatialStructureElement() { }
@@ -20943,16 +17539,6 @@ namespace IFC4
 
 	public abstract class IfcSpatialStructureElementType : IfcSpatialElementType
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-
 		public IfcSpatialStructureElementType() { }
 
 		public IfcSpatialStructureElementType(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcIdentifier ApplicableOccurrence, List<IfcPropertySetDefinition> HasPropertySets, List<IfcRepresentationMap> RepresentationMaps, IfcLabel Tag, IfcLabel ElementType)
@@ -20969,19 +17555,21 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSpatialZone : IfcSpatialElement
+	public class IfcSpatialZone : IfcSpatialElement, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	LongName : IfcLabel
-		//9	PredefinedType : IfcSpatialZoneTypeEnum
-
 		public IfcSpatialZoneTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcSpatialZone() { }
 
@@ -20999,20 +17587,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSpatialZoneType : IfcSpatialElementType
+	public class IfcSpatialZoneType : IfcSpatialElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSpatialZoneTypeEnum
-		//11	LongName : IfcLabel
-
 		public IfcSpatialZoneTypeEnum PredefinedType { get; set; }
 		public IfcLabel LongName { get; set; }
 
@@ -21034,12 +17610,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSphere : IfcCsgPrimitive3D
+	public class IfcSphere : IfcCsgPrimitive3D, IfcBooleanOperand, IfcCsgSelect, IfcLayeredItem
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	Radius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Radius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcSphere() { }
 
@@ -21050,12 +17626,12 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSphericalSurface : IfcElementarySurface
+	public class IfcSphericalSurface : IfcElementarySurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	Radius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure Radius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcSphericalSurface() { }
 
@@ -21066,18 +17642,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStackTerminal : IfcFlowTerminal
+	public class IfcStackTerminal : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcStackTerminalTypeEnum
-
 		public IfcStackTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcStackTerminal() { }
@@ -21096,19 +17662,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStackTerminalType : IfcFlowTerminalType
+	public class IfcStackTerminalType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcStackTerminalTypeEnum
-
 		public IfcStackTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcStackTerminalType() { }
@@ -21128,19 +17683,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStair : IfcBuildingElement
+	public class IfcStair : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcStairTypeEnum
-
 		public IfcStairTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcStair() { }
 
@@ -21158,27 +17722,32 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStairFlight : IfcBuildingElement
+	public class IfcStairFlight : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	NumberOfRisers : IfcInteger
-		//10	NumberOfTreads : IfcInteger
-		//11	RiserHeight : IfcPositiveLengthMeasure
-		//12	TreadLength : IfcPositiveLengthMeasure
-		//13	PredefinedType : IfcStairFlightTypeEnum
-
 		public IfcInteger NumberOfRisers { get; set; }
 		public IfcInteger NumberOfTreads { get; set; }
 		public IfcPositiveLengthMeasure RiserHeight { get; set; }
 		public IfcPositiveLengthMeasure TreadLength { get; set; }
 		public IfcStairFlightTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcStairFlight() { }
 
@@ -21200,19 +17769,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStairFlightType : IfcBuildingElementType
+	public class IfcStairFlightType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcStairFlightTypeEnum
-
 		public IfcStairFlightTypeEnum PredefinedType { get; set; }
 
 		public IfcStairFlightType() { }
@@ -21232,19 +17790,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStairType : IfcBuildingElementType
+	public class IfcStairType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcStairTypeEnum
-
 		public IfcStairTypeEnum PredefinedType { get; set; }
 
 		public IfcStairType() { }
@@ -21266,17 +17813,6 @@ namespace IFC4
 
 	public abstract class IfcStructuralAction : IfcStructuralActivity
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	DestabilizingLoad : IfcBoolean
-
 		public IfcBoolean DestabilizingLoad { get; set; }
 
 		public IfcStructuralAction() { }
@@ -21298,19 +17834,10 @@ namespace IFC4
 
 	public abstract class IfcStructuralActivity : IfcProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-
 		public IfcStructuralLoad AppliedLoad { get; set; }
 		public IfcGlobalOrLocalEnum GlobalOrLocal { get; set; }
-		public List<IfcRelConnectsStructuralActivity> AssignedToStructuralItem { get; set; }
+		public List<IfcRelConnectsStructuralActivity> AssignedToStructuralItem;
+		// INVERSE : AssignedToStructuralItem : SET [0:1] OF IfcRelConnectsStructuralActivity FOR RelatedStructuralActivity;
 
 		public IfcStructuralActivity() { }
 
@@ -21328,19 +17855,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralAnalysisModel : IfcSystem
+	public class IfcStructuralAnalysisModel : IfcSystem, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	PredefinedType : IfcAnalysisModelTypeEnum
-		//7	OrientationOf2DPlane : IfcAxis2Placement3D
-		//8	LoadedBy : List<IfcStructuralLoadGroup>
-		//9	HasResults : List<IfcStructuralResultGroup>
-		//10	SharedPlacement : IfcObjectPlacement
-
 		public IfcAnalysisModelTypeEnum PredefinedType { get; set; }
 		public IfcAxis2Placement3D OrientationOf2DPlane { get; set; }
 		public List<IfcStructuralLoadGroup> LoadedBy { get; set; }
@@ -21366,17 +17882,9 @@ namespace IFC4
 
 	public abstract class IfcStructuralConnection : IfcStructuralItem
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedCondition : IfcBoundaryCondition
-
 		public IfcBoundaryCondition AppliedCondition { get; set; }
-		public List<IfcRelConnectsStructuralMember> ConnectsStructuralMembers { get; set; }
+		public List<IfcRelConnectsStructuralMember> ConnectsStructuralMembers;
+		// INVERSE : ConnectsStructuralMembers : SET [1:?] OF IfcRelConnectsStructuralMember FOR RelatedStructuralConnection;
 
 		public IfcStructuralConnection() { }
 
@@ -21395,8 +17903,6 @@ namespace IFC4
 
 	public abstract class IfcStructuralConnectionCondition : IfcBase
 	{
-		//1	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
 
 		public IfcStructuralConnectionCondition() { }
@@ -21407,23 +17913,22 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralCurveAction : IfcStructuralAction
+	public class IfcStructuralCurveAction : IfcStructuralAction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	DestabilizingLoad : IfcBoolean
-		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
-		//12	PredefinedType : IfcStructuralCurveActivityTypeEnum
-
 		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue { get; set; }
 		public IfcStructuralCurveActivityTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcStructuralCurveAction() { }
 
@@ -21444,19 +17949,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralCurveConnection : IfcStructuralConnection
+	public class IfcStructuralCurveConnection : IfcStructuralConnection, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedCondition : IfcBoundaryCondition
-		//9	Axis : IfcDirection
-
 		public IfcDirection Axis { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcStructuralCurveConnection() { }
 
@@ -21474,20 +17988,29 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralCurveMember : IfcStructuralMember
+	public class IfcStructuralCurveMember : IfcStructuralMember, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	PredefinedType : IfcStructuralCurveMemberTypeEnum
-		//9	Axis : IfcDirection
-
 		public IfcStructuralCurveMemberTypeEnum PredefinedType { get; set; }
 		public IfcDirection Axis { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcStructuralCurveMember() { }
 
@@ -21505,18 +18028,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralCurveMemberVarying : IfcStructuralCurveMember
+	public class IfcStructuralCurveMemberVarying : IfcStructuralCurveMember, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	PredefinedType : IfcStructuralCurveMemberTypeEnum
-		//9	Axis : IfcDirection
-
 		public IfcStructuralCurveMemberVarying() { }
 
 		public IfcStructuralCurveMemberVarying(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralCurveMemberTypeEnum PredefinedType, IfcDirection Axis)
@@ -21533,20 +18046,21 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralCurveReaction : IfcStructuralReaction
+	public class IfcStructuralCurveReaction : IfcStructuralReaction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	PredefinedType : IfcStructuralCurveActivityTypeEnum
-
 		public IfcStructuralCurveActivityTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcStructuralCurveReaction() { }
 
@@ -21565,18 +18079,10 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcStructuralItem : IfcProduct, IfcStructuralActivityAssignmentSelect
+	public abstract class IfcStructuralItem : IfcProduct
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-
-		public List<IfcRelConnectsStructuralActivity> AssignedStructuralActivity { get; set; }
-
+		public List<IfcRelConnectsStructuralActivity> AssignedStructuralActivity;
+		// INVERSE : AssignedStructuralActivity : SET [0:?] OF IfcRelConnectsStructuralActivity FOR RelatingElement;
 		public IfcStructuralItem() { }
 
 		public IfcStructuralItem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
@@ -21591,21 +18097,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralLinearAction : IfcStructuralCurveAction
+	public class IfcStructuralLinearAction : IfcStructuralCurveAction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	DestabilizingLoad : IfcBoolean
-		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
-		//12	PredefinedType : IfcStructuralCurveActivityTypeEnum
-
 		public IfcStructuralLinearAction() { }
 
 		public IfcStructuralLinearAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad, IfcProjectedOrTrueLengthEnum ProjectedOrTrue, IfcStructuralCurveActivityTypeEnum PredefinedType)
@@ -21627,8 +18120,6 @@ namespace IFC4
 
 	public abstract class IfcStructuralLoad : IfcBase
 	{
-		//1	Name : IfcLabel
-
 		public IfcLabel Name { get; set; }
 
 		public IfcStructuralLoad() { }
@@ -21639,20 +18130,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralLoadCase : IfcStructuralLoadGroup
+	public class IfcStructuralLoadCase : IfcStructuralLoadGroup, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	PredefinedType : IfcLoadGroupTypeEnum
-		//7	ActionType : IfcActionTypeEnum
-		//8	ActionSource : IfcActionSourceTypeEnum
-		//9	Coefficient : IfcRatioMeasure
-		//10	Purpose : IfcLabel
-		//11	SelfWeightCoefficients : List<IfcRatioMeasure>
-
 		public List<IfcRatioMeasure> SelfWeightCoefficients { get; set; }
 
 		public IfcStructuralLoadCase() { }
@@ -21675,10 +18154,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadConfiguration : IfcStructuralLoad
 	{
-		//1	Name : IfcLabel
-		//2	Values : List<IfcStructuralLoadOrResult>
-		//3	Locations : List<List<IfcLengthMeasure>>
-
 		public List<IfcStructuralLoadOrResult> Values { get; set; }
 		public List<List<IfcLengthMeasure>> Locations { get; set; }
 
@@ -21692,26 +18167,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralLoadGroup : IfcGroup
+	public class IfcStructuralLoadGroup : IfcGroup, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	PredefinedType : IfcLoadGroupTypeEnum
-		//7	ActionType : IfcActionTypeEnum
-		//8	ActionSource : IfcActionSourceTypeEnum
-		//9	Coefficient : IfcRatioMeasure
-		//10	Purpose : IfcLabel
-
 		public IfcLoadGroupTypeEnum PredefinedType { get; set; }
 		public IfcActionTypeEnum ActionType { get; set; }
 		public IfcActionSourceTypeEnum ActionSource { get; set; }
 		public IfcRatioMeasure Coefficient { get; set; }
 		public IfcLabel Purpose { get; set; }
-		public List<IfcStructuralResultGroup> SourceOfResultGroup { get; set; }
-		public List<IfcStructuralAnalysisModel> LoadGroupFor { get; set; }
+		public List<IfcStructuralResultGroup> SourceOfResultGroup;
+		// INVERSE : SourceOfResultGroup : SET [0:1] OF IfcStructuralResultGroup FOR ResultForLoadGroup;
+		public List<IfcStructuralAnalysisModel> LoadGroupFor;
+		// INVERSE : LoadGroupFor : SET [0:?] OF IfcStructuralAnalysisModel FOR LoadedBy;
 
 		public IfcStructuralLoadGroup() { }
 
@@ -21732,14 +18198,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadLinearForce : IfcStructuralLoadStatic
 	{
-		//1	Name : IfcLabel
-		//2	LinearForceX : IfcLinearForceMeasure
-		//3	LinearForceY : IfcLinearForceMeasure
-		//4	LinearForceZ : IfcLinearForceMeasure
-		//5	LinearMomentX : IfcLinearMomentMeasure
-		//6	LinearMomentY : IfcLinearMomentMeasure
-		//7	LinearMomentZ : IfcLinearMomentMeasure
-
 		public IfcLinearForceMeasure LinearForceX { get; set; }
 		public IfcLinearForceMeasure LinearForceY { get; set; }
 		public IfcLinearForceMeasure LinearForceZ { get; set; }
@@ -21763,8 +18221,6 @@ namespace IFC4
 
 	public abstract class IfcStructuralLoadOrResult : IfcStructuralLoad
 	{
-		//1	Name : IfcLabel
-
 		public IfcStructuralLoadOrResult() { }
 
 		public IfcStructuralLoadOrResult(IfcLabel Name)
@@ -21775,11 +18231,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadPlanarForce : IfcStructuralLoadStatic
 	{
-		//1	Name : IfcLabel
-		//2	PlanarForceX : IfcPlanarForceMeasure
-		//3	PlanarForceY : IfcPlanarForceMeasure
-		//4	PlanarForceZ : IfcPlanarForceMeasure
-
 		public IfcPlanarForceMeasure PlanarForceX { get; set; }
 		public IfcPlanarForceMeasure PlanarForceY { get; set; }
 		public IfcPlanarForceMeasure PlanarForceZ { get; set; }
@@ -21797,14 +18248,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadSingleDisplacement : IfcStructuralLoadStatic
 	{
-		//1	Name : IfcLabel
-		//2	DisplacementX : IfcLengthMeasure
-		//3	DisplacementY : IfcLengthMeasure
-		//4	DisplacementZ : IfcLengthMeasure
-		//5	RotationalDisplacementRX : IfcPlaneAngleMeasure
-		//6	RotationalDisplacementRY : IfcPlaneAngleMeasure
-		//7	RotationalDisplacementRZ : IfcPlaneAngleMeasure
-
 		public IfcLengthMeasure DisplacementX { get; set; }
 		public IfcLengthMeasure DisplacementY { get; set; }
 		public IfcLengthMeasure DisplacementZ { get; set; }
@@ -21828,15 +18271,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadSingleDisplacementDistortion : IfcStructuralLoadSingleDisplacement
 	{
-		//1	Name : IfcLabel
-		//2	DisplacementX : IfcLengthMeasure
-		//3	DisplacementY : IfcLengthMeasure
-		//4	DisplacementZ : IfcLengthMeasure
-		//5	RotationalDisplacementRX : IfcPlaneAngleMeasure
-		//6	RotationalDisplacementRY : IfcPlaneAngleMeasure
-		//7	RotationalDisplacementRZ : IfcPlaneAngleMeasure
-		//8	Distortion : IfcCurvatureMeasure
-
 		public IfcCurvatureMeasure Distortion { get; set; }
 
 		public IfcStructuralLoadSingleDisplacementDistortion() { }
@@ -21856,14 +18290,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadSingleForce : IfcStructuralLoadStatic
 	{
-		//1	Name : IfcLabel
-		//2	ForceX : IfcForceMeasure
-		//3	ForceY : IfcForceMeasure
-		//4	ForceZ : IfcForceMeasure
-		//5	MomentX : IfcTorqueMeasure
-		//6	MomentY : IfcTorqueMeasure
-		//7	MomentZ : IfcTorqueMeasure
-
 		public IfcForceMeasure ForceX { get; set; }
 		public IfcForceMeasure ForceY { get; set; }
 		public IfcForceMeasure ForceZ { get; set; }
@@ -21887,15 +18313,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadSingleForceWarping : IfcStructuralLoadSingleForce
 	{
-		//1	Name : IfcLabel
-		//2	ForceX : IfcForceMeasure
-		//3	ForceY : IfcForceMeasure
-		//4	ForceZ : IfcForceMeasure
-		//5	MomentX : IfcTorqueMeasure
-		//6	MomentY : IfcTorqueMeasure
-		//7	MomentZ : IfcTorqueMeasure
-		//8	WarpingMoment : IfcWarpingMomentMeasure
-
 		public IfcWarpingMomentMeasure WarpingMoment { get; set; }
 
 		public IfcStructuralLoadSingleForceWarping() { }
@@ -21915,8 +18332,6 @@ namespace IFC4
 
 	public abstract class IfcStructuralLoadStatic : IfcStructuralLoadOrResult
 	{
-		//1	Name : IfcLabel
-
 		public IfcStructuralLoadStatic() { }
 
 		public IfcStructuralLoadStatic(IfcLabel Name)
@@ -21927,11 +18342,6 @@ namespace IFC4
 
 	public class IfcStructuralLoadTemperature : IfcStructuralLoadStatic
 	{
-		//1	Name : IfcLabel
-		//2	DeltaTConstant : IfcThermodynamicTemperatureMeasure
-		//3	DeltaTY : IfcThermodynamicTemperatureMeasure
-		//4	DeltaTZ : IfcThermodynamicTemperatureMeasure
-
 		public IfcThermodynamicTemperatureMeasure DeltaTConstant { get; set; }
 		public IfcThermodynamicTemperatureMeasure DeltaTY { get; set; }
 		public IfcThermodynamicTemperatureMeasure DeltaTZ { get; set; }
@@ -21949,16 +18359,8 @@ namespace IFC4
 
 	public abstract class IfcStructuralMember : IfcStructuralItem
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-
-		public List<IfcRelConnectsStructuralMember> ConnectedBy { get; set; }
-
+		public List<IfcRelConnectsStructuralMember> ConnectedBy;
+		// INVERSE : ConnectedBy : SET [0:?] OF IfcRelConnectsStructuralMember FOR RelatingStructuralMember;
 		public IfcStructuralMember() { }
 
 		public IfcStructuralMember(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation)
@@ -21973,21 +18375,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralPlanarAction : IfcStructuralSurfaceAction
+	public class IfcStructuralPlanarAction : IfcStructuralSurfaceAction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	DestabilizingLoad : IfcBoolean
-		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
-		//12	PredefinedType : IfcStructuralSurfaceActivityTypeEnum
-
 		public IfcStructuralPlanarAction() { }
 
 		public IfcStructuralPlanarAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad, IfcProjectedOrTrueLengthEnum ProjectedOrTrue, IfcStructuralSurfaceActivityTypeEnum PredefinedType)
@@ -22007,19 +18396,20 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralPointAction : IfcStructuralAction
+	public class IfcStructuralPointAction : IfcStructuralAction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	DestabilizingLoad : IfcBoolean
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 		public IfcStructuralPointAction() { }
 
 		public IfcStructuralPointAction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal, IfcBoolean DestabilizingLoad)
@@ -22037,19 +18427,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralPointConnection : IfcStructuralConnection
+	public class IfcStructuralPointConnection : IfcStructuralConnection, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedCondition : IfcBoundaryCondition
-		//9	ConditionCoordinateSystem : IfcAxis2Placement3D
-
 		public IfcAxis2Placement3D ConditionCoordinateSystem { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcStructuralPointConnection() { }
 
@@ -22067,18 +18466,20 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralPointReaction : IfcStructuralReaction
+	public class IfcStructuralPointReaction : IfcStructuralReaction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 		public IfcStructuralPointReaction() { }
 
 		public IfcStructuralPointReaction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal)
@@ -22097,16 +18498,6 @@ namespace IFC4
 
 	public abstract class IfcStructuralReaction : IfcStructuralActivity
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-
 		public IfcStructuralReaction() { }
 
 		public IfcStructuralReaction(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralLoad AppliedLoad, IfcGlobalOrLocalEnum GlobalOrLocal)
@@ -22123,21 +18514,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralResultGroup : IfcGroup
+	public class IfcStructuralResultGroup : IfcGroup, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	TheoryType : IfcAnalysisTheoryTypeEnum
-		//7	ResultForLoadGroup : IfcStructuralLoadGroup
-		//8	IsLinear : IfcBoolean
-
 		public IfcAnalysisTheoryTypeEnum TheoryType { get; set; }
 		public IfcStructuralLoadGroup ResultForLoadGroup { get; set; }
 		public IfcBoolean IsLinear { get; set; }
-		public List<IfcStructuralAnalysisModel> ResultGroupFor { get; set; }
+		public List<IfcStructuralAnalysisModel> ResultGroupFor;
+		// INVERSE : ResultGroupFor : SET [0:1] OF IfcStructuralAnalysisModel FOR HasResults;
 
 		public IfcStructuralResultGroup() { }
 
@@ -22154,23 +18537,22 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralSurfaceAction : IfcStructuralAction
+	public class IfcStructuralSurfaceAction : IfcStructuralAction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	DestabilizingLoad : IfcBoolean
-		//11	ProjectedOrTrue : IfcProjectedOrTrueLengthEnum
-		//12	PredefinedType : IfcStructuralSurfaceActivityTypeEnum
-
 		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue { get; set; }
 		public IfcStructuralSurfaceActivityTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcStructuralSurfaceAction() { }
 
@@ -22191,17 +18573,27 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralSurfaceConnection : IfcStructuralConnection
+	public class IfcStructuralSurfaceConnection : IfcStructuralConnection, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedCondition : IfcBoundaryCondition
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 		public IfcStructuralSurfaceConnection() { }
 
 		public IfcStructuralSurfaceConnection(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcBoundaryCondition AppliedCondition)
@@ -22217,20 +18609,29 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralSurfaceMember : IfcStructuralMember
+	public class IfcStructuralSurfaceMember : IfcStructuralMember, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	PredefinedType : IfcStructuralSurfaceMemberTypeEnum
-		//9	Thickness : IfcPositiveLengthMeasure
-
 		public IfcStructuralSurfaceMemberTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure Thickness { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcStructuralSurfaceMember() { }
 
@@ -22248,18 +18649,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralSurfaceMemberVarying : IfcStructuralSurfaceMember
+	public class IfcStructuralSurfaceMemberVarying : IfcStructuralSurfaceMember, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	PredefinedType : IfcStructuralSurfaceMemberTypeEnum
-		//9	Thickness : IfcPositiveLengthMeasure
-
 		public IfcStructuralSurfaceMemberVarying() { }
 
 		public IfcStructuralSurfaceMemberVarying(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcStructuralSurfaceMemberTypeEnum PredefinedType, IfcPositiveLengthMeasure Thickness)
@@ -22276,20 +18667,21 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStructuralSurfaceReaction : IfcStructuralReaction
+	public class IfcStructuralSurfaceReaction : IfcStructuralReaction, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	AppliedLoad : IfcStructuralLoad
-		//9	GlobalOrLocal : IfcGlobalOrLocalEnum
-		//10	PredefinedType : IfcStructuralSurfaceActivityTypeEnum
-
 		public IfcStructuralSurfaceActivityTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcStructuralSurfaceReaction() { }
 
@@ -22308,13 +18700,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcStyleModel : IfcRepresentation
+	public abstract class IfcStyleModel : IfcRepresentation, IfcLayeredItem
 	{
-		//1	ContextOfItems : IfcRepresentationContext
-		//2	RepresentationIdentifier : IfcLabel
-		//3	RepresentationType : IfcLabel
-		//4	Items : List<IfcRepresentationItem>
-
 		public IfcStyleModel() { }
 
 		public IfcStyleModel(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
@@ -22326,12 +18713,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStyledItem : IfcRepresentationItem
+	public class IfcStyledItem : IfcRepresentationItem, IfcLayeredItem
 	{
-		//1	Item : IfcRepresentationItem
-		//2	Styles : List<IfcStyleAssignmentSelect>
-		//3	Name : IfcLabel
-
 		public IfcRepresentationItem Item { get; set; }
 		public List<IfcStyleAssignmentSelect> Styles { get; set; }
 		public IfcLabel Name { get; set; }
@@ -22346,13 +18729,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcStyledRepresentation : IfcStyleModel
+	public class IfcStyledRepresentation : IfcStyleModel, IfcLayeredItem
 	{
-		//1	ContextOfItems : IfcRepresentationContext
-		//2	RepresentationIdentifier : IfcLabel
-		//3	RepresentationType : IfcLabel
-		//4	Items : List<IfcRepresentationItem>
-
 		public IfcStyledRepresentation() { }
 
 		public IfcStyledRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
@@ -22364,21 +18742,25 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSubContractResource : IfcConstructionResource
+	public class IfcSubContractResource : IfcConstructionResource, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Usage : IfcResourceTime
-		//9	BaseCosts : List<IfcAppliedValue>
-		//10	BaseQuantity : IfcPhysicalQuantity
-		//11	PredefinedType : IfcSubContractResourceTypeEnum
-
 		public IfcSubContractResourceTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcSubContractResource() { }
 
@@ -22398,22 +18780,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSubContractResourceType : IfcConstructionResourceType
+	public class IfcSubContractResourceType : IfcConstructionResourceType, IfcDefinitionSelect, IfcResourceSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-		//10	BaseCosts : List<IfcAppliedValue>
-		//11	BaseQuantity : IfcPhysicalQuantity
-		//12	PredefinedType : IfcSubContractResourceTypeEnum
-
 		public IfcSubContractResourceTypeEnum PredefinedType { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcAppliedValue> GetBaseCosts() { return BaseCosts; }
+		public IfcPhysicalQuantity GetBaseQuantity() { return BaseQuantity; }
 
 		public IfcSubContractResourceType() { }
 
@@ -22434,12 +18813,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSubedge : IfcEdge
+	public class IfcSubedge : IfcEdge, IfcLayeredItem
 	{
-		//1	EdgeStart : IfcVertex
-		//2	EdgeEnd : IfcVertex
-		//3	ParentEdge : IfcEdge
-
 		public IfcEdge ParentEdge { get; set; }
 
 		public IfcSubedge() { }
@@ -22452,25 +18827,24 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcSurface : IfcGeometricRepresentationItem, IfcGeometricSetSelect, IfcSurfaceOrFaceSurface
+	public abstract class IfcSurface : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
-		public IfcDimensionCount GetDim() { return Dim; }
+		// DERIVE : Dim : IfcDimensionCount := 3;
 		public IfcSurface() { }
 	}
 
-	public class IfcSurfaceCurve : IfcCurve, IfcCurveOnSurface
+	public class IfcSurfaceCurve : IfcCurve, IfcCurveOnSurface, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	Curve3D : IfcCurve
-		//2	AssociatedGeometry : List<IfcPcurve>
-		//3	MasterRepresentation : IfcPreferredSurfaceCurveRepresentation
-
 		public IfcCurve Curve3D { get; set; }
 		public List<IfcPcurve> AssociatedGeometry { get; set; }
 		public IfcPreferredSurfaceCurveRepresentation MasterRepresentation { get; set; }
 		public List<IfcSurface> BasisSurface => IfcGetBasisSurface(this);
-		// (DERIVE)	BasisSurface : SET [1:2] OF IfcSurface := IfcGetBasisSurface(SELF); {get;set;}
+		// DERIVE : BasisSurface : SET [1:2] OF IfcSurface := IfcGetBasisSurface(SELF);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcSurfaceCurve() { }
 
 		public IfcSurfaceCurve(IfcCurve Curve3D, List<IfcPcurve> AssociatedGeometry, IfcPreferredSurfaceCurveRepresentation MasterRepresentation)
@@ -22481,19 +18855,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSurfaceCurveSweptAreaSolid : IfcSweptAreaSolid
+	public class IfcSurfaceCurveSweptAreaSolid : IfcSweptAreaSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	Directrix : IfcCurve
-		//4	StartParam : IfcParameterValue
-		//5	EndParam : IfcParameterValue
-		//6	ReferenceSurface : IfcSurface
-
 		public IfcCurve Directrix { get; set; }
 		public IfcParameterValue StartParam { get; set; }
 		public IfcParameterValue EndParam { get; set; }
 		public IfcSurface ReferenceSurface { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcSurfaceCurveSweptAreaSolid() { }
 
@@ -22508,19 +18878,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSurfaceFeature : IfcFeatureElement
+	public class IfcSurfaceFeature : IfcFeatureElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSurfaceFeatureTypeEnum
-
 		public IfcSurfaceFeatureTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcSurfaceFeature() { }
 
@@ -22538,17 +18917,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSurfaceOfLinearExtrusion : IfcSweptSurface
+	public class IfcSurfaceOfLinearExtrusion : IfcSweptSurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	SweptCurve : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	ExtrudedDirection : IfcDirection
-		//4	Depth : IfcLengthMeasure
-
 		public IfcDirection ExtrudedDirection { get; set; }
 		public IfcLengthMeasure Depth { get; set; }
 		public IfcVector ExtrusionAxis => new IfcVector(ExtrudedDirection, Depth);
-		// (DERIVE)	ExtrusionAxis : IfcVector := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector (ExtrudedDirection, Depth); {get;set;}
+		// DERIVE : ExtrusionAxis : IfcVector := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector (ExtrudedDirection, Depth);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcSurfaceOfLinearExtrusion() { }
 
 		public IfcSurfaceOfLinearExtrusion(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position, IfcDirection ExtrudedDirection, IfcLengthMeasure Depth)
@@ -22560,15 +18938,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSurfaceOfRevolution : IfcSweptSurface
+	public class IfcSurfaceOfRevolution : IfcSweptSurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	SweptCurve : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-		//3	AxisPosition : IfcAxis1Placement
-
 		public IfcAxis1Placement AxisPosition { get; set; }
-		public IfcLine AxisLine => new IfcLine(AxisPosition.Location, new IfcVector(AxisPosition.Z, 1.0));
-		// (DERIVE)	AxisLine : IfcLine := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcCurve() || IfcLine(AxisPosition.Location, IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcVector(AxisPosition.Z,1.0));
+		public IfcLine AxisLine => new IfcLine(AxisPosition.Location, new IfcVector(AxisPosition.Z, 1));
+		// DERIVE : AxisLine : IfcLine := IfcRepresentationItem() || IfcGeometricRepresentationItem () || IfcCurve() || IfcLine(AxisPosition.Location, 
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcSurfaceOfRevolution() { }
 
 		public IfcSurfaceOfRevolution(IfcProfileDef SweptCurve, IfcAxis2Placement3D Position, IfcAxis1Placement AxisPosition)
@@ -22581,11 +18959,6 @@ namespace IFC4
 
 	public class IfcSurfaceReinforcementArea : IfcStructuralLoadOrResult
 	{
-		//1	Name : IfcLabel
-		//2	SurfaceReinforcement1 : List<IfcLengthMeasure>
-		//3	SurfaceReinforcement2 : List<IfcLengthMeasure>
-		//4	ShearReinforcement : IfcRatioMeasure
-
 		public List<IfcLengthMeasure> SurfaceReinforcement1 { get; set; }
 		public List<IfcLengthMeasure> SurfaceReinforcement2 { get; set; }
 		public IfcRatioMeasure ShearReinforcement { get; set; }
@@ -22601,12 +18974,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSurfaceStyle : IfcPresentationStyle, IfcPresentationStyleSelect
+	public class IfcSurfaceStyle : IfcPresentationStyle, IfcPresentationStyleSelect, IfcStyleAssignmentSelect
 	{
-		//1	Name : IfcLabel
-		//2	Side : IfcSurfaceSide
-		//3	Styles : List<IfcSurfaceStyleElementSelect>
-
 		public IfcSurfaceSide Side { get; set; }
 		public List<IfcSurfaceStyleElementSelect> Styles { get; set; }
 
@@ -22622,11 +18991,6 @@ namespace IFC4
 
 	public class IfcSurfaceStyleLighting : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
-		//1	DiffuseTransmissionColour : IfcColourRgb
-		//2	DiffuseReflectionColour : IfcColourRgb
-		//3	TransmissionColour : IfcColourRgb
-		//4	ReflectanceColour : IfcColourRgb
-
 		public IfcColourRgb DiffuseTransmissionColour { get; set; }
 		public IfcColourRgb DiffuseReflectionColour { get; set; }
 		public IfcColourRgb TransmissionColour { get; set; }
@@ -22645,9 +19009,6 @@ namespace IFC4
 
 	public class IfcSurfaceStyleRefraction : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
-		//1	RefractionIndex : IfcReal
-		//2	DispersionFactor : IfcReal
-
 		public IfcReal RefractionIndex { get; set; }
 		public IfcReal DispersionFactor { get; set; }
 
@@ -22660,18 +19021,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSurfaceStyleRendering : IfcSurfaceStyleShading
+	public class IfcSurfaceStyleRendering : IfcSurfaceStyleShading, IfcSurfaceStyleElementSelect
 	{
-		//1	SurfaceColour : IfcColourRgb
-		//2	Transparency : IfcNormalisedRatioMeasure
-		//3	DiffuseColour : IfcColourOrFactor
-		//4	TransmissionColour : IfcColourOrFactor
-		//5	DiffuseTransmissionColour : IfcColourOrFactor
-		//6	ReflectionColour : IfcColourOrFactor
-		//7	SpecularColour : IfcColourOrFactor
-		//8	SpecularHighlight : IfcSpecularHighlightSelect
-		//9	ReflectanceMethod : IfcReflectanceMethodEnum
-
 		public IfcColourOrFactor DiffuseColour { get; set; }
 		public IfcColourOrFactor TransmissionColour { get; set; }
 		public IfcColourOrFactor DiffuseTransmissionColour { get; set; }
@@ -22698,9 +19049,6 @@ namespace IFC4
 
 	public class IfcSurfaceStyleShading : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
-		//1	SurfaceColour : IfcColourRgb
-		//2	Transparency : IfcNormalisedRatioMeasure
-
 		public IfcColourRgb SurfaceColour { get; set; }
 		public IfcNormalisedRatioMeasure Transparency { get; set; }
 
@@ -22715,8 +19063,6 @@ namespace IFC4
 
 	public class IfcSurfaceStyleWithTextures : IfcPresentationItem, IfcSurfaceStyleElementSelect
 	{
-		//1	Textures : List<IfcSurfaceTexture>
-
 		public List<IfcSurfaceTexture> Textures { get; set; }
 
 		public IfcSurfaceStyleWithTextures() { }
@@ -22729,19 +19075,15 @@ namespace IFC4
 
 	public abstract class IfcSurfaceTexture : IfcPresentationItem
 	{
-		//1	RepeatS : IfcBoolean
-		//2	RepeatT : IfcBoolean
-		//3	Mode : IfcIdentifier
-		//4	TextureTransform : IfcCartesianTransformationOperator2D
-		//5	Parameter : List<IfcIdentifier>
-
 		public IfcBoolean RepeatS { get; set; }
 		public IfcBoolean RepeatT { get; set; }
 		public IfcIdentifier Mode { get; set; }
 		public IfcCartesianTransformationOperator2D TextureTransform { get; set; }
 		public List<IfcIdentifier> Parameter { get; set; }
-		public List<IfcTextureCoordinate> IsMappedBy { get; set; }
-		public List<IfcSurfaceStyleWithTextures> UsedInStyles { get; set; }
+		public List<IfcTextureCoordinate> IsMappedBy;
+		// INVERSE : IsMappedBy : SET [0:?] OF IfcTextureCoordinate FOR Maps;
+		public List<IfcSurfaceStyleWithTextures> UsedInStyles;
+		// INVERSE : UsedInStyles : SET [0:?] OF IfcSurfaceStyleWithTextures FOR Textures;
 
 		public IfcSurfaceTexture() { }
 
@@ -22755,11 +19097,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcSweptAreaSolid : IfcSolidModel
+	public abstract class IfcSweptAreaSolid : IfcSolidModel, IfcLayeredItem
 	{
-		//1	SweptArea : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-
 		public IfcProfileDef SweptArea { get; set; }
 		public IfcAxis2Placement3D Position { get; set; }
 
@@ -22772,19 +19111,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSweptDiskSolid : IfcSolidModel
+	public class IfcSweptDiskSolid : IfcSolidModel, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	Directrix : IfcCurve
-		//2	Radius : IfcPositiveLengthMeasure
-		//3	InnerRadius : IfcPositiveLengthMeasure
-		//4	StartParam : IfcParameterValue
-		//5	EndParam : IfcParameterValue
-
 		public IfcCurve Directrix { get; set; }
 		public IfcPositiveLengthMeasure Radius { get; set; }
 		public IfcPositiveLengthMeasure InnerRadius { get; set; }
 		public IfcParameterValue StartParam { get; set; }
 		public IfcParameterValue EndParam { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcSweptDiskSolid() { }
 
@@ -22798,15 +19134,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSweptDiskSolidPolygonal : IfcSweptDiskSolid
+	public class IfcSweptDiskSolidPolygonal : IfcSweptDiskSolid, IfcBooleanOperand, IfcLayeredItem, IfcSolidOrShell
 	{
-		//1	Directrix : IfcCurve
-		//2	Radius : IfcPositiveLengthMeasure
-		//3	InnerRadius : IfcPositiveLengthMeasure
-		//4	StartParam : IfcParameterValue
-		//5	EndParam : IfcParameterValue
-		//6	FilletRadius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure FilletRadius { get; set; }
 
 		public IfcSweptDiskSolidPolygonal() { }
@@ -22822,11 +19151,8 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcSweptSurface : IfcSurface
+	public abstract class IfcSweptSurface : IfcSurface, IfcLayeredItem
 	{
-		//1	SweptCurve : IfcProfileDef
-		//2	Position : IfcAxis2Placement3D
-
 		public IfcProfileDef SweptCurve { get; set; }
 		public IfcAxis2Placement3D Position { get; set; }
 
@@ -22839,18 +19165,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSwitchingDevice : IfcFlowController
+	public class IfcSwitchingDevice : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSwitchingDeviceTypeEnum
-
 		public IfcSwitchingDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcSwitchingDevice() { }
@@ -22869,19 +19185,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSwitchingDeviceType : IfcFlowControllerType
+	public class IfcSwitchingDeviceType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSwitchingDeviceTypeEnum
-
 		public IfcSwitchingDeviceTypeEnum PredefinedType { get; set; }
 
 		public IfcSwitchingDeviceType() { }
@@ -22901,16 +19206,10 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSystem : IfcGroup
+	public class IfcSystem : IfcGroup, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-
-		public List<IfcRelServicesBuildings> ServicesBuildings { get; set; }
-
+		public List<IfcRelServicesBuildings> ServicesBuildings;
+		// INVERSE : ServicesBuildings : SET [0:1] OF IfcRelServicesBuildings FOR RelatingSystem;
 		public IfcSystem() { }
 
 		public IfcSystem(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType)
@@ -22923,18 +19222,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSystemFurnitureElement : IfcFurnishingElement
+	public class IfcSystemFurnitureElement : IfcFurnishingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcSystemFurnitureElementTypeEnum
-
 		public IfcSystemFurnitureElementTypeEnum PredefinedType { get; set; }
 
 		public IfcSystemFurnitureElement() { }
@@ -22953,19 +19242,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcSystemFurnitureElementType : IfcFurnishingElementType
+	public class IfcSystemFurnitureElementType : IfcFurnishingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcSystemFurnitureElementTypeEnum
-
 		public IfcSystemFurnitureElementTypeEnum PredefinedType { get; set; }
 
 		public IfcSystemFurnitureElementType() { }
@@ -22985,21 +19263,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcTShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Depth : IfcPositiveLengthMeasure
-		//5	FlangeWidth : IfcPositiveLengthMeasure
-		//6	WebThickness : IfcPositiveLengthMeasure
-		//7	FlangeThickness : IfcPositiveLengthMeasure
-		//8	FilletRadius : IfcNonNegativeLengthMeasure
-		//9	FlangeEdgeRadius : IfcNonNegativeLengthMeasure
-		//10	WebEdgeRadius : IfcNonNegativeLengthMeasure
-		//11	WebSlope : IfcPlaneAngleMeasure
-		//12	FlangeSlope : IfcPlaneAngleMeasure
-
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure FlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -23029,21 +19294,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTable : IfcBase
+	public class IfcTable : IfcBase, IfcMetricValueSelect, IfcObjectReferenceSelect
 	{
-		//1	Name : IfcLabel
-		//2	Rows : List<IfcTableRow>
-		//3	Columns : List<IfcTableColumn>
-
 		public IfcLabel Name { get; set; }
 		public List<IfcTableRow> Rows { get; set; }
 		public List<IfcTableColumn> Columns { get; set; }
 		public IfcInteger NumberOfCellsInRow => (IfcInteger)Rows[0].RowCells.Count;
-		// (DERIVE)	NumberOfCellsInRow : IfcInteger := HIINDEX(Rows[1].RowCells); {get;set;}
+		// DERIVE : NumberOfCellsInRow : IfcInteger := HIINDEX(Rows[1].RowCells);
 		public IfcInteger NumberOfHeadings => (IfcInteger)Rows.Where(Temp => Temp.IsHeading).Count();
-		// (DERIVE)	NumberOfHeadings : IfcInteger := SIZEOF(QUERY( Temp <* Rows | Temp.IsHeading)); {get;set;}
+		// DERIVE : NumberOfHeadings : IfcInteger := SIZEOF(QUERY( Temp <* Rows | Temp.IsHeading));
 		public IfcInteger NumberOfDataRows => (IfcInteger)Rows.Where(Temp => !Temp.IsHeading).Count();
-		// (DERIVE)	NumberOfDataRows : IfcInteger := SIZEOF(QUERY( Temp <* Rows | NOT(Temp.IsHeading))); {get;set;}
+		// DERIVE : NumberOfDataRows : IfcInteger := SIZEOF(QUERY( Temp <* Rows | NOT(Temp.IsHeading)));
 
 		public IfcTable() { }
 
@@ -23057,12 +19318,6 @@ namespace IFC4
 
 	public class IfcTableColumn : IfcBase
 	{
-		//1	Identifier : IfcIdentifier
-		//2	Name : IfcLabel
-		//3	Description : IfcText
-		//4	Unit : IfcUnit
-		//5	ReferencePath : IfcReference
-
 		public IfcIdentifier Identifier { get; set; }
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
@@ -23083,9 +19338,6 @@ namespace IFC4
 
 	public class IfcTableRow : IfcBase
 	{
-		//1	RowCells : List<IfcValue>
-		//2	IsHeading : IfcBoolean
-
 		public List<IfcValue> RowCells { get; set; }
 		public IfcBoolean IsHeading { get; set; }
 
@@ -23098,18 +19350,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTank : IfcFlowStorageDevice
+	public class IfcTank : IfcFlowStorageDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcTankTypeEnum
-
 		public IfcTankTypeEnum PredefinedType { get; set; }
 
 		public IfcTank() { }
@@ -23128,19 +19370,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTankType : IfcFlowStorageDeviceType
+	public class IfcTankType : IfcFlowStorageDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcTankTypeEnum
-
 		public IfcTankTypeEnum PredefinedType { get; set; }
 
 		public IfcTankType() { }
@@ -23160,28 +19391,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTask : IfcProcess
+	public class IfcTask : IfcProcess, IfcDefinitionSelect, IfcProcessSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	LongDescription : IfcText
-		//8	Status : IfcLabel
-		//9	WorkMethod : IfcLabel
-		//10	IsMilestone : IfcBoolean
-		//11	Priority : IfcInteger
-		//12	TaskTime : IfcTaskTime
-		//13	PredefinedType : IfcTaskTypeEnum
-
 		public IfcLabel Status { get; set; }
 		public IfcLabel WorkMethod { get; set; }
 		public IfcBoolean IsMilestone { get; set; }
 		public IfcInteger Priority { get; set; }
 		public IfcTaskTime TaskTime { get; set; }
 		public IfcTaskTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
 
 		public IfcTask() { }
 
@@ -23205,27 +19436,6 @@ namespace IFC4
 
 	public class IfcTaskTime : IfcSchedulingTime
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-		//4	DurationType : IfcTaskDurationEnum
-		//5	ScheduleDuration : IfcDuration
-		//6	ScheduleStart : IfcDateTime
-		//7	ScheduleFinish : IfcDateTime
-		//8	EarlyStart : IfcDateTime
-		//9	EarlyFinish : IfcDateTime
-		//10	LateStart : IfcDateTime
-		//11	LateFinish : IfcDateTime
-		//12	FreeFloat : IfcDuration
-		//13	TotalFloat : IfcDuration
-		//14	IsCritical : IfcBoolean
-		//15	StatusTime : IfcDateTime
-		//16	ActualDuration : IfcDuration
-		//17	ActualStart : IfcDateTime
-		//18	ActualFinish : IfcDateTime
-		//19	RemainingTime : IfcDuration
-		//20	Completion : IfcPositiveRatioMeasure
-
 		public IfcTaskDurationEnum DurationType { get; set; }
 		public IfcDuration ScheduleDuration { get; set; }
 		public IfcDateTime ScheduleStart { get; set; }
@@ -23273,28 +19483,6 @@ namespace IFC4
 
 	public class IfcTaskTimeRecurring : IfcTaskTime
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-		//4	DurationType : IfcTaskDurationEnum
-		//5	ScheduleDuration : IfcDuration
-		//6	ScheduleStart : IfcDateTime
-		//7	ScheduleFinish : IfcDateTime
-		//8	EarlyStart : IfcDateTime
-		//9	EarlyFinish : IfcDateTime
-		//10	LateStart : IfcDateTime
-		//11	LateFinish : IfcDateTime
-		//12	FreeFloat : IfcDuration
-		//13	TotalFloat : IfcDuration
-		//14	IsCritical : IfcBoolean
-		//15	StatusTime : IfcDateTime
-		//16	ActualDuration : IfcDuration
-		//17	ActualStart : IfcDateTime
-		//18	ActualFinish : IfcDateTime
-		//19	RemainingTime : IfcDuration
-		//20	Completion : IfcPositiveRatioMeasure
-		//21	Recurrence : IfcRecurrencePattern
-
 		public IfcRecurrencePattern Recurrence { get; set; }
 
 		public IfcTaskTimeRecurring() { }
@@ -23325,22 +19513,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTaskType : IfcTypeProcess
+	public class IfcTaskType : IfcTypeProcess, IfcDefinitionSelect, IfcProcessSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ProcessType : IfcLabel
-		//10	PredefinedType : IfcTaskTypeEnum
-		//11	WorkMethod : IfcLabel
-
 		public IfcTaskTypeEnum PredefinedType { get; set; }
 		public IfcLabel WorkMethod { get; set; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public IfcIdentifier GetIdentification() { return Identification; }
+		public IfcText GetLongDescription() { return LongDescription; }
+		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
 
 		public IfcTaskType() { }
 
@@ -23360,18 +19544,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTelecomAddress : IfcAddress
+	public class IfcTelecomAddress : IfcAddress, IfcObjectReferenceSelect
 	{
-		//1	Purpose : IfcAddressTypeEnum
-		//2	Description : IfcText
-		//3	UserDefinedPurpose : IfcLabel
-		//4	TelephoneNumbers : List<IfcLabel>
-		//5	FacsimileNumbers : List<IfcLabel>
-		//6	PagerNumber : IfcLabel
-		//7	ElectronicMailAddresses : List<IfcLabel>
-		//8	WWWHomePageURL : IfcURIReference
-		//9	MessagingIDs : List<IfcURIReference>
-
 		public List<IfcLabel> TelephoneNumbers { get; set; }
 		public List<IfcLabel> FacsimileNumbers { get; set; }
 		public IfcLabel PagerNumber { get; set; }
@@ -23395,26 +19569,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTendon : IfcReinforcingElement
+	public class IfcTendon : IfcReinforcingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	SteelGrade : IfcLabel
-		//10	PredefinedType : IfcTendonTypeEnum
-		//11	NominalDiameter : IfcPositiveLengthMeasure
-		//12	CrossSectionArea : IfcAreaMeasure
-		//13	TensionForce : IfcForceMeasure
-		//14	PreStress : IfcPressureMeasure
-		//15	FrictionCoefficient : IfcNormalisedRatioMeasure
-		//16	AnchorageSlip : IfcPositiveLengthMeasure
-		//17	MinCurvatureRadius : IfcPositiveLengthMeasure
-
 		public IfcTendonTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
@@ -23423,6 +19579,25 @@ namespace IFC4
 		public IfcNormalisedRatioMeasure FrictionCoefficient { get; set; }
 		public IfcPositiveLengthMeasure AnchorageSlip { get; set; }
 		public IfcPositiveLengthMeasure MinCurvatureRadius { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcTendon() { }
 
@@ -23448,20 +19623,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTendonAnchor : IfcReinforcingElement
+	public class IfcTendonAnchor : IfcReinforcingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	SteelGrade : IfcLabel
-		//10	PredefinedType : IfcTendonAnchorTypeEnum
-
 		public IfcTendonAnchorTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcTendonAnchor() { }
 
@@ -23480,19 +19663,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTendonAnchorType : IfcReinforcingElementType
+	public class IfcTendonAnchorType : IfcReinforcingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcTendonAnchorTypeEnum
-
 		public IfcTendonAnchorTypeEnum PredefinedType { get; set; }
 
 		public IfcTendonAnchorType() { }
@@ -23512,22 +19684,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTendonType : IfcReinforcingElementType
+	public class IfcTendonType : IfcReinforcingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcTendonTypeEnum
-		//11	NominalDiameter : IfcPositiveLengthMeasure
-		//12	CrossSectionArea : IfcAreaMeasure
-		//13	SheathDiameter : IfcPositiveLengthMeasure
-
 		public IfcTendonTypeEnum PredefinedType { get; set; }
 		public IfcPositiveLengthMeasure NominalDiameter { get; set; }
 		public IfcAreaMeasure CrossSectionArea { get; set; }
@@ -23553,16 +19711,15 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcTessellatedFaceSet : IfcTessellatedItem, IfcBooleanOperand
+	public abstract class IfcTessellatedFaceSet : IfcTessellatedItem, IfcLayeredItem
 	{
-		//1	Coordinates : IfcCartesianPointList3D
-
 		public IfcCartesianPointList3D Coordinates { get; set; }
 		public IfcDimensionCount Dim => (IfcDimensionCount)3;
-		// (DERIVE)	Dim : IfcDimensionCount := 3; {get;set;}
-		public List<IfcIndexedColourMap> HasColours { get; set; }
-		public List<IfcIndexedTextureMap> HasTextures { get; set; }
-		public IfcDimensionCount GetDim() { return Dim; }
+		// DERIVE : Dim : IfcDimensionCount := 3;
+		public List<IfcIndexedColourMap> HasColours;
+		// INVERSE : HasColours : SET [0:1] OF IfcIndexedColourMap FOR MappedTo;
+		public List<IfcIndexedTextureMap> HasTextures;
+		// INVERSE : HasTextures : SET [0:?] OF IfcIndexedTextureMap FOR MappedTo;
 
 		public IfcTessellatedFaceSet() { }
 
@@ -23572,17 +19729,13 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcTessellatedItem : IfcGeometricRepresentationItem
+	public abstract class IfcTessellatedItem : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
 		public IfcTessellatedItem() { }
 	}
 
-	public class IfcTextLiteral : IfcGeometricRepresentationItem
+	public class IfcTextLiteral : IfcGeometricRepresentationItem, IfcLayeredItem
 	{
-		//1	Literal : IfcPresentableText
-		//2	Placement : IfcAxis2Placement
-		//3	Path : IfcTextPath
-
 		public IfcPresentableText Literal { get; set; }
 		public IfcAxis2Placement Placement { get; set; }
 		public IfcTextPath Path { get; set; }
@@ -23597,14 +19750,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTextLiteralWithExtent : IfcTextLiteral
+	public class IfcTextLiteralWithExtent : IfcTextLiteral, IfcLayeredItem
 	{
-		//1	Literal : IfcPresentableText
-		//2	Placement : IfcAxis2Placement
-		//3	Path : IfcTextPath
-		//4	Extent : IfcPlanarExtent
-		//5	BoxAlignment : IfcBoxAlignment
-
 		public IfcPlanarExtent Extent { get; set; }
 		public IfcBoxAlignment BoxAlignment { get; set; }
 
@@ -23620,14 +19767,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTextStyle : IfcPresentationStyle, IfcPresentationStyleSelect
+	public class IfcTextStyle : IfcPresentationStyle, IfcPresentationStyleSelect, IfcStyleAssignmentSelect
 	{
-		//1	Name : IfcLabel
-		//2	TextCharacterAppearance : IfcTextStyleForDefinedFont
-		//3	TextStyle : IfcTextStyleTextModel
-		//4	TextFontStyle : IfcTextFontSelect
-		//5	ModelOrDraughting : IfcBoolean
-
 		public IfcTextStyleForDefinedFont TextCharacterAppearance { get; set; }
 		public IfcTextStyleTextModel TextStyle { get; set; }
 		public IfcTextFontSelect TextFontStyle { get; set; }
@@ -23645,20 +19786,14 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTextStyleFontModel : IfcPreDefinedTextFont
+	public class IfcTextStyleFontModel : IfcPreDefinedTextFont, IfcTextFontSelect
 	{
-		//1	Name : IfcLabel
-		//2	FontFamily : List<IfcTextFontName>
-		//3	FontStyle : IfcFontStyle
-		//4	FontVariant : IfcFontVariant
-		//5	FontWeight : IfcFontWeight
-		//6	FontSize : IfcSizeSelect
-
 		public List<IfcTextFontName> FontFamily { get; set; }
 		public IfcFontStyle FontStyle { get; set; }
 		public IfcFontVariant FontVariant { get; set; }
 		public IfcFontWeight FontWeight { get; set; }
 		public IfcSizeSelect FontSize { get; set; }
+		public IfcLabel GetName() { return Name; }
 
 		public IfcTextStyleFontModel() { }
 
@@ -23675,9 +19810,6 @@ namespace IFC4
 
 	public class IfcTextStyleForDefinedFont : IfcPresentationItem
 	{
-		//1	Colour : IfcColour
-		//2	BackgroundColour : IfcColour
-
 		public IfcColour Colour { get; set; }
 		public IfcColour BackgroundColour { get; set; }
 
@@ -23692,14 +19824,6 @@ namespace IFC4
 
 	public class IfcTextStyleTextModel : IfcPresentationItem
 	{
-		//1	TextIndent : IfcSizeSelect
-		//2	TextAlign : IfcTextAlignment
-		//3	TextDecoration : IfcTextDecoration
-		//4	LetterSpacing : IfcSizeSelect
-		//5	WordSpacing : IfcSizeSelect
-		//6	TextTransform : IfcTextTransformation
-		//7	LineHeight : IfcSizeSelect
-
 		public IfcSizeSelect TextIndent { get; set; }
 		public IfcTextAlignment TextAlign { get; set; }
 		public IfcTextDecoration TextDecoration { get; set; }
@@ -23724,8 +19848,6 @@ namespace IFC4
 
 	public abstract class IfcTextureCoordinate : IfcPresentationItem
 	{
-		//1	Maps : List<IfcSurfaceTexture>
-
 		public List<IfcSurfaceTexture> Maps { get; set; }
 
 		public IfcTextureCoordinate() { }
@@ -23738,10 +19860,6 @@ namespace IFC4
 
 	public class IfcTextureCoordinateGenerator : IfcTextureCoordinate
 	{
-		//1	Maps : List<IfcSurfaceTexture>
-		//2	Mode : IfcLabel
-		//3	Parameter : List<IfcReal>
-
 		public IfcLabel Mode { get; set; }
 		public List<IfcReal> Parameter { get; set; }
 
@@ -23757,10 +19875,6 @@ namespace IFC4
 
 	public class IfcTextureMap : IfcTextureCoordinate
 	{
-		//1	Maps : List<IfcSurfaceTexture>
-		//2	Vertices : List<IfcTextureVertex>
-		//3	MappedTo : IfcFace
-
 		public List<IfcTextureVertex> Vertices { get; set; }
 		public IfcFace MappedTo { get; set; }
 
@@ -23776,8 +19890,6 @@ namespace IFC4
 
 	public class IfcTextureVertex : IfcPresentationItem
 	{
-		//1	Coordinates : List<IfcParameterValue>
-
 		public List<IfcParameterValue> Coordinates { get; set; }
 
 		public IfcTextureVertex() { }
@@ -23790,8 +19902,6 @@ namespace IFC4
 
 	public class IfcTextureVertexList : IfcPresentationItem
 	{
-		//1	TexCoordsList : List<List<IfcParameterValue>>
-
 		public List<List<IfcParameterValue>> TexCoordsList { get; set; }
 
 		public IfcTextureVertexList() { }
@@ -23804,9 +19914,6 @@ namespace IFC4
 
 	public class IfcTimePeriod : IfcBase
 	{
-		//1	StartTime : IfcTime
-		//2	EndTime : IfcTime
-
 		public IfcTime StartTime { get; set; }
 		public IfcTime EndTime { get; set; }
 
@@ -23821,15 +19928,6 @@ namespace IFC4
 
 	public abstract class IfcTimeSeries : IfcBase, IfcMetricValueSelect, IfcObjectReferenceSelect, IfcResourceObjectSelect
 	{
-		//1	Name : IfcLabel
-		//2	Description : IfcText
-		//3	StartTime : IfcDateTime
-		//4	EndTime : IfcDateTime
-		//5	TimeSeriesDataType : IfcTimeSeriesDataTypeEnum
-		//6	DataOrigin : IfcDataOriginEnum
-		//7	UserDefinedDataOrigin : IfcLabel
-		//8	Unit : IfcUnit
-
 		public IfcLabel Name { get; set; }
 		public IfcText Description { get; set; }
 		public IfcDateTime StartTime { get; set; }
@@ -23838,7 +19936,8 @@ namespace IFC4
 		public IfcDataOriginEnum DataOrigin { get; set; }
 		public IfcLabel UserDefinedDataOrigin { get; set; }
 		public IfcUnit Unit { get; set; }
-		public List<IfcExternalReferenceRelationship> HasExternalReference { get; set; }
+		public List<IfcExternalReferenceRelationship> HasExternalReference;
+		// INVERSE : HasExternalReference : SET [1:?] OF IfcExternalReferenceRelationship FOR RelatedResourceObjects;
 
 		public IfcTimeSeries() { }
 
@@ -23857,8 +19956,6 @@ namespace IFC4
 
 	public class IfcTimeSeriesValue : IfcBase
 	{
-		//1	ListValues : List<IfcValue>
-
 		public List<IfcValue> ListValues { get; set; }
 
 		public IfcTimeSeriesValue() { }
@@ -23869,18 +19966,13 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcTopologicalRepresentationItem : IfcRepresentationItem
+	public abstract class IfcTopologicalRepresentationItem : IfcRepresentationItem, IfcLayeredItem
 	{
 		public IfcTopologicalRepresentationItem() { }
 	}
 
-	public class IfcTopologyRepresentation : IfcShapeModel
+	public class IfcTopologyRepresentation : IfcShapeModel, IfcLayeredItem
 	{
-		//1	ContextOfItems : IfcRepresentationContext
-		//2	RepresentationIdentifier : IfcLabel
-		//3	RepresentationType : IfcLabel
-		//4	Items : List<IfcRepresentationItem>
-
 		public IfcTopologyRepresentation() { }
 
 		public IfcTopologyRepresentation(IfcRepresentationContext ContextOfItems, IfcLabel RepresentationIdentifier, IfcLabel RepresentationType, List<IfcRepresentationItem> Items)
@@ -23892,14 +19984,13 @@ namespace IFC4
 		}
 	}
 
-	public class IfcToroidalSurface : IfcElementarySurface
+	public class IfcToroidalSurface : IfcElementarySurface, IfcGeometricSetSelect, IfcLayeredItem, IfcSurfaceOrFaceSurface
 	{
-		//1	Position : IfcAxis2Placement3D
-		//2	MajorRadius : IfcPositiveLengthMeasure
-		//3	MinorRadius : IfcPositiveLengthMeasure
-
 		public IfcPositiveLengthMeasure MajorRadius { get; set; }
 		public IfcPositiveLengthMeasure MinorRadius { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcToroidalSurface() { }
 
@@ -23911,18 +20002,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTransformer : IfcEnergyConversionDevice
+	public class IfcTransformer : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcTransformerTypeEnum
-
 		public IfcTransformerTypeEnum PredefinedType { get; set; }
 
 		public IfcTransformer() { }
@@ -23941,19 +20022,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTransformerType : IfcEnergyConversionDeviceType
+	public class IfcTransformerType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcTransformerTypeEnum
-
 		public IfcTransformerTypeEnum PredefinedType { get; set; }
 
 		public IfcTransformerType() { }
@@ -23973,19 +20043,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTransportElement : IfcElement
+	public class IfcTransportElement : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcTransportElementTypeEnum
-
 		public IfcTransportElementTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcTransportElement() { }
 
@@ -24003,19 +20082,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTransportElementType : IfcElementType
+	public class IfcTransportElementType : IfcElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcTransportElementTypeEnum
-
 		public IfcTransportElementTypeEnum PredefinedType { get; set; }
 
 		public IfcTransportElementType() { }
@@ -24035,16 +20103,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTrapeziumProfileDef : IfcParameterizedProfileDef
+	public class IfcTrapeziumProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	BottomXDim : IfcPositiveLengthMeasure
-		//5	TopXDim : IfcPositiveLengthMeasure
-		//6	YDim : IfcPositiveLengthMeasure
-		//7	TopXOffset : IfcLengthMeasure
-
 		public IfcPositiveLengthMeasure BottomXDim { get; set; }
 		public IfcPositiveLengthMeasure TopXDim { get; set; }
 		public IfcPositiveLengthMeasure YDim { get; set; }
@@ -24064,20 +20124,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTriangulatedFaceSet : IfcTessellatedFaceSet
+	public class IfcTriangulatedFaceSet : IfcTessellatedFaceSet, IfcBooleanOperand, IfcLayeredItem
 	{
-		//1	Coordinates : IfcCartesianPointList3D
-		//2	Normals : List<List<IfcParameterValue>>
-		//3	Closed : IfcBoolean
-		//4	CoordIndex : List<List<IfcPositiveInteger>>
-		//5	PnIndex : List<IfcPositiveInteger>
-
 		public List<List<IfcParameterValue>> Normals { get; set; }
 		public IfcBoolean Closed { get; set; }
 		public List<List<IfcPositiveInteger>> CoordIndex { get; set; }
 		public List<IfcPositiveInteger> PnIndex { get; set; }
 		public IfcInteger NumberOfTriangles => (IfcInteger)CoordIndex.Count();
-		// (DERIVE)	NumberOfTriangles : IfcInteger := SIZEOF(CoordIndex); {get;set;}
+		// DERIVE : NumberOfTriangles : IfcInteger := SIZEOF(CoordIndex);
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
+
 		public IfcTriangulatedFaceSet() { }
 
 		public IfcTriangulatedFaceSet(IfcCartesianPointList3D Coordinates, List<List<IfcParameterValue>> Normals, IfcBoolean Closed, List<List<IfcPositiveInteger>> CoordIndex, List<IfcPositiveInteger> PnIndex)
@@ -24090,19 +20148,16 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTrimmedCurve : IfcBoundedCurve
+	public class IfcTrimmedCurve : IfcBoundedCurve, IfcCurveOrEdgeCurve, IfcGeometricSetSelect, IfcLayeredItem
 	{
-		//1	BasisCurve : IfcCurve
-		//2	Trim1 : List<IfcTrimmingSelect>
-		//3	Trim2 : List<IfcTrimmingSelect>
-		//4	SenseAgreement : IfcBoolean
-		//5	MasterRepresentation : IfcTrimmingPreference
-
 		public IfcCurve BasisCurve { get; set; }
 		public List<IfcTrimmingSelect> Trim1 { get; set; }
 		public List<IfcTrimmingSelect> Trim2 { get; set; }
 		public IfcBoolean SenseAgreement { get; set; }
 		public IfcTrimmingPreference MasterRepresentation { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
+		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcTrimmedCurve() { }
 
@@ -24116,18 +20171,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTubeBundle : IfcEnergyConversionDevice
+	public class IfcTubeBundle : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcTubeBundleTypeEnum
-
 		public IfcTubeBundleTypeEnum PredefinedType { get; set; }
 
 		public IfcTubeBundle() { }
@@ -24146,19 +20191,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTubeBundleType : IfcEnergyConversionDeviceType
+	public class IfcTubeBundleType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcTubeBundleTypeEnum
-
 		public IfcTubeBundleTypeEnum PredefinedType { get; set; }
 
 		public IfcTubeBundleType() { }
@@ -24178,18 +20212,18 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTypeObject : IfcObjectDefinition
+	public class IfcTypeObject : IfcObjectDefinition, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-
 		public IfcIdentifier ApplicableOccurrence { get; set; }
 		public List<IfcPropertySetDefinition> HasPropertySets { get; set; }
-		public List<IfcRelDefinesByType> Types { get; set; }
+		public List<IfcRelDefinesByType> Types;
+		// INVERSE : Types : SET [0:1] OF IfcRelDefinesByType FOR RelatingType;
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcTypeObject() { }
 
@@ -24204,25 +20238,13 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcTypeProcess : IfcTypeObject, IfcProcessSelect
+	public abstract class IfcTypeProcess : IfcTypeObject
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ProcessType : IfcLabel
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
 		public IfcLabel ProcessType { get; set; }
-		public List<IfcRelAssignsToProcess> OperatesOn { get; set; }
-		public IfcIdentifier GetIdentification() { return Identification; }
-		public IfcText GetLongDescription() { return LongDescription; }
-		public List<IfcRelAssignsToProcess> GetOperatesOn() { return OperatesOn; }
+		public List<IfcRelAssignsToProcess> OperatesOn;
+		// INVERSE : OperatesOn : SET [0:?] OF IfcRelAssignsToProcess FOR RelatingProcess;
 
 		public IfcTypeProcess() { }
 
@@ -24240,20 +20262,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcTypeProduct : IfcTypeObject, IfcProductSelect
+	public class IfcTypeProduct : IfcTypeObject, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-
 		public List<IfcRepresentationMap> RepresentationMaps { get; set; }
 		public IfcLabel Tag { get; set; }
-		public List<IfcRelAssignsToProduct> ReferencedBy { get; set; }
+		public List<IfcRelAssignsToProduct> ReferencedBy;
+		// INVERSE : ReferencedBy : SET [0:?] OF IfcRelAssignsToProduct FOR RelatingProduct;
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
 		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
 
 		public IfcTypeProduct() { }
@@ -24271,25 +20290,13 @@ namespace IFC4
 		}
 	}
 
-	public abstract class IfcTypeResource : IfcTypeObject, IfcResourceSelect
+	public abstract class IfcTypeResource : IfcTypeObject
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	Identification : IfcIdentifier
-		//8	LongDescription : IfcText
-		//9	ResourceType : IfcLabel
-
 		public IfcIdentifier Identification { get; set; }
 		public IfcText LongDescription { get; set; }
 		public IfcLabel ResourceType { get; set; }
-		public List<IfcRelAssignsToResource> ResourceOf { get; set; }
-		public IfcIdentifier GetIdentification() { return Identification; }
-		public IfcText GetLongDescription() { return LongDescription; }
-		public List<IfcRelAssignsToResource> GetResourceOf() { return ResourceOf; }
+		public List<IfcRelAssignsToResource> ResourceOf;
+		// INVERSE : ResourceOf : SET [0:?] OF IfcRelAssignsToResource FOR RelatingResource;
 
 		public IfcTypeResource() { }
 
@@ -24307,19 +20314,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcUShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcUShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Depth : IfcPositiveLengthMeasure
-		//5	FlangeWidth : IfcPositiveLengthMeasure
-		//6	WebThickness : IfcPositiveLengthMeasure
-		//7	FlangeThickness : IfcPositiveLengthMeasure
-		//8	FilletRadius : IfcNonNegativeLengthMeasure
-		//9	EdgeRadius : IfcNonNegativeLengthMeasure
-		//10	FlangeSlope : IfcPlaneAngleMeasure
-
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure FlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -24347,8 +20343,6 @@ namespace IFC4
 
 	public class IfcUnitAssignment : IfcBase
 	{
-		//1	Units : List<IfcUnit>
-
 		public List<IfcUnit> Units { get; set; }
 
 		public IfcUnitAssignment() { }
@@ -24359,18 +20353,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcUnitaryControlElement : IfcDistributionControlElement
+	public class IfcUnitaryControlElement : IfcDistributionControlElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcUnitaryControlElementTypeEnum
-
 		public IfcUnitaryControlElementTypeEnum PredefinedType { get; set; }
 
 		public IfcUnitaryControlElement() { }
@@ -24389,19 +20373,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcUnitaryControlElementType : IfcDistributionControlElementType
+	public class IfcUnitaryControlElementType : IfcDistributionControlElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcUnitaryControlElementTypeEnum
-
 		public IfcUnitaryControlElementTypeEnum PredefinedType { get; set; }
 
 		public IfcUnitaryControlElementType() { }
@@ -24421,18 +20394,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcUnitaryEquipment : IfcEnergyConversionDevice
+	public class IfcUnitaryEquipment : IfcEnergyConversionDevice, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcUnitaryEquipmentTypeEnum
-
 		public IfcUnitaryEquipmentTypeEnum PredefinedType { get; set; }
 
 		public IfcUnitaryEquipment() { }
@@ -24451,19 +20414,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcUnitaryEquipmentType : IfcEnergyConversionDeviceType
+	public class IfcUnitaryEquipmentType : IfcEnergyConversionDeviceType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcUnitaryEquipmentTypeEnum
-
 		public IfcUnitaryEquipmentTypeEnum PredefinedType { get; set; }
 
 		public IfcUnitaryEquipmentType() { }
@@ -24483,18 +20435,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcValve : IfcFlowController
+	public class IfcValve : IfcFlowController, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcValveTypeEnum
-
 		public IfcValveTypeEnum PredefinedType { get; set; }
 
 		public IfcValve() { }
@@ -24513,19 +20455,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcValveType : IfcFlowControllerType
+	public class IfcValveType : IfcFlowControllerType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcValveTypeEnum
-
 		public IfcValveTypeEnum PredefinedType { get; set; }
 
 		public IfcValveType() { }
@@ -24545,67 +20476,32 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVector : IfcGeometricRepresentationItem, IfcHatchLineDistanceSelect, IfcVectorOrDirection
+	public class IfcVector : IfcGeometricRepresentationItem, IfcHatchLineDistanceSelect, IfcLayeredItem, IfcVectorOrDirection
 	{
-		//1	Orientation : IfcDirection
-		//2	Magnitude : IfcLengthMeasure
-
 		public IfcDirection Orientation { get; set; }
 		public IfcLengthMeasure Magnitude { get; set; }
 		public IfcDimensionCount Dim => Orientation.Dim;
-		// (DERIVE)	Dim : IfcDimensionCount := Orientation.Dim; {get;set;}
+		// DERIVE : Dim : IfcDimensionCount := Orientation.Dim;
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 		public IfcDimensionCount GetDim() { return Dim; }
 
 		public IfcVector() { }
-
 
 		public IfcVector(IfcDirection Orientation, IfcLengthMeasure Magnitude)
 		{
 			this.Orientation = Orientation;
 			this.Magnitude = Magnitude;
 		}
-
-		public IfcVector(double x, double y)
-		{
-			double d = Math.Sqrt(x * x + y * y);
-			if (d > 0)
-			{
-				Orientation = new IfcDirection(x / d, y / d);
-				Magnitude = (IfcLengthMeasure)d;
-			}
-			else
-			{
-				Orientation = new IfcDirection(0, 0);
-				Magnitude = (IfcLengthMeasure)0;
-			}
-
-		}
-		public IfcVector(double x, double y, double z)
-		{
-			double d = Math.Sqrt(x * x + y * y + z * z);
-			if (d > 0)
-			{
-				Orientation = new IfcDirection(x / d, y / d, z / d);
-				Magnitude = (IfcLengthMeasure)d;
-			}
-			else
-			{
-				Orientation = new IfcDirection(0, 0, 0);
-				Magnitude = (IfcLengthMeasure)0;
-			}
-
-		}
 	}
 
-	public class IfcVertex : IfcTopologicalRepresentationItem
+	public class IfcVertex : IfcTopologicalRepresentationItem, IfcLayeredItem
 	{
 		public IfcVertex() { }
 	}
 
-	public class IfcVertexLoop : IfcLoop
+	public class IfcVertexLoop : IfcLoop, IfcLayeredItem
 	{
-		//1	LoopVertex : IfcVertex
-
 		public IfcVertex LoopVertex { get; set; }
 
 		public IfcVertexLoop() { }
@@ -24616,11 +20512,11 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVertexPoint : IfcVertex, IfcPointOrVertexPoint
+	public class IfcVertexPoint : IfcVertex, IfcLayeredItem, IfcPointOrVertexPoint
 	{
-		//1	VertexGeometry : IfcPoint
-
 		public IfcPoint VertexGeometry { get; set; }
+		public List<IfcPresentationLayerAssignment> GetLayerAssignment() { return LayerAssignment; }
+		public List<IfcStyledItem> GetStyledByItem() { return StyledByItem; }
 
 		public IfcVertexPoint() { }
 
@@ -24630,19 +20526,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVibrationIsolator : IfcElementComponent
+	public class IfcVibrationIsolator : IfcElementComponent, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcVibrationIsolatorTypeEnum
-
 		public IfcVibrationIsolatorTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcVibrationIsolator() { }
 
@@ -24660,19 +20565,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVibrationIsolatorType : IfcElementComponentType
+	public class IfcVibrationIsolatorType : IfcElementComponentType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcVibrationIsolatorTypeEnum
-
 		public IfcVibrationIsolatorTypeEnum PredefinedType { get; set; }
 
 		public IfcVibrationIsolatorType() { }
@@ -24692,17 +20586,27 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVirtualElement : IfcElement
+	public class IfcVirtualElement : IfcElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 		public IfcVirtualElement() { }
 
 		public IfcVirtualElement(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag)
@@ -24718,11 +20622,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVirtualGridIntersection : IfcBase
+	public class IfcVirtualGridIntersection : IfcBase, IfcGridPlacementDirectionSelect
 	{
-		//1	IntersectingAxes : List<IfcGridAxis>
-		//2	OffsetDistances : List<IfcLengthMeasure>
-
 		public List<IfcGridAxis> IntersectingAxes { get; set; }
 		public List<IfcLengthMeasure> OffsetDistances { get; set; }
 
@@ -24735,19 +20636,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcVoidingFeature : IfcFeatureElementSubtraction
+	public class IfcVoidingFeature : IfcFeatureElementSubtraction, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcVoidingFeatureTypeEnum
-
 		public IfcVoidingFeatureTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcVoidingFeature() { }
 
@@ -24765,19 +20675,28 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWall : IfcBuildingElement
+	public class IfcWall : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcWallTypeEnum
-
 		public IfcWallTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcWall() { }
 
@@ -24795,18 +20714,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWallElementedCase : IfcWall
+	public class IfcWallElementedCase : IfcWall, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcWallTypeEnum
-
 		public IfcWallElementedCase() { }
 
 		public IfcWallElementedCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcWallTypeEnum PredefinedType)
@@ -24823,18 +20732,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWallStandardCase : IfcWall
+	public class IfcWallStandardCase : IfcWall, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcWallTypeEnum
-
 		public IfcWallStandardCase() { }
 
 		public IfcWallStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcWallTypeEnum PredefinedType)
@@ -24851,19 +20750,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWallType : IfcBuildingElementType
+	public class IfcWallType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcWallTypeEnum
-
 		public IfcWallTypeEnum PredefinedType { get; set; }
 
 		public IfcWallType() { }
@@ -24883,18 +20771,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWasteTerminal : IfcFlowTerminal
+	public class IfcWasteTerminal : IfcFlowTerminal, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	PredefinedType : IfcWasteTerminalTypeEnum
-
 		public IfcWasteTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcWasteTerminal() { }
@@ -24913,19 +20791,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWasteTerminalType : IfcFlowTerminalType
+	public class IfcWasteTerminalType : IfcFlowTerminalType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcWasteTerminalTypeEnum
-
 		public IfcWasteTerminalTypeEnum PredefinedType { get; set; }
 
 		public IfcWasteTerminalType() { }
@@ -24945,27 +20812,32 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWindow : IfcBuildingElement
+	public class IfcWindow : IfcBuildingElement, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	OverallHeight : IfcPositiveLengthMeasure
-		//10	OverallWidth : IfcPositiveLengthMeasure
-		//11	PredefinedType : IfcWindowTypeEnum
-		//12	PartitioningType : IfcWindowTypePartitioningEnum
-		//13	UserDefinedPartitioningType : IfcLabel
-
 		public IfcPositiveLengthMeasure OverallHeight { get; set; }
 		public IfcPositiveLengthMeasure OverallWidth { get; set; }
 		public IfcWindowTypeEnum PredefinedType { get; set; }
 		public IfcWindowTypePartitioningEnum PartitioningType { get; set; }
 		public IfcLabel UserDefinedPartitioningType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
+		public List<IfcRelAssigns> GetHasAssignments() { return HasAssignments; }
+		public List<IfcRelNests> GetNests() { return Nests; }
+		public List<IfcRelNests> GetIsNestedBy() { return IsNestedBy; }
+		public List<IfcRelAggregates> GetIsDecomposedBy() { return IsDecomposedBy; }
+		public List<IfcRelAggregates> GetDecomposes() { return Decomposes; }
+		public List<IfcRelAssignsToProduct> GetReferencedBy() { return ReferencedBy; }
+		public IfcLabel GetObjectType() { return ObjectType; }
+		public List<IfcRelDefinesByObject> GetIsDeclaredBy() { return IsDeclaredBy; }
+		public List<IfcRelDefinesByObject> GetDeclares() { return Declares; }
+		public List<IfcRelDefinesByType> GetIsTypedBy() { return IsTypedBy; }
+		public List<IfcRelDefinesByProperties> GetIsDefinedBy() { return IsDefinedBy; }
+		public IfcObjectPlacement GetObjectPlacement() { return ObjectPlacement; }
+		public IfcProductRepresentation GetRepresentation() { return Representation; }
 
 		public IfcWindow() { }
 
@@ -24987,25 +20859,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWindowLiningProperties : IfcPreDefinedPropertySet
+	public class IfcWindowLiningProperties : IfcPreDefinedPropertySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	LiningDepth : IfcPositiveLengthMeasure
-		//6	LiningThickness : IfcNonNegativeLengthMeasure
-		//7	TransomThickness : IfcNonNegativeLengthMeasure
-		//8	MullionThickness : IfcNonNegativeLengthMeasure
-		//9	FirstTransomOffset : IfcNormalisedRatioMeasure
-		//10	SecondTransomOffset : IfcNormalisedRatioMeasure
-		//11	FirstMullionOffset : IfcNormalisedRatioMeasure
-		//12	SecondMullionOffset : IfcNormalisedRatioMeasure
-		//13	ShapeAspectStyle : IfcShapeAspect
-		//14	LiningOffset : IfcLengthMeasure
-		//15	LiningToPanelOffsetX : IfcLengthMeasure
-		//16	LiningToPanelOffsetY : IfcLengthMeasure
-
 		public IfcPositiveLengthMeasure LiningDepth { get; set; }
 		public IfcNonNegativeLengthMeasure LiningThickness { get; set; }
 		public IfcNonNegativeLengthMeasure TransomThickness { get; set; }
@@ -25018,6 +20873,12 @@ namespace IFC4
 		public IfcLengthMeasure LiningOffset { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetX { get; set; }
 		public IfcLengthMeasure LiningToPanelOffsetY { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcWindowLiningProperties() { }
 
@@ -25042,23 +20903,19 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWindowPanelProperties : IfcPreDefinedPropertySet
+	public class IfcWindowPanelProperties : IfcPreDefinedPropertySet, IfcDefinitionSelect, IfcPropertySetDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	OperationType : IfcWindowPanelOperationEnum
-		//6	PanelPosition : IfcWindowPanelPositionEnum
-		//7	FrameDepth : IfcPositiveLengthMeasure
-		//8	FrameThickness : IfcPositiveLengthMeasure
-		//9	ShapeAspectStyle : IfcShapeAspect
-
 		public IfcWindowPanelOperationEnum OperationType { get; set; }
 		public IfcWindowPanelPositionEnum PanelPosition { get; set; }
 		public IfcPositiveLengthMeasure FrameDepth { get; set; }
 		public IfcPositiveLengthMeasure FrameThickness { get; set; }
 		public IfcShapeAspect ShapeAspectStyle { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcWindowPanelProperties() { }
 
@@ -25076,22 +20933,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWindowStandardCase : IfcWindow
+	public class IfcWindowStandardCase : IfcWindow, IfcDefinitionSelect, IfcProductSelect, IfcStructuralActivityAssignmentSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	ObjectPlacement : IfcObjectPlacement
-		//7	Representation : IfcProductRepresentation
-		//8	Tag : IfcIdentifier
-		//9	OverallHeight : IfcPositiveLengthMeasure
-		//10	OverallWidth : IfcPositiveLengthMeasure
-		//11	PredefinedType : IfcWindowTypeEnum
-		//12	PartitioningType : IfcWindowTypePartitioningEnum
-		//13	UserDefinedPartitioningType : IfcLabel
-
 		public IfcWindowStandardCase() { }
 
 		public IfcWindowStandardCase(IfcGloballyUniqueId GlobalId, IfcOwnerHistory OwnerHistory, IfcLabel Name, IfcText Description, IfcLabel ObjectType, IfcObjectPlacement ObjectPlacement, IfcProductRepresentation Representation, IfcIdentifier Tag, IfcPositiveLengthMeasure OverallHeight, IfcPositiveLengthMeasure OverallWidth, IfcWindowTypeEnum PredefinedType, IfcWindowTypePartitioningEnum PartitioningType, IfcLabel UserDefinedPartitioningType)
@@ -25112,21 +20955,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWindowStyle : IfcTypeProduct
+	public class IfcWindowStyle : IfcTypeProduct, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ConstructionType : IfcWindowStyleConstructionEnum
-		//10	OperationType : IfcWindowStyleOperationEnum
-		//11	ParameterTakesPrecedence : IfcBoolean
-		//12	Sizeable : IfcBoolean
-
 		public IfcWindowStyleConstructionEnum ConstructionType { get; set; }
 		public IfcWindowStyleOperationEnum OperationType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
@@ -25151,22 +20981,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWindowType : IfcBuildingElementType
+	public class IfcWindowType : IfcBuildingElementType, IfcDefinitionSelect, IfcProductSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ApplicableOccurrence : IfcIdentifier
-		//6	HasPropertySets : List<IfcPropertySetDefinition>
-		//7	RepresentationMaps : List<IfcRepresentationMap>
-		//8	Tag : IfcLabel
-		//9	ElementType : IfcLabel
-		//10	PredefinedType : IfcWindowTypeEnum
-		//11	PartitioningType : IfcWindowTypePartitioningEnum
-		//12	ParameterTakesPrecedence : IfcBoolean
-		//13	UserDefinedPartitioningType : IfcLabel
-
 		public IfcWindowTypeEnum PredefinedType { get; set; }
 		public IfcWindowTypePartitioningEnum PartitioningType { get; set; }
 		public IfcBoolean ParameterTakesPrecedence { get; set; }
@@ -25192,21 +21008,17 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWorkCalendar : IfcControl
+	public class IfcWorkCalendar : IfcControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	WorkingTimes : List<IfcWorkTime>
-		//8	ExceptionTimes : List<IfcWorkTime>
-		//9	PredefinedType : IfcWorkCalendarTypeEnum
-
 		public List<IfcWorkTime> WorkingTimes { get; set; }
 		public List<IfcWorkTime> ExceptionTimes { get; set; }
 		public IfcWorkCalendarTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcWorkCalendar() { }
 
@@ -25226,20 +21038,6 @@ namespace IFC4
 
 	public abstract class IfcWorkControl : IfcControl
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	CreationDate : IfcDateTime
-		//8	Creators : List<IfcPerson>
-		//9	Purpose : IfcLabel
-		//10	Duration : IfcDuration
-		//11	TotalFloat : IfcDuration
-		//12	StartTime : IfcDateTime
-		//13	FinishTime : IfcDateTime
-
 		public IfcDateTime CreationDate { get; set; }
 		public List<IfcPerson> Creators { get; set; }
 		public IfcLabel Purpose { get; set; }
@@ -25268,24 +21066,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWorkPlan : IfcWorkControl
+	public class IfcWorkPlan : IfcWorkControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	CreationDate : IfcDateTime
-		//8	Creators : List<IfcPerson>
-		//9	Purpose : IfcLabel
-		//10	Duration : IfcDuration
-		//11	TotalFloat : IfcDuration
-		//12	StartTime : IfcDateTime
-		//13	FinishTime : IfcDateTime
-		//14	PredefinedType : IfcWorkPlanTypeEnum
-
 		public IfcWorkPlanTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcWorkPlan() { }
 
@@ -25308,24 +21097,15 @@ namespace IFC4
 		}
 	}
 
-	public class IfcWorkSchedule : IfcWorkControl
+	public class IfcWorkSchedule : IfcWorkControl, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	Identification : IfcIdentifier
-		//7	CreationDate : IfcDateTime
-		//8	Creators : List<IfcPerson>
-		//9	Purpose : IfcLabel
-		//10	Duration : IfcDuration
-		//11	TotalFloat : IfcDuration
-		//12	StartTime : IfcDateTime
-		//13	FinishTime : IfcDateTime
-		//14	PredefinedType : IfcWorkScheduleTypeEnum
-
 		public IfcWorkScheduleTypeEnum PredefinedType { get; set; }
+		public IfcGloballyUniqueId GetGlobalId() { return GlobalId; }
+		public IfcOwnerHistory GetOwnerHistory() { return OwnerHistory; }
+		public IfcLabel GetName() { return Name; }
+		public IfcText GetDescription() { return Description; }
+		public List<IfcRelDeclares> GetHasContext() { return HasContext; }
+		public List<IfcRelAssociates> GetHasAssociations() { return HasAssociations; }
 
 		public IfcWorkSchedule() { }
 
@@ -25350,13 +21130,6 @@ namespace IFC4
 
 	public class IfcWorkTime : IfcSchedulingTime
 	{
-		//1	Name : IfcLabel
-		//2	DataOrigin : IfcDataOriginEnum
-		//3	UserDefinedDataOrigin : IfcLabel
-		//4	RecurrencePattern : IfcRecurrencePattern
-		//5	Start : IfcDate
-		//6	Finish : IfcDate
-
 		public IfcRecurrencePattern RecurrencePattern { get; set; }
 		public IfcDate Start { get; set; }
 		public IfcDate Finish { get; set; }
@@ -25374,18 +21147,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcZShapeProfileDef : IfcParameterizedProfileDef
+	public class IfcZShapeProfileDef : IfcParameterizedProfileDef, IfcResourceObjectSelect
 	{
-		//1	ProfileType : IfcProfileTypeEnum
-		//2	ProfileName : IfcLabel
-		//3	Position : IfcAxis2Placement2D
-		//4	Depth : IfcPositiveLengthMeasure
-		//5	FlangeWidth : IfcPositiveLengthMeasure
-		//6	WebThickness : IfcPositiveLengthMeasure
-		//7	FlangeThickness : IfcPositiveLengthMeasure
-		//8	FilletRadius : IfcNonNegativeLengthMeasure
-		//9	EdgeRadius : IfcNonNegativeLengthMeasure
-
 		public IfcPositiveLengthMeasure Depth { get; set; }
 		public IfcPositiveLengthMeasure FlangeWidth { get; set; }
 		public IfcPositiveLengthMeasure WebThickness { get; set; }
@@ -25409,15 +21172,8 @@ namespace IFC4
 		}
 	}
 
-	public class IfcZone : IfcSystem
+	public class IfcZone : IfcSystem, IfcDefinitionSelect
 	{
-		//1	GlobalId : IfcGloballyUniqueId
-		//2	OwnerHistory : IfcOwnerHistory
-		//3	Name : IfcLabel
-		//4	Description : IfcText
-		//5	ObjectType : IfcLabel
-		//6	LongName : IfcLabel
-
 		public IfcLabel LongName { get; set; }
 
 		public IfcZone() { }

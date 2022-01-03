@@ -35,6 +35,7 @@ namespace IFCReader
 
                 };
 
+            Dictionary<string, string> deriveMapping = DeriveMapping.GetIFC4DeriveMapping();
 
             using (StreamReader reader = new StreamReader(input))
             {
@@ -60,7 +61,10 @@ namespace IFCReader
                     {
                         case "TYPE":
                             className = texts[1];
+                            if(className == "IfcPropertySetDefinitionSet")
+                            {
 
+                            }
                             switch (texts[3])
                             {
                                 case "SET":
@@ -68,7 +72,35 @@ namespace IFCReader
                                 case "LIST":
                                     IFCClasses.Add(texts[1].Replace(";", ""), new IFCClass("class", texts[1]));
                                     currentClass = IFCClasses.Last().Value;
-                                    currentClass.propElement.Add("Value", "List<" + texts[6].Replace(";", "") + ">");
+                                    string listType = texts[6].Replace(";", "");
+                                    string superlist = "List<" + texts[6].Replace(";", "") + ">";
+                                   // currentClass.propElement.Add("Value", superlist);
+                                    currentClass.allElements.Add("Value", superlist);
+                                    currentClass.superclassname = superlist;
+
+                                    
+                                    string listextText = "public {1}({0} value) \n{\nClear();\nforeach (var v in value)\n{\nAdd(v);\n}\n }\n";
+                                    listextText = listextText.Replace("{1}", texts[1]).Replace("{0}", superlist);
+                                   
+                                    //     "public static implicit operator {1}({0} x) { return new {1}(x); }\n" +
+                                    //     "public static implicit operator {0}({1} x) { return x.Value; }\n";
+                                    //if (basicTypes.TryGetValue(listType, out string lvalue))
+                                    //{
+
+                                    //}
+
+                                    //    if (basicTypes.TryGetValue(listType, out string lvalue))
+                                    //{
+                                    //    listextText = listextText.Replace("{1}", texts[1]).Replace("{0}", "List<" + lvalue + ">");
+                                    //    currentClass.extraText = listextText;
+                                    //}
+                                    //else
+                                    //{
+                                    //    listextText = listextText.Replace("{1}", texts[1]).Replace("{0}", superlist);
+                                    //    
+                                    //}
+
+                                    currentClass.extraText = listextText;
                                     break;
 
                                 case "ENUMERATION":
@@ -129,7 +161,6 @@ namespace IFCReader
                                         extText = extText.Replace("{1}", texts[1]).Replace("{0}", value);
                                         basicClass.extraText = extText;
                                     }
-                                    // extText = extText.Replace("{1}", texts[1]).Replace("{0}", basicTypes[basictype]);
 
                                     IFCClasses.Add(texts[1].Replace(";", ""), basicClass);
                                     break;
@@ -158,7 +189,11 @@ namespace IFCReader
                                     currentrule = entityTexts[1];
                                     if (currentrule == "SUBTYPE")
                                     {
-                                        currentClass.superclassname = entityTexts[3].Replace("(", "").Replace(")", "").Replace(";", "");
+                                      
+                                        
+                                            currentClass.superclassname = entityTexts[3].Replace("(", "").Replace(")", "").Replace(";", "");
+                                        
+                                      
                                     }
                                 }
 
@@ -180,7 +215,7 @@ namespace IFCReader
 
                                     int typeIndex = 2;
 
-                                    string elemeentName = entityTexts[0].Replace("\t", "").Replace(",", "");
+                                    string elementName = entityTexts[0].Replace("\t", "").Replace(",", "");
 
 
                                     string elementType = entityTexts[typeIndex].Replace(";", "").Replace(",", "");
@@ -233,21 +268,30 @@ namespace IFCReader
                                     if (currentrule == "DERIVE")
                                     {
                                       //  elemeentName += "=> new " + elementType + "();\n// (DERIVE)" + currentline;
-                                        currentClass.deriveElements.Add(elemeentName, elementType);
+                                        currentClass.deriveElements.Add(elementName, elementType);
+                                        currentClass.deriveTexts.Add(elementName,currentline.Replace("\t", ""));
+                                        currentClass.allElements.Add(elementName, elementType);
                                     }
                                     else if (currentrule == "INVERSE")
                                     {
                                       //  elemeentName += ";//" + entityTexts[entityTexts.Length - 1].Replace(";", "");
-                                        currentClass.inverseElement.Add(elemeentName, elementType);
+                                        currentClass.inverseElements.Add(elementName, elementType);
+                                        currentClass.inverseText.Add(elementName, currentline.Replace("\t", ""));
+                                        currentClass.allElements.Add(elementName, elementType);
                                     }
                                     else
                                     {
-                                        currentClass.propElement.Add(elemeentName, elementType);
+                                        currentClass.propElement.Add(elementName, elementType);
+                                        currentClass.allElements.Add(elementName, elementType);
                                     }
 
                                     if (currentrule == "SUPERTYPE" || currentrule == "SUBTYPE" || currentrule == "")
                                     {
-                                        currentClass.consElement.Add(elemeentName, elementType);
+                                        currentClass.consElement.Add(elementName, elementType);
+                                        if (!currentClass.allElements.ContainsKey(elementName))
+                                        {
+                                            currentClass.allElements.Add(elementName, elementType);
+                                        }
                                     }
                                 }
                                 //else if (currentrule == "UNIQUE")
@@ -367,18 +411,64 @@ namespace IFCReader
 
                 }
 
-                Dictionary<string, string> candidateElements;
-                Dictionary<string, string> commonElements;
-                List<IFCClass> childrenClass;
-
-              
 
 
+                // set extratext for list type
+
+                foreach (var ifcclass in IFCClasses.Values)
+                {
+                    string superName = ifcclass.superclassname;
+                    
+                    if (superName.Contains("List") && superName.Contains("<") && superName.Contains(">"))
+                    {
+                        int index1 = superName.IndexOf("<");
+                        int index2 = superName.IndexOf(">");
+
+                        var listType = superName.Substring(index1 + 1, index2 - index1 - 1);
+                        var superbaseName = "";
+
+                        if (basicTypes.ContainsKey(listType))
+                        {
+                            superbaseName = basicTypes[listType];
+                        }
+                        else if (IFCClasses.ContainsKey(listType))
+                        {
+                            superbaseName = IFCClasses[listType].GetbaseClassName(IFCClasses, basicTypes);
+                        }
+                        else
+                        {
+                            superbaseName = listType;
+                        }
+                        if (basicTypes.ContainsValue(superbaseName))
+                        {
+                            string listextText = "public {1}({0} value) \n{\nClear();\nforeach (var v in value)\n{\nAdd(({2}) v);\n}\n }\n"
+                              +   "public static implicit operator {1}({0} x) { return new {1}(x); }\n"
+                            +     "public static implicit operator {0}({1} x)\n{\n {1} y = new {1}();\nforeach (var v in x)\n{\ny.Add(v);\n}\nreturn y; }\n";
 
 
-                // Set SubclassList to class
+                            listextText = listextText.Replace("{1}", ifcclass.name).Replace("{0}", "List<"+ superbaseName + ">").Replace("{2}", listType);
 
-                Dictionary<string, List<string>> SubclassLists = new Dictionary<string, List<string>>();
+                            ifcclass.extraText += listextText;
+                        }
+                    }
+                    else
+                    {
+                        var superbaseName = ifcclass.GetbaseClassName(IFCClasses, basicTypes);
+                        if (basicTypes.ContainsValue(superbaseName))
+                        {
+                            string extText = "public {1}({0} value) { Value = value; }\n" +
+                                               "public static implicit operator {1}({0} x) { return new {1}(x); }\n" +
+                                               "public static implicit operator {0}({1} x) { return x.Value; }\n";
+                            extText = extText.Replace("{1}", ifcclass.name).Replace("{0}", superbaseName);
+                            ifcclass.extraText = extText;
+                        }
+                    }
+                }
+
+
+                    // Set SubclassList to class
+
+                    Dictionary<string, List<string>> SubclassLists = new Dictionary<string, List<string>>();
 
                 foreach (var ifcclass in IFCClasses.Values)
                 {
@@ -464,7 +554,15 @@ namespace IFCReader
                     }
                 }
 
+              
+                foreach (var cls in IFCClasses)
+                {
+                    if (cls.Value.dataType == "class")
+                    {
+                        cls.Value.fullAllElements = cls.Value.GetFullAlls(IFCClasses);
+                    }
 
+                }
 
                 foreach (var cls in IFCClasses)
                 {
@@ -481,7 +579,12 @@ namespace IFCReader
                     }
 
                 }
+
                 // interface
+
+                Dictionary<string, string> candidateElements;
+                Dictionary<string, string> commonElements;
+                List<IFCClass> childrenClass;
                 foreach (var cls in IFCClasses)
                 {
                     if (cls.Value.dataType == "interface")
@@ -502,7 +605,7 @@ namespace IFCReader
                                 childrenClass.Add(childClass);
                                 childClass.interfaces.Add(interfaceClass.name);
 
-                                var eles = childClass.propElement;
+                                var eles = childClass.fullAllElements;
 
                                 foreach (var e in eles)
                                 {
@@ -512,25 +615,7 @@ namespace IFCReader
                                     }
                                 }
 
-                                eles = childClass.deriveElements;
-
-                                foreach (var e in eles)
-                                {
-                                    if (!e.Key.Contains("(") && !candidateElements.ContainsKey(e.Key))
-                                    {
-                                        candidateElements.Add(e.Key, e.Value);
-                                    }
-                                }
-
-                                eles = childClass.inverseElement;
-
-                                foreach (var e in eles)
-                                {
-                                    if (!e.Key.Contains("(") && !candidateElements.ContainsKey(e.Key))
-                                    {
-                                        candidateElements.Add(e.Key, e.Value);
-                                    }
-                                }
+                                
                             }
                         }
 
@@ -540,48 +625,56 @@ namespace IFCReader
                             bool forAll = true;
                             foreach (var childClass in childrenClass)
                             {
-                             //   if(childClass.isAbstract) continue;
-                                if (!childClass.propElement.ContainsKey(candidate.Key) && !childClass.deriveElements.ContainsKey(candidate.Key) && !childClass.inverseElement.ContainsKey(candidate.Key))
+                                if(childClass.isAbstract) continue;
+                                if (!childClass.fullAllElements.ContainsKey(candidate.Key))
                                 {
                                     forAll = false;
                                     break;
                                 }
-                                //else if (childClass.propElement.ContainsKey(candidate.Key) || childClass.propElement[candidate.Key] != candidate.Value)
-                                //{
-                                //    forAll = false;
-                                //    break;
-                                //}
+                                else if (childClass.fullAllElements[candidate.Key] != candidate.Value)
+                                {
+                                    forAll = false;
+                                    break;
+                                }
                             }
 
                             if (forAll)
                             {
+                               
                                 interfaceClass.propElement.Add(candidate.Key, candidate.Value);
                                 foreach (var childClass in childrenClass)
                                 {
-                                    var newKey = "Get" + candidate.Key + "(){return  " + candidate.Key + "; }";
-                                    if (!childClass.getElement.ContainsKey(newKey))
+                                    if (childClass.isAbstract)
                                     {
-                                        childClass.getElement.Add(newKey, candidate.Value);
+                                        childClass.interfaces.Remove(interfaceClass.name);
+                                        continue;
+                                    }
+
+                                    var newKey = "Get" + candidate.Key + "(){return " + candidate.Key + "; }";
+                                    if (!childClass.getElements.ContainsKey(newKey))
+                                    {
+                                        childClass.getElements.Add(newKey, candidate.Value);
                                     }
 
                                 }
                             }
                         }
                     }
-
-
                     if (cls.Value.dataType == "class")
                     {
                         cls.Value.GetFullCons(IFCClasses);
                     }
                 }
 
+                foreach (var cls in IFCClasses)
+                {
+                    cls.Value.CleanGetElement(IFCClasses);
+                }
 
 
 
 
-
-                CreateSeperateClassFile("IfcCurve", "public static List<Vector3> GetCurve({0} {1})\n{\n List<Vector3> points = new List<Vector3>();\n return points;\n}\n");
+                    CreateSeperateClassFile("IfcCurve", "public static List<Vector3> GetCurve({0} {1})\n{\n List<Vector3> points = new List<Vector3>();\n return points;\n}\n");
 
                 CreateSeperateClassFile("IfcSolidModel", "public static Mesh GetSolid({0} {1})\n{\n Mesh mesh = new Mesh();\n return mesh;\n}\n");
 
@@ -595,8 +688,10 @@ namespace IFCReader
 
                 using (StreamWriter writer = new StreamWriter(output))
                 {
+                    writer.WriteLine("using System;");
+                    writer.WriteLine("using System.Linq;");
                     writer.WriteLine("using System.Collections.Generic;");
-
+                    
                     writer.WriteLine("namespace IFC4");
                     writer.WriteLine("{");
                     foreach (var cls in IFCClasses)

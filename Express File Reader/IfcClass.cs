@@ -14,12 +14,17 @@ namespace IFCReader
         public List<string> subclasses;
         public List<string> interfaces; // interface
         public Dictionary<string, string> deriveElements;
-        public Dictionary<string, string> inverseElement;
+        public Dictionary<string, string> inverseElements;
+
+        public Dictionary<string, string> deriveTexts;
+        public Dictionary<string, string> inverseText;
+
         public Dictionary<string, string> propElement; // get set
-        public Dictionary<string, string> getElement; // get set
+        public Dictionary<string, string> getElements; // get set
         public Dictionary<string, string> consElement; // inout element in ifc files
         public Dictionary<string, string> fullConsElement; // inout element in ifc files including super class
-
+        public Dictionary<string, string> allElements;
+        public Dictionary<string, string> fullAllElements; // inout element in ifc files including super class
         public List<string> enumElements;
         public List<string> selectElements;
         public string dataType; // interface enum or class
@@ -32,11 +37,17 @@ namespace IFCReader
             interfaces = new List<string>();
             subclasses = new List<string>();
             propElement = new Dictionary<string, string>();
-            getElement = new Dictionary<string, string>();
+            allElements= new Dictionary<string, string>();
+            getElements = new Dictionary<string, string>();
             consElement = new Dictionary<string, string>();
             fullConsElement = new Dictionary<string, string>();
+            fullAllElements = new Dictionary<string, string>();
             deriveElements = new Dictionary<string, string>();
-            inverseElement = new Dictionary<string, string>();
+
+            deriveTexts = new Dictionary<string, string>();
+            inverseText = new Dictionary<string, string>();
+
+            inverseElements = new Dictionary<string, string>();
             enumElements = new List<string>();
             selectElements = new List<string>();
             this.dataType = dataType;
@@ -45,6 +56,30 @@ namespace IFCReader
 
             this.superclassname = subOf;
 
+        }
+
+
+        public Dictionary<string, string> GetFullAlls(Dictionary<string, IFCClass> IFCClasses)
+        {
+            Dictionary<string, string> fullAll = new Dictionary<string, string>();
+
+            if (IFCClasses.ContainsKey(superclassname))
+            {
+                var superClass = IFCClasses[superclassname];
+                Dictionary<string, string> superfullCons = superClass.GetFullAlls(IFCClasses);
+                foreach (var s in superfullCons)
+                {
+                    fullAll.Add(s.Key, s.Value);
+                }
+            }
+
+            foreach (var c in allElements)
+            {
+             
+                fullAll.Add(c.Key, c.Value);
+            }
+            fullConsElement = fullAll;
+            return fullAll;
         }
 
 
@@ -70,8 +105,52 @@ namespace IFCReader
             return fullCons;
         }
 
+
+        public void CleanGetElement(Dictionary<string, IFCClass> IFCClasses, string superclassname = null)
+        {
+            if(superclassname == null)
+            {
+                superclassname = this.superclassname;
+            }
+            if (IFCClasses.ContainsKey(superclassname))
+            {
+                var superClass = IFCClasses[superclassname];
+                Dictionary<string, string> superElements = superClass.getElements;
+
+
+                foreach (var s in superElements)
+                {
+                    getElements.Remove(s.Key);
+                }
+                CleanGetElement(IFCClasses, superClass.superclassname);
+            }
+        }
+
+        public string GetbaseClassName(Dictionary<string, IFCClass> IFCClasses, Dictionary<string, string> basicTypes)
+        {
+            if (basicTypes.ContainsKey(name))
+            {
+                return basicTypes[name];
+            }
+            //if (superclassname == "")
+            //{
+            //    return name;
+            //}
+
+            if (basicTypes.ContainsKey(superclassname))
+            {
+                return basicTypes[superclassname];
+            }
+            if (IFCClasses.ContainsKey(superclassname))
+            {
+                return IFCClasses[superclassname].GetbaseClassName(IFCClasses, basicTypes);
+            }
+            return name;
+        }
+
         public override string ToString()
         {
+            Dictionary<string, string> deriveMapping = DeriveMapping.GetIFC4DeriveMapping();
             string str = "\tpublic " + (isAbstract ? "abstract " : "") + (dataType == "interface" ? dataType : "class") + " " + name;
             if (superclassname.Length > 0)
             {
@@ -142,15 +221,24 @@ namespace IFCReader
                     }
                     foreach (var ce in deriveElements)
                     {
-                        str += "\t\tpublic " + ce.Value + " " + ce.Key + ";\n";
+                        var expText = deriveTexts[ce.Key].Substring(deriveTexts[ce.Key].LastIndexOf(":") + 3);
+                        if (deriveMapping.ContainsKey(expText))
+                        {
+                            str += "\t\tpublic " + ce.Value + " " + ce.Key +  " => " + deriveMapping[expText] + "\n";
+                        }
+                        else
+                        {
+                            str += "\t\tpublic " + ce.Value + " " + ce.Key + ";\n";
+                        }
+                        str += "// DERIVE : " + deriveTexts[ce.Key] + "\n";
 
                     }
-                    foreach (var ce in inverseElement)
+                    foreach (var ce in inverseElements)
                     {
-                        str += "\t\tpublic " + ce.Value + " " + ce.Key + " ;\n";
+                        str += "\t\tpublic " + ce.Value + " " + ce.Key + ";\n// INVERSE : " + inverseText[ce.Key] + "\n";
                     }
 
-                    foreach (var ce in getElement)
+                    foreach (var ce in getElements)
                     {
                         str += "\t\tpublic " + ce.Value + " " + ce.Key + "\n";
                     }
@@ -206,6 +294,10 @@ namespace IFCReader
             }
             str += "\t}\n";
 
+            if (superclassname.Contains("List"))
+            {
+                str = str.Replace("return Value", "return this");
+            }
             return str;
         }
     }
