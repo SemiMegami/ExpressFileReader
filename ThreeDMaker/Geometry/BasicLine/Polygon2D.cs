@@ -4,9 +4,9 @@ using System.Numerics;
 
 namespace ThreeDMaker.Geometry
 {
-    public class Polygon:PolyLine2D
+    public class Polygon2D:PolyLine2D
     {
-        public Polygon(float r, int n, float startAngle = 0, bool startWithCorner = false, bool isCentertoFaceSize = true)
+        public Polygon2D(float r, int n, float startAngle = 0, bool startWithCorner = false, bool isCentertoFaceSize = true)
         {
             this.Clear();
 

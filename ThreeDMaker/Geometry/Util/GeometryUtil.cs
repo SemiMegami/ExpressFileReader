@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ThreeDMaker.Geometry
+namespace ThreeDMaker.Geometry.Util
 {
     class GeometryUtil
     {
@@ -17,13 +17,15 @@ namespace ThreeDMaker.Geometry
             float A1 = TriangleArea(p, p2, p3) / A;
             float A2 = TriangleArea(p, p3, p1) / A;
             float A3 = TriangleArea(p, p1, p2) / A;
+            float tol = A / 100000;
             if (includeOnLine)
             {
-                return (A1 >= 0 && A2 >= 0 && A3 >= 0);
+              
+                return (A1 >= -tol && A2 >= -tol && A3 >= -tol);
             }
             else
             {
-                return (A1 > 0 && A2 > 0 && A3 > 0);
+                return (A1 >= tol && A2 >= tol && A3 >= tol);
             }
         }
 

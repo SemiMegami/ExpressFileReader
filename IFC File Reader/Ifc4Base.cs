@@ -9,10 +9,16 @@ namespace IFC4
 {
 	public abstract class IfcBase
 	{
-
+        public Model Model;
 
         public List<string> textParameters;
 
+        public string ifcid = "";
+
+        public override string ToString()
+        {
+            return ifcid + " : " + GetType().Name;
+        }
 
         public  bool InTypeOf<T>()
         {

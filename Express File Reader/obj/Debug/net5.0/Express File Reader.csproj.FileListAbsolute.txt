@@ -60,3 +60,4 @@ C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\ref\Express File Reader.dll
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.pdb
 C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.genruntimeconfig.cache
+C:\Users\Sumet_Laptop\Documents\GitHub\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.csproj.AssemblyReference.cache

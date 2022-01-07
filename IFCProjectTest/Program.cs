@@ -12,19 +12,72 @@ namespace IFCProjectTest
     {
         static void Main(string[] args)
         {
-        
-            TestLoadProject();
+            testHole();
+       //     TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
+            //  TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
+        //    TestLoadProject("20210219Architecture");
         }
 
+        static void testHole()
+        {
+            Random ran = new Random();
 
-        static void TestLoadProject()
+            float routter = 50;
+            float rrinner = 5;
+
+            for(int outterside = 4; outterside < 8; outterside++)
+            {
+                for (int innerside = 4; innerside < 8; innerside++)
+                {
+                    for(int s = 0; s < 360; s+= 45)
+                    {
+                       
+
+                        List<Vector2> outter = new List<Vector2>();
+                        float dANgle = 360f / outterside;
+                        for(int i = 0; i < outterside; i++)
+                        {
+                            double angle = (dANgle * i + s) * Math.PI / 180;
+                            outter.Add(new Vector2(routter * (float)Math.Cos(angle), routter * (float)Math.Sin(angle)));
+                        }
+                        dANgle = 360f / innerside;
+
+                        
+                        List<List<Vector2>> inners = new List<List<Vector2>>();
+                        for(int j = -1; j <=1; j++)
+                        {
+                            for (int k= -1; k <= 1; k++)
+                            {
+                                List<Vector2> inner = new List<Vector2>();
+                                for (int i = 0; i < innerside; i++)
+                                {
+                                    double angle = -(dANgle * i) * Math.PI / 180;
+                                    inner.Add(new Vector2(3 * rrinner * j + rrinner * (float)Math.Cos(angle), 3 * rrinner * k + rrinner * (float)Math.Sin(angle)));
+                                }
+                                inners.Add(inner);
+                            }
+                        }
+                       
+
+
+                     
+                        OutlineMesh mesh = new OutlineMesh(outter, inners);
+                        mesh.ExportToObj("../../../../../Hole Test/polygon_" + outterside + "_" + innerside + "_" + + s + ".obj");
+                    }
+                }
+            }
+        }
+
+        static void TestLoadProject(string filename)
         {
           //  string filename = "20181220Holter_Tower_10";
             // string filename = "20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture";
-            //  string filename = "20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural";
-            string filename = "20160125OTC-Conference Center - IFC4";
-           
-            IfcModel model = new IfcModel();
+           //   string filename = "20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural";
+            // string filename = "20160125OTC-Conference Center - IFC4";
+         //   "20160125Autodesk_Hospital_Parking Garage_2015 - IFC4"
+           //        string filename = "20160125Autodesk_Hospital_Parking Garage_2015 - IFC4";
+
+            Model model = new Model();
            model.ImportIFC("../../../../../Open IFC Model/"+ filename + ".ifc");
             //model.ImportIFC("../../../../../Open IFC Model/20160125Autodesk_Hospital_Parking Garage_2015 - IFC4.ifc");
 
@@ -33,6 +86,7 @@ namespace IFCProjectTest
 
 
             var elemments = model.GetInstances<IfcElement>();
+            var walls = model.GetInstances<IfcWall>();
             var localplacements = model.GetInstances<IfcLocalPlacement>();
 
             var placementToMat = IFCGeoUtil.SetGlobalMat(localplacements);

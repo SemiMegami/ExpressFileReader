@@ -3,23 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 namespace IFC4
 {
-    public class IfcModel
+    public class Model
     {
       
         IfcDict instances;
-        public IfcModel()
+        public Model()
         {
             instances = new IfcDict();
         }
         public void ImportIFC(string path)
         {  
-            instances.ImportIFC(path);
+            instances.ImportIFC(path,this);
         }
 
         public List<T> GetInstances<T>()
         {
-            var s = instances.Values.OfType<T>();
-            return s.ToList();
+            return instances.Values.OfType<T>().ToList();
         }
     }
 }

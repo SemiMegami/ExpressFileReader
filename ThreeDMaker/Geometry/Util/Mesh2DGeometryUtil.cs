@@ -1,36 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Numerics;
+using System.Text;
+using System.Threading.Tasks;
+using ThreeDMaker.Geometry.Util;
 namespace ThreeDMaker.Geometry
 {
-    public class OutlineMesh:Mesh3D
+    class Mesh2DGeometryUtil
     {
-
-
-        public OutlineMesh(PolyLine2D section)
-        {
-            Vertices.Clear();
-            foreach (var s in section)
-            {
-                Vertices.Add(new Vector3(s,0));
-            }
-            Triangles = EarClippingAlgorithm(section);
-        }
-
-        public OutlineMesh(Polyline3D section)
-        {
-            Vertices.Clear();
-            List<Vector2> Vector2s = new List<Vector2>();
-            foreach (var s in section)
-            {
-                Vertices.Add(s);
-                Vector2s.Add(new Vector2(s.X, s.Y));
-            }
-
-            Triangles = EarClippingAlgorithm(Vector2s);
-        }
-
-
         public static List<int> EarClippingAlgorithm(List<Vector2> vertices)
         {
             int n = vertices.Count;
@@ -42,17 +20,7 @@ namespace ThreeDMaker.Geometry
             }
             return EarClippingAlgorithm(vertices, indices);
         }
-        public static List<int> EarClippingAlgorithm(List<Vector2> vertices, List<List<Vector2>> holesholes)
-        {
-            int n = vertices.Count;
-            List<int> indices = new List<int>();
 
-            for (int i = 0; i < n; i++)
-            {
-                indices.Add(i);
-            }
-            return EarClippingAlgorithm(vertices, indices);
-        }
 
         public static List<int> EarClippingAlgorithm(List<Vector2> vertices, List<int> indices)
         {
@@ -60,8 +28,19 @@ namespace ThreeDMaker.Geometry
             {
                 return indices;
             }
+
+
+
             List<int> triangle = new List<int>();
             int n = vertices.Count;
+
+            List<Line2D> lines = new List<Line2D>();
+            for (int i = 0; i < n; i++)
+            {
+                int j = i + 1;
+                if (j >= n) j -= n;
+                lines.Add(new Line2D(vertices[i], vertices[j]));
+            }
             for (int i = 0; i < n; i++)
             {
                 int j = i + 1;
@@ -70,15 +49,34 @@ namespace ThreeDMaker.Geometry
                 if (k >= n) k -= n;
                 if (GeometryUtil.IsTurningLeft(vertices[i], vertices[j], vertices[k]))
                 {
+                    Line2D line = new Line2D(vertices[i], vertices[k]);
                     bool foundInside = false;
+                    // check it any point inside the new triangle
                     for (int l = 0; l < n; l++)
                     {
-                        if (l != i && l != j && l != k && GeometryUtil.IsonTriangle(vertices[l], vertices[i], vertices[j], vertices[k]))
+                        if (l != i && l != j && l != k && GeometryUtil.IsonTriangle(vertices[l], vertices[i], vertices[j], vertices[k], false))
+                        {
+                            foundInside = true;
+                            break;
+                        }
+                        if (l != i && l != j && l != k && line.IsPointSplitline(vertices[l].X, vertices[l].Y))
                         {
                             foundInside = true;
                             break;
                         }
                     }
+                    if (!foundInside)
+                    {
+                        for (int l = 0; l < n; l++)
+                        {
+                            if (line.IsLineCross(lines[l]))
+                            {
+                                foundInside = true;
+                                break;
+                            }
+                        }
+                    }
+
                     if (!foundInside)
                     {
                         List<int> subIndices = new List<int>();

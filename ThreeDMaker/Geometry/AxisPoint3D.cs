@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Numerics;
-
+using ThreeDMaker.Geometry.Util;
 namespace ThreeDMaker.Geometry 
 { 
     public class AxisPoint3D

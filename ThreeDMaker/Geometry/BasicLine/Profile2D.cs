@@ -5,19 +5,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using ThreeDMaker.Geometry;
-namespace IFC_Geometry
+namespace ThreeDMaker.Geometry
 {
-    public class ProfileDef
+    public class Profile2D
     {
         List<Vector2> outterCurve;
         List<List<Vector2>> innerCurves;
         public List<Vector2> OutterCurve { get { return outterCurve; } set { outterCurve = value; UpdateMesh(); } }
         public List<List<Vector2>> InnerCurves { get { return innerCurves; } set { innerCurves = value; UpdateMesh(); } }
+
+        public List<Profile2D> Composites;
         OutlineMesh mesh;
-        public ProfileDef()
+        public Profile2D()
         {
             OutterCurve = new List<Vector2>();
             InnerCurves = new List<List<Vector2>>();
+            Composites = new List<Profile2D>();
         }
 
         private void UpdateMesh()

@@ -10,7 +10,7 @@ namespace IFC4
 {
     class IfcDict:Dictionary<string,IfcBase>
     {
-        public void ImportIFC(string path)
+        public void ImportIFC(string path, Model model)
         {
 
             Console.WriteLine("reading");
@@ -39,6 +39,7 @@ namespace IFC4
            
             foreach (var item in items)
             {
+                item.Model = model;
                 MapAandSetProperties(item);
             }
             Console.WriteLine("end mapping");
@@ -55,13 +56,13 @@ namespace IFC4
             string paraText = data.Substring(nameLenght + 1, data.Length - 3 - nameLenght);
             List<string> paramList = SplitParamText(paraText);
             IfcBase item = CreateNew(name);
+            item.ifcid = key;
             item.textParameters = paramList;
             Add(key, item);
         }
 
         private List<PropertyInfo> GetProperyList(string name)
         {
-            Console.WriteLine(name);
             List<PropertyInfo> propertyInfos = new List<PropertyInfo>();
             if (name == "IfcBase")
             {
@@ -106,8 +107,6 @@ namespace IFC4
             }
         }
 
-
-
         public List<string> SplitParamText(string paramText)
         {
             List<string> outputText = new List<string>();
@@ -127,20 +126,12 @@ namespace IFC4
                 }
                 else if(!readingString && c == '(')
                 {
-                    //if(bracketCount == 0)
-                    //{
-                    //    scanningText += c;
-                    //}
                     scanningText += c;
                     bracketCount++;
                 }
                 else if (!readingString && c == ')')
                 {
                     bracketCount--;
-                    //if (bracketCount == 0)
-                    //{
-                    //    scanningText += c;
-                    //}
                     scanningText += c;
                 }
                 else if (!readingString && c == ',' && bracketCount == 0)
@@ -174,7 +165,7 @@ namespace IFC4
             if (input == "$")
             {
                 return null;
-                //return CreateNew(type.Name.ToUpper());
+               
             }
             if(input.Substring(0, 1) == "'")
             {
@@ -2327,9 +2318,6 @@ namespace IFC4
            
 
         }
-
-
-
 
         private dynamic CreateList(string name)
         {

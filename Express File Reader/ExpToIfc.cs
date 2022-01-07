@@ -47,10 +47,6 @@ namespace IFCReader
                 string currentrule = "";
                 string className;
 
-
-
-                //try
-                //{
                 while (!reader.EndOfStream)
                 {
                     rawText = reader.ReadLine();
@@ -518,26 +514,7 @@ namespace IFCReader
 
 
 
-                void CreateSeperateClassFile(string name, string codeText)
-                {
-                    using (StreamWriter writer = new StreamWriter(name + " ClassList.txt"))
-                    {
-
-                        List<string> GeometricRepresentationItemName = new List<string>();
-                        GetSubNames(GeometricRepresentationItemName, name);
-
-                        foreach (var g in GeometricRepresentationItemName)
-                        {
-                            if (!IFCClasses[g].isAbstract)
-                            {
-                                writer.WriteLine("//https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/{0}.htm".Replace("{0}", g.ToLower()));
-                                writer.WriteLine(codeText.Replace("{0}", g).Replace("{1}", g.Replace("Ifc", "").Replace("{2}", g.ToLower())));
-                                //  writer.WriteLine(IFCClasses[g]);
-                            }
-
-                        }
-                    }
-                }
+              
 
 
                 void AddChildrenToSelectElement(IFCClass itf, IFCClass cls)
@@ -583,7 +560,7 @@ namespace IFCReader
                 // interface
 
                 Dictionary<string, string> candidateElements;
-                Dictionary<string, string> commonElements;
+               
                 List<IFCClass> childrenClass;
                 foreach (var cls in IFCClasses)
                 {
@@ -593,20 +570,27 @@ namespace IFCReader
                         var interfaceClass = cls.Value;
 
                         candidateElements = new Dictionary<string, string>();
-                        commonElements = new Dictionary<string, string>();
+                     
                         childrenClass = new List<IFCClass>();
-                        var children = interfaceClass.selectElements;
+                        var selecteds = interfaceClass.selectElements;
 
-                        foreach (var child in children)
+                        foreach (var selected in selecteds)
                         {
-                            if (IFCClasses.TryGetValue(child, out IFCClass childClass))
+                            List<string> allClasses = new List<string>(); // class including all childrens
+                            GetSubNames(allClasses, selected);
+
+
+                            foreach (var ac in allClasses)
                             {
-                              
-                                childrenClass.Add(childClass);
-                                childClass.interfaces.Add(interfaceClass.name);
+                                var selectedclass = IFCClasses[ac];
 
-                                var eles = childClass.fullAllElements;
-
+                                if (childrenClass.Contains(selectedclass))
+                                {
+                                    continue;
+                                }
+                                childrenClass.Add(selectedclass);
+                                selectedclass.interfaces.Add(interfaceClass.name);
+                                var eles = selectedclass.fullAllElements;
                                 foreach (var e in eles)
                                 {
                                     if (!e.Key.Contains("(") && !candidateElements.ContainsKey(e.Key))
@@ -614,12 +598,8 @@ namespace IFCReader
                                         candidateElements.Add(e.Key, e.Value);
                                     }
                                 }
-
-                                
                             }
                         }
-
-
                         foreach (var candidate in candidateElements)
                         {
                             bool forAll = true;
@@ -644,18 +624,11 @@ namespace IFCReader
                                 interfaceClass.propElement.Add(candidate.Key, candidate.Value);
                                 foreach (var childClass in childrenClass)
                                 {
-                                    if (childClass.isAbstract)
-                                    {
-                                        childClass.interfaces.Remove(interfaceClass.name);
-                                        continue;
-                                    }
-
                                     var newKey = "Get" + candidate.Key + "(){return " + candidate.Key + "; }";
                                     if (!childClass.getElements.ContainsKey(newKey))
                                     {
                                         childClass.getElements.Add(newKey, candidate.Value);
                                     }
-
                                 }
                             }
                         }
@@ -674,7 +647,31 @@ namespace IFCReader
 
 
 
-                    CreateSeperateClassFile("IfcCurve", "public static List<Vector3> GetCurve({0} {1})\n{\n List<Vector3> points = new List<Vector3>();\n return points;\n}\n");
+
+
+
+                void CreateSeperateClassFile(string name, string codeText)
+                {
+                    using (StreamWriter writer = new StreamWriter(name + " ClassList.txt"))
+                    {
+
+                        List<string> GeometricRepresentationItemName = new List<string>();
+                        GetSubNames(GeometricRepresentationItemName, name);
+
+                        foreach (var g in GeometricRepresentationItemName)
+                        {
+                            if (!IFCClasses[g].isAbstract)
+                            {
+                                writer.WriteLine("//https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/{0}.htm".Replace("{0}", g.ToLower()));
+                                writer.WriteLine(codeText.Replace("{0}", g).Replace("{1}", g.Replace("Ifc", "").Replace("{2}", g.ToLower())));
+                                //  writer.WriteLine(IFCClasses[g]);
+                            }
+
+                        }
+                    }
+                }
+
+                CreateSeperateClassFile("IfcCurve", "public static List<Vector3> GetCurve({0} {1})\n{\n List<Vector3> points = new List<Vector3>();\n return points;\n}\n");
 
                 CreateSeperateClassFile("IfcSolidModel", "public static Mesh GetSolid({0} {1})\n{\n Mesh mesh = new Mesh();\n return mesh;\n}\n");
 
@@ -696,6 +693,7 @@ namespace IFCReader
                     writer.WriteLine("{");
                     foreach (var cls in IFCClasses)
                     {
+                        cls.Value.SetString(IFCClasses);
                         string text = cls.Value.ToString();
                         //  Console.WriteLine("sss");
                         //   Console.WriteLine(text.Length);
@@ -773,83 +771,6 @@ namespace IFCReader
         }
 
 
-
-
-        public static void CreateEnumClassFromExpress(string input, string output)
-        {
-
-            Dictionary<string, IFCClass> IFCClasses = new Dictionary<string, IFCClass>();
-
-            Dictionary<string, IfcFunction> IFCFunctions = new Dictionary<string, IfcFunction>();
-
-
-            Dictionary<string, string> basicTypes = new Dictionary<string, string>()
-                {
-                    {"REAL","double"},
-                    {"INTEGER","int"},
-                    {"NUMBER","double"},
-                    {"LOGICAL","bool"},
-                    {"BOOLEAN","bool"},
-                    {"BINARY","int"},
-                    {"STRING","string"},
-
-                };
-
-
-            using (StreamReader reader = new StreamReader(input))
-            {
-                string rawText;
-                string[] texts;
-                string[] entityTexts;
-                IFCClass currentClass;
-                string currentline;
-                string currentrule = "";
-                string className;
-                string results = "";
-
-
-                //try
-                //{
-                while (!reader.EndOfStream)
-                {
-                    rawText = reader.ReadLine();
-                    if (rawText.Length == 0) continue;
-                    texts = rawText.Split(' ').ToArray();
-                    if (texts.Length == 0) continue;
-                    switch (texts[0])
-                    {
-                        case "TYPE":
-
-                        case "ENTITY":
-                            className = texts[1].Replace(";", "");
-                            results += "public const string " + className.ToUpper() + " = \"" + className + "\";\n";
-                            break;
-
-                        case "FUNCTION":
-                            break;
-                        case "":
-
-                            break;
-                        default:
-                            break;
-                    }
-
-                }
-
-
-
-
-
-                using (StreamWriter writer = new StreamWriter(output))
-                {
-                    writer.WriteLine(results);
-                    writer.Close();
-                }
-                reader.Close();
-
-
-            }
-        }
 
 
         public static void CreateStringCastterFromExpress(string input, string output)

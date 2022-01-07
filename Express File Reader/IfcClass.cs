@@ -9,6 +9,7 @@ namespace IFCReader
 
     public class IFCClass
     {
+        private string classText;
         public string name;
         public string superclassname;
         public List<string> subclasses;
@@ -33,6 +34,7 @@ namespace IFCReader
 
         public IFCClass(string dataType, string name, string subOf = "")
         {
+           
             extraText = "";
             interfaces = new List<string>();
             subclasses = new List<string>();
@@ -52,6 +54,7 @@ namespace IFCReader
             selectElements = new List<string>();
             this.dataType = dataType;
             this.name = name;
+            classText = name;
             isAbstract = false;
 
             this.superclassname = subOf;
@@ -120,8 +123,25 @@ namespace IFCReader
 
                 foreach (var s in superElements)
                 {
-                    getElements.Remove(s.Key);
+                    if (!s.Key.Contains("{override}"))
+                    {
+                        
+                        if (superClass.isAbstract)
+                        {
+                            if (!getElements.ContainsKey(s.Key + "{override}"))
+                            {
+                            //    getElements.Remove(s.Key);
+                              //  getElements.Add(s.Key + "{override}", s.Value);
+                            }
+                        }
+                    }
+                    
                 }
+
+
+               
+               
+                
                 CleanGetElement(IFCClasses, superClass.superclassname);
             }
         }
@@ -147,16 +167,20 @@ namespace IFCReader
             }
             return name;
         }
-
         public override string ToString()
         {
+            return classText;
+        }
+        public  void SetString(Dictionary<string, IFCClass> IFCClasses)
+        {
+
             Dictionary<string, string> deriveMapping = DeriveMapping.GetIFC4DeriveMapping();
             string str = "\tpublic " + (isAbstract ? "abstract " : "") + (dataType == "interface" ? dataType : "class") + " " + name;
             if (superclassname.Length > 0)
             {
                 str += " : " + superclassname;
             }
-
+           
             if (interfaces.Count > 0)
             {
                 for (int i = 0; i < interfaces.Count; i++)
@@ -235,20 +259,144 @@ namespace IFCReader
                     }
                     foreach (var ce in inverseElements)
                     {
-                        str += "\t\tpublic " + ce.Value + " " + ce.Key + ";\n// INVERSE : " + inverseText[ce.Key] + "\n";
+                        var eletype = ce.Value;
+                        str += "\t\tpublic " + eletype + " " + ce.Key;
+
+                        var invtext = inverseText[ce.Key];
+                        var invProp = invtext.Split(" ").Last().Replace(";","");
+                        if (ce.Value.Contains("<"))
+                        {
+
+
+                            int index1 = eletype.IndexOf("<");
+                            int index2 = eletype.IndexOf(">");
+
+                            var listType = eletype.Substring(index1 + 1, index2 - index1 - 1);
+
+
+
+                         
+                           var invinvtype = IFCClasses[listType].fullAllElements[invProp];
+                            if (invinvtype.Contains("<")){
+                                str += "=> Model.GetInstances<" + listType + ">().Where(e=> e." + invProp + ".Contains(this)).ToList();\n";
+                            }
+                            else
+                            {
+                                str += "=> Model.GetInstances<" + listType + ">().Where(e=> e." + invProp + " == this).ToList();\n";
+                            }
+                           
+                        }
+                        else
+                        {
+                           // str += ";\n";
+                           var invinvtype = IFCClasses[eletype].fullAllElements[invProp];
+                            if (invinvtype.Contains("<"))
+                            {
+                                str += "=> Model.GetInstances<" + eletype + ">().Where(e=> e." + invProp + ".Contains(this)).ToList()[0];\n";
+                            }
+                            else
+                            {
+                                str += "=> Model.GetInstances<" + eletype + ">().Where(e=> e." + invProp + " == this).ToList()[0];\n";
+                            }
+                        }
+                        str += "// INVERSE : " + inverseText[ce.Key] + "\n";
                     }
 
                     foreach (var ce in getElements)
                     {
-                        str += "\t\tpublic " + ce.Value + " " + ce.Key + "\n";
+                        string getTargetName = ce.Key.Substring(3, ce.Key.IndexOf("(") - 3);
+                       
+                        if (allElements.ContainsKey(getTargetName))
+                        {
+                            if (IFCClasses.ContainsKey(superclassname))
+                            {
+                                var superclass = IFCClasses[superclassname];
+                                if (superclass.getElements.ContainsKey(ce.Key))
+                                {
+                                    //if (isAbstract)
+                                    //{
+
+                                    //    str += "\t\tpublic abstract override " + ce.Value + " " + ce.Key.Substring(0, ce.Key.IndexOf("(")) + "(); \n";
+                                    //}
+                                    //else
+                                    //{
+
+
+                                    //}
+                                    str += "\t\tpublic override  " + ce.Value + " " + ce.Key + "\n";
+                                }
+                                else
+                                {
+                                    str += "\t\tpublic virtual " + ce.Value + " " + ce.Key + "\n";
+                                }
+                            }
+                            else
+                            {
+                                str += "\t\tpublic virtual " + ce.Value + " " + ce.Key + "\n";
+                            }
+
+                           
+                        }
+                       
+                        else if (fullAllElements.ContainsKey(getTargetName))
+                        {
+                            // value is somewhere above
+
+
+                            var superclass = IFCClasses[superclassname];
+
+                            if (superclass.getElements.ContainsKey(ce.Key))
+                            {
+                                if (isAbstract)
+                                {
+
+                                    str += "\t\tpublic abstract override " + ce.Value + " " + ce.Key.Substring(0, ce.Key.IndexOf("(")) + "(); \n";
+                                }
+                                else
+                                {
+                                    str += "\t\tpublic override  " + ce.Value + " " + ce.Key + "\n";
+
+                                }
+                            }
+
+                            else
+                            {
+                                if (isAbstract)
+                                {
+
+                                    str += "\t\tpublic abstract " + ce.Value + " " + ce.Key.Substring(0, ce.Key.IndexOf("(")) + "(); \n";
+                                }
+                                else
+                                {
+                                    str += "\t\tpublic virtual " + ce.Value + " " + ce.Key + "\n";
+
+                                }
+                            }
+
+
+                        }
+                        else
+                        {
+                            if (isAbstract)
+                            {
+
+                                str += "\t\tpublic abstract " + ce.Value + " " + ce.Key.Substring(0, ce.Key.IndexOf("(")) + "(); \n";
+                            }
+                            else
+                            {
+                                // it the code come here,l there is error
+                            }
+                           
+                        }
+      
+                      
                     }
-                    if (propElement.Count > 0)
-                    {
-                        str += "\n";
-                    }
+
+
+                    //constructor
                     str += "\t\tpublic " + name + "(){}\n";
                    
-                    //constructor
+                   
                     if(fullConsElement.Count > 0)
                     {
                         str += "\n";
@@ -298,7 +446,7 @@ namespace IFCReader
             {
                 str = str.Replace("return Value", "return this");
             }
-            return str;
+            classText = str;
         }
     }
 
