@@ -9,42 +9,42 @@ using System.Threading.Tasks;
 using ThreeDMaker.Geometry;
 namespace IFC_Geometry
 {
-    public static class ProfileDefMaker
+    public static class ProfileMaker
     {
         static Performance pfm = new Performance();
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcprofiledef.htm;
-        public static Profile2D GetProfileDef(IfcProfileDef ProfileDef)
+        public static Profile2D GetProfile(IfcProfileDef ProfileDef)
         {
             switch (ProfileDef.GetType().Name)
             {
-                case EntityName.IFCARBITRARYCLOSEDPROFILEDEF: return GetProfileDef((IfcArbitraryClosedProfileDef)ProfileDef);
-                case EntityName.IFCARBITRARYPROFILEDEFWITHVOIDS: return GetProfileDef((IfcArbitraryProfileDefWithVoids)ProfileDef);
-                case EntityName.IFCARBITRARYOPENPROFILEDEF: return GetProfileDef((IfcArbitraryOpenProfileDef)ProfileDef);
-                case EntityName.IFCCENTERLINEPROFILEDEF: return GetProfileDef((IfcCenterLineProfileDef)ProfileDef);
-                case EntityName.IFCCOMPOSITEPROFILEDEF: return GetProfileDef((IfcCompositeProfileDef)ProfileDef);
-                case EntityName.IFCDERIVEDPROFILEDEF:return GetProfileDef((IfcDerivedProfileDef)ProfileDef);
-                case EntityName.IFCMIRROREDPROFILEDEF: return GetProfileDef((IfcMirroredProfileDef)ProfileDef);
-                case EntityName.IFCASYMMETRICISHAPEPROFILEDEF: return GetProfileDef((IfcAsymmetricIShapeProfileDef)ProfileDef);
-                case EntityName.IFCCSHAPEPROFILEDEF: return GetProfileDef((IfcCShapeProfileDef)ProfileDef);
-                case EntityName.IFCCIRCLEPROFILEDEF: return GetProfileDef((IfcCircleProfileDef)ProfileDef);
-                case EntityName.IFCCIRCLEHOLLOWPROFILEDEF:return GetProfileDef((IfcCircleHollowProfileDef)ProfileDef);
-                case EntityName.IFCELLIPSEPROFILEDEF: return GetProfileDef((IfcEllipseProfileDef)ProfileDef);
-                case EntityName.IFCISHAPEPROFILEDEF: return GetProfileDef((IfcIShapeProfileDef)ProfileDef);
-                case EntityName.IFCLSHAPEPROFILEDEF: return GetProfileDef((IfcLShapeProfileDef)ProfileDef);
-                case EntityName.IFCRECTANGLEPROFILEDEF: return GetProfileDef((IfcRectangleProfileDef)ProfileDef);
-                case EntityName.IFCRECTANGLEHOLLOWPROFILEDEF: return GetProfileDef((IfcRectangleHollowProfileDef)ProfileDef);
-                case EntityName.IFCROUNDEDRECTANGLEPROFILEDEF: return GetProfileDef((IfcRoundedRectangleProfileDef)ProfileDef);
-                case EntityName.IFCTSHAPEPROFILEDEF: return GetProfileDef((IfcTShapeProfileDef)ProfileDef);
-                case EntityName.IFCTRAPEZIUMPROFILEDEF: return GetProfileDef((IfcTrapeziumProfileDef)ProfileDef);
-                case EntityName.IFCUSHAPEPROFILEDEF: return GetProfileDef((IfcUShapeProfileDef)ProfileDef);
-                case EntityName.IFCZSHAPEPROFILEDEF: return GetProfileDef((IfcZShapeProfileDef)ProfileDef);
+                case EntityName.IFCARBITRARYCLOSEDPROFILEDEF: return GetProfile((IfcArbitraryClosedProfileDef)ProfileDef);
+                case EntityName.IFCARBITRARYPROFILEDEFWITHVOIDS: return GetProfile((IfcArbitraryProfileDefWithVoids)ProfileDef);
+                case EntityName.IFCARBITRARYOPENPROFILEDEF: return GetProfile((IfcArbitraryOpenProfileDef)ProfileDef);
+                case EntityName.IFCCENTERLINEPROFILEDEF: return GetProfile((IfcCenterLineProfileDef)ProfileDef);
+                case EntityName.IFCCOMPOSITEPROFILEDEF: return GetProfile((IfcCompositeProfileDef)ProfileDef);
+                case EntityName.IFCDERIVEDPROFILEDEF:return GetProfile((IfcDerivedProfileDef)ProfileDef);
+                case EntityName.IFCMIRROREDPROFILEDEF: return GetProfile((IfcMirroredProfileDef)ProfileDef);
+                case EntityName.IFCASYMMETRICISHAPEPROFILEDEF: return GetProfile((IfcAsymmetricIShapeProfileDef)ProfileDef);
+                case EntityName.IFCCSHAPEPROFILEDEF: return GetProfile((IfcCShapeProfileDef)ProfileDef);
+                case EntityName.IFCCIRCLEPROFILEDEF: return GetProfile((IfcCircleProfileDef)ProfileDef);
+                case EntityName.IFCCIRCLEHOLLOWPROFILEDEF:return GetProfile((IfcCircleHollowProfileDef)ProfileDef);
+                case EntityName.IFCELLIPSEPROFILEDEF: return GetProfile((IfcEllipseProfileDef)ProfileDef);
+                case EntityName.IFCISHAPEPROFILEDEF: return GetProfile((IfcIShapeProfileDef)ProfileDef);
+                case EntityName.IFCLSHAPEPROFILEDEF: return GetProfile((IfcLShapeProfileDef)ProfileDef);
+                case EntityName.IFCRECTANGLEPROFILEDEF: return GetProfile((IfcRectangleProfileDef)ProfileDef);
+                case EntityName.IFCRECTANGLEHOLLOWPROFILEDEF: return GetProfile((IfcRectangleHollowProfileDef)ProfileDef);
+                case EntityName.IFCROUNDEDRECTANGLEPROFILEDEF: return GetProfile((IfcRoundedRectangleProfileDef)ProfileDef);
+                case EntityName.IFCTSHAPEPROFILEDEF: return GetProfile((IfcTShapeProfileDef)ProfileDef);
+                case EntityName.IFCTRAPEZIUMPROFILEDEF: return GetProfile((IfcTrapeziumProfileDef)ProfileDef);
+                case EntityName.IFCUSHAPEPROFILEDEF: return GetProfile((IfcUShapeProfileDef)ProfileDef);
+                case EntityName.IFCZSHAPEPROFILEDEF: return GetProfile((IfcZShapeProfileDef)ProfileDef);
                 default:return null;
             }
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcarbitraryclosedprofiledef.htm
-        public static Profile2D GetProfileDef(IfcArbitraryClosedProfileDef ArbitraryClosedProfileDef)
+        public static Profile2D GetProfile(IfcArbitraryClosedProfileDef ArbitraryClosedProfileDef)
         {
          
              var outer = CurveMaker.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
@@ -66,7 +66,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcarbitraryprofiledefwithvoids.htm
-        public static Profile2D GetProfileDef(IfcArbitraryProfileDefWithVoids ArbitraryProfileDefWithVoids)
+        public static Profile2D GetProfile(IfcArbitraryProfileDefWithVoids ArbitraryProfileDefWithVoids)
         {
             
             var outer = CurveMaker.GetCurve(ArbitraryProfileDefWithVoids.OuterCurve);
@@ -109,7 +109,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcarbitraryopenprofiledef.htm
-        public static Profile2D GetProfileDef(IfcArbitraryOpenProfileDef ArbitraryOpenProfileDef)
+        public static Profile2D GetProfile(IfcArbitraryOpenProfileDef ArbitraryOpenProfileDef)
         {
             var outer = CurveMaker.GetCurve(ArbitraryOpenProfileDef.Curve);
             List<Vector2> vector2s = new List<Vector2>();
@@ -123,7 +123,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifccenterlineprofiledef.htm
-        public static Profile2D GetProfileDef(IfcCenterLineProfileDef CenterLineProfileDef)
+        public static Profile2D GetProfile(IfcCenterLineProfileDef CenterLineProfileDef)
         {
            
             Profile2D profileDef = new Profile2D();
@@ -157,26 +157,26 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifccompositeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcCompositeProfileDef CompositeProfileDef)
+        public static Profile2D GetProfile(IfcCompositeProfileDef CompositeProfileDef)
         {
             //TO DO it should return multiple profile instead
             var profiles = CompositeProfileDef.Profiles;
             Profile2D profileDef = new Profile2D();
             foreach(var profile in profiles)
             {
-                profileDef.Composites.Add(GetProfileDef(profile));
+                profileDef.Composites.Add(GetProfile(profile));
             }
             return profileDef;
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcderivedprofiledef.htm
-        public static Profile2D GetProfileDef(IfcDerivedProfileDef DerivedProfileDef)
+        public static Profile2D GetProfile(IfcDerivedProfileDef DerivedProfileDef)
         {
             // TO DO
             IfcProfileDef parent = DerivedProfileDef.ParentProfile;
             IfcCartesianTransformationOperator2D transform = DerivedProfileDef.Operator;
 
-            Profile2D parentDef = GetProfileDef(parent);
+            Profile2D parentDef = GetProfile(parent);
             var inners = parentDef.InnerCurves;
             var outter = parentDef.OutterCurve;
 
@@ -187,7 +187,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcmirroredprofiledef.htm
-        public static Profile2D GetProfileDef(IfcMirroredProfileDef MirroredProfileDef)
+        public static Profile2D GetProfile(IfcMirroredProfileDef MirroredProfileDef)
         {
             // TO DO
             Profile2D profileDef = new Profile2D();
@@ -195,7 +195,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcasymmetricishapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcAsymmetricIShapeProfileDef AsymmetricIShapeProfileDef)
+        public static Profile2D GetProfile(IfcAsymmetricIShapeProfileDef AsymmetricIShapeProfileDef)
         {
 
             float x1 = (float) AsymmetricIShapeProfileDef.WebThickness / 2;
@@ -232,7 +232,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifccshapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcCShapeProfileDef CShapeProfileDef)
+        public static Profile2D GetProfile(IfcCShapeProfileDef CShapeProfileDef)
         {
             // Assume no mirror
             // Ignore curve
@@ -267,7 +267,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifccircleprofiledef.htm
-        public static Profile2D GetProfileDef(IfcCircleProfileDef CircleProfileDef)
+        public static Profile2D GetProfile(IfcCircleProfileDef CircleProfileDef)
         {
             double r = CircleProfileDef.Radius;
           
@@ -289,7 +289,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifccirclehollowprofiledef.htm
-        public static Profile2D GetProfileDef(IfcCircleHollowProfileDef CircleHollowProfileDef)
+        public static Profile2D GetProfile(IfcCircleHollowProfileDef CircleHollowProfileDef)
         {
             //Ignore hollow
             double r = CircleHollowProfileDef.Radius;
@@ -314,7 +314,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcellipseprofiledef.htm
-        public static Profile2D GetProfileDef(IfcEllipseProfileDef EllipseProfileDef)
+        public static Profile2D GetProfile(IfcEllipseProfileDef EllipseProfileDef)
         {
 
             double r1 = EllipseProfileDef.SemiAxis1;
@@ -338,7 +338,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcishapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcIShapeProfileDef IShapeProfileDef)
+        public static Profile2D GetProfile(IfcIShapeProfileDef IShapeProfileDef)
         {
             float x1 = (float)IShapeProfileDef.WebThickness / 2;
             float x2 = (float)IShapeProfileDef.FlangeThickness / 2;
@@ -373,7 +373,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifclshapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcLShapeProfileDef LShapeProfileDef)
+        public static Profile2D GetProfile(IfcLShapeProfileDef LShapeProfileDef)
         {
             float x1 = (float)(LShapeProfileDef.Width / 2 - LShapeProfileDef.Thickness);
             float x2 = (float)(LShapeProfileDef.Width / 2);
@@ -403,7 +403,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcrectangleprofiledef.htm
-        public static Profile2D GetProfileDef(IfcRectangleProfileDef RectangleProfileDef)
+        public static Profile2D GetProfile(IfcRectangleProfileDef RectangleProfileDef)
         {
             float w = (float) RectangleProfileDef.XDim / 2;
             float h = (float) RectangleProfileDef.YDim / 2;
@@ -428,7 +428,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcrectanglehollowprofiledef.htm
-        public static Profile2D GetProfileDef(IfcRectangleHollowProfileDef RectangleHollowProfileDef)
+        public static Profile2D GetProfile(IfcRectangleHollowProfileDef RectangleHollowProfileDef)
         {
             float w = (float)RectangleHollowProfileDef.XDim / 2;
             float h = (float)RectangleHollowProfileDef.YDim / 2;
@@ -455,7 +455,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcroundedrectangleprofiledef.htm
-        public static Profile2D GetProfileDef(IfcRoundedRectangleProfileDef RoundedRectangleProfileDef)
+        public static Profile2D GetProfile(IfcRoundedRectangleProfileDef RoundedRectangleProfileDef)
         {
             float w = (float)RoundedRectangleProfileDef.XDim / 2;
             float h = (float)RoundedRectangleProfileDef.YDim / 2;
@@ -482,7 +482,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifctshapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcTShapeProfileDef TShapeProfileDef)
+        public static Profile2D GetProfile(IfcTShapeProfileDef TShapeProfileDef)
         {
             float x1 = (float)TShapeProfileDef.WebThickness / 2;
             float x2 = (float)TShapeProfileDef.FlangeWidth / 2;
@@ -510,7 +510,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifctrapeziumprofiledef.htm
-        public static Profile2D GetProfileDef(IfcTrapeziumProfileDef TrapeziumProfileDef)
+        public static Profile2D GetProfile(IfcTrapeziumProfileDef TrapeziumProfileDef)
         {
             // Later
             Profile2D profileDef = new Profile2D();
@@ -518,7 +518,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcushapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcUShapeProfileDef UShapeProfileDef)
+        public static Profile2D GetProfile(IfcUShapeProfileDef UShapeProfileDef)
         {
             float x1 = (float)(UShapeProfileDef.FlangeWidth / 2 - UShapeProfileDef.WebThickness);
             float x2 = (float)UShapeProfileDef.FlangeWidth / 2;
@@ -546,7 +546,7 @@ namespace IFC_Geometry
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifczshapeprofiledef.htm
-        public static Profile2D GetProfileDef(IfcZShapeProfileDef ZShapeProfileDef)
+        public static Profile2D GetProfile(IfcZShapeProfileDef ZShapeProfileDef)
         {
             float x1 = (float) ZShapeProfileDef.WebThickness;
             float x2 = (float)(ZShapeProfileDef.FlangeWidth - ZShapeProfileDef.WebThickness);

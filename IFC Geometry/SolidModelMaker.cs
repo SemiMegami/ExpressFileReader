@@ -124,7 +124,7 @@ namespace IFC_Geometry
         {
 
             var sweptArea = ExtrudedAreaSolid.SweptArea;
-            var profileDef = ProfileDefMaker.GetProfileDef(sweptArea);
+            var profileDef = ProfileMaker.GetProfile(sweptArea);
             if (profileDef.Mesh!= null)
             {
                 Mesh3D Mesh3D = new Mesh3D();
