@@ -16,8 +16,7 @@ namespace ThreeDMaker.Geometry
         public List<int> FirstIndice { get; set; }
 
         public Mesh3D()
-        {
-            
+        {   
             Vertices = new List<Vector3>();
             Normals = new List<Vector3>();
             Triangles = new List<int>();
@@ -26,6 +25,15 @@ namespace ThreeDMaker.Geometry
             Lines = new List<int>();
         }
 
+        public Mesh3D(Mesh3D mesh)
+        {
+            Vertices = new List<Vector3>(mesh.Vertices);
+            Normals = new List<Vector3>(mesh.Normals);
+            Triangles = new List<int>(mesh.Triangles);
+            UVs = new List<Vector2>(mesh.UVs);
+            FirstIndice = new List<int>(mesh.FirstIndice);
+            Lines = new List<int>(mesh.Lines);
+        }
 
         public void ReCalculateNormal()
         {
