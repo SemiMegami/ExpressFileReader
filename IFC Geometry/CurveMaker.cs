@@ -40,6 +40,9 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm
         public static List<Vector3> GetCurve(IfcBSplineCurveWithKnots BSplineCurveWithKnots)
         {
+            //var P = BSplineCurveWithKnots.ControlPoints;
+            //var d = BSplineCurveWithKnots.Degree;
+            //BSplineCurveWithKnots.Knots
             List<Vector3> points = new List<Vector3>();
             return points;
         }
@@ -108,6 +111,65 @@ namespace IFC_Geometry
         public static List<Vector3> GetCurve(IfcIndexedPolyCurve IndexedPolyCurve)
         {
             List<Vector3> points = new List<Vector3>();
+            var pointList = IndexedPolyCurve.Points;
+            var segments = IndexedPolyCurve.Segments;
+            IfcCartesianPointList2D pointList2D = null;
+            IfcCartesianPointList3D pointList3D = null;
+            if(IndexedPolyCurve.Dim == 2)
+            {
+                pointList2D = (IfcCartesianPointList2D)pointList;
+            }
+            if (IndexedPolyCurve.Dim == 3)
+            {
+                pointList3D = (IfcCartesianPointList3D)pointList;
+            }
+            foreach (var segment in segments)
+            {
+                if (IfcBase.InTypeOf<IfcLineIndex>(segment))
+                {
+                    var lineIndex = (IfcLineIndex)segment;
+                    foreach(var i in lineIndex)
+                    {
+                        int j = i - 1;
+                        if (IndexedPolyCurve.Dim == 2)
+                        {
+                            
+                            var x = pointList2D.CoordList[j][0];
+                            var y = pointList2D.CoordList[j][1];
+                            points.Add(new Vector3((float)x, (float)y,0));
+                        }
+                        if (IndexedPolyCurve.Dim == 3)
+                        {
+                            var x = pointList3D.CoordList[j][0];
+                            var y = pointList3D.CoordList[j][1];
+                            var z = pointList3D.CoordList[j][2];
+                            points.Add(new Vector3((float)x, (float)y, (float)z));
+                        }
+                    }
+                }
+                else if (IfcBase.InTypeOf<IfcArcIndex>(segment))
+                {
+                    var arcIndex = (IfcArcIndex)segment;
+                    foreach (var i in arcIndex)
+                    {
+                        int j = i - 1;
+                        if (IndexedPolyCurve.Dim == 2)
+                        {
+                            var x = pointList2D.CoordList[j][0];
+                            var y = pointList2D.CoordList[j][1];
+                            points.Add(new Vector3((float)x, (float)y, 0));
+                        }
+                        if (IndexedPolyCurve.Dim == 3)
+                        {
+                            var x = pointList3D.CoordList[j][0];
+                            var y = pointList3D.CoordList[j][1];
+                            var z = pointList3D.CoordList[j][2];
+                            points.Add(new Vector3((float)x, (float)y, (float)z));
+                        }
+                    }
+                }
+            }
+           
             return points;
         }
 
