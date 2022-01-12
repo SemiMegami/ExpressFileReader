@@ -354,3 +354,10 @@ Express File Reader/obj/Express File Reader.csproj.nuget.dgspec.json
 Express File Reader/obj/Express File Reader.csproj.nuget.g.props
 Express File Reader/obj/project.assets.json
 Express File Reader/obj/project.nuget.cache
+*.cache
+*.cache
+Express File Reader/obj/Express File Reader.csproj.nuget.dgspec.json
+Express File Reader/obj/Express File Reader.csproj.nuget.g.props
+Express File Reader/obj/project.assets.json
+Express File Reader/obj/project.nuget.cache
+Express File Reader/obj/Debug/net5.0/Express File Reader.assets.cache
