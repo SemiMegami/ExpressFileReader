@@ -12,7 +12,7 @@ namespace IFC_Geometry.IFCGeoReader
     {
 
 
-        public static Dictionary<IfcLocalPlacement, List <Matrix4x4>> SetLocalMats (List <IfcLocalPlacement> placements)
+        static Dictionary<IfcLocalPlacement, List <Matrix4x4>> SetLocalMats (List <IfcLocalPlacement> placements)
         {
            Dictionary<IfcLocalPlacement, List <Matrix4x4>> dict = new Dictionary<IfcLocalPlacement, List <Matrix4x4>>();
             // 0 local
@@ -31,22 +31,13 @@ namespace IFC_Geometry.IFCGeoReader
           
         }
 
-        public static void UpdateGlobalMat(Dictionary<IfcLocalPlacement, List <Matrix4x4>> dict, IfcLocalPlacement head)
+        static void UpdateGlobalMat(Dictionary<IfcLocalPlacement, List <Matrix4x4>> dict, IfcLocalPlacement head)
         {
           //  if (head.ReferencedByPlacements == null) return;
             var headMat = dict[head][1];
-
-
-            var children = dict.Keys.Where(p => p.PlacementRelTo == head).ToList();
-
-            
-
+            var children = dict.Keys.Where(p => p.PlacementRelTo == head).ToList();          
             foreach (var child in children)
             {
-               // dict[child][1] = Matrix4x4.Multiply(dict[child][0], headMat);
-
-
-
                 dict[child][1] = Matrix4x4.Multiply(headMat, dict[child][0]);
                 UpdateGlobalMat(dict, child);
             }
@@ -138,16 +129,13 @@ namespace IFC_Geometry.IFCGeoReader
 
         public static Vector3 TransformPoint(IfcAxis2Placement3D position, Vector3 v)
         {
+            var coordinate = position.Location.Coordinates;
+            var P = position.P;
+            var x = coordinate[0] + P[0].DirectionRatios[0] * v.X + P[1].DirectionRatios[0] * v.Y + P[2].DirectionRatios[0] * v.Z;
+            var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y + P[2].DirectionRatios[1] * v.Z;
+            var z = coordinate[2] + P[0].DirectionRatios[2] * v.X + P[1].DirectionRatios[2] * v.Y + P[2].DirectionRatios[2] * v.Z;
 
-            var M = ToMatrix(position);
-            return  Vector3.Transform(v, Matrix4x4.Transpose(M));
-            //var coordinate = position.Location.Coordinates;
-            //var P = position.P;
-            //var x = coordinate[0] + P[0].DirectionRatios[0] * v.X + P[1].DirectionRatios[0] * v.Y + P[2].DirectionRatios[0] * v.Z;
-            //var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y + P[2].DirectionRatios[1] * v.Z;
-            //var z = coordinate[2] + P[0].DirectionRatios[2] * v.X + P[1].DirectionRatios[2] * v.Y + P[2].DirectionRatios[2] * v.Z;
-
-            //return new Vector3((float)x, (float)y, (float)z);
+            return new Vector3((float)x, (float)y, (float)z);
         }
         public static Vector2 TransformPoint(IfcAxis2Placement2D position, Vector2 v)
         {

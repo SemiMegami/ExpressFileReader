@@ -45,34 +45,34 @@ namespace ThreeDMaker.Geometry
             }
 
 
-            //OutlineMesh outlineMesh = new OutlineMesh(section);
+            OutlineMesh outlineMesh = new OutlineMesh(section);
 
-            //int nv = Vertices.Count;
+            int nv = Vertices.Count;
 
-            //AxisPoint3D lastAxis = path[nj - 1];
-            //foreach (var v in outlineMesh.Vertices)
-            //{
-            //    Vertices.Add(lastAxis.GetWorld(v));
-            //}
-            //for (int i = 0; i < outlineMesh.Triangles.Count; i++)
-            //{
-            //    Triangles.Add(outlineMesh.Triangles[i] + nv);
-            //}
+            AxisPoint3D lastAxis = path[nj - 1];
+            foreach (var v in outlineMesh.Vertices)
+            {
+                Vertices.Add(lastAxis.GetWorld(v));
+            }
+            for (int i = 0; i < outlineMesh.Triangles.Count; i++)
+            {
+                Triangles.Add(outlineMesh.Triangles[i] + nv);
+            }
 
 
-            //nv = Vertices.Count;
-            //AxisPoint3D firstAxis = path[0];
+            nv = Vertices.Count;
+            AxisPoint3D firstAxis = path[0];
 
-            //foreach (var v in outlineMesh.Vertices)
-            //{
-            //    Vertices.Add(firstAxis.GetWorld(v));
-            //}
-            //for (int i = 0; i < outlineMesh.Triangles.Count; i += 3)
-            //{
-            //    Triangles.Add(outlineMesh.Triangles[i] + nv);
-            //    Triangles.Add(outlineMesh.Triangles[i + 2] + nv);
-            //    Triangles.Add(outlineMesh.Triangles[i + 1] + nv);
-            //}
+            foreach (var v in outlineMesh.Vertices)
+            {
+                Vertices.Add(firstAxis.GetWorld(v));
+            }
+            for (int i = 0; i < outlineMesh.Triangles.Count; i += 3)
+            {
+                Triangles.Add(outlineMesh.Triangles[i] + nv);
+                Triangles.Add(outlineMesh.Triangles[i + 2] + nv);
+                Triangles.Add(outlineMesh.Triangles[i + 1] + nv);
+            }
         }
 
         

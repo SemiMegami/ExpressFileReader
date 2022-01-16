@@ -12,11 +12,13 @@ namespace IFCProjectTest
     {
         static void Main(string[] args)
         {
-      ///      testHole();
-           TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
-         //   TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
+            ///      testHole();
+            //   TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
+            //   TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
             //  TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
             //    TestLoadProject("20210219Architecture");
+            TestLoadProject("20201208DigitalHub_ARC");
+          //  TestLoadProject("20181220Holter_Tower_10");
         }
 
         static void testHole()
@@ -83,9 +85,19 @@ namespace IFCProjectTest
 
             var solidModels = model.GetInstances<IfcSolidModel>();
             Dictionary<IfcSolidModel, Mesh3D> solidDict = new Dictionary<IfcSolidModel, Mesh3D>();
+            List<string> UnsupportedSolid = new List<string>();
             foreach(var solid in solidModels)
             {
-                solidDict.Add(solid, SolidModelMaker.GetSolid(solid));
+                Mesh3D mesh = SolidModelMaker.GetSolid(solid);
+                if(mesh.Vertices.Count == 0)
+                {
+                    var solidtype = solid.GetType().Name;
+                    if (!UnsupportedSolid.Contains(solidtype))
+                    {
+                        UnsupportedSolid.Add(solidtype);
+                    }
+                }
+                solidDict.Add(solid, mesh);
             }
             var mappedItems = model.GetInstances<IfcMappedItem>();
             Dictionary<IfcMappedItem, List<Mesh3D>> mappedDict = new Dictionary<IfcMappedItem, List<Mesh3D>>();
@@ -97,6 +109,16 @@ namespace IFCProjectTest
             List<Mesh3D> meshes = new List<Mesh3D>() ;
             foreach (var element in elemments)
             {
+                var objectPlacement = element.ObjectPlacement;
+                Matrix4x4 globalmat;
+                if (objectPlacement != null)
+                {
+                    globalmat = Matrix4x4.Transpose(placementToMat[(IfcLocalPlacement)objectPlacement][1]);
+                }
+                else
+                {
+                    globalmat = Matrix4x4.Identity;
+                }
 
                 if (element.Representation != null)
                 {
@@ -122,17 +144,13 @@ namespace IFCProjectTest
                             }
                         }
 
-                        var objectPlacement = element.ObjectPlacement;
-                        if (objectPlacement.InTypeOf<IfcLocalPlacement>())
+                     
+                        foreach (var mesh in addingMeshes)
                         {
-                            var globalmat = Matrix4x4.Transpose(placementToMat[(IfcLocalPlacement)objectPlacement][1]);
-                            foreach (var mesh in addingMeshes)
+                            var vertives = mesh.Vertices;
+                            for (int i = 0; i < vertives.Count; i++)
                             {
-                                var vertives = mesh.Vertices;
-                                for (int i = 0; i < vertives.Count; i++)
-                                {
-                                    vertives[i] = Vector3.Transform(vertives[i], globalmat);
-                                }
+                                vertives[i] = Vector3.Transform(vertives[i], globalmat);
                             }
                         }
                         meshes.AddRange(addingMeshes);
@@ -160,6 +178,12 @@ namespace IFCProjectTest
             };
             fullmesh.ReCalculateNormal();
             fullmesh.ExportToObj("../../../../../" + filename +".obj", true);
+
+            Console.WriteLine("Unsuppported solid list:");
+            foreach(var un in UnsupportedSolid)
+            {
+                Console.WriteLine("\t" + un);
+            }
             Console.WriteLine("Finished");
         }
     }

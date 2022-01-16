@@ -96,16 +96,27 @@ namespace IFC4
 
         protected static List<IfcDirection> IfcBaseAxis(INTEGER Dim, IfcDirection Axis1, IfcDirection Axis2, IfcDirection Axis3)
         {
-            List<IfcDirection> U = null;
+            List<IfcDirection> U;
             REAL Factor;
             IfcDirection D1;
             IfcDirection D2;
 
             if(Dim == 3)
             {
-                D1 = NVL(IfcNormalise(Axis3), GetDirection(0,0,1));
-                D2 = IfcFirstProjAxis(D1, Axis1);
-                U = new List<IfcDirection>() {D2, IfcSecondProjAxis(D1, D2, Axis2), D1 };
+                if(Axis1 == null && Axis1 == null && Axis1 == null) // shortcut
+                {
+                    U = new List<IfcDirection>() { 
+                        new IfcDirection(new List<IfcReal>() { 1, 0, 0 }),
+                        new IfcDirection(new List<IfcReal>() { 0, 1, 0 }),
+                        new IfcDirection(new List<IfcReal>() { 0, 0, 1 }),
+                    };
+                }
+                else
+                {
+                    D1 = NVL(IfcNormalise(Axis3), GetDirection(0, 0, 1));
+                    D2 = IfcFirstProjAxis(D1, Axis1);
+                    U = new List<IfcDirection>() { D2, IfcSecondProjAxis(D1, D2, Axis2), D1 };
+                }
             }
             else
             {

@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ThreeDMaker.Geometry;
 using ThreeDMaker.Geometry.Dimension2;
-using IFC4;
 namespace IFC_Geometry
 {
     public class SolidModelMaker
@@ -48,14 +47,8 @@ namespace IFC_Geometry
                     vertices[i] = IFCGeoUtil.TransformPoint((IfcAxis2Placement3D) origin, vertices[i]);
                     if(t!= null)
                     {
-                        if (t.InTypeOf(EntityName.IFCCARTESIANTRANSFORMATIONOPERATOR3D))
-                        {
-                            vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator3D)t, vertices[i]);
-                        }
-                        if (t.InTypeOf(EntityName.IFCCARTESIANTRANSFORMATIONOPERATOR2D))
-                        {
-                            vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator2D)t, vertices[i]);
-                        }
+                        vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator3D)t, vertices[i]);
+                      
                     }
                   
                 }
@@ -112,7 +105,9 @@ namespace IFC_Geometry
 
             Mesh3D Mesh3D = new Mesh3D();
             var outters = FacetedBrep.Outer.CfsFaces;
-            foreach(var outter in outters)
+            int counter;
+            OutlineMesh m;
+            foreach (var outter in outters)
             {
                 var bounds = outter.Bounds;
                 foreach (var bound in bounds)
@@ -120,18 +115,17 @@ namespace IFC_Geometry
                     var loop = (IfcPolyLoop)bound.Bound;
                     var points = loop.Polygon;
                     List<Vector3> meshPoints = new List<Vector3>();
-                    foreach(var p in points)
+                    var orientation = bound.Orientation;
+                    foreach (var p in points)
                     { 
                         meshPoints.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], (float)p.Coordinates[2]));
                     }
-                    OutlineMesh m = new OutlineMesh(meshPoints);
-                    var c = Mesh3D.Vertices.Count;
-
-
+                    m = new OutlineMesh(meshPoints);
+                    counter = Mesh3D.Vertices.Count;
                     Mesh3D.Vertices.AddRange(m.Vertices);
                     foreach(var i in m.Triangles)
                     {
-                        Mesh3D.Triangles.Add(i + c);
+                        Mesh3D.Triangles.Add(i + counter);
                     }
                    
                 }
