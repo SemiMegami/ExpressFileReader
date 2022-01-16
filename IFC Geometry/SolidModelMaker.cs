@@ -7,6 +7,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using ThreeDMaker.Geometry;
+using ThreeDMaker.Geometry.Dimension2;
 using IFC4;
 namespace IFC_Geometry
 {
@@ -108,7 +109,35 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcfacetedbrep.htm
         public static Mesh3D GetSolid(IfcFacetedBrep FacetedBrep)
         {
+
             Mesh3D Mesh3D = new Mesh3D();
+            var outters = FacetedBrep.Outer.CfsFaces;
+            foreach(var outter in outters)
+            {
+                var bounds = outter.Bounds;
+                foreach (var bound in bounds)
+                {
+                    var loop = (IfcPolyLoop)bound.Bound;
+                    var points = loop.Polygon;
+                    List<Vector3> meshPoints = new List<Vector3>();
+                    foreach(var p in points)
+                    { 
+                        meshPoints.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], (float)p.Coordinates[2]));
+                    }
+                    OutlineMesh m = new OutlineMesh(meshPoints);
+                    var c = Mesh3D.Vertices.Count;
+
+
+                    Mesh3D.Vertices.AddRange(m.Vertices);
+                    foreach(var i in m.Triangles)
+                    {
+                        Mesh3D.Triangles.Add(i + c);
+                    }
+                   
+                }
+                
+            }
+            
             return Mesh3D;
         }
 
@@ -127,7 +156,7 @@ namespace IFC_Geometry
             var profileDef = ProfileMaker.GetProfile(sweptArea);
             if (profileDef.Mesh!= null)
             {
-                Mesh3D Mesh3D = new Mesh3D();
+                
                 float d = (float) ExtrudedAreaSolid.Depth;
                 var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
                 
@@ -159,8 +188,8 @@ namespace IFC_Geometry
                 };
                 Path3D point3Ds = new Path3D() { p0, p1 };
 
-                PolyLine2D p = new PolyLine2D(profileDef.OutterCurve);
-                Mesh3D = new ExtrudePathMesh(p, point3Ds);
+             //   Polyline2D p = new Polyline2D();
+                Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds);
                 var vertives = Mesh3D.Vertices;
                 for (int i = 0; i < vertives.Count; i++)
                 {
@@ -168,7 +197,7 @@ namespace IFC_Geometry
                 }
 
 
-
+              //  return new Mesh3D();
 
                 return Mesh3D;
             }

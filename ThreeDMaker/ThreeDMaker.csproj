@@ -4,4 +4,10 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Geometry\Dimension3\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Geometry\Dimension3\" />
+  </ItemGroup>
 </Project>

@@ -5,43 +5,55 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using ThreeDMaker.Geometry.Util;
-namespace ThreeDMaker.Geometry
+namespace ThreeDMaker.Geometry.Dimension2
 {
-    public class Line2D:PolyLine2D
+    public class Line2D:Shape2D
     {
-        private static int tolFactor = 10000;
-        float x1 => this[0].X;
-        float y1 => this[0].Y;
-        float x2 => this[1].X;
-        float y2 => this[1].Y;
 
-        float dx => x2 - x1;
-        float dy => y2 - y1;
+        public float X1 { get; set; }
+        public float Y1 { get; set; }
+        public float X2 { get; set; }
+        public float Y2 { get; set; }
+
+        float DX => X2 - X1;
+        float DY => Y2 - Y1;
 
         public Line2D(float x1, float y1, float x2, float y2)
         {
-            Add(x1, y1);
-            Add(x2, y2);     
+            X1 = x1;
+            Y1 = x2;
+            X2 = y1;
+            Y2 = y2;
+           
+            points = new List<Vector2>();
+            Add(X1, X2);
+            Add(Y1, Y2);
         }
 
         public Line2D(Vector2 v1, Vector2 v2)
         {
-            Add(v1.X, v1.Y);
-            Add(v2.X, v2.Y);
+            X1 = v1.X;
+            Y1 = v1.Y;
+            X2 = v2.X;
+            Y2 = v2.Y;
+            points = new List<Vector2>();
+            Add(X1, X2);
+            Add(Y1, Y2);
+            UpdatePoints();
         }
 
         // offsetLine
         public float GetY(float x)
         {
-            return dy / dx * (x - x1) + y1;
+            return DY / DX * (x - X1) + Y1;
         }
         public float GetX(float y)
         {
-            return dx / dy * (y - y1) + x1;
+            return DX / DY * (y - Y1) + X1;
         }
         public Vector2 GetV()
         {
-            return new  Vector2(dx, dy);
+            return new  Vector2(DX, DY);
         }
         public Vector2 GetNormolizedV()
         {
@@ -50,12 +62,12 @@ namespace ThreeDMaker.Geometry
 
         public Vector2 GetP1()
         {
-            return new Vector2(x1, y1);
+            return new Vector2(X1, Y1);
         }
 
         public Vector2 GetP2()
         {
-            return new Vector2(x2, y2);
+            return new Vector2(X2, Y2);
         }
 
         public float GetLenght()
@@ -67,11 +79,11 @@ namespace ThreeDMaker.Geometry
         {
             return GetV().LengthSquared();
         }
-        public Line2D GetOffSetLine(float d)
+        public override Line2D GetOffSet(float d)
         {
             Vector2 v = GetV();
             Vector2 n = d * GeometryUtil.GetRight(v);
-            return new Line2D(x1 + n.X, y1 + n.Y, x2 + n.X, y2 + n.Y);
+            return new Line2D(X1 + n.X, Y1 + n.Y, X2 + n.X, Y2 + n.Y);
         }
         public bool IsLineInterSec(Line2D l)
         {
@@ -84,7 +96,7 @@ namespace ThreeDMaker.Geometry
             var v = GetLineInterSec(l);
             if (float.IsNaN(v.X)) return false;
 
-            if(l.IsPointOnline(x1,y1) || l.IsPointOnline(x2, y2) || IsPointOnline(l.x1, l.y1) || IsPointOnline(l.x2, l.y2))
+            if(l.IsPointOnline(X1,Y1) || l.IsPointOnline(X2, Y2) || IsPointOnline(l.X1, l.Y1) || IsPointOnline(l.X2, l.Y2))
             {
                 return false;
             }
@@ -93,13 +105,13 @@ namespace ThreeDMaker.Geometry
         public Vector2 GetLineInterSec(Line2D l, bool noCheckIntersec = false)
         {
             //https://en.wikipedia.org/wiki/Line%E2%80%93line_intersection
-            float x3 = l.x1;
-            float y3 = l.y1;
-            float x4 = l.x2;
-            float y4 = l.y2;
+            float x3 = l.X1;
+            float y3 = l.Y1;
+            float x4 = l.X2;
+            float y4 = l.Y2;
 
-            float x12 = x1 - x2;
-            float y12 = y1 - y2;
+            float x12 = X1 - X2;
+            float y12 = Y1 - Y2;
             float x34 = x3 - x4;
             float y34 = y3 - y4;
             float D = x12 * y34 - y12 * x34;
@@ -108,7 +120,7 @@ namespace ThreeDMaker.Geometry
             {
                 return new Vector2 (float.NaN, float.NaN);
             }
-            float xy12 = x1 * y2 - y1 * x2;
+            float xy12 = X1 * Y2 - Y1 * X2;
             float xy34 = x3 * y4 - y3 * x4;
             float x = (xy12 * x34 - x12 * xy34) / D;
             float y = (xy12 * y34 - y12 * xy34) / D;
@@ -125,7 +137,7 @@ namespace ThreeDMaker.Geometry
         public float GetPointDistance(float x, float y, bool absolute = true)
         {
             var v12 = new Vector3(GetNormolizedV(),0);
-            var v = new Vector3(x - x1, y - y1,0);
+            var v = new Vector3(x - X1, y - Y1,0);
             var d = Vector3.Cross(v12,v).Z;
             if (absolute)
             {
@@ -149,8 +161,8 @@ namespace ThreeDMaker.Geometry
             var d = GetPointDistance(x, y);
             if(d <= tol)
             {
-                var v1 = new Vector2(x - x1, y - y1);
-                var v2 = new Vector2(x - x2, y - y2);
+                var v1 = new Vector2(x - X1, y - Y1);
+                var v2 = new Vector2(x - X2, y - Y2);
                 if(Vector2.Dot(v1,v2) < 0 || v1.LengthSquared() < tol * tol || v2.LengthSquared() < tol * tol)
                 {
                     return true;
@@ -167,8 +179,8 @@ namespace ThreeDMaker.Geometry
             var d = GetPointDistance(x, y);
             if (d <= tol)
             {
-                var v1 = new Vector2(x - x1, y - y1);
-                var v2 = new Vector2(x - x2, y - y2);
+                var v1 = new Vector2(x - X1, y - Y1);
+                var v2 = new Vector2(x - X2, y - Y2);
                 
                 if (Vector2.Dot(v1, v2) < 0 && !(v1.LengthSquared() < tol * tol || v2.LengthSquared() < tol * tol))
                 {
@@ -177,6 +189,12 @@ namespace ThreeDMaker.Geometry
 
             }
             return false;
+        }
+
+        public override void UpdatePoints()
+        {
+            points[0] = new Vector2(X1, X2);
+            points[1] = new Vector2(Y1, Y2);
         }
     }
 }

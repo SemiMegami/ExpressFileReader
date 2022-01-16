@@ -1,6 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-public class Config
+namespace ThreeDMaker.Config
 {
-    public Dictionary<string, Performance> Performances;
+    public class Option
+    {
+        public static Performance defultPerformance = new Performance();
+
+        public Dictionary<string, Performance> Performances { get; set; }
+    }
 }

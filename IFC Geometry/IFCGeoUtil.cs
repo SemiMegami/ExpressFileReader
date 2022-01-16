@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using IFC4;
 using System.Numerics;
+using ThreeDMaker.Geometry.Dimension2;
 namespace IFC_Geometry.IFCGeoReader
 {
     public class IFCGeoUtil
@@ -172,7 +173,20 @@ namespace IFC_Geometry.IFCGeoReader
             return V2;
         }
 
+        public static List<Vector2> TransformPoints(IfcAxis2Placement2D position, Shape2D vs)
+        {
+            var coordinate = position.Location.Coordinates;
+            var P = position.P;
+            List<Vector2> V2 = new List<Vector2>();
+            foreach (var v in vs.points)
+            {
+                var x = coordinate[0] + P[0].DirectionRatios[0] * v.X + P[1].DirectionRatios[0] * v.Y;
+                var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y;
+                V2.Add(new Vector2((float)x, (float)y));
+            }
 
+            return V2;
+        }
 
 
         public static Vector3 TransformVector(IfcAxis2Placement3D position, Vector3 V)

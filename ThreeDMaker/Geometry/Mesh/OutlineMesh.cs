@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using ThreeDMaker.Geometry.Dimension2;
 namespace ThreeDMaker.Geometry
 {
     public class OutlineMesh:Mesh3D
     {
 
 
-        public OutlineMesh(PolyLine2D section)
+        public OutlineMesh(Shape2D section)
         {
             Vertices.Clear();
-            foreach (var s in section)
+            foreach (var s in section.points)
             {
                 Vertices.Add(new Vector3(s,0));
             }
-            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section);
+            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section.points);
         }
 
         public OutlineMesh(List<Vector2> section)
@@ -50,19 +51,64 @@ namespace ThreeDMaker.Geometry
           
         }
 
-        public OutlineMesh(Polyline3D section)
-        {
+
+        public OutlineMesh(List<Vector3> section)
+        {// they shold be the same plan
             Vertices.Clear();
-            List<Vector2> Vector2s = new List<Vector2>();
-            foreach (var s in section)
+            Vertices.AddRange(section);
+            Triangles.Clear();
+            if (section.Count == 3)
             {
-                Vertices.Add(s);
-                Vector2s.Add(new Vector2(s.X, s.Y));
+                Triangles.Add(0);
+                Triangles.Add(1);
+                Triangles.Add(2);
             }
+            if (section.Count == 4)
+            {
+                Triangles.Add(0);
+                Triangles.Add(1);
+                Triangles.Add(2);
 
-            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(Vector2s);
+                Triangles.Add(0);
+                Triangles.Add(2);
+                Triangles.Add(3);
+
+            }
+            else
+            {
+                // get normal vector
+                Vector3 n = Vector3.Zero;
+                for(int i = 0; i < section.Count - 1; i++)
+                {
+                    n += Vector3.Cross(section[i], section[i + 1]);
+                }
+                n = Vector3.Normalize(n);
+
+                Vector3 a;
+                Vector3 b;
+                if(n.X == 0 && n.Y == 0)
+                {
+                    a = new Vector3(1, 0, 0);
+                }
+                else
+                {
+                    a = Vector3.Normalize(Vector3.Cross(Vector3.UnitZ, n));
+                }
+                b = Vector3.Cross(n, a);
+
+                List<Vector2> progs = new List<Vector2>();
+
+                foreach (var v in section)
+                {
+                    progs.Add(new Vector2(Vector3.Dot(v, a), Vector3.Dot(v, b)));
+                }
+
+
+                OutlineMesh mesh2 = new OutlineMesh(progs);
+
+                Triangles.AddRange(mesh2.Triangles);
+            }
         }
-
 
 
         static List<Vector2> GetMergedVertices(List<Vector2> vertices, List<Vector2> holeVertice)

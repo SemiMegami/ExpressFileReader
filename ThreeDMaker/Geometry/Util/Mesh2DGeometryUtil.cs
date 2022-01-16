@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using ThreeDMaker.Geometry.Util;
+using ThreeDMaker.Geometry.Dimension2;
 namespace ThreeDMaker.Geometry
 {
     class Mesh2DGeometryUtil

@@ -1,9 +1,15 @@
 ﻿using System;
-public class Performance
+namespace ThreeDMaker.Config
 {
-    public int curveDetail;
-    public Performance()
+    public class Performance
     {
-        curveDetail = 5;
+        public int curveDetail;
+        public int CurveAngleDegree { get; set; }
+
+        public int NCSections => 360 / CurveAngleDegree;
+        public Performance()
+        {
+            curveDetail = 5;
+        }
     }
 }
