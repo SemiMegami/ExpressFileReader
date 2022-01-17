@@ -116,7 +116,7 @@ namespace IFC_Geometry
                         int j = i - 1;
                         var x = pointList2D.CoordList[j][0];
                         var y = pointList2D.CoordList[j][1];
-                        points.Add(new Vector2((float)x, (float)y));
+                        points.Add(new Vector2(x, y));
                     }
                 }
                 else if (IfcBase.InTypeOf<IfcArcIndex>(segment))
@@ -127,7 +127,7 @@ namespace IFC_Geometry
                         int j = i - 1;
                         var x = pointList2D.CoordList[j][0];
                         var y = pointList2D.CoordList[j][1];
-                        points.Add(new Vector2((float)x, (float)y));
+                        points.Add(new Vector2(x, y));
                     }
                 }
             }
@@ -143,7 +143,7 @@ namespace IFC_Geometry
            
             foreach (var p in Polyline.Points)
             {
-                points.Add(new Vector2((float)p.Coordinates[0], (float)p.Coordinates[1]));
+                points.Add(new Vector2(p.Coordinates[0], p.Coordinates[1]));
             }
             return points;
         }
@@ -161,14 +161,14 @@ namespace IFC_Geometry
         public static List<Vector2> GetCurve(IfcCircle Circle)
         {
            
-            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Circle.Position, new Circle2D((float)Circle.Radius).points);
+            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Circle.Position, new Circle2D(Circle.Radius).points);
             return points;
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcellipse.htm
         public static List<Vector2> GetCurve(IfcEllipse Ellipse)
         {
-            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Ellipse.Position, new Ellipse2D((float)Ellipse.SemiAxis1, (float)Ellipse.SemiAxis2).points) ;
+            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Ellipse.Position, new Ellipse2D(Ellipse.SemiAxis1, Ellipse.SemiAxis2).points) ;
             return points;
         }
 
@@ -181,8 +181,8 @@ namespace IFC_Geometry
             float l = 10000;
             List<Vector2> points = new List<Vector2>() 
             {
-                new Vector2((float)point[0],(float)point[1]),
-                new Vector2((float)point[0] + l * (float) dir[0],(float)point[1] + l * (float) dir[1]),
+                new Vector2(point[0],point[1]),
+                new Vector2(point[0] + l *  dir[0],point[1] + l *  dir[1]),
             };
             return points;
         }

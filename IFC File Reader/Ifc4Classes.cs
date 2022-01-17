@@ -6,33 +6,33 @@ namespace IFC4
 	public class IfcAbsorbedDoseMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAbsorbedDoseMeasure() { }
-		public IfcAbsorbedDoseMeasure(double value) { Value = value; }
-		public static implicit operator IfcAbsorbedDoseMeasure(double x) { return new IfcAbsorbedDoseMeasure(x); }
-		public static implicit operator double(IfcAbsorbedDoseMeasure x) { return x.Value; }
+		public IfcAbsorbedDoseMeasure(float value) { Value = value; }
+		public static implicit operator IfcAbsorbedDoseMeasure(float x) { return new IfcAbsorbedDoseMeasure(x); }
+		public static implicit operator float(IfcAbsorbedDoseMeasure x) { return x.Value; }
 	}
 
 	public class IfcAccelerationMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAccelerationMeasure() { }
-		public IfcAccelerationMeasure(double value) { Value = value; }
-		public static implicit operator IfcAccelerationMeasure(double x) { return new IfcAccelerationMeasure(x); }
-		public static implicit operator double(IfcAccelerationMeasure x) { return x.Value; }
+		public IfcAccelerationMeasure(float value) { Value = value; }
+		public static implicit operator IfcAccelerationMeasure(float x) { return new IfcAccelerationMeasure(x); }
+		public static implicit operator float(IfcAccelerationMeasure x) { return x.Value; }
 	}
 
 	public class IfcAmountOfSubstanceMeasure : REAL, IfcMeasureValue
 	{
 		public IfcAmountOfSubstanceMeasure() { }
-		public IfcAmountOfSubstanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcAmountOfSubstanceMeasure(double x) { return new IfcAmountOfSubstanceMeasure(x); }
-		public static implicit operator double(IfcAmountOfSubstanceMeasure x) { return x.Value; }
+		public IfcAmountOfSubstanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcAmountOfSubstanceMeasure(float x) { return new IfcAmountOfSubstanceMeasure(x); }
+		public static implicit operator float(IfcAmountOfSubstanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcAngularVelocityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAngularVelocityMeasure() { }
-		public IfcAngularVelocityMeasure(double value) { Value = value; }
-		public static implicit operator IfcAngularVelocityMeasure(double x) { return new IfcAngularVelocityMeasure(x); }
-		public static implicit operator double(IfcAngularVelocityMeasure x) { return x.Value; }
+		public IfcAngularVelocityMeasure(float value) { Value = value; }
+		public static implicit operator IfcAngularVelocityMeasure(float x) { return new IfcAngularVelocityMeasure(x); }
+		public static implicit operator float(IfcAngularVelocityMeasure x) { return x.Value; }
 	}
 
 	public class IfcArcIndex : List<IfcPositiveInteger>, IfcSegmentIndexSelect
@@ -70,17 +70,17 @@ namespace IFC4
 	public class IfcAreaDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcAreaDensityMeasure() { }
-		public IfcAreaDensityMeasure(double value) { Value = value; }
-		public static implicit operator IfcAreaDensityMeasure(double x) { return new IfcAreaDensityMeasure(x); }
-		public static implicit operator double(IfcAreaDensityMeasure x) { return x.Value; }
+		public IfcAreaDensityMeasure(float value) { Value = value; }
+		public static implicit operator IfcAreaDensityMeasure(float x) { return new IfcAreaDensityMeasure(x); }
+		public static implicit operator float(IfcAreaDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcAreaMeasure : REAL, IfcMeasureValue
 	{
 		public IfcAreaMeasure() { }
-		public IfcAreaMeasure(double value) { Value = value; }
-		public static implicit operator IfcAreaMeasure(double x) { return new IfcAreaMeasure(x); }
-		public static implicit operator double(IfcAreaMeasure x) { return x.Value; }
+		public IfcAreaMeasure(float value) { Value = value; }
+		public static implicit operator IfcAreaMeasure(float x) { return new IfcAreaMeasure(x); }
+		public static implicit operator float(IfcAreaMeasure x) { return x.Value; }
 	}
 
 	public class IfcBinary : BINARY, IfcSimpleValue
@@ -126,7 +126,7 @@ namespace IFC4
 				Add(v);
 			}
 		}
-		public IfcComplexNumber(List<double> value)
+		public IfcComplexNumber(List<float> value)
 		{
 			Clear();
 			foreach (var v in value)
@@ -134,8 +134,8 @@ namespace IFC4
 				Add((REAL)v);
 			}
 		}
-		public static implicit operator IfcComplexNumber(List<double> x) { return new IfcComplexNumber(x); }
-		public static implicit operator List<double>(IfcComplexNumber x)
+		public static implicit operator IfcComplexNumber(List<float> x) { return new IfcComplexNumber(x); }
+		public static implicit operator List<float>(IfcComplexNumber x)
 		{
 			IfcComplexNumber y = new IfcComplexNumber();
 			foreach (var v in x)
@@ -180,25 +180,25 @@ namespace IFC4
 	public class IfcContextDependentMeasure : REAL, IfcMeasureValue
 	{
 		public IfcContextDependentMeasure() { }
-		public IfcContextDependentMeasure(double value) { Value = value; }
-		public static implicit operator IfcContextDependentMeasure(double x) { return new IfcContextDependentMeasure(x); }
-		public static implicit operator double(IfcContextDependentMeasure x) { return x.Value; }
+		public IfcContextDependentMeasure(float value) { Value = value; }
+		public static implicit operator IfcContextDependentMeasure(float x) { return new IfcContextDependentMeasure(x); }
+		public static implicit operator float(IfcContextDependentMeasure x) { return x.Value; }
 	}
 
 	public class IfcCountMeasure : NUMBER, IfcMeasureValue
 	{
 		public IfcCountMeasure() { }
-		public IfcCountMeasure(double value) { Value = value; }
-		public static implicit operator IfcCountMeasure(double x) { return new IfcCountMeasure(x); }
-		public static implicit operator double(IfcCountMeasure x) { return x.Value; }
+		public IfcCountMeasure(float value) { Value = value; }
+		public static implicit operator IfcCountMeasure(float x) { return new IfcCountMeasure(x); }
+		public static implicit operator float(IfcCountMeasure x) { return x.Value; }
 	}
 
 	public class IfcCurvatureMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcCurvatureMeasure() { }
-		public IfcCurvatureMeasure(double value) { Value = value; }
-		public static implicit operator IfcCurvatureMeasure(double x) { return new IfcCurvatureMeasure(x); }
-		public static implicit operator double(IfcCurvatureMeasure x) { return x.Value; }
+		public IfcCurvatureMeasure(float value) { Value = value; }
+		public static implicit operator IfcCurvatureMeasure(float x) { return new IfcCurvatureMeasure(x); }
+		public static implicit operator float(IfcCurvatureMeasure x) { return x.Value; }
 	}
 
 	public class IfcDate : STRING, IfcSimpleValue
@@ -252,9 +252,9 @@ namespace IFC4
 	public class IfcDoseEquivalentMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcDoseEquivalentMeasure() { }
-		public IfcDoseEquivalentMeasure(double value) { Value = value; }
-		public static implicit operator IfcDoseEquivalentMeasure(double x) { return new IfcDoseEquivalentMeasure(x); }
-		public static implicit operator double(IfcDoseEquivalentMeasure x) { return x.Value; }
+		public IfcDoseEquivalentMeasure(float value) { Value = value; }
+		public static implicit operator IfcDoseEquivalentMeasure(float x) { return new IfcDoseEquivalentMeasure(x); }
+		public static implicit operator float(IfcDoseEquivalentMeasure x) { return x.Value; }
 	}
 
 	public class IfcDuration : STRING, IfcSimpleValue, IfcTimeOrRatioSelect
@@ -268,65 +268,65 @@ namespace IFC4
 	public class IfcDynamicViscosityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcDynamicViscosityMeasure() { }
-		public IfcDynamicViscosityMeasure(double value) { Value = value; }
-		public static implicit operator IfcDynamicViscosityMeasure(double x) { return new IfcDynamicViscosityMeasure(x); }
-		public static implicit operator double(IfcDynamicViscosityMeasure x) { return x.Value; }
+		public IfcDynamicViscosityMeasure(float value) { Value = value; }
+		public static implicit operator IfcDynamicViscosityMeasure(float x) { return new IfcDynamicViscosityMeasure(x); }
+		public static implicit operator float(IfcDynamicViscosityMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricCapacitanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricCapacitanceMeasure() { }
-		public IfcElectricCapacitanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcElectricCapacitanceMeasure(double x) { return new IfcElectricCapacitanceMeasure(x); }
-		public static implicit operator double(IfcElectricCapacitanceMeasure x) { return x.Value; }
+		public IfcElectricCapacitanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcElectricCapacitanceMeasure(float x) { return new IfcElectricCapacitanceMeasure(x); }
+		public static implicit operator float(IfcElectricCapacitanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricChargeMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricChargeMeasure() { }
-		public IfcElectricChargeMeasure(double value) { Value = value; }
-		public static implicit operator IfcElectricChargeMeasure(double x) { return new IfcElectricChargeMeasure(x); }
-		public static implicit operator double(IfcElectricChargeMeasure x) { return x.Value; }
+		public IfcElectricChargeMeasure(float value) { Value = value; }
+		public static implicit operator IfcElectricChargeMeasure(float x) { return new IfcElectricChargeMeasure(x); }
+		public static implicit operator float(IfcElectricChargeMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricConductanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricConductanceMeasure() { }
-		public IfcElectricConductanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcElectricConductanceMeasure(double x) { return new IfcElectricConductanceMeasure(x); }
-		public static implicit operator double(IfcElectricConductanceMeasure x) { return x.Value; }
+		public IfcElectricConductanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcElectricConductanceMeasure(float x) { return new IfcElectricConductanceMeasure(x); }
+		public static implicit operator float(IfcElectricConductanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricCurrentMeasure : REAL, IfcMeasureValue
 	{
 		public IfcElectricCurrentMeasure() { }
-		public IfcElectricCurrentMeasure(double value) { Value = value; }
-		public static implicit operator IfcElectricCurrentMeasure(double x) { return new IfcElectricCurrentMeasure(x); }
-		public static implicit operator double(IfcElectricCurrentMeasure x) { return x.Value; }
+		public IfcElectricCurrentMeasure(float value) { Value = value; }
+		public static implicit operator IfcElectricCurrentMeasure(float x) { return new IfcElectricCurrentMeasure(x); }
+		public static implicit operator float(IfcElectricCurrentMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricResistanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricResistanceMeasure() { }
-		public IfcElectricResistanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcElectricResistanceMeasure(double x) { return new IfcElectricResistanceMeasure(x); }
-		public static implicit operator double(IfcElectricResistanceMeasure x) { return x.Value; }
+		public IfcElectricResistanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcElectricResistanceMeasure(float x) { return new IfcElectricResistanceMeasure(x); }
+		public static implicit operator float(IfcElectricResistanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcElectricVoltageMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcElectricVoltageMeasure() { }
-		public IfcElectricVoltageMeasure(double value) { Value = value; }
-		public static implicit operator IfcElectricVoltageMeasure(double x) { return new IfcElectricVoltageMeasure(x); }
-		public static implicit operator double(IfcElectricVoltageMeasure x) { return x.Value; }
+		public IfcElectricVoltageMeasure(float value) { Value = value; }
+		public static implicit operator IfcElectricVoltageMeasure(float x) { return new IfcElectricVoltageMeasure(x); }
+		public static implicit operator float(IfcElectricVoltageMeasure x) { return x.Value; }
 	}
 
 	public class IfcEnergyMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcEnergyMeasure() { }
-		public IfcEnergyMeasure(double value) { Value = value; }
-		public static implicit operator IfcEnergyMeasure(double x) { return new IfcEnergyMeasure(x); }
-		public static implicit operator double(IfcEnergyMeasure x) { return x.Value; }
+		public IfcEnergyMeasure(float value) { Value = value; }
+		public static implicit operator IfcEnergyMeasure(float x) { return new IfcEnergyMeasure(x); }
+		public static implicit operator float(IfcEnergyMeasure x) { return x.Value; }
 	}
 
 	public class IfcFontStyle : STRING
@@ -356,17 +356,17 @@ namespace IFC4
 	public class IfcForceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcForceMeasure() { }
-		public IfcForceMeasure(double value) { Value = value; }
-		public static implicit operator IfcForceMeasure(double x) { return new IfcForceMeasure(x); }
-		public static implicit operator double(IfcForceMeasure x) { return x.Value; }
+		public IfcForceMeasure(float value) { Value = value; }
+		public static implicit operator IfcForceMeasure(float x) { return new IfcForceMeasure(x); }
+		public static implicit operator float(IfcForceMeasure x) { return x.Value; }
 	}
 
 	public class IfcFrequencyMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcFrequencyMeasure() { }
-		public IfcFrequencyMeasure(double value) { Value = value; }
-		public static implicit operator IfcFrequencyMeasure(double x) { return new IfcFrequencyMeasure(x); }
-		public static implicit operator double(IfcFrequencyMeasure x) { return x.Value; }
+		public IfcFrequencyMeasure(float value) { Value = value; }
+		public static implicit operator IfcFrequencyMeasure(float x) { return new IfcFrequencyMeasure(x); }
+		public static implicit operator float(IfcFrequencyMeasure x) { return x.Value; }
 	}
 
 	public class IfcGloballyUniqueId : STRING
@@ -380,17 +380,17 @@ namespace IFC4
 	public class IfcHeatFluxDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcHeatFluxDensityMeasure() { }
-		public IfcHeatFluxDensityMeasure(double value) { Value = value; }
-		public static implicit operator IfcHeatFluxDensityMeasure(double x) { return new IfcHeatFluxDensityMeasure(x); }
-		public static implicit operator double(IfcHeatFluxDensityMeasure x) { return x.Value; }
+		public IfcHeatFluxDensityMeasure(float value) { Value = value; }
+		public static implicit operator IfcHeatFluxDensityMeasure(float x) { return new IfcHeatFluxDensityMeasure(x); }
+		public static implicit operator float(IfcHeatFluxDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcHeatingValueMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcHeatingValueMeasure() { }
-		public IfcHeatingValueMeasure(double value) { Value = value; }
-		public static implicit operator IfcHeatingValueMeasure(double x) { return new IfcHeatingValueMeasure(x); }
-		public static implicit operator double(IfcHeatingValueMeasure x) { return x.Value; }
+		public IfcHeatingValueMeasure(float value) { Value = value; }
+		public static implicit operator IfcHeatingValueMeasure(float x) { return new IfcHeatingValueMeasure(x); }
+		public static implicit operator float(IfcHeatingValueMeasure x) { return x.Value; }
 	}
 
 	public class IfcIdentifier : STRING, IfcSimpleValue
@@ -404,17 +404,17 @@ namespace IFC4
 	public class IfcIlluminanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcIlluminanceMeasure() { }
-		public IfcIlluminanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcIlluminanceMeasure(double x) { return new IfcIlluminanceMeasure(x); }
-		public static implicit operator double(IfcIlluminanceMeasure x) { return x.Value; }
+		public IfcIlluminanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcIlluminanceMeasure(float x) { return new IfcIlluminanceMeasure(x); }
+		public static implicit operator float(IfcIlluminanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcInductanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcInductanceMeasure() { }
-		public IfcInductanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcInductanceMeasure(double x) { return new IfcInductanceMeasure(x); }
-		public static implicit operator double(IfcInductanceMeasure x) { return x.Value; }
+		public IfcInductanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcInductanceMeasure(float x) { return new IfcInductanceMeasure(x); }
+		public static implicit operator float(IfcInductanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcInteger : INTEGER, IfcSimpleValue
@@ -436,25 +436,25 @@ namespace IFC4
 	public class IfcIonConcentrationMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcIonConcentrationMeasure() { }
-		public IfcIonConcentrationMeasure(double value) { Value = value; }
-		public static implicit operator IfcIonConcentrationMeasure(double x) { return new IfcIonConcentrationMeasure(x); }
-		public static implicit operator double(IfcIonConcentrationMeasure x) { return x.Value; }
+		public IfcIonConcentrationMeasure(float value) { Value = value; }
+		public static implicit operator IfcIonConcentrationMeasure(float x) { return new IfcIonConcentrationMeasure(x); }
+		public static implicit operator float(IfcIonConcentrationMeasure x) { return x.Value; }
 	}
 
 	public class IfcIsothermalMoistureCapacityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcIsothermalMoistureCapacityMeasure() { }
-		public IfcIsothermalMoistureCapacityMeasure(double value) { Value = value; }
-		public static implicit operator IfcIsothermalMoistureCapacityMeasure(double x) { return new IfcIsothermalMoistureCapacityMeasure(x); }
-		public static implicit operator double(IfcIsothermalMoistureCapacityMeasure x) { return x.Value; }
+		public IfcIsothermalMoistureCapacityMeasure(float value) { Value = value; }
+		public static implicit operator IfcIsothermalMoistureCapacityMeasure(float x) { return new IfcIsothermalMoistureCapacityMeasure(x); }
+		public static implicit operator float(IfcIsothermalMoistureCapacityMeasure x) { return x.Value; }
 	}
 
 	public class IfcKinematicViscosityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcKinematicViscosityMeasure() { }
-		public IfcKinematicViscosityMeasure(double value) { Value = value; }
-		public static implicit operator IfcKinematicViscosityMeasure(double x) { return new IfcKinematicViscosityMeasure(x); }
-		public static implicit operator double(IfcKinematicViscosityMeasure x) { return x.Value; }
+		public IfcKinematicViscosityMeasure(float value) { Value = value; }
+		public static implicit operator IfcKinematicViscosityMeasure(float x) { return new IfcKinematicViscosityMeasure(x); }
+		public static implicit operator float(IfcKinematicViscosityMeasure x) { return x.Value; }
 	}
 
 	public class IfcLabel : STRING, IfcSimpleValue
@@ -476,9 +476,9 @@ namespace IFC4
 	public class IfcLengthMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcLengthMeasure() { }
-		public IfcLengthMeasure(double value) { Value = value; }
-		public static implicit operator IfcLengthMeasure(double x) { return new IfcLengthMeasure(x); }
-		public static implicit operator double(IfcLengthMeasure x) { return x.Value; }
+		public IfcLengthMeasure(float value) { Value = value; }
+		public static implicit operator IfcLengthMeasure(float x) { return new IfcLengthMeasure(x); }
+		public static implicit operator float(IfcLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcLineIndex : List<IfcPositiveInteger>, IfcSegmentIndexSelect
@@ -516,33 +516,33 @@ namespace IFC4
 	public class IfcLinearForceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLinearForceMeasure() { }
-		public IfcLinearForceMeasure(double value) { Value = value; }
-		public static implicit operator IfcLinearForceMeasure(double x) { return new IfcLinearForceMeasure(x); }
-		public static implicit operator double(IfcLinearForceMeasure x) { return x.Value; }
+		public IfcLinearForceMeasure(float value) { Value = value; }
+		public static implicit operator IfcLinearForceMeasure(float x) { return new IfcLinearForceMeasure(x); }
+		public static implicit operator float(IfcLinearForceMeasure x) { return x.Value; }
 	}
 
 	public class IfcLinearMomentMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLinearMomentMeasure() { }
-		public IfcLinearMomentMeasure(double value) { Value = value; }
-		public static implicit operator IfcLinearMomentMeasure(double x) { return new IfcLinearMomentMeasure(x); }
-		public static implicit operator double(IfcLinearMomentMeasure x) { return x.Value; }
+		public IfcLinearMomentMeasure(float value) { Value = value; }
+		public static implicit operator IfcLinearMomentMeasure(float x) { return new IfcLinearMomentMeasure(x); }
+		public static implicit operator float(IfcLinearMomentMeasure x) { return x.Value; }
 	}
 
 	public class IfcLinearStiffnessMeasure : REAL, IfcDerivedMeasureValue, IfcTranslationalStiffnessSelect
 	{
 		public IfcLinearStiffnessMeasure() { }
-		public IfcLinearStiffnessMeasure(double value) { Value = value; }
-		public static implicit operator IfcLinearStiffnessMeasure(double x) { return new IfcLinearStiffnessMeasure(x); }
-		public static implicit operator double(IfcLinearStiffnessMeasure x) { return x.Value; }
+		public IfcLinearStiffnessMeasure(float value) { Value = value; }
+		public static implicit operator IfcLinearStiffnessMeasure(float x) { return new IfcLinearStiffnessMeasure(x); }
+		public static implicit operator float(IfcLinearStiffnessMeasure x) { return x.Value; }
 	}
 
 	public class IfcLinearVelocityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLinearVelocityMeasure() { }
-		public IfcLinearVelocityMeasure(double value) { Value = value; }
-		public static implicit operator IfcLinearVelocityMeasure(double x) { return new IfcLinearVelocityMeasure(x); }
-		public static implicit operator double(IfcLinearVelocityMeasure x) { return x.Value; }
+		public IfcLinearVelocityMeasure(float value) { Value = value; }
+		public static implicit operator IfcLinearVelocityMeasure(float x) { return new IfcLinearVelocityMeasure(x); }
+		public static implicit operator float(IfcLinearVelocityMeasure x) { return x.Value; }
 	}
 
 	public class IfcLogical : LOGICAL, IfcSimpleValue
@@ -556,137 +556,137 @@ namespace IFC4
 	public class IfcLuminousFluxMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLuminousFluxMeasure() { }
-		public IfcLuminousFluxMeasure(double value) { Value = value; }
-		public static implicit operator IfcLuminousFluxMeasure(double x) { return new IfcLuminousFluxMeasure(x); }
-		public static implicit operator double(IfcLuminousFluxMeasure x) { return x.Value; }
+		public IfcLuminousFluxMeasure(float value) { Value = value; }
+		public static implicit operator IfcLuminousFluxMeasure(float x) { return new IfcLuminousFluxMeasure(x); }
+		public static implicit operator float(IfcLuminousFluxMeasure x) { return x.Value; }
 	}
 
 	public class IfcLuminousIntensityDistributionMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcLuminousIntensityDistributionMeasure() { }
-		public IfcLuminousIntensityDistributionMeasure(double value) { Value = value; }
-		public static implicit operator IfcLuminousIntensityDistributionMeasure(double x) { return new IfcLuminousIntensityDistributionMeasure(x); }
-		public static implicit operator double(IfcLuminousIntensityDistributionMeasure x) { return x.Value; }
+		public IfcLuminousIntensityDistributionMeasure(float value) { Value = value; }
+		public static implicit operator IfcLuminousIntensityDistributionMeasure(float x) { return new IfcLuminousIntensityDistributionMeasure(x); }
+		public static implicit operator float(IfcLuminousIntensityDistributionMeasure x) { return x.Value; }
 	}
 
 	public class IfcLuminousIntensityMeasure : REAL, IfcMeasureValue
 	{
 		public IfcLuminousIntensityMeasure() { }
-		public IfcLuminousIntensityMeasure(double value) { Value = value; }
-		public static implicit operator IfcLuminousIntensityMeasure(double x) { return new IfcLuminousIntensityMeasure(x); }
-		public static implicit operator double(IfcLuminousIntensityMeasure x) { return x.Value; }
+		public IfcLuminousIntensityMeasure(float value) { Value = value; }
+		public static implicit operator IfcLuminousIntensityMeasure(float x) { return new IfcLuminousIntensityMeasure(x); }
+		public static implicit operator float(IfcLuminousIntensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMagneticFluxDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMagneticFluxDensityMeasure() { }
-		public IfcMagneticFluxDensityMeasure(double value) { Value = value; }
-		public static implicit operator IfcMagneticFluxDensityMeasure(double x) { return new IfcMagneticFluxDensityMeasure(x); }
-		public static implicit operator double(IfcMagneticFluxDensityMeasure x) { return x.Value; }
+		public IfcMagneticFluxDensityMeasure(float value) { Value = value; }
+		public static implicit operator IfcMagneticFluxDensityMeasure(float x) { return new IfcMagneticFluxDensityMeasure(x); }
+		public static implicit operator float(IfcMagneticFluxDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMagneticFluxMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMagneticFluxMeasure() { }
-		public IfcMagneticFluxMeasure(double value) { Value = value; }
-		public static implicit operator IfcMagneticFluxMeasure(double x) { return new IfcMagneticFluxMeasure(x); }
-		public static implicit operator double(IfcMagneticFluxMeasure x) { return x.Value; }
+		public IfcMagneticFluxMeasure(float value) { Value = value; }
+		public static implicit operator IfcMagneticFluxMeasure(float x) { return new IfcMagneticFluxMeasure(x); }
+		public static implicit operator float(IfcMagneticFluxMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassDensityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMassDensityMeasure() { }
-		public IfcMassDensityMeasure(double value) { Value = value; }
-		public static implicit operator IfcMassDensityMeasure(double x) { return new IfcMassDensityMeasure(x); }
-		public static implicit operator double(IfcMassDensityMeasure x) { return x.Value; }
+		public IfcMassDensityMeasure(float value) { Value = value; }
+		public static implicit operator IfcMassDensityMeasure(float x) { return new IfcMassDensityMeasure(x); }
+		public static implicit operator float(IfcMassDensityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassFlowRateMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMassFlowRateMeasure() { }
-		public IfcMassFlowRateMeasure(double value) { Value = value; }
-		public static implicit operator IfcMassFlowRateMeasure(double x) { return new IfcMassFlowRateMeasure(x); }
-		public static implicit operator double(IfcMassFlowRateMeasure x) { return x.Value; }
+		public IfcMassFlowRateMeasure(float value) { Value = value; }
+		public static implicit operator IfcMassFlowRateMeasure(float x) { return new IfcMassFlowRateMeasure(x); }
+		public static implicit operator float(IfcMassFlowRateMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassMeasure : REAL, IfcMeasureValue
 	{
 		public IfcMassMeasure() { }
-		public IfcMassMeasure(double value) { Value = value; }
-		public static implicit operator IfcMassMeasure(double x) { return new IfcMassMeasure(x); }
-		public static implicit operator double(IfcMassMeasure x) { return x.Value; }
+		public IfcMassMeasure(float value) { Value = value; }
+		public static implicit operator IfcMassMeasure(float x) { return new IfcMassMeasure(x); }
+		public static implicit operator float(IfcMassMeasure x) { return x.Value; }
 	}
 
 	public class IfcMassPerLengthMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMassPerLengthMeasure() { }
-		public IfcMassPerLengthMeasure(double value) { Value = value; }
-		public static implicit operator IfcMassPerLengthMeasure(double x) { return new IfcMassPerLengthMeasure(x); }
-		public static implicit operator double(IfcMassPerLengthMeasure x) { return x.Value; }
+		public IfcMassPerLengthMeasure(float value) { Value = value; }
+		public static implicit operator IfcMassPerLengthMeasure(float x) { return new IfcMassPerLengthMeasure(x); }
+		public static implicit operator float(IfcMassPerLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfElasticityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcModulusOfElasticityMeasure() { }
-		public IfcModulusOfElasticityMeasure(double value) { Value = value; }
-		public static implicit operator IfcModulusOfElasticityMeasure(double x) { return new IfcModulusOfElasticityMeasure(x); }
-		public static implicit operator double(IfcModulusOfElasticityMeasure x) { return x.Value; }
+		public IfcModulusOfElasticityMeasure(float value) { Value = value; }
+		public static implicit operator IfcModulusOfElasticityMeasure(float x) { return new IfcModulusOfElasticityMeasure(x); }
+		public static implicit operator float(IfcModulusOfElasticityMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfLinearSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfTranslationalSubgradeReactionSelect
 	{
 		public IfcModulusOfLinearSubgradeReactionMeasure() { }
-		public IfcModulusOfLinearSubgradeReactionMeasure(double value) { Value = value; }
-		public static implicit operator IfcModulusOfLinearSubgradeReactionMeasure(double x) { return new IfcModulusOfLinearSubgradeReactionMeasure(x); }
-		public static implicit operator double(IfcModulusOfLinearSubgradeReactionMeasure x) { return x.Value; }
+		public IfcModulusOfLinearSubgradeReactionMeasure(float value) { Value = value; }
+		public static implicit operator IfcModulusOfLinearSubgradeReactionMeasure(float x) { return new IfcModulusOfLinearSubgradeReactionMeasure(x); }
+		public static implicit operator float(IfcModulusOfLinearSubgradeReactionMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfRotationalSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfRotationalSubgradeReactionSelect
 	{
 		public IfcModulusOfRotationalSubgradeReactionMeasure() { }
-		public IfcModulusOfRotationalSubgradeReactionMeasure(double value) { Value = value; }
-		public static implicit operator IfcModulusOfRotationalSubgradeReactionMeasure(double x) { return new IfcModulusOfRotationalSubgradeReactionMeasure(x); }
-		public static implicit operator double(IfcModulusOfRotationalSubgradeReactionMeasure x) { return x.Value; }
+		public IfcModulusOfRotationalSubgradeReactionMeasure(float value) { Value = value; }
+		public static implicit operator IfcModulusOfRotationalSubgradeReactionMeasure(float x) { return new IfcModulusOfRotationalSubgradeReactionMeasure(x); }
+		public static implicit operator float(IfcModulusOfRotationalSubgradeReactionMeasure x) { return x.Value; }
 	}
 
 	public class IfcModulusOfSubgradeReactionMeasure : REAL, IfcDerivedMeasureValue, IfcModulusOfSubgradeReactionSelect
 	{
 		public IfcModulusOfSubgradeReactionMeasure() { }
-		public IfcModulusOfSubgradeReactionMeasure(double value) { Value = value; }
-		public static implicit operator IfcModulusOfSubgradeReactionMeasure(double x) { return new IfcModulusOfSubgradeReactionMeasure(x); }
-		public static implicit operator double(IfcModulusOfSubgradeReactionMeasure x) { return x.Value; }
+		public IfcModulusOfSubgradeReactionMeasure(float value) { Value = value; }
+		public static implicit operator IfcModulusOfSubgradeReactionMeasure(float x) { return new IfcModulusOfSubgradeReactionMeasure(x); }
+		public static implicit operator float(IfcModulusOfSubgradeReactionMeasure x) { return x.Value; }
 	}
 
 	public class IfcMoistureDiffusivityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMoistureDiffusivityMeasure() { }
-		public IfcMoistureDiffusivityMeasure(double value) { Value = value; }
-		public static implicit operator IfcMoistureDiffusivityMeasure(double x) { return new IfcMoistureDiffusivityMeasure(x); }
-		public static implicit operator double(IfcMoistureDiffusivityMeasure x) { return x.Value; }
+		public IfcMoistureDiffusivityMeasure(float value) { Value = value; }
+		public static implicit operator IfcMoistureDiffusivityMeasure(float x) { return new IfcMoistureDiffusivityMeasure(x); }
+		public static implicit operator float(IfcMoistureDiffusivityMeasure x) { return x.Value; }
 	}
 
 	public class IfcMolecularWeightMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMolecularWeightMeasure() { }
-		public IfcMolecularWeightMeasure(double value) { Value = value; }
-		public static implicit operator IfcMolecularWeightMeasure(double x) { return new IfcMolecularWeightMeasure(x); }
-		public static implicit operator double(IfcMolecularWeightMeasure x) { return x.Value; }
+		public IfcMolecularWeightMeasure(float value) { Value = value; }
+		public static implicit operator IfcMolecularWeightMeasure(float x) { return new IfcMolecularWeightMeasure(x); }
+		public static implicit operator float(IfcMolecularWeightMeasure x) { return x.Value; }
 	}
 
 	public class IfcMomentOfInertiaMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMomentOfInertiaMeasure() { }
-		public IfcMomentOfInertiaMeasure(double value) { Value = value; }
-		public static implicit operator IfcMomentOfInertiaMeasure(double x) { return new IfcMomentOfInertiaMeasure(x); }
-		public static implicit operator double(IfcMomentOfInertiaMeasure x) { return x.Value; }
+		public IfcMomentOfInertiaMeasure(float value) { Value = value; }
+		public static implicit operator IfcMomentOfInertiaMeasure(float x) { return new IfcMomentOfInertiaMeasure(x); }
+		public static implicit operator float(IfcMomentOfInertiaMeasure x) { return x.Value; }
 	}
 
 	public class IfcMonetaryMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcMonetaryMeasure() { }
-		public IfcMonetaryMeasure(double value) { Value = value; }
-		public static implicit operator IfcMonetaryMeasure(double x) { return new IfcMonetaryMeasure(x); }
-		public static implicit operator double(IfcMonetaryMeasure x) { return x.Value; }
+		public IfcMonetaryMeasure(float value) { Value = value; }
+		public static implicit operator IfcMonetaryMeasure(float x) { return new IfcMonetaryMeasure(x); }
+		public static implicit operator float(IfcMonetaryMeasure x) { return x.Value; }
 	}
 
 	public class IfcMonthInYearNumber : INTEGER
@@ -700,57 +700,57 @@ namespace IFC4
 	public class IfcNonNegativeLengthMeasure : IfcLengthMeasure, IfcBendingParameterSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcNonNegativeLengthMeasure() { }
-		public IfcNonNegativeLengthMeasure(double value) { Value = value; }
-		public static implicit operator IfcNonNegativeLengthMeasure(double x) { return new IfcNonNegativeLengthMeasure(x); }
-		public static implicit operator double(IfcNonNegativeLengthMeasure x) { return x.Value; }
+		public IfcNonNegativeLengthMeasure(float value) { Value = value; }
+		public static implicit operator IfcNonNegativeLengthMeasure(float x) { return new IfcNonNegativeLengthMeasure(x); }
+		public static implicit operator float(IfcNonNegativeLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcNormalisedRatioMeasure : IfcRatioMeasure, IfcColourOrFactor, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
 		public IfcNormalisedRatioMeasure() { }
-		public IfcNormalisedRatioMeasure(double value) { Value = value; }
-		public static implicit operator IfcNormalisedRatioMeasure(double x) { return new IfcNormalisedRatioMeasure(x); }
-		public static implicit operator double(IfcNormalisedRatioMeasure x) { return x.Value; }
+		public IfcNormalisedRatioMeasure(float value) { Value = value; }
+		public static implicit operator IfcNormalisedRatioMeasure(float x) { return new IfcNormalisedRatioMeasure(x); }
+		public static implicit operator float(IfcNormalisedRatioMeasure x) { return x.Value; }
 	}
 
 	public class IfcNumericMeasure : NUMBER, IfcMeasureValue
 	{
 		public IfcNumericMeasure() { }
-		public IfcNumericMeasure(double value) { Value = value; }
-		public static implicit operator IfcNumericMeasure(double x) { return new IfcNumericMeasure(x); }
-		public static implicit operator double(IfcNumericMeasure x) { return x.Value; }
+		public IfcNumericMeasure(float value) { Value = value; }
+		public static implicit operator IfcNumericMeasure(float x) { return new IfcNumericMeasure(x); }
+		public static implicit operator float(IfcNumericMeasure x) { return x.Value; }
 	}
 
 	public class IfcPHMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPHMeasure() { }
-		public IfcPHMeasure(double value) { Value = value; }
-		public static implicit operator IfcPHMeasure(double x) { return new IfcPHMeasure(x); }
-		public static implicit operator double(IfcPHMeasure x) { return x.Value; }
+		public IfcPHMeasure(float value) { Value = value; }
+		public static implicit operator IfcPHMeasure(float x) { return new IfcPHMeasure(x); }
+		public static implicit operator float(IfcPHMeasure x) { return x.Value; }
 	}
 
 	public class IfcParameterValue : REAL, IfcMeasureValue, IfcTrimmingSelect
 	{
 		public IfcParameterValue() { }
-		public IfcParameterValue(double value) { Value = value; }
-		public static implicit operator IfcParameterValue(double x) { return new IfcParameterValue(x); }
-		public static implicit operator double(IfcParameterValue x) { return x.Value; }
+		public IfcParameterValue(float value) { Value = value; }
+		public static implicit operator IfcParameterValue(float x) { return new IfcParameterValue(x); }
+		public static implicit operator float(IfcParameterValue x) { return x.Value; }
 	}
 
 	public class IfcPlanarForceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPlanarForceMeasure() { }
-		public IfcPlanarForceMeasure(double value) { Value = value; }
-		public static implicit operator IfcPlanarForceMeasure(double x) { return new IfcPlanarForceMeasure(x); }
-		public static implicit operator double(IfcPlanarForceMeasure x) { return x.Value; }
+		public IfcPlanarForceMeasure(float value) { Value = value; }
+		public static implicit operator IfcPlanarForceMeasure(float x) { return new IfcPlanarForceMeasure(x); }
+		public static implicit operator float(IfcPlanarForceMeasure x) { return x.Value; }
 	}
 
 	public class IfcPlaneAngleMeasure : REAL, IfcBendingParameterSelect, IfcMeasureValue
 	{
 		public IfcPlaneAngleMeasure() { }
-		public IfcPlaneAngleMeasure(double value) { Value = value; }
-		public static implicit operator IfcPlaneAngleMeasure(double x) { return new IfcPlaneAngleMeasure(x); }
-		public static implicit operator double(IfcPlaneAngleMeasure x) { return x.Value; }
+		public IfcPlaneAngleMeasure(float value) { Value = value; }
+		public static implicit operator IfcPlaneAngleMeasure(float x) { return new IfcPlaneAngleMeasure(x); }
+		public static implicit operator float(IfcPlaneAngleMeasure x) { return x.Value; }
 	}
 
 	public class IfcPositiveInteger : IfcInteger, IfcSimpleValue
@@ -764,33 +764,33 @@ namespace IFC4
 	public class IfcPositiveLengthMeasure : IfcLengthMeasure, IfcBendingParameterSelect, IfcHatchLineDistanceSelect, IfcMeasureValue, IfcSizeSelect
 	{
 		public IfcPositiveLengthMeasure() { }
-		public IfcPositiveLengthMeasure(double value) { Value = value; }
-		public static implicit operator IfcPositiveLengthMeasure(double x) { return new IfcPositiveLengthMeasure(x); }
-		public static implicit operator double(IfcPositiveLengthMeasure x) { return x.Value; }
+		public IfcPositiveLengthMeasure(float value) { Value = value; }
+		public static implicit operator IfcPositiveLengthMeasure(float x) { return new IfcPositiveLengthMeasure(x); }
+		public static implicit operator float(IfcPositiveLengthMeasure x) { return x.Value; }
 	}
 
 	public class IfcPositivePlaneAngleMeasure : IfcPlaneAngleMeasure, IfcBendingParameterSelect, IfcMeasureValue
 	{
 		public IfcPositivePlaneAngleMeasure() { }
-		public IfcPositivePlaneAngleMeasure(double value) { Value = value; }
-		public static implicit operator IfcPositivePlaneAngleMeasure(double x) { return new IfcPositivePlaneAngleMeasure(x); }
-		public static implicit operator double(IfcPositivePlaneAngleMeasure x) { return x.Value; }
+		public IfcPositivePlaneAngleMeasure(float value) { Value = value; }
+		public static implicit operator IfcPositivePlaneAngleMeasure(float x) { return new IfcPositivePlaneAngleMeasure(x); }
+		public static implicit operator float(IfcPositivePlaneAngleMeasure x) { return x.Value; }
 	}
 
 	public class IfcPositiveRatioMeasure : IfcRatioMeasure, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
 		public IfcPositiveRatioMeasure() { }
-		public IfcPositiveRatioMeasure(double value) { Value = value; }
-		public static implicit operator IfcPositiveRatioMeasure(double x) { return new IfcPositiveRatioMeasure(x); }
-		public static implicit operator double(IfcPositiveRatioMeasure x) { return x.Value; }
+		public IfcPositiveRatioMeasure(float value) { Value = value; }
+		public static implicit operator IfcPositiveRatioMeasure(float x) { return new IfcPositiveRatioMeasure(x); }
+		public static implicit operator float(IfcPositiveRatioMeasure x) { return x.Value; }
 	}
 
 	public class IfcPowerMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPowerMeasure() { }
-		public IfcPowerMeasure(double value) { Value = value; }
-		public static implicit operator IfcPowerMeasure(double x) { return new IfcPowerMeasure(x); }
-		public static implicit operator double(IfcPowerMeasure x) { return x.Value; }
+		public IfcPowerMeasure(float value) { Value = value; }
+		public static implicit operator IfcPowerMeasure(float x) { return new IfcPowerMeasure(x); }
+		public static implicit operator float(IfcPowerMeasure x) { return x.Value; }
 	}
 
 	public class IfcPresentableText : STRING
@@ -804,9 +804,9 @@ namespace IFC4
 	public class IfcPressureMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcPressureMeasure() { }
-		public IfcPressureMeasure(double value) { Value = value; }
-		public static implicit operator IfcPressureMeasure(double x) { return new IfcPressureMeasure(x); }
-		public static implicit operator double(IfcPressureMeasure x) { return x.Value; }
+		public IfcPressureMeasure(float value) { Value = value; }
+		public static implicit operator IfcPressureMeasure(float x) { return new IfcPressureMeasure(x); }
+		public static implicit operator float(IfcPressureMeasure x) { return x.Value; }
 	}
 
 	public class IfcPropertySetDefinitionSet : List<IfcPropertySetDefinition>, IfcPropertySetDefinitionSelect
@@ -825,153 +825,153 @@ namespace IFC4
 	public class IfcRadioActivityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcRadioActivityMeasure() { }
-		public IfcRadioActivityMeasure(double value) { Value = value; }
-		public static implicit operator IfcRadioActivityMeasure(double x) { return new IfcRadioActivityMeasure(x); }
-		public static implicit operator double(IfcRadioActivityMeasure x) { return x.Value; }
+		public IfcRadioActivityMeasure(float value) { Value = value; }
+		public static implicit operator IfcRadioActivityMeasure(float x) { return new IfcRadioActivityMeasure(x); }
+		public static implicit operator float(IfcRadioActivityMeasure x) { return x.Value; }
 	}
 
 	public class IfcRatioMeasure : REAL, IfcMeasureValue, IfcSizeSelect, IfcTimeOrRatioSelect
 	{
 		public IfcRatioMeasure() { }
-		public IfcRatioMeasure(double value) { Value = value; }
-		public static implicit operator IfcRatioMeasure(double x) { return new IfcRatioMeasure(x); }
-		public static implicit operator double(IfcRatioMeasure x) { return x.Value; }
+		public IfcRatioMeasure(float value) { Value = value; }
+		public static implicit operator IfcRatioMeasure(float x) { return new IfcRatioMeasure(x); }
+		public static implicit operator float(IfcRatioMeasure x) { return x.Value; }
 	}
 
 	public class IfcReal : REAL, IfcSimpleValue
 	{
 		public IfcReal() { }
-		public IfcReal(double value) { Value = value; }
-		public static implicit operator IfcReal(double x) { return new IfcReal(x); }
-		public static implicit operator double(IfcReal x) { return x.Value; }
+		public IfcReal(float value) { Value = value; }
+		public static implicit operator IfcReal(float x) { return new IfcReal(x); }
+		public static implicit operator float(IfcReal x) { return x.Value; }
 	}
 
 	public class IfcRotationalFrequencyMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcRotationalFrequencyMeasure() { }
-		public IfcRotationalFrequencyMeasure(double value) { Value = value; }
-		public static implicit operator IfcRotationalFrequencyMeasure(double x) { return new IfcRotationalFrequencyMeasure(x); }
-		public static implicit operator double(IfcRotationalFrequencyMeasure x) { return x.Value; }
+		public IfcRotationalFrequencyMeasure(float value) { Value = value; }
+		public static implicit operator IfcRotationalFrequencyMeasure(float x) { return new IfcRotationalFrequencyMeasure(x); }
+		public static implicit operator float(IfcRotationalFrequencyMeasure x) { return x.Value; }
 	}
 
 	public class IfcRotationalMassMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcRotationalMassMeasure() { }
-		public IfcRotationalMassMeasure(double value) { Value = value; }
-		public static implicit operator IfcRotationalMassMeasure(double x) { return new IfcRotationalMassMeasure(x); }
-		public static implicit operator double(IfcRotationalMassMeasure x) { return x.Value; }
+		public IfcRotationalMassMeasure(float value) { Value = value; }
+		public static implicit operator IfcRotationalMassMeasure(float x) { return new IfcRotationalMassMeasure(x); }
+		public static implicit operator float(IfcRotationalMassMeasure x) { return x.Value; }
 	}
 
 	public class IfcRotationalStiffnessMeasure : REAL, IfcDerivedMeasureValue, IfcRotationalStiffnessSelect
 	{
 		public IfcRotationalStiffnessMeasure() { }
-		public IfcRotationalStiffnessMeasure(double value) { Value = value; }
-		public static implicit operator IfcRotationalStiffnessMeasure(double x) { return new IfcRotationalStiffnessMeasure(x); }
-		public static implicit operator double(IfcRotationalStiffnessMeasure x) { return x.Value; }
+		public IfcRotationalStiffnessMeasure(float value) { Value = value; }
+		public static implicit operator IfcRotationalStiffnessMeasure(float x) { return new IfcRotationalStiffnessMeasure(x); }
+		public static implicit operator float(IfcRotationalStiffnessMeasure x) { return x.Value; }
 	}
 
 	public class IfcSectionModulusMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSectionModulusMeasure() { }
-		public IfcSectionModulusMeasure(double value) { Value = value; }
-		public static implicit operator IfcSectionModulusMeasure(double x) { return new IfcSectionModulusMeasure(x); }
-		public static implicit operator double(IfcSectionModulusMeasure x) { return x.Value; }
+		public IfcSectionModulusMeasure(float value) { Value = value; }
+		public static implicit operator IfcSectionModulusMeasure(float x) { return new IfcSectionModulusMeasure(x); }
+		public static implicit operator float(IfcSectionModulusMeasure x) { return x.Value; }
 	}
 
 	public class IfcSectionalAreaIntegralMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSectionalAreaIntegralMeasure() { }
-		public IfcSectionalAreaIntegralMeasure(double value) { Value = value; }
-		public static implicit operator IfcSectionalAreaIntegralMeasure(double x) { return new IfcSectionalAreaIntegralMeasure(x); }
-		public static implicit operator double(IfcSectionalAreaIntegralMeasure x) { return x.Value; }
+		public IfcSectionalAreaIntegralMeasure(float value) { Value = value; }
+		public static implicit operator IfcSectionalAreaIntegralMeasure(float x) { return new IfcSectionalAreaIntegralMeasure(x); }
+		public static implicit operator float(IfcSectionalAreaIntegralMeasure x) { return x.Value; }
 	}
 
 	public class IfcShearModulusMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcShearModulusMeasure() { }
-		public IfcShearModulusMeasure(double value) { Value = value; }
-		public static implicit operator IfcShearModulusMeasure(double x) { return new IfcShearModulusMeasure(x); }
-		public static implicit operator double(IfcShearModulusMeasure x) { return x.Value; }
+		public IfcShearModulusMeasure(float value) { Value = value; }
+		public static implicit operator IfcShearModulusMeasure(float x) { return new IfcShearModulusMeasure(x); }
+		public static implicit operator float(IfcShearModulusMeasure x) { return x.Value; }
 	}
 
 	public class IfcSolidAngleMeasure : REAL, IfcMeasureValue
 	{
 		public IfcSolidAngleMeasure() { }
-		public IfcSolidAngleMeasure(double value) { Value = value; }
-		public static implicit operator IfcSolidAngleMeasure(double x) { return new IfcSolidAngleMeasure(x); }
-		public static implicit operator double(IfcSolidAngleMeasure x) { return x.Value; }
+		public IfcSolidAngleMeasure(float value) { Value = value; }
+		public static implicit operator IfcSolidAngleMeasure(float x) { return new IfcSolidAngleMeasure(x); }
+		public static implicit operator float(IfcSolidAngleMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPowerLevelMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPowerLevelMeasure() { }
-		public IfcSoundPowerLevelMeasure(double value) { Value = value; }
-		public static implicit operator IfcSoundPowerLevelMeasure(double x) { return new IfcSoundPowerLevelMeasure(x); }
-		public static implicit operator double(IfcSoundPowerLevelMeasure x) { return x.Value; }
+		public IfcSoundPowerLevelMeasure(float value) { Value = value; }
+		public static implicit operator IfcSoundPowerLevelMeasure(float x) { return new IfcSoundPowerLevelMeasure(x); }
+		public static implicit operator float(IfcSoundPowerLevelMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPowerMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPowerMeasure() { }
-		public IfcSoundPowerMeasure(double value) { Value = value; }
-		public static implicit operator IfcSoundPowerMeasure(double x) { return new IfcSoundPowerMeasure(x); }
-		public static implicit operator double(IfcSoundPowerMeasure x) { return x.Value; }
+		public IfcSoundPowerMeasure(float value) { Value = value; }
+		public static implicit operator IfcSoundPowerMeasure(float x) { return new IfcSoundPowerMeasure(x); }
+		public static implicit operator float(IfcSoundPowerMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPressureLevelMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPressureLevelMeasure() { }
-		public IfcSoundPressureLevelMeasure(double value) { Value = value; }
-		public static implicit operator IfcSoundPressureLevelMeasure(double x) { return new IfcSoundPressureLevelMeasure(x); }
-		public static implicit operator double(IfcSoundPressureLevelMeasure x) { return x.Value; }
+		public IfcSoundPressureLevelMeasure(float value) { Value = value; }
+		public static implicit operator IfcSoundPressureLevelMeasure(float x) { return new IfcSoundPressureLevelMeasure(x); }
+		public static implicit operator float(IfcSoundPressureLevelMeasure x) { return x.Value; }
 	}
 
 	public class IfcSoundPressureMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSoundPressureMeasure() { }
-		public IfcSoundPressureMeasure(double value) { Value = value; }
-		public static implicit operator IfcSoundPressureMeasure(double x) { return new IfcSoundPressureMeasure(x); }
-		public static implicit operator double(IfcSoundPressureMeasure x) { return x.Value; }
+		public IfcSoundPressureMeasure(float value) { Value = value; }
+		public static implicit operator IfcSoundPressureMeasure(float x) { return new IfcSoundPressureMeasure(x); }
+		public static implicit operator float(IfcSoundPressureMeasure x) { return x.Value; }
 	}
 
 	public class IfcSpecificHeatCapacityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcSpecificHeatCapacityMeasure() { }
-		public IfcSpecificHeatCapacityMeasure(double value) { Value = value; }
-		public static implicit operator IfcSpecificHeatCapacityMeasure(double x) { return new IfcSpecificHeatCapacityMeasure(x); }
-		public static implicit operator double(IfcSpecificHeatCapacityMeasure x) { return x.Value; }
+		public IfcSpecificHeatCapacityMeasure(float value) { Value = value; }
+		public static implicit operator IfcSpecificHeatCapacityMeasure(float x) { return new IfcSpecificHeatCapacityMeasure(x); }
+		public static implicit operator float(IfcSpecificHeatCapacityMeasure x) { return x.Value; }
 	}
 
 	public class IfcSpecularExponent : REAL, IfcSpecularHighlightSelect
 	{
 		public IfcSpecularExponent() { }
-		public IfcSpecularExponent(double value) { Value = value; }
-		public static implicit operator IfcSpecularExponent(double x) { return new IfcSpecularExponent(x); }
-		public static implicit operator double(IfcSpecularExponent x) { return x.Value; }
+		public IfcSpecularExponent(float value) { Value = value; }
+		public static implicit operator IfcSpecularExponent(float x) { return new IfcSpecularExponent(x); }
+		public static implicit operator float(IfcSpecularExponent x) { return x.Value; }
 	}
 
 	public class IfcSpecularRoughness : REAL, IfcSpecularHighlightSelect
 	{
 		public IfcSpecularRoughness() { }
-		public IfcSpecularRoughness(double value) { Value = value; }
-		public static implicit operator IfcSpecularRoughness(double x) { return new IfcSpecularRoughness(x); }
-		public static implicit operator double(IfcSpecularRoughness x) { return x.Value; }
+		public IfcSpecularRoughness(float value) { Value = value; }
+		public static implicit operator IfcSpecularRoughness(float x) { return new IfcSpecularRoughness(x); }
+		public static implicit operator float(IfcSpecularRoughness x) { return x.Value; }
 	}
 
 	public class IfcTemperatureGradientMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcTemperatureGradientMeasure() { }
-		public IfcTemperatureGradientMeasure(double value) { Value = value; }
-		public static implicit operator IfcTemperatureGradientMeasure(double x) { return new IfcTemperatureGradientMeasure(x); }
-		public static implicit operator double(IfcTemperatureGradientMeasure x) { return x.Value; }
+		public IfcTemperatureGradientMeasure(float value) { Value = value; }
+		public static implicit operator IfcTemperatureGradientMeasure(float x) { return new IfcTemperatureGradientMeasure(x); }
+		public static implicit operator float(IfcTemperatureGradientMeasure x) { return x.Value; }
 	}
 
 	public class IfcTemperatureRateOfChangeMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcTemperatureRateOfChangeMeasure() { }
-		public IfcTemperatureRateOfChangeMeasure(double value) { Value = value; }
-		public static implicit operator IfcTemperatureRateOfChangeMeasure(double x) { return new IfcTemperatureRateOfChangeMeasure(x); }
-		public static implicit operator double(IfcTemperatureRateOfChangeMeasure x) { return x.Value; }
+		public IfcTemperatureRateOfChangeMeasure(float value) { Value = value; }
+		public static implicit operator IfcTemperatureRateOfChangeMeasure(float x) { return new IfcTemperatureRateOfChangeMeasure(x); }
+		public static implicit operator float(IfcTemperatureRateOfChangeMeasure x) { return x.Value; }
 	}
 
 	public class IfcText : STRING, IfcSimpleValue
@@ -1017,49 +1017,49 @@ namespace IFC4
 	public class IfcThermalAdmittanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalAdmittanceMeasure() { }
-		public IfcThermalAdmittanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcThermalAdmittanceMeasure(double x) { return new IfcThermalAdmittanceMeasure(x); }
-		public static implicit operator double(IfcThermalAdmittanceMeasure x) { return x.Value; }
+		public IfcThermalAdmittanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcThermalAdmittanceMeasure(float x) { return new IfcThermalAdmittanceMeasure(x); }
+		public static implicit operator float(IfcThermalAdmittanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalConductivityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalConductivityMeasure() { }
-		public IfcThermalConductivityMeasure(double value) { Value = value; }
-		public static implicit operator IfcThermalConductivityMeasure(double x) { return new IfcThermalConductivityMeasure(x); }
-		public static implicit operator double(IfcThermalConductivityMeasure x) { return x.Value; }
+		public IfcThermalConductivityMeasure(float value) { Value = value; }
+		public static implicit operator IfcThermalConductivityMeasure(float x) { return new IfcThermalConductivityMeasure(x); }
+		public static implicit operator float(IfcThermalConductivityMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalExpansionCoefficientMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalExpansionCoefficientMeasure() { }
-		public IfcThermalExpansionCoefficientMeasure(double value) { Value = value; }
-		public static implicit operator IfcThermalExpansionCoefficientMeasure(double x) { return new IfcThermalExpansionCoefficientMeasure(x); }
-		public static implicit operator double(IfcThermalExpansionCoefficientMeasure x) { return x.Value; }
+		public IfcThermalExpansionCoefficientMeasure(float value) { Value = value; }
+		public static implicit operator IfcThermalExpansionCoefficientMeasure(float x) { return new IfcThermalExpansionCoefficientMeasure(x); }
+		public static implicit operator float(IfcThermalExpansionCoefficientMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalResistanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalResistanceMeasure() { }
-		public IfcThermalResistanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcThermalResistanceMeasure(double x) { return new IfcThermalResistanceMeasure(x); }
-		public static implicit operator double(IfcThermalResistanceMeasure x) { return x.Value; }
+		public IfcThermalResistanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcThermalResistanceMeasure(float x) { return new IfcThermalResistanceMeasure(x); }
+		public static implicit operator float(IfcThermalResistanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermalTransmittanceMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcThermalTransmittanceMeasure() { }
-		public IfcThermalTransmittanceMeasure(double value) { Value = value; }
-		public static implicit operator IfcThermalTransmittanceMeasure(double x) { return new IfcThermalTransmittanceMeasure(x); }
-		public static implicit operator double(IfcThermalTransmittanceMeasure x) { return x.Value; }
+		public IfcThermalTransmittanceMeasure(float value) { Value = value; }
+		public static implicit operator IfcThermalTransmittanceMeasure(float x) { return new IfcThermalTransmittanceMeasure(x); }
+		public static implicit operator float(IfcThermalTransmittanceMeasure x) { return x.Value; }
 	}
 
 	public class IfcThermodynamicTemperatureMeasure : REAL, IfcMeasureValue
 	{
 		public IfcThermodynamicTemperatureMeasure() { }
-		public IfcThermodynamicTemperatureMeasure(double value) { Value = value; }
-		public static implicit operator IfcThermodynamicTemperatureMeasure(double x) { return new IfcThermodynamicTemperatureMeasure(x); }
-		public static implicit operator double(IfcThermodynamicTemperatureMeasure x) { return x.Value; }
+		public IfcThermodynamicTemperatureMeasure(float value) { Value = value; }
+		public static implicit operator IfcThermodynamicTemperatureMeasure(float x) { return new IfcThermodynamicTemperatureMeasure(x); }
+		public static implicit operator float(IfcThermodynamicTemperatureMeasure x) { return x.Value; }
 	}
 
 	public class IfcTime : STRING, IfcSimpleValue
@@ -1073,9 +1073,9 @@ namespace IFC4
 	public class IfcTimeMeasure : REAL, IfcMeasureValue
 	{
 		public IfcTimeMeasure() { }
-		public IfcTimeMeasure(double value) { Value = value; }
-		public static implicit operator IfcTimeMeasure(double x) { return new IfcTimeMeasure(x); }
-		public static implicit operator double(IfcTimeMeasure x) { return x.Value; }
+		public IfcTimeMeasure(float value) { Value = value; }
+		public static implicit operator IfcTimeMeasure(float x) { return new IfcTimeMeasure(x); }
+		public static implicit operator float(IfcTimeMeasure x) { return x.Value; }
 	}
 
 	public class IfcTimeStamp : INTEGER, IfcSimpleValue
@@ -1089,9 +1089,9 @@ namespace IFC4
 	public class IfcTorqueMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcTorqueMeasure() { }
-		public IfcTorqueMeasure(double value) { Value = value; }
-		public static implicit operator IfcTorqueMeasure(double x) { return new IfcTorqueMeasure(x); }
-		public static implicit operator double(IfcTorqueMeasure x) { return x.Value; }
+		public IfcTorqueMeasure(float value) { Value = value; }
+		public static implicit operator IfcTorqueMeasure(float x) { return new IfcTorqueMeasure(x); }
+		public static implicit operator float(IfcTorqueMeasure x) { return x.Value; }
 	}
 
 	public class IfcURIReference : STRING
@@ -1105,41 +1105,41 @@ namespace IFC4
 	public class IfcVaporPermeabilityMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcVaporPermeabilityMeasure() { }
-		public IfcVaporPermeabilityMeasure(double value) { Value = value; }
-		public static implicit operator IfcVaporPermeabilityMeasure(double x) { return new IfcVaporPermeabilityMeasure(x); }
-		public static implicit operator double(IfcVaporPermeabilityMeasure x) { return x.Value; }
+		public IfcVaporPermeabilityMeasure(float value) { Value = value; }
+		public static implicit operator IfcVaporPermeabilityMeasure(float x) { return new IfcVaporPermeabilityMeasure(x); }
+		public static implicit operator float(IfcVaporPermeabilityMeasure x) { return x.Value; }
 	}
 
 	public class IfcVolumeMeasure : REAL, IfcMeasureValue
 	{
 		public IfcVolumeMeasure() { }
-		public IfcVolumeMeasure(double value) { Value = value; }
-		public static implicit operator IfcVolumeMeasure(double x) { return new IfcVolumeMeasure(x); }
-		public static implicit operator double(IfcVolumeMeasure x) { return x.Value; }
+		public IfcVolumeMeasure(float value) { Value = value; }
+		public static implicit operator IfcVolumeMeasure(float x) { return new IfcVolumeMeasure(x); }
+		public static implicit operator float(IfcVolumeMeasure x) { return x.Value; }
 	}
 
 	public class IfcVolumetricFlowRateMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcVolumetricFlowRateMeasure() { }
-		public IfcVolumetricFlowRateMeasure(double value) { Value = value; }
-		public static implicit operator IfcVolumetricFlowRateMeasure(double x) { return new IfcVolumetricFlowRateMeasure(x); }
-		public static implicit operator double(IfcVolumetricFlowRateMeasure x) { return x.Value; }
+		public IfcVolumetricFlowRateMeasure(float value) { Value = value; }
+		public static implicit operator IfcVolumetricFlowRateMeasure(float x) { return new IfcVolumetricFlowRateMeasure(x); }
+		public static implicit operator float(IfcVolumetricFlowRateMeasure x) { return x.Value; }
 	}
 
 	public class IfcWarpingConstantMeasure : REAL, IfcDerivedMeasureValue
 	{
 		public IfcWarpingConstantMeasure() { }
-		public IfcWarpingConstantMeasure(double value) { Value = value; }
-		public static implicit operator IfcWarpingConstantMeasure(double x) { return new IfcWarpingConstantMeasure(x); }
-		public static implicit operator double(IfcWarpingConstantMeasure x) { return x.Value; }
+		public IfcWarpingConstantMeasure(float value) { Value = value; }
+		public static implicit operator IfcWarpingConstantMeasure(float x) { return new IfcWarpingConstantMeasure(x); }
+		public static implicit operator float(IfcWarpingConstantMeasure x) { return x.Value; }
 	}
 
 	public class IfcWarpingMomentMeasure : REAL, IfcDerivedMeasureValue, IfcWarpingStiffnessSelect
 	{
 		public IfcWarpingMomentMeasure() { }
-		public IfcWarpingMomentMeasure(double value) { Value = value; }
-		public static implicit operator IfcWarpingMomentMeasure(double x) { return new IfcWarpingMomentMeasure(x); }
-		public static implicit operator double(IfcWarpingMomentMeasure x) { return x.Value; }
+		public IfcWarpingMomentMeasure(float value) { Value = value; }
+		public static implicit operator IfcWarpingMomentMeasure(float x) { return new IfcWarpingMomentMeasure(x); }
+		public static implicit operator float(IfcWarpingMomentMeasure x) { return x.Value; }
 	}
 
 	public class IfcActionRequestTypeEnum

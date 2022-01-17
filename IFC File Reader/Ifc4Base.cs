@@ -59,11 +59,11 @@ namespace IFC4
             Dim.LuminousIntensityExponent == LuminousIntensityExponent;
         }
 
-        public static IfcDirection GetDirection(double x, double y)
+        public static IfcDirection GetDirection(float x, float y)
         {
             return new IfcDirection(new List<IfcReal>() { x, y});
         }
-        public static IfcDirection GetDirection(double x, double y, double z)
+        public static IfcDirection GetDirection(float x, float y, float z)
         {
             return new IfcDirection(new List<IfcReal>() { x, y, z });
         }
@@ -223,7 +223,7 @@ namespace IFC4
 
         protected static List<IfcDirection> IfcBuild2Axes(IfcDirection RefDirection)
         {
-            IfcDirection D =  NVL( IfcNormalise(RefDirection), GetDirection(1.0, 0.0));
+            IfcDirection D =  NVL( IfcNormalise(RefDirection), GetDirection(1f, 0f));
 
             return new List<IfcDirection>() { D, IfcOrthogonalComplement(D)};
         }
@@ -242,7 +242,7 @@ namespace IFC4
         {
             IfcDirection D1;
             IfcDirection D2;
-            D1 = NVL(IfcNormalise(Axis), GetDirection(0.0, 0.0, 1.0));
+            D1 = NVL(IfcNormalise(Axis), GetDirection(0f, 0f, 1f));
             D2 = IfcFirstProjAxis(D1, RefDirection);
             return new List<IfcDirection>() { D2, ( IfcNormalise(IfcCrossProduct(D1, D2))).Orientation , D1}; ;
         }
@@ -909,11 +909,11 @@ namespace IFC4
             }
             if(Mag > 0)
             {
-                Result = new IfcVector(Res, Math.Sqrt(Mag));
+                Result = new IfcVector(Res, MathF.Sqrt(Mag));
             }
             else
             {
-                Result = new IfcVector(Arg1, Math.Sqrt(0));
+                Result = new IfcVector(Arg1, MathF.Sqrt(0));
             }
             return Result;
         }
@@ -1237,7 +1237,7 @@ namespace IFC4
             {
                 Scalar = null;
             }
-            else if ((double) Arg1.Dim != (double)Arg2.Dim)
+            else if ((float) Arg1.Dim != (float)Arg2.Dim)
             {
                 Scalar = null;
             }
@@ -1621,7 +1621,7 @@ namespace IFC4
                 }
                 if (Mag > 0)
                 {
-                    Mag = Math.Sqrt(Mag);
+                    Mag = MathF.Sqrt(Mag);
                 }
                 for (int i = 0; i < Ndim; i++)
                 {
@@ -1899,9 +1899,9 @@ namespace IFC4
         {
             REAL ValidEps1;
             REAL ValidEps2;
-            REAL DefaultEps = 0.000001;
-            REAL DerivationOfEps = 1.001;
-            REAL UpperEps = 1.0;
+            REAL DefaultEps = 0.000001f;
+            REAL DerivationOfEps = 1.001f;
+            REAL UpperEps = 1.0f;
             ValidEps1 =  NVL(Epsilon1, DefaultEps);
             ValidEps2 = NVL(Epsilon2, DefaultEps);
             return((0.0 < ValidEps1) && (ValidEps1 <= (DerivationOfEps * ValidEps2)) &&
@@ -1926,7 +1926,7 @@ namespace IFC4
         protected static LOGICAL IfcSameValue(REAL Value1, REAL Value2, REAL Epsilon)
         {
             REAL ValidEps;
-            REAL DefaultEps = 0.000001;
+            REAL DefaultEps = 0.000001f;
             ValidEps = NVL(Epsilon, DefaultEps);
 
             return (Value1 + ValidEps > Value2) && (Value1 < Value2 + ValidEps);
@@ -1975,7 +1975,7 @@ namespace IFC4
                     }
                     Mag = -Mag;
                 }
-                Result = new IfcVector(IfcNormalise(V), (double) Mag);
+                Result = new IfcVector(IfcNormalise(V), (float) Mag);
                 return Result;
             }
         }
@@ -2787,7 +2787,7 @@ namespace IFC4
             REAL Mag1;
             REAL Mag2;
             INTEGER Ndim;
-            if(Arg1 == null || Arg2 == null || (double) Arg1.GetDim()!= (double) Arg2.GetDim())
+            if(Arg1 == null || Arg2 == null || (float) Arg1.GetDim()!= (float) Arg2.GetDim())
             {
                 return null;
             }
@@ -2826,7 +2826,7 @@ namespace IFC4
                 }
                 if(Mag > 0)
                 {
-                    Result = new IfcVector(Res, Math.Sqrt(Mag));
+                    Result = new IfcVector(Res, MathF.Sqrt(Mag));
                 }
                 else
                 {
@@ -2934,7 +2934,7 @@ namespace IFC4
                 }
                 if (Mag > 0)
                 {
-                    Result = new IfcVector(Res, Math.Sqrt(Mag));
+                    Result = new IfcVector(Res, MathF.Sqrt(Mag));
                 }
                 else
                 {

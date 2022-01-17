@@ -103,20 +103,20 @@ namespace IFC_Geometry.IFCGeoReader
             var P = position.P;
             Matrix4x4 M = new Matrix4x4()
             {
-                M11 = (float)P[0].DirectionRatios[0],
-                M12 = (float)P[1].DirectionRatios[0],
-                M13 = (float)P[2].DirectionRatios[0],
-                M14 = (float)coordinate[0],
+                M11 = P[0].DirectionRatios[0],
+                M12 = P[1].DirectionRatios[0],
+                M13 = P[2].DirectionRatios[0],
+                M14 = coordinate[0],
 
-                M21 = (float)P[0].DirectionRatios[1],
-                M22 = (float)P[1].DirectionRatios[1],
-                M23 = (float)P[2].DirectionRatios[1],
-                M24 = (float)coordinate[1],
+                M21 = P[0].DirectionRatios[1],
+                M22 = P[1].DirectionRatios[1],
+                M23 = P[2].DirectionRatios[1],
+                M24 = coordinate[1],
 
-                M31 = (float)P[0].DirectionRatios[2],
-                M32 = (float)P[1].DirectionRatios[2],
-                M33 = (float)P[2].DirectionRatios[2],
-                M34 = (float)coordinate[2],
+                M31 = P[0].DirectionRatios[2],
+                M32 = P[1].DirectionRatios[2],
+                M33 = P[2].DirectionRatios[2],
+                M34 = coordinate[2],
 
                 M41 = 0,
                 M42 = 0,
@@ -135,7 +135,7 @@ namespace IFC_Geometry.IFCGeoReader
             var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y + P[2].DirectionRatios[1] * v.Z;
             var z = coordinate[2] + P[0].DirectionRatios[2] * v.X + P[1].DirectionRatios[2] * v.Y + P[2].DirectionRatios[2] * v.Z;
 
-            return new Vector3((float)x, (float)y, (float)z);
+            return new Vector3(x, y, z);
         }
         public static Vector2 TransformPoint(IfcAxis2Placement2D position, Vector2 v)
         {
@@ -143,7 +143,7 @@ namespace IFC_Geometry.IFCGeoReader
             var P = position.P;
             var x = coordinate[0] + P[0].DirectionRatios[0] * v.X + P[1].DirectionRatios[0] * v.Y;
             var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y;
-            return new Vector2((float)x, (float)y);
+            return new Vector2(x, y);
         }
 
         public static List<Vector2> TransformPoints(IfcAxis2Placement2D position, List<Vector2> vs)
@@ -155,7 +155,7 @@ namespace IFC_Geometry.IFCGeoReader
             {
                 var x = coordinate[0] + P[0].DirectionRatios[0] * v.X + P[1].DirectionRatios[0] * v.Y;
                 var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y;
-                V2.Add(new Vector2((float)x, (float)y));
+                V2.Add(new Vector2(x, y));
             }
 
             return V2;
@@ -170,7 +170,7 @@ namespace IFC_Geometry.IFCGeoReader
             {
                 var x = coordinate[0] + P[0].DirectionRatios[0] * v.X + P[1].DirectionRatios[0] * v.Y;
                 var y = coordinate[1] + P[0].DirectionRatios[1] * v.X + P[1].DirectionRatios[1] * v.Y;
-                V2.Add(new Vector2((float)x, (float)y));
+                V2.Add(new Vector2(x, y));
             }
 
             return V2;
@@ -185,7 +185,7 @@ namespace IFC_Geometry.IFCGeoReader
             var y = P[1].DirectionRatios[0] * V.X + P[1].DirectionRatios[1] * V.Y + P[1].DirectionRatios[2] * V.Z;
             var z = P[2].DirectionRatios[0] * V.X + P[2].DirectionRatios[1] * V.Y + P[2].DirectionRatios[2] * V.Z;
 
-            return new Vector3((float)x, (float)y, (float)z);
+            return new Vector3(x, y, z);
         }
 
 
@@ -206,7 +206,7 @@ namespace IFC_Geometry.IFCGeoReader
             var x = origin[0] + s * (U[0].DirectionRatios[0] * V.X + U[0].DirectionRatios[1] * V.Y + U[0].DirectionRatios[2] * V.Z);
             var y = origin[1] + s * (U[1].DirectionRatios[0] * V.X + U[1].DirectionRatios[1] * V.Y + U[1].DirectionRatios[2] * V.Z);
             var z = origin[2] + s * (U[2].DirectionRatios[0] * V.X + U[2].DirectionRatios[1] * V.Y + U[2].DirectionRatios[2] * V.Z);
-            return new Vector3((float)x, (float)y, (float)z);
+            return new Vector3(x, y, z);
         }
 
        

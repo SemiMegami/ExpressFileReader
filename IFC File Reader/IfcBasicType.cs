@@ -8,11 +8,11 @@ namespace IFC4
 {
 	public class REAL
 	{
-		public double Value { get; set; }
+		public float Value { get; set; }
 		public REAL() { }
-		public REAL(double value) { Value = value; }
-		public static implicit operator REAL(double x) { return new REAL(x); }
-		public static implicit operator double(REAL x) { return x.Value; }
+		public REAL(float value) { Value = value; }
+		public static implicit operator REAL(float x) { return new REAL(x); }
+		public static implicit operator float(REAL x) { return x.Value; }
 		public override string ToString()
 		{
 			return Value + "";
@@ -34,11 +34,11 @@ namespace IFC4
 
 	public class NUMBER
 	{
-		public double Value { get; set; }
+		public float Value { get; set; }
 		public NUMBER() { }
-		public NUMBER(double value) { Value = value; }
-		public static implicit operator NUMBER(double x) { return new NUMBER(x); }
-		public static implicit operator double(NUMBER x) { return x.Value; }
+		public NUMBER(float value) { Value = value; }
+		public static implicit operator NUMBER(float x) { return new NUMBER(x); }
+		public static implicit operator float(NUMBER x) { return x.Value; }
 		public override string ToString()
 		{
 			return Value + "";

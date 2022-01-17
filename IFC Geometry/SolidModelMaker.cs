@@ -118,7 +118,7 @@ namespace IFC_Geometry
                     var orientation = bound.Orientation;
                     foreach (var p in points)
                     { 
-                        meshPoints.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], (float)p.Coordinates[2]));
+                        meshPoints.Add(new Vector3(p.Coordinates[0], p.Coordinates[1], p.Coordinates[2]));
                     }
                     m = new OutlineMesh(meshPoints);
                     counter = Mesh3D.Vertices.Count;
@@ -151,7 +151,7 @@ namespace IFC_Geometry
             if (profileDef.Mesh!= null)
             {
                 
-                float d = (float) ExtrudedAreaSolid.Depth;
+                float d =  ExtrudedAreaSolid.Depth;
                 var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
                 
              
@@ -174,7 +174,7 @@ namespace IFC_Geometry
                 };
                 AxisPoint3D p1 = new AxisPoint3D()
                 {
-                    Position = new Vector3((float)direction[0] * d, (float)direction[1] * d, (float)direction[2] * d),
+                    Position = new Vector3(direction[0] * d, direction[1] * d, direction[2] * d),
                     Front = front,
                     Right = right,
                     Up = up

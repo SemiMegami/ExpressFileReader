@@ -136,14 +136,14 @@ namespace IFC_Geometry
 
                             var x = pointList2D.CoordList[j][0];
                             var y = pointList2D.CoordList[j][1];
-                            points.Add(new Vector3((float)x, (float)y, 0));
+                            points.Add(new Vector3(x, y, 0));
                         }
                         if (IndexedPolyCurve.Dim == 3)
                         {
                             var x = pointList3D.CoordList[j][0];
                             var y = pointList3D.CoordList[j][1];
                             var z = pointList3D.CoordList[j][2];
-                            points.Add(new Vector3((float)x, (float)y, (float)z));
+                            points.Add(new Vector3(x, y, z));
                         }
                     }
                 }
@@ -157,14 +157,14 @@ namespace IFC_Geometry
                         {
                             var x = pointList2D.CoordList[j][0];
                             var y = pointList2D.CoordList[j][1];
-                            points.Add(new Vector3((float)x, (float)y, 0));
+                            points.Add(new Vector3(x, y, 0));
                         }
                         if (IndexedPolyCurve.Dim == 3)
                         {
                             var x = pointList3D.CoordList[j][0];
                             var y = pointList3D.CoordList[j][1];
                             var z = pointList3D.CoordList[j][2];
-                            points.Add(new Vector3((float)x, (float)y, (float)z));
+                            points.Add(new Vector3(x, y, z));
                         }
                     }
                 }
@@ -183,11 +183,11 @@ namespace IFC_Geometry
             {
                 if (p.Dim == 2)
                 {
-                    points.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], 0));
+                    points.Add(new Vector3(p.Coordinates[0], p.Coordinates[1], 0));
                 }
                 else
                 {
-                    points.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], (float)p.Coordinates[2]));
+                    points.Add(new Vector3(p.Coordinates[0], p.Coordinates[1], p.Coordinates[2]));
                 }
 
             }

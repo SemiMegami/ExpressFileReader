@@ -324,8 +324,8 @@ namespace IFC4
                 }
             }
 
-            //double
-            if (double.TryParse(input, out double numericResult))
+            //float
+            if (float.TryParse(input, out float numericResult))
             {
                 switch (type.Name)
                 {

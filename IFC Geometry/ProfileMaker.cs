@@ -86,8 +86,8 @@ namespace IFC_Geometry
             var curve = CurveMaker2D.GetCurve(CenterLineProfileDef.Curve);
             var t = CenterLineProfileDef.Thickness;
             Polyline2D polyline = new Polyline2D(curve);
-            Polyline2D polyline1 = polyline.GetOffSet((float) t / 2);
-            Polyline2D polyline2 = polyline.GetOffSet(-(float)t / 2);
+            Polyline2D polyline1 = polyline.GetOffSet( t / 2);
+            Polyline2D polyline2 = polyline.GetOffSet(-t / 2);
             List<Vector2> vector2s = new List<Vector2>();
             for (int i = 0; i < curve.Count; i++)
             {
@@ -144,12 +144,12 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcAsymmetricIShapeProfileDef AsymmetricIShapeProfileDef)
         {
 
-            float x1 = (float) AsymmetricIShapeProfileDef.WebThickness / 2;
-            float x2 = (float)AsymmetricIShapeProfileDef.TopFlangeWidth / 2;
-            float x3 = (float)AsymmetricIShapeProfileDef.BottomFlangeWidth / 2;
-            float y1 = - (float)AsymmetricIShapeProfileDef.OverallDepth / 2;
-            float y2 = y1 + (float)AsymmetricIShapeProfileDef.BottomFlangeThickness;       
-            float y3 = - (float)AsymmetricIShapeProfileDef.TopFlangeThickness- y1;
+            float x1 =  AsymmetricIShapeProfileDef.WebThickness / 2;
+            float x2 = AsymmetricIShapeProfileDef.TopFlangeWidth / 2;
+            float x3 = AsymmetricIShapeProfileDef.BottomFlangeWidth / 2;
+            float y1 = - AsymmetricIShapeProfileDef.OverallDepth / 2;
+            float y2 = y1 + AsymmetricIShapeProfileDef.BottomFlangeThickness;       
+            float y3 = - AsymmetricIShapeProfileDef.TopFlangeThickness- y1;
             float y4 =  - y1;
             // Ignoring Curve
             Vector2s line = new Vector2s() {
@@ -181,11 +181,11 @@ namespace IFC_Geometry
         {
             // Assume no mirror
             // Ignore curve
-            float x1 = (float)(CShapeProfileDef.Width / 2 - CShapeProfileDef.WallThickness);
-            float x2 = (float)(CShapeProfileDef.Width / 2);
-            float y1 = (float)(CShapeProfileDef.Depth / 2 - CShapeProfileDef.Girth);
-            float y2 = (float)(CShapeProfileDef.Depth / 2 - CShapeProfileDef.WallThickness);
-            float y3 = (float)(CShapeProfileDef.Depth / 2);
+            float x1 = (CShapeProfileDef.Width / 2 - CShapeProfileDef.WallThickness);
+            float x2 = (CShapeProfileDef.Width / 2);
+            float y1 = (CShapeProfileDef.Depth / 2 - CShapeProfileDef.Girth);
+            float y2 = (CShapeProfileDef.Depth / 2 - CShapeProfileDef.WallThickness);
+            float y3 = (CShapeProfileDef.Depth / 2);
 
             Vector2s line = new Vector2s()
             {
@@ -214,16 +214,16 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifccircleprofiledef.htm
         public static Profile2D GetProfile(IfcCircleProfileDef CircleProfileDef)
         {
-            double r = CircleProfileDef.Radius;
+            float r = CircleProfileDef.Radius;
           
             int n = pfm.curveDetail * 4;
-            double dTheta = 2 * Math.PI / n;
+            float dTheta = 2 * MathF.PI / n;
             List<Vector2> vector2s = new List<Vector2>();
-            double theta;
+            float theta;
             for(int i = 0; i < n; i++)
             {
                 theta = i * dTheta / n;
-                vector2s.Add(new Vector2((float) ( r * Math.Cos(theta)), (float)( r * Math.Cos(theta))));
+                vector2s.Add(new Vector2(  r * MathF.Cos(theta),  r * MathF.Sin(theta)));
 
             }
             var moved = IFCGeoUtil.TransformPoints(CircleProfileDef.Position, vector2s);
@@ -237,18 +237,18 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcCircleHollowProfileDef CircleHollowProfileDef)
         {
             //Ignore hollow
-            double r = CircleHollowProfileDef.Radius;
+            float r = CircleHollowProfileDef.Radius;
             var location = CircleHollowProfileDef.Position.Location;
-            double x = location.Coordinates[0];
-            double y = location.Coordinates[1];
+            float x = location.Coordinates[0];
+            float y = location.Coordinates[1];
             int n = pfm.curveDetail * 4;
-            double dTheta = 2 * Math.PI / n;
+            float dTheta = 2 * MathF.PI / n;
             List<Vector2> vector2s = new List<Vector2>();
-            double theta;
+            float theta;
             for (int i = 0; i < n; i++)
             {
                 theta = i * dTheta / n;
-                vector2s.Add(new Vector2((float)( r * Math.Cos(theta)), (float)( r * Math.Cos(theta))));
+                vector2s.Add(new Vector2( r * MathF.Cos(theta),  r * MathF.Sin(theta)));
 
             }
             var moved = IFCGeoUtil.TransformPoints(CircleHollowProfileDef.Position, vector2s);
@@ -262,17 +262,17 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcEllipseProfileDef EllipseProfileDef)
         {
 
-            double r1 = EllipseProfileDef.SemiAxis1;
-            double r2 = EllipseProfileDef.SemiAxis1;
+            float r1 = EllipseProfileDef.SemiAxis1;
+            float r2 = EllipseProfileDef.SemiAxis1;
           
             int n = pfm.curveDetail * 4;
-            double dTheta = 2 * Math.PI / n;
+            float dTheta = 2 * MathF.PI / n;
             List<Vector2> vector2s = new List<Vector2>();
-            double theta;
+            float theta;
             for (int i = 0; i < n; i++)
             {
                 theta = i * dTheta / n;
-                vector2s.Add(new Vector2((float)( r1 * Math.Cos(theta)), (float)( r2 * Math.Cos(theta))));
+                vector2s.Add(new Vector2( r1 * MathF.Cos(theta),  r2 * MathF.Sin(theta)));
 
             }
             var moved = IFCGeoUtil.TransformPoints(EllipseProfileDef.Position, vector2s);
@@ -285,12 +285,12 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcishapeprofiledef.htm
         public static Profile2D GetProfile(IfcIShapeProfileDef IShapeProfileDef)
         {
-            float x1 = (float)IShapeProfileDef.WebThickness / 2;
-            float x2 = (float)IShapeProfileDef.FlangeThickness / 2;
-            float x3 = (float)IShapeProfileDef.OverallWidth / 2;
-            float y1 = -(float)IShapeProfileDef.OverallDepth / 2;
-            float y2 = y1 + (float)IShapeProfileDef.OverallWidth;
-            float y3 = -(float)IShapeProfileDef.FlangeThickness - y1;
+            float x1 = IShapeProfileDef.WebThickness / 2;
+            float x2 = IShapeProfileDef.FlangeThickness / 2;
+            float x3 = IShapeProfileDef.OverallWidth / 2;
+            float y1 = -IShapeProfileDef.OverallDepth / 2;
+            float y2 = y1 + IShapeProfileDef.OverallWidth;
+            float y3 = -IShapeProfileDef.FlangeThickness - y1;
             float y4 = -y1;
             // Ignoring Curve
             Vector2s line = new Vector2s()
@@ -320,10 +320,10 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifclshapeprofiledef.htm
         public static Profile2D GetProfile(IfcLShapeProfileDef LShapeProfileDef)
         {
-            float x1 = (float)(LShapeProfileDef.Width / 2 - LShapeProfileDef.Thickness);
-            float x2 = (float)(LShapeProfileDef.Width / 2);
-            float y1 = (float)(LShapeProfileDef.Depth / 2 - LShapeProfileDef.Thickness);
-            float y2 = (float)(LShapeProfileDef.Depth / 2);
+            float x1 = (LShapeProfileDef.Width / 2 - LShapeProfileDef.Thickness);
+            float x2 = (LShapeProfileDef.Width / 2);
+            float y1 = (LShapeProfileDef.Depth / 2 - LShapeProfileDef.Thickness);
+            float y2 = (LShapeProfileDef.Depth / 2);
 
             Vector2s line = new Vector2s()
             {
@@ -346,8 +346,8 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcrectangleprofiledef.htm
         public static Profile2D GetProfile(IfcRectangleProfileDef RectangleProfileDef)
         {
-            float w = (float) RectangleProfileDef.XDim / 2;
-            float h = (float) RectangleProfileDef.YDim / 2;
+            float w =  RectangleProfileDef.XDim / 2;
+            float h =  RectangleProfileDef.YDim / 2;
 
 
 
@@ -370,10 +370,10 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcrectanglehollowprofiledef.htm
         public static Profile2D GetProfile(IfcRectangleHollowProfileDef RectangleHollowProfileDef)
         {
-            float w = (float)RectangleHollowProfileDef.XDim / 2;
-            float h = (float)RectangleHollowProfileDef.YDim / 2;
-            float x = (float)RectangleHollowProfileDef.Position.Location.Coordinates[0];
-            float y = (float)RectangleHollowProfileDef.Position.Location.Coordinates[1];
+            float w = RectangleHollowProfileDef.XDim / 2;
+            float h = RectangleHollowProfileDef.YDim / 2;
+            float x = RectangleHollowProfileDef.Position.Location.Coordinates[0];
+            float y = RectangleHollowProfileDef.Position.Location.Coordinates[1];
 
 
             Vector2s line = new Vector2s()
@@ -396,9 +396,9 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcroundedrectangleprofiledef.htm
         public static Profile2D GetProfile(IfcRoundedRectangleProfileDef RoundedRectangleProfileDef)
         {
-            float w = (float)RoundedRectangleProfileDef.XDim / 2;
-            float h = (float)RoundedRectangleProfileDef.YDim / 2;
-            float r = (float)RoundedRectangleProfileDef.RoundingRadius;
+            float w = RoundedRectangleProfileDef.XDim / 2;
+            float h = RoundedRectangleProfileDef.YDim / 2;
+            float r = RoundedRectangleProfileDef.RoundingRadius;
 
             Vector2s line = new Vector2s()
             {
@@ -423,10 +423,10 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifctshapeprofiledef.htm
         public static Profile2D GetProfile(IfcTShapeProfileDef TShapeProfileDef)
         {
-            float x1 = (float)TShapeProfileDef.WebThickness / 2;
-            float x2 = (float)TShapeProfileDef.FlangeWidth / 2;
-            float y1 = (float)(TShapeProfileDef.Depth / 2 - TShapeProfileDef.FlangeThickness);
-            float y2 = (float)(TShapeProfileDef.Depth / 2 - TShapeProfileDef.FlangeThickness);
+            float x1 = TShapeProfileDef.WebThickness / 2;
+            float x2 = TShapeProfileDef.FlangeWidth / 2;
+            float y1 = (TShapeProfileDef.Depth / 2 - TShapeProfileDef.FlangeThickness);
+            float y2 = (TShapeProfileDef.Depth / 2 - TShapeProfileDef.FlangeThickness);
 
             Vector2s line = new Vector2s()
             {
@@ -459,10 +459,10 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcushapeprofiledef.htm
         public static Profile2D GetProfile(IfcUShapeProfileDef UShapeProfileDef)
         {
-            float x1 = (float)(UShapeProfileDef.FlangeWidth / 2 - UShapeProfileDef.WebThickness);
-            float x2 = (float)UShapeProfileDef.FlangeWidth / 2;
-            float y1 = (float)(UShapeProfileDef.Depth / 2 - UShapeProfileDef.FlangeThickness);
-            float y2 = (float)(UShapeProfileDef.Depth / 2);
+            float x1 = (UShapeProfileDef.FlangeWidth / 2 - UShapeProfileDef.WebThickness);
+            float x2 = UShapeProfileDef.FlangeWidth / 2;
+            float y1 = (UShapeProfileDef.Depth / 2 - UShapeProfileDef.FlangeThickness);
+            float y2 = (UShapeProfileDef.Depth / 2);
 
             Vector2s line = new Vector2s()
             {
@@ -487,10 +487,10 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifczshapeprofiledef.htm
         public static Profile2D GetProfile(IfcZShapeProfileDef ZShapeProfileDef)
         {
-            float x1 = (float) ZShapeProfileDef.WebThickness;
-            float x2 = (float)(ZShapeProfileDef.FlangeWidth - ZShapeProfileDef.WebThickness);
-            float y1 = (float)(ZShapeProfileDef.Depth / 2 - ZShapeProfileDef.FlangeThickness);
-            float y2 = (float)(ZShapeProfileDef.Depth / 2);
+            float x1 =  ZShapeProfileDef.WebThickness;
+            float x2 = (ZShapeProfileDef.FlangeWidth - ZShapeProfileDef.WebThickness);
+            float y1 = (ZShapeProfileDef.Depth / 2 - ZShapeProfileDef.FlangeThickness);
+            float y2 = (ZShapeProfileDef.Depth / 2);
             Vector2s line = new Vector2s()
             {
                 {x2,-y2 },
