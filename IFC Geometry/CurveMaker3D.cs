@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace IFC_Geometry
 {
-    class CurveMaker
+    class CurveMaker3D
     {
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm
         public static List<Vector3> GetCurve(IfcCurve Curve)
@@ -61,12 +61,12 @@ namespace IFC_Geometry
             int i;
             foreach (var secment in CompositeCurve.Segments)
             {
-                var curve = secment.ParentCurve; 
+                var curve = secment.ParentCurve;
                 List<Vector3> sectorpoints = GetCurve(curve);
                 foreach (var point in sectorpoints)
                 {
                     i = points.Count - 1;
-                    if(i == -1 || Math.Abs(points[i].X - point.X) > 0.00001 || Math.Abs(points[i].Y - point.Y) > 0.00001 || Math.Abs(points[i].Z - point.Z) > 0.00001)
+                    if (i == -1 || Math.Abs(points[i].X - point.X) > 0.00001 || Math.Abs(points[i].Y - point.Y) > 0.00001 || Math.Abs(points[i].Z - point.Z) > 0.00001)
                     {
                         points.Add(point);
                     }
@@ -75,14 +75,14 @@ namespace IFC_Geometry
             }
             i = points.Count - 1;
 
-            if(points.Count > 1)
+            if (points.Count > 1)
             {
                 if (Math.Abs(points[i].X - points[0].X) > 0.00001 && Math.Abs(points[i].Y - points[0].Y) > 0.00001 && Math.Abs(points[i].Z - points[0].Z) > 0.00001)
                 {
                     points.RemoveAt(i);
                 }
             }
-          
+
             return points;
         }
 
@@ -115,7 +115,7 @@ namespace IFC_Geometry
             var segments = IndexedPolyCurve.Segments;
             IfcCartesianPointList2D pointList2D = null;
             IfcCartesianPointList3D pointList3D = null;
-            if(IndexedPolyCurve.Dim == 2)
+            if (IndexedPolyCurve.Dim == 2)
             {
                 pointList2D = (IfcCartesianPointList2D)pointList;
             }
@@ -128,15 +128,15 @@ namespace IFC_Geometry
                 if (IfcBase.InTypeOf<IfcLineIndex>(segment))
                 {
                     var lineIndex = (IfcLineIndex)segment;
-                    foreach(var i in lineIndex)
+                    foreach (var i in lineIndex)
                     {
                         int j = i - 1;
                         if (IndexedPolyCurve.Dim == 2)
                         {
-                            
+
                             var x = pointList2D.CoordList[j][0];
                             var y = pointList2D.CoordList[j][1];
-                            points.Add(new Vector3((float)x, (float)y,0));
+                            points.Add(new Vector3((float)x, (float)y, 0));
                         }
                         if (IndexedPolyCurve.Dim == 3)
                         {
@@ -169,7 +169,7 @@ namespace IFC_Geometry
                     }
                 }
             }
-           
+
             return points;
         }
 
@@ -178,18 +178,18 @@ namespace IFC_Geometry
         {
 
             List<Vector3> points = new List<Vector3>();
-           
+
             foreach (var p in Polyline.Points)
             {
-                if(p.Dim == 2)
+                if (p.Dim == 2)
                 {
-                    points.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1],0));
+                    points.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], 0));
                 }
                 else
                 {
                     points.Add(new Vector3((float)p.Coordinates[0], (float)p.Coordinates[1], (float)p.Coordinates[2]));
                 }
-               
+
             }
             return points;
         }

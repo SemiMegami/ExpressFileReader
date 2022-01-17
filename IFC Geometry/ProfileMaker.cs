@@ -47,23 +47,9 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcarbitraryclosedprofiledef.htm
         public static Profile2D GetProfile(IfcArbitraryClosedProfileDef ArbitraryClosedProfileDef)
         {
-         
-             var outer = CurveMaker.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
-            List<Vector2> vector2s = new List<Vector2>();
-            for (int i = 0; i < outer.Count; i++)
-            {
-                vector2s.Add(new Vector2(outer[i].X,outer[i].Y));
-               
-                //if (i == outer.Count - 1)
-                //{
-                //    if(Math.Abs(outer[i].X - vector2s[0].X) < 0.00001 && Math.Abs(outer[i].Y - vector2s[0].Y) < 0.00001)
-                //    {
-                //        vector2s.RemoveAt(i);
-                //    }
-                //}
-            }
+            var outer = CurveMaker2D.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
             Profile2D profileDef = new Profile2D();
-            profileDef.OutterCurve = new Polygon2D(vector2s);
+            profileDef.OutterCurve = new Polygon2D(outer);
             return profileDef;
         }
 
@@ -71,51 +57,23 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcArbitraryProfileDefWithVoids ArbitraryProfileDefWithVoids)
         {
             Profile2D profileDef = new Profile2D();
-            var outer = CurveMaker.GetCurve(ArbitraryProfileDefWithVoids.OuterCurve);
-            List<Vector2> vector2s = new List<Vector2>();
-            for (int i = 0; i < outer.Count; i++)
-            {
-                vector2s.Add(new Vector2(outer[i].X, outer[i].Y));
-                //if (i == outer.Count - 1)
-                //{
-                //    if (Math.Abs(outer[i].X - vector2s[0].X) < 0.00001 && Math.Abs(outer[i].Y - vector2s[0].Y) < 0.00001)
-                //    {
-                //        vector2s.RemoveAt(i);
-                //    }
-                //}
-            }
+            var outer = CurveMaker2D.GetCurve(ArbitraryProfileDefWithVoids.OuterCurve);
+           
             foreach(var innerCurve in ArbitraryProfileDefWithVoids.InnerCurves)
             {
-                List<Vector2> innervecs = new List<Vector2>();
-                var inner = CurveMaker.GetCurve(innerCurve);
-                for (int i = 0; i < inner.Count; i++)
-                {
-                    innervecs.Add(new Vector2(inner[i].X, inner[i].Y));
-                    //if (i == inner.Count - 1)
-                    //{
-                    //    if (Math.Abs(inner[i].X - innervecs[0].X) < 0.00001 && Math.Abs(inner[i].Y - innervecs[0].Y) < 0.00001)
-                    //    {
-                    //        innervecs.RemoveAt(i);
-                    //    }
-                    //}
-                }
-                profileDef.InnerCurves.Add(new Polygon2D(innervecs));
+                var inner = CurveMaker2D.GetCurve(innerCurve);             
+                profileDef.InnerCurves.Add(new Polygon2D(inner));
             }
-            profileDef.OutterCurve = new Polygon2D(vector2s);
+            profileDef.OutterCurve = new Polygon2D(outer);
             return profileDef;
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcprofileresource/lexical/ifcarbitraryopenprofiledef.htm
         public static Profile2D GetProfile(IfcArbitraryOpenProfileDef ArbitraryOpenProfileDef)
         {
-            var outer = CurveMaker.GetCurve(ArbitraryOpenProfileDef.Curve);
-            List<Vector2> vector2s = new List<Vector2>();
-            for (int i = 0; i < outer.Count; i++)
-            {
-                vector2s.Add(new Vector2(outer[i].X, outer[i].Y));
-            }
+            var outer = CurveMaker2D.GetCurve(ArbitraryOpenProfileDef.Curve);
             Profile2D profileDef = new Profile2D();
-            profileDef.OutterCurve = new Polyline2D(vector2s);
+            profileDef.OutterCurve = new Polygon2D(outer);
             return profileDef;
         }
 
@@ -125,19 +83,11 @@ namespace IFC_Geometry
            
             Profile2D profileDef = new Profile2D();
 
-            var curve = CurveMaker.GetCurve(CenterLineProfileDef.Curve);
+            var curve = CurveMaker2D.GetCurve(CenterLineProfileDef.Curve);
             var t = CenterLineProfileDef.Thickness;
-         
-
-            List<Vector2> centerVector2s = new List<Vector2>();
-            for (int i = 0; i < curve.Count; i++)
-            {
-                centerVector2s.Add(new Vector2(curve[i].X, curve[i].Y));
-            }
-            Polyline2D polyline = new Polyline2D(centerVector2s);
+            Polyline2D polyline = new Polyline2D(curve);
             Polyline2D polyline1 = polyline.GetOffSet((float) t / 2);
             Polyline2D polyline2 = polyline.GetOffSet(-(float)t / 2);
-
             List<Vector2> vector2s = new List<Vector2>();
             for (int i = 0; i < curve.Count; i++)
             {
@@ -147,7 +97,6 @@ namespace IFC_Geometry
             {
                 vector2s.Add(polyline2.points[i]);
             }
-
             profileDef.OutterCurve = new Polygon2D(vector2s);
 
             return profileDef;
