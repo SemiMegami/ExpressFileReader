@@ -6,77 +6,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using IFC_Geometry.IFCGeoReader;
-namespace IFCProjectTest
+namespace IFC_Viewer
 {
-    class Program
+    class Controller
     {
-        static void Main(string[] args)
+        Model model;
+
+        public void LoadModel(string filePath)
         {
-            ///      testHole();
-               TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
-            //   TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
-            //  TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
-            //    TestLoadProject("20210219Architecture");
-        //    TestLoadProject("20201208DigitalHub_ARC");
- 
-        }
+            model = new Model();
+            model.ImportIFC(filePath);
 
-        static void testHole()
-        {
-            Random ran = new Random();
-
-            float routter = 50;
-            float rrinner = 5;
-
-            for(int outterside = 4; outterside < 8; outterside++)
-            {
-                for (int innerside = 4; innerside < 8; innerside++)
-                {
-                    for(int s = 0; s < 360; s+= 45)
-                    {
-                       
-
-                        List<Vector2> outter = new List<Vector2>();
-                        float dANgle = 360f / outterside;
-                        for(int i = 0; i < outterside; i++)
-                        {
-                            double angle = (dANgle * i + s) * Math.PI / 180;
-                            outter.Add(new Vector2(routter * (float)Math.Cos(angle), routter * (float)Math.Sin(angle)));
-                        }
-                        dANgle = 360f / innerside;
-
-                        
-                        List<List<Vector2>> inners = new List<List<Vector2>>();
-                        for(int j = -1; j <=1; j++)
-                        {
-                            for (int k= -1; k <= 1; k++)
-                            {
-                                List<Vector2> inner = new List<Vector2>();
-                                for (int i = 0; i < innerside; i++)
-                                {
-                                    double angle = -(dANgle * i) * Math.PI / 180;
-                                    inner.Add(new Vector2(3 * rrinner * j + rrinner * (float)Math.Cos(angle), 3 * rrinner * k + rrinner * (float)Math.Sin(angle)));
-                                }
-                                inners.Add(inner);
-                            }
-                        }
-                       
-
-
-                     
-                        OutlineMesh mesh = new OutlineMesh(outter, inners);
-                        mesh.ExportToObj("../../../../../Hole Test/polygon_" + outterside + "_" + innerside + "_" + + s + ".obj");
-                    }
-                }
-            }
-        }
-
-        static void TestLoadProject(string filename)
-        {
-        
-            Model model = new Model();
-           model.ImportIFC("../../../../../Open IFC Model/"+ filename + ".ifc");
- 
             var elemments = model.GetInstances<IfcElement>();
             var localplacements = model.GetInstances<IfcLocalPlacement>();
 
@@ -87,10 +27,10 @@ namespace IFCProjectTest
             if (solidModels.Count == 0) return;
             Dictionary<IfcSolidModel, Mesh3D> solidDict = new Dictionary<IfcSolidModel, Mesh3D>();
             List<string> UnsupportedSolid = new List<string>();
-            foreach(var solid in solidModels)
+            foreach (var solid in solidModels)
             {
                 Mesh3D mesh = SolidModelMaker.GetSolid(solid);
-                if(mesh.Vertices.Count == 0)
+                if (mesh.Vertices.Count == 0)
                 {
                     var solidtype = solid.GetType().Name;
                     if (!UnsupportedSolid.Contains(solidtype))
@@ -107,7 +47,7 @@ namespace IFCProjectTest
                 mappedDict.Add(mapped, SolidModelMaker.GetSolids(mapped));
             }
 
-            List<Mesh3D> meshes = new List<Mesh3D>() ;
+            List<Mesh3D> meshes = new List<Mesh3D>();
             foreach (var element in elemments)
             {
                 if (element.InTypeOf<IfcSpace>())
@@ -137,7 +77,7 @@ namespace IFCProjectTest
 
                         foreach (var item in items)
                         {
-                            
+
                             if (item.InTypeOf<IfcSolidModel>())
                             {
                                 addingMeshes.Add(new Mesh3D(solidDict[(IfcSolidModel)item]));
@@ -149,7 +89,7 @@ namespace IFCProjectTest
                             }
                         }
 
-                     
+
                         foreach (var mesh in addingMeshes)
                         {
                             var vertives = mesh.Vertices;
@@ -162,7 +102,7 @@ namespace IFCProjectTest
                     }
                 }
             }
-         
+
 
             List<int> indices = new List<int>();
             List<Vector3> vertices = new List<Vector3>();
@@ -182,10 +122,11 @@ namespace IFCProjectTest
                 Vertices = vertices
             };
             fullmesh.ReCalculateNormal();
-            fullmesh.ExportToObj("../../../../../" + filename +".obj", true);
+            var fileName = filePath.Split("\\").Last().Replace(".ifc","");
+            fullmesh.ExportToObj("../../../../../" + fileName + ".obj", true);
 
             Console.WriteLine("Unsuppported solid list:");
-            foreach(var un in UnsupportedSolid)
+            foreach (var un in UnsupportedSolid)
             {
                 Console.WriteLine("\t" + un);
             }

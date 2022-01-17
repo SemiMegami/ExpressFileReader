@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFCProjectTest", "IFCProjec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFC Geometry", "IFC Geometry\IFC Geometry.csproj", "{B271FFE8-A6AF-437D-ACFB-830FA597B4FF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreeDMaker", "ThreeDMaker\ThreeDMaker.csproj", "{2FA820A9-0221-459F-834B-6295D2712AB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreeDMaker", "ThreeDMaker\ThreeDMaker.csproj", "{2FA820A9-0221-459F-834B-6295D2712AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IFC Viewer", "IFC Viewer\IFC Viewer.csproj", "{7E4B92C8-9287-466D-98B6-46F2B5BCF488}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2FA820A9-0221-459F-834B-6295D2712AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FA820A9-0221-459F-834B-6295D2712AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA820A9-0221-459F-834B-6295D2712AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E4B92C8-9287-466D-98B6-46F2B5BCF488}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E4B92C8-9287-466D-98B6-46F2B5BCF488}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E4B92C8-9287-466D-98B6-46F2B5BCF488}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E4B92C8-9287-466D-98B6-46F2B5BCF488}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

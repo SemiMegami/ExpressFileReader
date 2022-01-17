@@ -21,15 +21,24 @@ namespace IFC4
                 {
                     // text
                 }
-
+                bool foundIFC4 = false;
                 string ifcText;
                 while (!reader.EndOfStream)
                 {
                     ifcText = reader.ReadLine();
+                    //if(ifcText.i == "FILE_SCHEMA(('IFC4'));")
+                    //{
+                    //    foundIFC4 = true;
+                    //}
                     if (ifcText == "ENDSEC;") break;
                     ReadDataline(ifcText);
                 }
                 reader.Close();
+                //if (!foundIFC4)
+                //{
+                //    Console.WriteLine("Not IFC4");
+                //    return;
+                //}
             }
 
             // map ifcdata
