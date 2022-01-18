@@ -15,7 +15,30 @@ namespace ThreeDMaker.Geometry
             {
                 Vertices.Add(new Vector3(s,0));
             }
-            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section.points);
+
+            Vector3 lastVertice = new Vector3();
+            foreach (var s in section.points)
+            {
+                if(Vertices.Count == 0)
+                {
+                    Vertices.Add(new Vector3(s, 0));
+                }
+                else if(MathF.Abs(s.X - lastVertice.X) > 0.001f || MathF.Abs(s.Y - lastVertice.Y) < 0.001f)
+                {
+                    Vertices.Add(new Vector3(s, 0));
+                }
+                lastVertice = Vertices[Vertices.Count - 1];
+            }
+            if (Vector3.DistanceSquared(lastVertice,Vertices[0]) < 0.0001)
+            {
+                Vertices.RemoveAt(Vertices.Count - 1);
+            }
+            List<Vector2> vertices2 = new List<Vector2>();
+            foreach (var v in Vertices)
+            {
+                vertices2.Add(new Vector2(v.X, v.Y));
+            }
+            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(vertices2);
         }
 
         public OutlineMesh(List<Vector2> section)
@@ -28,16 +51,7 @@ namespace ThreeDMaker.Geometry
             Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section);
         }
 
-        public OutlineMesh(List<Vector2> section, List<Vector2> hole)
-        {
-            var v2 = GetMergedVertices(section, new List< List<Vector2>>() { hole});
-            Vertices.Clear();
-            foreach (var s in v2)
-            {
-                Vertices.Add(new Vector3(s, 0));
-            }
-            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(v2);
-        }
+      
         public OutlineMesh(List<Vector2> section, List<List<Vector2>> hole)
         {
             var v2 = GetMergedVertices(section, hole );
@@ -108,12 +122,6 @@ namespace ThreeDMaker.Geometry
 
                 Triangles.AddRange(mesh2.Triangles);
             }
-        }
-
-
-        static List<Vector2> GetMergedVertices(List<Vector2> vertices, List<Vector2> holeVertice)
-        {
-            return GetMergedVertices(vertices, new List<List<Vector2>> { holeVertice });
         }
 
 

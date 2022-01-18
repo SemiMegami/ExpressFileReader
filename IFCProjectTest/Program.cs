@@ -13,9 +13,9 @@ namespace IFCProjectTest
         static void Main(string[] args)
         {
             ///      testHole();
-               TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
-            //   TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
-            //  TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
+            //   TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
+               TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
+             // TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
             //    TestLoadProject("20210219Architecture");
         //    TestLoadProject("20201208DigitalHub_ARC");
  
@@ -73,123 +73,12 @@ namespace IFCProjectTest
 
         static void TestLoadProject(string filename)
         {
-        
-            Model model = new Model();
-           model.ImportIFC("../../../../../Open IFC Model/"+ filename + ".ifc");
- 
-            var elemments = model.GetInstances<IfcElement>();
-            var localplacements = model.GetInstances<IfcLocalPlacement>();
+
+            GeoMetricModel geoMetricModel = new GeoMetricModel();
+            geoMetricModel.LoadModel("../../../../../Open IFC Model/" + filename + ".ifc");
+            geoMetricModel.ExportFullBuildingAsObj("../../../../../" + filename + ".obj",false);
 
 
-            var placementToMat = IFCGeoUtil.SetGlobalMat(localplacements);
-
-            var solidModels = model.GetInstances<IfcSolidModel>();
-            if (solidModels.Count == 0) return;
-            Dictionary<IfcSolidModel, Mesh3D> solidDict = new Dictionary<IfcSolidModel, Mesh3D>();
-            List<string> UnsupportedSolid = new List<string>();
-            foreach(var solid in solidModels)
-            {
-                Mesh3D mesh = SolidModelMaker.GetSolid(solid);
-                if(mesh.Vertices.Count == 0)
-                {
-                    var solidtype = solid.GetType().Name;
-                    if (!UnsupportedSolid.Contains(solidtype))
-                    {
-                        UnsupportedSolid.Add(solidtype);
-                    }
-                }
-                solidDict.Add(solid, mesh);
-            }
-            var mappedItems = model.GetInstances<IfcMappedItem>();
-            Dictionary<IfcMappedItem, List<Mesh3D>> mappedDict = new Dictionary<IfcMappedItem, List<Mesh3D>>();
-            foreach (var mapped in mappedItems)
-            {
-                mappedDict.Add(mapped, SolidModelMaker.GetSolids(mapped));
-            }
-
-            List<Mesh3D> meshes = new List<Mesh3D>() ;
-            foreach (var element in elemments)
-            {
-                if (element.InTypeOf<IfcSpace>())
-                {
-                    continue;
-                }
-                var objectPlacement = element.ObjectPlacement;
-                Matrix4x4 globalmat;
-                if (objectPlacement != null)
-                {
-                    globalmat = Matrix4x4.Transpose(placementToMat[(IfcLocalPlacement)objectPlacement][1]);
-                }
-                else
-                {
-                    globalmat = Matrix4x4.Identity;
-                }
-
-                if (element.Representation != null)
-                {
-                    var representations = element.Representation.Representations;
-
-
-                    foreach (var representation in representations)
-                    {
-                        List<Mesh3D> addingMeshes = new List<Mesh3D>();
-                        var items = representation.Items;
-
-                        foreach (var item in items)
-                        {
-                            
-                            if (item.InTypeOf<IfcSolidModel>())
-                            {
-                                addingMeshes.Add(new Mesh3D(solidDict[(IfcSolidModel)item]));
-                            }
-
-                            else if (item.InTypeOf<IfcMappedItem>())
-                            {
-                                addingMeshes.AddRange(mappedDict[(IfcMappedItem)item]);
-                            }
-                        }
-
-                     
-                        foreach (var mesh in addingMeshes)
-                        {
-                            var vertives = mesh.Vertices;
-                            for (int i = 0; i < vertives.Count; i++)
-                            {
-                                vertives[i] = Vector3.Transform(vertives[i], globalmat);
-                            }
-                        }
-                        meshes.AddRange(addingMeshes);
-                    }
-                }
-            }
-         
-
-            List<int> indices = new List<int>();
-            List<Vector3> vertices = new List<Vector3>();
-            int vertextCount = 0;
-            foreach (var mesh in meshes)
-            {
-                vertices.AddRange(mesh.Vertices);
-                foreach (var i in mesh.Triangles)
-                {
-                    indices.Add(i + vertextCount);
-                }
-                vertextCount = vertices.Count;
-            }
-            Mesh3D fullmesh = new Mesh3D()
-            {
-                Triangles = indices,
-                Vertices = vertices
-            };
-            fullmesh.ReCalculateNormal();
-            fullmesh.ExportToObj("../../../../../" + filename +".obj", true);
-
-            Console.WriteLine("Unsuppported solid list:");
-            foreach(var un in UnsupportedSolid)
-            {
-                Console.WriteLine("\t" + un);
-            }
-            Console.WriteLine("Finished");
         }
     }
 }
