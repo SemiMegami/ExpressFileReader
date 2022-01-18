@@ -48,8 +48,22 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcArbitraryClosedProfileDef ArbitraryClosedProfileDef)
         {
             var outer = CurveMaker2D.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
+            if(outer.Count == 0)
+            {
+                return new Profile2D();
+            }
+            List<Vector2> outerModified = new List<Vector2>() { outer[0] };
+            for(int i = 1; i < outer.Count; i++)
+            {
+                var previous = outerModified[outerModified.Count - 1];
+                if(Vector2.DistanceSquared(previous,outer[i]) > 0.0001)
+                {
+                    outerModified.Add(outer[i]);
+                }
+            }
+
             Profile2D profileDef = new Profile2D();
-            profileDef.OutterCurve = new Polygon2D(outer);
+            profileDef.OutterCurve = new Polygon2D(outerModified);
             return profileDef;
         }
 
@@ -58,13 +72,35 @@ namespace IFC_Geometry
         {
             Profile2D profileDef = new Profile2D();
             var outer = CurveMaker2D.GetCurve(ArbitraryProfileDefWithVoids.OuterCurve);
-           
-            foreach(var innerCurve in ArbitraryProfileDefWithVoids.InnerCurves)
+            List<Vector2> outerModified = new List<Vector2>() { outer[0] };
+            for (int i = 1; i < outer.Count; i++)
             {
-                var inner = CurveMaker2D.GetCurve(innerCurve);             
-                profileDef.InnerCurves.Add(new Polygon2D(inner));
+                var previous = outerModified[outerModified.Count - 1];
+                if (Vector2.DistanceSquared(previous, outer[i]) > 0.0001)
+                {
+                    outerModified.Add(outer[i]);
+                }
             }
-            profileDef.OutterCurve = new Polygon2D(outer);
+            foreach (var innerCurve in ArbitraryProfileDefWithVoids.InnerCurves)
+            {
+                var inner = CurveMaker2D.GetCurve(innerCurve);
+
+                if(inner.Count > 0)
+                {
+                    List<Vector2> innerModified = new List<Vector2>() { inner[0] };
+                    for (int i = 1; i < inner.Count; i++)
+                    {
+                        var previous = innerModified[innerModified.Count - 1];
+                        if (Vector2.DistanceSquared(previous, inner[i]) > 0.0001)
+                        {
+                            innerModified.Add(inner[i]);
+                        }
+                    }
+                    profileDef.InnerCurves.Add(new Polygon2D(inner));
+                }
+                
+            }
+            profileDef.OutterCurve = new Polygon2D(outerModified);
             return profileDef;
         }
 

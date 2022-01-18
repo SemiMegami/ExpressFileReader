@@ -148,57 +148,54 @@ namespace IFC_Geometry
 
             var sweptArea = ExtrudedAreaSolid.SweptArea;
             var profileDef = ProfileMaker.GetProfile(sweptArea);
-            if (profileDef.Mesh!= null)
+            if(profileDef.OutterCurve == null)
             {
-                
-                float d =  ExtrudedAreaSolid.Depth;
-                var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
-                
-             
-                Path3D path = new Path3D();
-                path.Add(new AxisPoint3D());
-               
-            
-                Vector3 front = new Vector3(0,0,1);
-
-                Vector3 right = new Vector3(1, 0, 0);
-
-                Vector3 up = new Vector3(0, 1, 0);
-                AxisPoint3D p0 = new AxisPoint3D()
-                {
-                    Position = new Vector3(0, 0, 0),
-                    Front = front,
-                    Right = right,
-                    Up = up
-
-                };
-                AxisPoint3D p1 = new AxisPoint3D()
-                {
-                    Position = new Vector3(direction[0] * d, direction[1] * d, direction[2] * d),
-                    Front = front,
-                    Right = right,
-                    Up = up
-
-                };
-                Path3D point3Ds = new Path3D() { p0, p1 };
-
-             //   Polyline2D p = new Polyline2D();
-                Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds);
-                var vertives = Mesh3D.Vertices;
-                for (int i = 0; i < vertives.Count; i++)
-                {
-                    vertives[i] = IFCGeoUtil.TransformPoint(ExtrudedAreaSolid.Position, vertives[i]);
-                }
-
-
-              //  return new Mesh3D();
-
-                return Mesh3D;
+                return new Mesh3D() ;
             }
-            else
+
+            float d = ExtrudedAreaSolid.Depth;
+            var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
+
+
+            Path3D path = new Path3D();
+            path.Add(new AxisPoint3D());
+
+
+            Vector3 front = new Vector3(0, 0, 1);
+
+            Vector3 right = new Vector3(1, 0, 0);
+
+            Vector3 up = new Vector3(0, 1, 0);
+            AxisPoint3D p0 = new AxisPoint3D()
             {
-                return null;
+                Position = new Vector3(0, 0, 0),
+                Front = front,
+                Right = right,
+                Up = up
+
+            };
+            AxisPoint3D p1 = new AxisPoint3D()
+            {
+                Position = new Vector3(direction[0] * d, direction[1] * d, direction[2] * d),
+                Front = front,
+                Right = right,
+                Up = up
+
+            };
+            Path3D point3Ds = new Path3D() { p0, p1 };
+
+
+            Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds);
+            var vertives = Mesh3D.Vertices;
+            for (int i = 0; i < vertives.Count; i++)
+            {
+                vertives[i] = IFCGeoUtil.TransformPoint(ExtrudedAreaSolid.Position, vertives[i]);
             }
+
+
+            //  return new Mesh3D();
+
+            return Mesh3D;   
             
         }
 

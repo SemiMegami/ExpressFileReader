@@ -16,29 +16,56 @@ namespace ThreeDMaker.Geometry
                 Vertices.Add(new Vector3(s,0));
             }
 
-            Vector3 lastVertice = new Vector3();
+            List<Vector2> vectors = new List<Vector2>(section.points);
+
+            if(Vector2.DistanceSquared(vectors[0],vectors[vectors.Count - 1]) < 0.0001)
+            {
+                vectors.RemoveAt(vectors.Count - 1);
+            }
+
+            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(vectors);
+        }
+
+        public OutlineMesh(Shape2D section, List<Shape2D> holes)
+        {
+            Vertices.Clear();
             foreach (var s in section.points)
             {
-                if(Vertices.Count == 0)
+                Vertices.Add(new Vector3(s, 0));
+            }
+
+            List<Vector2> vectors = new List<Vector2>(section.points);
+
+            if (Vector2.DistanceSquared(vectors[0], vectors[vectors.Count - 1]) < 0.0001)
+            {
+                vectors.RemoveAt(vectors.Count - 1);
+            }
+
+            if(holes.Count == 0)
+            {
+                Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(vectors);
+            }
+            else
+            {
+                List<List<Vector2>> holeVecs = new List<List<Vector2>>();
+                foreach (var hole in holes)
+                {
+                    List<Vector2> holevectors = new List<Vector2>(hole.points);
+
+                    if (Vector2.DistanceSquared(holevectors[0], holevectors[holevectors.Count - 1]) < 0.0001)
+                    {
+                        holevectors.RemoveAt(holevectors.Count - 1);
+                    }
+                    holeVecs.Add(holevectors);
+                }
+                var v2 = GetMergedVertices(vectors, holeVecs);
+                Vertices.Clear();
+                foreach (var s in v2)
                 {
                     Vertices.Add(new Vector3(s, 0));
                 }
-                else if(MathF.Abs(s.X - lastVertice.X) > 0.001f || MathF.Abs(s.Y - lastVertice.Y) < 0.001f)
-                {
-                    Vertices.Add(new Vector3(s, 0));
-                }
-                lastVertice = Vertices[Vertices.Count - 1];
+                Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(v2);
             }
-            if (Vector3.DistanceSquared(lastVertice,Vertices[0]) < 0.0001)
-            {
-                Vertices.RemoveAt(Vertices.Count - 1);
-            }
-            List<Vector2> vertices2 = new List<Vector2>();
-            foreach (var v in Vertices)
-            {
-                vertices2.Add(new Vector2(v.X, v.Y));
-            }
-            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(vertices2);
         }
 
         public OutlineMesh(List<Vector2> section)
@@ -52,9 +79,9 @@ namespace ThreeDMaker.Geometry
         }
 
       
-        public OutlineMesh(List<Vector2> section, List<List<Vector2>> hole)
+        public OutlineMesh(List<Vector2> section, List<List<Vector2>> holes)
         {
-            var v2 = GetMergedVertices(section, hole );
+            var v2 = GetMergedVertices(section, holes );
             Vertices.Clear();
             foreach (var s in v2)
             {
