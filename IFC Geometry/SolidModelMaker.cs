@@ -13,7 +13,7 @@ namespace IFC_Geometry
     public class SolidModelMaker
     {
 
-        public static List<Mesh3D> GetSolids(IfcMappedItem mappedItem)
+        public static List<Mesh3D> GetSolids(IfcMappedItem mappedItem, Dictionary<IfcSolidModel, Mesh3D> solidDict)
         {
             List<Mesh3D> meshes = new List<Mesh3D>();
             var mappedItems = mappedItem.MappingSource.MappedRepresentation.Items;
@@ -27,7 +27,7 @@ namespace IFC_Geometry
                 {
                  
 
-                    Mesh3D mesh = GetSolid((IfcSolidModel)item);
+                    Mesh3D mesh = new Mesh3D(solidDict[(IfcSolidModel)item]);
                     if(mesh!= null)
                     {
                         meshes.Add(mesh);
@@ -35,7 +35,7 @@ namespace IFC_Geometry
                 }
                 else if (item.InTypeOf(EntityName.IFCMAPPEDITEM))
                 {
-                    meshes.AddRange(GetSolids((IfcMappedItem) item));
+                    meshes.AddRange(GetSolids((IfcMappedItem) item, solidDict));
                 }
             }
 
@@ -145,7 +145,10 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm
         public static Mesh3D GetSolid(IfcExtrudedAreaSolid ExtrudedAreaSolid)
         {
+            if(ExtrudedAreaSolid.ifcid == "#45580")
+            {
 
+            }
             var sweptArea = ExtrudedAreaSolid.SweptArea;
             var profileDef = ProfileMaker.GetProfile(sweptArea);
             if(profileDef.OutterCurve == null)
@@ -154,6 +157,7 @@ namespace IFC_Geometry
             }
 
             float d = ExtrudedAreaSolid.Depth;
+            d *=10;
             var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
 
 

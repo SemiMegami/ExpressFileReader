@@ -13,17 +13,9 @@ namespace ThreeDMaker.Geometry
             Vertices.Clear();
             foreach (var s in section.points)
             {
-                Vertices.Add(new Vector3(s,0));
+                Vertices.Add(new Vector3(s, 0));
             }
-
-            List<Vector2> vectors = new List<Vector2>(section.points);
-
-            if(Vector2.DistanceSquared(vectors[0],vectors[vectors.Count - 1]) < 0.0001)
-            {
-                vectors.RemoveAt(vectors.Count - 1);
-            }
-
-            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(vectors);
+            Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section.points);
         }
 
         public OutlineMesh(Shape2D section, List<Shape2D> holes)

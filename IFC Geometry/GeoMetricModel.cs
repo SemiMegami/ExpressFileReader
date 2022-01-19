@@ -37,7 +37,7 @@ namespace IFC_Geometry
             Dictionary<IfcMappedItem, List<Mesh3D>> mappedDict = new Dictionary<IfcMappedItem, List<Mesh3D>>();
             foreach (var mapped in mappedItems)
             {
-                mappedDict.Add(mapped, SolidModelMaker.GetSolids(mapped));
+                mappedDict.Add(mapped, SolidModelMaker.GetSolids(mapped, solidDict));
             }
 
 
@@ -56,7 +56,7 @@ namespace IFC_Geometry
 
                     foreach (var item in items)
                     {
-
+                     
                         if (item.InTypeOf<IfcSolidModel>())
                         {
                             meshs.Add(new Mesh3D(solidDict[(IfcSolidModel)item]));
@@ -81,6 +81,10 @@ namespace IFC_Geometry
             List<Mesh3D> meshes = new List<Mesh3D>();
             foreach (var element in elemments)
             {
+                if (element.ifcid != "#45586")
+                {
+                    continue;
+                }
                 if (!includSpace && element.InTypeOf<IfcSpace>())
                 {
                     continue;

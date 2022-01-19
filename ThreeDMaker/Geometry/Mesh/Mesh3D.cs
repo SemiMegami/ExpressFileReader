@@ -48,7 +48,7 @@ namespace ThreeDMaker.Geometry
 
             var triangleNormals = FaceNormals();
 
-            for (int i = 0; i < n; i+=3)
+            for (int i = 0; i < triangleNormals.Count * 3; i+=3)
             {
                 var fNormal = triangleNormals[i / 3];
 

@@ -61,6 +61,11 @@ namespace IFC_Geometry
                     outerModified.Add(outer[i]);
                 }
             }
+            // make it close
+            //if (Vector2.DistanceSquared(outerModified[outerModified.Count - 1], outerModified[0]) > 0.0001)
+            //{
+            //    outerModified.Add(outerModified[0]);
+            //}
 
             Profile2D profileDef = new Profile2D();
             profileDef.OutterCurve = new Polygon2D(outerModified);
@@ -80,6 +85,10 @@ namespace IFC_Geometry
                 {
                     outerModified.Add(outer[i]);
                 }
+                if (Vector2.DistanceSquared(outerModified[outerModified.Count - 1], outerModified[0]) > 0.0001)
+                {
+                    outerModified.Add(outerModified[0]);
+                }
             }
             foreach (var innerCurve in ArbitraryProfileDefWithVoids.InnerCurves)
             {
@@ -94,6 +103,10 @@ namespace IFC_Geometry
                         if (Vector2.DistanceSquared(previous, inner[i]) > 0.0001)
                         {
                             innerModified.Add(inner[i]);
+                        }
+                        if (Vector2.DistanceSquared(innerModified[innerModified.Count - 1], innerModified[0]) > 0.0001)
+                        {
+                            innerModified.Add(innerModified[0]);
                         }
                     }
                     profileDef.InnerCurves.Add(new Polygon2D(inner));
