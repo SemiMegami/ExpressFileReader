@@ -25,12 +25,26 @@ namespace ThreeDMaker.Geometry
 
         public static List<int> EarClippingAlgorithm(List<Vector2> vertices, List<int> indices)
         {
+            if(vertices.Count < 3)
+            {
+                return new List<int>();
+            }
             if (vertices.Count == 3)
             {
-                return indices;
+                if(GeometryUtil.IsTurningLeft(vertices[0], vertices[1], vertices[2]))
+                {
+                    return indices;
+                }
+                else
+                {
+                    return new List<int>();
+                }
             }
 
+            if(vertices.Count == 4)
+            {
 
+            }
 
             List<int> triangle = new List<int>();
             int n = vertices.Count;

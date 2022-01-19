@@ -17,7 +17,7 @@ namespace ThreeDMaker.Geometry.Util
             float A1 = TriangleArea(p, p2, p3) / A;
             float A2 = TriangleArea(p, p3, p1) / A;
             float A3 = TriangleArea(p, p1, p2) / A;
-            float tol = A / 100000;
+            float tol = AreaTol;
             if (includeOnLine)
             {
               
@@ -31,7 +31,7 @@ namespace ThreeDMaker.Geometry.Util
 
         public static float TriangleArea(Vector2 p1, Vector2 p2, Vector2 p3)
         {
-            return p1.X * p2.Y + p2.X * p3.Y + p3.X * p1.Y - p1.X * p3.Y - p2.X * p1.Y - p3.X * p2.Y;
+            return 0.5f *( p1.X * p2.Y + p2.X * p3.Y + p3.X * p1.Y - p1.X * p3.Y - p2.X * p1.Y - p3.X * p2.Y);
         }
 
         public static float TurnAngle(Vector2 p1, Vector2 p2, Vector2 p3)

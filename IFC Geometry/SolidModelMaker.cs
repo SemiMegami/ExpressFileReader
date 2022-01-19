@@ -157,7 +157,6 @@ namespace IFC_Geometry
             }
 
             float d = ExtrudedAreaSolid.Depth;
-            d *=10;
             var direction = ExtrudedAreaSolid.ExtrudedDirection.DirectionRatios;
 
 
@@ -189,7 +188,7 @@ namespace IFC_Geometry
             Path3D point3Ds = new Path3D() { p0, p1 };
 
 
-            Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds);
+            Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, profileDef.InnerCurves, point3Ds);
             var vertives = Mesh3D.Vertices;
             for (int i = 0; i < vertives.Count; i++)
             {

@@ -81,10 +81,6 @@ namespace IFC_Geometry
             List<Mesh3D> meshes = new List<Mesh3D>();
             foreach (var element in elemments)
             {
-                if (element.ifcid != "#45586")
-                {
-                    continue;
-                }
                 if (!includSpace && element.InTypeOf<IfcSpace>())
                 {
                     continue;
