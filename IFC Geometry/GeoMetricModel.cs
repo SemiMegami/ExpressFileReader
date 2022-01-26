@@ -81,7 +81,7 @@ namespace IFC_Geometry
             List<Mesh3D> meshes = new List<Mesh3D>();
             foreach (var element in elemments)
             {
-                if (!includSpace && element.InTypeOf<IfcSpace>())
+                if (includSpace && element.InTypeOf<IfcSpace>())
                 {
                     continue;
                 }
@@ -110,7 +110,6 @@ namespace IFC_Geometry
                     }  
                 }
             }
-
 
             List<int> indices = new List<int>();
             List<Vector3> vertices = new List<Vector3>();

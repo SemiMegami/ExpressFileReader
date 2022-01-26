@@ -13,13 +13,12 @@ namespace IFCProjectTest
         static void Main(string[] args)
         {
              //  testHole();
-            TestLoadProject("20181220Holter_Tower_10");
+          //  TestLoadProject("20181220Holter_Tower_10");
             TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
-            TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
-            TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
-            TestLoadProject("20210219Architecture");
+        //    TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
+         //   TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
+          //  TestLoadProject("20210219Architecture");
             //   TestLoadProject("20201208DigitalHub_ARC");
-
         }
 
         static void testHole()
@@ -74,12 +73,9 @@ namespace IFCProjectTest
 
         static void TestLoadProject(string filename)
         {
-
             GeoMetricModel geoMetricModel = new GeoMetricModel();
             geoMetricModel.LoadModel("../../../../../Open IFC Model/" + filename + ".ifc");
-            geoMetricModel.ExportFullBuildingAsObj("../../../../../" + filename + ".obj",false);
-
-
+            geoMetricModel.ExportFullBuildingAsObj("../../../../../" + filename + ".obj",true);
         }
     }
 }

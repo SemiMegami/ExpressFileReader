@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Numerics;
 namespace ThreeDMaker.Geometry
 {
-    class Box: ExtrudePathMesh
+    class Box: Mesh3D
     {
         public Box(float w, float d, float h, float x = 0, float y = 0, float z = 0)
         {

@@ -30,7 +30,7 @@ namespace ThreeDMaker.Geometry.Dimension2
 
             float startAngle2 = (-RotationDegree) * MathF.PI / 2;
 
-            for (int i = 0; i <= Sections; i++)
+            for (int i = 0; i < Sections; i++)
             {
                 float angle = dAngle * i;
                 float x = X + Rx * MathF.Cos(angle + startAngle2);

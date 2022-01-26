@@ -11,6 +11,7 @@ namespace IFC_Geometry
 {
     class CurveMaker2D
     {
+        public static int circlesections = 16;
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcbsplinecurvewithknots.htm
         public static List<Vector2> GetCurve(IfcCurve Curve)
         {
@@ -63,7 +64,16 @@ namespace IFC_Geometry
             {
                 var curve = secment.ParentCurve; 
                 List<Vector2> sectorpoints = GetCurve(curve);
-                points.AddRange(sectorpoints);
+
+                foreach (var p in sectorpoints)
+                {
+                    if(points.Count == 0 || Vector2.DistanceSquared(points.Last(), p) > 0.001)
+                    {
+                        points.Add(p);
+                    }
+                    
+                }
+                
             }
             return points;
         }
@@ -95,40 +105,33 @@ namespace IFC_Geometry
         {
             List<Vector2> points = new List<Vector2>();
             var pointList = IndexedPolyCurve.Points;
-            var segments = IndexedPolyCurve.Segments;
-            IfcCartesianPointList2D pointList2D = null;
-            IfcCartesianPointList3D pointList3D = null;
-            if(IndexedPolyCurve.Dim == 2)
-            {
-                pointList2D = (IfcCartesianPointList2D)pointList;
-            }
-            if (IndexedPolyCurve.Dim == 3)
-            {
-                pointList3D = (IfcCartesianPointList3D)pointList;
-            }
+            var segments = IndexedPolyCurve.Segments; 
+            IfcCartesianPointList2D pointList2D = (IfcCartesianPointList2D)pointList;
+          
             foreach (var segment in segments)
             {
-                if (IfcBase.InTypeOf<IfcLineIndex>(segment))
+                switch (segment.GetType().Name)
                 {
-                    var lineIndex = (IfcLineIndex)segment;
-                    foreach(var i in lineIndex)
-                    {
-                        int j = i - 1;
-                        var x = pointList2D.CoordList[j][0];
-                        var y = pointList2D.CoordList[j][1];
-                        points.Add(new Vector2(x, y));
-                    }
-                }
-                else if (IfcBase.InTypeOf<IfcArcIndex>(segment))
-                {
-                    var arcIndex = (IfcArcIndex)segment;
-                    foreach (var i in arcIndex)
-                    {
-                        int j = i - 1;
-                        var x = pointList2D.CoordList[j][0];
-                        var y = pointList2D.CoordList[j][1];
-                        points.Add(new Vector2(x, y));
-                    }
+                    case EntityName.IFCLINEINDEX:
+                        var lineIndex = (IfcLineIndex)segment;
+                        foreach (var i in lineIndex)
+                        {
+                            int j = i - 1;
+                            var x = pointList2D.CoordList[j][0];
+                            var y = pointList2D.CoordList[j][1];
+                            points.Add(new Vector2(x, y));
+                        }
+                        break;
+                    case EntityName.IFCARCINDEX:
+                        var arcIndex = (IfcArcIndex)segment;
+                        foreach (var i in arcIndex)
+                        {
+                            int j = i - 1;
+                            var x = pointList2D.CoordList[j][0];
+                            var y = pointList2D.CoordList[j][1];
+                            points.Add(new Vector2(x, y));
+                        }
+                        break;
                 }
             }
            
@@ -151,7 +154,75 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifctrimmedcurve.htm
         public static List<Vector2> GetCurve(IfcTrimmedCurve TrimmedCurve)
         {
+            var basisCurve = TrimmedCurve.BasisCurve;
+            var trim1 = TrimmedCurve.Trim1[0];
+            var trim2 = TrimmedCurve.Trim2[0];
+            var senseArgreement = TrimmedCurve.SenseAgreement;
+            var masterRepresentation = TrimmedCurve.MasterRepresentation;
+            List<Vector2> localPoints = new List<Vector2>();
             List<Vector2> points = new List<Vector2>();
+            switch (masterRepresentation)
+            {
+                case IfcTrimmingPreference.CARTESIAN:
+                    break;
+                case IfcTrimmingPreference.PARAMETER:
+                    float t1 = (IfcParameterValue)trim1;
+                    float t2 = (IfcParameterValue)trim2;
+                    switch (basisCurve.GetType().Name)
+                    {     
+                        case "IfcCircle":
+                            IfcCircle circle = (IfcCircle)basisCurve;
+                            float r = circle.Radius;
+
+                            if (senseArgreement)
+                            {
+                                while (t2 < t1) 
+                                {
+                                    t2 += 360;
+                                }
+                                float dt = (t2 - t1) % 360;
+                                int sections = (int) MathF.Ceiling(dt / 360 * circlesections);
+                                if (sections < 2) sections = 2;
+                                float dtheta = dt / sections;
+                                
+                                for(int i = 0; i <= sections; i++)
+                                {
+                                    float theta = (t1 + dtheta * i) * MathF.PI / 180;
+                                    localPoints.Add(new Vector2(r * MathF.Cos(theta), r * MathF.Sin(theta)));
+                                }
+
+                            }
+                            else
+                            {
+                                while (t1 < t2)
+                                {
+                                    t1 += 360;
+                                }
+                                float dt = (t1 - t2) % 360;
+                                int sections = (int)MathF.Ceiling(dt / 360 * circlesections);
+                                if (sections < 2) sections = 2;
+                                float dtheta = dt / sections;
+                                for (int i = 0; i <= sections; i++)
+                                {
+                                    float theta = (t1 - dtheta * i) * MathF.PI / 180;
+                                    localPoints.Add(new Vector2(r * MathF.Cos(theta), r * MathF.Sin(theta)));
+                                }
+                               
+                            }
+                            return IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)circle.Position, localPoints);
+                        default:
+
+                             break;
+
+                    }
+
+
+
+                    break;
+                case IfcTrimmingPreference.UNSPECIFIED:
+                    break;
+            }
+            
 
            
             return points;
@@ -161,14 +232,14 @@ namespace IFC_Geometry
         public static List<Vector2> GetCurve(IfcCircle Circle)
         {
            
-            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Circle.Position, new Circle2D(Circle.Radius).points);
+            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Circle.Position, new Circle2D(Circle.Radius, circlesections).points);
             return points;
         }
 
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcellipse.htm
         public static List<Vector2> GetCurve(IfcEllipse Ellipse)
         {
-            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Ellipse.Position, new Ellipse2D(Ellipse.SemiAxis1, Ellipse.SemiAxis2).points) ;
+            List<Vector2> points = IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)Ellipse.Position, new Ellipse2D(Ellipse.SemiAxis1, Ellipse.SemiAxis2, circlesections).points) ;
             return points;
         }
 
@@ -190,6 +261,9 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcoffsetcurve2d.htm
         public static List<Vector2> GetCurve(IfcOffsetCurve2D OffsetCurve2D)
         {
+           
+
+
             List<Vector2> points = new List<Vector2>();
             return points;
         }
@@ -204,6 +278,7 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcpcurve.htm
         public static List<Vector2> GetCurve(IfcPcurve Pcurve)
         {
+            // only 3d
             List<Vector2> points = new List<Vector2>();
             return points;
         }
@@ -211,6 +286,7 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcsurfacecurve.htm
         public static List<Vector2> GetCurve(IfcSurfaceCurve SurfaceCurve)
         {
+            // only 3d
             List<Vector2> points = new List<Vector2>();
             return points;
         }
@@ -218,6 +294,7 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcintersectioncurve.htm
         public static List<Vector2> GetCurve(IfcIntersectionCurve IntersectionCurve)
         {
+            // only 3d
             List<Vector2> points = new List<Vector2>();
             return points;
         }
@@ -225,6 +302,7 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometryresource/lexical/ifcseamcurve.htm
         public static List<Vector2> GetCurve(IfcSeamCurve SeamCurve)
         {
+            // only 3d
             List<Vector2> points = new List<Vector2>();
             return points;
         }

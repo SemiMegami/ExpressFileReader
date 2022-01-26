@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Numerics;
+using ThreeDMaker.Geometry.Util;
 using ThreeDMaker.Geometry.Dimension2;
 namespace ThreeDMaker.Geometry
 {
@@ -26,31 +27,19 @@ namespace ThreeDMaker.Geometry
                 Vertices.Add(new Vector3(s, 0));
             }
 
-            List<Vector2> vectors = new List<Vector2>(section.points);
-
-            if (Vector2.DistanceSquared(vectors[0], vectors[vectors.Count - 1]) < 0.0001)
-            {
-                vectors.RemoveAt(vectors.Count - 1);
-            }
-
             if(holes.Count == 0)
             {
-                Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(vectors);
+                Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section.points);
             }
             else
             {
                 List<List<Vector2>> holeVecs = new List<List<Vector2>>();
                 foreach (var hole in holes)
                 {
-                    List<Vector2> holevectors = new List<Vector2>(hole.points);
 
-                    if (Vector2.DistanceSquared(holevectors[0], holevectors[holevectors.Count - 1]) < 0.0001)
-                    {
-                        holevectors.RemoveAt(holevectors.Count - 1);
-                    }
-                    holeVecs.Add(holevectors);
+                    holeVecs.Add(hole.points);
                 }
-                var v2 = GetMergedVertices(vectors, holeVecs);
+                var v2 = GetMergedVertices(section.points, holeVecs);
                 Vertices.Clear();
                 foreach (var s in v2)
                 {
@@ -146,12 +135,25 @@ namespace ThreeDMaker.Geometry
 
         static List<Vector2> GetMergedVertices(List<Vector2> vertices, List<List<Vector2>> holes)
         {
-
+            var A = GeometryUtil.Area(vertices);
             int n = vertices.Count;
 
             for (int e = 0; e < holes.Count; e++)
             {
-                var holeVertice = holes[e];
+                var holeVertice = new List<Vector2>(holes[e]);
+
+                var H= GeometryUtil.Area(holeVertice);
+
+                if(A * H > 0)
+                {
+                    holeVertice.Clear();
+
+                    for(int i = holes[e].Count - 1; i>= 0; i--)
+                    {
+                        holeVertice.Add(holes[e][i]);
+                    }
+                }
+
                 int h = holeVertice.Count;
 
 

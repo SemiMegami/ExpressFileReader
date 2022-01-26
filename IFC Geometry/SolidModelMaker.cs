@@ -145,10 +145,6 @@ namespace IFC_Geometry
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcextrudedareasolid.htm
         public static Mesh3D GetSolid(IfcExtrudedAreaSolid ExtrudedAreaSolid)
         {
-            if(ExtrudedAreaSolid.ifcid == "#45580")
-            {
-
-            }
             var sweptArea = ExtrudedAreaSolid.SweptArea;
             var profileDef = ProfileMaker.GetProfile(sweptArea);
             if(profileDef.OutterCurve == null)
@@ -188,7 +184,7 @@ namespace IFC_Geometry
             Path3D point3Ds = new Path3D() { p0, p1 };
 
 
-            Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, profileDef.InnerCurves, point3Ds);
+            Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds, profileDef.InnerCurves);
             var vertives = Mesh3D.Vertices;
             for (int i = 0; i < vertives.Count; i++)
             {

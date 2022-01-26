@@ -29,6 +29,23 @@ namespace ThreeDMaker.Geometry.Util
             }
         }
 
+
+        public static float Area(List<Vector2> vertices){
+            float a = 0;
+            int n = vertices.Count;
+            for(int i = 0; i < n; i++)
+            {
+                int j = i + 1;
+                if (j == n)
+                {
+                    j = 0;
+                }
+
+                a += vertices[i].X * vertices[j].Y - vertices[j].X * vertices[i].Y;
+            }
+            return a * 0.5f;
+        }
+
         public static float TriangleArea(Vector2 p1, Vector2 p2, Vector2 p3)
         {
             return 0.5f *( p1.X * p2.Y + p2.X * p3.Y + p3.X * p1.Y - p1.X * p3.Y - p2.X * p1.Y - p3.X * p2.Y);

@@ -214,7 +214,6 @@ namespace IFC_Geometry
                 { -x1, y2 },
                 { -x3, y2 },
                 { -x3, y1 },
-                { x3, y1 }
             };
 
             var moved = IFCGeoUtil.TransformPoints(AsymmetricIShapeProfileDef.Position, line);
@@ -250,7 +249,6 @@ namespace IFC_Geometry
                 { x2, y3 },
                 { -x2, y3 },
                 { -x2, -y3 },
-                { x2, -y3 },
             };
             var moved = IFCGeoUtil.TransformPoints(CShapeProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -356,7 +354,6 @@ namespace IFC_Geometry
                 { -x1, y2 },
                 { -x3, y2 },
                 { -x3, y1 },
-                { x3, y1 },
             };
             var moved = IFCGeoUtil.TransformPoints(IShapeProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -382,7 +379,6 @@ namespace IFC_Geometry
                { -x1, y2 },
                { -x2, y2 },
                { -x2, -y2 },
-               { x2, -y2 }
             };
             var moved = IFCGeoUtil.TransformPoints(LShapeProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -406,7 +402,6 @@ namespace IFC_Geometry
                 {w,h },
                 {-w,h },
                 {-w,-h },
-                {w,-h },
             };
             var moved = IFCGeoUtil.TransformPoints(RectangleProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -431,7 +426,6 @@ namespace IFC_Geometry
                 {w,h },
                 {-w,h },
                 {-w,-h },
-                {w,-h },
             };
             var moved = IFCGeoUtil.TransformPoints(RectangleHollowProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -459,7 +453,6 @@ namespace IFC_Geometry
                 {-w,h - r },
                 {-w,-h +r},
                 {-w + r,-h},
-                {w - r,-h },
             };
             var moved = IFCGeoUtil.TransformPoints(RoundedRectangleProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -487,7 +480,6 @@ namespace IFC_Geometry
                 {-x2,y1 },
                 {-x1,y1 },
                 {-x1,-y2 },
-                {x1,-y2 },
             };
             var moved = IFCGeoUtil.TransformPoints(TShapeProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -523,7 +515,6 @@ namespace IFC_Geometry
                 {x2, y2 },
                 {-x2, y2 },
                 {-x1, y2 },
-                {x2,-y2 },
             };
             var moved = IFCGeoUtil.TransformPoints(UShapeProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
@@ -550,7 +541,6 @@ namespace IFC_Geometry
                 {-x2, y1 },
                 {-x1, y1 },
                 {-x1, -y2 },
-                {x2,-y2 },
             };
             var moved = IFCGeoUtil.TransformPoints(ZShapeProfileDef.Position, line);
             Profile2D profileDef = new Profile2D()
