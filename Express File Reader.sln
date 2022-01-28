@@ -7,11 +7,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Express File Reader", "Expr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFC File Reader", "IFC File Reader\IFC File Reader.csproj", "{08EE7C5B-B80B-49F9-923C-AA98E6B9C9FA}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFCProjectTest", "IFCProjectTest\IFCProjectTest.csproj", "{5AE47B83-7013-42B9-9BBC-4CBAF7C69D7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFC ProjectTest", "IFCProjectTest\IFC ProjectTest.csproj", "{5AE47B83-7013-42B9-9BBC-4CBAF7C69D7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IFC Geometry", "IFC Geometry\IFC Geometry.csproj", "{B271FFE8-A6AF-437D-ACFB-830FA597B4FF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThreeDMaker", "ThreeDMaker\ThreeDMaker.csproj", "{2FA820A9-0221-459F-834B-6295D2712AB9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSM File Reader", "OSM File Reader\OSM File Reader.csproj", "{ADA97F01-113A-486E-B083-74211E338F93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSM Geometry", "OSM Geometry\OSM Geometry.csproj", "{22CB91F2-4B29-43B5-89B7-DAF3E162E007}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OSM Project Test", "OSM Project Test\OSM Project Test.csproj", "{D3993B21-0A5D-41D9-A2C1-E43FF4BF9F0D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{2FA820A9-0221-459F-834B-6295D2712AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FA820A9-0221-459F-834B-6295D2712AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FA820A9-0221-459F-834B-6295D2712AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADA97F01-113A-486E-B083-74211E338F93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADA97F01-113A-486E-B083-74211E338F93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADA97F01-113A-486E-B083-74211E338F93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADA97F01-113A-486E-B083-74211E338F93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22CB91F2-4B29-43B5-89B7-DAF3E162E007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22CB91F2-4B29-43B5-89B7-DAF3E162E007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22CB91F2-4B29-43B5-89B7-DAF3E162E007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22CB91F2-4B29-43B5-89B7-DAF3E162E007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3993B21-0A5D-41D9-A2C1-E43FF4BF9F0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3993B21-0A5D-41D9-A2C1-E43FF4BF9F0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3993B21-0A5D-41D9-A2C1-E43FF4BF9F0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3993B21-0A5D-41D9-A2C1-E43FF4BF9F0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

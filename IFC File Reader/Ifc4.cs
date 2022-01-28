@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 namespace IFC4
 {
-    public class Model
+    public class Ifc4
     {
       
         IfcDict instances;
-        public Model()
+        public Ifc4()
         {
             instances = new IfcDict();
         }

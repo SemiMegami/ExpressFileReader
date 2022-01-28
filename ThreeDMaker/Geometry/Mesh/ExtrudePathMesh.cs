@@ -6,8 +6,11 @@ namespace ThreeDMaker.Geometry
 {
     public class ExtrudePathMesh:Mesh3D
     {
+        public ExtrudePathMesh(Shape2D section, Path3D path)
+        {
+            Generate(section, path, new List<Shape2D>());
+        }
 
-        
         public ExtrudePathMesh(Shape2D section, Path3D path, List<Shape2D> holes)
         {
             Generate(section, path, holes);
@@ -20,7 +23,7 @@ namespace ThreeDMaker.Geometry
             int ni = section.Count;
             int nj = path.Count;
 
-            for (int i = 0; i < ni - 1; i++)
+            for (int i = 0; i < ni; i++)
             {
                 for (int j = 0; j < nj - 1; j++)
                 {
@@ -29,6 +32,10 @@ namespace ThreeDMaker.Geometry
                     AxisPoint3D axis2 = path[j + 1];
                     Vector3 local1 = new Vector3(section.points[i], 0);
                     int k = i + 1;
+                    if(k == ni)
+                    {
+                        k = 0;
+                    }
                     Vector3 local2 = new Vector3(section.points[k], 0);
                     Vector3 v0 = axis1.GetWorld(local1);
                     Vector3 v1 = axis1.GetWorld(local2);

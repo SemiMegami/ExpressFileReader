@@ -10,12 +10,12 @@ namespace IFC_Geometry
 {
     public class GeoMetricModel
     {
-        Model model;
+        IFC4.Ifc4 model;
         Dictionary<IfcProductRepresentation, List<Mesh3D>> productRepresentationDict;
 
         public void LoadModel(string filePath)
         {
-            model = new Model();
+            model = new IFC4.Ifc4();
             model.ImportIFC(filePath);
 
             ConstructGeometry();

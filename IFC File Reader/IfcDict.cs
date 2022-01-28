@@ -10,7 +10,7 @@ namespace IFC4
 {
     class IfcDict:Dictionary<string,IfcBase>
     {
-        public void ImportIFC(string path, Model model)
+        public void ImportIFC(string path, Ifc4 model)
         {
 
             Console.WriteLine("reading");

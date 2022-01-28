@@ -185,10 +185,10 @@ namespace IFC_Geometry
 
 
             Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds, profileDef.InnerCurves);
-            var vertives = Mesh3D.Vertices;
-            for (int i = 0; i < vertives.Count; i++)
+            var vertices = Mesh3D.Vertices;
+            for (int i = 0; i < vertices.Count; i++)
             {
-                vertives[i] = IFCGeoUtil.TransformPoint(ExtrudedAreaSolid.Position, vertives[i]);
+                vertices[i] = IFCGeoUtil.TransformPoint(ExtrudedAreaSolid.Position, vertices[i]);
             }
 
 

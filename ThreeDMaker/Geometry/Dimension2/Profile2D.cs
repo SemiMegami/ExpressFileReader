@@ -20,5 +20,21 @@ namespace ThreeDMaker.Geometry.Dimension2
             InnerCurves = new List<Shape2D>();
             Composites = new List<Profile2D>();
         }
+        public Profile2D(Shape2D OutterCurve, List<Shape2D> InnerCurves)
+        {
+            this.OutterCurve = OutterCurve;
+            this.InnerCurves = InnerCurves;
+        }
+
+        public Profile2D(List<Vector2> OutterCurve, List<List<Vector2>> InnerCurves)
+        {
+            this.OutterCurve = new Polygon2D(OutterCurve);
+            
+            this.InnerCurves = new List<Shape2D>();
+            foreach(var inner in InnerCurves)
+            {
+                this.InnerCurves.Add(new Polygon2D(inner));
+            }
+        }
     }
 }

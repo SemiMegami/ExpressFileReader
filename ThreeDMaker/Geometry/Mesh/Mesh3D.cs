@@ -35,6 +35,21 @@ namespace ThreeDMaker.Geometry
             Lines = new List<int>(mesh.Lines);
         }
 
+        public Mesh3D(List<Mesh3D> meshs):this()
+        {
+           
+            int nv = 0;
+            foreach(var mesh in meshs)
+            {
+                nv = Vertices.Count;
+                Vertices.AddRange(mesh.Vertices);
+                foreach (var i in mesh.Triangles)
+                {
+                    Triangles.Add(nv + i);
+                }
+            }
+        }
+
         public void ReCalculateNormal()
         {
             Normals.Clear();
@@ -51,9 +66,6 @@ namespace ThreeDMaker.Geometry
             for (int i = 0; i < triangleNormals.Count * 3; i+=3)
             {
                 var fNormal = triangleNormals[i / 3];
-
-
-
                 Normals[Triangles[i]] += fNormal;
                 Normals[Triangles[i + 1]] += fNormal;
                 Normals[Triangles[i + 2]] += fNormal;

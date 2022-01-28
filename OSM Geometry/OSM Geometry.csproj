@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>OSM_Geometry</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OSM File Reader\OSM File Reader.csproj" />
+    <ProjectReference Include="..\ThreeDMaker\ThreeDMaker.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -9,7 +9,7 @@ namespace IFC4
 {
 	public abstract class IfcBase
 	{
-        public Model Model;
+        public Ifc4 Model;
 
         public List<string> textParameters;
 
