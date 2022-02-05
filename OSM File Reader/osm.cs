@@ -51,7 +51,7 @@ namespace OSM_File_Reader
         {
             var latR = (lat - lat0) * Math.PI / 180;
             var lonR = (lon - lon0) * Math.PI / 180;
-            return new Vector2((float)(lonR * earthRad * Math.Cos(latR)), -(float)(latR * earthRad));
+            return new Vector2((float)(lonR * earthRad * Math.Cos(latR)), (float)(latR * earthRad));
         }
 
         public void ImportXML(string path)

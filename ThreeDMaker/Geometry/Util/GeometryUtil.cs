@@ -116,5 +116,18 @@ namespace ThreeDMaker.Geometry.Util
                 return Vector3.Normalize(Vector3.Cross(v, Vector3.UnitZ));
             }
         }
+
+        public static List<T> GetInverseList<T>(List<T> items)
+        {
+            List<T> outputs = new List<T>();
+
+            for(int i = items.Count - 1; i >=0; i--)
+            {
+                outputs.Add(items[i]);
+            }
+
+
+            return outputs;
+        }
     }
 }

@@ -46,6 +46,36 @@ namespace ThreeDMaker.Geometry
                 }
             }
 
+           
+
+            foreach (var hole in holes)
+            {
+                ni = hole.Count;
+         
+                for (int i = 0; i < ni; i++)
+                {
+                    for (int j = 0; j < nj - 1; j++)
+                    {
+                        int index = Vertices.Count;
+                        AxisPoint3D axis1 = path[j];
+                        AxisPoint3D axis2 = path[j + 1];
+                        Vector3 local1 = new Vector3(hole.points[i], 0);
+                        int k = i + 1;
+                        if (k == ni)
+                        {
+                            k = 0;
+                        }
+                        Vector3 local2 = new Vector3(hole.points[k], 0);
+                        Vector3 v0 = axis1.GetWorld(local1);
+                        Vector3 v1 = axis1.GetWorld(local2);
+                        Vector3 v2 = axis2.GetWorld(local1);
+                        Vector3 v3 = axis2.GetWorld(local2);
+                        Vertices.AddRange(new List<Vector3>() { v0, v1, v2, v3 });
+                        Triangles.AddRange(new List<int>() { index, index + 1, index + 2, index + 1, index + 3, index + 2 });
+                    }
+                }
+            }
+
 
             OutlineMesh outlineMesh = new OutlineMesh(section, holes);
 

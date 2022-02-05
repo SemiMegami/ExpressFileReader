@@ -40,6 +40,13 @@ namespace IFC_Geometry
                 mappedDict.Add(mapped, SolidModelMaker.GetSolids(mapped, solidDict));
             }
 
+            var tessellatedItems = model.GetInstances<IfcTessellatedItem>();
+            Dictionary<IfcTessellatedItem, Mesh3D> tessellatedDict = new Dictionary<IfcTessellatedItem, Mesh3D>();
+            foreach (var solid in tessellatedItems)
+            {
+                tessellatedDict.Add(solid, SolidModelMaker.GetSolid(solid));
+            }
+
 
             var productRepresentations= model.GetInstances<IfcProductRepresentation>();
             productRepresentationDict = new Dictionary<IfcProductRepresentation, List<Mesh3D>>();
@@ -61,11 +68,17 @@ namespace IFC_Geometry
                         {
                             meshs.Add(new Mesh3D(solidDict[(IfcSolidModel)item]));
                         }
+                        else if (item.InTypeOf<IfcTessellatedItem>())
+                        {
+                            meshs.Add(tessellatedDict[(IfcTessellatedItem)item]);
+                        }
 
                         else if (item.InTypeOf<IfcMappedItem>())
                         {
                             meshs.AddRange(mappedDict[(IfcMappedItem)item]);
                         }
+
+                        
                     }
                 }
                 productRepresentationDict.Add(productRepresentation, meshs);
@@ -81,6 +94,7 @@ namespace IFC_Geometry
             List<Mesh3D> meshes = new List<Mesh3D>();
             foreach (var element in elemments)
             {
+               // if (element.ifcid != "#1426558") continue;
                 if (includSpace && element.InTypeOf<IfcSpace>())
                 {
                     continue;
@@ -98,6 +112,7 @@ namespace IFC_Geometry
                 if (element.Representation != null)
                 {
                     List<Mesh3D> meshs = productRepresentationDict[element.Representation];
+                    int j = 0;
                     foreach (var mesh in meshs)
                     {
                         var cloneMesh = new Mesh3D(mesh);
@@ -105,8 +120,10 @@ namespace IFC_Geometry
                         for (int i = 0; i < vertives.Count; i++)
                         {
                             vertives[i] = Vector3.Transform(vertives[i], globalmat);
+                       //     vertives[i] += new Vector3(0, 0, 1000 * j);
                         }
                         meshes.Add(cloneMesh);
+                        j++;
                     }  
                 }
             }

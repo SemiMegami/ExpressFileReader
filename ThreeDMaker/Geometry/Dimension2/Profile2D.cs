@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
 using ThreeDMaker.Geometry;
+using ThreeDMaker.Geometry.Util;
 namespace ThreeDMaker.Geometry.Dimension2
 {
     public class Profile2D
@@ -26,13 +27,25 @@ namespace ThreeDMaker.Geometry.Dimension2
             this.InnerCurves = InnerCurves;
         }
 
-        public Profile2D(List<Vector2> OutterCurve, List<List<Vector2>> InnerCurves)
+        public Profile2D(List<Vector2> OuterCurve, List<List<Vector2>> InnerCurves)
         {
-            this.OutterCurve = new Polygon2D(OutterCurve);
+            List<Vector2> outer = new List<Vector2>(OuterCurve);
+            if( GeometryUtil.Area(OuterCurve) < 0)
+            {
+                outer = GeometryUtil.GetInverseList(OuterCurve);
+            }
+            this.OutterCurve = new Polygon2D(outer);
+
             
             this.InnerCurves = new List<Shape2D>();
-            foreach(var inner in InnerCurves)
+            foreach(var innercurve in InnerCurves)
             {
+
+                List<Vector2> inner = new List<Vector2>(innercurve);
+                if (GeometryUtil.Area(innercurve) > 0)
+                {
+                    inner = GeometryUtil.GetInverseList(innercurve);
+                }
                 this.InnerCurves.Add(new Polygon2D(inner));
             }
         }

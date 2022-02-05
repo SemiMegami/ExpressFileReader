@@ -64,16 +64,29 @@ namespace IFC_Geometry
             {
                 var curve = secment.ParentCurve; 
                 List<Vector2> sectorpoints = GetCurve(curve);
-
-                foreach (var p in sectorpoints)
+                if (secment.SameSense)
                 {
-                    if(points.Count == 0 || Vector2.DistanceSquared(points.Last(), p) > 0.001)
+                    foreach (var p in sectorpoints)
                     {
-                        points.Add(p);
+                        if (points.Count == 0 || Vector2.DistanceSquared(points.Last(), p) > 0.001)
+                        {
+                            points.Add(p);
+                        }
+
                     }
-                    
                 }
                 
+                else
+                {
+                    for(int i = sectorpoints.Count - 1; i >=0; i--)
+                    {
+
+                        if (points.Count == 0 || Vector2.DistanceSquared(points.Last(), sectorpoints[i]) > 0.001)
+                        {
+                            points.Add(sectorpoints[i]);
+                        }
+                    }
+                }
             }
             return points;
         }
@@ -108,30 +121,40 @@ namespace IFC_Geometry
             var segments = IndexedPolyCurve.Segments; 
             IfcCartesianPointList2D pointList2D = (IfcCartesianPointList2D)pointList;
           
-            foreach (var segment in segments)
+            if(segments != null)
             {
-                switch (segment.GetType().Name)
+                foreach (var segment in segments)
                 {
-                    case EntityName.IFCLINEINDEX:
-                        var lineIndex = (IfcLineIndex)segment;
-                        foreach (var i in lineIndex)
-                        {
-                            int j = i - 1;
-                            var x = pointList2D.CoordList[j][0];
-                            var y = pointList2D.CoordList[j][1];
-                            points.Add(new Vector2(x, y));
-                        }
-                        break;
-                    case EntityName.IFCARCINDEX:
-                        var arcIndex = (IfcArcIndex)segment;
-                        foreach (var i in arcIndex)
-                        {
-                            int j = i - 1;
-                            var x = pointList2D.CoordList[j][0];
-                            var y = pointList2D.CoordList[j][1];
-                            points.Add(new Vector2(x, y));
-                        }
-                        break;
+                    switch (segment.GetType().Name)
+                    {
+                        case EntityName.IFCLINEINDEX:
+                            var lineIndex = (IfcLineIndex)segment;
+                            foreach (var i in lineIndex)
+                            {
+                                int j = i - 1;
+                                var x = pointList2D.CoordList[j][0];
+                                var y = pointList2D.CoordList[j][1];
+                                points.Add(new Vector2(x, y));
+                            }
+                            break;
+                        case EntityName.IFCARCINDEX:
+                            var arcIndex = (IfcArcIndex)segment;
+                            foreach (var i in arcIndex)
+                            {
+                                int j = i - 1;
+                                var x = pointList2D.CoordList[j][0];
+                                var y = pointList2D.CoordList[j][1];
+                                points.Add(new Vector2(x, y));
+                            }
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var pl in pointList2D.CoordList)
+                {
+                    points.Add(new Vector2(pl[0], pl[1]));
                 }
             }
            
@@ -180,7 +203,7 @@ namespace IFC_Geometry
                                 {
                                     t2 += 360;
                                 }
-                                float dt = (t2 - t1) % 360;
+                                float dt = (t2 - t1);
                                 int sections = (int) MathF.Ceiling(dt / 360 * circlesections);
                                 if (sections < 2) sections = 2;
                                 float dtheta = dt / sections;
@@ -198,7 +221,7 @@ namespace IFC_Geometry
                                 {
                                     t1 += 360;
                                 }
-                                float dt = (t1 - t2) % 360;
+                                float dt = (t1 - t2);
                                 int sections = (int)MathF.Ceiling(dt / 360 * circlesections);
                                 if (sections < 2) sections = 2;
                                 float dtheta = dt / sections;
@@ -211,9 +234,7 @@ namespace IFC_Geometry
                             }
                             return IFCGeoUtil.TransformPoints((IfcAxis2Placement2D)circle.Position, localPoints);
                         default:
-
                              break;
-
                     }
 
 

@@ -135,24 +135,12 @@ namespace ThreeDMaker.Geometry
 
         static List<Vector2> GetMergedVertices(List<Vector2> vertices, List<List<Vector2>> holes)
         {
-            var A = GeometryUtil.Area(vertices);
             int n = vertices.Count;
 
             for (int e = 0; e < holes.Count; e++)
             {
                 var holeVertice = new List<Vector2>(holes[e]);
 
-                var H= GeometryUtil.Area(holeVertice);
-
-                if(A * H > 0)
-                {
-                    holeVertice.Clear();
-
-                    for(int i = holes[e].Count - 1; i>= 0; i--)
-                    {
-                        holeVertice.Add(holes[e][i]);
-                    }
-                }
 
                 int h = holeVertice.Count;
 
@@ -172,7 +160,6 @@ namespace ThreeDMaker.Geometry
                     for (int j = 0; j < h; j++)
                     {
                         Line2D line = new Line2D(vertices[i], holeVertice[j]);
-
                         bool isIntersect = false;
                         for (int k = 0; k < n; k++)
                         {
@@ -218,8 +205,6 @@ namespace ThreeDMaker.Geometry
                                             break;
                                         }
                                     }
-
-
                                 }
                                 if (isIntersect)
                                 {
@@ -264,10 +249,6 @@ namespace ThreeDMaker.Geometry
 
                     }
                 }
-
-
-
-
             }
 
             return new List<Vector2>();

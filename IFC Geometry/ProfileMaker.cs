@@ -48,10 +48,10 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcArbitraryClosedProfileDef ArbitraryClosedProfileDef)
         {
             var outer = CurveMaker2D.GetCurve(ArbitraryClosedProfileDef.OuterCurve);
-            if(outer.Count == 0)
-            {
-                return new Profile2D();
-            }
+            //if(outer.Count == 0)
+            //{
+            //    return new Profile2D();
+            //}
             List<Vector2> outerModified = new List<Vector2>() { outer[0] };
             for(int i = 1; i < outer.Count; i++)
             {
@@ -76,20 +76,26 @@ namespace IFC_Geometry
         public static Profile2D GetProfile(IfcArbitraryProfileDefWithVoids ArbitraryProfileDefWithVoids)
         {
             Profile2D profileDef = new Profile2D();
+            List<Vector2> outerModified = new List<Vector2>();
             var outer = CurveMaker2D.GetCurve(ArbitraryProfileDefWithVoids.OuterCurve);
-            List<Vector2> outerModified = new List<Vector2>() { outer[0] };
-            for (int i = 1; i < outer.Count; i++)
+            if(outer.Count > 0)
             {
-                var previous = outerModified[outerModified.Count - 1];
-                if (Vector2.DistanceSquared(previous, outer[i]) > 0.0001)
+                outerModified = new List<Vector2>() { outer[0] };
+                for (int i = 1; i < outer.Count; i++)
                 {
-                    outerModified.Add(outer[i]);
-                }
-                if (Vector2.DistanceSquared(outerModified[outerModified.Count - 1], outerModified[0]) > 0.0001)
-                {
-                    outerModified.Add(outerModified[0]);
+                    var previous = outerModified[outerModified.Count - 1];
+                    if (Vector2.DistanceSquared(previous, outer[i]) > 0.0001)
+                    {
+                        outerModified.Add(outer[i]);
+                    }
+
                 }
             }
+           
+            //if (Vector2.DistanceSquared(outerModified[outerModified.Count - 1], outerModified[0]) > 0.0001)
+            //{
+            //    outerModified.Add(outerModified[0]);
+            //}
             foreach (var innerCurve in ArbitraryProfileDefWithVoids.InnerCurves)
             {
                 var inner = CurveMaker2D.GetCurve(innerCurve);
@@ -104,16 +110,21 @@ namespace IFC_Geometry
                         {
                             innerModified.Add(inner[i]);
                         }
-                        if (Vector2.DistanceSquared(innerModified[innerModified.Count - 1], innerModified[0]) > 0.0001)
-                        {
-                            innerModified.Add(innerModified[0]);
-                        }
                     }
                     profileDef.InnerCurves.Add(new Polygon2D(inner));
                 }
-                
+                //if (Vector2.DistanceSquared(innerModified[innerModified.Count - 1], innerModified[0]) > 0.0001)
+                //{
+                //    innerModified.Add(innerModified[0]);
+                //}
             }
             profileDef.OutterCurve = new Polygon2D(outerModified);
+
+
+            if(ArbitraryProfileDefWithVoids.ifcid == "#1425969")
+            {
+
+            }
             return profileDef;
         }
 

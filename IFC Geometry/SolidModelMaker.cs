@@ -58,7 +58,7 @@ namespace IFC_Geometry
             return meshes;
         }
 
-            public static Mesh3D GetSolid(IfcSolidModel SolidModel)
+        public static Mesh3D GetSolid(IfcSolidModel SolidModel)
         {
             switch (SolidModel.GetType().Name)
             {
@@ -78,6 +78,7 @@ namespace IFC_Geometry
                 default: return null;
             }
         }
+       
         //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifccsgsolid.htm
         public static Mesh3D GetSolid(IfcCsgSolid CsgSolid)
         {
@@ -247,8 +248,113 @@ namespace IFC_Geometry
             return Mesh3D;
         }
 
+        public static Mesh3D GetSolid(IfcTessellatedItem SolidModel)
+        {
+            switch (SolidModel.GetType().Name)
+            {
+                case EntityName.IFCINDEXEDPOLYGONALFACE: return GetSolid((IfcIndexedPolygonalFace)SolidModel);
+                case EntityName.IFCPOLYGONALFACESET: return GetSolid((IfcPolygonalFaceSet)SolidModel);
+                case EntityName.IFCTRIANGULATEDFACESET: return GetSolid((IfcTriangulatedFaceSet)SolidModel);
+                default: return null;
+            }
+        }
 
+        //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcindexedpolygonalface.htm
+        public static Mesh3D GetSolid(IfcIndexedPolygonalFace indexedPolygonalFace)
+        {
+            var indice = indexedPolygonalFace.CoordIndex;
 
+            var faceset = indexedPolygonalFace.ToFaceSet;
 
+            Mesh3D Mesh3D = new Mesh3D();
+            foreach (var face in faceset)
+            {
+                //face.Coordinates
+
+                var points = face.Coordinates.CoordList;
+                List<Vector3> facePoints = new List<Vector3>();
+            
+                foreach (var p in points)
+                {
+                    facePoints.Add(new Vector3(p[0], p[1], p[2]));
+                }
+                if( face.PnIndex!= null)
+                {
+                    foreach(var index in face.PnIndex)
+                    {
+                        facePoints.Add(new Vector3(points[index - 1][0], points[index - 1][1], points[index - 1][2]));
+                    }
+                }
+                else
+                {
+                    foreach (var p in points)
+                    {
+                        facePoints.Add(new Vector3(p[0], p[1], p[2]));
+                    }
+                }
+                List<Vector3> meshPoints;
+
+                if(indice!= null)
+                {
+                    meshPoints = new List<Vector3>();
+                    foreach (var index in indice)
+                    {
+                        meshPoints.Add(facePoints[index - 1]);
+                    }
+                }
+                else
+                {
+                    meshPoints = facePoints;
+                }
+
+                var m = new OutlineMesh(meshPoints);
+                var counter = Mesh3D.Vertices.Count;
+                Mesh3D.Vertices.AddRange(m.Vertices);
+                foreach (var i in m.Triangles)
+                {
+                    Mesh3D.Triangles.Add(i + counter);
+                }
+
+            }
+          
+            return Mesh3D;
+        }
+
+        //https://standards.buildingsmart.org/IFC/DEV/IFC4_3/RC1/HTML/schema/ifcgeometricmodelresource/lexical/ifcpolygonalfaceset.htm
+        public static Mesh3D GetSolid(IfcPolygonalFaceSet polygonalFaceSet)
+        {
+            var points = polygonalFaceSet.Coordinates.CoordList;
+            List<Vector3> facePoints = new List<Vector3>();
+
+            foreach (var p in points)
+            {
+                facePoints.Add(new Vector3(p[0], p[1], p[2]));
+            }
+            if (polygonalFaceSet.PnIndex != null)
+            {
+                foreach (var index in polygonalFaceSet.PnIndex)
+                {
+                    facePoints.Add(new Vector3(points[index - 1][0], points[index - 1][1], points[index - 1][2]));
+                }
+            }
+            else
+            {
+                foreach (var p in points)
+                {
+                    facePoints.Add(new Vector3(p[0], p[1], p[2]));
+                }
+            }
+  
+
+            var Mesh3D = new OutlineMesh(facePoints);
+            return Mesh3D;
+        }
+
+        //http://docs.buildingsmartalliance.org/MVD_SPARKIE/schema/ifcgeometricmodelresource/lexical/ifctriangulatedfaceset.htm
+        public static Mesh3D GetSolid(IfcTriangulatedFaceSet triangulatedFaceSet)
+        {
+            Mesh3D Mesh3D = new Mesh3D();
+            return Mesh3D;
+        }
     }
 }

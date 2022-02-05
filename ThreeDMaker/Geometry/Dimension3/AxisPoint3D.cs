@@ -22,7 +22,7 @@ namespace ThreeDMaker.Geometry
             Position = position;
             Front = front;
             Right = GeometryUtil.GetRight(front);
-            Up = Vector3.Normalize(Vector3.Cross(Right,front));
+            Up = Vector3.Normalize(Vector3.Cross(front, Right));
         }
 
         public Vector3 GetWorld(Vector3 local)

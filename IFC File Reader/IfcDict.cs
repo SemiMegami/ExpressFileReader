@@ -696,7 +696,22 @@ namespace IFC4
                     var index2 = fullName.IndexOf(",");
                     string elementTypeName = fullName.Substring(index1 + 2, index2 - index1  - 2);
                     elementType = Type.GetType(elementTypeName);
-                    elements = CreateList(elementTypeName);                   
+                    if(elementType == null)
+                    {
+                        var index3 = fullName.IndexOf("]");
+                        string elementTypeName2 = fullName.Substring(index1 + 2, index3 - index1 - 0);
+                        elementType = Type.GetType(elementTypeName2);
+
+                        
+                        var index4 = elementTypeName.LastIndexOf("["); ;
+                        elementTypeName = elementTypeName.Substring(index4 + 1);
+                        elements = CreateListList(elementTypeName);
+                    }
+                    else
+                    {
+                        elements = CreateList(elementTypeName);
+                    }
+                             
                 }
                 else
                 {
@@ -2328,7 +2343,7 @@ namespace IFC4
 
         }
 
-        private dynamic CreateList(string name)
+        private dynamic CreateList(string name, string elementName = "")
         {
             switch (name.Replace("IFC4.",""))
             {
@@ -4683,5 +4698,2365 @@ namespace IFC4
             }
 
         }
-    }
+
+
+
+
+        private dynamic CreateListList(string name)
+        {
+            switch (name.Replace("IFC4.", ""))
+            {
+                case "IfcAbsorbedDoseMeasure":
+                    return new List<List<IfcAbsorbedDoseMeasure>>();
+                case "IfcAccelerationMeasure":
+                    return new List<List<IfcAccelerationMeasure>>();
+                case "IfcAmountOfSubstanceMeasure":
+                    return new List<List<IfcAmountOfSubstanceMeasure>>();
+                case "IfcAngularVelocityMeasure":
+                    return new List<List<IfcAngularVelocityMeasure>>();
+                case "IfcArcIndex":
+                    return new List<List<IfcArcIndex>>();
+                case "IfcAreaDensityMeasure":
+                    return new List<List<IfcAreaDensityMeasure>>();
+                case "IfcAreaMeasure":
+                    return new List<List<IfcAreaMeasure>>();
+                case "IfcBinary":
+                    return new List<List<IfcBinary>>();
+                case "IfcBoolean":
+                    return new List<List<IfcBoolean>>();
+                case "IfcBoxAlignment":
+                    return new List<List<IfcBoxAlignment>>();
+                case "IfcCardinalPointReference":
+                    return new List<List<IfcCardinalPointReference>>();
+                case "IfcComplexNumber":
+                    return new List<List<IfcComplexNumber>>();
+                case "IfcCompoundPlaneAngleMeasure":
+                    return new List<List<IfcCompoundPlaneAngleMeasure>>();
+                case "IfcContextDependentMeasure":
+                    return new List<List<IfcContextDependentMeasure>>();
+                case "IfcCountMeasure":
+                    return new List<List<IfcCountMeasure>>();
+                case "IfcCurvatureMeasure":
+                    return new List<List<IfcCurvatureMeasure>>();
+                case "IfcDate":
+                    return new List<List<IfcDate>>();
+                case "IfcDateTime":
+                    return new List<List<IfcDateTime>>();
+                case "IfcDayInMonthNumber":
+                    return new List<List<IfcDayInMonthNumber>>();
+                case "IfcDayInWeekNumber":
+                    return new List<List<IfcDayInWeekNumber>>();
+                case "IfcDescriptiveMeasure":
+                    return new List<List<IfcDescriptiveMeasure>>();
+                case "IfcDimensionCount":
+                    return new List<List<IfcDimensionCount>>();
+                case "IfcDoseEquivalentMeasure":
+                    return new List<List<IfcDoseEquivalentMeasure>>();
+                case "IfcDuration":
+                    return new List<List<IfcDuration>>();
+                case "IfcDynamicViscosityMeasure":
+                    return new List<List<IfcDynamicViscosityMeasure>>();
+                case "IfcElectricCapacitanceMeasure":
+                    return new List<List<IfcElectricCapacitanceMeasure>>();
+                case "IfcElectricChargeMeasure":
+                    return new List<List<IfcElectricChargeMeasure>>();
+                case "IfcElectricConductanceMeasure":
+                    return new List<List<IfcElectricConductanceMeasure>>();
+                case "IfcElectricCurrentMeasure":
+                    return new List<List<IfcElectricCurrentMeasure>>();
+                case "IfcElectricResistanceMeasure":
+                    return new List<List<IfcElectricResistanceMeasure>>();
+                case "IfcElectricVoltageMeasure":
+                    return new List<List<IfcElectricVoltageMeasure>>();
+                case "IfcEnergyMeasure":
+                    return new List<List<IfcEnergyMeasure>>();
+                case "IfcFontStyle":
+                    return new List<List<IfcFontStyle>>();
+                case "IfcFontVariant":
+                    return new List<List<IfcFontVariant>>();
+                case "IfcFontWeight":
+                    return new List<List<IfcFontWeight>>();
+                case "IfcForceMeasure":
+                    return new List<List<IfcForceMeasure>>();
+                case "IfcFrequencyMeasure":
+                    return new List<List<IfcFrequencyMeasure>>();
+                case "IfcGloballyUniqueId":
+                    return new List<List<IfcGloballyUniqueId>>();
+                case "IfcHeatFluxDensityMeasure":
+                    return new List<List<IfcHeatFluxDensityMeasure>>();
+                case "IfcHeatingValueMeasure":
+                    return new List<List<IfcHeatingValueMeasure>>();
+                case "IfcIdentifier":
+                    return new List<List<IfcIdentifier>>();
+                case "IfcIlluminanceMeasure":
+                    return new List<List<IfcIlluminanceMeasure>>();
+                case "IfcInductanceMeasure":
+                    return new List<List<IfcInductanceMeasure>>();
+                case "IfcInteger":
+                    return new List<List<IfcInteger>>();
+                case "IfcIntegerCountRateMeasure":
+                    return new List<List<IfcIntegerCountRateMeasure>>();
+                case "IfcIonConcentrationMeasure":
+                    return new List<List<IfcIonConcentrationMeasure>>();
+                case "IfcIsothermalMoistureCapacityMeasure":
+                    return new List<List<IfcIsothermalMoistureCapacityMeasure>>();
+                case "IfcKinematicViscosityMeasure":
+                    return new List<List<IfcKinematicViscosityMeasure>>();
+                case "IfcLabel":
+                    return new List<List<IfcLabel>>();
+                case "IfcLanguageId":
+                    return new List<List<IfcLanguageId>>();
+                case "IfcLengthMeasure":
+                    return new List<List<IfcLengthMeasure>>();
+                case "IfcLineIndex":
+                    return new List<List<IfcLineIndex>>();
+                case "IfcLinearForceMeasure":
+                    return new List<List<IfcLinearForceMeasure>>();
+                case "IfcLinearMomentMeasure":
+                    return new List<List<IfcLinearMomentMeasure>>();
+                case "IfcLinearStiffnessMeasure":
+                    return new List<List<IfcLinearStiffnessMeasure>>();
+                case "IfcLinearVelocityMeasure":
+                    return new List<List<IfcLinearVelocityMeasure>>();
+                case "IfcLogical":
+                    return new List<List<IfcLogical>>();
+                case "IfcLuminousFluxMeasure":
+                    return new List<List<IfcLuminousFluxMeasure>>();
+                case "IfcLuminousIntensityDistributionMeasure":
+                    return new List<List<IfcLuminousIntensityDistributionMeasure>>();
+                case "IfcLuminousIntensityMeasure":
+                    return new List<List<IfcLuminousIntensityMeasure>>();
+                case "IfcMagneticFluxDensityMeasure":
+                    return new List<List<IfcMagneticFluxDensityMeasure>>();
+                case "IfcMagneticFluxMeasure":
+                    return new List<List<IfcMagneticFluxMeasure>>();
+                case "IfcMassDensityMeasure":
+                    return new List<List<IfcMassDensityMeasure>>();
+                case "IfcMassFlowRateMeasure":
+                    return new List<List<IfcMassFlowRateMeasure>>();
+                case "IfcMassMeasure":
+                    return new List<List<IfcMassMeasure>>();
+                case "IfcMassPerLengthMeasure":
+                    return new List<List<IfcMassPerLengthMeasure>>();
+                case "IfcModulusOfElasticityMeasure":
+                    return new List<List<IfcModulusOfElasticityMeasure>>();
+                case "IfcModulusOfLinearSubgradeReactionMeasure":
+                    return new List<List<IfcModulusOfLinearSubgradeReactionMeasure>>();
+                case "IfcModulusOfRotationalSubgradeReactionMeasure":
+                    return new List<List<IfcModulusOfRotationalSubgradeReactionMeasure>>();
+                case "IfcModulusOfSubgradeReactionMeasure":
+                    return new List<List<IfcModulusOfSubgradeReactionMeasure>>();
+                case "IfcMoistureDiffusivityMeasure":
+                    return new List<List<IfcMoistureDiffusivityMeasure>>();
+                case "IfcMolecularWeightMeasure":
+                    return new List<List<IfcMolecularWeightMeasure>>();
+                case "IfcMomentOfInertiaMeasure":
+                    return new List<List<IfcMomentOfInertiaMeasure>>();
+                case "IfcMonetaryMeasure":
+                    return new List<List<IfcMonetaryMeasure>>();
+                case "IfcMonthInYearNumber":
+                    return new List<List<IfcMonthInYearNumber>>();
+                case "IfcNonNegativeLengthMeasure":
+                    return new List<List<IfcNonNegativeLengthMeasure>>();
+                case "IfcNormalisedRatioMeasure":
+                    return new List<List<IfcNormalisedRatioMeasure>>();
+                case "IfcNumericMeasure":
+                    return new List<List<IfcNumericMeasure>>();
+                case "IfcPHMeasure":
+                    return new List<List<IfcPHMeasure>>();
+                case "IfcParameterValue":
+                    return new List<List<IfcParameterValue>>();
+                case "IfcPlanarForceMeasure":
+                    return new List<List<IfcPlanarForceMeasure>>();
+                case "IfcPlaneAngleMeasure":
+                    return new List<List<IfcPlaneAngleMeasure>>();
+                case "IfcPositiveInteger":
+                    return new List<List<IfcPositiveInteger>>();
+                case "IfcPositiveLengthMeasure":
+                    return new List<List<IfcPositiveLengthMeasure>>();
+                case "IfcPositivePlaneAngleMeasure":
+                    return new List<List<IfcPositivePlaneAngleMeasure>>();
+                case "IfcPositiveRatioMeasure":
+                    return new List<List<IfcPositiveRatioMeasure>>();
+                case "IfcPowerMeasure":
+                    return new List<List<IfcPowerMeasure>>();
+                case "IfcPresentableText":
+                    return new List<List<IfcPresentableText>>();
+                case "IfcPressureMeasure":
+                    return new List<List<IfcPressureMeasure>>();
+                case "IfcPropertySetDefinitionSet":
+                    return new List<List<IfcPropertySetDefinitionSet>>();
+                case "IfcRadioActivityMeasure":
+                    return new List<List<IfcRadioActivityMeasure>>();
+                case "IfcRatioMeasure":
+                    return new List<List<IfcRatioMeasure>>();
+                case "IfcReal":
+                    return new List<List<IfcReal>>();
+                case "IfcRotationalFrequencyMeasure":
+                    return new List<List<IfcRotationalFrequencyMeasure>>();
+                case "IfcRotationalMassMeasure":
+                    return new List<List<IfcRotationalMassMeasure>>();
+                case "IfcRotationalStiffnessMeasure":
+                    return new List<List<IfcRotationalStiffnessMeasure>>();
+                case "IfcSectionModulusMeasure":
+                    return new List<List<IfcSectionModulusMeasure>>();
+                case "IfcSectionalAreaIntegralMeasure":
+                    return new List<List<IfcSectionalAreaIntegralMeasure>>();
+                case "IfcShearModulusMeasure":
+                    return new List<List<IfcShearModulusMeasure>>();
+                case "IfcSolidAngleMeasure":
+                    return new List<List<IfcSolidAngleMeasure>>();
+                case "IfcSoundPowerLevelMeasure":
+                    return new List<List<IfcSoundPowerLevelMeasure>>();
+                case "IfcSoundPowerMeasure":
+                    return new List<List<IfcSoundPowerMeasure>>();
+                case "IfcSoundPressureLevelMeasure":
+                    return new List<List<IfcSoundPressureLevelMeasure>>();
+                case "IfcSoundPressureMeasure":
+                    return new List<List<IfcSoundPressureMeasure>>();
+                case "IfcSpecificHeatCapacityMeasure":
+                    return new List<List<IfcSpecificHeatCapacityMeasure>>();
+                case "IfcSpecularExponent":
+                    return new List<List<IfcSpecularExponent>>();
+                case "IfcSpecularRoughness":
+                    return new List<List<IfcSpecularRoughness>>();
+                case "IfcTemperatureGradientMeasure":
+                    return new List<List<IfcTemperatureGradientMeasure>>();
+                case "IfcTemperatureRateOfChangeMeasure":
+                    return new List<List<IfcTemperatureRateOfChangeMeasure>>();
+                case "IfcText":
+                    return new List<List<IfcText>>();
+                case "IfcTextAlignment":
+                    return new List<List<IfcTextAlignment>>();
+                case "IfcTextDecoration":
+                    return new List<List<IfcTextDecoration>>();
+                case "IfcTextFontName":
+                    return new List<List<IfcTextFontName>>();
+                case "IfcTextTransformation":
+                    return new List<List<IfcTextTransformation>>();
+                case "IfcThermalAdmittanceMeasure":
+                    return new List<List<IfcThermalAdmittanceMeasure>>();
+                case "IfcThermalConductivityMeasure":
+                    return new List<List<IfcThermalConductivityMeasure>>();
+                case "IfcThermalExpansionCoefficientMeasure":
+                    return new List<List<IfcThermalExpansionCoefficientMeasure>>();
+                case "IfcThermalResistanceMeasure":
+                    return new List<List<IfcThermalResistanceMeasure>>();
+                case "IfcThermalTransmittanceMeasure":
+                    return new List<List<IfcThermalTransmittanceMeasure>>();
+                case "IfcThermodynamicTemperatureMeasure":
+                    return new List<List<IfcThermodynamicTemperatureMeasure>>();
+                case "IfcTime":
+                    return new List<List<IfcTime>>();
+                case "IfcTimeMeasure":
+                    return new List<List<IfcTimeMeasure>>();
+                case "IfcTimeStamp":
+                    return new List<List<IfcTimeStamp>>();
+                case "IfcTorqueMeasure":
+                    return new List<List<IfcTorqueMeasure>>();
+                case "IfcURIReference":
+                    return new List<List<IfcURIReference>>();
+                case "IfcVaporPermeabilityMeasure":
+                    return new List<List<IfcVaporPermeabilityMeasure>>();
+                case "IfcVolumeMeasure":
+                    return new List<List<IfcVolumeMeasure>>();
+                case "IfcVolumetricFlowRateMeasure":
+                    return new List<List<IfcVolumetricFlowRateMeasure>>();
+                case "IfcWarpingConstantMeasure":
+                    return new List<List<IfcWarpingConstantMeasure>>();
+                case "IfcWarpingMomentMeasure":
+                    return new List<List<IfcWarpingMomentMeasure>>();
+                case "IfcActionRequestTypeEnum":
+                    return new List<List<IfcActionRequestTypeEnum>>();
+                case "IfcActionSourceTypeEnum":
+                    return new List<List<IfcActionSourceTypeEnum>>();
+                case "IfcActionTypeEnum":
+                    return new List<List<IfcActionTypeEnum>>();
+                case "IfcActuatorTypeEnum":
+                    return new List<List<IfcActuatorTypeEnum>>();
+                case "IfcAddressTypeEnum":
+                    return new List<List<IfcAddressTypeEnum>>();
+                case "IfcAirTerminalBoxTypeEnum":
+                    return new List<List<IfcAirTerminalBoxTypeEnum>>();
+                case "IfcAirTerminalTypeEnum":
+                    return new List<List<IfcAirTerminalTypeEnum>>();
+                case "IfcAirToAirHeatRecoveryTypeEnum":
+                    return new List<List<IfcAirToAirHeatRecoveryTypeEnum>>();
+                case "IfcAlarmTypeEnum":
+                    return new List<List<IfcAlarmTypeEnum>>();
+                case "IfcAnalysisModelTypeEnum":
+                    return new List<List<IfcAnalysisModelTypeEnum>>();
+                case "IfcAnalysisTheoryTypeEnum":
+                    return new List<List<IfcAnalysisTheoryTypeEnum>>();
+                case "IfcArithmeticOperatorEnum":
+                    return new List<List<IfcArithmeticOperatorEnum>>();
+                case "IfcAssemblyPlaceEnum":
+                    return new List<List<IfcAssemblyPlaceEnum>>();
+                case "IfcAudioVisualApplianceTypeEnum":
+                    return new List<List<IfcAudioVisualApplianceTypeEnum>>();
+                case "IfcBSplineCurveForm":
+                    return new List<List<IfcBSplineCurveForm>>();
+                case "IfcBSplineSurfaceForm":
+                    return new List<List<IfcBSplineSurfaceForm>>();
+                case "IfcBeamTypeEnum":
+                    return new List<List<IfcBeamTypeEnum>>();
+                case "IfcBenchmarkEnum":
+                    return new List<List<IfcBenchmarkEnum>>();
+                case "IfcBoilerTypeEnum":
+                    return new List<List<IfcBoilerTypeEnum>>();
+                case "IfcBooleanOperator":
+                    return new List<List<IfcBooleanOperator>>();
+                case "IfcBuildingElementPartTypeEnum":
+                    return new List<List<IfcBuildingElementPartTypeEnum>>();
+                case "IfcBuildingElementProxyTypeEnum":
+                    return new List<List<IfcBuildingElementProxyTypeEnum>>();
+                case "IfcBuildingSystemTypeEnum":
+                    return new List<List<IfcBuildingSystemTypeEnum>>();
+                case "IfcBurnerTypeEnum":
+                    return new List<List<IfcBurnerTypeEnum>>();
+                case "IfcCableCarrierFittingTypeEnum":
+                    return new List<List<IfcCableCarrierFittingTypeEnum>>();
+                case "IfcCableCarrierSegmentTypeEnum":
+                    return new List<List<IfcCableCarrierSegmentTypeEnum>>();
+                case "IfcCableFittingTypeEnum":
+                    return new List<List<IfcCableFittingTypeEnum>>();
+                case "IfcCableSegmentTypeEnum":
+                    return new List<List<IfcCableSegmentTypeEnum>>();
+                case "IfcChangeActionEnum":
+                    return new List<List<IfcChangeActionEnum>>();
+                case "IfcChillerTypeEnum":
+                    return new List<List<IfcChillerTypeEnum>>();
+                case "IfcChimneyTypeEnum":
+                    return new List<List<IfcChimneyTypeEnum>>();
+                case "IfcCoilTypeEnum":
+                    return new List<List<IfcCoilTypeEnum>>();
+                case "IfcColumnTypeEnum":
+                    return new List<List<IfcColumnTypeEnum>>();
+                case "IfcCommunicationsApplianceTypeEnum":
+                    return new List<List<IfcCommunicationsApplianceTypeEnum>>();
+                case "IfcComplexPropertyTemplateTypeEnum":
+                    return new List<List<IfcComplexPropertyTemplateTypeEnum>>();
+                case "IfcCompressorTypeEnum":
+                    return new List<List<IfcCompressorTypeEnum>>();
+                case "IfcCondenserTypeEnum":
+                    return new List<List<IfcCondenserTypeEnum>>();
+                case "IfcConnectionTypeEnum":
+                    return new List<List<IfcConnectionTypeEnum>>();
+                case "IfcConstraintEnum":
+                    return new List<List<IfcConstraintEnum>>();
+                case "IfcConstructionEquipmentResourceTypeEnum":
+                    return new List<List<IfcConstructionEquipmentResourceTypeEnum>>();
+                case "IfcConstructionMaterialResourceTypeEnum":
+                    return new List<List<IfcConstructionMaterialResourceTypeEnum>>();
+                case "IfcConstructionProductResourceTypeEnum":
+                    return new List<List<IfcConstructionProductResourceTypeEnum>>();
+                case "IfcControllerTypeEnum":
+                    return new List<List<IfcControllerTypeEnum>>();
+                case "IfcCooledBeamTypeEnum":
+                    return new List<List<IfcCooledBeamTypeEnum>>();
+                case "IfcCoolingTowerTypeEnum":
+                    return new List<List<IfcCoolingTowerTypeEnum>>();
+                case "IfcCostItemTypeEnum":
+                    return new List<List<IfcCostItemTypeEnum>>();
+                case "IfcCostScheduleTypeEnum":
+                    return new List<List<IfcCostScheduleTypeEnum>>();
+                case "IfcCoveringTypeEnum":
+                    return new List<List<IfcCoveringTypeEnum>>();
+                case "IfcCrewResourceTypeEnum":
+                    return new List<List<IfcCrewResourceTypeEnum>>();
+                case "IfcCurtainWallTypeEnum":
+                    return new List<List<IfcCurtainWallTypeEnum>>();
+                case "IfcCurveInterpolationEnum":
+                    return new List<List<IfcCurveInterpolationEnum>>();
+                case "IfcDamperTypeEnum":
+                    return new List<List<IfcDamperTypeEnum>>();
+                case "IfcDataOriginEnum":
+                    return new List<List<IfcDataOriginEnum>>();
+                case "IfcDerivedUnitEnum":
+                    return new List<List<IfcDerivedUnitEnum>>();
+                case "IfcDirectionSenseEnum":
+                    return new List<List<IfcDirectionSenseEnum>>();
+                case "IfcDiscreteAccessoryTypeEnum":
+                    return new List<List<IfcDiscreteAccessoryTypeEnum>>();
+                case "IfcDistributionChamberElementTypeEnum":
+                    return new List<List<IfcDistributionChamberElementTypeEnum>>();
+                case "IfcDistributionPortTypeEnum":
+                    return new List<List<IfcDistributionPortTypeEnum>>();
+                case "IfcDistributionSystemEnum":
+                    return new List<List<IfcDistributionSystemEnum>>();
+                case "IfcDocumentConfidentialityEnum":
+                    return new List<List<IfcDocumentConfidentialityEnum>>();
+                case "IfcDocumentStatusEnum":
+                    return new List<List<IfcDocumentStatusEnum>>();
+                case "IfcDoorPanelOperationEnum":
+                    return new List<List<IfcDoorPanelOperationEnum>>();
+                case "IfcDoorPanelPositionEnum":
+                    return new List<List<IfcDoorPanelPositionEnum>>();
+                case "IfcDoorStyleConstructionEnum":
+                    return new List<List<IfcDoorStyleConstructionEnum>>();
+                case "IfcDoorStyleOperationEnum":
+                    return new List<List<IfcDoorStyleOperationEnum>>();
+                case "IfcDoorTypeEnum":
+                    return new List<List<IfcDoorTypeEnum>>();
+                case "IfcDoorTypeOperationEnum":
+                    return new List<List<IfcDoorTypeOperationEnum>>();
+                case "IfcDuctFittingTypeEnum":
+                    return new List<List<IfcDuctFittingTypeEnum>>();
+                case "IfcDuctSegmentTypeEnum":
+                    return new List<List<IfcDuctSegmentTypeEnum>>();
+                case "IfcDuctSilencerTypeEnum":
+                    return new List<List<IfcDuctSilencerTypeEnum>>();
+                case "IfcElectricApplianceTypeEnum":
+                    return new List<List<IfcElectricApplianceTypeEnum>>();
+                case "IfcElectricDistributionBoardTypeEnum":
+                    return new List<List<IfcElectricDistributionBoardTypeEnum>>();
+                case "IfcElectricFlowStorageDeviceTypeEnum":
+                    return new List<List<IfcElectricFlowStorageDeviceTypeEnum>>();
+                case "IfcElectricGeneratorTypeEnum":
+                    return new List<List<IfcElectricGeneratorTypeEnum>>();
+                case "IfcElectricMotorTypeEnum":
+                    return new List<List<IfcElectricMotorTypeEnum>>();
+                case "IfcElectricTimeControlTypeEnum":
+                    return new List<List<IfcElectricTimeControlTypeEnum>>();
+                case "IfcElementAssemblyTypeEnum":
+                    return new List<List<IfcElementAssemblyTypeEnum>>();
+                case "IfcElementCompositionEnum":
+                    return new List<List<IfcElementCompositionEnum>>();
+                case "IfcEngineTypeEnum":
+                    return new List<List<IfcEngineTypeEnum>>();
+                case "IfcEvaporativeCoolerTypeEnum":
+                    return new List<List<IfcEvaporativeCoolerTypeEnum>>();
+                case "IfcEvaporatorTypeEnum":
+                    return new List<List<IfcEvaporatorTypeEnum>>();
+                case "IfcEventTriggerTypeEnum":
+                    return new List<List<IfcEventTriggerTypeEnum>>();
+                case "IfcEventTypeEnum":
+                    return new List<List<IfcEventTypeEnum>>();
+                case "IfcExternalSpatialElementTypeEnum":
+                    return new List<List<IfcExternalSpatialElementTypeEnum>>();
+                case "IfcFanTypeEnum":
+                    return new List<List<IfcFanTypeEnum>>();
+                case "IfcFastenerTypeEnum":
+                    return new List<List<IfcFastenerTypeEnum>>();
+                case "IfcFilterTypeEnum":
+                    return new List<List<IfcFilterTypeEnum>>();
+                case "IfcFireSuppressionTerminalTypeEnum":
+                    return new List<List<IfcFireSuppressionTerminalTypeEnum>>();
+                case "IfcFlowDirectionEnum":
+                    return new List<List<IfcFlowDirectionEnum>>();
+                case "IfcFlowInstrumentTypeEnum":
+                    return new List<List<IfcFlowInstrumentTypeEnum>>();
+                case "IfcFlowMeterTypeEnum":
+                    return new List<List<IfcFlowMeterTypeEnum>>();
+                case "IfcFootingTypeEnum":
+                    return new List<List<IfcFootingTypeEnum>>();
+                case "IfcFurnitureTypeEnum":
+                    return new List<List<IfcFurnitureTypeEnum>>();
+                case "IfcGeographicElementTypeEnum":
+                    return new List<List<IfcGeographicElementTypeEnum>>();
+                case "IfcGeometricProjectionEnum":
+                    return new List<List<IfcGeometricProjectionEnum>>();
+                case "IfcGlobalOrLocalEnum":
+                    return new List<List<IfcGlobalOrLocalEnum>>();
+                case "IfcGridTypeEnum":
+                    return new List<List<IfcGridTypeEnum>>();
+                case "IfcHeatExchangerTypeEnum":
+                    return new List<List<IfcHeatExchangerTypeEnum>>();
+                case "IfcHumidifierTypeEnum":
+                    return new List<List<IfcHumidifierTypeEnum>>();
+                case "IfcInterceptorTypeEnum":
+                    return new List<List<IfcInterceptorTypeEnum>>();
+                case "IfcInternalOrExternalEnum":
+                    return new List<List<IfcInternalOrExternalEnum>>();
+                case "IfcInventoryTypeEnum":
+                    return new List<List<IfcInventoryTypeEnum>>();
+                case "IfcJunctionBoxTypeEnum":
+                    return new List<List<IfcJunctionBoxTypeEnum>>();
+                case "IfcKnotType":
+                    return new List<List<IfcKnotType>>();
+                case "IfcLaborResourceTypeEnum":
+                    return new List<List<IfcLaborResourceTypeEnum>>();
+                case "IfcLampTypeEnum":
+                    return new List<List<IfcLampTypeEnum>>();
+                case "IfcLayerSetDirectionEnum":
+                    return new List<List<IfcLayerSetDirectionEnum>>();
+                case "IfcLightDistributionCurveEnum":
+                    return new List<List<IfcLightDistributionCurveEnum>>();
+                case "IfcLightEmissionSourceEnum":
+                    return new List<List<IfcLightEmissionSourceEnum>>();
+                case "IfcLightFixtureTypeEnum":
+                    return new List<List<IfcLightFixtureTypeEnum>>();
+                case "IfcLoadGroupTypeEnum":
+                    return new List<List<IfcLoadGroupTypeEnum>>();
+                case "IfcLogicalOperatorEnum":
+                    return new List<List<IfcLogicalOperatorEnum>>();
+                case "IfcMechanicalFastenerTypeEnum":
+                    return new List<List<IfcMechanicalFastenerTypeEnum>>();
+                case "IfcMedicalDeviceTypeEnum":
+                    return new List<List<IfcMedicalDeviceTypeEnum>>();
+                case "IfcMemberTypeEnum":
+                    return new List<List<IfcMemberTypeEnum>>();
+                case "IfcMotorConnectionTypeEnum":
+                    return new List<List<IfcMotorConnectionTypeEnum>>();
+                case "IfcNullStyle":
+                    return new List<List<IfcNullStyle>>();
+                case "IfcObjectTypeEnum":
+                    return new List<List<IfcObjectTypeEnum>>();
+                case "IfcObjectiveEnum":
+                    return new List<List<IfcObjectiveEnum>>();
+                case "IfcOccupantTypeEnum":
+                    return new List<List<IfcOccupantTypeEnum>>();
+                case "IfcOpeningElementTypeEnum":
+                    return new List<List<IfcOpeningElementTypeEnum>>();
+                case "IfcOutletTypeEnum":
+                    return new List<List<IfcOutletTypeEnum>>();
+                case "IfcPerformanceHistoryTypeEnum":
+                    return new List<List<IfcPerformanceHistoryTypeEnum>>();
+                case "IfcPermeableCoveringOperationEnum":
+                    return new List<List<IfcPermeableCoveringOperationEnum>>();
+                case "IfcPermitTypeEnum":
+                    return new List<List<IfcPermitTypeEnum>>();
+                case "IfcPhysicalOrVirtualEnum":
+                    return new List<List<IfcPhysicalOrVirtualEnum>>();
+                case "IfcPileConstructionEnum":
+                    return new List<List<IfcPileConstructionEnum>>();
+                case "IfcPileTypeEnum":
+                    return new List<List<IfcPileTypeEnum>>();
+                case "IfcPipeFittingTypeEnum":
+                    return new List<List<IfcPipeFittingTypeEnum>>();
+                case "IfcPipeSegmentTypeEnum":
+                    return new List<List<IfcPipeSegmentTypeEnum>>();
+                case "IfcPlateTypeEnum":
+                    return new List<List<IfcPlateTypeEnum>>();
+                case "IfcPreferredSurfaceCurveRepresentation":
+                    return new List<List<IfcPreferredSurfaceCurveRepresentation>>();
+                case "IfcProcedureTypeEnum":
+                    return new List<List<IfcProcedureTypeEnum>>();
+                case "IfcProfileTypeEnum":
+                    return new List<List<IfcProfileTypeEnum>>();
+                case "IfcProjectOrderTypeEnum":
+                    return new List<List<IfcProjectOrderTypeEnum>>();
+                case "IfcProjectedOrTrueLengthEnum":
+                    return new List<List<IfcProjectedOrTrueLengthEnum>>();
+                case "IfcProjectionElementTypeEnum":
+                    return new List<List<IfcProjectionElementTypeEnum>>();
+                case "IfcPropertySetTemplateTypeEnum":
+                    return new List<List<IfcPropertySetTemplateTypeEnum>>();
+                case "IfcProtectiveDeviceTrippingUnitTypeEnum":
+                    return new List<List<IfcProtectiveDeviceTrippingUnitTypeEnum>>();
+                case "IfcProtectiveDeviceTypeEnum":
+                    return new List<List<IfcProtectiveDeviceTypeEnum>>();
+                case "IfcPumpTypeEnum":
+                    return new List<List<IfcPumpTypeEnum>>();
+                case "IfcRailingTypeEnum":
+                    return new List<List<IfcRailingTypeEnum>>();
+                case "IfcRampFlightTypeEnum":
+                    return new List<List<IfcRampFlightTypeEnum>>();
+                case "IfcRampTypeEnum":
+                    return new List<List<IfcRampTypeEnum>>();
+                case "IfcRecurrenceTypeEnum":
+                    return new List<List<IfcRecurrenceTypeEnum>>();
+                case "IfcReflectanceMethodEnum":
+                    return new List<List<IfcReflectanceMethodEnum>>();
+                case "IfcReinforcingBarRoleEnum":
+                    return new List<List<IfcReinforcingBarRoleEnum>>();
+                case "IfcReinforcingBarSurfaceEnum":
+                    return new List<List<IfcReinforcingBarSurfaceEnum>>();
+                case "IfcReinforcingBarTypeEnum":
+                    return new List<List<IfcReinforcingBarTypeEnum>>();
+                case "IfcReinforcingMeshTypeEnum":
+                    return new List<List<IfcReinforcingMeshTypeEnum>>();
+                case "IfcRoleEnum":
+                    return new List<List<IfcRoleEnum>>();
+                case "IfcRoofTypeEnum":
+                    return new List<List<IfcRoofTypeEnum>>();
+                case "IfcSIPrefix":
+                    return new List<List<IfcSIPrefix>>();
+                case "IfcSIUnitName":
+                    return new List<List<IfcSIUnitName>>();
+                case "IfcSanitaryTerminalTypeEnum":
+                    return new List<List<IfcSanitaryTerminalTypeEnum>>();
+                case "IfcSectionTypeEnum":
+                    return new List<List<IfcSectionTypeEnum>>();
+                case "IfcSensorTypeEnum":
+                    return new List<List<IfcSensorTypeEnum>>();
+                case "IfcSequenceEnum":
+                    return new List<List<IfcSequenceEnum>>();
+                case "IfcShadingDeviceTypeEnum":
+                    return new List<List<IfcShadingDeviceTypeEnum>>();
+                case "IfcSimplePropertyTemplateTypeEnum":
+                    return new List<List<IfcSimplePropertyTemplateTypeEnum>>();
+                case "IfcSlabTypeEnum":
+                    return new List<List<IfcSlabTypeEnum>>();
+                case "IfcSolarDeviceTypeEnum":
+                    return new List<List<IfcSolarDeviceTypeEnum>>();
+                case "IfcSpaceHeaterTypeEnum":
+                    return new List<List<IfcSpaceHeaterTypeEnum>>();
+                case "IfcSpaceTypeEnum":
+                    return new List<List<IfcSpaceTypeEnum>>();
+                case "IfcSpatialZoneTypeEnum":
+                    return new List<List<IfcSpatialZoneTypeEnum>>();
+                case "IfcStackTerminalTypeEnum":
+                    return new List<List<IfcStackTerminalTypeEnum>>();
+                case "IfcStairFlightTypeEnum":
+                    return new List<List<IfcStairFlightTypeEnum>>();
+                case "IfcStairTypeEnum":
+                    return new List<List<IfcStairTypeEnum>>();
+                case "IfcStateEnum":
+                    return new List<List<IfcStateEnum>>();
+                case "IfcStructuralCurveActivityTypeEnum":
+                    return new List<List<IfcStructuralCurveActivityTypeEnum>>();
+                case "IfcStructuralCurveMemberTypeEnum":
+                    return new List<List<IfcStructuralCurveMemberTypeEnum>>();
+                case "IfcStructuralSurfaceActivityTypeEnum":
+                    return new List<List<IfcStructuralSurfaceActivityTypeEnum>>();
+                case "IfcStructuralSurfaceMemberTypeEnum":
+                    return new List<List<IfcStructuralSurfaceMemberTypeEnum>>();
+                case "IfcSubContractResourceTypeEnum":
+                    return new List<List<IfcSubContractResourceTypeEnum>>();
+                case "IfcSurfaceFeatureTypeEnum":
+                    return new List<List<IfcSurfaceFeatureTypeEnum>>();
+                case "IfcSurfaceSide":
+                    return new List<List<IfcSurfaceSide>>();
+                case "IfcSwitchingDeviceTypeEnum":
+                    return new List<List<IfcSwitchingDeviceTypeEnum>>();
+                case "IfcSystemFurnitureElementTypeEnum":
+                    return new List<List<IfcSystemFurnitureElementTypeEnum>>();
+                case "IfcTankTypeEnum":
+                    return new List<List<IfcTankTypeEnum>>();
+                case "IfcTaskDurationEnum":
+                    return new List<List<IfcTaskDurationEnum>>();
+                case "IfcTaskTypeEnum":
+                    return new List<List<IfcTaskTypeEnum>>();
+                case "IfcTendonAnchorTypeEnum":
+                    return new List<List<IfcTendonAnchorTypeEnum>>();
+                case "IfcTendonTypeEnum":
+                    return new List<List<IfcTendonTypeEnum>>();
+                case "IfcTextPath":
+                    return new List<List<IfcTextPath>>();
+                case "IfcTimeSeriesDataTypeEnum":
+                    return new List<List<IfcTimeSeriesDataTypeEnum>>();
+                case "IfcTransformerTypeEnum":
+                    return new List<List<IfcTransformerTypeEnum>>();
+                case "IfcTransitionCode":
+                    return new List<List<IfcTransitionCode>>();
+                case "IfcTransportElementTypeEnum":
+                    return new List<List<IfcTransportElementTypeEnum>>();
+                case "IfcTrimmingPreference":
+                    return new List<List<IfcTrimmingPreference>>();
+                case "IfcTubeBundleTypeEnum":
+                    return new List<List<IfcTubeBundleTypeEnum>>();
+                case "IfcUnitEnum":
+                    return new List<List<IfcUnitEnum>>();
+                case "IfcUnitaryControlElementTypeEnum":
+                    return new List<List<IfcUnitaryControlElementTypeEnum>>();
+                case "IfcUnitaryEquipmentTypeEnum":
+                    return new List<List<IfcUnitaryEquipmentTypeEnum>>();
+                case "IfcValveTypeEnum":
+                    return new List<List<IfcValveTypeEnum>>();
+                case "IfcVibrationIsolatorTypeEnum":
+                    return new List<List<IfcVibrationIsolatorTypeEnum>>();
+                case "IfcVoidingFeatureTypeEnum":
+                    return new List<List<IfcVoidingFeatureTypeEnum>>();
+                case "IfcWallTypeEnum":
+                    return new List<List<IfcWallTypeEnum>>();
+                case "IfcWasteTerminalTypeEnum":
+                    return new List<List<IfcWasteTerminalTypeEnum>>();
+                case "IfcWindowPanelOperationEnum":
+                    return new List<List<IfcWindowPanelOperationEnum>>();
+                case "IfcWindowPanelPositionEnum":
+                    return new List<List<IfcWindowPanelPositionEnum>>();
+                case "IfcWindowStyleConstructionEnum":
+                    return new List<List<IfcWindowStyleConstructionEnum>>();
+                case "IfcWindowStyleOperationEnum":
+                    return new List<List<IfcWindowStyleOperationEnum>>();
+                case "IfcWindowTypeEnum":
+                    return new List<List<IfcWindowTypeEnum>>();
+                case "IfcWindowTypePartitioningEnum":
+                    return new List<List<IfcWindowTypePartitioningEnum>>();
+                case "IfcWorkCalendarTypeEnum":
+                    return new List<List<IfcWorkCalendarTypeEnum>>();
+                case "IfcWorkPlanTypeEnum":
+                    return new List<List<IfcWorkPlanTypeEnum>>();
+                case "IfcWorkScheduleTypeEnum":
+                    return new List<List<IfcWorkScheduleTypeEnum>>();
+                case "IfcActorSelect":
+                    return new List<List<IfcActorSelect>>();
+                case "IfcAppliedValueSelect":
+                    return new List<List<IfcAppliedValueSelect>>();
+                case "IfcAxis2Placement":
+                    return new List<List<IfcAxis2Placement>>();
+                case "IfcBendingParameterSelect":
+                    return new List<List<IfcBendingParameterSelect>>();
+                case "IfcBooleanOperand":
+                    return new List<List<IfcBooleanOperand>>();
+                case "IfcClassificationReferenceSelect":
+                    return new List<List<IfcClassificationReferenceSelect>>();
+                case "IfcClassificationSelect":
+                    return new List<List<IfcClassificationSelect>>();
+                case "IfcColour":
+                    return new List<List<IfcColour>>();
+                case "IfcColourOrFactor":
+                    return new List<List<IfcColourOrFactor>>();
+                case "IfcCoordinateReferenceSystemSelect":
+                    return new List<List<IfcCoordinateReferenceSystemSelect>>();
+                case "IfcCsgSelect":
+                    return new List<List<IfcCsgSelect>>();
+                case "IfcCurveFontOrScaledCurveFontSelect":
+                    return new List<List<IfcCurveFontOrScaledCurveFontSelect>>();
+                case "IfcCurveOnSurface":
+                    return new List<List<IfcCurveOnSurface>>();
+                case "IfcCurveOrEdgeCurve":
+                    return new List<List<IfcCurveOrEdgeCurve>>();
+                case "IfcCurveStyleFontSelect":
+                    return new List<List<IfcCurveStyleFontSelect>>();
+                case "IfcDefinitionSelect":
+                    return new List<List<IfcDefinitionSelect>>();
+                case "IfcDerivedMeasureValue":
+                    return new List<List<IfcDerivedMeasureValue>>();
+                case "IfcDocumentSelect":
+                    return new List<List<IfcDocumentSelect>>();
+                case "IfcFillStyleSelect":
+                    return new List<List<IfcFillStyleSelect>>();
+                case "IfcGeometricSetSelect":
+                    return new List<List<IfcGeometricSetSelect>>();
+                case "IfcGridPlacementDirectionSelect":
+                    return new List<List<IfcGridPlacementDirectionSelect>>();
+                case "IfcHatchLineDistanceSelect":
+                    return new List<List<IfcHatchLineDistanceSelect>>();
+                case "IfcLayeredItem":
+                    return new List<List<IfcLayeredItem>>();
+                case "IfcLibrarySelect":
+                    return new List<List<IfcLibrarySelect>>();
+                case "IfcLightDistributionDataSourceSelect":
+                    return new List<List<IfcLightDistributionDataSourceSelect>>();
+                case "IfcMaterialSelect":
+                    return new List<List<IfcMaterialSelect>>();
+                case "IfcMeasureValue":
+                    return new List<List<IfcMeasureValue>>();
+                case "IfcMetricValueSelect":
+                    return new List<List<IfcMetricValueSelect>>();
+                case "IfcModulusOfRotationalSubgradeReactionSelect":
+                    return new List<List<IfcModulusOfRotationalSubgradeReactionSelect>>();
+                case "IfcModulusOfSubgradeReactionSelect":
+                    return new List<List<IfcModulusOfSubgradeReactionSelect>>();
+                case "IfcModulusOfTranslationalSubgradeReactionSelect":
+                    return new List<List<IfcModulusOfTranslationalSubgradeReactionSelect>>();
+                case "IfcObjectReferenceSelect":
+                    return new List<List<IfcObjectReferenceSelect>>();
+                case "IfcPointOrVertexPoint":
+                    return new List<List<IfcPointOrVertexPoint>>();
+                case "IfcPresentationStyleSelect":
+                    return new List<List<IfcPresentationStyleSelect>>();
+                case "IfcProcessSelect":
+                    return new List<List<IfcProcessSelect>>();
+                case "IfcProductRepresentationSelect":
+                    return new List<List<IfcProductRepresentationSelect>>();
+                case "IfcProductSelect":
+                    return new List<List<IfcProductSelect>>();
+                case "IfcPropertySetDefinitionSelect":
+                    return new List<List<IfcPropertySetDefinitionSelect>>();
+                case "IfcResourceObjectSelect":
+                    return new List<List<IfcResourceObjectSelect>>();
+                case "IfcResourceSelect":
+                    return new List<List<IfcResourceSelect>>();
+                case "IfcRotationalStiffnessSelect":
+                    return new List<List<IfcRotationalStiffnessSelect>>();
+                case "IfcSegmentIndexSelect":
+                    return new List<List<IfcSegmentIndexSelect>>();
+                case "IfcShell":
+                    return new List<List<IfcShell>>();
+                case "IfcSimpleValue":
+                    return new List<List<IfcSimpleValue>>();
+                case "IfcSizeSelect":
+                    return new List<List<IfcSizeSelect>>();
+                case "IfcSolidOrShell":
+                    return new List<List<IfcSolidOrShell>>();
+                case "IfcSpaceBoundarySelect":
+                    return new List<List<IfcSpaceBoundarySelect>>();
+                case "IfcSpecularHighlightSelect":
+                    return new List<List<IfcSpecularHighlightSelect>>();
+                case "IfcStructuralActivityAssignmentSelect":
+                    return new List<List<IfcStructuralActivityAssignmentSelect>>();
+                case "IfcStyleAssignmentSelect":
+                    return new List<List<IfcStyleAssignmentSelect>>();
+                case "IfcSurfaceOrFaceSurface":
+                    return new List<List<IfcSurfaceOrFaceSurface>>();
+                case "IfcSurfaceStyleElementSelect":
+                    return new List<List<IfcSurfaceStyleElementSelect>>();
+                case "IfcTextFontSelect":
+                    return new List<List<IfcTextFontSelect>>();
+                case "IfcTimeOrRatioSelect":
+                    return new List<List<IfcTimeOrRatioSelect>>();
+                case "IfcTranslationalStiffnessSelect":
+                    return new List<List<IfcTranslationalStiffnessSelect>>();
+                case "IfcTrimmingSelect":
+                    return new List<List<IfcTrimmingSelect>>();
+                case "IfcUnit":
+                    return new List<List<IfcUnit>>();
+                case "IfcValue":
+                    return new List<List<IfcValue>>();
+                case "IfcVectorOrDirection":
+                    return new List<List<IfcVectorOrDirection>>();
+                case "IfcWarpingStiffnessSelect":
+                    return new List<List<IfcWarpingStiffnessSelect>>();
+                case "IfcActionRequest":
+                    return new List<List<IfcActionRequest>>();
+                case "IfcActor":
+                    return new List<List<IfcActor>>();
+                case "IfcActorRole":
+                    return new List<List<IfcActorRole>>();
+                case "IfcActuator":
+                    return new List<List<IfcActuator>>();
+                case "IfcActuatorType":
+                    return new List<List<IfcActuatorType>>();
+                case "IfcAddress":
+                    return new List<List<IfcAddress>>();
+                case "IfcAdvancedBrep":
+                    return new List<List<IfcAdvancedBrep>>();
+                case "IfcAdvancedBrepWithVoids":
+                    return new List<List<IfcAdvancedBrepWithVoids>>();
+                case "IfcAdvancedFace":
+                    return new List<List<IfcAdvancedFace>>();
+                case "IfcAirTerminal":
+                    return new List<List<IfcAirTerminal>>();
+                case "IfcAirTerminalBox":
+                    return new List<List<IfcAirTerminalBox>>();
+                case "IfcAirTerminalBoxType":
+                    return new List<List<IfcAirTerminalBoxType>>();
+                case "IfcAirTerminalType":
+                    return new List<List<IfcAirTerminalType>>();
+                case "IfcAirToAirHeatRecovery":
+                    return new List<List<IfcAirToAirHeatRecovery>>();
+                case "IfcAirToAirHeatRecoveryType":
+                    return new List<List<IfcAirToAirHeatRecoveryType>>();
+                case "IfcAlarm":
+                    return new List<List<IfcAlarm>>();
+                case "IfcAlarmType":
+                    return new List<List<IfcAlarmType>>();
+                case "IfcAnnotation":
+                    return new List<List<IfcAnnotation>>();
+                case "IfcAnnotationFillArea":
+                    return new List<List<IfcAnnotationFillArea>>();
+                case "IfcApplication":
+                    return new List<List<IfcApplication>>();
+                case "IfcAppliedValue":
+                    return new List<List<IfcAppliedValue>>();
+                case "IfcApproval":
+                    return new List<List<IfcApproval>>();
+                case "IfcApprovalRelationship":
+                    return new List<List<IfcApprovalRelationship>>();
+                case "IfcArbitraryClosedProfileDef":
+                    return new List<List<IfcArbitraryClosedProfileDef>>();
+                case "IfcArbitraryOpenProfileDef":
+                    return new List<List<IfcArbitraryOpenProfileDef>>();
+                case "IfcArbitraryProfileDefWithVoids":
+                    return new List<List<IfcArbitraryProfileDefWithVoids>>();
+                case "IfcAsset":
+                    return new List<List<IfcAsset>>();
+                case "IfcAsymmetricIShapeProfileDef":
+                    return new List<List<IfcAsymmetricIShapeProfileDef>>();
+                case "IfcAudioVisualAppliance":
+                    return new List<List<IfcAudioVisualAppliance>>();
+                case "IfcAudioVisualApplianceType":
+                    return new List<List<IfcAudioVisualApplianceType>>();
+                case "IfcAxis1Placement":
+                    return new List<List<IfcAxis1Placement>>();
+                case "IfcAxis2Placement2D":
+                    return new List<List<IfcAxis2Placement2D>>();
+                case "IfcAxis2Placement3D":
+                    return new List<List<IfcAxis2Placement3D>>();
+                case "IfcBSplineCurve":
+                    return new List<List<IfcBSplineCurve>>();
+                case "IfcBSplineCurveWithKnots":
+                    return new List<List<IfcBSplineCurveWithKnots>>();
+                case "IfcBSplineSurface":
+                    return new List<List<IfcBSplineSurface>>();
+                case "IfcBSplineSurfaceWithKnots":
+                    return new List<List<IfcBSplineSurfaceWithKnots>>();
+                case "IfcBeam":
+                    return new List<List<IfcBeam>>();
+                case "IfcBeamStandardCase":
+                    return new List<List<IfcBeamStandardCase>>();
+                case "IfcBeamType":
+                    return new List<List<IfcBeamType>>();
+                case "IfcBlobTexture":
+                    return new List<List<IfcBlobTexture>>();
+                case "IfcBlock":
+                    return new List<List<IfcBlock>>();
+                case "IfcBoiler":
+                    return new List<List<IfcBoiler>>();
+                case "IfcBoilerType":
+                    return new List<List<IfcBoilerType>>();
+                case "IfcBooleanClippingResult":
+                    return new List<List<IfcBooleanClippingResult>>();
+                case "IfcBooleanResult":
+                    return new List<List<IfcBooleanResult>>();
+                case "IfcBoundaryCondition":
+                    return new List<List<IfcBoundaryCondition>>();
+                case "IfcBoundaryCurve":
+                    return new List<List<IfcBoundaryCurve>>();
+                case "IfcBoundaryEdgeCondition":
+                    return new List<List<IfcBoundaryEdgeCondition>>();
+                case "IfcBoundaryFaceCondition":
+                    return new List<List<IfcBoundaryFaceCondition>>();
+                case "IfcBoundaryNodeCondition":
+                    return new List<List<IfcBoundaryNodeCondition>>();
+                case "IfcBoundaryNodeConditionWarping":
+                    return new List<List<IfcBoundaryNodeConditionWarping>>();
+                case "IfcBoundedCurve":
+                    return new List<List<IfcBoundedCurve>>();
+                case "IfcBoundedSurface":
+                    return new List<List<IfcBoundedSurface>>();
+                case "IfcBoundingBox":
+                    return new List<List<IfcBoundingBox>>();
+                case "IfcBoxedHalfSpace":
+                    return new List<List<IfcBoxedHalfSpace>>();
+                case "IfcBuilding":
+                    return new List<List<IfcBuilding>>();
+                case "IfcBuildingElement":
+                    return new List<List<IfcBuildingElement>>();
+                case "IfcBuildingElementPart":
+                    return new List<List<IfcBuildingElementPart>>();
+                case "IfcBuildingElementPartType":
+                    return new List<List<IfcBuildingElementPartType>>();
+                case "IfcBuildingElementProxy":
+                    return new List<List<IfcBuildingElementProxy>>();
+                case "IfcBuildingElementProxyType":
+                    return new List<List<IfcBuildingElementProxyType>>();
+                case "IfcBuildingElementType":
+                    return new List<List<IfcBuildingElementType>>();
+                case "IfcBuildingStorey":
+                    return new List<List<IfcBuildingStorey>>();
+                case "IfcBuildingSystem":
+                    return new List<List<IfcBuildingSystem>>();
+                case "IfcBurner":
+                    return new List<List<IfcBurner>>();
+                case "IfcBurnerType":
+                    return new List<List<IfcBurnerType>>();
+                case "IfcCShapeProfileDef":
+                    return new List<List<IfcCShapeProfileDef>>();
+                case "IfcCableCarrierFitting":
+                    return new List<List<IfcCableCarrierFitting>>();
+                case "IfcCableCarrierFittingType":
+                    return new List<List<IfcCableCarrierFittingType>>();
+                case "IfcCableCarrierSegment":
+                    return new List<List<IfcCableCarrierSegment>>();
+                case "IfcCableCarrierSegmentType":
+                    return new List<List<IfcCableCarrierSegmentType>>();
+                case "IfcCableFitting":
+                    return new List<List<IfcCableFitting>>();
+                case "IfcCableFittingType":
+                    return new List<List<IfcCableFittingType>>();
+                case "IfcCableSegment":
+                    return new List<List<IfcCableSegment>>();
+                case "IfcCableSegmentType":
+                    return new List<List<IfcCableSegmentType>>();
+                case "IfcCartesianPoint":
+                    return new List<List<IfcCartesianPoint>>();
+                case "IfcCartesianPointList":
+                    return new List<List<IfcCartesianPointList>>();
+                case "IfcCartesianPointList2D":
+                    return new List<List<IfcCartesianPointList2D>>();
+                case "IfcCartesianPointList3D":
+                    return new List<List<IfcCartesianPointList3D>>();
+                case "IfcCartesianTransformationOperator":
+                    return new List<List<IfcCartesianTransformationOperator>>();
+                case "IfcCartesianTransformationOperator2D":
+                    return new List<List<IfcCartesianTransformationOperator2D>>();
+                case "IfcCartesianTransformationOperator2DnonUniform":
+                    return new List<List<IfcCartesianTransformationOperator2DnonUniform>>();
+                case "IfcCartesianTransformationOperator3D":
+                    return new List<List<IfcCartesianTransformationOperator3D>>();
+                case "IfcCartesianTransformationOperator3DnonUniform":
+                    return new List<List<IfcCartesianTransformationOperator3DnonUniform>>();
+                case "IfcCenterLineProfileDef":
+                    return new List<List<IfcCenterLineProfileDef>>();
+                case "IfcChiller":
+                    return new List<List<IfcChiller>>();
+                case "IfcChillerType":
+                    return new List<List<IfcChillerType>>();
+                case "IfcChimney":
+                    return new List<List<IfcChimney>>();
+                case "IfcChimneyType":
+                    return new List<List<IfcChimneyType>>();
+                case "IfcCircle":
+                    return new List<List<IfcCircle>>();
+                case "IfcCircleHollowProfileDef":
+                    return new List<List<IfcCircleHollowProfileDef>>();
+                case "IfcCircleProfileDef":
+                    return new List<List<IfcCircleProfileDef>>();
+                case "IfcCivilElement":
+                    return new List<List<IfcCivilElement>>();
+                case "IfcCivilElementType":
+                    return new List<List<IfcCivilElementType>>();
+                case "IfcClassification":
+                    return new List<List<IfcClassification>>();
+                case "IfcClassificationReference":
+                    return new List<List<IfcClassificationReference>>();
+                case "IfcClosedShell":
+                    return new List<List<IfcClosedShell>>();
+                case "IfcCoil":
+                    return new List<List<IfcCoil>>();
+                case "IfcCoilType":
+                    return new List<List<IfcCoilType>>();
+                case "IfcColourRgb":
+                    return new List<List<IfcColourRgb>>();
+                case "IfcColourRgbList":
+                    return new List<List<IfcColourRgbList>>();
+                case "IfcColourSpecification":
+                    return new List<List<IfcColourSpecification>>();
+                case "IfcColumn":
+                    return new List<List<IfcColumn>>();
+                case "IfcColumnStandardCase":
+                    return new List<List<IfcColumnStandardCase>>();
+                case "IfcColumnType":
+                    return new List<List<IfcColumnType>>();
+                case "IfcCommunicationsAppliance":
+                    return new List<List<IfcCommunicationsAppliance>>();
+                case "IfcCommunicationsApplianceType":
+                    return new List<List<IfcCommunicationsApplianceType>>();
+                case "IfcComplexProperty":
+                    return new List<List<IfcComplexProperty>>();
+                case "IfcComplexPropertyTemplate":
+                    return new List<List<IfcComplexPropertyTemplate>>();
+                case "IfcCompositeCurve":
+                    return new List<List<IfcCompositeCurve>>();
+                case "IfcCompositeCurveOnSurface":
+                    return new List<List<IfcCompositeCurveOnSurface>>();
+                case "IfcCompositeCurveSegment":
+                    return new List<List<IfcCompositeCurveSegment>>();
+                case "IfcCompositeProfileDef":
+                    return new List<List<IfcCompositeProfileDef>>();
+                case "IfcCompressor":
+                    return new List<List<IfcCompressor>>();
+                case "IfcCompressorType":
+                    return new List<List<IfcCompressorType>>();
+                case "IfcCondenser":
+                    return new List<List<IfcCondenser>>();
+                case "IfcCondenserType":
+                    return new List<List<IfcCondenserType>>();
+                case "IfcConic":
+                    return new List<List<IfcConic>>();
+                case "IfcConnectedFaceSet":
+                    return new List<List<IfcConnectedFaceSet>>();
+                case "IfcConnectionCurveGeometry":
+                    return new List<List<IfcConnectionCurveGeometry>>();
+                case "IfcConnectionGeometry":
+                    return new List<List<IfcConnectionGeometry>>();
+                case "IfcConnectionPointEccentricity":
+                    return new List<List<IfcConnectionPointEccentricity>>();
+                case "IfcConnectionPointGeometry":
+                    return new List<List<IfcConnectionPointGeometry>>();
+                case "IfcConnectionSurfaceGeometry":
+                    return new List<List<IfcConnectionSurfaceGeometry>>();
+                case "IfcConnectionVolumeGeometry":
+                    return new List<List<IfcConnectionVolumeGeometry>>();
+                case "IfcConstraint":
+                    return new List<List<IfcConstraint>>();
+                case "IfcConstructionEquipmentResource":
+                    return new List<List<IfcConstructionEquipmentResource>>();
+                case "IfcConstructionEquipmentResourceType":
+                    return new List<List<IfcConstructionEquipmentResourceType>>();
+                case "IfcConstructionMaterialResource":
+                    return new List<List<IfcConstructionMaterialResource>>();
+                case "IfcConstructionMaterialResourceType":
+                    return new List<List<IfcConstructionMaterialResourceType>>();
+                case "IfcConstructionProductResource":
+                    return new List<List<IfcConstructionProductResource>>();
+                case "IfcConstructionProductResourceType":
+                    return new List<List<IfcConstructionProductResourceType>>();
+                case "IfcConstructionResource":
+                    return new List<List<IfcConstructionResource>>();
+                case "IfcConstructionResourceType":
+                    return new List<List<IfcConstructionResourceType>>();
+                case "IfcContext":
+                    return new List<List<IfcContext>>();
+                case "IfcContextDependentUnit":
+                    return new List<List<IfcContextDependentUnit>>();
+                case "IfcControl":
+                    return new List<List<IfcControl>>();
+                case "IfcController":
+                    return new List<List<IfcController>>();
+                case "IfcControllerType":
+                    return new List<List<IfcControllerType>>();
+                case "IfcConversionBasedUnit":
+                    return new List<List<IfcConversionBasedUnit>>();
+                case "IfcConversionBasedUnitWithOffset":
+                    return new List<List<IfcConversionBasedUnitWithOffset>>();
+                case "IfcCooledBeam":
+                    return new List<List<IfcCooledBeam>>();
+                case "IfcCooledBeamType":
+                    return new List<List<IfcCooledBeamType>>();
+                case "IfcCoolingTower":
+                    return new List<List<IfcCoolingTower>>();
+                case "IfcCoolingTowerType":
+                    return new List<List<IfcCoolingTowerType>>();
+                case "IfcCoordinateOperation":
+                    return new List<List<IfcCoordinateOperation>>();
+                case "IfcCoordinateReferenceSystem":
+                    return new List<List<IfcCoordinateReferenceSystem>>();
+                case "IfcCostItem":
+                    return new List<List<IfcCostItem>>();
+                case "IfcCostSchedule":
+                    return new List<List<IfcCostSchedule>>();
+                case "IfcCostValue":
+                    return new List<List<IfcCostValue>>();
+                case "IfcCovering":
+                    return new List<List<IfcCovering>>();
+                case "IfcCoveringType":
+                    return new List<List<IfcCoveringType>>();
+                case "IfcCrewResource":
+                    return new List<List<IfcCrewResource>>();
+                case "IfcCrewResourceType":
+                    return new List<List<IfcCrewResourceType>>();
+                case "IfcCsgPrimitive3D":
+                    return new List<List<IfcCsgPrimitive3D>>();
+                case "IfcCsgSolid":
+                    return new List<List<IfcCsgSolid>>();
+                case "IfcCurrencyRelationship":
+                    return new List<List<IfcCurrencyRelationship>>();
+                case "IfcCurtainWall":
+                    return new List<List<IfcCurtainWall>>();
+                case "IfcCurtainWallType":
+                    return new List<List<IfcCurtainWallType>>();
+                case "IfcCurve":
+                    return new List<List<IfcCurve>>();
+                case "IfcCurveBoundedPlane":
+                    return new List<List<IfcCurveBoundedPlane>>();
+                case "IfcCurveBoundedSurface":
+                    return new List<List<IfcCurveBoundedSurface>>();
+                case "IfcCurveStyle":
+                    return new List<List<IfcCurveStyle>>();
+                case "IfcCurveStyleFont":
+                    return new List<List<IfcCurveStyleFont>>();
+                case "IfcCurveStyleFontAndScaling":
+                    return new List<List<IfcCurveStyleFontAndScaling>>();
+                case "IfcCurveStyleFontPattern":
+                    return new List<List<IfcCurveStyleFontPattern>>();
+                case "IfcCylindricalSurface":
+                    return new List<List<IfcCylindricalSurface>>();
+                case "IfcDamper":
+                    return new List<List<IfcDamper>>();
+                case "IfcDamperType":
+                    return new List<List<IfcDamperType>>();
+                case "IfcDerivedProfileDef":
+                    return new List<List<IfcDerivedProfileDef>>();
+                case "IfcDerivedUnit":
+                    return new List<List<IfcDerivedUnit>>();
+                case "IfcDerivedUnitElement":
+                    return new List<List<IfcDerivedUnitElement>>();
+                case "IfcDimensionalExponents":
+                    return new List<List<IfcDimensionalExponents>>();
+                case "IfcDirection":
+                    return new List<List<IfcDirection>>();
+                case "IfcDiscreteAccessory":
+                    return new List<List<IfcDiscreteAccessory>>();
+                case "IfcDiscreteAccessoryType":
+                    return new List<List<IfcDiscreteAccessoryType>>();
+                case "IfcDistributionChamberElement":
+                    return new List<List<IfcDistributionChamberElement>>();
+                case "IfcDistributionChamberElementType":
+                    return new List<List<IfcDistributionChamberElementType>>();
+                case "IfcDistributionCircuit":
+                    return new List<List<IfcDistributionCircuit>>();
+                case "IfcDistributionControlElement":
+                    return new List<List<IfcDistributionControlElement>>();
+                case "IfcDistributionControlElementType":
+                    return new List<List<IfcDistributionControlElementType>>();
+                case "IfcDistributionElement":
+                    return new List<List<IfcDistributionElement>>();
+                case "IfcDistributionElementType":
+                    return new List<List<IfcDistributionElementType>>();
+                case "IfcDistributionFlowElement":
+                    return new List<List<IfcDistributionFlowElement>>();
+                case "IfcDistributionFlowElementType":
+                    return new List<List<IfcDistributionFlowElementType>>();
+                case "IfcDistributionPort":
+                    return new List<List<IfcDistributionPort>>();
+                case "IfcDistributionSystem":
+                    return new List<List<IfcDistributionSystem>>();
+                case "IfcDocumentInformation":
+                    return new List<List<IfcDocumentInformation>>();
+                case "IfcDocumentInformationRelationship":
+                    return new List<List<IfcDocumentInformationRelationship>>();
+                case "IfcDocumentReference":
+                    return new List<List<IfcDocumentReference>>();
+                case "IfcDoor":
+                    return new List<List<IfcDoor>>();
+                case "IfcDoorLiningProperties":
+                    return new List<List<IfcDoorLiningProperties>>();
+                case "IfcDoorPanelProperties":
+                    return new List<List<IfcDoorPanelProperties>>();
+                case "IfcDoorStandardCase":
+                    return new List<List<IfcDoorStandardCase>>();
+                case "IfcDoorStyle":
+                    return new List<List<IfcDoorStyle>>();
+                case "IfcDoorType":
+                    return new List<List<IfcDoorType>>();
+                case "IfcDraughtingPreDefinedColour":
+                    return new List<List<IfcDraughtingPreDefinedColour>>();
+                case "IfcDraughtingPreDefinedCurveFont":
+                    return new List<List<IfcDraughtingPreDefinedCurveFont>>();
+                case "IfcDuctFitting":
+                    return new List<List<IfcDuctFitting>>();
+                case "IfcDuctFittingType":
+                    return new List<List<IfcDuctFittingType>>();
+                case "IfcDuctSegment":
+                    return new List<List<IfcDuctSegment>>();
+                case "IfcDuctSegmentType":
+                    return new List<List<IfcDuctSegmentType>>();
+                case "IfcDuctSilencer":
+                    return new List<List<IfcDuctSilencer>>();
+                case "IfcDuctSilencerType":
+                    return new List<List<IfcDuctSilencerType>>();
+                case "IfcEdge":
+                    return new List<List<IfcEdge>>();
+                case "IfcEdgeCurve":
+                    return new List<List<IfcEdgeCurve>>();
+                case "IfcEdgeLoop":
+                    return new List<List<IfcEdgeLoop>>();
+                case "IfcElectricAppliance":
+                    return new List<List<IfcElectricAppliance>>();
+                case "IfcElectricApplianceType":
+                    return new List<List<IfcElectricApplianceType>>();
+                case "IfcElectricDistributionBoard":
+                    return new List<List<IfcElectricDistributionBoard>>();
+                case "IfcElectricDistributionBoardType":
+                    return new List<List<IfcElectricDistributionBoardType>>();
+                case "IfcElectricFlowStorageDevice":
+                    return new List<List<IfcElectricFlowStorageDevice>>();
+                case "IfcElectricFlowStorageDeviceType":
+                    return new List<List<IfcElectricFlowStorageDeviceType>>();
+                case "IfcElectricGenerator":
+                    return new List<List<IfcElectricGenerator>>();
+                case "IfcElectricGeneratorType":
+                    return new List<List<IfcElectricGeneratorType>>();
+                case "IfcElectricMotor":
+                    return new List<List<IfcElectricMotor>>();
+                case "IfcElectricMotorType":
+                    return new List<List<IfcElectricMotorType>>();
+                case "IfcElectricTimeControl":
+                    return new List<List<IfcElectricTimeControl>>();
+                case "IfcElectricTimeControlType":
+                    return new List<List<IfcElectricTimeControlType>>();
+                case "IfcElement":
+                    return new List<List<IfcElement>>();
+                case "IfcElementAssembly":
+                    return new List<List<IfcElementAssembly>>();
+                case "IfcElementAssemblyType":
+                    return new List<List<IfcElementAssemblyType>>();
+                case "IfcElementComponent":
+                    return new List<List<IfcElementComponent>>();
+                case "IfcElementComponentType":
+                    return new List<List<IfcElementComponentType>>();
+                case "IfcElementQuantity":
+                    return new List<List<IfcElementQuantity>>();
+                case "IfcElementType":
+                    return new List<List<IfcElementType>>();
+                case "IfcElementarySurface":
+                    return new List<List<IfcElementarySurface>>();
+                case "IfcEllipse":
+                    return new List<List<IfcEllipse>>();
+                case "IfcEllipseProfileDef":
+                    return new List<List<IfcEllipseProfileDef>>();
+                case "IfcEnergyConversionDevice":
+                    return new List<List<IfcEnergyConversionDevice>>();
+                case "IfcEnergyConversionDeviceType":
+                    return new List<List<IfcEnergyConversionDeviceType>>();
+                case "IfcEngine":
+                    return new List<List<IfcEngine>>();
+                case "IfcEngineType":
+                    return new List<List<IfcEngineType>>();
+                case "IfcEvaporativeCooler":
+                    return new List<List<IfcEvaporativeCooler>>();
+                case "IfcEvaporativeCoolerType":
+                    return new List<List<IfcEvaporativeCoolerType>>();
+                case "IfcEvaporator":
+                    return new List<List<IfcEvaporator>>();
+                case "IfcEvaporatorType":
+                    return new List<List<IfcEvaporatorType>>();
+                case "IfcEvent":
+                    return new List<List<IfcEvent>>();
+                case "IfcEventTime":
+                    return new List<List<IfcEventTime>>();
+                case "IfcEventType":
+                    return new List<List<IfcEventType>>();
+                case "IfcExtendedProperties":
+                    return new List<List<IfcExtendedProperties>>();
+                case "IfcExternalInformation":
+                    return new List<List<IfcExternalInformation>>();
+                case "IfcExternalReference":
+                    return new List<List<IfcExternalReference>>();
+                case "IfcExternalReferenceRelationship":
+                    return new List<List<IfcExternalReferenceRelationship>>();
+                case "IfcExternalSpatialElement":
+                    return new List<List<IfcExternalSpatialElement>>();
+                case "IfcExternalSpatialStructureElement":
+                    return new List<List<IfcExternalSpatialStructureElement>>();
+                case "IfcExternallyDefinedHatchStyle":
+                    return new List<List<IfcExternallyDefinedHatchStyle>>();
+                case "IfcExternallyDefinedSurfaceStyle":
+                    return new List<List<IfcExternallyDefinedSurfaceStyle>>();
+                case "IfcExternallyDefinedTextFont":
+                    return new List<List<IfcExternallyDefinedTextFont>>();
+                case "IfcExtrudedAreaSolid":
+                    return new List<List<IfcExtrudedAreaSolid>>();
+                case "IfcExtrudedAreaSolidTapered":
+                    return new List<List<IfcExtrudedAreaSolidTapered>>();
+                case "IfcFace":
+                    return new List<List<IfcFace>>();
+                case "IfcFaceBasedSurfaceModel":
+                    return new List<List<IfcFaceBasedSurfaceModel>>();
+                case "IfcFaceBound":
+                    return new List<List<IfcFaceBound>>();
+                case "IfcFaceOuterBound":
+                    return new List<List<IfcFaceOuterBound>>();
+                case "IfcFaceSurface":
+                    return new List<List<IfcFaceSurface>>();
+                case "IfcFacetedBrep":
+                    return new List<List<IfcFacetedBrep>>();
+                case "IfcFacetedBrepWithVoids":
+                    return new List<List<IfcFacetedBrepWithVoids>>();
+                case "IfcFailureConnectionCondition":
+                    return new List<List<IfcFailureConnectionCondition>>();
+                case "IfcFan":
+                    return new List<List<IfcFan>>();
+                case "IfcFanType":
+                    return new List<List<IfcFanType>>();
+                case "IfcFastener":
+                    return new List<List<IfcFastener>>();
+                case "IfcFastenerType":
+                    return new List<List<IfcFastenerType>>();
+                case "IfcFeatureElement":
+                    return new List<List<IfcFeatureElement>>();
+                case "IfcFeatureElementAddition":
+                    return new List<List<IfcFeatureElementAddition>>();
+                case "IfcFeatureElementSubtraction":
+                    return new List<List<IfcFeatureElementSubtraction>>();
+                case "IfcFillAreaStyle":
+                    return new List<List<IfcFillAreaStyle>>();
+                case "IfcFillAreaStyleHatching":
+                    return new List<List<IfcFillAreaStyleHatching>>();
+                case "IfcFillAreaStyleTiles":
+                    return new List<List<IfcFillAreaStyleTiles>>();
+                case "IfcFilter":
+                    return new List<List<IfcFilter>>();
+                case "IfcFilterType":
+                    return new List<List<IfcFilterType>>();
+                case "IfcFireSuppressionTerminal":
+                    return new List<List<IfcFireSuppressionTerminal>>();
+                case "IfcFireSuppressionTerminalType":
+                    return new List<List<IfcFireSuppressionTerminalType>>();
+                case "IfcFixedReferenceSweptAreaSolid":
+                    return new List<List<IfcFixedReferenceSweptAreaSolid>>();
+                case "IfcFlowController":
+                    return new List<List<IfcFlowController>>();
+                case "IfcFlowControllerType":
+                    return new List<List<IfcFlowControllerType>>();
+                case "IfcFlowFitting":
+                    return new List<List<IfcFlowFitting>>();
+                case "IfcFlowFittingType":
+                    return new List<List<IfcFlowFittingType>>();
+                case "IfcFlowInstrument":
+                    return new List<List<IfcFlowInstrument>>();
+                case "IfcFlowInstrumentType":
+                    return new List<List<IfcFlowInstrumentType>>();
+                case "IfcFlowMeter":
+                    return new List<List<IfcFlowMeter>>();
+                case "IfcFlowMeterType":
+                    return new List<List<IfcFlowMeterType>>();
+                case "IfcFlowMovingDevice":
+                    return new List<List<IfcFlowMovingDevice>>();
+                case "IfcFlowMovingDeviceType":
+                    return new List<List<IfcFlowMovingDeviceType>>();
+                case "IfcFlowSegment":
+                    return new List<List<IfcFlowSegment>>();
+                case "IfcFlowSegmentType":
+                    return new List<List<IfcFlowSegmentType>>();
+                case "IfcFlowStorageDevice":
+                    return new List<List<IfcFlowStorageDevice>>();
+                case "IfcFlowStorageDeviceType":
+                    return new List<List<IfcFlowStorageDeviceType>>();
+                case "IfcFlowTerminal":
+                    return new List<List<IfcFlowTerminal>>();
+                case "IfcFlowTerminalType":
+                    return new List<List<IfcFlowTerminalType>>();
+                case "IfcFlowTreatmentDevice":
+                    return new List<List<IfcFlowTreatmentDevice>>();
+                case "IfcFlowTreatmentDeviceType":
+                    return new List<List<IfcFlowTreatmentDeviceType>>();
+                case "IfcFooting":
+                    return new List<List<IfcFooting>>();
+                case "IfcFootingType":
+                    return new List<List<IfcFootingType>>();
+                case "IfcFurnishingElement":
+                    return new List<List<IfcFurnishingElement>>();
+                case "IfcFurnishingElementType":
+                    return new List<List<IfcFurnishingElementType>>();
+                case "IfcFurniture":
+                    return new List<List<IfcFurniture>>();
+                case "IfcFurnitureType":
+                    return new List<List<IfcFurnitureType>>();
+                case "IfcGeographicElement":
+                    return new List<List<IfcGeographicElement>>();
+                case "IfcGeographicElementType":
+                    return new List<List<IfcGeographicElementType>>();
+                case "IfcGeometricCurveSet":
+                    return new List<List<IfcGeometricCurveSet>>();
+                case "IfcGeometricRepresentationContext":
+                    return new List<List<IfcGeometricRepresentationContext>>();
+                case "IfcGeometricRepresentationItem":
+                    return new List<List<IfcGeometricRepresentationItem>>();
+                case "IfcGeometricRepresentationSubContext":
+                    return new List<List<IfcGeometricRepresentationSubContext>>();
+                case "IfcGeometricSet":
+                    return new List<List<IfcGeometricSet>>();
+                case "IfcGrid":
+                    return new List<List<IfcGrid>>();
+                case "IfcGridAxis":
+                    return new List<List<IfcGridAxis>>();
+                case "IfcGridPlacement":
+                    return new List<List<IfcGridPlacement>>();
+                case "IfcGroup":
+                    return new List<List<IfcGroup>>();
+                case "IfcHalfSpaceSolid":
+                    return new List<List<IfcHalfSpaceSolid>>();
+                case "IfcHeatExchanger":
+                    return new List<List<IfcHeatExchanger>>();
+                case "IfcHeatExchangerType":
+                    return new List<List<IfcHeatExchangerType>>();
+                case "IfcHumidifier":
+                    return new List<List<IfcHumidifier>>();
+                case "IfcHumidifierType":
+                    return new List<List<IfcHumidifierType>>();
+                case "IfcIShapeProfileDef":
+                    return new List<List<IfcIShapeProfileDef>>();
+                case "IfcImageTexture":
+                    return new List<List<IfcImageTexture>>();
+                case "IfcIndexedColourMap":
+                    return new List<List<IfcIndexedColourMap>>();
+                case "IfcIndexedPolyCurve":
+                    return new List<List<IfcIndexedPolyCurve>>();
+                case "IfcIndexedPolygonalFace":
+                    return new List<List<IfcIndexedPolygonalFace>>();
+                case "IfcIndexedPolygonalFaceWithVoids":
+                    return new List<List<IfcIndexedPolygonalFaceWithVoids>>();
+                case "IfcIndexedTextureMap":
+                    return new List<List<IfcIndexedTextureMap>>();
+                case "IfcIndexedTriangleTextureMap":
+                    return new List<List<IfcIndexedTriangleTextureMap>>();
+                case "IfcInterceptor":
+                    return new List<List<IfcInterceptor>>();
+                case "IfcInterceptorType":
+                    return new List<List<IfcInterceptorType>>();
+                case "IfcIntersectionCurve":
+                    return new List<List<IfcIntersectionCurve>>();
+                case "IfcInventory":
+                    return new List<List<IfcInventory>>();
+                case "IfcIrregularTimeSeries":
+                    return new List<List<IfcIrregularTimeSeries>>();
+                case "IfcIrregularTimeSeriesValue":
+                    return new List<List<IfcIrregularTimeSeriesValue>>();
+                case "IfcJunctionBox":
+                    return new List<List<IfcJunctionBox>>();
+                case "IfcJunctionBoxType":
+                    return new List<List<IfcJunctionBoxType>>();
+                case "IfcLShapeProfileDef":
+                    return new List<List<IfcLShapeProfileDef>>();
+                case "IfcLaborResource":
+                    return new List<List<IfcLaborResource>>();
+                case "IfcLaborResourceType":
+                    return new List<List<IfcLaborResourceType>>();
+                case "IfcLagTime":
+                    return new List<List<IfcLagTime>>();
+                case "IfcLamp":
+                    return new List<List<IfcLamp>>();
+                case "IfcLampType":
+                    return new List<List<IfcLampType>>();
+                case "IfcLibraryInformation":
+                    return new List<List<IfcLibraryInformation>>();
+                case "IfcLibraryReference":
+                    return new List<List<IfcLibraryReference>>();
+                case "IfcLightDistributionData":
+                    return new List<List<IfcLightDistributionData>>();
+                case "IfcLightFixture":
+                    return new List<List<IfcLightFixture>>();
+                case "IfcLightFixtureType":
+                    return new List<List<IfcLightFixtureType>>();
+                case "IfcLightIntensityDistribution":
+                    return new List<List<IfcLightIntensityDistribution>>();
+                case "IfcLightSource":
+                    return new List<List<IfcLightSource>>();
+                case "IfcLightSourceAmbient":
+                    return new List<List<IfcLightSourceAmbient>>();
+                case "IfcLightSourceDirectional":
+                    return new List<List<IfcLightSourceDirectional>>();
+                case "IfcLightSourceGoniometric":
+                    return new List<List<IfcLightSourceGoniometric>>();
+                case "IfcLightSourcePositional":
+                    return new List<List<IfcLightSourcePositional>>();
+                case "IfcLightSourceSpot":
+                    return new List<List<IfcLightSourceSpot>>();
+                case "IfcLine":
+                    return new List<List<IfcLine>>();
+                case "IfcLocalPlacement":
+                    return new List<List<IfcLocalPlacement>>();
+                case "IfcLoop":
+                    return new List<List<IfcLoop>>();
+                case "IfcManifoldSolidBrep":
+                    return new List<List<IfcManifoldSolidBrep>>();
+                case "IfcMapConversion":
+                    return new List<List<IfcMapConversion>>();
+                case "IfcMappedItem":
+                    return new List<List<IfcMappedItem>>();
+                case "IfcMaterial":
+                    return new List<List<IfcMaterial>>();
+                case "IfcMaterialClassificationRelationship":
+                    return new List<List<IfcMaterialClassificationRelationship>>();
+                case "IfcMaterialConstituent":
+                    return new List<List<IfcMaterialConstituent>>();
+                case "IfcMaterialConstituentSet":
+                    return new List<List<IfcMaterialConstituentSet>>();
+                case "IfcMaterialDefinition":
+                    return new List<List<IfcMaterialDefinition>>();
+                case "IfcMaterialDefinitionRepresentation":
+                    return new List<List<IfcMaterialDefinitionRepresentation>>();
+                case "IfcMaterialLayer":
+                    return new List<List<IfcMaterialLayer>>();
+                case "IfcMaterialLayerSet":
+                    return new List<List<IfcMaterialLayerSet>>();
+                case "IfcMaterialLayerSetUsage":
+                    return new List<List<IfcMaterialLayerSetUsage>>();
+                case "IfcMaterialLayerWithOffsets":
+                    return new List<List<IfcMaterialLayerWithOffsets>>();
+                case "IfcMaterialList":
+                    return new List<List<IfcMaterialList>>();
+                case "IfcMaterialProfile":
+                    return new List<List<IfcMaterialProfile>>();
+                case "IfcMaterialProfileSet":
+                    return new List<List<IfcMaterialProfileSet>>();
+                case "IfcMaterialProfileSetUsage":
+                    return new List<List<IfcMaterialProfileSetUsage>>();
+                case "IfcMaterialProfileSetUsageTapering":
+                    return new List<List<IfcMaterialProfileSetUsageTapering>>();
+                case "IfcMaterialProfileWithOffsets":
+                    return new List<List<IfcMaterialProfileWithOffsets>>();
+                case "IfcMaterialProperties":
+                    return new List<List<IfcMaterialProperties>>();
+                case "IfcMaterialRelationship":
+                    return new List<List<IfcMaterialRelationship>>();
+                case "IfcMaterialUsageDefinition":
+                    return new List<List<IfcMaterialUsageDefinition>>();
+                case "IfcMeasureWithUnit":
+                    return new List<List<IfcMeasureWithUnit>>();
+                case "IfcMechanicalFastener":
+                    return new List<List<IfcMechanicalFastener>>();
+                case "IfcMechanicalFastenerType":
+                    return new List<List<IfcMechanicalFastenerType>>();
+                case "IfcMedicalDevice":
+                    return new List<List<IfcMedicalDevice>>();
+                case "IfcMedicalDeviceType":
+                    return new List<List<IfcMedicalDeviceType>>();
+                case "IfcMember":
+                    return new List<List<IfcMember>>();
+                case "IfcMemberStandardCase":
+                    return new List<List<IfcMemberStandardCase>>();
+                case "IfcMemberType":
+                    return new List<List<IfcMemberType>>();
+                case "IfcMetric":
+                    return new List<List<IfcMetric>>();
+                case "IfcMirroredProfileDef":
+                    return new List<List<IfcMirroredProfileDef>>();
+                case "IfcMonetaryUnit":
+                    return new List<List<IfcMonetaryUnit>>();
+                case "IfcMotorConnection":
+                    return new List<List<IfcMotorConnection>>();
+                case "IfcMotorConnectionType":
+                    return new List<List<IfcMotorConnectionType>>();
+                case "IfcNamedUnit":
+                    return new List<List<IfcNamedUnit>>();
+                case "IfcObject":
+                    return new List<List<IfcObject>>();
+                case "IfcObjectDefinition":
+                    return new List<List<IfcObjectDefinition>>();
+                case "IfcObjectPlacement":
+                    return new List<List<IfcObjectPlacement>>();
+                case "IfcObjective":
+                    return new List<List<IfcObjective>>();
+                case "IfcOccupant":
+                    return new List<List<IfcOccupant>>();
+                case "IfcOffsetCurve2D":
+                    return new List<List<IfcOffsetCurve2D>>();
+                case "IfcOffsetCurve3D":
+                    return new List<List<IfcOffsetCurve3D>>();
+                case "IfcOpenShell":
+                    return new List<List<IfcOpenShell>>();
+                case "IfcOpeningElement":
+                    return new List<List<IfcOpeningElement>>();
+                case "IfcOpeningStandardCase":
+                    return new List<List<IfcOpeningStandardCase>>();
+                case "IfcOrganization":
+                    return new List<List<IfcOrganization>>();
+                case "IfcOrganizationRelationship":
+                    return new List<List<IfcOrganizationRelationship>>();
+                case "IfcOrientedEdge":
+                    return new List<List<IfcOrientedEdge>>();
+                case "IfcOuterBoundaryCurve":
+                    return new List<List<IfcOuterBoundaryCurve>>();
+                case "IfcOutlet":
+                    return new List<List<IfcOutlet>>();
+                case "IfcOutletType":
+                    return new List<List<IfcOutletType>>();
+                case "IfcOwnerHistory":
+                    return new List<List<IfcOwnerHistory>>();
+                case "IfcParameterizedProfileDef":
+                    return new List<List<IfcParameterizedProfileDef>>();
+                case "IfcPath":
+                    return new List<List<IfcPath>>();
+                case "IfcPcurve":
+                    return new List<List<IfcPcurve>>();
+                case "IfcPerformanceHistory":
+                    return new List<List<IfcPerformanceHistory>>();
+                case "IfcPermeableCoveringProperties":
+                    return new List<List<IfcPermeableCoveringProperties>>();
+                case "IfcPermit":
+                    return new List<List<IfcPermit>>();
+                case "IfcPerson":
+                    return new List<List<IfcPerson>>();
+                case "IfcPersonAndOrganization":
+                    return new List<List<IfcPersonAndOrganization>>();
+                case "IfcPhysicalComplexQuantity":
+                    return new List<List<IfcPhysicalComplexQuantity>>();
+                case "IfcPhysicalQuantity":
+                    return new List<List<IfcPhysicalQuantity>>();
+                case "IfcPhysicalSimpleQuantity":
+                    return new List<List<IfcPhysicalSimpleQuantity>>();
+                case "IfcPile":
+                    return new List<List<IfcPile>>();
+                case "IfcPileType":
+                    return new List<List<IfcPileType>>();
+                case "IfcPipeFitting":
+                    return new List<List<IfcPipeFitting>>();
+                case "IfcPipeFittingType":
+                    return new List<List<IfcPipeFittingType>>();
+                case "IfcPipeSegment":
+                    return new List<List<IfcPipeSegment>>();
+                case "IfcPipeSegmentType":
+                    return new List<List<IfcPipeSegmentType>>();
+                case "IfcPixelTexture":
+                    return new List<List<IfcPixelTexture>>();
+                case "IfcPlacement":
+                    return new List<List<IfcPlacement>>();
+                case "IfcPlanarBox":
+                    return new List<List<IfcPlanarBox>>();
+                case "IfcPlanarExtent":
+                    return new List<List<IfcPlanarExtent>>();
+                case "IfcPlane":
+                    return new List<List<IfcPlane>>();
+                case "IfcPlate":
+                    return new List<List<IfcPlate>>();
+                case "IfcPlateStandardCase":
+                    return new List<List<IfcPlateStandardCase>>();
+                case "IfcPlateType":
+                    return new List<List<IfcPlateType>>();
+                case "IfcPoint":
+                    return new List<List<IfcPoint>>();
+                case "IfcPointOnCurve":
+                    return new List<List<IfcPointOnCurve>>();
+                case "IfcPointOnSurface":
+                    return new List<List<IfcPointOnSurface>>();
+                case "IfcPolyLoop":
+                    return new List<List<IfcPolyLoop>>();
+                case "IfcPolygonalBoundedHalfSpace":
+                    return new List<List<IfcPolygonalBoundedHalfSpace>>();
+                case "IfcPolygonalFaceSet":
+                    return new List<List<IfcPolygonalFaceSet>>();
+                case "IfcPolyline":
+                    return new List<List<IfcPolyline>>();
+                case "IfcPort":
+                    return new List<List<IfcPort>>();
+                case "IfcPostalAddress":
+                    return new List<List<IfcPostalAddress>>();
+                case "IfcPreDefinedColour":
+                    return new List<List<IfcPreDefinedColour>>();
+                case "IfcPreDefinedCurveFont":
+                    return new List<List<IfcPreDefinedCurveFont>>();
+                case "IfcPreDefinedItem":
+                    return new List<List<IfcPreDefinedItem>>();
+                case "IfcPreDefinedProperties":
+                    return new List<List<IfcPreDefinedProperties>>();
+                case "IfcPreDefinedPropertySet":
+                    return new List<List<IfcPreDefinedPropertySet>>();
+                case "IfcPreDefinedTextFont":
+                    return new List<List<IfcPreDefinedTextFont>>();
+                case "IfcPresentationItem":
+                    return new List<List<IfcPresentationItem>>();
+                case "IfcPresentationLayerAssignment":
+                    return new List<List<IfcPresentationLayerAssignment>>();
+                case "IfcPresentationLayerWithStyle":
+                    return new List<List<IfcPresentationLayerWithStyle>>();
+                case "IfcPresentationStyle":
+                    return new List<List<IfcPresentationStyle>>();
+                case "IfcPresentationStyleAssignment":
+                    return new List<List<IfcPresentationStyleAssignment>>();
+                case "IfcProcedure":
+                    return new List<List<IfcProcedure>>();
+                case "IfcProcedureType":
+                    return new List<List<IfcProcedureType>>();
+                case "IfcProcess":
+                    return new List<List<IfcProcess>>();
+                case "IfcProduct":
+                    return new List<List<IfcProduct>>();
+                case "IfcProductDefinitionShape":
+                    return new List<List<IfcProductDefinitionShape>>();
+                case "IfcProductRepresentation":
+                    return new List<List<IfcProductRepresentation>>();
+                case "IfcProfileDef":
+                    return new List<List<IfcProfileDef>>();
+                case "IfcProfileProperties":
+                    return new List<List<IfcProfileProperties>>();
+                case "IfcProject":
+                    return new List<List<IfcProject>>();
+                case "IfcProjectLibrary":
+                    return new List<List<IfcProjectLibrary>>();
+                case "IfcProjectOrder":
+                    return new List<List<IfcProjectOrder>>();
+                case "IfcProjectedCRS":
+                    return new List<List<IfcProjectedCRS>>();
+                case "IfcProjectionElement":
+                    return new List<List<IfcProjectionElement>>();
+                case "IfcProperty":
+                    return new List<List<IfcProperty>>();
+                case "IfcPropertyAbstraction":
+                    return new List<List<IfcPropertyAbstraction>>();
+                case "IfcPropertyBoundedValue":
+                    return new List<List<IfcPropertyBoundedValue>>();
+                case "IfcPropertyDefinition":
+                    return new List<List<IfcPropertyDefinition>>();
+                case "IfcPropertyDependencyRelationship":
+                    return new List<List<IfcPropertyDependencyRelationship>>();
+                case "IfcPropertyEnumeratedValue":
+                    return new List<List<IfcPropertyEnumeratedValue>>();
+                case "IfcPropertyEnumeration":
+                    return new List<List<IfcPropertyEnumeration>>();
+                case "IfcPropertyListValue":
+                    return new List<List<IfcPropertyListValue>>();
+                case "IfcPropertyReferenceValue":
+                    return new List<List<IfcPropertyReferenceValue>>();
+                case "IfcPropertySet":
+                    return new List<List<IfcPropertySet>>();
+                case "IfcPropertySetDefinition":
+                    return new List<List<IfcPropertySetDefinition>>();
+                case "IfcPropertySetTemplate":
+                    return new List<List<IfcPropertySetTemplate>>();
+                case "IfcPropertySingleValue":
+                    return new List<List<IfcPropertySingleValue>>();
+                case "IfcPropertyTableValue":
+                    return new List<List<IfcPropertyTableValue>>();
+                case "IfcPropertyTemplate":
+                    return new List<List<IfcPropertyTemplate>>();
+                case "IfcPropertyTemplateDefinition":
+                    return new List<List<IfcPropertyTemplateDefinition>>();
+                case "IfcProtectiveDevice":
+                    return new List<List<IfcProtectiveDevice>>();
+                case "IfcProtectiveDeviceTrippingUnit":
+                    return new List<List<IfcProtectiveDeviceTrippingUnit>>();
+                case "IfcProtectiveDeviceTrippingUnitType":
+                    return new List<List<IfcProtectiveDeviceTrippingUnitType>>();
+                case "IfcProtectiveDeviceType":
+                    return new List<List<IfcProtectiveDeviceType>>();
+                case "IfcProxy":
+                    return new List<List<IfcProxy>>();
+                case "IfcPump":
+                    return new List<List<IfcPump>>();
+                case "IfcPumpType":
+                    return new List<List<IfcPumpType>>();
+                case "IfcQuantityArea":
+                    return new List<List<IfcQuantityArea>>();
+                case "IfcQuantityCount":
+                    return new List<List<IfcQuantityCount>>();
+                case "IfcQuantityLength":
+                    return new List<List<IfcQuantityLength>>();
+                case "IfcQuantitySet":
+                    return new List<List<IfcQuantitySet>>();
+                case "IfcQuantityTime":
+                    return new List<List<IfcQuantityTime>>();
+                case "IfcQuantityVolume":
+                    return new List<List<IfcQuantityVolume>>();
+                case "IfcQuantityWeight":
+                    return new List<List<IfcQuantityWeight>>();
+                case "IfcRailing":
+                    return new List<List<IfcRailing>>();
+                case "IfcRailingType":
+                    return new List<List<IfcRailingType>>();
+                case "IfcRamp":
+                    return new List<List<IfcRamp>>();
+                case "IfcRampFlight":
+                    return new List<List<IfcRampFlight>>();
+                case "IfcRampFlightType":
+                    return new List<List<IfcRampFlightType>>();
+                case "IfcRampType":
+                    return new List<List<IfcRampType>>();
+                case "IfcRationalBSplineCurveWithKnots":
+                    return new List<List<IfcRationalBSplineCurveWithKnots>>();
+                case "IfcRationalBSplineSurfaceWithKnots":
+                    return new List<List<IfcRationalBSplineSurfaceWithKnots>>();
+                case "IfcRectangleHollowProfileDef":
+                    return new List<List<IfcRectangleHollowProfileDef>>();
+                case "IfcRectangleProfileDef":
+                    return new List<List<IfcRectangleProfileDef>>();
+                case "IfcRectangularPyramid":
+                    return new List<List<IfcRectangularPyramid>>();
+                case "IfcRectangularTrimmedSurface":
+                    return new List<List<IfcRectangularTrimmedSurface>>();
+                case "IfcRecurrencePattern":
+                    return new List<List<IfcRecurrencePattern>>();
+                case "IfcReference":
+                    return new List<List<IfcReference>>();
+                case "IfcRegularTimeSeries":
+                    return new List<List<IfcRegularTimeSeries>>();
+                case "IfcReinforcementBarProperties":
+                    return new List<List<IfcReinforcementBarProperties>>();
+                case "IfcReinforcementDefinitionProperties":
+                    return new List<List<IfcReinforcementDefinitionProperties>>();
+                case "IfcReinforcingBar":
+                    return new List<List<IfcReinforcingBar>>();
+                case "IfcReinforcingBarType":
+                    return new List<List<IfcReinforcingBarType>>();
+                case "IfcReinforcingElement":
+                    return new List<List<IfcReinforcingElement>>();
+                case "IfcReinforcingElementType":
+                    return new List<List<IfcReinforcingElementType>>();
+                case "IfcReinforcingMesh":
+                    return new List<List<IfcReinforcingMesh>>();
+                case "IfcReinforcingMeshType":
+                    return new List<List<IfcReinforcingMeshType>>();
+                case "IfcRelAggregates":
+                    return new List<List<IfcRelAggregates>>();
+                case "IfcRelAssigns":
+                    return new List<List<IfcRelAssigns>>();
+                case "IfcRelAssignsToActor":
+                    return new List<List<IfcRelAssignsToActor>>();
+                case "IfcRelAssignsToControl":
+                    return new List<List<IfcRelAssignsToControl>>();
+                case "IfcRelAssignsToGroup":
+                    return new List<List<IfcRelAssignsToGroup>>();
+                case "IfcRelAssignsToGroupByFactor":
+                    return new List<List<IfcRelAssignsToGroupByFactor>>();
+                case "IfcRelAssignsToProcess":
+                    return new List<List<IfcRelAssignsToProcess>>();
+                case "IfcRelAssignsToProduct":
+                    return new List<List<IfcRelAssignsToProduct>>();
+                case "IfcRelAssignsToResource":
+                    return new List<List<IfcRelAssignsToResource>>();
+                case "IfcRelAssociates":
+                    return new List<List<IfcRelAssociates>>();
+                case "IfcRelAssociatesApproval":
+                    return new List<List<IfcRelAssociatesApproval>>();
+                case "IfcRelAssociatesClassification":
+                    return new List<List<IfcRelAssociatesClassification>>();
+                case "IfcRelAssociatesConstraint":
+                    return new List<List<IfcRelAssociatesConstraint>>();
+                case "IfcRelAssociatesDocument":
+                    return new List<List<IfcRelAssociatesDocument>>();
+                case "IfcRelAssociatesLibrary":
+                    return new List<List<IfcRelAssociatesLibrary>>();
+                case "IfcRelAssociatesMaterial":
+                    return new List<List<IfcRelAssociatesMaterial>>();
+                case "IfcRelConnects":
+                    return new List<List<IfcRelConnects>>();
+                case "IfcRelConnectsElements":
+                    return new List<List<IfcRelConnectsElements>>();
+                case "IfcRelConnectsPathElements":
+                    return new List<List<IfcRelConnectsPathElements>>();
+                case "IfcRelConnectsPortToElement":
+                    return new List<List<IfcRelConnectsPortToElement>>();
+                case "IfcRelConnectsPorts":
+                    return new List<List<IfcRelConnectsPorts>>();
+                case "IfcRelConnectsStructuralActivity":
+                    return new List<List<IfcRelConnectsStructuralActivity>>();
+                case "IfcRelConnectsStructuralMember":
+                    return new List<List<IfcRelConnectsStructuralMember>>();
+                case "IfcRelConnectsWithEccentricity":
+                    return new List<List<IfcRelConnectsWithEccentricity>>();
+                case "IfcRelConnectsWithRealizingElements":
+                    return new List<List<IfcRelConnectsWithRealizingElements>>();
+                case "IfcRelContainedInSpatialStructure":
+                    return new List<List<IfcRelContainedInSpatialStructure>>();
+                case "IfcRelCoversBldgElements":
+                    return new List<List<IfcRelCoversBldgElements>>();
+                case "IfcRelCoversSpaces":
+                    return new List<List<IfcRelCoversSpaces>>();
+                case "IfcRelDeclares":
+                    return new List<List<IfcRelDeclares>>();
+                case "IfcRelDecomposes":
+                    return new List<List<IfcRelDecomposes>>();
+                case "IfcRelDefines":
+                    return new List<List<IfcRelDefines>>();
+                case "IfcRelDefinesByObject":
+                    return new List<List<IfcRelDefinesByObject>>();
+                case "IfcRelDefinesByProperties":
+                    return new List<List<IfcRelDefinesByProperties>>();
+                case "IfcRelDefinesByTemplate":
+                    return new List<List<IfcRelDefinesByTemplate>>();
+                case "IfcRelDefinesByType":
+                    return new List<List<IfcRelDefinesByType>>();
+                case "IfcRelFillsElement":
+                    return new List<List<IfcRelFillsElement>>();
+                case "IfcRelFlowControlElements":
+                    return new List<List<IfcRelFlowControlElements>>();
+                case "IfcRelInterferesElements":
+                    return new List<List<IfcRelInterferesElements>>();
+                case "IfcRelNests":
+                    return new List<List<IfcRelNests>>();
+                case "IfcRelProjectsElement":
+                    return new List<List<IfcRelProjectsElement>>();
+                case "IfcRelReferencedInSpatialStructure":
+                    return new List<List<IfcRelReferencedInSpatialStructure>>();
+                case "IfcRelSequence":
+                    return new List<List<IfcRelSequence>>();
+                case "IfcRelServicesBuildings":
+                    return new List<List<IfcRelServicesBuildings>>();
+                case "IfcRelSpaceBoundary":
+                    return new List<List<IfcRelSpaceBoundary>>();
+                case "IfcRelSpaceBoundary1stLevel":
+                    return new List<List<IfcRelSpaceBoundary1stLevel>>();
+                case "IfcRelSpaceBoundary2ndLevel":
+                    return new List<List<IfcRelSpaceBoundary2ndLevel>>();
+                case "IfcRelVoidsElement":
+                    return new List<List<IfcRelVoidsElement>>();
+                case "IfcRelationship":
+                    return new List<List<IfcRelationship>>();
+                case "IfcReparametrisedCompositeCurveSegment":
+                    return new List<List<IfcReparametrisedCompositeCurveSegment>>();
+                case "IfcRepresentation":
+                    return new List<List<IfcRepresentation>>();
+                case "IfcRepresentationContext":
+                    return new List<List<IfcRepresentationContext>>();
+                case "IfcRepresentationItem":
+                    return new List<List<IfcRepresentationItem>>();
+                case "IfcRepresentationMap":
+                    return new List<List<IfcRepresentationMap>>();
+                case "IfcResource":
+                    return new List<List<IfcResource>>();
+                case "IfcResourceApprovalRelationship":
+                    return new List<List<IfcResourceApprovalRelationship>>();
+                case "IfcResourceConstraintRelationship":
+                    return new List<List<IfcResourceConstraintRelationship>>();
+                case "IfcResourceLevelRelationship":
+                    return new List<List<IfcResourceLevelRelationship>>();
+                case "IfcResourceTime":
+                    return new List<List<IfcResourceTime>>();
+                case "IfcRevolvedAreaSolid":
+                    return new List<List<IfcRevolvedAreaSolid>>();
+                case "IfcRevolvedAreaSolidTapered":
+                    return new List<List<IfcRevolvedAreaSolidTapered>>();
+                case "IfcRightCircularCone":
+                    return new List<List<IfcRightCircularCone>>();
+                case "IfcRightCircularCylinder":
+                    return new List<List<IfcRightCircularCylinder>>();
+                case "IfcRoof":
+                    return new List<List<IfcRoof>>();
+                case "IfcRoofType":
+                    return new List<List<IfcRoofType>>();
+                case "IfcRoot":
+                    return new List<List<IfcRoot>>();
+                case "IfcRoundedRectangleProfileDef":
+                    return new List<List<IfcRoundedRectangleProfileDef>>();
+                case "IfcSIUnit":
+                    return new List<List<IfcSIUnit>>();
+                case "IfcSanitaryTerminal":
+                    return new List<List<IfcSanitaryTerminal>>();
+                case "IfcSanitaryTerminalType":
+                    return new List<List<IfcSanitaryTerminalType>>();
+                case "IfcSchedulingTime":
+                    return new List<List<IfcSchedulingTime>>();
+                case "IfcSeamCurve":
+                    return new List<List<IfcSeamCurve>>();
+                case "IfcSectionProperties":
+                    return new List<List<IfcSectionProperties>>();
+                case "IfcSectionReinforcementProperties":
+                    return new List<List<IfcSectionReinforcementProperties>>();
+                case "IfcSectionedSpine":
+                    return new List<List<IfcSectionedSpine>>();
+                case "IfcSensor":
+                    return new List<List<IfcSensor>>();
+                case "IfcSensorType":
+                    return new List<List<IfcSensorType>>();
+                case "IfcShadingDevice":
+                    return new List<List<IfcShadingDevice>>();
+                case "IfcShadingDeviceType":
+                    return new List<List<IfcShadingDeviceType>>();
+                case "IfcShapeAspect":
+                    return new List<List<IfcShapeAspect>>();
+                case "IfcShapeModel":
+                    return new List<List<IfcShapeModel>>();
+                case "IfcShapeRepresentation":
+                    return new List<List<IfcShapeRepresentation>>();
+                case "IfcShellBasedSurfaceModel":
+                    return new List<List<IfcShellBasedSurfaceModel>>();
+                case "IfcSimpleProperty":
+                    return new List<List<IfcSimpleProperty>>();
+                case "IfcSimplePropertyTemplate":
+                    return new List<List<IfcSimplePropertyTemplate>>();
+                case "IfcSite":
+                    return new List<List<IfcSite>>();
+                case "IfcSlab":
+                    return new List<List<IfcSlab>>();
+                case "IfcSlabElementedCase":
+                    return new List<List<IfcSlabElementedCase>>();
+                case "IfcSlabStandardCase":
+                    return new List<List<IfcSlabStandardCase>>();
+                case "IfcSlabType":
+                    return new List<List<IfcSlabType>>();
+                case "IfcSlippageConnectionCondition":
+                    return new List<List<IfcSlippageConnectionCondition>>();
+                case "IfcSolarDevice":
+                    return new List<List<IfcSolarDevice>>();
+                case "IfcSolarDeviceType":
+                    return new List<List<IfcSolarDeviceType>>();
+                case "IfcSolidModel":
+                    return new List<List<IfcSolidModel>>();
+                case "IfcSpace":
+                    return new List<List<IfcSpace>>();
+                case "IfcSpaceHeater":
+                    return new List<List<IfcSpaceHeater>>();
+                case "IfcSpaceHeaterType":
+                    return new List<List<IfcSpaceHeaterType>>();
+                case "IfcSpaceType":
+                    return new List<List<IfcSpaceType>>();
+                case "IfcSpatialElement":
+                    return new List<List<IfcSpatialElement>>();
+                case "IfcSpatialElementType":
+                    return new List<List<IfcSpatialElementType>>();
+                case "IfcSpatialStructureElement":
+                    return new List<List<IfcSpatialStructureElement>>();
+                case "IfcSpatialStructureElementType":
+                    return new List<List<IfcSpatialStructureElementType>>();
+                case "IfcSpatialZone":
+                    return new List<List<IfcSpatialZone>>();
+                case "IfcSpatialZoneType":
+                    return new List<List<IfcSpatialZoneType>>();
+                case "IfcSphere":
+                    return new List<List<IfcSphere>>();
+                case "IfcSphericalSurface":
+                    return new List<List<IfcSphericalSurface>>();
+                case "IfcStackTerminal":
+                    return new List<List<IfcStackTerminal>>();
+                case "IfcStackTerminalType":
+                    return new List<List<IfcStackTerminalType>>();
+                case "IfcStair":
+                    return new List<List<IfcStair>>();
+                case "IfcStairFlight":
+                    return new List<List<IfcStairFlight>>();
+                case "IfcStairFlightType":
+                    return new List<List<IfcStairFlightType>>();
+                case "IfcStairType":
+                    return new List<List<IfcStairType>>();
+                case "IfcStructuralAction":
+                    return new List<List<IfcStructuralAction>>();
+                case "IfcStructuralActivity":
+                    return new List<List<IfcStructuralActivity>>();
+                case "IfcStructuralAnalysisModel":
+                    return new List<List<IfcStructuralAnalysisModel>>();
+                case "IfcStructuralConnection":
+                    return new List<List<IfcStructuralConnection>>();
+                case "IfcStructuralConnectionCondition":
+                    return new List<List<IfcStructuralConnectionCondition>>();
+                case "IfcStructuralCurveAction":
+                    return new List<List<IfcStructuralCurveAction>>();
+                case "IfcStructuralCurveConnection":
+                    return new List<List<IfcStructuralCurveConnection>>();
+                case "IfcStructuralCurveMember":
+                    return new List<List<IfcStructuralCurveMember>>();
+                case "IfcStructuralCurveMemberVarying":
+                    return new List<List<IfcStructuralCurveMemberVarying>>();
+                case "IfcStructuralCurveReaction":
+                    return new List<List<IfcStructuralCurveReaction>>();
+                case "IfcStructuralItem":
+                    return new List<List<IfcStructuralItem>>();
+                case "IfcStructuralLinearAction":
+                    return new List<List<IfcStructuralLinearAction>>();
+                case "IfcStructuralLoad":
+                    return new List<List<IfcStructuralLoad>>();
+                case "IfcStructuralLoadCase":
+                    return new List<List<IfcStructuralLoadCase>>();
+                case "IfcStructuralLoadConfiguration":
+                    return new List<List<IfcStructuralLoadConfiguration>>();
+                case "IfcStructuralLoadGroup":
+                    return new List<List<IfcStructuralLoadGroup>>();
+                case "IfcStructuralLoadLinearForce":
+                    return new List<List<IfcStructuralLoadLinearForce>>();
+                case "IfcStructuralLoadOrResult":
+                    return new List<List<IfcStructuralLoadOrResult>>();
+                case "IfcStructuralLoadPlanarForce":
+                    return new List<List<IfcStructuralLoadPlanarForce>>();
+                case "IfcStructuralLoadSingleDisplacement":
+                    return new List<List<IfcStructuralLoadSingleDisplacement>>();
+                case "IfcStructuralLoadSingleDisplacementDistortion":
+                    return new List<List<IfcStructuralLoadSingleDisplacementDistortion>>();
+                case "IfcStructuralLoadSingleForce":
+                    return new List<List<IfcStructuralLoadSingleForce>>();
+                case "IfcStructuralLoadSingleForceWarping":
+                    return new List<List<IfcStructuralLoadSingleForceWarping>>();
+                case "IfcStructuralLoadStatic":
+                    return new List<List<IfcStructuralLoadStatic>>();
+                case "IfcStructuralLoadTemperature":
+                    return new List<List<IfcStructuralLoadTemperature>>();
+                case "IfcStructuralMember":
+                    return new List<List<IfcStructuralMember>>();
+                case "IfcStructuralPlanarAction":
+                    return new List<List<IfcStructuralPlanarAction>>();
+                case "IfcStructuralPointAction":
+                    return new List<List<IfcStructuralPointAction>>();
+                case "IfcStructuralPointConnection":
+                    return new List<List<IfcStructuralPointConnection>>();
+                case "IfcStructuralPointReaction":
+                    return new List<List<IfcStructuralPointReaction>>();
+                case "IfcStructuralReaction":
+                    return new List<List<IfcStructuralReaction>>();
+                case "IfcStructuralResultGroup":
+                    return new List<List<IfcStructuralResultGroup>>();
+                case "IfcStructuralSurfaceAction":
+                    return new List<List<IfcStructuralSurfaceAction>>();
+                case "IfcStructuralSurfaceConnection":
+                    return new List<List<IfcStructuralSurfaceConnection>>();
+                case "IfcStructuralSurfaceMember":
+                    return new List<List<IfcStructuralSurfaceMember>>();
+                case "IfcStructuralSurfaceMemberVarying":
+                    return new List<List<IfcStructuralSurfaceMemberVarying>>();
+                case "IfcStructuralSurfaceReaction":
+                    return new List<List<IfcStructuralSurfaceReaction>>();
+                case "IfcStyleModel":
+                    return new List<List<IfcStyleModel>>();
+                case "IfcStyledItem":
+                    return new List<List<IfcStyledItem>>();
+                case "IfcStyledRepresentation":
+                    return new List<List<IfcStyledRepresentation>>();
+                case "IfcSubContractResource":
+                    return new List<List<IfcSubContractResource>>();
+                case "IfcSubContractResourceType":
+                    return new List<List<IfcSubContractResourceType>>();
+                case "IfcSubedge":
+                    return new List<List<IfcSubedge>>();
+                case "IfcSurface":
+                    return new List<List<IfcSurface>>();
+                case "IfcSurfaceCurve":
+                    return new List<List<IfcSurfaceCurve>>();
+                case "IfcSurfaceCurveSweptAreaSolid":
+                    return new List<List<IfcSurfaceCurveSweptAreaSolid>>();
+                case "IfcSurfaceFeature":
+                    return new List<List<IfcSurfaceFeature>>();
+                case "IfcSurfaceOfLinearExtrusion":
+                    return new List<List<IfcSurfaceOfLinearExtrusion>>();
+                case "IfcSurfaceOfRevolution":
+                    return new List<List<IfcSurfaceOfRevolution>>();
+                case "IfcSurfaceReinforcementArea":
+                    return new List<List<IfcSurfaceReinforcementArea>>();
+                case "IfcSurfaceStyle":
+                    return new List<List<IfcSurfaceStyle>>();
+                case "IfcSurfaceStyleLighting":
+                    return new List<List<IfcSurfaceStyleLighting>>();
+                case "IfcSurfaceStyleRefraction":
+                    return new List<List<IfcSurfaceStyleRefraction>>();
+                case "IfcSurfaceStyleRendering":
+                    return new List<List<IfcSurfaceStyleRendering>>();
+                case "IfcSurfaceStyleShading":
+                    return new List<List<IfcSurfaceStyleShading>>();
+                case "IfcSurfaceStyleWithTextures":
+                    return new List<List<IfcSurfaceStyleWithTextures>>();
+                case "IfcSurfaceTexture":
+                    return new List<List<IfcSurfaceTexture>>();
+                case "IfcSweptAreaSolid":
+                    return new List<List<IfcSweptAreaSolid>>();
+                case "IfcSweptDiskSolid":
+                    return new List<List<IfcSweptDiskSolid>>();
+                case "IfcSweptDiskSolidPolygonal":
+                    return new List<List<IfcSweptDiskSolidPolygonal>>();
+                case "IfcSweptSurface":
+                    return new List<List<IfcSweptSurface>>();
+                case "IfcSwitchingDevice":
+                    return new List<List<IfcSwitchingDevice>>();
+                case "IfcSwitchingDeviceType":
+                    return new List<List<IfcSwitchingDeviceType>>();
+                case "IfcSystem":
+                    return new List<List<IfcSystem>>();
+                case "IfcSystemFurnitureElement":
+                    return new List<List<IfcSystemFurnitureElement>>();
+                case "IfcSystemFurnitureElementType":
+                    return new List<List<IfcSystemFurnitureElementType>>();
+                case "IfcTShapeProfileDef":
+                    return new List<List<IfcTShapeProfileDef>>();
+                case "IfcTable":
+                    return new List<List<IfcTable>>();
+                case "IfcTableColumn":
+                    return new List<List<IfcTableColumn>>();
+                case "IfcTableRow":
+                    return new List<List<IfcTableRow>>();
+                case "IfcTank":
+                    return new List<List<IfcTank>>();
+                case "IfcTankType":
+                    return new List<List<IfcTankType>>();
+                case "IfcTask":
+                    return new List<List<IfcTask>>();
+                case "IfcTaskTime":
+                    return new List<List<IfcTaskTime>>();
+                case "IfcTaskTimeRecurring":
+                    return new List<List<IfcTaskTimeRecurring>>();
+                case "IfcTaskType":
+                    return new List<List<IfcTaskType>>();
+                case "IfcTelecomAddress":
+                    return new List<List<IfcTelecomAddress>>();
+                case "IfcTendon":
+                    return new List<List<IfcTendon>>();
+                case "IfcTendonAnchor":
+                    return new List<List<IfcTendonAnchor>>();
+                case "IfcTendonAnchorType":
+                    return new List<List<IfcTendonAnchorType>>();
+                case "IfcTendonType":
+                    return new List<List<IfcTendonType>>();
+                case "IfcTessellatedFaceSet":
+                    return new List<List<IfcTessellatedFaceSet>>();
+                case "IfcTessellatedItem":
+                    return new List<List<IfcTessellatedItem>>();
+                case "IfcTextLiteral":
+                    return new List<List<IfcTextLiteral>>();
+                case "IfcTextLiteralWithExtent":
+                    return new List<List<IfcTextLiteralWithExtent>>();
+                case "IfcTextStyle":
+                    return new List<List<IfcTextStyle>>();
+                case "IfcTextStyleFontModel":
+                    return new List<List<IfcTextStyleFontModel>>();
+                case "IfcTextStyleForDefinedFont":
+                    return new List<List<IfcTextStyleForDefinedFont>>();
+                case "IfcTextStyleTextModel":
+                    return new List<List<IfcTextStyleTextModel>>();
+                case "IfcTextureCoordinate":
+                    return new List<List<IfcTextureCoordinate>>();
+                case "IfcTextureCoordinateGenerator":
+                    return new List<List<IfcTextureCoordinateGenerator>>();
+                case "IfcTextureMap":
+                    return new List<List<IfcTextureMap>>();
+                case "IfcTextureVertex":
+                    return new List<List<IfcTextureVertex>>();
+                case "IfcTextureVertexList":
+                    return new List<List<IfcTextureVertexList>>();
+                case "IfcTimePeriod":
+                    return new List<List<IfcTimePeriod>>();
+                case "IfcTimeSeries":
+                    return new List<List<IfcTimeSeries>>();
+                case "IfcTimeSeriesValue":
+                    return new List<List<IfcTimeSeriesValue>>();
+                case "IfcTopologicalRepresentationItem":
+                    return new List<List<IfcTopologicalRepresentationItem>>();
+                case "IfcTopologyRepresentation":
+                    return new List<List<IfcTopologyRepresentation>>();
+                case "IfcToroidalSurface":
+                    return new List<List<IfcToroidalSurface>>();
+                case "IfcTransformer":
+                    return new List<List<IfcTransformer>>();
+                case "IfcTransformerType":
+                    return new List<List<IfcTransformerType>>();
+                case "IfcTransportElement":
+                    return new List<List<IfcTransportElement>>();
+                case "IfcTransportElementType":
+                    return new List<List<IfcTransportElementType>>();
+                case "IfcTrapeziumProfileDef":
+                    return new List<List<IfcTrapeziumProfileDef>>();
+                case "IfcTriangulatedFaceSet":
+                    return new List<List<IfcTriangulatedFaceSet>>();
+                case "IfcTrimmedCurve":
+                    return new List<List<IfcTrimmedCurve>>();
+                case "IfcTubeBundle":
+                    return new List<List<IfcTubeBundle>>();
+                case "IfcTubeBundleType":
+                    return new List<List<IfcTubeBundleType>>();
+                case "IfcTypeObject":
+                    return new List<List<IfcTypeObject>>();
+                case "IfcTypeProcess":
+                    return new List<List<IfcTypeProcess>>();
+                case "IfcTypeProduct":
+                    return new List<List<IfcTypeProduct>>();
+                case "IfcTypeResource":
+                    return new List<List<IfcTypeResource>>();
+                case "IfcUShapeProfileDef":
+                    return new List<List<IfcUShapeProfileDef>>();
+                case "IfcUnitAssignment":
+                    return new List<List<IfcUnitAssignment>>();
+                case "IfcUnitaryControlElement":
+                    return new List<List<IfcUnitaryControlElement>>();
+                case "IfcUnitaryControlElementType":
+                    return new List<List<IfcUnitaryControlElementType>>();
+                case "IfcUnitaryEquipment":
+                    return new List<List<IfcUnitaryEquipment>>();
+                case "IfcUnitaryEquipmentType":
+                    return new List<List<IfcUnitaryEquipmentType>>();
+                case "IfcValve":
+                    return new List<List<IfcValve>>();
+                case "IfcValveType":
+                    return new List<List<IfcValveType>>();
+                case "IfcVector":
+                    return new List<List<IfcVector>>();
+                case "IfcVertex":
+                    return new List<List<IfcVertex>>();
+                case "IfcVertexLoop":
+                    return new List<List<IfcVertexLoop>>();
+                case "IfcVertexPoint":
+                    return new List<List<IfcVertexPoint>>();
+                case "IfcVibrationIsolator":
+                    return new List<List<IfcVibrationIsolator>>();
+                case "IfcVibrationIsolatorType":
+                    return new List<List<IfcVibrationIsolatorType>>();
+                case "IfcVirtualElement":
+                    return new List<List<IfcVirtualElement>>();
+                case "IfcVirtualGridIntersection":
+                    return new List<List<IfcVirtualGridIntersection>>();
+                case "IfcVoidingFeature":
+                    return new List<List<IfcVoidingFeature>>();
+                case "IfcWall":
+                    return new List<List<IfcWall>>();
+                case "IfcWallElementedCase":
+                    return new List<List<IfcWallElementedCase>>();
+                case "IfcWallStandardCase":
+                    return new List<List<IfcWallStandardCase>>();
+                case "IfcWallType":
+                    return new List<List<IfcWallType>>();
+                case "IfcWasteTerminal":
+                    return new List<List<IfcWasteTerminal>>();
+                case "IfcWasteTerminalType":
+                    return new List<List<IfcWasteTerminalType>>();
+                case "IfcWindow":
+                    return new List<List<IfcWindow>>();
+                case "IfcWindowLiningProperties":
+                    return new List<List<IfcWindowLiningProperties>>();
+                case "IfcWindowPanelProperties":
+                    return new List<List<IfcWindowPanelProperties>>();
+                case "IfcWindowStandardCase":
+                    return new List<List<IfcWindowStandardCase>>();
+                case "IfcWindowStyle":
+                    return new List<List<IfcWindowStyle>>();
+                case "IfcWindowType":
+                    return new List<List<IfcWindowType>>();
+                case "IfcWorkCalendar":
+                    return new List<List<IfcWorkCalendar>>();
+                case "IfcWorkControl":
+                    return new List<List<IfcWorkControl>>();
+                case "IfcWorkPlan":
+                    return new List<List<IfcWorkPlan>>();
+                case "IfcWorkSchedule":
+                    return new List<List<IfcWorkSchedule>>();
+                case "IfcWorkTime":
+                    return new List<List<IfcWorkTime>>();
+                case "IfcZShapeProfileDef":
+                    return new List<List<IfcZShapeProfileDef>>();
+                case "IfcZone":
+                    return new List<List<IfcZone>>();
+                default:
+                    return null;
+            }
+
+        }
+    
+}
 }
