@@ -33,6 +33,9 @@ namespace OSM_Project_Test
             var waters = maker.GetWater();
             waters.ReCalculateNormal();
             waters.ExportToObj("../../../../../waters.obj", true);
+            var lands = maker.GetWaterCutLand();
+            lands.ReCalculateNormal();
+            lands.ExportToObj("../../../../../Lands.obj", true);
 
             var parks = maker.GetParks();
             parks.ReCalculateNormal();

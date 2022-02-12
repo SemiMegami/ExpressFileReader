@@ -18,6 +18,7 @@ namespace ThreeDMaker.Geometry.Util
             float A2 = TriangleArea(p, p3, p1) / A;
             float A3 = TriangleArea(p, p1, p2) / A;
             float tol = AreaTol;
+         //   tol = 0;
             if (includeOnLine)
             {
               
@@ -31,7 +32,7 @@ namespace ThreeDMaker.Geometry.Util
 
 
         public static float Area(List<Vector2> vertices){
-            float a = 0;
+            double a = 0;
             int n = vertices.Count;
             for(int i = 0; i < n; i++)
             {
@@ -43,7 +44,8 @@ namespace ThreeDMaker.Geometry.Util
 
                 a += vertices[i].X * vertices[j].Y - vertices[j].X * vertices[i].Y;
             }
-            return a * 0.5f;
+            a *= 0.5f;
+            return (float) a;
         }
 
         public static float TriangleArea(Vector2 p1, Vector2 p2, Vector2 p3)

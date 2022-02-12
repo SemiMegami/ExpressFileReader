@@ -41,11 +41,6 @@ namespace ThreeDMaker.Geometry
                 }
             }
 
-            if(vertices.Count == 4)
-            {
-
-            }
-
             List<int> triangle = new List<int>();
             int n = vertices.Count;
 

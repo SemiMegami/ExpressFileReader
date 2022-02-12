@@ -12,15 +12,17 @@ namespace IFCProjectTest
     {
         static void Main(string[] args)
         {
-            //  testHole();
-            TestLoadProject("20181220Holter_Tower_10");
-            TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
-            TestLoadProject("AITS existing");
-            TestLoadProject("AITIS new");
-            TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
-            TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
-            TestLoadProject("20210219Architecture");
-            TestLoadProject("20201208DigitalHub_ARC");
+            //TestLoadProject("20181220Holter_Tower_10");
+         //   TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
+            TestLoadProject2();
+            //TestLoadProject("AITS existing");
+            //TestLoadProject("AITIS new");
+            //TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
+            //TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
+            //TestLoadProject("20210219Architecture");
+            //TestLoadProject("20201208DigitalHub_ARC");
+            //testHole();
+            //TestHole2();
         }
 
         static void testHole()
@@ -66,18 +68,59 @@ namespace IFCProjectTest
 
 
                      
-                        OutlineMesh mesh = new OutlineMesh(outter, inners);
+                        ProfileMesh mesh = new ProfileMesh(outter, inners);
                         mesh.ExportToObj("../../../../../Hole Test/polygon_" + outterside + "_" + innerside + "_" + + s + ".obj");
                     }
                 }
             }
         }
 
+        static void TestHole2()
+        {
+
+
+            float a = 1;
+            float dt = 0.001f;
+
+            for (int i = 1; i < 50; i++)
+            {
+                float b = a - dt * i;
+                List<Vector2> outer = new List<Vector2>()
+                {
+                    new Vector2(-a, -a),
+                    new Vector2(a, -a),
+                    new Vector2(a, a),
+                    new Vector2(-a, a)
+                };
+                List<Vector2> inner = new List<Vector2>()
+                {
+                    new Vector2(-b, -b),
+                    new Vector2(-b, b),
+                    new Vector2(b, b),
+                    new Vector2(b, -b)
+        };
+                ProfileMesh mesh = new ProfileMesh(outer, new List<List<Vector2>>() { inner });
+                mesh.ExportToObj("../../../../../Hole Test/Rect" + i  + ".obj");
+            }
+        }
+
         static void TestLoadProject(string filename)
         {
+            Console.WriteLine("Loading : " + filename);
             GeoMetricModel geoMetricModel = new GeoMetricModel();
             geoMetricModel.LoadModel("../../../../../Open IFC Model/" + filename + ".ifc");
             geoMetricModel.ExportFullBuildingAsObj("../../../../../" + filename + ".obj",true);
+        }
+
+        static void TestLoadProject2()
+        {
+            string filename = "20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture";
+            Console.WriteLine("Loading : " + filename);
+            GeoMetricModel geoMetricModel = new GeoMetricModel();
+            geoMetricModel.LoadModel("../../../../../Open IFC Model/" + filename + ".ifc");
+            // if (element.ifcid != "#1426558") continue;
+            geoMetricModel.ExportAnObjectAsObj("../../../../../" + "Test" + ".obj", "#1426558");
+          
         }
     }
 }

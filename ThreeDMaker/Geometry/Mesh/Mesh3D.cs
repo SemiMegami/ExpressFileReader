@@ -43,10 +43,42 @@ namespace ThreeDMaker.Geometry
             {
                 nv = Vertices.Count;
                 Vertices.AddRange(mesh.Vertices);
+                if(mesh.UVs.Count == mesh.Vertices.Count)
+                {
+                    UVs.AddRange(mesh.UVs);
+                }
+                else
+                {
+                    for(int i = 0; i < mesh.Vertices.Count; i++)
+                    {
+                        UVs.Add(new Vector2(mesh.Vertices[i].X, mesh.Vertices[i].Y));
+                    }
+                }
                 foreach (var i in mesh.Triangles)
                 {
                     Triangles.Add(nv + i);
                 }
+            }
+        }
+
+        public void AddMesh(Mesh3D mesh)
+        {
+            var nv = Vertices.Count;
+            Vertices.AddRange(mesh.Vertices);
+            if (mesh.UVs.Count == mesh.Vertices.Count)
+            {
+                UVs.AddRange(mesh.UVs);
+            }
+            else
+            {
+                for (int i = 0; i < mesh.Vertices.Count; i++)
+                {
+                    UVs.Add(new Vector2(mesh.Vertices[i].X, mesh.Vertices[i].Y));
+                }
+            }
+            foreach (var i in mesh.Triangles)
+            {
+                Triangles.Add(nv + i);
             }
         }
 
@@ -122,37 +154,18 @@ namespace ThreeDMaker.Geometry
             return normals;
         }
 
-        public string ToObjText()
+      
+        public void FlipFace()
         {
-            string text = "";
-            
-            foreach(var v in Vertices)
+            int temp;
+            for(int i = 0; i < Triangles.Count; i += 3)
             {
-                text += "v " + v.X + " " + v.Y + " " + v.Z + "\n";
+                temp = Triangles[i];
+                Triangles[i] = Triangles[i + 1];
+                Triangles[i + 1] = temp;
             }
-
-            foreach (var v in Normals)
-            {
-                text += "vn " + v.X + " " + v.Y + " " + v.Z + "\n";
-            }
-
-            foreach (var v in UVs)
-            {
-                text += "vt " + v.X + " " + v.Y + "\n";
-            }
-
-            int n = Triangles.Count;
-
-            for(int i = 0; i < n; i += 3)
-            {
-                int f1 = Triangles[i] + 1;
-                int f2 = Triangles[i + 1] + 1;
-                int f3 = Triangles[i + 2] + 1;
-                text += "f " + f1 + " " + f3 + " " + f2 + "\n";
-            }
-            return text;
+            ReCalculateNormal();
         }
-
       
 
         public void ExportToObj(string path, bool swapxyz = false)
@@ -184,7 +197,7 @@ namespace ThreeDMaker.Geometry
                         int f1 = Triangles[i] + 1;
                         int f2 = Triangles[i + 1] + 1;
                         int f3 = Triangles[i + 2] + 1;
-                        writer.Write("f " + f1 + " " + f2 + " " + f3 + "\n");
+                        writer.Write("f " + f1 + "/" + f1 + " " + f2 + "/" + f2 + " " + f3 + "/" + f3 + "\n");
                     }
                 }
                 else
@@ -211,7 +224,7 @@ namespace ThreeDMaker.Geometry
                         int f1 = Triangles[i] + 1;
                         int f2 = Triangles[i + 1] + 1;
                         int f3 = Triangles[i + 2] + 1;
-                        writer.Write("f " + f1 + " " + f3 + " " + f2 + "\n");
+                        writer.Write("f " + f1 + "/" + f1 + " " + f3 + "/" + f3 + " " + f2 + "/" + f2 + "\n");
                     }
                 }
                 

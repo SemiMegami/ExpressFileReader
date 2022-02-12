@@ -38,7 +38,7 @@ namespace IFC_Geometry
                     meshes.AddRange(GetSolids((IfcMappedItem) item, solidDict));
                 }
             }
-
+            int count = 0;
             foreach (var mesh in meshes)
             {
                 var vertices = mesh.Vertices;
@@ -48,10 +48,10 @@ namespace IFC_Geometry
                     if(t!= null)
                     {
                         vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator3D)t, vertices[i]);
-                      
                     }
-                  
+                    vertices[i] += new Vector3(0, 0, count * 500);
                 }
+                count++;
             }
 
 
@@ -107,7 +107,7 @@ namespace IFC_Geometry
             Mesh3D Mesh3D = new Mesh3D();
             var outters = FacetedBrep.Outer.CfsFaces;
             int counter;
-            OutlineMesh m;
+            ProfileMesh m;
             foreach (var outter in outters)
             {
                 var bounds = outter.Bounds;
@@ -121,7 +121,7 @@ namespace IFC_Geometry
                     { 
                         meshPoints.Add(new Vector3(p.Coordinates[0], p.Coordinates[1], p.Coordinates[2]));
                     }
-                    m = new OutlineMesh(meshPoints);
+                    m = new ProfileMesh(meshPoints);
                     counter = Mesh3D.Vertices.Count;
                     Mesh3D.Vertices.AddRange(m.Vertices);
                     foreach(var i in m.Triangles)
@@ -162,9 +162,7 @@ namespace IFC_Geometry
 
 
             Vector3 front = new Vector3(0, 0, 1);
-
             Vector3 right = new Vector3(1, 0, 0);
-
             Vector3 up = new Vector3(0, 1, 0);
             AxisPoint3D p0 = new AxisPoint3D()
             {
@@ -182,10 +180,27 @@ namespace IFC_Geometry
                 Up = up
 
             };
+
+            //AxisPoint3D p1 = new AxisPoint3D()
+            //{
+            //    Position = new Vector3(0, 0, 1),
+            //    Front = front,
+            //    Right = right,
+            //    Up = up
+
+            //};
             Path3D point3Ds = new Path3D() { p0, p1 };
 
+            if(ExtrudedAreaSolid.ifcid == "#1425974")
+            {
 
+            }
+          //  Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds);
             Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds, profileDef.InnerCurves);
+            if(direction[2] < 0)
+            {
+                Mesh3D.FlipFace();
+            }
             var vertices = Mesh3D.Vertices;
             for (int i = 0; i < vertices.Count; i++)
             {
@@ -307,7 +322,7 @@ namespace IFC_Geometry
                     meshPoints = facePoints;
                 }
 
-                var m = new OutlineMesh(meshPoints);
+                var m = new ProfileMesh(meshPoints);
                 var counter = Mesh3D.Vertices.Count;
                 Mesh3D.Vertices.AddRange(m.Vertices);
                 foreach (var i in m.Triangles)
@@ -346,7 +361,7 @@ namespace IFC_Geometry
             }
   
 
-            var Mesh3D = new OutlineMesh(facePoints);
+            var Mesh3D = new ProfileMesh(facePoints);
             return Mesh3D;
         }
 

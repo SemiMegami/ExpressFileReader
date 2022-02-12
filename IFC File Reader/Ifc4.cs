@@ -20,5 +20,18 @@ namespace IFC4
         {
             return instances.Values.OfType<T>().ToList();
         }
+
+        public IfcBase GetInstance(string id)
+        {
+            if(instances.TryGetValue(id, out IfcBase value))
+            {
+                return value;
+            }
+            return null;
+        }
+        public IfcBase GetInstance(int id)
+        {
+            return GetInstance("#" + id);
+        }
     }
 }

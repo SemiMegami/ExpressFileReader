@@ -5,11 +5,11 @@ using ThreeDMaker.Geometry.Util;
 using ThreeDMaker.Geometry.Dimension2;
 namespace ThreeDMaker.Geometry
 {
-    public class OutlineMesh:Mesh3D
+    public class ProfileMesh:Mesh3D
     {
 
 
-        public OutlineMesh(Shape2D section)
+        public ProfileMesh(Shape2D section)
         {
             Vertices.Clear();
             foreach (var s in section.points)
@@ -19,7 +19,7 @@ namespace ThreeDMaker.Geometry
             Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(section.points);
         }
 
-        public OutlineMesh(Shape2D section, List<Shape2D> holes)
+        public ProfileMesh(Shape2D section, List<Shape2D> holes)
         {
             Vertices.Clear();
             foreach (var s in section.points)
@@ -36,20 +36,30 @@ namespace ThreeDMaker.Geometry
                 List<List<Vector2>> holeVecs = new List<List<Vector2>>();
                 foreach (var hole in holes)
                 {
-
                     holeVecs.Add(hole.points);
                 }
                 var v2 = GetMergedVertices(section.points, holeVecs);
                 Vertices.Clear();
+                var v3 = new List<Vector3>();
                 foreach (var s in v2)
                 {
-                    Vertices.Add(new Vector3(s, 0));
+                    v3.Add(new Vector3(s, 0));
                 }
+                Vertices = v3;
                 Triangles = Mesh2DGeometryUtil.EarClippingAlgorithm(v2);
+
+                //if (v3.Count > 3)
+                //{
+                //    Circle2D circle = new Circle2D(50);
+                //    Path3D m = new Path3D(v3);
+                //    Mesh3D testMesh = new ExtrudePathMesh(circle, m);
+                //    AddMesh(testMesh);
+                //}
+               
             }
         }
 
-        public OutlineMesh(List<Vector2> section)
+        public ProfileMesh(List<Vector2> section)
         {
             Vertices.Clear();
             foreach (var s in section)
@@ -60,7 +70,7 @@ namespace ThreeDMaker.Geometry
         }
 
       
-        public OutlineMesh(List<Vector2> section, List<List<Vector2>> holes)
+        public ProfileMesh(List<Vector2> section, List<List<Vector2>> holes)
         {
             var v2 = GetMergedVertices(section, holes );
             Vertices.Clear();
@@ -74,7 +84,7 @@ namespace ThreeDMaker.Geometry
         }
 
 
-        public OutlineMesh(List<Vector3> section)
+        public ProfileMesh(List<Vector3> section)
         {// they shold be the same plan
             Vertices.Clear();
             Vertices.AddRange(section);
@@ -126,7 +136,7 @@ namespace ThreeDMaker.Geometry
                 }
 
 
-                OutlineMesh mesh2 = new OutlineMesh(progs);
+                ProfileMesh mesh2 = new ProfileMesh(progs);
 
                 Triangles.AddRange(mesh2.Triangles);
             }
@@ -136,10 +146,15 @@ namespace ThreeDMaker.Geometry
         static List<Vector2> GetMergedVertices(List<Vector2> vertices, List<List<Vector2>> holes)
         {
             int n = vertices.Count;
-
+            if(holes.Count == 0)
+            {
+                return new List<Vector2>(vertices) ;
+            }
+            int e0 = 0, i0 = 0, j0 = 0;
+            float minLength = -1;
             for (int e = 0; e < holes.Count; e++)
             {
-                var holeVertice = new List<Vector2>(holes[e]);
+                var holeVertice =(holes[e]);
 
 
                 int h = holeVertice.Count;
@@ -216,42 +231,85 @@ namespace ThreeDMaker.Geometry
 
                         if (!isIntersect)
                         {
-                            List<Vector2> merged = new List<Vector2>();
+                            var length = line.GetLenghtSq();
 
-                            for (int a = 0; a <= i; a++)
+                            if(minLength < 0 || minLength > length)
                             {
-                                merged.Add(vertices[a]);
+                                minLength = length;
+                                e0 = e;
+                                i0 = i;
+                                j0 = j;
                             }
 
-                            for (int a = j; a < h; a++)
-                            {
-                                merged.Add(holeVertice[a]);
-                            }
-                            for (int a = 0; a <= j; a++)
-                            {
-                                merged.Add(holeVertice[a]);
-                            }
-                            for (int a = i; a < n; a++)
-                            {
-                                merged.Add(vertices[a]);
-                            }
-                            if (holes.Count == 1)
-                            {
-                                return merged;
-                            }
-                            else
-                            {
-                                List<List<Vector2>> otherholes = new List<List<Vector2>>(holes);
-                                otherholes.Remove(holeVertice);
-                                return GetMergedVertices(merged, otherholes);
-                            }
+                            //List<Vector2> merged = new List<Vector2>();
+
+                            //for (int a = 0; a <= i; a++)
+                            //{
+                            //    merged.Add(vertices[a]);
+                            //}
+
+                            //for (int a = j; a < h; a++)
+                            //{
+                            //    merged.Add(holeVertice[a]);
+                            //}
+                            //for (int a = 0; a <= j; a++)
+                            //{
+                            //    merged.Add(holeVertice[a]);
+                            //}
+                            //for (int a = i; a < n; a++)
+                            //{
+                            //    merged.Add(vertices[a]);
+                            //}
+                            //if (holes.Count == 1)
+                            //{
+                            //    return merged;
+                            //}
+                            //else
+                            //{
+                            //    List<List<Vector2>> otherholes = new List<List<Vector2>>(holes);
+                            //    otherholes.Remove(holeVertice);
+                            //    return GetMergedVertices(merged, otherholes);
+                            //}
                         }
 
                     }
                 }
             }
 
-            return new List<Vector2>();
+            var holeVertice0 = (holes[e0]);
+
+            int h0 = holeVertice0.Count;
+
+            List<Vector2> merged = new List<Vector2>();
+
+            for (int a = 0; a <= i0; a++)
+            {
+                merged.Add(vertices[a]);
+            }
+
+            for (int a = j0; a < h0; a++)
+            {
+                merged.Add(holeVertice0[a]);
+            }
+            for (int a = 0; a <= j0; a++)
+            {
+                merged.Add(holeVertice0[a]);
+            }
+            for (int a = i0; a < n; a++)
+            {
+                merged.Add(vertices[a]);
+            }
+            if (holes.Count == 1)
+            {
+                return merged;
+            }
+            else
+            {
+                List<List<Vector2>> otherholes = new List<List<Vector2>>(holes);
+                otherholes.Remove(holeVertice0);
+                return GetMergedVertices(merged, otherholes);
+            }
+         //   return new List<Vector2>();
         }
 
 

@@ -303,7 +303,7 @@ namespace OSM_Geometry
             sections.Add(new Vector2(-a, 0));
             Polygon2D polygon = new Polygon2D(sections);
 
-
+           // return new RoadMesh(polygon, vec3);
             return new ExtrudePathMesh(polygon, p);
         }
 
@@ -458,18 +458,12 @@ namespace OSM_Geometry
             double h;
             foreach (var b in highways)
             {
-            
-              //  h = GetHight(b);
                 if (b.GetType().Name == "way")
                 {
                     h = GetHighwayWidth(b);
                     meshs.Add(GetPath((way)b, (float)h));
                 }
-                //else if (b.GetType().Name == "relation")
-                //{
-                //    meshs.Add(GetExtrude((relation)b, (float)h));
-                //}
-
+           
             }
 
             return new Mesh3D(meshs);
@@ -484,16 +478,47 @@ namespace OSM_Geometry
                 h = GetHight(b);
                 if (b.GetType().Name == "way")
                 {
-                    meshs.Add(GetExtrude((way)b, 0.2f, - 0.2f));
+                    meshs.Add(GetExtrude((way)b, 0.501f, - 5f));
                 }
                 else if (b.GetType().Name == "relation")
                 {
-                    meshs.Add(GetExtrude((relation)b, 0.2f, -0.2f));
+                    meshs.Add(GetExtrude((relation)b, 0.501f, -5f));
                 }
 
             }
 
             return new Mesh3D(meshs);
+        }
+
+        public Mesh3D GetWaterCutLand()
+        {
+            List<Mesh3D> meshs = new List<Mesh3D>();
+            List<Shape2D> holes = new List<Shape2D>();
+
+            foreach (var b in waters)
+            {
+              
+                holes.Add(new Polygon2D(GetNodeVec(((way)b), false)));
+            }
+            float a = 2000;
+            Polygon2D box = new Polygon2D(new List<Vector2>()
+            {
+                new Vector2(-a,-a),
+                new Vector2(a,-a),
+                new Vector2(a,a),
+                new Vector2(-a,a),
+            });
+
+
+            List<Vector3> core = new List<Vector3>()
+            {
+                new Vector3(0,0,-5),
+                new Vector3(0,0,0),
+            };
+            Path3D p = new Path3D(core);
+
+
+            return new ExtrudePathMesh(box, p,holes);
         }
 
     }

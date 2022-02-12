@@ -10,12 +10,12 @@ namespace IFC_Geometry
 {
     public class GeoMetricModel
     {
-        IFC4.Ifc4 model;
+        Ifc4 model;
         Dictionary<IfcProductRepresentation, List<Mesh3D>> productRepresentationDict;
 
         public void LoadModel(string filePath)
         {
-            model = new IFC4.Ifc4();
+            model = new Ifc4();
             model.ImportIFC(filePath);
 
             ConstructGeometry();
@@ -94,7 +94,6 @@ namespace IFC_Geometry
             List<Mesh3D> meshes = new List<Mesh3D>();
             foreach (var element in elemments)
             {
-               // if (element.ifcid != "#1426558") continue;
                 if (includSpace && element.InTypeOf<IfcSpace>())
                 {
                     continue;
@@ -128,25 +127,67 @@ namespace IFC_Geometry
                 }
             }
 
-            List<int> indices = new List<int>();
-            List<Vector3> vertices = new List<Vector3>();
-            int vertextCount = 0;
-            foreach (var mesh in meshes)
-            {
-                vertices.AddRange(mesh.Vertices);
-                foreach (var i in mesh.Triangles)
-                {
-                    indices.Add(i + vertextCount);
-                }
-                vertextCount = vertices.Count;
-            }
-            Mesh3D fullmesh = new Mesh3D()
-            {
-                Triangles = indices,
-                Vertices = vertices
-            };
+          
+            Mesh3D fullmesh = new Mesh3D(meshes);
+          
             fullmesh.ReCalculateNormal();
             fullmesh.ExportToObj(filePath, true);
+        }
+
+
+
+        public void ExportAnObjectAsObj(string filePath, string id)
+        {
+            var elemments = model.GetInstances<IfcElement>();
+            var localplacements = model.GetInstances<IfcLocalPlacement>();
+            var placementToMat = IFCGeoUtil.SetGlobalMat(localplacements);
+          
+            List<Mesh3D> meshes = new List<Mesh3D>();
+
+            var item = model.GetInstance(id);
+
+            if (item.InTypeOf<IfcProductRepresentation>())
+            {
+                meshes = productRepresentationDict[(IfcProductRepresentation)item];
+            }
+            else if (item.InTypeOf<IfcElement>())
+            {
+                var element = (IfcElement)item;        
+                var objectPlacement = element.ObjectPlacement;
+                Matrix4x4 globalmat;
+                if (objectPlacement != null)
+                {
+                    globalmat = Matrix4x4.Transpose(placementToMat[(IfcLocalPlacement)objectPlacement][1]);
+                }
+                else
+                {
+                    globalmat = Matrix4x4.Identity;
+                }
+                if (element.Representation != null)
+                {
+                    List<Mesh3D> meshs = productRepresentationDict[element.Representation];
+                    int j = 0;
+                    foreach (var mesh in meshs)
+                    {
+                        var cloneMesh = new Mesh3D(mesh);
+                        var vertives = cloneMesh.Vertices;
+                        for (int i = 0; i < vertives.Count; i++)
+                        {
+                            vertives[i] = Vector3.Transform(vertives[i], globalmat);
+                            //     vertives[i] += new Vector3(0, 0, 1000 * j);
+                        }
+                        meshes.Add(cloneMesh);
+                        j++;
+                    }
+                }
+            }
+            if(meshes.Count > 0)
+            {
+                Mesh3D fullmesh = new Mesh3D(meshes);
+                fullmesh.ReCalculateNormal();
+                fullmesh.ExportToObj(filePath, true);
+            }
+           
         }
     }
 }
