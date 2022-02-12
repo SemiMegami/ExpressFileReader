@@ -12,14 +12,14 @@ namespace IFCProjectTest
     {
         static void Main(string[] args)
         {
-            //TestLoadProject("20181220Holter_Tower_10");
-         //   TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
-            TestLoadProject2();
+            TestLoadProject("20181220Holter_Tower_10");
+            TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
+         //   TestLoadProject2();
             //TestLoadProject("AITS existing");
             //TestLoadProject("AITIS new");
-            //TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
-            //TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
-            //TestLoadProject("20210219Architecture");
+            TestLoadProject("20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Structural");
+            TestLoadProject("20160125Autodesk_Hospital_Parking Garage_2015 - IFC4");
+            TestLoadProject("20210219Architecture");
             //TestLoadProject("20201208DigitalHub_ARC");
             //testHole();
             //TestHole2();

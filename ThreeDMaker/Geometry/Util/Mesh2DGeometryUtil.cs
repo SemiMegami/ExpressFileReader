@@ -31,7 +31,7 @@ namespace ThreeDMaker.Geometry
             }
             if (vertices.Count == 3)
             {
-                if(GeometryUtil.IsTurningLeft(vertices[0], vertices[1], vertices[2]))
+                if(GeometryUtil.IsTurningLeft(vertices[0], vertices[1], vertices[2],true))
                 {
                     return indices;
                 }
@@ -57,7 +57,7 @@ namespace ThreeDMaker.Geometry
                 int k = i + 2;
                 if (j >= n) j -= n;
                 if (k >= n) k -= n;
-                if (GeometryUtil.IsTurningLeft(vertices[i], vertices[j], vertices[k]))
+                if (GeometryUtil.IsTurningLeft(vertices[i], vertices[j], vertices[k], true))
                 {
                     Line2D line = new Line2D(vertices[i], vertices[k]);
                     bool foundInside = false;

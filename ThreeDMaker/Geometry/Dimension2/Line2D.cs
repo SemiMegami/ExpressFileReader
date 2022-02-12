@@ -149,21 +149,17 @@ namespace ThreeDMaker.Geometry.Dimension2
             }
         }
 
-        private float GetTol()
-        {
-            return GetV().Length() / tolFactor;
-        }
-
+       
         public bool IsPointOnline(float x, float y)
         {
-            var tol = GetTol();
+            var tol =GeometryUtil.lengthTol;
 
             var d = GetPointDistance(x, y);
             if(d <= tol)
             {
                 var v1 = new Vector2(x - X1, y - Y1);
                 var v2 = new Vector2(x - X2, y - Y2);
-                if(Vector2.Dot(v1,v2) < 0 || v1.LengthSquared() < tol * tol || v2.LengthSquared() < tol * tol)
+                if(Vector2.Dot(v1,v2) < tol * tol || v1.LengthSquared() < tol * tol || v2.LengthSquared() < tol * tol)
                 {
                     return true;
                 }
@@ -174,7 +170,7 @@ namespace ThreeDMaker.Geometry.Dimension2
 
         public bool IsPointSplitline(float x, float y)
         {
-            var tol = GetTol();
+            var tol = GeometryUtil.lengthTol;
 
             var d = GetPointDistance(x, y);
             if (d <= tol)
@@ -182,7 +178,7 @@ namespace ThreeDMaker.Geometry.Dimension2
                 var v1 = new Vector2(x - X1, y - Y1);
                 var v2 = new Vector2(x - X2, y - Y2);
                 
-                if (Vector2.Dot(v1, v2) < 0 && !(v1.LengthSquared() < tol * tol || v2.LengthSquared() < tol * tol))
+                if (Vector2.Dot(v1, v2) < tol * tol && !(v1.LengthSquared() < tol * tol || v2.LengthSquared() < tol * tol))
                 {
                     return true;
                 }

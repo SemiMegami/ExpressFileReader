@@ -38,7 +38,7 @@ namespace IFC_Geometry
                     meshes.AddRange(GetSolids((IfcMappedItem) item, solidDict));
                 }
             }
-            int count = 0;
+          //  int count = 0;
             foreach (var mesh in meshes)
             {
                 var vertices = mesh.Vertices;
@@ -49,9 +49,9 @@ namespace IFC_Geometry
                     {
                         vertices[i] = IFCGeoUtil.TransformPoint((IfcCartesianTransformationOperator3D)t, vertices[i]);
                     }
-                    vertices[i] += new Vector3(0, 0, count * 500);
+               //     vertices[i] += new Vector3(0, 0, count * 500);
                 }
-                count++;
+          //      count++;
             }
 
 
@@ -191,10 +191,7 @@ namespace IFC_Geometry
             //};
             Path3D point3Ds = new Path3D() { p0, p1 };
 
-            if(ExtrudedAreaSolid.ifcid == "#1425974")
-            {
-
-            }
+           
           //  Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds);
             Mesh3D Mesh3D = new ExtrudePathMesh(profileDef.OutterCurve, point3Ds, profileDef.InnerCurves);
             if(direction[2] < 0)
