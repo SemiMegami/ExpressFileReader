@@ -142,9 +142,72 @@ namespace ThreeDMaker.Geometry.Util
             {
                 outputs.Add(items[i]);
             }
-
-
             return outputs;
+        }
+
+        public static List<Vector3> GetCartitianPlaneAxis(Vector3 n)
+        {
+            float ax = MathF.Abs(n.X);
+            float ay = MathF.Abs(n.Y);
+            float az = MathF.Abs(n.Z);
+
+            if (ax > ay && ax > az)
+            {
+                if (n.X > 0)
+                {
+                    return new List<Vector3>()
+                    {
+                        Vector3.UnitY,
+                        Vector3.UnitZ,
+                    };
+                }
+                else
+                {
+                    return new List<Vector3>()
+                    {
+                       - Vector3.UnitY,
+                        Vector3.UnitZ,
+                    };
+                }
+            }
+            else if (ay > az && ay > ax)
+            {
+                if (n.Y > 0)
+                {
+                    return new List<Vector3>()
+                    {
+                        - Vector3.UnitX,
+                        Vector3.UnitZ,
+                    };
+                }
+                else
+                {
+                    return new List<Vector3>()
+                    {
+                        Vector3.UnitX,
+                        Vector3.UnitZ,
+                    };
+                }
+            }
+            else
+            {
+                if (n.Z > 0)
+                {
+                    return new List<Vector3>()
+                    {
+                        Vector3.UnitX,
+                        Vector3.UnitY,
+                    };
+                }
+                else
+                {
+                    return new List<Vector3>()
+                    {
+                        -Vector3.UnitX,
+                        Vector3.UnitY,
+                    };
+                }
+            }
         }
     }
 }

@@ -12,23 +12,23 @@ namespace ThreeDMaker.Geometry
         {
 
         }
-        public ExtrudePathMesh(Shape2D section, Path3D path)
+        public ExtrudePathMesh(Shape2D section, Path3D path, bool includeSection = true)
         {
-            Generate(section, path, new List<Shape2D>());
+            Generate(section, path, new List<Shape2D>(), includeSection);
         }
 
-        public ExtrudePathMesh(Shape2D section, Path3D path, List<Shape2D> holes)
+        public ExtrudePathMesh(Shape2D section, Path3D path, List<Shape2D> holes, bool includeSection = true)
         {
-            Generate(section, path, holes);
+            Generate(section, path, holes, includeSection);
         }
 
-        public void Generate(Shape2D section, Path3D path)
+        public void Generate(Shape2D section, Path3D path, bool includeSection = true)
         {
-            Generate(section, path, new List<Shape2D>());
+            Generate(section, path, new List<Shape2D>(), includeSection);
         }
 
 
-        public void Generate(Shape2D section, Path3D path, List<Shape2D> holes)
+        public void Generate(Shape2D section, Path3D path, List<Shape2D> holes, bool includeSection = true)
         {
             // check clockwise and counter clock wise
 
@@ -118,35 +118,40 @@ namespace ThreeDMaker.Geometry
             }
 
 
-            ProfileMesh outlineMesh = new ProfileMesh(section, holes);
 
-            int nv = Vertices.Count;
+            if (includeSection)
+            {
+                ProfileMesh outlineMesh = new ProfileMesh(section, holes);
 
-            AxisPoint3D lastAxis = path[nj - 1];
-            foreach (var v in outlineMesh.Vertices)
-            {
-                Vertices.Add(lastAxis.GetWorld(v));
-                UVs.Add(new Vector2(v.X, v.Y));
-            }
-            for (int i = 0; i < outlineMesh.Triangles.Count; i++)
-            {
-                Triangles.Add(outlineMesh.Triangles[i] + nv);
-            }
+                int nv = Vertices.Count;
 
-            nv = Vertices.Count;
-            AxisPoint3D firstAxis = path[0];
+                AxisPoint3D lastAxis = path[nj - 1];
+                foreach (var v in outlineMesh.Vertices)
+                {
+                    Vertices.Add(lastAxis.GetWorld(v));
+                    UVs.Add(new Vector2(v.X, v.Y));
+                }
+                for (int i = 0; i < outlineMesh.Triangles.Count; i++)
+                {
+                    Triangles.Add(outlineMesh.Triangles[i] + nv);
+                }
 
-            foreach (var v in outlineMesh.Vertices)
-            {
-                Vertices.Add(firstAxis.GetWorld(v));
-                UVs.Add(new Vector2(v.X, v.Y));
+                nv = Vertices.Count;
+                AxisPoint3D firstAxis = path[0];
+
+                foreach (var v in outlineMesh.Vertices)
+                {
+                    Vertices.Add(firstAxis.GetWorld(v));
+                    UVs.Add(new Vector2(v.X, v.Y));
+                }
+                for (int i = 0; i < outlineMesh.Triangles.Count; i += 3)
+                {
+                    Triangles.Add(outlineMesh.Triangles[i] + nv);
+                    Triangles.Add(outlineMesh.Triangles[i + 2] + nv);
+                    Triangles.Add(outlineMesh.Triangles[i + 1] + nv);
+                }
             }
-            for (int i = 0; i < outlineMesh.Triangles.Count; i += 3)
-            {
-                Triangles.Add(outlineMesh.Triangles[i] + nv);
-                Triangles.Add(outlineMesh.Triangles[i + 2] + nv);
-                Triangles.Add(outlineMesh.Triangles[i + 1] + nv);
-            }
+            
         }
 
 

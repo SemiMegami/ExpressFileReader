@@ -21,13 +21,14 @@ namespace ThreeDMaker.Geometry.Dimension2
         public Line2D(float x1, float y1, float x2, float y2)
         {
             X1 = x1;
-            Y1 = x2;
-            X2 = y1;
+            Y1 = y1;
+            X2 = x2;
             Y2 = y2;
            
             points = new List<Vector2>();
             Add(X1, X2);
             Add(Y1, Y2);
+         //   UpdatePoints();
         }
 
         public Line2D(Vector2 v1, Vector2 v2)
@@ -39,7 +40,7 @@ namespace ThreeDMaker.Geometry.Dimension2
             points = new List<Vector2>();
             Add(X1, X2);
             Add(Y1, Y2);
-            UpdatePoints();
+        //    UpdatePoints();
         }
 
         // offsetLine
@@ -191,6 +192,11 @@ namespace ThreeDMaker.Geometry.Dimension2
         {
             points[0] = new Vector2(X1, X2);
             points[1] = new Vector2(Y1, Y2);
+        }
+
+        public override string ToString()
+        {
+            return "(" + X1 + ", " + Y1 + "), (" + X2 + ", " + Y2 + ")";
         }
     }
 }

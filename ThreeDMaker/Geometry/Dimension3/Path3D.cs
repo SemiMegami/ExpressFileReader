@@ -42,5 +42,9 @@ namespace ThreeDMaker.Geometry
                 Add(new AxisPoint3D(nodes[i], front));
             }
         }
+        public Path3D(List<AxisPoint3D> nodes)
+        {
+            AddRange(nodes);
+        }
     }
 }

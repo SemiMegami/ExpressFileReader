@@ -25,6 +25,21 @@ namespace ThreeDMaker.Geometry
             Up = Vector3.Normalize(Vector3.Cross(front, Right));
         }
 
+        public AxisPoint3D(Vector3 position, Vector3 front, Vector3 right)
+        {
+            Position = position;
+            Front = front;
+            Right = right;
+            Up = Vector3.Normalize(Vector3.Cross(front, Right));
+        }
+        public AxisPoint3D(Vector3 position, Vector3 front, Vector3 right, Vector3 up)
+        {
+            Position = position;
+            Front = front;
+            Right = right;
+            Up = up;
+        }
+
         public Vector3 GetWorld(Vector3 local)
         {
             return local.X * Right + local.Y * Up + local.Z * Front + Position;

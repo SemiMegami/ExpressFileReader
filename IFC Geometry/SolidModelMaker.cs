@@ -22,20 +22,24 @@ namespace IFC_Geometry
 
             foreach (var item in mappedItems)
             {
-                
+
                 if (item.InTypeOf(EntityName.IFCSOLIDMODEL))
                 {
-                 
+
 
                     Mesh3D mesh = new Mesh3D(solidDict[(IfcSolidModel)item]);
-                    if(mesh!= null)
+                    if (mesh != null)
                     {
                         meshes.Add(mesh);
                     }
                 }
                 else if (item.InTypeOf(EntityName.IFCMAPPEDITEM))
                 {
-                    meshes.AddRange(GetSolids((IfcMappedItem) item, solidDict));
+                    meshes.AddRange(GetSolids((IfcMappedItem)item, solidDict));
+                }
+                else
+                {
+
                 }
             }
           //  int count = 0;
@@ -161,9 +165,10 @@ namespace IFC_Geometry
             path.Add(new AxisPoint3D());
 
 
-            Vector3 front = new Vector3(0, 0, 1);
+          
             Vector3 right = new Vector3(1, 0, 0);
             Vector3 up = new Vector3(0, 1, 0);
+            Vector3 front = new Vector3(0, 0, 1);
             AxisPoint3D p0 = new AxisPoint3D()
             {
                 Position = new Vector3(0, 0, 0),

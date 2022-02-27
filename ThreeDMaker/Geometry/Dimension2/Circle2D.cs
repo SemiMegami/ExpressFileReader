@@ -25,14 +25,14 @@ namespace ThreeDMaker.Geometry.Dimension2
 
             float dAngle = 2 * MathF.PI / Sections;
 
-
+           
             float startAngle2 = -MathF.PI / 2;
 
             for (int i = 0; i < Sections; i++)
             {
                 float angle = dAngle * i;
                 float x = X + R * MathF.Cos(angle + startAngle2);
-                float y = X + R * MathF.Sin(angle + startAngle2);
+                float y = Y + R * MathF.Sin(angle + startAngle2);
                 Add(x, y);
             }
         }
