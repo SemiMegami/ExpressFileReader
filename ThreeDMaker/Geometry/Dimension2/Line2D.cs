@@ -142,7 +142,7 @@ namespace ThreeDMaker.Geometry.Dimension2
             var d = Vector3.Cross(v12,v).Z;
             if (absolute)
             {
-                return MathF.Abs(d);
+                return Math.Abs(d);
             }
             else
             {

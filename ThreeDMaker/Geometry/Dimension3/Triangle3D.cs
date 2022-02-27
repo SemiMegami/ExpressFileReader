@@ -154,7 +154,7 @@ namespace ThreeDMaker.Geometry.Dimension3
 
             for (int i = 0; i < 3; i++)
             {
-                if (MathF.Abs(Vector3.Dot(Vector3.Normalize(points1[i] - points2[i]), n)) > tol)
+                if (Math.Abs(Vector3.Dot(Vector3.Normalize(points1[i] - points2[i]), n)) > tol)
                 {
                     return lines;
                 }
@@ -263,13 +263,13 @@ namespace ThreeDMaker.Geometry.Dimension3
 
         public List<Vector3> GetBound()
         {
-            float minx = MathF.Min(MathF.Min(P1.X, P2.X), P3.X);
-            float miny = MathF.Min(MathF.Min(P1.Y, P2.Y), P3.Y);
-            float minz = MathF.Min(MathF.Min(P1.Z, P2.Z), P3.Z);
+            float minx = Math.Min(Math.Min(P1.X, P2.X), P3.X);
+            float miny = Math.Min(Math.Min(P1.Y, P2.Y), P3.Y);
+            float minz = Math.Min(Math.Min(P1.Z, P2.Z), P3.Z);
 
-            float maxx = MathF.Max(MathF.Max(P1.X, P2.X), P3.X);
-            float maxy = MathF.Max(MathF.Max(P1.Y, P2.Y), P3.Y);
-            float maxz = MathF.Max(MathF.Max(P1.Z, P2.Z), P3.Z);
+            float maxx = Math.Max(Math.Max(P1.X, P2.X), P3.X);
+            float maxy = Math.Max(Math.Max(P1.Y, P2.Y), P3.Y);
+            float maxz = Math.Max(Math.Max(P1.Z, P2.Z), P3.Z);
             return new List<Vector3>()
             {
                 new Vector3(minx,miny,minz),

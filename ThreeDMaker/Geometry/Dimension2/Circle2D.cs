@@ -23,16 +23,16 @@ namespace ThreeDMaker.Geometry.Dimension2
         {
             points.Clear();
 
-            float dAngle = 2 * MathF.PI / Sections;
+            float dAngle = 2 * (float) Math.PI / Sections;
 
            
-            float startAngle2 = -MathF.PI / 2;
+            float startAngle2 = -(float) Math.PI / 2;
 
             for (int i = 0; i < Sections; i++)
             {
                 float angle = dAngle * i;
-                float x = X + R * MathF.Cos(angle + startAngle2);
-                float y = Y + R * MathF.Sin(angle + startAngle2);
+                float x = X + R * (float) Math.Cos(angle + startAngle2);
+                float y = Y + R * (float) Math.Sin(angle + startAngle2);
                 Add(x, y);
             }
         }
