@@ -1123,7 +1123,7 @@ namespace ThreeDMaker.Geometry
                     dists.Sort();
                     if(dists.Count > 0 && dists[0] < 2 * tol)
                     {
-                        var index = indicesDics[0][0];
+                        var index = indicesDics[dists[0]][0];
                         if (Vector3.Dot(BNormals[index], n) > 0)
                         {
                             isInside = !isSamePlaneSameDirOutside;
@@ -1203,7 +1203,7 @@ namespace ThreeDMaker.Geometry
                     dists.Sort();
                     if (dists.Count > 0 && dists[0] < 2 * tol)
                     {
-                        var index = indicesDics[0][0];
+                        var index = indicesDics[dists[0]][0];
                         if (Vector3.Dot(BNormals[index], n) > 0)
                         {
                             isInside = !isSamePlaneSameDirOutside;
@@ -1284,7 +1284,7 @@ namespace ThreeDMaker.Geometry
                     dists.Sort();
                     if (dists.Count > 0 && dists[0] < 2 * tol)
                     {
-                        var index = indicesDics[0][0];
+                        var index = indicesDics[dists[0]][0];
                         if (Vector3.Dot(BNormals[index], n) > 0)
                         {
                             isInside = !isSamePlaneSameDirOutside;

@@ -37,7 +37,7 @@ namespace ThreeDMaker.Geometry.Dimension2
             }
         }
 
-        public override Circle2D GetOffSet(float d)
+        public override Shape2D GetOffSet(float d)
         {
             return new Circle2D(R + d, Sections);
         }

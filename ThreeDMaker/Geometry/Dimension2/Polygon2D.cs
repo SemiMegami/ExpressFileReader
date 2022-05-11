@@ -29,12 +29,12 @@ namespace ThreeDMaker.Geometry.Dimension2
         }
 
 
-        public override Polygon2D GetOffSet(float d)
+        public override Shape2D GetOffSet(float d)
         {
             List<Line2D> lines = GetLines();
 
 
-            List<Line2D> offestlines = new List<Line2D>();
+            List<Shape2D> offestlines = new List<Shape2D>();
             for (int i = 0; i < lines.Count; i++)
             {
                 offestlines.Add(lines[i].GetOffSet(d));
@@ -51,7 +51,7 @@ namespace ThreeDMaker.Geometry.Dimension2
                 {
                     j = Count - 1;
                 }
-                Vector2 point = offestlines[j].GetLineInterSec(offestlines[i]);
+                Vector2 point = ((Line2D)offestlines[j]).GetLineInterSec((Line2D)offestlines[i]);
                 if (float.IsNaN(point.X) || float.IsNaN(point.Y))
                 {
                     offset.Add(offestlines[i].points[0]);

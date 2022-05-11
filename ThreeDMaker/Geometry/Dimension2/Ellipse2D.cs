@@ -39,7 +39,7 @@ namespace ThreeDMaker.Geometry.Dimension2
             }
         }
 
-        public override Ellipse2D GetOffSet(float d)
+        public override Shape2D GetOffSet(float d)
         {
             return new Ellipse2D(Rx + d,Ry + d, Sections, X, Y);
         }

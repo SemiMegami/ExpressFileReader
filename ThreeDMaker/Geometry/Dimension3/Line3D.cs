@@ -77,7 +77,7 @@ namespace ThreeDMaker.Geometry.Dimension3
             float d = A11 * A22 - A12 * A12;
             float t = (B1 * A22 - B2 * A12) / d;
             float s = (A11 * B2 - A12 * B1) / d;
-            if(!float.IsFinite(t)|| !float.IsFinite(s))
+            if(float.IsNaN(t)|| float.IsNaN(s))
             {
                 return new Vector3(float.NaN, float.NaN, float.NaN);
             }

@@ -51,7 +51,7 @@ namespace ThreeDMaker.Geometry.Dimension2
             
         }
 
-        public override RegularPolygon2D GetOffSet(float d)
+        public override Shape2D GetOffSet(float d)
         {
             return new RegularPolygon2D(R + d, N, StartWithCorner, IsCentertoFaceSize);
         }

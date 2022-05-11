@@ -60,4 +60,3 @@ D:\Program_Projects\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Expre
 D:\Program_Projects\ExpressFileReader\Express File Reader\obj\Debug\net5.0\ref\Express File Reader.dll
 D:\Program_Projects\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.pdb
 D:\Program_Projects\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.genruntimeconfig.cache
-D:\Program_Projects\ExpressFileReader\Express File Reader\obj\Debug\net5.0\Express File Reader.csproj.AssemblyReference.cache
