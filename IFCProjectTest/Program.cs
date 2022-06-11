@@ -16,9 +16,9 @@ namespace IFCProjectTest
         static void Main(string[] args)
         {
            // TestPlane();
-            TestMerged2();
-         //   TestLoadProject("20181220Holter_Tower_10");
-       //     TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
+            //TestMerged2();
+          //  TestLoadProject("202101082003_casbah_alger");
+            TestLoadProject("20190104WestRiverSide Hospital - IFC4-Autodesk_Hospital_Metric_Architecture");
          //   TestLoadProject2();
             //TestLoadProject("AITS existing");
             //TestLoadProject("AITIS new");
