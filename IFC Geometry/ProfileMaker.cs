@@ -146,8 +146,8 @@ namespace IFC_Geometry
             var curve = CurveMaker2D.GetCurve(CenterLineProfileDef.Curve);
             var t = CenterLineProfileDef.Thickness;
             Polyline2D polyline = new Polyline2D(curve);
-            Polyline2D polyline1 = polyline.GetOffSet( t / 2);
-            Polyline2D polyline2 = polyline.GetOffSet(-t / 2);
+            Polyline2D polyline1 = (Polyline2D) polyline.GetOffSet( t / 2);
+            Polyline2D polyline2 = (Polyline2D) polyline.GetOffSet(-t / 2);
             List<Vector2> vector2s = new List<Vector2>();
             for (int i = 0; i < curve.Count; i++)
             {

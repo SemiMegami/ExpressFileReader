@@ -616,7 +616,7 @@ namespace ThreeDMaker.Geometry
                                 {
                                     //console.WriteLine("P1 : " + j);
                                     var v12 = Vector2.Normalize(new Vector2(line2Ds[j].X2 - currentPoint.X, line2Ds[j].Y2 - currentPoint.Y));
-                                    var angle = MathF.Acos(Vector2.Dot(v01, v12)) * MathF.Sign(v01.X * v12.Y - v01.Y * v12.X);
+                                    float angle = (float) Math.Acos(Vector2.Dot(v01, v12)) * Math.Sign(v01.X * v12.Y - v01.Y * v12.X);
                                     if (float.IsNaN(angle))
                                     {
                                         float dot = Vector2.Dot(v01, v12);
@@ -626,7 +626,7 @@ namespace ThreeDMaker.Geometry
                                         }
                                         else
                                         {
-                                            angle = -MathF.PI;
+                                            angle = -(float) Math.PI;
                                         }
                                         //console.WriteLine("Error " + Vector2.Dot(v01, v12));
                                        
@@ -659,11 +659,11 @@ namespace ThreeDMaker.Geometry
                                         nextPoint = new Vector2(line2Ds[j].X2, line2Ds[j].Y2);
                                         isX1 = true;
                                         targetj = j;
-                                        //console.WriteLine("    angle : " + angle * 180 / (MathF.PI) + " updated");
+                                        //console.WriteLine("    angle : " + angle * 180 / (Math.PI) + " updated");
                                     }
                                     else
                                     {
-                                        //console.WriteLine("    angle : " + angle * 180 / (MathF.PI) + " NOT updated");
+                                        //console.WriteLine("    angle : " + angle * 180 / (Math.PI) + " NOT updated");
                                     }
                                 }
 
@@ -671,7 +671,7 @@ namespace ThreeDMaker.Geometry
                                 if (dist2 <= tol * tol && dist1 != 0)
                                 {
                                     var v12 = Vector2.Normalize(new Vector2(line2Ds[j].X1 - currentPoint.X, line2Ds[j].Y1 - currentPoint.Y));
-                                    var angle = MathF.Acos(Vector2.Dot(v01, v12)) * MathF.Sign(v01.X * v12.Y - v01.Y * v12.X);
+                                    var angle = (float)Math.Acos(Vector2.Dot(v01, v12)) * Math.Sign(v01.X * v12.Y - v01.Y * v12.X);
                                     if (float.IsNaN(angle))
                                     {
                                         float dot = Vector2.Dot(v01, v12);
@@ -681,7 +681,7 @@ namespace ThreeDMaker.Geometry
                                         }
                                         else
                                         {
-                                            angle = -MathF.PI;
+                                            angle = -(float) Math.PI;
                                         }
                                         //console.WriteLine("Error " + Vector2.Dot(v01, v12));
                                     }
@@ -712,11 +712,11 @@ namespace ThreeDMaker.Geometry
                                         nextPoint = new Vector2(line2Ds[j].X1, line2Ds[j].Y1);
                                         isX1 = false;
                                         targetj = j;
-                                        //console.WriteLine("    angle : " + angle * 180 / (MathF.PI) + " updated");
+                                        //console.WriteLine("    angle : " + angle * 180 / (Math.PI) + " updated");
                                     }
                                     else
                                     {
-                                        //console.WriteLine("    angle : " + angle * 180 / (MathF.PI) + " NOT updated");
+                                        //console.WriteLine("    angle : " + angle * 180 / (Math.PI) + " NOT updated");
                                     }
                                 }
 
@@ -849,8 +849,8 @@ namespace ThreeDMaker.Geometry
                                             if (Math.Abs(line2Ds[j].X1 - currentPoint.X) <= tol && Math.Abs(line2Ds[j].Y1 - currentPoint.Y) <= tol)
                                             {
                                                 var v12 = Vector2.Normalize(new Vector2(line2Ds[j].X2 - currentPoint.X, line2Ds[j].Y2 - currentPoint.Y));
-                                                var angle = MathF.Acos(Vector2.Dot(v01, v12)) * MathF.Sign(v01.X * v12.Y - v01.Y * v12.X);
-                                                if (Math.Abs(angle - MathF.PI) <= tol || Math.Abs(line2Ds[j].X2 - previousPoint.X) <= tol && Math.Abs(line2Ds[j].Y2 - previousPoint.Y) <= tol)
+                                                var angle = (float)Math.Acos(Vector2.Dot(v01, v12)) * Math.Sign(v01.X * v12.Y - v01.Y * v12.X);
+                                                if (Math.Abs(angle - Math.PI) <= tol || Math.Abs(line2Ds[j].X2 - previousPoint.X) <= tol && Math.Abs(line2Ds[j].Y2 - previousPoint.Y) <= tol)
                                                 {
                                                     continue;
                                                 }
@@ -872,8 +872,8 @@ namespace ThreeDMaker.Geometry
                                             {
 
                                                 var v12 = Vector2.Normalize(new Vector2(line2Ds[j].X1 - currentPoint.X, line2Ds[j].Y1 - currentPoint.Y));
-                                                var angle = MathF.Acos(Vector2.Dot(v01, v12)) * MathF.Sign(v01.X * v12.Y - v01.Y * v12.X);
-                                                if (Math.Abs(angle - MathF.PI) <= tol || Math.Abs(line2Ds[j].X1 - previousPoint.X) <= tol && Math.Abs(line2Ds[j].Y1 - previousPoint.Y) <= tol)
+                                                var angle = (float) Math.Acos(Vector2.Dot(v01, v12)) * Math.Sign(v01.X * v12.Y - v01.Y * v12.X);
+                                                if (Math.Abs(angle - Math.PI) <= tol || Math.Abs(line2Ds[j].X1 - previousPoint.X) <= tol && Math.Abs(line2Ds[j].Y1 - previousPoint.Y) <= tol)
                                                 {
                                                     continue;
                                                 }
@@ -990,7 +990,7 @@ namespace ThreeDMaker.Geometry
                                 for (int l = 0; l < point2DGroups[j].Count; l++)
                                 {
                                     var v2 = point2DGroups[j][l];
-                                    if (MathF.Abs(v1.X - v2.X) <= tol && MathF.Abs(v1.Y - v2.Y) <= tol)
+                                    if (Math.Abs(v1.X - v2.X) <= tol && Math.Abs(v1.Y - v2.Y) <= tol)
                                     {
 
                                         var lin = lines[indexGroups[j][l]];
@@ -1015,7 +1015,7 @@ namespace ThreeDMaker.Geometry
                                         for (int l = 0; l < holePoint2DGroups[m].Count; l++)
                                         {
                                             var v2 = holePoint2DGroups[m][l];
-                                            if (MathF.Abs(v1.X - v2.X) <= tol && MathF.Abs(v1.Y - v2.Y) <= tol)
+                                            if (Math.Abs(v1.X - v2.X) <= tol && Math.Abs(v1.Y - v2.Y) <= tol)
                                             {
                                                 var lin = lines[holeIndexGroups[m][l]];
                                                 //global index
@@ -1088,7 +1088,7 @@ namespace ThreeDMaker.Geometry
                 bool isInside = false;
 
 
-                if (MathF.Abs(n.X) >= MathF.Abs(n.Y)&& MathF.Abs(n.X) >= MathF.Abs(n.Z))
+                if (Math.Abs(n.X) >= Math.Abs(n.Y)&& Math.Abs(n.X) >= Math.Abs(n.Z))
                 {
                     for (int j = 0; j < BTriangles.Count; j++)
                     {
@@ -1100,7 +1100,7 @@ namespace ThreeDMaker.Geometry
                             bool found = false;
                             foreach (var minLength in indicesDics.Keys)
                             {
-                                if (MathF.Abs(dx - minLength) <= tol)
+                                if (Math.Abs(dx - minLength) <= tol)
                                 {
                                     indicesDics[minLength].Add(j);
                                     found = true;
@@ -1123,7 +1123,7 @@ namespace ThreeDMaker.Geometry
                     dists.Sort();
                     if(dists.Count > 0 && dists[0] < 2 * tol)
                     {
-                        var index = indicesDics[0][0];
+                        var index = indicesDics[dists[0]][0];
                         if (Vector3.Dot(BNormals[index], n) > 0)
                         {
                             isInside = !isSamePlaneSameDirOutside;
@@ -1168,7 +1168,7 @@ namespace ThreeDMaker.Geometry
                 }
 
 
-                else if (MathF.Abs(n.Y) >= MathF.Abs(n.Z) && MathF.Abs(n.Y) >= MathF.Abs(n.X))
+                else if (Math.Abs(n.Y) >= Math.Abs(n.Z) && Math.Abs(n.Y) >= Math.Abs(n.X))
                 {
                     for (int j = 0; j < BTriangles.Count; j++)
                     {
@@ -1180,7 +1180,7 @@ namespace ThreeDMaker.Geometry
                             bool found = false;
                             foreach (var minLength in indicesDics.Keys)
                             {
-                                if (MathF.Abs(dy - minLength) <= tol)
+                                if (Math.Abs(dy - minLength) <= tol)
                                 {
                                     indicesDics[minLength].Add(j);
                                     found = true;
@@ -1203,7 +1203,7 @@ namespace ThreeDMaker.Geometry
                     dists.Sort();
                     if (dists.Count > 0 && dists[0] < 2 * tol)
                     {
-                        var index = indicesDics[0][0];
+                        var index = indicesDics[dists[0]][0];
                         if (Vector3.Dot(BNormals[index], n) > 0)
                         {
                             isInside = !isSamePlaneSameDirOutside;
@@ -1261,7 +1261,7 @@ namespace ThreeDMaker.Geometry
                             bool found = false;
                             foreach (var minLength in indicesDics.Keys)
                             {
-                                if (MathF.Abs(dz - minLength) <= tol)
+                                if (Math.Abs(dz - minLength) <= tol)
                                 {
                                     indicesDics[minLength].Add(j);
                                     found = true;
@@ -1284,7 +1284,7 @@ namespace ThreeDMaker.Geometry
                     dists.Sort();
                     if (dists.Count > 0 && dists[0] < 2 * tol)
                     {
-                        var index = indicesDics[0][0];
+                        var index = indicesDics[dists[0]][0];
                         if (Vector3.Dot(BNormals[index], n) > 0)
                         {
                             isInside = !isSamePlaneSameDirOutside;

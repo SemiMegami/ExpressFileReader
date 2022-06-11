@@ -30,18 +30,18 @@ namespace ThreeDMaker.Geometry
             var circle = new Circle2D(1, Sections);
             List<AxisPoint3D> point3Ds = new List<AxisPoint3D>();
 
-            float dAngle = 2 * MathF.PI / Sections;
+            float dAngle = 2 * (float)Math.PI / Sections;
 
 
-            float startAngle2 = -MathF.PI / 2;
+            float startAngle2 = -(float)Math.PI / 2;
             Vector3 right = new Vector3(1, 0, 0);
             Vector3 up = new Vector3(0, 1, 0);
             Vector3 front = new Vector3(0, 0, 1);
             for (int i = 0; i <= Sections / 2; i++)
             {
                 float angle = dAngle * i;
-                float z = Z + R * MathF.Sin(angle + startAngle2);
-                float r = R * MathF.Cos(angle + startAngle2);
+                float z = Z + R * (float)Math.Sin(angle + startAngle2);
+                float r = R * (float)Math.Cos(angle + startAngle2);
                 AxisPoint3D  p= new AxisPoint3D(new Vector3(X, Y, z), front, -right * r, up * r);
                 point3Ds.Add(p);
             }

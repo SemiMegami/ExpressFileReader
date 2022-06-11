@@ -29,13 +29,13 @@ namespace ThreeDMaker.Geometry.Dimension2
         {
             points.Clear();
 
-            float dAngle = 2 * MathF.PI / N;
+            float dAngle = 2 * (float)Math.PI / N;
             if (IsCentertoFaceSize)
             {
-                R *= MathF.Cos(dAngle / 2);
+                R *= (float)Math.Cos(dAngle / 2);
             }
 
-            float startAngle2 = (-RotationDegree - 90) * MathF.PI / 2;
+            float startAngle2 = (-RotationDegree - 90) * (float)Math.PI / 2;
 
             if (!StartWithCorner)
             {
@@ -44,14 +44,14 @@ namespace ThreeDMaker.Geometry.Dimension2
             for (int i = 0; i <= N; i++)
             {
                 float angle = dAngle * i;
-                float x = R * MathF.Cos(angle + startAngle2);
-                float y = R * MathF.Sin(angle + startAngle2);
+                float x = R * (float)Math.Cos(angle + startAngle2);
+                float y = R * (float)Math.Sin(angle + startAngle2);
                 Add(x, y);
             }
             
         }
 
-        public override RegularPolygon2D GetOffSet(float d)
+        public override Shape2D GetOffSet(float d)
         {
             return new RegularPolygon2D(R + d, N, StartWithCorner, IsCentertoFaceSize);
         }

@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sumet_Laptop\\Documents\\GitHub\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj": {}
+    "D:\\Program_Projects\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sumet_Laptop\\Documents\\GitHub\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj": {
+    "D:\\Program_Projects\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sumet_Laptop\\Documents\\GitHub\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj",
+        "projectUniqueName": "D:\\Program_Projects\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj",
         "projectName": "Express File Reader",
-        "projectPath": "C:\\Users\\Sumet_Laptop\\Documents\\GitHub\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj",
-        "packagesPath": "C:\\Users\\Sumet_Laptop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sumet_Laptop\\Documents\\GitHub\\ExpressFileReader\\Express File Reader\\obj\\",
+        "projectPath": "D:\\Program_Projects\\ExpressFileReader\\Express File Reader\\Express File Reader.csproj",
+        "packagesPath": "C:\\Users\\mega_\\.nuget\\packages\\",
+        "outputPath": "D:\\Program_Projects\\ExpressFileReader\\Express File Reader\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\Sumet_Laptop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mega_\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -60,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

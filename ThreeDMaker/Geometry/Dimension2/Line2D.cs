@@ -80,7 +80,7 @@ namespace ThreeDMaker.Geometry.Dimension2
         {
             return GetV().LengthSquared();
         }
-        public override Line2D GetOffSet(float d)
+        public override Shape2D GetOffSet(float d)
         {
             Vector2 v = GetV();
             Vector2 n = d * GeometryUtil.GetRight(v);
@@ -89,7 +89,7 @@ namespace ThreeDMaker.Geometry.Dimension2
         public bool IsLineInterSec(Line2D l)
         {
             var v = GetLineInterSec(l);
-            return float.IsFinite(v.X);
+            return !float.IsNaN(v.X);
         }
 
         public bool IsLineCross(Line2D l)
@@ -142,7 +142,7 @@ namespace ThreeDMaker.Geometry.Dimension2
             var d = Vector3.Cross(v12,v).Z;
             if (absolute)
             {
-                return MathF.Abs(d);
+                return Math.Abs(d);
             }
             else
             {

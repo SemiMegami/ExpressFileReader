@@ -39,9 +39,9 @@ namespace ThreeDMaker.Geometry
                 {
                     v1 = Vector2.Normalize(new Vector2(points[i].X - points[k].X, points[i].Y - points[k].Y));
                     v2 = Vector2.Normalize(new Vector2(points[j].X - points[i].X, points[j].Y - points[i].Y));
-                    rotateAngle = MathF.Acos(Vector2.Dot(v1, v2));
+                    rotateAngle = (float) Math.Acos(Vector2.Dot(v1, v2));
                    
-                    widthRatio = 1 / MathF.Cos(rotateAngle / 2);
+                    widthRatio = 1 / (float) Math.Cos(rotateAngle / 2);
                  
 
                 }

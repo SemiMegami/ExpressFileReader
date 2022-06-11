@@ -57,7 +57,7 @@ namespace ThreeDMaker.Geometry.Util
             var p23 = Vector2.Normalize(p3 - p2);
             var sinAngle = p12.X * p23.Y - p12.Y * p23.X;
             var cosAngle = Vector2.Dot (p12,p23);
-            return MathF.Atan2(sinAngle, cosAngle);
+            return (float)Math.Atan2(sinAngle, cosAngle);
         }
 
         public static bool IsTurningLeft(Vector2 p1, Vector2 p2, Vector2 p3, bool OrNotTurn = false)
@@ -147,9 +147,9 @@ namespace ThreeDMaker.Geometry.Util
 
         public static List<Vector3> GetCartitianPlaneAxis(Vector3 n)
         {
-            float ax = MathF.Abs(n.X);
-            float ay = MathF.Abs(n.Y);
-            float az = MathF.Abs(n.Z);
+            float ax = Math.Abs(n.X);
+            float ay = Math.Abs(n.Y);
+            float az = Math.Abs(n.Z);
 
             if (ax > ay && ax > az)
             {
