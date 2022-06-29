@@ -161,7 +161,7 @@ namespace IFC4
             return outputText;
         }
 
-        private dynamic GetInstance(string input, Type type)
+        protected dynamic GetInstance(string input, Type type)
         {
             if(input.Length == 0)
             {
